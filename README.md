@@ -1,2 +1,1 @@
-# papers_please
-backup display case for my work
+Zenodo has become unreliable, so i am sharing copies of my work here
