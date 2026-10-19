@@ -1,0 +1,394 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{microtype}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\OPT}{\operatorname{OPT}}
+\newcommand{\tri}[1]{\tau(#1)}
+\title{Certified Contractions for Full Optimal Binary Search Trees\\
+\large Research checkpoint: exact preprocessing and unsuccessful relaxations}
+\author{OpenAI Codex Sydney\\
+\small Problem selection and sponsorship: the repository owner}
+\date{October 18, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We investigate exact construction of optimal binary search trees with weights
+on both keys and gaps. We give sufficient conditions for contracting a single
+key, or a contiguous block of keys and gaps, without changing the optimum
+except for an explicitly known additive cost. A linear preprocessing pass
+selects certified blocks from a Cartesian-tree hierarchy and chooses a size
+threshold minimizing the number of subsequent dynamic-programming states.
+If the surviving core has $m$ keys and the selected blocks have sizes $k_t$,
+construction takes $O(n+m^2+\sum_t k_t^2)$ arithmetic operations.
+The method remains quadratic in the worst case. On one seeded positive-weight
+instance with 512 keys and sparse heavy separators, it reduced the number of
+DP states from 131,328 to 10,344; ordinary random mixed weights benefited little.
+We also document an order-free Huffman relaxation, its failed sparse-DP
+implementation, and exact counterexamples to proposed local certificates.
+These are research results and reproducible observations, not a resolution
+of general subquadratic construction. Novelty of the contraction conditions
+has not been established.
+\end{abstract}
+
+\section{Model, scope, and prior work}
+Keys have fixed inorder positions $0,\ldots,n-1$ and nonnegative weights
+$p_0,\ldots,p_{n-1}$. The $n+1$ gaps have weights $q_0,\ldots,q_n$.
+A key at depth $d$ contributes $p(d+1)$; a gap at depth $d$ contributes $qd$.
+Charging an extra comparison at each gap adds the tree-independent constant
+$\sum q_i$.
+
+For a half-open key interval $[i,j)$, write
+\[
+ W(i,j)=\sum_{r=i}^{j-1}p_r+\sum_{r=i}^{j}q_r,\qquad C(i,i)=0.
+\]
+The exact recurrence is
+\[
+ C(i,j)=W(i,j)+\min_{i\le r<j}\{C(i,r)+C(r+1,j)\}.
+\]
+Knuth's monotone-root optimization computes the table in $O(n^2)$
+time~\cite{knuth}. The central obstacle here is the number of states, not
+merely the cost per state. We retain both kinds of weights throughout.
+
+Larmore gives subquadratic exact construction under restrictions on long
+runs of very low frequency items, together with an approximation
+tradeoff~\cite{larmore}. Karpinski, Larmore, and Rytter combine exact small
+intervals with a bounded top-level construction~\cite{klr}.
+These results are essential context: an improvement on a restricted family
+must not be described as the first subquadratic result.
+This checkpoint does not make a comprehensive priority claim. The conditions
+below were derived in this investigation; a targeted literature search did
+not establish whether equivalent rules already exist.
+
+All running-time bounds below count arithmetic operations and comparisons.
+They are not bit-complexity bounds for unbounded integer weights.
+
+\section{A sharper single-key contraction}
+A key is a \emph{cherry} when its two children are external nodes. Replacing
+a cherry with one gap is exact: if the key and its gaps have weights
+$p,x,y$, their total is $s=p+x+y$. A cherry rooted at depth $d$ contributes
+$s(d+1)$, whereas the replacement gap contributes $sd$.
+
+\begin{theorem}[Single-key rule]
+Let a key of weight $p$ have adjacent gap weights $x,y$.
+If its immediate predecessor and successor keys have weights $a,b$ and
+\[
+ \min(a,b)\ \ge\ 2p+x+y,
+\]
+there is an optimal tree in which this key is a cherry.
+At the left endpoint, it suffices that the successor weight is at least
+$p+x$; at the right endpoint, it suffices that the predecessor weight is
+at least $p+y$. Consequently contraction to a gap of weight $s=p+x+y$
+satisfies $\OPT(\text{original})=\OPT(\text{contracted})+s$.
+\end{theorem}
+
+\begin{proof}
+Consider the key at depth $d$ in any tree. If its left subtree is nonempty,
+the immediate predecessor has depth $d+l$, $l\ge1$. If its right subtree is
+nonempty, the immediate successor has depth $d+r$, $r\ge1$.
+Set the corresponding distance to zero for an empty internal side.
+
+When $l\ge1$, move the predecessor to the chosen key's position, replacing
+the predecessor's old position by its left child. Insert the chosen key as
+a cherry at the leftmost gap of the former right subtree. Inorder order is
+preserved. All other outcomes either retain their depths or become shallower.
+The predecessor saves $la$, and the cost change is at most
+\begin{equation}\label{eq:left}
+ -la+(r+1)p+(r-l+1)x+y.
+\end{equation}
+The mirrored successor exchange has change at most
+\begin{equation}\label{eq:right}
+ -rb+(l+1)p+x+(l-r+1)y.
+\end{equation}
+
+If both sides are nonempty and $l\ge r$, substituting $a\ge2p+x+y$
+in~\eqref{eq:left} gives
+\[
+ (r+1-2l)(p+x)+(1-l)y\le0.
+\]
+Use~\eqref{eq:right} when $r\ge l$. If only the left side is nonempty,
+$r=0$ and $a\ge p+y$ makes~\eqref{eq:left} nonpositive.
+The other case is symmetric. The stated interior condition implies these
+one-sided conditions. At a global endpoint only the appropriate one-sided
+case is possible. With both sides empty the key is already a cherry.
+
+Applying the exchange to an optimum proves the existence claim.
+Contraction subtracts exactly $s$. Conversely, every contracted tree
+expands to a valid original tree at additional cost $s$, proving equality.
+\end{proof}
+
+The weaker condition $\min(a,b)\ge p+x+y$ is false.
+For $p=(24,14,24)$ and $q=(1,0,9,0)$, the middle key has local mass 23
+and neighbors of weight 24. Contracting it forces cost 142, while the
+unrestricted optimum costs 130.
+
+Maintain a doubly linked list of remaining keys and weighted gaps.
+Initially queue every key; after a contraction, only its predecessor and
+successor need rechecking. At most $3n$ queue entries are processed.
+Saving the contracted tree at the new gap permits reconstruction.
+Thus this pass takes $O(n)$ operations and space, and a Knuth solve on the
+remaining $m$ keys gives total time $O(n+m^2)$. No confluence or
+minimum-core-size property is claimed.
+
+\section{Whole-block contraction}
+Let $B=[i,j)$ be a nonempty proper interval, including its endpoint gaps
+$q_i,q_j$. Put $W=W(i,j)$ and $C=C(i,j)$, with costs measured from a
+stand-alone root of depth zero.
+
+\begin{theorem}[Block rule]\label{thm:block}
+If both boundary keys exist and their weights satisfy
+\[
+ p_{i-1}\ge W+C,\qquad p_j\ge W+C,
+\]
+there is an optimum in which all of $B$ forms one subtree.
+For a prefix or suffix block, it suffices that the sole boundary key
+has weight at least $C$. Contracting the block to one gap of weight $W$
+then gives
+\[
+ \OPT(\text{original})=\OPT(\text{contracted})+C.
+\]
+\end{theorem}
+
+\begin{proof}
+In any tree, let $v$ be the lowest common ancestor of gaps $q_i,q_j$,
+at depth $d$. Its key lies in $B$, and every outcome of $B$ descends
+from $v$. Hence the original contribution of $B$ is at least $(d+1)W$.
+
+Within the subtree rooted at $v$, delete the keys of $B$ from the inward
+fringes of its two children. On the left, a deleted key has no retained
+right child and can be suppressed in favor of its left child; on the
+right the process is symmetric. Let the retained outside trees be $A,D$.
+All their retained outcomes are at depths no greater than before.
+If $A$ is nonempty, its maximum is boundary key $i-1$; if $D$ is
+nonempty, its minimum is boundary key $j$.
+
+Suppose both are nonempty, and their boundary keys had original depths
+$d+l,d+r$. If $l\ge r$, remove the maximum key from $A$, replacing its
+position by its left child, and make that key the new root at $v$.
+Its left child is the remainder of $A$ and its right child is $D$.
+Put an optimal tree for $B$ at the leftmost external position of $D$.
+This position has depth at most $d+r+1$.
+No outside outcome other than the promoted boundary moves deeper,
+and that boundary saves $l p_{i-1}$.
+The increase in the contribution of $B$ is at most
+\[
+ C+(d+r+1)W-(d+1)W=C+rW.
+\]
+Since $l\ge r\ge1$ and $p_{i-1}\ge W+C$, the saving is at least
+$l(W+C)\ge rW+C$. The mirrored construction applies for $r\ge l$.
+
+If only one retained outside tree is nonempty, promote its inward boundary
+key to $v$ and attach the optimal block as the other child.
+The block increase is at most $C$, while that boundary saves at least
+its own weight. The interior hypothesis suffices, and for a global prefix
+or suffix the weaker stated hypothesis suffices. If both outside trees
+are empty, $B$ already occupies the subtree at $v$ and can be optimized
+in place.
+
+The construction never increases cost. Apply it to an optimum.
+A block at depth $e$ contributes $C+eW$, while its replacement gap
+contributes $eW$. Contraction and expansion now prove the equality.
+\end{proof}
+
+A balanced $k$-key tree has height
+$h_k=\lceil\log_2(k+1)\rceil$ and cost at most $h_kW$.
+Thus the interior test
+\[
+ \min(p_{i-1},p_j)\ge(1+h_k)W
+\]
+and endpoint test $p_{\rm boundary}\ge h_kW$ certify a block without first
+solving it. These are sufficient conditions, not characterizations.
+
+\section{An adaptive linear selection pass}
+Build the maximum Cartesian tree of the key-weight sequence, breaking ties
+deterministically. Its subtree intervals form a laminar family: intervals
+are disjoint or nested. Compute their sizes and masses by one traversal and
+prefix sums. Test each proper interval with the balanced-tree bound above.
+This inspects only $O(n)$ candidates. The restriction to Cartesian intervals
+is an algorithmic choice, not a claim that all useful blocks occur there.
+
+For a threshold $b$, select the maximal certified intervals whose sizes
+are at most $b$. Different selected intervals have a surviving separator
+key between them. Contracting one therefore leaves every other selected
+interval's weights and boundary-key weights unchanged, so the block theorem
+applies successively. Write their sizes as $k_1,\ldots,k_s$, and
+$m=n-\sum_t k_t$. The exact number of nonempty interval-DP states is
+\[
+ S(b)=\tri m+\sum_t\tri{k_t},\qquad \tri u=\frac{u(u+1)}2.
+\]
+
+We choose a threshold minimizing $S(b)$ without running these DPs.
+For every certified interval $I$ of size $k$, find its maximal proper
+certified descendants $J$. Immediately before $I$ becomes eligible,
+these descendants are its selected blocks. Its activation therefore
+changes the core size and block-state total by
+\[
+ \Delta m=-\left(k-\sum_J |J|\right),\qquad
+ \Delta S_{\rm blocks}=\tri k-\sum_J\tri{|J|}.
+\]
+These sums are computed bottom-up. Bucket activation events by integer
+size $1,\ldots,n$ and scan the buckets, maintaining $m$ and the block-state
+total. There are $O(n)$ events and buckets. Equal-size intervals are disjoint;
+evaluate a threshold after processing its entire bucket.
+The empty selection $b=0$ is included.
+
+\begin{corollary}
+The selected threshold and blocks are found in $O(n)$ arithmetic operations
+and space. Solving the blocks and surviving core by Knuth's method and
+expanding their saved trees takes
+\[
+ O\!\left(n+m^2+\sum_t k_t^2\right)
+\]
+time and $O(n+m^2+\max_t k_t^2)$ space when block tables are released
+after each solve. The chosen state count is no larger than $n(n+1)/2$.
+Worst-case time remains $O(n^2)$.
+\end{corollary}
+
+The minimization is only over these size thresholds in this candidate
+hierarchy, not over every possible partition. It does not minimize
+wall-clock time. Preprocessing, table allocation, root scans, and
+reconstruction still count as work.
+
+For perspective, a certified partition with
+$m=O(n^{2/3})$ surviving keys and every $k_t=O(n^{1/3})$ gives
+$O(n^{4/3})$ time, since $\sum k_t^2\le(\max k_t)n$.
+This is a conditional structural consequence, not an unrestricted bound.
+
+\section{Exact checks and preliminary measurements}
+The code uses nonnegative integer weights, an independent cubic recurrence,
+Knuth's recurrence, and direct evaluation of reconstructed trees.
+The basic harness additionally enumerates all tree shapes for small sizes.
+CPU experiments ran on the sponsor's M4 Mac mini. The reported quantities
+are algorithmic counts, not inferred asymptotic bounds from elapsed time.
+
+\begin{itemize}
+\item Single-key contraction: 22,143 exhaustive weight assignments in
+$\{0,1,2\}$ through $n=4$, and 6,000 seeded random instances through $n=20$.
+Every cost and reconstructed tree matched the cubic oracle.
+\item Block theorem: 19,486 qualifying interval contractions across 4,500
+seeded instances through $n=16$ matched independent cubic costs.
+\item Block algorithm: 3,000 random instances through $n=20$, including
+fixed and adaptive thresholds, matched the cubic oracle and tree evaluation.
+Additional small cases check threshold selection against every threshold.
+\end{itemize}
+
+Table~\ref{tab:states} records one seeded instance per family at $n=512$.
+The baseline has 131,328 states. The block column includes all states
+inside selected blocks, not just the core. Results from different solvers
+use their separately recorded seeds and are not paired timing experiments.
+\begin{table}[ht]
+\centering
+\caption{Preliminary exact DP-state counts, including block solves.}
+\label{tab:states}
+\begin{tabular}{lrr}
+\toprule
+Family & Single-key pass + DP & Adaptive blocks + DP\\
+\midrule
+Uniform mixed weights & 131,328 & 131,328\\
+Near-uniform mixed weights & 131,328 & 131,328\\
+Random mixed weights & 128,778 & 130,817\\
+Log-uniform weights & 116,886 & 94,964\\
+Keys only (control) & 92,235 & 88,508\\
+Sparse heavy separators & --- & 10,344\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In the heavy-separator instance all gaps and ordinary keys have integer
+weights in $\{1,2,3\}$, and 22 randomly selected keys have weight $10^6$.
+The block algorithm retains exactly 22 keys. Its state reduction is about
+12.7-fold, but this is not a claim of a 12.7-fold runtime speedup.
+On ordinary random mixed weights the gain is small.
+The single-key pass contracts every key for the tested sequence
+$p_i=4^i,q_i=4^i$, but not for most of the ratio-two sequence.
+Geometric integer inputs also illustrate why bit complexity must be
+distinguished from arithmetic-operation complexity.
+
+\section{A useful relaxation that failed as a general solver}
+Allow arbitrary assignment of key weights to internal positions and gap
+weights to external positions. In this relaxed problem, repeatedly take
+the two smallest current external weights $a,b$ and the smallest remaining
+internal weight $p$, replace them by $a+b+p$, and add that sum to the cost.
+
+To prove the rule, take a deepest internal node of an optimum.
+Its children are leaves. Swapping the smallest internal weight into it
+and the two smallest external weights into its children cannot increase
+cost. Contract that cherry and induct. Sorting and a heap give
+$O(n\log n)$ time. This elementary extension of the Huffman exchange
+argument is not claimed as novel.
+
+The relaxed cost is a valid lower bound for full OBST. Equality with a
+feasible ordered tree certifies optimality. It agreed with an independent
+shape-enumeration and rearrangement oracle on 22,143 exhaustive and 2,700
+random instances in the basic harness.
+
+However, using the relaxation on demand in an exact sparse DP was poor
+on random inputs. At $n=128$ it visited roughly 4,300--4,600 exact intervals
+instead of Knuth's 8,256, but spent approximately 3.9--4.1 million weight
+comparisons constructing bounds and inspected over 100,000 candidate roots.
+Fewer exact states did not mean less computation.
+
+Nor does the relaxation's interval matrix inherit the required quadrangle
+inequality. For $p=(9,1,12)$, $q=(5,1,18,10)$, its costs $H$ satisfy
+\[
+ H(1,2)+H(2,3)=60>54=H(1,3)+H(2,2).
+\]
+Thus applying Knuth-style matrix optimization directly to this bound
+would be unjustified.
+
+Two additional exact counterexamples exclude tempting local certificates.
+With $p=(3,5,18)$, $q=(13,14,4,8)$, the tree with root 2 and left subtree
+$0(\varnothing,1)$ costs 127, every single-rotation neighbor costs at least 134,
+yet the balanced tree costs 125.
+With $p=(18,8,18)$, $q=(17,11,1,13)$, the balanced tree costs 164 and every
+distinct tree obtained by promoting a descendant to the root of an existing
+subtree costs at least 169; the tree $0(\varnothing,2(1,\varnothing))$ costs 157.
+These are barriers to those local certificates, not complexity lower bounds.
+
+\section{Status and reproducibility}
+This investigation has not proved that subquadratic full OBST construction
+is impossible, nor supplied a general subquadratic construction.
+The positive contribution of this checkpoint is an exact decomposition
+argument, an adaptive implementation, and reproducible evidence of its
+scope and limitations. Mathematical novelty, broad practical benefit,
+and comparison against Larmore-style implementations remain to be assessed.
+
+The repository directory \texttt{obst/code} contains:
+\begin{itemize}
+\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}
+\item \texttt{research.py}: independent oracles and relaxation;
+\item \texttt{sparse.py}: the failed bound-based solver;
+\item \texttt{contract.py}: single-key contraction;
+\item \texttt{block\_check.py}: block-identity checks;
+\item \texttt{block\_contract.py}: adaptive selection and exact construction.
+\end{itemize}
+Seeded JSON results are in \texttt{obst/results}.
+All programs use only the Python standard library.
+The active objective remains to avoid most of the quadratic table on a
+substantially broader class, or establish a rigorously scoped lower bound.
+
+\begingroup\small
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{knuth}
+D. E. Knuth. Optimum binary search trees.
+\emph{Acta Informatica} 1, 14--25, 1971.
+\href{https://doi.org/10.1007/BF00264289}{doi:10.1007/BF00264289}.
+\bibitem{larmore}
+L. L. Larmore. A subquadratic algorithm for constructing approximately
+optimal binary search trees. \emph{Journal of Algorithms} 8(4),
+579--591, 1987.
+\href{https://doi.org/10.1016/0196-6774(87)90052-6}{doi:10.1016/0196-6774(87)90052-6}.
+\bibitem{klr}
+M. Karpinski, L. L. Larmore, and W. Rytter.
+Sequential and parallel subquadratic work algorithms for constructing
+approximately optimal binary search trees. \emph{Proceedings of SODA},
+36--41, 1996.
+\href{https://theory.cs.uni-bonn.de/marek/publications/seq_and_par_subquadr.pdf}{Author-hosted manuscript}.
+\end{thebibliography}
+\endgroup
+\end{document}
