@@ -1,0 +1,313 @@
+{
+  "scope": "Reachability only: no full OBST constructor, certificate, or speed claim",
+  "checks": {
+    "literal_pattern_checks": 1023,
+    "independent_tree_profile_checks": 865,
+    "profile_attained": 359,
+    "profile_unattained": 506,
+    "distinct_state_transitions": 16972,
+    "parity_interval_checks": 67888,
+    "interlaced_endpoint_checks": 5630
+  },
+  "rows": [
+    {
+      "n": 1,
+      "distinct_states": 2,
+      "live_states": 2,
+      "represented_patterns": 2,
+      "dead_patterns": 0
+    },
+    {
+      "n": 2,
+      "distinct_states": 4,
+      "live_states": 4,
+      "represented_patterns": 4,
+      "dead_patterns": 0
+    },
+    {
+      "n": 3,
+      "distinct_states": 7,
+      "live_states": 6,
+      "represented_patterns": 8,
+      "dead_patterns": 1
+    },
+    {
+      "n": 4,
+      "distinct_states": 10,
+      "live_states": 9,
+      "represented_patterns": 16,
+      "dead_patterns": 3
+    },
+    {
+      "n": 5,
+      "distinct_states": 13,
+      "live_states": 12,
+      "represented_patterns": 32,
+      "dead_patterns": 7
+    },
+    {
+      "n": 6,
+      "distinct_states": 18,
+      "live_states": 17,
+      "represented_patterns": 64,
+      "dead_patterns": 18
+    },
+    {
+      "n": 7,
+      "distinct_states": 23,
+      "live_states": 22,
+      "represented_patterns": 128,
+      "dead_patterns": 41
+    },
+    {
+      "n": 8,
+      "distinct_states": 30,
+      "live_states": 29,
+      "represented_patterns": 256,
+      "dead_patterns": 92
+    },
+    {
+      "n": 9,
+      "distinct_states": 36,
+      "live_states": 35,
+      "represented_patterns": 512,
+      "dead_patterns": 204
+    },
+    {
+      "n": 10,
+      "distinct_states": 44,
+      "live_states": 43,
+      "represented_patterns": 1024,
+      "dead_patterns": 443
+    },
+    {
+      "n": 11,
+      "distinct_states": 52,
+      "live_states": 51,
+      "represented_patterns": 2048,
+      "dead_patterns": 953
+    },
+    {
+      "n": 12,
+      "distinct_states": 63,
+      "live_states": 62,
+      "represented_patterns": 4096,
+      "dead_patterns": 2033
+    },
+    {
+      "n": 13,
+      "distinct_states": 72,
+      "live_states": 71,
+      "represented_patterns": 8192,
+      "dead_patterns": 4302
+    },
+    {
+      "n": 14,
+      "distinct_states": 83,
+      "live_states": 82,
+      "represented_patterns": 16384,
+      "dead_patterns": 9051
+    },
+    {
+      "n": 15,
+      "distinct_states": 94,
+      "live_states": 93,
+      "represented_patterns": 32768,
+      "dead_patterns": 18944
+    },
+    {
+      "n": 16,
+      "distinct_states": 109,
+      "live_states": 108,
+      "represented_patterns": 65536,
+      "dead_patterns": 39472
+    },
+    {
+      "n": 17,
+      "distinct_states": 121,
+      "live_states": 120,
+      "represented_patterns": 131072,
+      "dead_patterns": 81933
+    },
+    {
+      "n": 18,
+      "distinct_states": 135,
+      "live_states": 134,
+      "represented_patterns": 262144,
+      "dead_patterns": 169499
+    },
+    {
+      "n": 19,
+      "distinct_states": 149,
+      "live_states": 148,
+      "represented_patterns": 524288,
+      "dead_patterns": 349615
+    },
+    {
+      "n": 20,
+      "distinct_states": 168,
+      "live_states": 167,
+      "represented_patterns": 1048576,
+      "dead_patterns": 719250
+    },
+    {
+      "n": 21,
+      "distinct_states": 183,
+      "live_states": 182,
+      "represented_patterns": 2097152,
+      "dead_patterns": 1476241
+    },
+    {
+      "n": 22,
+      "distinct_states": 200,
+      "live_states": 199,
+      "represented_patterns": 4194304,
+      "dead_patterns": 3023636
+    },
+    {
+      "n": 23,
+      "distinct_states": 217,
+      "live_states": 216,
+      "represented_patterns": 8388608,
+      "dead_patterns": 6181428
+    },
+    {
+      "n": 24,
+      "distinct_states": 240,
+      "live_states": 239,
+      "represented_patterns": 16777216,
+      "dead_patterns": 12615787
+    },
+    {
+      "n": 25,
+      "distinct_states": 258,
+      "live_states": 257,
+      "represented_patterns": 33554432,
+      "dead_patterns": 25708449
+    },
+    {
+      "n": 26,
+      "distinct_states": 278,
+      "live_states": 277,
+      "represented_patterns": 67108864,
+      "dead_patterns": 52316001
+    },
+    {
+      "n": 27,
+      "distinct_states": 298,
+      "live_states": 297,
+      "represented_patterns": 134217728,
+      "dead_patterns": 106327166
+    },
+    {
+      "n": 28,
+      "distinct_states": 325,
+      "live_states": 324,
+      "represented_patterns": 268435456,
+      "dead_patterns": 215850403
+    },
+    {
+      "n": 29,
+      "distinct_states": 346,
+      "live_states": 345,
+      "represented_patterns": 536870912,
+      "dead_patterns": 437726696
+    },
+    {
+      "n": 30,
+      "distinct_states": 369,
+      "live_states": 368,
+      "represented_patterns": 1073741824,
+      "dead_patterns": 886814632
+    },
+    {
+      "n": 31,
+      "distinct_states": 392,
+      "live_states": 391,
+      "represented_patterns": 2147483648,
+      "dead_patterns": 1795049821
+    },
+    {
+      "n": 32,
+      "distinct_states": 423,
+      "live_states": 422,
+      "represented_patterns": 4294967296,
+      "dead_patterns": 3630486099
+    },
+    {
+      "n": 33,
+      "distinct_states": 447,
+      "live_states": 446,
+      "represented_patterns": 8589934592,
+      "dead_patterns": 7337117087
+    },
+    {
+      "n": 34,
+      "distinct_states": 473,
+      "live_states": 472,
+      "represented_patterns": 17179869184,
+      "dead_patterns": 14817798274
+    },
+    {
+      "n": 35,
+      "distinct_states": 499,
+      "live_states": 498,
+      "represented_patterns": 34359738368,
+      "dead_patterns": 29906273289
+    },
+    {
+      "n": 36,
+      "distinct_states": 534,
+      "live_states": 533,
+      "represented_patterns": 68719476736,
+      "dead_patterns": 60322882380
+    },
+    {
+      "n": 37,
+      "distinct_states": 561,
+      "live_states": 560,
+      "represented_patterns": 137438953472,
+      "dead_patterns": 121607955452
+    },
+    {
+      "n": 38,
+      "distinct_states": 590,
+      "live_states": 589,
+      "represented_patterns": 274877906944,
+      "dead_patterns": 245030031963
+    },
+    {
+      "n": 39,
+      "distinct_states": 619,
+      "live_states": 618,
+      "represented_patterns": 549755813888,
+      "dead_patterns": 493480420489
+    },
+    {
+      "n": 40,
+      "distinct_states": 658,
+      "live_states": 657,
+      "represented_patterns": 1099511627776,
+      "dead_patterns": 993409605265
+    }
+  ],
+  "ordinary_interval_counterexample": {
+    "high_key_pattern": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "reachable_ranks": [
+      3,
+      5
+    ]
+  },
+  "source_sha256": {
+    "profile_interval_probe.py": "8b18e3ad4751d281cebd5991b90726685015deea019b3868665fd77dd0603480",
+    "check_ramp_complete.py": "81f1a5892dd6a1bfb99b153c289eb9ef9e8a78998b7474a63c485d08ea0f4629",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

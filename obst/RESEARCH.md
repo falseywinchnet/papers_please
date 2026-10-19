@@ -1316,3 +1316,41 @@ The unrestricted mixed-weight objective remains open; the new theorem's
 large-baseline condition and the portfolio's space qualification are explicit.
 The next research step is profile attainment with fragmented signatures,
 starting with independent enumeration before a production implementation.
+
+## Continuation: exact parity intervals for two-level profile attainment
+
+After publishing the nineteenth checkpoint at 8190391, a new independent
+probe addressed fragmented signatures. A high key must remain in the
+skeleton; a low key may remain only at an odd skeleton rank; removed keys
+cannot be adjacent. Exact bit-set states agree with literal enumeration
+on all 1,023 binary input patterns through length nine. Merging identical
+exact prefix states, while preserving multiplicities including dead states,
+covers every pattern through length forty. The final layer represents
+2^40 patterns using 658 distinct states (657 live). The M4 run checks
+16,972 transitions, 67,888 parity-interval properties, and 5,630 interlaced
+endpoint properties. Its source hash matches the authoritative checkout.
+
+An additional direct-tree check covers all 865 eligible binary patterns
+through nine keys. With key levels 17 and 2 and alternating gaps 3 and 11,
+independent enumeration of minimum-IPL trees matches the recognizer:
+359 attain the sorted-profile bound and 506 do not. The final source
+manifest includes the probe and its independent tree-enumeration/cost modules.
+
+The resulting invariant now has an inductive proof in PROFILE_INTERVALS.md.
+At retained-high boundaries, encode even ranks as 2A and odd ranks as 2B+1.
+A and B are integer intervals; when both are nonempty, their lower and
+upper endpoint differences are each zero or one. Zero, one, two/three,
+or four-plus intervening low keys have four explicit exact transformations.
+They preserve the invariant and support linear recognition and witness
+reconstruction. This is a reachability lemma, not a completed full solver.
+
+A tempting stronger compression fails: high pattern 010100 reaches ranks
+{3,5}, so an ordinary unpartitioned interval invents rank four. The probe
+retains that counterexample. The positive relevance is limited but concrete:
+for high-count H between S/2-1 and S-1, successful recognition attains the
+sorted key-depth profile; constant adjacent-gap sums make the class gap
+cost constant. Arbitrary nonperiodic patterns may therefore bypass the
+k=n bottleneck. A production constructor, full global gate, independent
+BST cost oracles, and operation measurements are still required. This
+continuation is separate from the published 63-page manuscript and does
+not change that manuscript's claims. The unrestricted goal remains active.

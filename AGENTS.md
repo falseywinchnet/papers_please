@@ -112,3 +112,9 @@ Joint key/adjacent-gap signature transfers and linear-space reconstruction:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_run_complete.py --max-n 768 --scale-n 98304
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_run_complete.py
 ```
+
+Two-level key profile reachability probe (no full solver claim):
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/profile_interval_probe.py --max-n 40 --literal-n 9
+```
