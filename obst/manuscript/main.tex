@@ -39,7 +39,9 @@ width envelope requires $\Omega(n^{1.75})$ work. This is a comparison
 within one architecture, not a new general subquadratic bound. Dominant-key
 and dominant-gap certificates split the instance into independent components
 with local frontiers. Endpoint-certified chains take linear arithmetic work;
-bounded terminal components give $O(n\log n)$ work.
+bounded terminal components give $O(n\log n)$ work. A joint heavy-outcome
+certificate further isolates several comparable heavy gaps or keys, using
+a protected-only height bound and an $O(n\log n)$ threshold sweep.
 
 Exact enumeration, independent cubic recurrences, adversarial inputs, and
 operation counts accompany all implementations. We preserve a failed
@@ -1283,6 +1285,270 @@ match Knuth and reconstructed costs, with cubic checks through 32 keys.
 Four larger instances through 65,536 keys check plans only; at that size
 the selected table has 2,147,516,416 cells, not a completed full solve.
 
+\section{Joint heavy-outcome cores}\label{sec:heavy-core}
+The two-gap obstruction motivates selecting several heavy outcomes together.
+The following certificate uses their necessary comparison keys as an
+ancestor-closed core. It preserves the complete mixed-weight objective and
+solves every intervening interval exactly. Priority of the sufficient condition
+has not been established.
+
+For $n\ge1$, choose a nonempty set $\mathcal H$ of positive-weight key or gap outcomes.
+Let $A$ contain every selected key and the adjacent key(s) of every selected
+gap. Write $m=|A|$, $\theta=\min_{x\in\mathcal H}w_x$, and let $W_0$ be
+the total weight outside $\mathcal H$. Both adjacent keys of an interior gap
+are ancestors of that gap in every BST. Thus each $A$-key lies on the search path to
+some selected outcome, possibly itself. Call a tree \emph{core-closed} if no key outside $A$
+is an ancestor of an $A$-key. Then $A$ forms a top BST and the intervals
+between consecutive $A$-keys, including both end intervals, are its payloads.
+Selected gaps remain singleton core gaps.
+
+\begin{lemma}[Projection preserving selected depths]\label{lem:core-projection}
+Every BST can be reduced to a BST on $A$ without increasing any selected
+outcome's depth. If the original tree is not core-closed, at least one selected
+outcome becomes strictly shallower.
+\end{lemma}
+\begin{proof}
+Consider an outside key $r$ whose subtree contains an $A$-key. If just one
+child contains $A$-keys, replace $r$ by that child. The other branch contains
+no selected outcome: any nonempty subtree containing a selected gap must
+contain one of its neighboring keys, and a selected empty child gap would
+make $r$ itself an $A$-key. All retained selected outcomes save a comparison.
+
+If both children contain $A$-keys, let $a$ be the largest such key in the
+left subtree. Replace $r$ by $a$, restrict the old left subtree to keys below
+$a$ and their endpoint gaps, and retain the old right subtree. No selected
+outcome lies strictly between $a$ and $r$: a selected key would belong to
+$A$, and a selected gap would put an adjacent key in $A$ before or at $r$.
+All $A$-keys survive. Selected outcomes in the left restriction lose zero or
+more comparisons by Lemma~\ref{lem:restriction}; right depths are unchanged.
+If $a$ is selected, it moves strictly upward. Otherwise it must border a
+selected gap on its left. Its right gap cannot be selected, since that would
+put $a+1$ in $A$, contradicting either the maximality of $a$ or $r\notin A$.
+The selected left gap loses the comparison at the old $a$. Thus some selected
+depth decreases in either case.
+
+These exchanges may discard light keys, which will be reinserted later.
+Each exchange reduces the number of outside keys and retains $A$. Repeat
+until no outside key has an $A$-descendant, then discard the remaining
+anchor-free branches. Selected gaps are preserved throughout. This produces
+the asserted core tree. Arbitrary deletion of nonretained comparisons would
+not suffice: a nonretained key can separate retained outcomes on both sides;
+the explicit promotion above resolves that case.
+\end{proof}
+
+A first sufficient condition is $\theta\ge(m+L)W_0$, where
+$L=\lceil\log_2(n+1)\rceil$. Project an optimum and reinsert balanced
+payloads: the selected cost falls by at least $\theta$, and the new light
+cost is at most $(m+L)W_0$. The next theorem substantially sharpens the
+height term using the earlier Fibonacci lemma.
+
+\begin{theorem}[Protected-height core certificate]\label{thm:heavy-core}
+Let $W_{\mathcal H}$ be the selected total weight and
+\[
+ H=\max\{j\in\{1,\ldots,m\}:F_j\theta\le W_{\mathcal H}\},
+ \qquad F_1=F_2=1.
+\]
+If
+\begin{equation}\label{eq:heavy-core}
+ \theta\ \ge\ (H+L)W_0,
+\end{equation}
+there exists a core-closed optimum. If the payload intervals have masses
+$W_t$ and unrestricted relative optimum costs $C_t$, then
+\[
+ \OPT(\text{original})
+ =\OPT(\text{original }A\text{-key weights},\ (W_t)_t)+\sum_t C_t.
+\]
+Equality in the certificate does not force every optimum to be core-closed.
+\end{theorem}
+\begin{proof}
+In a protected-only core instance, keep selected weights and set every other
+weight to zero. Every internal subtree contains an $A$-key and therefore
+a selected outcome of weight at least $\theta$ in that subtree. By
+Lemma~\ref{lem:mass}, a depth-$d$ internal subtree of a protected-only optimum
+has mass at most $W_{\mathcal H}/F_{d+1}$. Its height, including external
+leaves, is consequently at most $H$.
+
+Project a non-core-closed full optimum by Lemma~\ref{lem:core-projection},
+saving at least $\theta$ in selected weighted cost. Replace the projected
+core by a protected-only optimum; its selected weighted cost cannot increase,
+although individual depths may change. Reinsert balanced payloads. Every
+unselected key comparison length or gap depth is at most $H+L$, so the new
+light cost is at most $(H+L)W_0$. The old light cost was nonnegative.
+Condition~\eqref{eq:heavy-core} makes the exchange nonincreasing, establishing
+the existence of a core-closed optimum.
+
+At core-gap depth $d$, an exact payload contributes $dW_t+C_t$. The core
+and payload relative costs therefore optimize independently, proving the
+identity. Empty intervals contribute zero relative cost and keep their gap
+weight. The final full-weight core is optimized without a height restriction:
+$H$ bounds the protected-only witness, not the output core.
+\end{proof}
+
+For $k$ equal selected weights, $H=O(\log(k+1))$, whereas $m$ can be $2k$.
+The certificate thus handles much less extreme dominance than the size-based
+version. It does not remove unselected weights from the final objective.
+
+\paragraph{A threshold sweep with no repeated interval scans.}
+The implementation selects all outcomes of weight at least a threshold
+$\theta$. Key $i$ is in $A$ precisely when
+$\max(p_i,q_i,q_{i+1})\ge\theta$. Sort these activation weights and all
+outcome weights. Sweep thresholds upward, grouping equal values. Before
+each threshold, activate as unanchored each key whose activation weight is
+strictly smaller. A disjoint-set structure maintains the contiguous payload
+runs and their total triangular state count. A singleton adds one; merging
+runs of sizes $a,b$ adds $ab$. Union by size bounds each find by $O(\log n)$,
+even without using an inverse-Ackermann analysis.
+
+At each certified threshold, evaluate
+\[
+ \tau(m)+\sum_t\tau(k_t),\qquad \tau(k)=k(k+1)/2.
+\]
+Keep the minimum proxy, accepting only a strict improvement on $\tau(n)$.
+This optimizes a Knuth-state proxy, not actual frontier runtime. Fibonacci
+values through index $n$ take $O(n)$ additions. Since
+$W_{\mathcal H}/\theta$ is nonincreasing during the upward sweep, a single
+decreasing Fibonacci index supplies the height bound in $O(n)$ total index
+decrements; cap it by $m$. The entire selection uses $O(n\log(n+1))$
+arithmetic work and $O(n)$ arithmetic storage. Failure invokes the preceding
+separator constructor, adding screening work without a failed quadratic solve.
+
+\paragraph{Kernels, reconstruction, and scoped bounds.}
+Both core and payloads use either exact local frontiers or Knuth. Before each
+kernel, uniform key weights $p$ and uniform gap weights $q$ are recognized.
+Such a tree costs $(p+q)I+np+2nq$, where $I$ is its unweighted internal path
+length. A recursively balanced tree minimizes $I$ and is built in linear
+work. This familiar uniform-weight shortcut is not claimed as new.
+
+If $K(s)$ bounds the chosen exact kernel on $s$ keys, successful construction
+costs
+\[
+ O\!\left(n\log(n+1)+K(m)+\sum_t K(k_t)\right),
+ \qquad m+\sum_t k_t=n.
+\]
+Sequential scratch reuse retains only the payload outputs between solves.
+The general work and space bounds remain quadratic. A uniform residual
+background and $k$ selected outcomes give $m\le2k$ and work
+$O(n\log(n+1)+k^2)$. If residual weights lie in $[a,Ca]$ for fixed $a>0$
+and $C$, each payload's local frontier costs $O(s^\alpha)$, where
+$\alpha=1+\log_{2\phi}2<1.59024$. A certified plan then costs
+\[
+ O\!\left(n\log(n+1)+k^2+\sum_t k_t^\alpha\right).
+\]
+With payload sizes at most $B$, the last sum is at most $nB^{\alpha-1}$.
+These are bounds for the certified plan; minimizing the triangular proxy
+need not minimize this sharper expression.
+
+For the preceding obstruction, $q_1=q_{n-1}=n^3$ with unit background,
+$n\ge5$, we have $m=4$, $H=3$, and $W_0=2n-1$. The certificate passes,
+so the four-key core and uniform payloads take $O(n\log n)$ total work.
+The previous separator/frontier constructor used all $n(n+1)/2$ cells.
+Bounded positive mixed background and sufficiently large equal selected gap
+weights instead give an $O(n^{1.59024})$ plan. This resolves that scoped
+obstruction; it is not an unrestricted subquadratic theorem.
+
+\paragraph{Independent checks and operation counts.}
+Every nonempty selected-outcome subset and every tree shape through four keys
+were examined. In all 1,937 non-core-closed cases a core-closed tree has
+componentwise no-greater selected depths and at least one strict improvement.
+On 22,140 inputs with weights in $\{0,1,100\}$, all 17,054 qualifying
+nontrivial certificates match the optimum over every shape and the composition
+identity. Another 2,640 full solves on 1,320 inputs through 32 keys, with both
+kernels, match independent cubic DP and reconstructed costs. On 520 small
+inputs the threshold sweep matches direct enumeration of every threshold and
+payload partition. Both kernels also match Knuth and the previous separator
+constructor on 30 larger fixtures through 2,048 keys.
+
+At $n=2048$, the following cell counts include both core and payload solves,
+or the complete fallback when certification fails:
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+Fixture & previous separator & joint core/frontier & core keys\\
+\midrule
+Random & 309,201 & 309,201 & ---\\
+Near-uniform & 309,290 & 309,290 & ---\\
+Two heavy gaps, unit background & 2,098,176 & 10 & 4\\
+Two heavy gaps, random background & 2,098,176 & 306,506 & 4\\
+45 heavy gaps & 304,486 & 23,965 & 90\\
+45 moderate gaps & 304,486 & 23,695 & 90\\
+45 mixed heavy outcomes & 305,421 & 24,016 & 68\\
+\bottomrule
+\end{tabular}
+\end{center}
+The moderate-gap fixture sets each selected weight to exactly
+$(H+L)W_0=42{,}395{,}178$, with $H=9$, $L=12$, and $W_0=2{,}018{,}818$.
+The old size-based condition would require $(90+12)W_0$ and fails.
+Work includes 63,549 sorting comparisons, 2,047 Fibonacci additions, 3,024
+height checks, 1,958 activations, 1,912 unions, and 1,511 find steps. Kernels
+use 45,365 root candidates, 116,338 genuine top queries, 23,904 padding queries,
+12,336 contour checks, and 17,488 scans each for rows and columns. All 2,048
+keys are reconstructed. Local kernel metadata such as heights and chosen
+depths are sums across calls, not global tree heights. The uniform two-gap
+case still pays selection, 2,044 payload-node constructions and relabelings,
+and ten core DP cells; it does not perform only ten total operations.
+
+\paragraph{Matched construction timings and controls.}
+Ninety matched trials compare five solvers in ten balanced orders per fixture:
+five cyclic rotations and their reversals, not all 120 permutations. All 450
+timed solves include preprocessing and reconstruction; their costs agree and
+every output tree is directly evaluated. CF and CK denote the new core with
+frontier and Knuth kernels, respectively; S is the preceding separator solver
+and RC the earlier recursive contraction solver. M4/Python~3.9.6 median paired
+runtime ratios to Knuth are:
+\begin{center}\small
+\begin{tabular}{lrrrr}
+\toprule
+Fixture & S & CF & CK & RC\\
+\midrule
+2,048, random & 0.85643 & 0.86589 & 1.00373 & 1.02785\\
+2,048, near-uniform & 0.90215 & 0.85239 & 1.02368 & 1.04692\\
+2,048, two gaps, unit background & 0.97393 & 0.00700 & 0.00551 & 0.98506\\
+2,048, two gaps, random background & 1.01846 & 0.70676 & 0.79129 & 0.99945\\
+2,048, 45 heavy gaps & 0.84243 & 0.08905 & 0.03125 & 0.99792\\
+2,048, 45 moderate gaps & 0.81550 & 0.08573 & 0.03229 & 0.98979\\
+2,048, 45 mixed heavy outcomes & 0.87777 & 0.08823 & 0.03204 & 1.00118\\
+512, random & 1.68034 & 1.76764 & 1.03732 & 1.02439\\
+1,024, geometric & 0.00648 & 0.02255 & 0.02378 & 0.03135\\
+\bottomrule
+\end{tabular}
+\end{center}
+The new core resolves cases where both earlier solvers remain near Knuth's
+cost. Plain Knuth is faster on the many small payloads, while the frontier
+helps on the large random payload. The uniform two-gap CF/CK paths use the
+same uniform shortcut and tiny core, so their timing difference is not evidence
+of an asymptotic distinction. Controls expose limitations: the 512-key random
+frontier path is slower than Knuth, and joint threshold screening makes the
+geometric case slower than the existing endpoint-only solver. Failed-core
+controls execute the same separator kernel; sub-unit paired ratios there do
+not demonstrate an algorithmic benefit. These instrumented Python measurements
+do not establish production-language or broad practical superiority. An earlier
+size-certificate timing batch was explicitly stopped after the height refinement;
+its incomplete timings are not used here.
+
+\paragraph{Full construction beyond the quadratic-table scale.}
+On the unit-background two-heavy-gap family, full trees were constructed at
+$n=512,2048,8192,32768,65536$. Each exact cost matched an independent cubic
+solve of the four-key instance
+\[
+ p=(1,1,1,1),\qquad q=(1,n^3,2n-7,n^3,1),
+\]
+plus $2I_*(n-4)+3(n-4)$ for the uniform payload, and direct evaluation of the
+full reconstructed tree. The uniform closed form was separately checked against
+cubic DP through 16 keys. At $n=65536$, the exact cost is
+$1{,}407{,}374{,}885{,}846{,}941$. The full new solve took 0.59933 seconds in
+one exploratory run, with ten core DP cells and fifteen core root candidates.
+It also used 196,799 sorting comparisons, 65,535 Fibonacci additions, 65,535
+height checks, 65,532 activations, 65,531 unions, 65,529 find steps, and 196,609
+uniformity comparisons. All 65,532 payload keys were constructed and relabeled,
+and the four core keys were reconstructed.
+
+The previous method was only planned at this size: it selects 2,147,516,416
+cells, and its full solve was not executed. Hence no measured runtime ratio to
+that solve is claimed. The construction result, the separate plan count, and
+the arithmetic complexity theorem are distinct evidence. Unbounded integer
+weights and Fibonacci values also preclude interpreting the arithmetic bound
+as an established bit-complexity bound.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
@@ -1595,7 +1861,7 @@ prefix verify the exact additive identity and preserved strict gap.
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
-interval frontiers, dominant-gap separators with local frontiers, global certificates,
+interval frontiers, dominant-gap separators, joint heavy-outcome cores, global certificates,
 and scoped obstructions to depth relaxations. Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.

@@ -13,13 +13,14 @@ selection by the repository owner. The general research objective is ongoing.
 - [Split-height construction and taller-tree certificate](SPLIT_HEIGHT.md)
 - [Exact variable mass frontier and uniform-width comparison](MASS_FRONTIER.md)
 - [Dominant-gap separators and local mass frontiers](GAP_SEPARATOR.md)
+- [Joint heavy-outcome cores and protected-height certificate](HEAVY_CORE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The input has weights on **both keys and gaps**. The latest constructor splits
-at certified dominant outcomes and solves the remaining intervals on local
-mass frontiers. An interior-gap certificate retains both neighboring key
+The input has weights on **both keys and gaps**. The latest constructor certifies a joint core for several heavy outcomes,
+then solves the intervening intervals on local mass frontiers. Single-outcome
+separators remain available as fallback. An interior-gap certificate retains both neighboring key
 weights and gives an exact two-orientation cost identity. Static range indexes
 avoid repeatedly scanning shrinking components. Earlier contraction and
 bounded-shape methods remain available as controlled comparisons. The general
@@ -60,6 +61,9 @@ python3 obst/code/frontier_separation.py
 python3 obst/code/gap_separator.py
 python3 obst/code/benchmark_gap_separator.py
 python3 obst/code/separator_obstruction.py
+python3 obst/code/heavy_core.py
+python3 obst/code/benchmark_heavy_core.py
+python3 obst/code/heavy_core_scale.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -160,3 +164,30 @@ are scoped Python results; all 70 trials and competing baselines are retained.
 A positive family with two equally heavy interior gaps proves that the current
 combined constructor still selects the entire quadratic table. See the
 obstruction proof and `separator_obstruction.py`; large rows count plans only.
+
+
+`heavy_core.solve(p,q)` addresses several comparable heavy outcomes jointly.
+Selected keys and neighboring keys of selected gaps form a certified top core;
+intervening intervals become independent exact payloads. A protected-only
+Fibonacci height bound strengthens the dominance test, and an ascending
+threshold/union-find sweep chooses the smallest certified Knuth-state proxy
+in O(n log n) arithmetic work. Failed certification uses the previous separator
+constructor. Both original key and gap weights remain in the final solve.
+
+The positive two-heavy-gap obstruction now takes O(n log n) with unit background
+instead of the full quadratic table. At n=2048, the constructor uses ten core
+DP cells plus linear payload construction and selection work. With random
+mixed background it uses 306,506 cells instead of 2,098,176. A 45-gap fixture at
+certificate equality uses 23,695 cells; the earlier size-based certificate fails.
+These are scoped improvements. The unrestricted worst case is still quadratic;
+see HEAVY_CORE.md for the complete proof, exact checks, counters, and limitations.
+
+Ninety matched trials show core+frontier / core+Knuth runtime ratios to Knuth of
+0.00700 / 0.00551 for unit-background two-gap inputs, 0.70676 / 0.79129 with
+random background, and 0.08573 / 0.03229 for the moderate-gap equality fixture
+at n=2048. Small random frontier solves and geometric screening overhead remain
+negative controls. A full 65,536-key two-gap tree was constructed and checked
+against an independent four-key cubic core plus the uniform closed form; its
+exact cost is 1,407,374,885,846,941. The previous 2,147,516,416-cell table was
+only planned, not executed. These scoped results do not complete the general
+subquadratic research objective.

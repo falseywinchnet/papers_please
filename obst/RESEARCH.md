@@ -436,6 +436,111 @@ outcomes, where no one outcome is dominant but its presence still inflates a
 global frontier. The positive two-gap family gives a specific regression
 control for that work. The unrestricted mixed-weight objective remains active.
 
+## Tenth checkpoint: joint heavy-outcome cores
+
+The previous goal turn was progress: commit 1ef72c3 uploaded the dominant-gap
+separator, matched comparisons, and a positive two-heavy-gap family on which
+that constructor selects the full quadratic table. This turn uses that family
+as a concrete target while preserving the unrestricted mixed-weight objective.
+
+Choose selected key/gap outcomes H and retain every selected key plus the
+adjacent key(s) of every selected gap. An exchange lemma projects any tree
+onto these necessary keys without deepening any selected outcome. A tree that
+has an outside comparison above retained keys saves at least one selected
+comparison. This is not arbitrary restriction to a noncontiguous key set:
+when an outside root has retained keys on both sides, promote the largest
+retained key on its left, restrict the left subtree below that key, and keep
+the right subtree. The adjacent-key condition preserves selected gaps and
+supplies a strict saving. This point was resolved before relying on the lemma.
+
+The initial sufficient certificate was theta >= (m+L)*W_light, with m retained
+keys and L=ceil(log 2(n+1)). It passed the full exact harness. Before publishing,
+it was strengthened using the earlier Fibonacci mass lemma. A protected-only
+core (all unselected weights zero) has every internal subtree mass at least
+theta, because each retained key lies on a selected search path. Its optimal
+height is at most H=max{j<=m:F_j*theta<=W_selected}. Replacing the projected
+core by a protected-only optimum and reinserting balanced light payloads proves
+that theta >= (H+L)*W_light suffices. The final core is then optimized with ALL
+original and collapsed weights, without a height restriction. The protected-only
+problem is a proof witness, not a replacement objective.
+
+For threshold-selected outcomes, key activation is max(p_i,q_i,q_(i+1)). An
+ascending threshold sweep activates unanchored keys, using union-find to
+maintain payload runs and their triangular state totals. Grouping equal
+weights prevents partial ties. The best certified tau(m)+sum tau(k_t) proxy
+is selected in O(n log(n+1)) arithmetic work. A decreasing Fibonacci index
+handles all protected-height bounds in O(n) index decrements. This chooses
+a Knuth-state proxy, not a minimum wall time or a minimum frontier proxy.
+Failure uses the previous separator constructor with screening overhead.
+
+Both core and payloads are solved exactly, using frontier or Knuth kernels.
+A known uniform-key/uniform-gap shortcut builds an optimal balanced tree in
+linear work. Thus a certified plan costs O(n log n+K(m)+sum K(k_t)). With k
+selected outcomes and uniform residual background the bound is O(n log n+k^2).
+Bounded positive residual weights give O(n log n+k^2+sum k_t^alpha), with
+alpha<1.59024. The former two-heavy-gap obstruction now takes O(n log n) with
+unit background. This is a scoped improvement; the general worst case remains
+quadratic and priority is unestablished.
+
+The refined harness passed 1,937 componentwise projection cases, all selected
+subsets and tree shapes through four keys; 17,054 qualifying certificates on
+22,140 inputs in {0,1,100}; 2,640 full solves on 1,320 inputs through 32 keys;
+and 520 threshold choices against direct enumeration. Both kernels matched
+Knuth and the previous separator on 30 larger fixtures through 2,048 keys.
+The moderate-gap fixture is set at exact certificate equality. At n=2048 it
+has 90 retained keys but protected height bound 9; the older m-based condition
+fails, while the new condition passes with theta=42,395,178. It uses 23,695
+interval cells versus 304,486 for the prior constructor. Full counter categories
+include sorting, Fibonacci additions/checks, activations, unions/finds, kernel
+cells and candidates, matrix queries/padding/scans, and reconstruction.
+
+While preparing the large-case independent oracle, an erroneous draft coefficient
+on uniform internal path length was corrected using E=I+2n: the full uniform
+cost is (p+q)*I+n*p+2n*q. The constructor always evaluates its tree directly,
+so no constructor or benchmark result depended on the erroneous draft formula.
+
+An initial size-certificate timing batch was explicitly terminated after the
+height refinement changed the algorithm; its incomplete timings are not used
+for final performance claims. The final comparison includes the revised
+certificate, the equality fixture, previous separators and recursive contraction,
+and both new kernel choices. No restart was triggered by an observation timeout.
+
+The final 90 matched trials (450 complete solves) show CF/CK-to-Knuth ratios
+0.00700/0.00551 for unit-background two-heavy-gap inputs, 0.70676/0.79129 for
+random background, and 0.08573/0.03229 for the moderate-gap equality fixture
+at n=2048. The mixed heavy-key/gap case gives 0.08823/0.03204. Small random
+frontier solves remain slower than Knuth, and global screening loses to the
+existing geometric endpoint shortcut. All failures and raw comparisons remain.
+
+The new method also completed five large full constructions through 65,536
+keys on the previous two-gap obstruction. Direct evaluation and an independent
+four-key cubic core plus the uniform closed form agree. The largest exact cost
+is 1,407,374,885,846,941; the single exploratory solve took 0.59933 seconds.
+The previous algorithm was only planned there and selects 2,147,516,416 cells.
+These facts are not a measured speedup against an executed old solve.
+
+The broad objective remains open. Next implementation work should bound the
+Fibonacci precomputation by the largest relevant mass ratio and avoid global
+screening before cheap endpoint certificates. The mathematical target remains
+several levels of concentration without an overwhelming threshold gap: the
+current core certificate is sufficient, not a characterization of optimality.
+Neither the new construction nor its structured-family bounds prove a general
+subquadratic algorithm or an impossibility theorem.
+
+## Publication audit of the tenth checkpoint
+
+The intervening JesseSort discussion made no progress on the active OBST goal.
+On resuming, the local uncommitted sources and results were re-inspected rather
+than inferred from the conversation. The raw result audit verified all five
+correctness counts, 30 larger fixtures, 90 matched trials with 450 equal-cost
+solves, recomputed all paired median ratios, and checked all five scale records
+including their explicit plan-only status for the previous constructor. The
+29-page final PDF was reviewed in rendered contact sheets, with full-size
+review of the new mathematical and measurement pages. Output copies were
+verified byte-identical to the repository TeX and PDF. The checkpoint is being
+published without a claim of general subquadratic complexity or established
+priority; the broad research goal remains active.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

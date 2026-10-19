@@ -31,6 +31,9 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/gap_separator.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_gap_separator.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/separator_obstruction.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/heavy_core.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_heavy_core.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/heavy_core_scale.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not
