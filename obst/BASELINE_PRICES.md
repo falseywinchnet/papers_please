@@ -137,3 +137,7 @@ inside the same exclusion certificate. The existing ordered depth-chain
 bound is valid for this purpose even when it is not exact: the uniform
 baseline supplies a positive exclusion margin. That combination is not
 implemented in this checkpoint, and its extra work must be counted.
+
+Follow-up: EXCESS.md records the ordered-residual experiment and its negative
+result at the tested budget. The investigation then implemented a dyadic DP
+for bounded excess path length, with an expanded exclusion certificate.

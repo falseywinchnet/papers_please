@@ -30,7 +30,9 @@ instance with 512 keys and sparse heavy separators, it reduced the number of
 DP states from 131,328 to 10,344; ordinary random mixed weights benefited little.
 An additional certificate optimizes all minimum-unweighted-path-length
 shapes and excludes every other shape using a residual-weight lower bound.
-It provides an $O(n\log n)$ exact route when its explicit tests pass,
+A dyadic extension also optimizes trees with bounded excess unweighted
+path length and certifies them against all remaining shapes. The shortcuts
+provide an $O(n\log n)$ exact route when their explicit tests pass,
 including tested near-uniform instances left unresolved by contraction.
 We also document an order-free Huffman relaxation, its failed sparse-DP
 implementation, and exact counterexamples to proposed local certificates.
@@ -494,6 +496,152 @@ calls yet showed a price-search/old-hybrid ratio of 1.13564. This variability
 limits interpretation of small timing differences; operation counts and
 all raw observations are retained. The host was Apple M4 with Python 3.9.6.
 
+
+\section{Exact bounded-excess construction by dyadic intervals}
+The candidate class can be expanded beyond minimum internal path length.
+This is necessary even on some mildly nonuniform inputs. For $n=255$, set
+all gap weights to $16$ and all key weights to $16$, except keys $8j+1$
+which have weight $17$. The unique minimum-$I$ tree costs $61{,}680$;
+Knuth gives optimum $61{,}656$, attained
+with $I=I_*+2$. The algorithm below constructs and certifies this optimum.
+It retains both kinds of weight and never assumes that the restricted
+optimum is globally optimal.
+
+\paragraph{An exact representation.}
+An ordered full binary tree is a tiling of $[0,1]$ by consecutive aligned
+dyadic intervals: a gap at depth $d$ has width $2^{-d}$. A leaf starting
+at $x$ must satisfy $x/2^{-d}\in\mathbb Z$. Conversely such a tiling is a
+complete prefix code and determines an ordered full tree. Alignment, not
+just the Kraft equality, enforces order. On a grid of height $H$, an
+interior boundary at integer coordinate $Y$ corresponds to a key with
+comparison length $H-\nu_2(Y)$. Thus gap and key costs are both local in
+a left-to-right tiling construction.
+
+\begin{theorem}[Bounded-excess construction]
+For $n\ge1$, let $N=n+1$, $h=\lfloor\log_2N\rfloor$, $S=2^h$, $r=N-S$, and
+$s=\min(r,S-r)$. For any nonnegative integer budget $k$, the minimum
+full weighted cost among all trees with $I\le I_*+k$ can be found and
+reconstructed in
+\[
+ O\bigl(n(s+k+1)(k+1)^2 2^k\bigr)
+\]
+arithmetic operations, using
+$O\bigl(n(s+k+1)(k+1)2^k\bigr)$ space for backpointers.
+\end{theorem}
+\begin{proof}
+Measure dyadic widths in units of $2^{-h}$ and put $w=2^{h-d}$.
+For integral depth $d$, the potential
+\[
+ f(d)=d-h-2+2^{h+1-d}=d-h-2+2w
+\]
+is nonnegative, with zeros exactly at $h$ and $h+1$. The minimum external
+path length is $hN+2r$. Since external path length equals $I+2n$ and
+$\sum_i w_i=S$, every full tree satisfies
+\[
+ \sum_i f(d_i)=\sum_i d_i-(h+2)N+2S=I-I_*.
+\]
+Every depth in the budgeted class therefore has $f(d)\le k$. This implies
+$d\le H=h+k+2$, and only $O(k+1)$ integral depths are possible.
+For integral $d$, direct substitution gives
+\[
+ \tfrac12-\tfrac12 f(d)\le w\le1+f(d).
+\]
+Apply these inequalities to a prefix of $i$ leaves and to its remaining
+suffix, each having potential at most $k$. The cumulative position $y$
+must obey
+\[
+ \max\left(\tfrac{i-k}{2},i-r-k\right)
+ \le y\le
+ \min\left(i+k,\tfrac{S-r+i+k}{2}\right).
+\]
+This interval has width at most both $r+2k$ and $(S-r)/2+k$, hence
+$O(s+k)$.
+
+Set $K=2^{k+2}$. A state after $i$ leaves stores integral drift
+$u=K(y-i)$ and spent potential $z=K\sum f(d)$. For depth $d$, let
+$W=2^{H-d}$. Require $(iK+u)\bmod W=0$ and update
+\[
+ u'=u+W-K,\qquad z'=z+K(d-h)+2(W-K).
+\]
+Retain the position band and $0\le z'\le Kk$. Charge $q_i d$ and, for
+$i>0$, charge $p_{i-1}(H-\nu_2(iK+u))$. Start at $(u,z)=(0,0)$ and
+finish after $N$ leaves with $u=-rK$. Every retained complete path is an
+aligned full tiling with excess at most $k$; every tree in the class
+passes the same tests. The DP therefore optimizes exactly this class.
+For fixed $u$, the congruence $z\equiv2u\pmod K$ leaves at most $k+1$
+possible spent potentials. There are $O((s+k+1)2^k)$ positions per stage
+and $O(k+1)$ choices per state, proving the bounds. The bands admit
+direct array indexing; the Python prototype uses sparse dictionaries. Backpointers recover
+gap depths; the boundary lengths reconstruct the tree in linear time.
+\end{proof}
+
+\paragraph{Perfect-size refinement.}
+When $N=S$, use instead
+$f_0(d)=d-h+\tfrac32(2^{h-d}-1)$. It is nonnegative on integer depths,
+vanishes only at $h$, and also sums to $I-I_*$. The inequality
+$|2^{h-d}-1|\le2f_0(d)$ and zero total drift imply $|y-i|\le k$.
+Here $H=h+k+1$, $K=2^{k+1}$, and $z=2K\sum f_0$. Its increment is
+$2K(d-h)+3(W-K)$, and $z\equiv3u\pmod{2K}$. The implementation uses this
+smaller grid at perfect sizes, with the same asymptotic bound at $s=0$.
+
+\paragraph{Certify against all other trees.}
+Let $C_k$ be the computed candidate, $a=\min p_i$, $b=\min q_i$, and
+$H'$ the order-free bound on residual weights. Every excluded tree has
+$I\ge I_*+k+1$, so it costs at least
+\[
+ B_k=(a+b)(I_*+k+1)+(a+2b)n+H'.
+\]
+Thus $C_k\le B_k$ proves global optimality. Sorting and the two-queue
+bound cost $O(n\log n)$ and are included in the counters. The constructor
+uses $k=2$ and attempts the shortcut only when
+$s\le\operatorname{bit\_length}(n)$. Its attempted work is $O(n\log n)$;
+a failed certificate or skipped size falls back to Knuth. The total worst
+case remains quadratic. Arbitrary growth of $k$ is exponential, and wide
+shape spaces remain quadratic even for fixed $k$.
+
+\paragraph{Validation, failed precursor, and prior work.}
+The implementation passed $1{,}200$ restricted-optimum comparisons against
+all shapes through eight keys with budgets $0,\ldots,4$, and $3{,}000$
+full mixed-weight checks against cubic DP. It separately checks direct
+tree costs, both residual-bound implementations, and exact fallback.
+An additional $104$ family checks include zeros, geometric weights,
+spikes, and key-only/gap-only controls. The seeded size sweep is retained.
+A precursor substituting ordered depth bounds into the old certificate
+passed $480$ exhaustive checks but rescued none of $24$ near-uniform
+fixtures at its $32$-iteration budget. This negative experiment did not
+prove optimal multiplier search useless; its cost and the failed
+perfect-tree hypothesis motivated expanding the candidate class.
+
+On the $1{,}023$-key periodic fixture with weights $16$ and $17$, the
+excess-two DP finds cost $312{,}154$ and excludes other shapes with bound
+$312{,}185$. It uses $27{,}570$ states, $137{,}835$ transition checks,
+$6{,}052$ sorting comparisons, and $1{,}022$ merge comparisons, versus
+Knuth's $523{,}776$ states and $1{,}046{,}532$ root candidates.
+At $n=1{,}024$, a seeded amplitude-four perturbation uses $48{,}003$ states
+and $240{,}000$ transition checks, plus $13{,}784$ sorting and $1{,}264$
+merge comparisons. It certifies cost $19{,}477{,}996$.
+
+Six matched trials per fixture use all orderings of Knuth, the preceding
+baseline-price hybrid, and the excess-two constructor. Median excess-two
+runtime divided by Knuth runtime was $0.23600$ and $0.44831$ on
+amplitude-four perturbations at $n=1{,}023$ and $1{,}024$, and $0.20790$
+and $0.17101$ on the periodic fixture at $n=1{,}023$ and $2{,}047$.
+Each certified in all six trials. Ordinary random input at $n=1{,}023$
+failed and cost $1.34949$ times Knuth; amplitude-sixteen input at
+$n=2{,}047$ failed and cost $1.13631$ times Knuth. The skipped-width
+control at $n=768$ ran the same Knuth routine and measured $0.93148$,
+illustrating noise rather than a computational gain. These are exploratory
+M4/Python timings including all preprocessing and reconstruction. Periodic
+fixtures are repeated identically; random and perturbation inputs vary
+between trials. All $42$ observations are retained.
+
+The dyadic/prefix-code viewpoint and sequential frontier DP are established
+ideas. Becker~\cite{becker} gives a sequential mixed-weight DP for a
+near-minimal \emph{height} restriction in quadratic time. The band above
+uses excess \emph{total unweighted path length}, a different restriction;
+it does not improve Becker's stated problem. Priority of this particular
+potential, band bound, and exclusion combination remains unestablished.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
@@ -804,21 +952,17 @@ $1\le D\le8$. Cubic DP, Knuth, direct costs, and inspection of the optimal
 prefix verify the exact additive identity and preserved strict gap.
 
 \section{Status and reproducibility}
-This investigation has not proved that subquadratic full OBST construction
-is impossible, nor supplied a general subquadratic construction.
-The positive contribution of this checkpoint is an exact decomposition
-argument, adaptive implementations, a minimum-path-length certificate,
-and a precise obstruction to a proposed depth-bound repair.
-Mathematical novelty, broad practical benefit,
-and comparison against Larmore-style implementations remain to be assessed.
+The general subquadratic question remains open. This checkpoint provides
+exact contraction and bounded-excess constructions, global certificates,
+and scoped obstructions to depth relaxations. Mathematical novelty, broad
+practical benefit, and comparisons against Larmore-style implementations
+remain to be assessed.
 
-All programs use only the Python standard library. The code and seeded
-results are stored under \texttt{obst/code} and \texttt{obst/results}.
-The repository README provides commands for independent oracles, exact
-construction, both matched timing experiments, the shape certificate,
-both depth-price models, and depth ordering.
-The active objective remains to avoid most of the quadratic table on a
-substantially broader class, or establish a rigorously scoped lower bound.
+Standard-library Python code, seeded exact results, and matched timing
+observations are under \texttt{obst/code} and \texttt{obst/results}.
+The README gives reproduction commands. The active objective remains to
+avoid most of the quadratic table on a substantially broader class, or
+establish a rigorously scoped complexity lower bound.
 
 \begingroup\small
 \begin{thebibliography}{9}

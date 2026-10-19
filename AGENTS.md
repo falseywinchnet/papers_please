@@ -19,6 +19,10 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_complete.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/baseline_prices.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_baseline.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ordered_certificate.py --max-n 512 --iterations 32
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ordered_obstruction.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/excess.py --max-n 1024
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_excess.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not

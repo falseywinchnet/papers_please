@@ -9,6 +9,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
+- [Bounded-excess dyadic construction](EXCESS.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
@@ -41,6 +42,10 @@ python3 obst/code/complete.py --max-n 1024
 python3 obst/code/benchmark_complete.py
 python3 obst/code/baseline_prices.py
 python3 obst/code/benchmark_baseline.py
+python3 obst/code/ordered_certificate.py --max-n 512 --iterations 32
+python3 obst/code/ordered_obstruction.py
+python3 obst/code/excess.py --max-n 1024
+python3 obst/code/benchmark_excess.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -89,3 +94,9 @@ bound to at most 113/128 of OPT, independently of multiplier optimization.
 This is a limitation of one relaxation, not a general complexity lower bound.
 
 Compile `manuscript/main.tex` with Tectonic or a compatible LaTeX installation.
+
+The new `excess.solve(p,q,budget=2)` optimizes all trees within two units of
+minimum unweighted internal path length, using aligned dyadic gap intervals
+and retaining every key cost. It attempts this only when the bottom-level
+shape width is logarithmic, certifies against all excluded trees, and falls
+back to Knuth on failure. See EXCESS.md for the state-band proof and limits.

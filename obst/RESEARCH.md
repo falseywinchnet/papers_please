@@ -198,6 +198,51 @@ and n=2,048 amplitude1 inputs, with median priced/Knuth ratios0.04953 and
 A zero-extra-call control showed noticeable timing variation, so only
 large effects are interpretable; exact operation counts remain primary.
 
+## Sixth checkpoint: expand shapes with a dyadic excess budget
+
+The previous research checkpoint was progress and is now uploaded at
+3c95fd2, including the baseline-price TeX/PDF. The intervening Jessesort
+conversation did not advance the OBST goal. Current work revalidated the
+repository and completed the proposed ordered-residual experiment.
+
+The latter passed 480 exact checks but rescued none of 24 tested fixtures
+at 32 iterations per oracle configuration. Four configurations per fixture
+used two baselines and both ordinary and unique-root depth oracles. This
+is evidence about that budget, not a proof that the best dual cannot help.
+The attempted periodic obstruction unexpectedly falsified the assumption
+that small nonuniformity preserves a perfect tree. The failed assertion
+and corrected measurements led to an expansion of the candidate class.
+
+EXCESS.md proves a dyadic tiling representation retaining both key and gap
+costs. A nonnegative leaf potential sums exactly to excess unweighted IPL.
+Its prefix/suffix inequalities bound cumulative-position drift, giving
+O(n*(s+k+1)*(k+1)^2*2^k) exact class optimization, where k is excess budget
+and s is the earlier bottom-level shape-width parameter. The implementation
+uses a sharper potential at perfect sizes. Fixed k and logarithmic s give
+O(n log n) attempted work including a global exclusion certificate. On
+failure or skipped widths, the constructor runs Knuth; worst case is n².
+
+The generalized DP passed 1,200 weighted comparisons against all shapes
+through eight keys, 3,000 mixed-weight cubic checks including full fallback,
+and 104 adversarial-family checks. Sixty-five larger fixtures retain all
+budgets 0..3. At n=1,023 with periodically placed weights 17 among 16s,
+budgets 0 and 1 give the suboptimal cost312,464; budget2 finds and certifies
+312,154 using27,570 states and137,835 transition checks, plus sorting and
+residual-bound work, versus Knuth's523,776 states and1,046,532 root checks.
+
+Six matched timing trials per fixture newly certified all tested amplitude4
+inputs at n=1,023 and1,024 and all periodic A=16 inputs at n=1,023 and2,047.
+Median excess-two/Knuth ratios were0.23600,0.44831,0.20790,0.17101. Failed
+random input added34.9% median overhead; failed n=2,047 amplitude16 added
+13.6%. A skipped-width control shows timing noise. All42 trials are retained.
+
+The next substantive barrier is broadening the useful class without paying
+for an exponentially growing excess budget or a wide bottom-level band.
+Potential next steps are tighter band pruning from feasible upper costs,
+sharing the dyadic transition geometry across levels, and combining the
+expanded certificate with the baseline-price search. These are next actions,
+not established results. The general objective remains active and unresolved.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the
