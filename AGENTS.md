@@ -206,3 +206,12 @@ Full mixed boundary identities and off-boundary falsification probe:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/mixed_boundary_mass.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/core_tail_probe.py
 ```
+
+All-band tail diagnostics and exact capacity-band construction:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/core_tail_search.cpp -o /tmp/obst-core-tail-search && python3 obst/code/core_tail_search.py /tmp/obst-core-tail-search'
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/core_tail_extremes.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/core_tail_interaction.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_capacity_band.py
+```

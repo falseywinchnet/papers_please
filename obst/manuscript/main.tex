@@ -878,6 +878,70 @@ so the telescoping identity does not extend unchanged to the full mixed
 objective. The odd-ramp theorem already rules out an $O(n\log n)$ bound
 for all linear-mass mixed inputs.
 
+\subsection{Computing all intervals in a capacity band}
+\label{sec:capacity-band}
+The capacity boundary can also be evaluated directly across every interval
+start. This complements the single-instance slot construction.
+
+\begin{theorem}[Exact capacity bands]\label{thm:capacity-band}
+Fix an integer $d\ge0$ and $M>HW$. For $h=0,\ldots,H$, all terminal-penalty
+values with $|j-i-c_h|\le d$, where $c_h=2^h-1$, and minimizing
+roots for $h\ge1$ can be computed in $O(n(d+1)(H+1))$ arithmetic operations and words.
+Every retained fully exposed interval has a complete tree witness that can
+be reconstructed in time linear in its key count. For $d\ge1$, these values
+also give all ordinary densities with $|j-i-c_h|\le d-1$ within the same bound.
+\end{theorem}
+\begin{proof}
+At layer $h$, put $a=c_{h-1}$. For a parent of length $k$, write the child
+lengths as $u,v$, where $u+v=k-1$. Maximum exposure is forced by $M>hW$.
+If $k\le c_h$, it requires $u,v\le a$, giving the feasible range
+\[
+ \max(0,k-1-a)\le u\le\min(a,k-1).
+\]
+The nonnegative deficits $a-u,a-v$ sum to $c_h-k\le d$, so both children
+belong to the preceding band. If $k\ge c_h$, maximum exposure instead
+requires $u,v\ge a$, or $a\le u\le k-1-a$. Their excesses sum to
+$k-c_h\le d$, again keeping both children in the preceding band.
+Every split in these ranges attains maximum exposure. Thus the restricted
+recurrence equals the full recurrence on every stored state. Initialize
+$A_0(i,i+k)=Mk$ for $k\le d$, with empty intervals zero.
+
+At each layer, process lengths from $k_{\min}=\max(1,c_h-d)$ through
+$k_{\max}=\min(n,c_h+d)$. The first diagonal examines every feasible
+split, at most $d+1$ roots per interval, costing $O(n(d+1))$.
+For subsequent diagonals, intersect the feasible range with the monotone
+leftmost-root bounds
+\[
+ R_h(i,j-1)\le r\le R_h(i+1,j).
+\]
+These roots are already available on the preceding length diagonal.
+For completeness, if $r<s$, increasing $j$ increases the difference
+between their candidate costs by the Monge inequality for $A_{h-1}$
+on rows $r+1,s+1$. Increasing $i$ also increases that difference, by the
+inequality on columns $r,s$. Hence the leftmost minimizing root cannot
+move left when either endpoint increases. The common interval-weight
+term does not affect root selection. Restricting to maximum-exposure
+splits preserves the same minimizer.
+
+For a fixed length $k$, set $b_i=R_h(i,i+k-1)$. Candidate counts telescope:
+\[
+ \sum_i(b_{i+1}-b_i+1)\le2n.
+\]
+Feasibility clamping only reduces this work. There are at most $2d$
+further diagonals, so the whole layer costs $O(n(d+1))$. Prefix sums,
+base values, and array initialization fit this bound. Retaining all values
+and roots uses $O(n(d+1)(H+1))$ words. Root traceback reconstructs a fully
+exposed interval in linear output time; band closure supplies every child
+state. Four-corner differences give the stated densities.
+\end{proof}
+
+For $H=O(\log n)$ and $d=1$, this computes every capacity-line density
+in $O(n\log n)$ work, with arbitrary mixed weight magnitudes. The result
+computes a whole family of intervals; the earlier $O(n(r+1))$ slot bound
+solves one height-limited instance. Unrestricted optimality still requires
+an adequate height or a separate certificate. The main core bound does
+not depend on an unproved estimate outside this band.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -5852,6 +5916,39 @@ and 80 closed family mass formulas. Reference work is 369,396 states and
 \texttt{mixed\_boundary\_mass.json}. These checks accompany the proofs in
 Section~\ref{sec:mixed-boundary-mass}; the asymptotic conclusions follow
 from the displayed identities.
+
+\section{Capacity-band construction audit}
+\label{app:capacity-band}
+The independent all-root reference covers 272 mixed inputs: exhaustive
+binary weights through three keys, seeded integer vectors, and geometric
+weights through 32 keys. Across widths $0,1,2,4,8,n$ where distinct, it
+checks 253,303 retained values, 1,287 complete reconstructed trees, and
+4,100 per-layer candidate bounds. Reference work is 94,179 states and
+924,277 root candidates. The band solver uses 199,627 states and 366,637
+root candidates, with initialization recorded separately.
+
+Sixteen scale rows use near-uniform strictly positive key and gap weights,
+heights six through twelve, and widths $0,1,4,16$. Each full instance has
+$n=2^h-1-d$, so positive widths include nonperfect sizes. These larger rows
+verify reconstructed original-weight cost and operation counters; their
+independent-reference flags are false. At height twelve:
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & $d$ & base entries & band states & root candidates\\
+\midrule
+4095 & 0 & 4096 & 40974 & 40974\\
+4094 & 1 & 8189 & 118792 & 196622\\
+4091 & 4 & 20450 & 343803 & 702361\\
+4079 & 16 & 69224 & 1174685 & 2621548\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each row additionally scans $n$ input positions and outputs all $n$ keys.
+These counts cover all retained intervals across all twelve layers, rather
+than one slot-DP instance. The asymptotic bound follows from band closure
+and telescoping root ranges in Theorem~\ref{thm:capacity-band}. Exact rows
+and executed-source hashes are in \texttt{capacity\_band.json}.
 
 \clearpage
 \begingroup\small

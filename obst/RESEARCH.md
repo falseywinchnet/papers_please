@@ -2158,3 +2158,77 @@ or box diagnostics. Every page was rendered and checked in contact sheets;
 new proof and audit pages were inspected at full resolution. The bibliography
 starts on a fresh page to avoid leaving its last entry alone. Stable TeX/PDF
 outputs and the complete source/font bundle are refreshed.
+
+
+## Checkpoint 31: exact capacity bands and necessary tail terms
+
+The previous goal turn made progress by publishing the full mixed boundary
+identity and the concentrated-mass obstruction. This turn attacks the proposed
+off-capacity estimate and develops an exact algorithm for the band itself.
+For every retained parent length |k-c_h|<=d, maximum exposure forces both
+child deficits (below capacity) or excesses (above capacity) to be nonnegative
+and sum to the parent's deficit/excess. Both children therefore stay within
+the preceding width-d band. This closes the recurrence without constructing
+any off-band interval values.
+
+At each layer the first retained length diagonal scans at most d+1 feasible
+roots per interval. Later diagonals use the monotone leftmost roots from the
+previous diagonal. Their candidate ranges telescope to at most 2n per length.
+This proves O(n(d+1)(H+1)) arithmetic work and stored words for all band states,
+roots, and four-corner densities. The implementation uses arrays and includes
+prefix sums and initialization. Fully exposed retained states reconstruct
+all original keys in linear output time. Width one computes all capacity-line
+densities in O(n log n) across the early layers. This is a full mixed-weight
+component, not a claim about the still-unbounded tail or an unrestricted
+optimum at an insufficient height. It shares work across all interval starts,
+unlike the earlier single-instance O(n(r+1)) slot constructor.
+
+The all-root audit covers 272 mixed inputs, 253303 retained entry equalities,
+1287 complete tree checks, and 4100 candidate bounds. Reference work is 94179
+states and 924277 root candidates; band work is 199627 states and 366637
+root candidates, plus separately counted initialization. Sixteen scale rows
+include nonperfect n=2^h-1-d at d=0,1,4,16 and h=6,8,10,12. At n=4079,
+h=12,d=16, all band intervals across the twelve layers use 1174685 states,
+2621548 candidates, and 69224 base entries, then output all 4079 keys. Large
+rows check reconstructed cost and counters; independent_reference=false is
+explicit. The exact proof and implementation are CAPACITY_BANDS.md and
+capacity_band.py; the source-hashed audit is capacity_band.json.
+
+The tail investigation also has two explicit necessity proofs. For the prior
+one-key family, r_0=ceil(log2(d+1)) gives exact outside mass
+2^(h-r_0+2)-2(h-r_0)-4 when r_0<h, and zero otherwise. Arbitrary one-key
+inputs have at most 4w(c+1)/(d+1) outside mass. Taking h=2r,d=2^r-1 gives
+ratio to W(L+c/d) exactly (4*2^r-2r-4)/(2^r+2r+3), tending to four.
+Thus a universal coefficient smaller than four is impossible. Scaling the
+single weight gives the same ratio with W=n. Uniform positive mixed weights
+instead give outside mass 2((h-1)n+h-c) at d=2^(h-1), with ratio to WL
+tending to one although c/d<2. Hence the WL term is also necessary. The
+independent audit checks 496 tail formulas from all-root layers through n=128;
+larger rows are explicitly closed-form evaluations only.
+
+The expanded C++ diagnostic evaluates every band width at every early layer.
+There are 851 structured inputs and 11868 fixed-mass search evaluations in
+18 runs. Structured work is 515067958 states, 991657809 root candidates,
+513507096 density checks, and 1560862 band evaluations. Search work is
+1044782928 states, 2074271291 candidates, 1037289648 densities, and 7493280
+bands. All 133 small reference vectors agree with independent all-root layers.
+The largest observed ratio is 20/7 at n=1024, again a one-key input; this
+supplies no universal upper bound. A reporting error on the initial zero-tail
+n=2 case was corrected before the complete retained run.
+
+A separate all-root probe tests the stronger allowance
+T(w)<=sum_x w_x T(e_x)+hW. It covers 3103 basis/input vectors and 46370
+comparisons, with maximum normalized excess 17/26. The inequality is still
+unproved. A possible structural route is to express a capacity density as
+M-F_i-G_i, where G_i is the existing weighted-prefix maximum with gap reward
+and F_i is the maximum negative prefix walk. Subadditivity of these maxima
+may control interaction at d=1; extending that control to wider bands remains
+a separate problem. This route has not been promoted to a theorem.
+
+The band theorem is Section 2.10 and its counts are Appendix G. The necessary
+tail terms and diagnostic records are kept in CORE_TAIL_EXTREMES.md, with the
+full mixed tail estimate explicitly open. All new executed-source manifests
+match, legacy theorem labels and references remain valid, and the dedication
+is byte-identical. The 90-page PDF compiles cleanly and is rendered for visual
+review. Stable TeX/PDF outputs and the complete source/font bundle are refreshed.
+The main O(n^(3/2) log^(3/2)(n+1)) bound at W=O(n) is unchanged.

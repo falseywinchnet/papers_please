@@ -13,6 +13,8 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Full mixed ruler slots and capacity-deficit construction](MIXED_SLOTS.md)
 - [Exact gap-core mass and sharp binary leading term](GAP_CORE_IDENTITY.md)
 - [Full mixed boundary mass and the bounded-positive obstruction](MIXED_BOUNDARY_MASS.md)
+- [Exact computation of all capacity-band intervals](CAPACITY_BANDS.md)
+- [Necessary tail terms and targeted adversarial diagnostics](CORE_TAIL_EXTREMES.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -47,6 +49,14 @@ nonnegative integer weights on keys and gaps. At total mass W=O(n), its bound is
 O(n^(3/2) log^(3/2)(n+1)) arithmetic operations, including full reconstruction.
 The sparse product and succinct witnesses are the published ESA 2025 algorithms
 of Gawrychowski, Gorbachev, and Kociumaka.
+
+All intervals within width d of every capacity boundary can now be computed
+exactly in O(n(d+1)H) work, with minimizing roots and complete reconstruction
+for retained fully exposed intervals. At H=O(log n), width one gives every
+capacity-line density in O(n log n) work for arbitrary mixed weights. See
+[the band construction](CAPACITY_BANDS.md). The separate
+[tail investigation](CORE_TAIL_EXTREMES.md) proves that both proposed tail
+terms are necessary; its general upper estimate remains open.
 
 The sharper time bound charges each individual outcome weight to covering
 tiles and sums their geometrically spaced layer boundaries. It proves total

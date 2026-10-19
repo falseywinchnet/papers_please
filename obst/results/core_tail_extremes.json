@@ -1,0 +1,329 @@
+{
+  "scope": "Proved lower families and one-key upper bound; not a universal mixed tail upper bound.",
+  "checks": {
+    "all_root_candidates": 4803968,
+    "dense_states": 125056,
+    "density_checks": 21576,
+    "tail_formula_checks": 496
+  },
+  "rows": [
+    {
+      "h": 2,
+      "n": 8,
+      "c": 3,
+      "d": 1,
+      "W": 1,
+      "mass": 2,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 2,
+      "n": 8,
+      "c": 3,
+      "d": 2,
+      "W": 17,
+      "mass": 14,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 3,
+      "n": 16,
+      "c": 7,
+      "d": 1,
+      "W": 1,
+      "mass": 8,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 3,
+      "n": 16,
+      "c": 7,
+      "d": 4,
+      "W": 33,
+      "mass": 56,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 4,
+      "n": 32,
+      "c": 15,
+      "d": 3,
+      "W": 1,
+      "mass": 8,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 4,
+      "n": 32,
+      "c": 15,
+      "d": 8,
+      "W": 65,
+      "mass": 170,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 5,
+      "n": 64,
+      "c": 31,
+      "d": 3,
+      "W": 1,
+      "mass": 22,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 5,
+      "n": 64,
+      "c": 31,
+      "d": 16,
+      "W": 129,
+      "mass": 460,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 6,
+      "n": 128,
+      "c": 63,
+      "d": 7,
+      "W": 1,
+      "mass": 22,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "h": 6,
+      "n": 128,
+      "c": 63,
+      "d": 32,
+      "W": 257,
+      "mass": 1166,
+      "verification": "independent all-root recurrence"
+    },
+    {
+      "family": "single_key_limit",
+      "h": 8,
+      "n": 512,
+      "c": 255,
+      "d": 15,
+      "W": 1,
+      "mass": 52,
+      "ratio": [
+        52,
+        27
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "uniform_mixed_limit",
+      "h": 8,
+      "n": 512,
+      "c": 255,
+      "d": 128,
+      "W": 1025,
+      "mass": 6674,
+      "ratio_to_WL": [
+        6674,
+        10250
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "single_key_limit",
+      "h": 16,
+      "n": 131072,
+      "c": 65535,
+      "d": 255,
+      "W": 1,
+      "mass": 1004,
+      "ratio": [
+        1004,
+        275
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "uniform_mixed_limit",
+      "h": 16,
+      "n": 131072,
+      "c": 65535,
+      "d": 32768,
+      "W": 262145,
+      "mass": 3801122,
+      "ratio_to_WL": [
+        3801122,
+        4718610
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "single_key_limit",
+      "h": 24,
+      "n": 33554432,
+      "c": 16777215,
+      "d": 4095,
+      "W": 1,
+      "mass": 16356,
+      "ratio": [
+        16356,
+        4123
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "uniform_mixed_limit",
+      "h": 24,
+      "n": 33554432,
+      "c": 16777215,
+      "d": 8388608,
+      "W": 67108865,
+      "mass": 1509949490,
+      "ratio_to_WL": [
+        1509949490,
+        1744830490
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "single_key_limit",
+      "h": 32,
+      "n": 8589934592,
+      "c": 4294967295,
+      "d": 65535,
+      "W": 1,
+      "mass": 262108,
+      "ratio": [
+        23828,
+        5961
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "uniform_mixed_limit",
+      "h": 32,
+      "n": 8589934592,
+      "c": 4294967295,
+      "d": 2147483648,
+      "W": 17179869185,
+      "mass": 523986010178,
+      "ratio_to_WL": [
+        523986010178,
+        584115552290
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "single_key_limit",
+      "h": 48,
+      "n": 562949953421312,
+      "c": 281474976710655,
+      "d": 16777215,
+      "W": 1,
+      "mass": 67108812,
+      "ratio": [
+        67108812,
+        16777267
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "uniform_mixed_limit",
+      "h": 48,
+      "n": 562949953421312,
+      "c": 281474976710655,
+      "d": 140737488355328,
+      "W": 1125899906842625,
+      "mass": 52354345668182114,
+      "ratio_to_WL": [
+        52354345668182114,
+        56294995342131250
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "single_key_limit",
+      "h": 64,
+      "n": 36893488147419103232,
+      "c": 18446744073709551615,
+      "d": 4294967295,
+      "W": 1,
+      "mass": 17179869116,
+      "ratio": [
+        17179869116,
+        4294967363
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "uniform_mixed_limit",
+      "h": 64,
+      "n": 36893488147419103232,
+      "c": 18446744073709551615,
+      "d": 9223372036854775808,
+      "W": 73786976294838206465,
+      "mass": 4611686018427387904130,
+      "ratio_to_WL": [
+        4611686018427387904130,
+        4869940435459321626690
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "single_key_limit",
+      "h": 96,
+      "n": 158456325028528675187087900672,
+      "c": 79228162514264337593543950335,
+      "d": 281474976710655,
+      "W": 1,
+      "mass": 1125899906842524,
+      "ratio": [
+        1125899906842524,
+        281474976710755
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "uniform_mixed_limit",
+      "h": 96,
+      "n": 158456325028528675187087900672,
+      "c": 79228162514264337593543950335,
+      "d": 39614081257132168796771975168,
+      "W": 316912650057057350374175801345,
+      "mass": 29948245430391919610359613227202,
+      "ratio_to_WL": [
+        29948245430391919610359613227202,
+        31057439705591620336669228531810
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "single_key_limit",
+      "h": 128,
+      "n": 680564733841876926926749214863536422912,
+      "c": 340282366920938463463374607431768211455,
+      "d": 18446744073709551615,
+      "W": 1,
+      "mass": 73786976294838206332,
+      "ratio": [
+        73786976294838206332,
+        18446744073709551747
+      ],
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "family": "uniform_mixed_limit",
+      "h": 128,
+      "n": 680564733841876926926749214863536422912,
+      "c": 340282366920938463463374607431768211455,
+      "d": 170141183460469231731687303715884105728,
+      "W": 1361129467683753853853498429727072845825,
+      "mass": 172182877661994862512467551360474714996994,
+      "ratio_to_WL": [
+        172182877661994862512467551360474714996994,
+        176946830798888001000954795864519469957250
+      ],
+      "verification": "closed-form evaluation only"
+    }
+  ],
+  "source_sha256": {
+    "core_tail_extremes.py": "46c47970424828309ba0838329927d725945a2ef84323ae2c886e3907af00fdb",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}
