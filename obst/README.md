@@ -25,13 +25,46 @@ selection by the repository owner. The general research objective is ongoing.
 - [Interlaced parity intervals for key-profile attainment](PROFILE_INTERVALS.md)
 - [Arbitrary-gap threshold bound and linear Cartesian certificate](THRESHOLD_CERTIFICATE.md)
 - [Shifted alphabetic certificate beyond key-capacity equality](SHIFTED_ALPHABETIC.md)
+- [Exact endpoint prices and the complete additive-transfer obstruction](ENDPOINT_PRICES.md)
 - [Joint-profile coupling and strict compatible-merge obstruction](JOINT_MERGE_OBSTRUCTION.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The latest standalone constructor subtracts the smallest key weight m and
+The latest standalone certificate optimizes two endpoint prices after a
+maximal interior shift. A rotation argument proves that these three
+parameters exhaust all additive outcome-weight changes preserving relative
+tree costs; a monotonicity argument removes the interior parameter from
+the maximization. Exact supporting planes and rational LP vertices search
+the remaining two-dimensional box. A logarithmic call budget keeps full
+screening and candidate construction within O(n log^2 n) arithmetic work,
+with O(n) space; rejection still uses Knuth. The finite uncapped optimizer
+has no proved small iteration bound. See [the full proof](ENDPOINT_PRICES.md).
+
+The new positive family has 262,143 keys, 262,142 distinct key weights,
+262,144 distinct gap weights, and exact full cost 4,569,830,391,807.
+One alphabetic call constructs the entire tree without interval-DP cells
+or LP vertices. The previous shifted bound is lower by 8,590,000,165.
+The family's O(n log n) proof includes all original mixed weights.
+
+The approach has a sharp limitation: p=(1,1,2,1), q=(1,2,1,1,1) has full
+optimum 24, but every nonnegative cost-preserving additive reweighting gives
+K+A at most 23. The failure persists on an open box and with all nine
+weights distinct. It is a barrier to this separable certificate class,
+not to general subquadratic construction.
+
+Independent checks include 60 complete arrangement maxima, 5,111 rational
+points, 1,712 cubic-checked oracle calls, and 600 full mixed solves against
+cubic/Knuth: 220 bounded certificates, including 152 previous rejections,
+and 380 exact fallbacks. The 80-trial benchmark retains all 320 full
+constructions and regressions. At 511 keys, median paired priced/Knuth
+ratios are 0.12608 on the new family, 1.30491 random, 1.15055 near-uniform,
+and 1.08209 geometric. The previous portfolio remains unchanged because
+its old shortcuts can be much faster. The M4 was under substantial load;
+the proof and counters, rather than precise timing claims, establish scaling.
+
+The preceding standalone constructor subtracts the smallest key weight m and
 adds it to every gap. An exact alphabetic optimum for q+m supplies a candidate
 and the lower bound K(p-m)+A(q+m)-mn. This is the strongest bound of this form
 over all admissible uniform transfers. Equality with the original full tree

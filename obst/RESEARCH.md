@@ -1636,3 +1636,118 @@ pages were rendered; pages 2--70 are pixel-identical to the preceding
 checkpoint, and page 1 plus pages 71--76 were reviewed at full resolution.
 Stable user-facing TeX/PDF outputs match the manuscript byte-for-byte.
 The full unrestricted objective remains active; no completion claim is made.
+
+
+## Twenty-third checkpoint: all additive transfers and exact endpoint prices
+
+The preceding turn made progress by publishing the shifted alphabetic
+certificate. This continuation examined its failures while preserving the
+full mixed-weight objective. The authoritative starting checkout was clean
+at 15de 44a; the earlier production portfolio remains unchanged.
+
+A rotation argument characterizes every additive reweighting whose cost
+change is independent of tree shape, for n>=3. There are exactly three
+parameters: a uniform interior transfer and the allocations x,y of the
+fixed endpoint masses p_0+q_0 and p_(n-1)+q_n between keys and gaps.
+Every such transformation changes all full costs by an. Its nonnegative
+feasible region is an explicit box. This is a complete characterization
+of additive transfers on these outcome coordinates, not all representations.
+
+The largest separable bound K(p')+A(q')-an is attained at the largest
+interior shift, a=min(p_1,...,p_(n-2)). Increasing a and clamping endpoint
+residual keys at zero gives a nondecreasing path: with e clamped endpoints,
+the relevant gap indicator has minimum E(n+1-e)+e=M(n-e)+n. This reduces
+the entire three-parameter maximization to two endpoint prices.
+
+The price oracle uses the existing exact alphabetic implementation and
+sorted capacity assignment. It returns both a sampled lower bound on
+OPT and an affine upper supporting plane for the concave price-bound
+function. An exact determinant/Cramer's-rule hypograph LP selects the
+next price. Integer cross-products verify every vertex, with rational
+prices and no floating-point tolerances. Sampled lower bounds and original
+full candidate costs are retained across calls. Integer-cost rounding can
+certify a full tree. Price-maximum completion is recorded separately from
+early tree certification and call-budget termination.
+
+With b calls the attempt costs O(b n log(n+1)+b^5) arithmetic operations
+and O(n+b) space. A logarithmic default budget is subquadratic; exact
+Knuth fallback retains the unrestricted quadratic worst case. Supporting
+slopes/intercepts bound LP vertex denominators by O(n^2), adding only
+O(log n) bits to scaled oracle weights. The uncapped diagnostic has no
+proved small iteration bound; observed call counts are not a theorem.
+
+The complete transfer class still fails on the positive four-key instance
+p=(1,1,2,1), q=(1,2,1,1,1): full OPT=24 but max transfer bound=23.
+The full lower bound 24 follows from a unit baseline costing at least 20
+and l_2+d_1>=4. At maximal shift 1, a fixed capacity assignment and a
+fixed alphabetic tree give F(x,y)<=23-y<=23, and x=y=0 attains 23.
+Thus no admissible additive transfer can close that particular separable
+bound. Only one residual interior key has positive weight, exposing the
+remaining internal-order coupling. This is not a general complexity bound.
+
+The obstruction persists throughout an open box of radius 1/100: the
+same supporting construction has total coefficient 20, while the largest
+unit full-tree cost is 24, giving a remaining gap at least 1-44 epsilon.
+All 512 integer corners of 100(p,q)+/-1 pass, with minimum actual gap 94
+versus the proved lower bound 56. An all-distinct example has
+p=(996,997,1998,999), q=(1000,2001,1002,1003,1004), OPT 23999 and maximal
+bound 23004; a constant supporting plane certifies the latter in one call.
+
+A new positive family has n=2^h-1 keys and a perfect optimum. Both endpoint
+keys have weight 1; the smallest interior key has weightB=2^h. After the
+maximal interior shift and endpoint absorption, the gaps are B+j+1 and
+all residual-positive keys attain capacity. Huffman level pairing proves
+that the perfect alphabetic tree is optimal because all transformed gap
+weights lie in[B+1,2B]. Nearly every key and every gap has a distinct
+original weight. The earlier uniform shift 1 leaves a strict bound deficit,
+proved by a three-unit improvement in its last four shifted gaps.
+
+Twelve complete constructions reach 262143 keys,262142 distinct key weights,
+262144 distinct gap weights, and cost 4569830391807. The independent closed
+form is ((8h-11)B^2+(13-7h)B)/2-1. The previous bound falls short by
+8590000165 at the largest size. One alphabetic call performs 262143 merges,
+7111153 priority comparisons,8924411 heap-item comparisons, and 1482369
+key-sort comparisons; all preprocessing, reconstruction, depth, and cost
+visits are retained. There are no LP vertices or interval-DP cells on this
+family. Seven small sizes match Knuth and three match cubic.
+
+The independent arrangement/transfer harness preceded the optimizer. It
+checks 2052 literal transfer identities, exact rank 2n-2 through eight keys,
+and 60 independently enumerated arrangement maxima across 5111 rational
+points. On 600 mixed cases,1712 oracle calls match independent cubic values;
+small cases also match literal trees. All 600 bounded full solves match
+cubic/Knuth/direct costs:220 certificates, including 152 previous rejections,
+and 380 fallbacks. No earlier certificate is lost in this finite suite,
+but no preservation theorem is claimed for the bounded search. The
+uncapped diagnostic certifies 228, rescues 160, and completes every price
+maximum within ten calls. There are 358 strict bound gaps and 600 exact
+clamped-monotonicity checks. Another 6000 seeded positive cases find no
+fractional maximum; this is not an integrality claim. Intermediate prices
+are fractional and remain exact (the obstruction queries y=1/3).
+
+The benchmark retains 80 matched trials and 320 complete constructions in
+four cyclic orders, on ten families at two sizes. At 511 keys, median
+paired priced/Knuth ratios are 0.12608 new family,1.30491 random,1.15055
+near-uniform, and 1.08209 geometric. Old profile, four-signature, and affine
+routes cost 14.64,42.65,37.44 times the previous portfolio, respectively;
+the 319-key old multilevel route costs 8.54 times it. This standalone route
+is not promoted over the existing portfolio. All regressions remain.
+
+The host was Apple M 4, Python 3.9.6, macOS 26.5 arm 64, with load averages
+10.97/11.34/11.74 initially and 11.44/11.44/11.77 finally. Four observations
+and same-process cycling under load are not precise isolated-machine
+measurements. Mathematical bounds and logical counters establish scaling;
+bit costs are additional. The original unrestricted objective remains open.
+
+
+Checkpoint 23 publication audit: all five new result manifests match their
+current source SHA-256 hashes (4, 4, 4, 7, and 17 source entries). All 80
+benchmark rows and 20 aggregate rows were inspected, and their recorded
+medians and paired ratios independently recomputed. The 79-page manuscript
+compiled without warnings, overfull/underfull boxes, or undefined references.
+Every page was rendered. Pages 2--74 are pixel-identical to the preceding
+reviewed checkpoint; page 1 and pages 75--79 were visually inspected, with
+footer separation additionally checked from PDF text coordinates. The proof,
+full original-weight construction, negative controls, and regressions remain
+explicit. Publication is a research checkpoint, not completion of the
+unrestricted objective.

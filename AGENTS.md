@@ -150,3 +150,13 @@ Joint-profile obstruction and shifted alphabetic full certificates:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_shifted_alphabetic.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_shifted_alphabetic.py
 ```
+
+Exact endpoint pricing, all-transfer obstruction, and full mixed scaling:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_endpoint_prices.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/endpoint_price_search.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/endpoint_price_box.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/endpoint_price_family.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_endpoint_prices.py
+```
