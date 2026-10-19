@@ -33,7 +33,10 @@ deviation $R$ is polynomial in $n$.
 
 A common lower-bound certificate also gives faster exact construction on
 specified families. Independently, a common key/gap period $b$ permits
-$O(nb)$ full construction by cyclic root amortization. We give the certificate once and derive the family
+$O(nb)$ full construction by cyclic root amortization. A periodic middle of
+length $m$ with $d=n-m$ arbitrary fringe keys admits $O(mb+nd)$ full
+construction via Wilber's linear concave least-weight-subsequence primitive.
+We give the certificate once and derive the family
 guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
 additive separable transfers. A contiguous odd ramp with total mass exactly $n$ has
@@ -2165,6 +2168,132 @@ invalidate an otherwise repeating pattern; both adjacent gaps in
 application of Knuth's theorem, independent of the integer-mass analysis
 and the later lower-bound certificate. Its general nonperiodic worst case
 remains quadratic. Verification is in Appendix~\ref{app:periodic-obst}.
+
+\subsection{Arbitrary fringes around a periodic middle}
+\label{sec:fringe-obst}
+
+An exact central oracle can absorb arbitrary boundary weights without
+recomputing its central intervals. The needed linear primitive is the
+concave least-weight-subsequence algorithm of Wilber~\cite{wilber}.
+
+\begin{lemma}[Exact boundary extension]\label{lem:fringe-extension}
+Suppose all unrestricted mixed OBST costs $C(i,r)$ for $0\le i\le r<J$
+are available in constant time. The complete new column $C(i,J)$,
+$0\le i\le J$, and optimal roots can be computed in $O(J)$ arithmetic
+work and space. Reflection gives the same bound for a new left row.
+\end{lemma}
+\begin{proof}
+Write $D(i)=C(i,J)$. The original recurrence is
+\[
+ D(J)=0,\qquad
+ D(i)=W(i,J)+\min_{i\le r<J}\{C(i,r)+D(r+1)\}.
+\]
+Set $F(t)=D(J-t)$ and identify predecessor $s<t$ with root $r=J-s-1$.
+This gives $F(0)=0$ and
+\begin{equation}\label{eq:fringe-lws}
+ F(t)=\min_{0\le s<t}\{F(s)+w(s,t)\},\qquad
+ w(s,t)=C(J-t,J-s-1)+W(J-t,J).
+\end{equation}
+Every old interval has right endpoint at most $J-1$; its value is already
+available. Prefix masses make each valid arc query constant time.
+For $s<s'<t<t'$, put $a=J-t'$, $b=J-t$, $c=J-s'-1$, and $e=J-s-1$.
+Then $a<b\le c<e$. The ordinary mixed OBST Monge inequality gives
+\[
+ C(a,c)+C(b,e)\le C(a,e)+C(b,c).
+\]
+The mass terms cancel, proving the precise concavity condition
+\begin{equation}\label{eq:fringe-quadrangle}
+ w(s,t)+w(s',t')\le w(s,t')+w(s',t).
+\end{equation}
+The case $b=c$ uses $C(b,b)=0$ and is included.
+
+Wilber's published statement is that ``the concave least weight subsequence
+problem can always be solved in $O(n)$ time''~\cite[p.~418]{wilber}.
+Its input is a finite real arc function on $0\le s<t\le N$ satisfying
+\eqref{eq:fringe-quadrangle}. With constant-time arc access, the algorithm
+computes every $F(t)$ and predecessor witnesses in $O(N)$ work and space
+\cite[pp.~420--424]{wilber}; no difference-of-weight condition is required.
+Here $N=J$, all valid arcs are finite, and \eqref{eq:fringe-lws} supplies
+exactly this interface. A leftmost predecessor gives a rightmost original
+root. Reflecting keys and inclusive gaps proves the left-row statement.
+\end{proof}
+
+\begin{theorem}[Periodic middle with arbitrary fringes]\label{thm:fringe-obst}
+Let $[l,r)$ be a nonempty middle of $m=r-l$ keys in an $n$-key input.
+Suppose its key weights and inclusive gap weights $q_l,\ldots,q_r$ have
+common period $b\le m$. With $d=n-m$ arbitrary fringe keys and arbitrary
+nonnegative real weights throughout, a complete unrestricted optimal BST
+and a constant-time oracle for every interval cost and an optimal root
+can be constructed in $O(mb+nd)$ arithmetic work and space.
+\end{theorem}
+\begin{proof}
+Build the periodic middle oracle by Theorem~\ref{thm:periodic-obst}, using
+exactly $b(2m-1)$ root candidates. Append the right fringe one key at a
+time by Lemma~\ref{lem:fringe-extension}, then prepend the left fringe
+by reflection. Extension $t$ creates exactly $m+t$ nonempty states, so
+\begin{equation}\label{eq:fringe-states}
+ S_{\mathrm{boundary}}=\sum_{t=1}^{d}(m+t)
+ =dm+\frac{d(d+1)}2
+ =\frac{n(n+1)-m(m+1)}2\le nd.
+\end{equation}
+Store each completed boundary in an array. An old interval either lies
+wholly in the middle, ends in a stored right column, or starts in a stored
+left row. The last case takes precedence when both endpoints are outside.
+These cases give constant-time lookup, including empty intervals of cost
+zero. During left extension, every old left endpoint is strictly larger
+than the new one, so the queried rows already exist.
+
+Explicitly, for a new left row at $i$, let the reversed endpoint be
+$N=n-i$. An old reversed interval $[a,u)$ queries $C(n-u,n-a)$;
+the new interval mass is $W(i,n-a)$; and reversed root $u$ maps to
+original root $n-u-1$. Thus reflection preserves the inclusive gap indices
+as well as key order. No unfinished row or column is queried.
+
+Summing the linear boundary costs using \eqref{eq:fringe-states}, and adding
+the central oracle, gives the claimed bounds. Prefix preprocessing and
+complete reconstruction cost $O(n)$, absorbed because $mb+nd\ge n$.
+An explicit stack follows the exact stored roots and visits every key and
+gap once, with no height assumption. The representation covers every
+original interval, including those unused by the final tree.
+\end{proof}
+
+More generally, any exact constant-time central interval oracle with
+construction and storage cost $T$ can be extended at cost $O(T+nd+n)$.
+The periodic quotient is one concrete source of such an oracle. A final-gap
+defect fits inside a one-key fringe. Neither boundary magnitudes nor total
+mass enter \eqref{eq:fringe-states}.
+
+\begin{corollary}[Automatic middle recognition]\label{cor:fringe-recognition}
+Let $b_0$ be the shortest whole-input joint period, allowing $b_0=n+1$.
+For $1\le b\le B<n$, let $m_b>b$ be the longest middle with common
+period $b$, omitting periods with no such middle. There is an automatic
+exact construction with work
+\begin{equation}\label{eq:fringe-auto}
+ O\!\left(n(B+1)+\min\left\{nb_0,\
+       \min_{1\le b\le B}\bigl[m_b b+n(n-m_b)\bigr]\right\}\right).
+\end{equation}
+With supplied constant $b,d$, construction is linear; default recognition
+with $B=\min\{n-1,\lceil\log_2(n+1)\rceil\}$ adds $O(n\log(n+1))$.
+\end{corollary}
+\begin{proof}
+Use signatures $s_i=(p_i,q_i,q_{i+1})$. A middle $[l,r)$ of length greater
+than $b$ has joint period $b$ exactly when $s_i=s_{i-b}$ for every
+$l+b\le i<r$. On a failed comparison at $i$, an eligible new left endpoint
+must exceed $i-b$; set it to $i-b+1$. Between failures, the longest current
+suffix supplies the longest periodic middle. This costs $O(n)$ per $b$
+and includes the final gap $q_r$. For fixed $b<n$, the proxy
+$mb+n(n-m)$ decreases with $m$, so a longest middle is best.
+Compare all these proxies with $nb_0$, and use the corresponding constructor.
+If $b_0\le B$, the whole-period route already costs $O(nB)$ and the scan
+can be skipped. This proves \eqref{eq:fringe-auto}, also with $B=0$ and
+an omitted inner minimum. Empty input is handled separately.
+\end{proof}
+
+The LWS primitive is established prior work; the boundary reduction and
+its composition with the central quotient supply the bounds above.
+A small number of arbitrary interior defects need not leave a long middle,
+so the general nonperiodic worst case remains quadratic. Independent
+verification and implementation details are in Appendix~\ref{app:fringe-obst}.
 
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
@@ -8981,6 +9110,52 @@ is used. The complexity and optimality claims follow from the exact quotient
 \eqref{eq:periodic-telescope}, both of which include the synthetic phases.
 
 \clearpage
+\section{Boundary extension and full mixed-tree audit}
+\label{app:fringe-obst}
+
+The implementation first checks Wilber's LWS primitive against a fresh dense
+recurrence: 768 instances through 64 vertices, with signed finite row and
+column offsets and quadratic separation costs, use 549,120 literal arc
+candidates. All values and leftmost predecessors agree. The implementation
+follows the two-search batching algorithm in Wilber's Figure~1. Invalid
+cells internal to SMAWK use an ordered tag above all finite values; valid
+arc queries remain finite. Each batch's comparisons therefore equal those
+of a sufficiently large finite completion. The implementation records
+batch widths and checks that their sum is at most three times the number
+of vertices; this is the potential argument from Wilber's linear bound.
+
+The full mixed audit checks 980 small inputs: all binary mixed vectors
+through four keys and seeded periodic-middle inputs through 27 keys,
+including rational weights and boundary weights as large as $10^{40}$.
+Explicit middle selection and automatic selection are checked separately.
+Independent all-root tables use 351,256 candidates and 49,492 states,
+verifying 57,416 original interval values and 44,230 stored root witnesses.
+Another 6944 rightmost-root controls test the new-column reduction directly
+against the original tables, independently of the periodic solver. Literal
+substring enumeration checks 3324 longest-middle decisions using 162,564
+candidate substrings. Small ordered-tree enumeration evaluates 7880 shapes.
+Every reconstructed tree is independently traversed to check ordering,
+links, key and gap depths, and weighted cost.
+
+Sixteen matched inputs through 512 keys use the ordinary uncompressed Knuth
+recurrence, examining 1,847,784 candidates. Twelve larger complete automatic
+constructions reach 65,537 keys, with periods one, three, and five and one
+or seven arbitrary fringe keys. At that size, the one-key right fringe and
+period-one middle have exactly 65,537 new boundary states, 131,071 central
+root candidates, and 1,309,476 valid LWS transition queries. With period
+five and seven fringe keys, the corresponding counts are 458,738, 655,295,
+and 8,264,895. The automatic scan performs 1,113,976 signature comparisons
+on each of these largest inputs. These are operation counts; central root
+candidates and LWS transition queries are different operations.
+
+The large rows verify complete construction and independently evaluated tree
+costs; they have no separate quadratic optimality oracle. The work bound
+comes from Lemma~\ref{lem:fringe-extension} and the exact state identity
+\eqref{eq:fringe-states}. The result record retains the seed, costs, operation
+counts, verification scopes, and six executed-source hashes. No timing or
+fitted exponent enters the theorem.
+
+\clearpage
 \begingroup\small
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -8994,6 +9169,10 @@ C. Berge. Two theorems in graph theory.
 D. E. Knuth. Optimum binary search trees.
 \emph{Acta Informatica} 1, 14--25, 1971.
 \href{https://doi.org/10.1007/BF00264289}{doi:10.1007/BF00264289}.
+\bibitem{wilber}
+R. Wilber. The concave least-weight subsequence problem revisited.
+\emph{Journal of Algorithms} 9, 418--425, 1988.
+\href{https://gwern.net/doc/design/typography/tex/1988-wilber.pdf}{Primary paper}.
 \bibitem{larmore}
 L. L. Larmore. A subquadratic algorithm for constructing approximately
 optimal binary search trees. \emph{Journal of Algorithms} 8(4),

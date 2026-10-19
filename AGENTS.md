@@ -483,3 +483,14 @@ This audit includes every synthetic phase interval used in the cyclic root
 amortization. Large rows reconstruct complete trees and record exact candidate
 counts; independent all-root and ordinary Knuth controls have separate scopes.
 Copy the result JSON back before the next mirror operation.
+
+Periodic middles with arbitrary boundary fringes and linear concave LWS:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/fringe_obst_audit.py
+```
+
+The audit first checks the prior-work LWS implementation against a dense
+recurrence, then every small interval and boundary column. Larger full-tree
+rows have separately labeled reference scopes. Copy the JSON result back
+before another mirror operation.

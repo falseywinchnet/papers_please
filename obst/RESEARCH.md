@@ -3694,3 +3694,67 @@ TeX/font archive was rebuilt and verified member by member. Exploratory
 probe sources and raw records are preserved outside the repository in the
 local revision48-probes work directory; the independently verified 128-key
 counterexample is included in the committed audit record.
+
+## Checkpoint 49: linear boundary extension around an exact middle
+
+Checkpoint 48 was progress, published at d081795: a full periodic mixed
+solver and an independently confirmed fixed-mass support counterexample.
+This turn extends the exact full-tree representation to arbitrary boundary
+fringes. No subagents were used. The arbitrary-input objective remains active.
+
+The initial boundary-envelope idea gave O(n log n) work per new column by
+binary searching a one-crossing condition. Checking the primary literature
+identified Wilber's 1988 linear concave LWS algorithm, which removes that
+logarithm. It is credited as prior work and implemented directly from its
+Figure 1. The new reduction is w(s,t)=C(J-t,J-s-1)+W(J-t,J). Every old cost
+has endpoint below J; the original OBST Monge inequality gives exactly the
+required concave quadrangle after mass terms cancel. Reflection extends
+left rows as well. No unfinished oracle values are queried.
+
+A periodic middle of m keys and period b with d=n-m arbitrary fringe keys
+therefore supports full exact construction in O(mb+nd) work and space. The
+number of added nonempty interval states is exactly dm+d(d+1)/2. Inclusive
+central gaps are required to repeat; the fringe magnitudes are unrestricted
+nonnegative reals. All original interval costs and optimal roots have
+constant-time access. Complete iterative reconstruction is included.
+Any central constant-time exact oracle of cost T similarly extends in
+O(T+nd+n). Sparse arbitrary interior defects are not solved by this lemma.
+
+A signature scan finds a longest period-b middle in O(n); the signature
+includes both adjacent gaps. The automatic planner scans b through the
+logarithmic threshold and compares mb+n(n-m) with the whole-period proxy.
+It may skip the scan when the whole period is already within the threshold.
+Thus constant supplied period and fringe count give linear construction;
+automatic recognition adds O(n log(n+1)). No empirical exponent is used.
+
+The independent audit was written before execution. Its first run stopped
+at a syntax typo in the harness; that was corrected before any results were
+accepted. The complete remote audit then passed: 768 generic signed LWS
+instances with 549120 literal candidates, 980 small full mixed inputs,
+57416 interval costs, 44230 optimal root witnesses, 6944 standalone boundary
+root controls, and 3324 literal middle decisions. The all-root references
+use 351256 candidates and 49492 states; enumeration checks 7880 shapes.
+Sixteen ordinary Knuth controls through 512 keys use 1847784 candidates.
+Twelve larger full constructions reach 65537 keys and traverse every key
+and gap, with no separate quadratic optimality reference at that size.
+The seven-fringe period-five row has exactly 458738 new states, 655295
+central candidates, and 8264895 valid LWS arc queries. The six source hashes
+match the executed files. Timing is neither reported nor used as evidence.
+
+The proof is FRINGE_OBST.md. The manuscript places the boundary lemma and
+full composition after the periodic theorem and puts all verification
+counts in Appendix Y. The original Monge result still leads. The unresolved
+local core-support theorem and the remaining square-root-logarithmic gap
+are unchanged; a restricted-family result does not complete the full goal.
+
+Publication validation: the final manuscript compiles without warnings to
+139 pages. All 381 prior labels remain, all 390 current labels are unique,
+and all references and citations resolve. All pages were rendered and
+visually reviewed, with detailed checks of the new proof on pages 32--33,
+Appendix Y on page 137, and dedication on page 139. The dedication source
+is byte-identical to checkpoint 48. Twenty-three source-hash entries across
+the new and four preceding audits match. Stable TeX/PDF outputs match the
+manuscript byte for byte; the five-member TeX/font archive was rebuilt and
+verified member by member. An initial compile invocation used the repository
+root's unrelated main.tex and failed on its missing figure; its generated
+log was removed and the correct obst/manuscript source was then compiled.

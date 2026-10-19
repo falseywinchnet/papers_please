@@ -32,6 +32,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Valley interval queries and quadratic original-coordinate cores](VALLEY_QUERIES.md)
 - [Individual-weight charges and all above-capacity valley cores](VALLEY_CORE_MASS.md)
 - [Exact full mixed construction by periodic phase](PERIODIC_OBST.md)
+- [Arbitrary fringes around a periodic middle](FRINGE_OBST.md)
 - [Arbitrary-key rank transfers and exact dense-core barriers](RANK_TRANSFER_BARRIER.md)
 - [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
@@ -62,6 +63,17 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+A periodic middle of length m and period b now tolerates d=n-m arbitrary
+fringe keys in [O(mb+nd) full construction](FRINGE_OBST.md). Each boundary
+extension reduces exactly to Wilber's linear concave least-weight-subsequence
+algorithm. The number of added nonempty states is exactly dm+d(d+1)/2;
+no mass or height restriction is used. Automatic recognition scans small
+periods and selects between a middle extension and the whole-period route.
+The largest complete constructions reach 65537 keys with arbitrary large
+boundary weights. Independent quadratic optimality controls have a separate
+scope; all work bounds follow from the proof. Interior defects and the
+general nonperiodic objective remain open.
 
 A joint key/gap period b now gives an [exact full-tree construction in
 O(nb) work](PERIODIC_OBST.md), with arbitrary nonnegative real weights.
