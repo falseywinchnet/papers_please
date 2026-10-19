@@ -811,6 +811,65 @@ the new statements and proofs were inspected individually. The publication
 preserves the distinction between a representation obstruction and a general
 algorithmic lower bound. The unrestricted objective remains open.
 
+## Fourteenth checkpoint: terminal penalties and sparse Monge products
+
+The endpoint-response checkpoint was committed and its GitHub blobs verified
+at 5eafeded369aed644fdf9ecfda0a33dabd24ae1f. The next investigation retains
+the actual interval table in a condensed Monge representation.
+
+A useful first identity is that the sum of the triangular Monge densities is
+C(0,n) minus the sum of singleton interval costs. Nonnegative integer weights
+therefore give only O(W log n) nonzero densities in the final table. This
+alone does not construct the table and was not presented as an algorithm.
+
+A proposed upward iteration from additive singleton costs had a flawed
+convergence proof: rotations can lift unfinished intervals and force extra
+refinement. The proposed proof was discarded despite small passing tests.
+No convergence theorem for that lower iteration is claimed.
+
+The retained construction starts instead from M times interval length, where
+M=(H+1)W+1 and H is a safe actual-optimum height bound. Each layer expands one
+level and retains M per unfinished key. It is a decreasing upper iteration.
+Every optimum at layer h exposes min(length,2^h-1) keys, giving an explicit
+penalty ramp plus a residual between zero and h times interval mass. Finite
+Monge completion, including diagonal boundary cases, allows a published
+core-sparse Monge product to compute the next layer.
+
+The crucial intermediate bound removes the penalty ramp's one density line
+and tiles the remaining triangular domain by dyadic squares. There are
+O(n/s) tiles of side s, and each has at most min(s^2,2hW) nonzero integer
+densities. Summation gives O(n sqrt(hW)), capped by n^2. After a balanced full
+tree is feasible, telescoping gives the stronger O(W log n) bound. This
+establishes O(H [n+min(n^2,n sqrt(W L))] log(n+1)) arithmetic work with
+L=ceil(log2(n+1)), using the published Gawrychowski--Gorbachev--Kociumaka
+product and witness algorithms. For W=O(n) this is
+O(n^(3/2) log^(5/2)(n+1)), including full reconstruction and permitting zeros.
+It improves the exponent of the prior frontier guarantee in that regime;
+it does not resolve unrestricted numerical weights.
+
+The dense reference harness passed 1,092 complete solves: 680 exhaustive
+binary inputs, 384 random inputs, and 28 scaling/adversarial fixtures. All
+values and reconstructed trees match Knuth and direct evaluation. It also
+passed 7,972 cubic interval checks, 8,048 all-root cell checks, 792 explicit
+padded products, 792 all-shape truncated-layer checks, and 139,992 tile checks.
+Its actual costs were 6,318,862 dense states, 12,381,033 root candidates, and
+11,912 constructed keys. At n=256 the largest interior core on mixed {1,2}
+weights was 3,857 out of 32,640 positions; near-uniform weights gave 6,196.
+The exponentially weighted 64-key geometric control needs all 64 layers,
+consistent with dependence on W. Source-hashed data is retained.
+
+This is a proved reduction to a published primitive, with a dense diagnostic
+implementation. The actual compact product backend and its complete timing
+and operation-count evaluation remain to be built. Novelty is unestablished.
+The next action is implementing the condensed representation, finite-product
+conversion, and witness reconstruction without silently materializing the
+quadratic table. The full original goal remains active.
+
+The final 45-page manuscript compiled without warnings. All pages were rendered
+and reviewed in contact sheets; the new proof pages 42--45 were also inspected
+individually. The final harness source hash matches its result file. Publication
+includes the theoretical construction's implementation boundary explicitly.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

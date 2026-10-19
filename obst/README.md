@@ -16,10 +16,20 @@ selection by the repository owner. The general research objective is ongoing.
 - [Joint heavy-outcome cores and protected-height certificate](HEAVY_CORE.md)
 - [Residual-cost core exclusion and linear-weight family](CORE_EXCLUSION.md)
 - [Coupled two-gap skeletons and arbitrary nonuniform key placements](PAIR_SKELETON.md)
+- [Terminal-penalty layers and core-sparse Monge reduction](MONGE_PENALTY.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
+
+The latest mathematical reduction uses penalized partial trees and a published
+core-sparse Monge multiplication primitive. It gives exact
+O(n^(3/2) log^(5/2)(n+1)) construction for arbitrary nonnegative integer mixed
+weights of total mass O(n), including zeros. The intermediate-core bound,
+finite completion, and witness reconstruction are proved in the note and
+manuscript. **The new code is a dense reference audit; the compact product
+backend is not implemented yet, and no practical speedup is claimed.**
+The numerical-mass dependence does not settle the unrestricted objective.
 
 The input has weights on **both keys and gaps**. The latest constructor retains
 the constant-size search-path skeleton of the first possible two-gap core
@@ -93,6 +103,7 @@ python3 obst/code/check_pair_skeleton.py
 python3 obst/code/pair_skeleton_family.py
 python3 obst/code/pair_skeleton_crossover.py
 python3 obst/code/boundary_response.py
+python3 obst/code/penalty_layers.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py

@@ -18,53 +18,45 @@
 \maketitle
 \begin{abstract}
 We investigate exact optimal binary search trees with ordered weights on
-both keys and gaps. We give sufficient key and block contraction rules,
-with construction cost $O(n+m^2+\sum_t k_t^2)$ for a surviving core of
-$m$ keys and contracted blocks of sizes $k_t$. Complementary shortcuts
-optimize minimum or bounded-excess unweighted path-length classes and
-certify unrestricted optimality with residual-weight bounds. Successful
-narrow-class attempts take $O(n\log n)$ work. A known split-height Monge
-construction supplies an $O(n^{3/2})$ attempted route at every size, with a
-separate certificate against taller trees.
+both keys and gaps. Our latest construction is a reduction to the published
+core-sparse Monge multiplication and witness algorithms. Starting from a
+large terminal penalty, successive partial-tree layers form decreasing
+Monge upper bounds. Each layer is an explicit penalty ramp plus a bounded
+residual. A dyadic argument bounds all intermediate cores, including the
+early layers before a full balanced tree is feasible. For nonnegative
+integer weights of total mass $W=O(n)$, the reduction gives exact
+$O(n^{3/2}\log^{5/2}(n+1))$ construction, including reconstruction and
+allowing zero weights. A dense reference harness verifies the reduction;
+the compact multiplication backend is not yet implemented here, and no
+practical speedup is claimed for this result.
 
-We also implement the established short-interval/top-skeleton architecture
-using a variable mass contour. A directly proved mixed-weight Fibonacci
-bound guarantees that the contour contains every optimal subtree at a
-chosen depth $d$. If $S_d$ intervals are admitted, exact full construction
-takes $O(n\log(n+1)+\min_d\{S_d+n2^d\})$ arithmetic work, including
-parameter selection. A cancellation argument bounds all short-table root
-searches by $3S_d$. On a positive family with a localized light block, the
-variable contour gives $O(n^{1.59024})$ work while the specified uniform
-width envelope requires $\Omega(n^{1.75})$ work. This is a comparison
-within one architecture, not a new general subquadratic bound. Dominant-key
-and dominant-gap certificates split the instance into independent components
-with local frontiers. Endpoint-certified chains take linear arithmetic work;
-bounded terminal components give $O(n\log n)$ work. A joint heavy-outcome
-certificate further isolates several comparable heavy gaps or keys, using
-a protected-only height bound and an $O(n\log n)$ threshold sweep.
-Crediting a residual lower bound strengthens this to an excluded-class
-certificate; two gaps of weight $4n$ against unit mixed background admit
-an $O(n\log n)$ exact construction even when the height test fails.
-A coupled two-gap certificate retains the first violating path skeleton
-and bounds its payloads by mixed forests. It certifies a family with
-arbitrarily positioned nonuniform key weights and two gaps of weight $3n$,
-giving exact $O(n^\alpha)$ construction for
-$\alpha=1+\log_{2\varphi}2<1.59024$ through the existing local frontier.
-The same exponent already applies globally to this linear-total-mass
-family; the advance is the stronger certificate and measured work reduction.
+An implemented portfolio provides complementary exact shortcuts: key and
+block contractions, minimum- or bounded-excess path-length classes,
+dominant-gap separators, and joint heavy-outcome cores. A coupled two-gap
+certificate retains the first violating path skeleton and bounds its
+payloads with mixed forests. We also implement the established
+short-interval/top-skeleton architecture with a variable mass contour.
+A directly proved mixed Fibonacci mass bound and a root-search cancellation
+argument give $O(n\log(n+1)+\min_d\{S_d+n2^d\})$ arithmetic work,
+where $S_d$ counts admitted intervals. On the specified positive linear-mass
+families this yields exponent below $1.59024$; the core-sparse reduction
+improves that exponent, up to logarithmic factors, in the integer-mass regime.
 
-An endpoint-response audit gives two small positive mixed intervals with
-identical value responses but different optima in the same surrounding
-context. Explicit response envelopes can have quadratically many pieces,
-although the constructed example has a linear-size factorization.
+We distinguish compression from information loss. Two positive mixed
+intervals have identical responses to all nonnegative endpoint-gap weight
+additions but different optima in the same surrounding context. A separate
+example has quadratically many affine response regions yet a linear-size
+exact factorization. Depth-order relaxations and local repairs also have
+explicit obstructions. These are scoped representation barriers, not a
+general computational lower bound.
 
-Exact enumeration, independent cubic recurrences, adversarial inputs, and
-operation counts accompany all implementations. We preserve a failed
-mass-bound transfer and document an ordered depth relaxation, its
-$O(n\log n)$ oracle, and obstructions to local repairs. General worst-case
-construction remains quadratic; novelty and broad practical superiority
-are not established. The full subquadratic research objective remains open.
+Exact enumeration, independent cubic recurrences, adversarial inputs,
+source-hashed data, and operation counts accompany the implementations.
+The unrestricted subquadratic question remains open. Mathematical priority,
+compact-backend performance, and broad practical superiority remain
+unestablished; existing algorithms used by the reductions are credited.
 \end{abstract}
+\newpage
 
 \section{Model, scope, and prior work}
 Keys have fixed inorder positions $0,\ldots,n-1$ and nonnegative weights
@@ -2703,12 +2695,222 @@ path decisions or internal alternatives discarded by the isolated value
 response. The present results rule out two specific shortcuts; they do
 not resolve or replace the full mixed-weight subquadratic objective.
 
+\newpage
+\section{A core-sparse Monge reduction with terminal penalties}
+The preceding interface counterexample motivates preserving the actual
+interval costs in compressed form. We now give a reduction to the published
+core-sparse Monge product of Gawrychowski, Gorbachev, and
+Kociumaka~\cite{coremonge}. It yields a smaller exponent, up to logarithms,
+for linear total integer mass than the frontier bound above, and permits
+zero weights. The reference implementation in this checkpoint audits the
+reduction with dense tables; it does not implement the fast product or
+establish a practical speedup. Priority of this application is unestablished.
+
+Let $n\ge1$, let all key and gap weights be nonnegative integers, and put
+$W=\sum p_i+\sum q_i$ and $L=\lceil\log_2(n+1)\rceil$. Write $f(W)$ for
+the first index with $F_{f(W)}>W$, where $F_0=0,F_1=1$. Set
+\[
+ H=\min\{n,f(W)+L\},\qquad M=(H+1)W+1.
+\]
+If every key weight is positive, $H=\min\{n,f(W)\}$ suffices.
+
+\begin{theorem}[Integer-mass sparse-product reduction]\label{thm:penalty-reduction}
+Using the core-sparse Monge multiplication and witness algorithms
+of~\cite{coremonge}, a full optimal BST can be constructed in
+\[
+ O\!\left(H\left[n+\min\{n^2,n\sqrt{WL}\}\right]\log(n+1)\right)
+\]
+arithmetic operations. Retaining the witness structures uses
+$O(H[n+\min\{n^2,n\sqrt{WL}\}])$ words. In particular, $W=O(n)$ gives
+$O(n^{3/2}\log^{5/2}(n+1))$ exact construction. Intermediate integers have
+$O(\log(n+1)+\log(W+1))$ bits.
+\end{theorem}
+The dependence on numerical mass is essential to this statement. The
+linear-mass case fits ordinary $O(\log n)$-bit arithmetic, but arbitrary
+large integer weights do not give an unrestricted strongly subquadratic
+bound. Knuth remains a fallback when the displayed bound is unfavorable.
+
+\subsection{An upper iteration that finishes in a bounded number of levels}
+Initialize $A_0(i,j)=M(j-i)$ for $i\le j$, and iterate
+\begin{align*}
+ A_h(i,i)&=0,\\
+ A_h(i,j)&=W(i,j)+\min_{i\le r<j}
+       \{A_{h-1}(i,r)+A_{h-1}(r+1,j)\}\quad(i<j).
+\end{align*}
+This is an $h$-level partial search tree: explicit decisions incur the usual
+interval mass, while each key still in an unfinished terminal interval
+incurs penalty $M$. If $t$ keys are explicit, the cost is
+\[
+ M((j-i)-t)+D,\qquad 0\le D\le hW(i,j).
+\]
+At most $\min\{j-i,2^h-1\}$ keys can be explicit, and that number is
+attainable with inorder labels. Since $M>HW$, every minimizer for
+$h\le H$ uses that maximum number. Writing $c_h=2^h-1$ gives
+\begin{equation}\label{eq:penalty-residual}
+ A_h(i,j)=M\max\{0,j-i-c_h\}+R_h(i,j),\qquad
+ 0\le R_h(i,j)\le hW(i,j).
+\end{equation}
+The residual $R_h$ is not asserted to be Monge.
+
+The initial bound dominates every interval optimum: any complete tree on
+$j-i$ keys costs at most $(j-i)W(i,j)\le M(j-i)$. The recurrence is
+monotone, and $A_1\le A_0$ because $W(i,j)\le M$. Thus the iterates
+decrease and remain at least $C$. Whenever an optimal full tree fits
+within $h$ levels, it is feasible without a terminal penalty, so $A_h=C$.
+
+The mixed Fibonacci mass lemma applies here to an \emph{actual optimal
+full tree}. Every positive-mass internal subtree at depth $d$ satisfies
+$F_{d+1}\le W$. Zero-mass subtrees can be replaced by balanced trees of
+height at most $L$ without changing cost. Therefore some optimum has
+height at most $f(W)+L$; the trivial bound $n$ also applies. When all keys
+have positive integer weight every internal subtree has mass at least one,
+so the extra $L$ is unnecessary. These arguments apply to every interval,
+proving $A_H=C$ throughout the upper triangle.
+
+An earlier proposed iteration started from the additive singleton lower
+bound. Its attempted rotation proof of logarithmic convergence was invalid:
+a rotation can lift an unfinished interval, requiring extra refinement to
+restore the prescribed number of levels. Small passing tests do not remove
+that issue. The upper-penalty proof above avoids that argument.
+
+\subsection{Finite Monge products, including the diagonal boundary}
+For a triangular matrix $A$ with zero diagonal, define its interior density by
+\[
+ \Delta_A(i,j)=A(i,j+1)+A(i+1,j)-A(i,j)-A(i+1,j+1)
+ \quad(0\le i<j<n).
+\]
+A \emph{core} lists nonzero densities. To use a finite matrix product, put
+$P=4nM+4W+1$ and complete each layer by
+\[
+ E_h(i,j)=\begin{cases}A_h(i,j),&i\le j,\\P(i-j),&i>j.\end{cases}
+\]
+We prove by induction that $E_h$ is Monge. This is immediate for $E_0$.
+Given the previous completion, multiply its first $n$ columns by its last
+$n$ rows in the min-plus sense:
+\[
+ B_h(i,j)=\min_{0\le r<n}
+       \{E_{h-1}(i,r)+E_{h-1}(r+1,j)\}.
+\]
+For $i<j$, every invalid root has a term at least $P$, whereas a valid
+pair costs at most $nM$. Thus the finite product gives the restricted root
+minimum exactly. The product is Monge. Adding $W(i,j)$, a row term plus
+a column term, leaves density unchanged in squares entirely above the
+diagonal. The only interior squares affected by resetting a diagonal entry
+to zero have $j=i+1$. Their new density is
+\[
+ \min\{A_{h-1}(i,i+1),A_{h-1}(i+1,i+2)\}-q_{i+1}\ge0.
+\]
+For the first step both old singleton entries are $M$; thereafter each is
+its singleton interval mass. The completion adds exactly the $n$ diagonal
+densities $P+A_h(i,i+1)$; all densities below them vanish. This proves
+Monge preservation, including the boundary cases. All entries are integers.
+
+\subsection{A bound on every intermediate core}
+Let $K_h$ be the number of nonzero interior densities of $A_h$.
+A direct telescoping identity is
+\begin{equation}\label{eq:core-mass}
+ \sum_{i<j}\Delta_A(i,j)=A(0,n)-\sum_{i=0}^{n-1}A(i,i+1).
+\end{equation}
+For $h\ge L$, a balanced full tree is feasible, so $A_h(0,n)\le LW$.
+Nonnegative integrality then gives $K_h\le LW$. This final-stage argument
+alone would not bound the early layers, whose terminal penalties are large.
+
+For $1\le h<L$, the penalty term in~\eqref{eq:penalty-residual} has
+density only on the line $j-i=c_h$. Account for that line and the main
+diagonal separately, using $O(n)$ cells. Tile the remaining density-index
+triangle by maximal dyadic squares that do not cross either line. A
+power-of-two enclosing square, also split at the outer domain boundary,
+handles arbitrary $n$. At side length $s$ there are $O(n/s)$ tiles:
+each parent of a maximal tile intersects one of a constant number of
+straight boundaries, and each boundary meets $O(n/s)$ grid squares at
+that scale.
+
+On a tile $[a,b)\times[c,d)$ the penalty density vanishes. Its density
+sum telescopes to
+\[
+ R_h(a,d)+R_h(b,c)-R_h(a,c)-R_h(b,d)\le2hW.
+\]
+All densities in this tile are nonnegative integers. Negative residual
+densities can occur on the removed line and are not used. The number
+of nonzero entries in the tile is at most $\min\{s^2,2hW\}$. Therefore
+\[
+ K_h=O\!\left(n+\sum_{s\text{ dyadic}}\frac ns
+                         \min\{s^2,2hW\}\right)
+     =O(n+n\sqrt{hW}),
+\]
+capped by $O(n^2)$. Splitting the geometric sum at $s\asymp\sqrt{hW}$
+introduces no extra logarithm. For $W=0$, only the removed-line entries
+can remain. Combining the early and late bounds, including the $n$
+completion entries, yields
+\begin{equation}\label{eq:penalty-core-bound}
+ \delta(E_h)=O\!\left(n+\min\{n^2,n\sqrt{WL}\}\right)
+ \qquad(0\le h\le H).
+\end{equation}
+This controls representation size without charging the large value of $M$
+as though it represented many separate core entries.
+
+\subsection{Compact computation and full reconstruction}
+Theorem~1.2 of~\cite{coremonge} multiplies finite Monge matrices from
+their condensed representations in time linear in their dimensions plus
+input core size times its logarithm. Theorem~4.7 supplies compact witness
+oracles in the same time. Fact~4.1 provides logarithmic-time entry queries
+after core-based preprocessing. These are existing algorithms, not results
+claimed here.
+
+Use them on the two contiguous submatrices of $E_{h-1}$. To obtain the
+next completion, retain the product core strictly above the first
+superdiagonal, where adding interval mass has zero density. Recompute the
+$O(n)$ diagonal and first-superdiagonal core entries, discard lower entries,
+and recover the top row and left column. Filtering and $O(n)$ logarithmic
+entry queries take $O((n+\delta)\log(n+1))$ work, including coordinate
+sorting if needed. The product's temporary core is also bounded linearly
+by the two input cores, by Theorem~1.1 of~\cite{coremonge}. No step
+first enumerates a dense interval table.
+
+Retain the product witness oracle for every layer. Starting from $(0,n,H)$,
+retrieve a root and recurse on its two intervals at layer $H-1$.
+There are $n$ nonempty calls. An unfinished nonempty interval at layer zero
+would incur at least $M$, but the optimum is at most $LW<M$, since
+$H\ge L$. Thus none survives; when $H=n$, completeness also follows from
+depth alone. Witness recovery costs an additional $O(n\log(n+1))$.
+Equation~\eqref{eq:penalty-core-bound}, summed over $H$ layers, proves
+Theorem~\ref{thm:penalty-reduction}, including dimensions, representation
+conversion, storage, and reconstruction. Since $H\le n$ and the penalties
+are polynomial in $n,W$, the stated bit-length bound follows as well.
+
+\paragraph{Reference checks and implementation boundary.}
+The dense audit \texttt{penalty\_layers.py} passed 1,092 complete solves:
+680 exhaustive binary-weight inputs through four keys, 384 random inputs
+through 32 keys, and 28 size/family fixtures through 256 keys. These include
+zeros, near-uniform, alternating, varying mixed, and geometric weights.
+All complete values and trees match Knuth and direct cost evaluation.
+There are 7,972 independent cubic interval checks, 8,048 all-root cell
+checks, 792 explicit padded-product checks, 792 all-shape truncated-layer
+checks, and 139,992 verified dyadic tiles. The geometric family correctly
+needs all 64 layers at 64 keys; no logarithmic-in-$n$ claim is made for
+its exponentially large mass.
+
+At 256 keys, the maximum interior core over all layers was 3,857 for
+mixed weights in $\{1,2\}$, 6,196 for weights in $\{100,101,102\}$,
+and 5,008 for mixed weights in $\{1,\ldots,16\}$, against 32,640 possible
+interior positions. These are representation counts, not runtime speedups.
+The audit actually computed 6,318,862 dense states and examined 12,381,033
+root candidates across its full suite. It constructed 11,912 keys.
+Source-hashed raw data is in \texttt{penalty\_layers.json}.
+
+The asymptotic result is a reduction to a published primitive; that compact
+primitive is not implemented by this dense reference harness. Implementing
+and testing the full compact path, measuring total construction work, and
+checking priority remain required research steps. The unrestricted
+mixed-weight subquadratic or impossibility question remains open.
+
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
 interval frontiers, dominant-gap separators, joint heavy-outcome cores,
 residual exclusion and coupled two-gap skeleton certificates, global certificates,
-and scoped obstructions to depth and endpoint-response representations.
+scoped obstructions to depth and endpoint-response representations, and
+a core-sparse product reduction for integer-mass inputs.
 Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
@@ -2720,7 +2922,7 @@ avoid most of the quadratic table on a substantially broader class, or
 establish a rigorously scoped complexity lower bound.
 
 \begingroup\small
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
 \raggedright
 \bibitem{knuth}
@@ -2762,6 +2964,11 @@ Asymptotically optimal vertex ranking of planar graphs. 2022 version.
 D. A. Huffman. A method for the construction of minimum-redundancy codes.
 \emph{Proceedings of the IRE} 40(9), 1098--1101, 1952.
 \href{https://doi.org/10.1109/JRPROC.1952.273898}{doi:10.1109/JRPROC.1952.273898}.
+\bibitem{coremonge}
+P. Gawrychowski, E. Gorbachev, and T. Kociumaka.
+Core-sparse Monge matrix multiplication: improved algorithm and applications.
+\emph{ESA 2025}, LIPIcs 351, 74:1--74:17.
+\href{https://doi.org/10.4230/LIPIcs.ESA.2025.74}{doi:10.4230/LIPIcs.ESA.2025.74}.
 \end{thebibliography}
 \endgroup
 \end{document}
