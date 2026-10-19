@@ -17,6 +17,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Necessary tail terms and targeted adversarial diagnostics](CORE_TAIL_EXTREMES.md)
 - [Capacity densities, sharp interaction allowance, and wider-band obstruction](CAPACITY_INTERACTION.md)
 - [Explicit two-key disproof of logarithmic interaction allowances](SPARSE_INTERACTION_BARRIER.md)
+- [Coupled rank-reward stability and periodic clipping obstruction](RANK_REWARD_STABILITY.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -68,6 +69,16 @@ See [the interaction theorem](CAPACITY_INTERACTION.md). A later
 [two-key family](SPARSE_INTERACTION_BARRIER.md) disproves every all-width
 additive O(hW) allowance over the unit-input tails. Its interaction grows
 like the leading c/d term, so that term must cover joint optimization as well.
+
+A rank-coordinate stability theorem now controls joint optimization above
+capacity: increasing one skeleton reward by Delta raises any upper tail by
+at most P Delta. Clipping the ruler rewards at level t therefore costs at
+most P(2^(h-t)-(h-t)-1), which is O(Pc/d) for t near log2 d. The remaining
+periodic template still needs a bound: even its alternating 0,1 version has
+an explicit two-key family with tail 2^(h-1)-4 at width two. See
+[the stability proof and periodic obstruction](RANK_REWARD_STABILITY.md).
+Expanded sparse and repeated-cluster searches retain the broader mixed
+tail estimate as an open target.
 
 The sharper time bound charges each individual outcome weight to covering
 tiles and sums their geometrically spaced layer boundaries. It proves total

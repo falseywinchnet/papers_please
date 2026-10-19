@@ -246,3 +246,24 @@ Explicit two-key interaction barrier:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/sparse_interaction_barrier.py
 ```
+
+Original total-tail target on sparse and coupled phase patterns:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/core_tail_search.cpp -o /tmp/obst-core-tail-search && python3 obst/code/sparse_tail_search.py /tmp/obst-core-tail-search'
+```
+
+Rank-reward perturbation and periodic clipping audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/rank_reward_tail.py
+```
+
+Repeated sparse clusters across ruler scales:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/core_tail_search.cpp -o /tmp/obst-core-tail-search && python3 obst/code/cluster_tail_search.py /tmp/obst-core-tail-search'
+```
+
+Exact periodic-template barrier audit:
+`/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/periodic_tail_barrier.py`

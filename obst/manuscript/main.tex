@@ -1031,6 +1031,96 @@ The interaction is exactly $(h-3)C+2h+2$, whose ratio to $(h-1)C$ tends
 to one. Scaling all positive weights by two gives $W=n$ with the same ratio.
 \end{proof}
 
+\subsection{Coupled stability of above-capacity rank rewards}
+\label{sec:rank-reward-stability}
+Let $p_0,\ldots,p_{n-1}\ge0$, $P=\sum_xp_x$, and let
+$v=(v_1,\ldots,v_c)$ be any real template, with $1\le c\le n$. Set
+\[
+ S_v(i,j)=\max_{i\le t_1<\cdots<t_c<j}\sum_{r=1}^c p_{t_r}v_r
+ \qquad(j-i\ge c).
+\]
+For integer $d\ge1$, define its upper tail by
+\begin{equation}\label{eq:rank-upper-tail}
+ U_d(v)=\sum_{\substack{0\le i<j<n\\j-i\ge c+d}}
+ [S_v(i,j)+S_v(i+1,j+1)-S_v(i,j+1)-S_v(i+1,j)].
+\end{equation}
+Each summand is nonnegative. Given optima for the outer and inner
+intervals, their componentwise minimum fits the left interval and their
+componentwise maximum fits the right interval. The sum of their rewards
+is unchanged, proving the inequality.
+For $c=2^h-1$ and $v_r=\nu_2(r)$, the above-capacity mixed-slot formula
+identifies \eqref{eq:rank-upper-tail} with the ordinary upper density mass
+at distance at least $d$. Its terminal-penalty and interval-mass terms
+cancel in every four-corner difference, including all gap weights.
+
+\begin{theorem}[Rank-coordinate tail stability]\label{thm:rank-tail-stability}
+For every rank $r$ and $\Delta\ge0$,
+\begin{equation}\label{eq:rank-tail-stability}
+ -2P\Delta\le U_d(v+\Delta e_r)-U_d(v)\le P\Delta.
+\end{equation}
+Consequently, if $v'\ge v$ coordinatewise, then
+$U_d(v')\le U_d(v)+P\sum_r(v'_r-v_r)$. For arbitrary templates the
+absolute change is at most $2P\lVert v'-v\rVert_1$.
+\end{theorem}
+\begin{proof}
+Optima for a fixed interval are closed under componentwise minimum and
+maximum. Both sequences stay strictly increasing; their total rewards
+sum to the original total, so both remain optimal. Choose the unique
+componentwise-leftmost optimum, obtained by taking all these minima.
+When both interval endpoints move weakly to the right, its selected
+positions move weakly to the right coordinatewise. Indeed, the minimum
+of the old and new optima is feasible in the old interval, and their
+maximum in the new. Reward preservation makes both optimal. Minimality
+of the old optimum forces it to equal that componentwise minimum.
+
+Put $k=c+d$. If $k\ge n$ the tail is zero. Otherwise $m=n-k\ge1$ and
+row telescoping gives
+\begin{equation}\label{eq:rank-tail-telescope}
+ U_d(v)=\sum_{i=0}^{m}S_v(i,i+k)
+       -\sum_{i=0}^{m-1}S_v(i+1,i+k)-S_v(0,n).
+\end{equation}
+Vary $v_r$ by $\lambda\in[0,\Delta]$. Each score is the maximum of
+finitely many affine functions, so away from finitely many breakpoints
+its derivative is the weight at its optimum's $r$th selected position.
+Persisting ties have equal slopes. Write $a_i$ for this position in
+$[i,i+k)$ and $b_i$ for it in $[i+1,i+k)$. Endpoint monotonicity yields
+\[
+ a_0\le b_0\le a_1\le b_1\le\cdots\le a_m.
+\]
+The first two sums in \eqref{eq:rank-tail-telescope} therefore have
+derivative $\sum_i p_{a_i}-\sum_i p_{b_i}$. Equal positions occupy
+contiguous blocks of this alternating chain. Cancelling each such block
+leaves a coefficient in $\{-1,0,1\}$ at every input position, bounding
+this derivative between $-P$ and $P$. The last term contributes
+$-p_z\in[-P,0]$. Integrating the resulting almost-everywhere derivative
+bound proves \eqref{eq:rank-tail-stability}. Successive coordinate
+changes prove both extensions.
+\end{proof}
+
+\begin{corollary}[Clipping high ruler rewards]\label{cor:ruler-clipping}
+Let $C=2^h$, $c=C-1$, $v_r=\nu_2(r)$, and
+$v^{(t)}_r=\min(v_r,t)$ for $0\le t\le h-1$. Then
+\begin{equation}\label{eq:ruler-clipping}
+ U_d(v)\le U_d(v^{(t)})+P\bigl(2^{h-t}-(h-t)-1\bigr).
+\end{equation}
+For $t=\min(h-1,\lfloor\log_2d\rfloor)$ the error is at most $2PC/d$.
+\end{corollary}
+\begin{proof}
+The removed reward sums to
+\[
+ \sum_{r=1}^{C-1}[\nu_2(r)-t]_+
+ =\sum_{s=t+1}^{h-1}(2^{h-s}-1)=2^{h-t}-(h-t)-1.
+\]
+Apply Theorem~\ref{thm:rank-tail-stability} to the coordinatewise
+increase from $v^{(t)}$ to $v$. If $t=h-1$ the error vanishes;
+otherwise $2^t>d/2$ gives the stated estimate.
+\end{proof}
+The remaining template has period $2^t$. The corollary controls the
+high-rank contribution at the desired capacity-over-width scale while
+retaining joint optimization of all weights. A bound on the periodic
+part is still required; Lemma~\ref{prop:periodic-tail-barrier}
+shows that it can itself have linear-capacity tail mass.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -5017,6 +5107,45 @@ The family leaves the broader target $T_d=O(W(L+c/d))$ open: its mass and
 that target are both of order $C$ at $d=4$. It shows that the $c/d$ term
 must cover joint optimization effects as well as independent unit tails.
 
+\subsection{The clipped periodic part retains capacity-scale mass}
+\label{sec:periodic-tail-barrier}
+\begin{lemma}[Two-key periodic obstruction]\label{prop:periodic-tail-barrier}
+Let $h\ge3$, $C=2^h$, $c=C-1$, $n=2C$, with unit key weights at
+$C-5,C$ and zero elsewhere. For the clipped template
+$v_r=\min(\nu_2(r),1)$, the tail in \eqref{eq:rank-upper-tail} satisfies
+\[
+ U_2(v)=C/2-4.
+\]
+Thus no absolute constant multiple of $tP$ bounds
+$U_d(v^{(t)})$ for all $d\ge2^t$, even with $t=1$ and $P=2$.
+\end{lemma}
+\begin{proof}
+The template rewards even ranks by one and odd ranks by zero. Use
+\eqref{eq:rank-tail-telescope} with $k=C+1$. Its first sum has starts
+$0\le i\le C-1$, each with two positions omitted from a length-$C+1$
+interval. For $1\le i\le C-6$, write $r=C-4-i$ for the first unit
+key's local position. Omit $u=0$ positions before it if $r$ is even,
+or $u=1$ if $r$ is odd, and one further position between the two unit
+keys. Their selected ranks $r-u,r+4-u$ are even and lie in $[1,c]$.
+Remaining omissions can follow the second key. The reward is two.
+At $i=0$ the second key is last and, if selected, has odd rank $c$;
+at $i=C-5$ the first key has odd rank one. Each has reward one.
+The four remaining intervals contain only the second unit key, which
+can occupy an even rank. This boundary sum is $2C-6$.
+
+The second sum has starts $1\le j\le C-1$ and one omission per
+length-$C$ interval. When both keys are present, their separation five
+requires that omission to fall between them for both ranks to be even.
+The reward is two precisely when $r=C-4-j$ is even with
+$2\le r\le C-6$. There are $C/2-3$ such starts; every other interval
+has reward one. This sum is $3C/2-4$. Both keys can occupy even ranks
+on the full interval, so its reward is two. Subtracting gives $C/2-4$.
+\end{proof}
+This lemma concerns the auxiliary clipped template. It identifies
+an obstruction to finishing the clipping argument with a height-only
+allowance. Scaling both weights by $C$ gives total mass $W=n$ and
+preserves the unbounded ratio to $tP$.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -6238,6 +6367,41 @@ only the proved closed forms. These are separately labeled in
 \texttt{sparse\_interaction\_barrier.json}. The other records are
 \texttt{one\_sided\_interaction.json} and
 \texttt{sparse\_interaction\_search.json}; all retain executed-source hashes.
+
+\section{Rank-reward stability and expanded tail diagnostics}
+\label{app:rank-reward-stability}
+The rank-template audit checks 432 small inputs. Canonical maximizing
+sequences are independently compared with 27,717 literal subsets over
+3777 intervals. It verifies 6817 coordinate monotonicity inequalities
+and 15,930 single-rank perturbation bounds. Ruler clipping is checked
+on 75 larger fixtures through 256 keys, giving 45,840 inequalities;
+540 upper densities are compared with independent all-root mixed
+layers. The generic subsequence work totals 286,337,285 matching
+candidates and 1,350,475 stored interval scores. The record is
+\texttt{rank\_reward\_tail.json}.
+
+The periodic obstruction has a separate audit through $h=7$. It checks
+491 boundary entries, 20 family identities, and 11,036 upper density
+cells using 2,429,031 subsequence candidates. At $h=3$, 48,620 literal
+subsets independently check all 55 eligible interval scores. Larger
+rows through $h=128$ evaluate only the proved closed form. These modes
+are labeled in \texttt{periodic\_tail\_barrier.json}.
+
+The original total-tail target $T_{h,d}=O(W(L+c_h/d))$ is tested
+separately. A sparse diagnostic evaluates 23,183 inputs through 1024
+keys, including all unit pairs on keys and gaps through 64 keys,
+unequal pairs, phase-changing combs, ramps, and random small supports.
+Its largest exact ratio to $W(L+c_h/d)$ is $485/168$. The optimized
+recurrence records 17,157,958,100 states, 33,808,959,382 root candidates,
+and 47,383,400 band evaluations. Five retained winners through 128
+keys have independent all-root controls. A second diagnostic evaluates
+462 repeated sparse clusters through 2048 keys; its maximum is
+$2828/1107$, with 3,107,692,416 states, 5,649,382,012 root candidates,
+and 3,997,440 band evaluations. Its two small retained winners also
+have independent all-root controls. These finite maxima do not prove
+an upper bound. The records \texttt{sparse\_tail\_search.json} and
+\texttt{cluster\_tail\_search.json} retain exact weights, objectives,
+operation counts, and executed-source hashes.
 
 \clearpage
 \begingroup\small

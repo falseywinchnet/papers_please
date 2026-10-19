@@ -2364,3 +2364,79 @@ The same exact telescoping separates the excess: C/8 lies below the band
 and 3C/16+h-3 above it. Each side individually defeats every O(hW)
 interaction allowance. The all-root family audit additionally checks all
 six one-sided equalities through h=7.
+
+
+## Checkpoint 34: coupled rank-reward stability and periodic obstruction
+
+The preceding turn was progress: an explicit sparse family disproved every
+all-width additive O(hW) interaction allowance. This turn returned to the
+broader target T_(h,d)=O(W(L+c_h/d)), retaining joint optimization instead of
+trying to add separately optimized unit-input tails.
+
+The expanded sparse diagnostic evaluates 23183 inputs through n=1024,
+including every unit pair on keys and gaps through 64 keys, unequal pairs,
+phase-changing combs, ramps, and random small supports. Its maximum exact
+ratio to W(L+c_h/d) is 485/168. A separate repeated-cluster diagnostic checks
+462 inputs through n=2048 and reaches 2828/1107. The first uses 17157958100
+states, 33808959382 root candidates, and 47383400 band evaluations. The
+second uses 3107692416 states, 5649382012 root candidates, and 3997440 band
+evaluations. Five and two retained small winners, respectively, have
+independent all-root controls. These finite searches neither certify nor
+falsify the asymptotic target.
+
+A new rank-coordinate stability theorem applies to any real skeleton-reward
+template v and nonnegative key weights p. Let S_v(i,j) be the maximum reward
+of a c-element subsequence, and U_d(v) the summed upper densities at interval
+length at least c+d. Increasing any one rank reward by Delta changes this
+tail by an amount in [-2P Delta,P Delta], where P=sum p. All input-weight
+interactions remain inside the maximizing subsequence.
+
+The proof gives canonical leftmost optima by componentwise lattice minima.
+They are monotone in both interval endpoints. A tail telescope leaves two
+alternating boundary sums and one full-interval score. As one reward varies,
+the selected positions in the boundary sums interlace. Cancelling repeated
+positions leaves coefficients in {-1,0,1}; the full score contributes a
+single additional negative weight. Integrating the piecewise-linear
+slope bound proves the theorem. This is an exact proof, not an extrapolation
+from the perturbation audit.
+
+For the ruler template of capacity C-1, clipping all rewards at t removes
+exactly 2^(h-t)-(h-t)-1 reward units. The theorem therefore bounds the upper
+tail by the clipped-template tail plus P times this exact quantity. Choosing
+t=min(h-1,floor(log2 d)) makes the error at most 2PC/d. The original upper
+OBST densities equal these subsequence densities even with arbitrary gap
+weights, since all gap and interval-mass terms cancel above capacity.
+
+The remaining periodic component cannot be absorbed into a height-only
+allowance. For the alternating rank template v_r=1 at even r and zero at
+odd r, take n=2C and unit keys at C-5,C. The width-two tail is C/2-4. This
+falsifies every constant multiple of tP at d>=2^t with t=1,P=2. The proof
+computes the two telescoped boundary sums as 2C-6 and 3C/2-4 and the full
+reward as two. Thus both the clipping error and the retained periodic part
+can need capacity-dependent control. This obstruction concerns the auxiliary
+template, not a newly claimed original-layer identity.
+
+The generic rank audit checks 432 small inputs, 3777 literal intervals,
+27717 literal subsets, 6817 path-coordinate inequalities, 15930 perturbation
+bounds, 45840 ruler-clipping bounds, and 540 mixed-layer identities. It
+records 286337285 matching candidates and 1350475 interval scores. The
+separate periodic-family audit checks 491 boundary entries and 20 family
+identities through h=7, using 2429031 matching candidates. At h=3, 48620
+literal subsets independently check all 55 interval scores. Rows through
+h=128 are explicitly closed-form-only. Result records retain executed-source
+hashes. A wording-only clarification of the rank audit's scope was followed
+by rerunning that audit and its importing periodic-family audit.
+
+The paper adds the stability theorem and clipping corollary in Section 2.12,
+the periodic obstruction in the grouped negative section, and the audit
+counts in Appendix J. The main construction bound is unchanged. The upper
+periodic tail and the below-capacity mixed tail remain open components of
+the broader target. The independent rank lemma does not assume the rejected
+input-unit additivity route.
+
+The 97-page manuscript compiles without warnings. All pages were rendered
+and inspected in contact sheets, and the new proof pages and final dedication
+were inspected at higher resolution. References resolve, all 57 legacy
+labels remain, and the title-asterisk dedication and sponsor name are
+preserved. Stable TeX/PDF outputs and the complete font-bearing source
+archive are refreshed for publication.
