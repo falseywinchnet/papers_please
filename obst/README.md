@@ -23,12 +23,51 @@ selection by the repository owner. The general research objective is ongoing.
 - [Joint key/gap signature transfers and linear-space reconstruction](RUN_SHAPES.md)
 - [Global alternating-gap bound and linear full construction](GAP_PARITY.md)
 - [Interlaced parity intervals for key-profile attainment](PROFILE_INTERVALS.md)
+- [Arbitrary-gap threshold bound and linear Cartesian certificate](THRESHOLD_CERTIFICATE.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The latest constructor removes the large-baseline requirement on a new
+The latest constructor tests a max-Cartesian candidate against independent
+global key and gap lower bounds. For arbitrary gap weights, the new bound
+integrates exact binary-indicator optima, each equal to a unit-leaf depth
+minimum plus the number of zero runs. Its order-sensitive term is a variation
+scan; its ranked term uses dyadic linear selection, avoiding a complete sort.
+Candidate construction, certification, and successful reconstruction take
+O(n) arithmetic work and O(n) space. A proved positive family has Theta(n)
+distinct key and gap weights, nonalternating gaps, and no common large baseline.
+All n keys are constructed; both types of weights remain in the objective.
+
+Independent checks include 862,118 binary-indicator/tree inequalities,
+20,560 weighted-tree inequalities, 1,200 preliminary cubic controls,
+3,000 complete constructor and 3,000 portfolio comparisons with cubic/Knuth,
+21,844 gap formula checks, and 20 selection scaling controls through 100,000
+gaps. Full construction reaches 327,679 keys with that many distinct key
+weights and 65,538 gap levels, using 655,322 Cartesian comparisons and no
+interval-DP cells. Exact full cost: 253,331,707,448,885,247. The implementation
+also handles a certified 20,000-key chain iteratively. See
+`results/threshold_probe.json`, `results/threshold_complete.json`, and
+[the full proof and limitations](THRESHOLD_CERTIFICATE.md).
+
+The bound is not always attained: p=(2,1,1), q=(100,10,1,10) gives lower
+bound 158 and full optimum 160. Ties may hide an attaining tree from the
+chosen Cartesian candidate. Exact Knuth fallback remains in the standalone
+solver; the portfolio preserves the old profile shortcut before testing
+the new candidate, then retains earlier signature/affine routes. The general
+worst case remains quadratic and mathematical priority is not established.
+
+The final matched benchmark checks 400 full constructions across 80 trials.
+The positive multilevel family has a median paired portfolio/Knuth ratio
+0.00601 at n=1279, while ordinary random and geometric controls are 1.03464
+and 1.02515. The final run occurred under high M4 load and has substantial
+same-kernel variation; these are qualified observations, not precise speedup
+claims. All regressions, routing counters, and raw measurements are in
+`results/threshold_complete_matched.json`. Operation counts are the scaling
+evidence. The old profile shortcut runs first to avoid an extra candidate
+construction on its successes.
+
+The preceding constructor removes the large-baseline requirement on a new
 recognized family. For alternating nonnegative gap weights, deleting one
 parity of zero-weight leaves proves a global gap-cost lower bound attained
 by every minimum-internal-path-length shape. A legal tree attaining the

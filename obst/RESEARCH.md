@@ -1458,3 +1458,84 @@ bound. A proposed indicator bound is E_min(H)+number_of_zero_runs for H>0.
 It must be checked independently and proved before use. Layering such bounds
 could extend the global certificate beyond alternating gaps. Both directions
 remain future work; no new solver or performance claim is attached to them.
+
+
+## Twenty-first checkpoint: threshold runs and dyadic rank selection
+
+The next-direction probe from checkpoint twenty is now independently checked,
+proved, and implemented. Binary ordered gap indicators have exact optimum
+E(H)+R, where H is the selected count and R is the number of zero runs.
+Integrating thresholds gives a global arbitrary-gap lower bound G=F+D.
+D is a downward-variation scan, and F is a rank-weighted sum with dyadic
+coefficient blocks. Repeated deterministic median-of-five selection retains
+nested top power-of-two sets, so their total size is less than 3N. Thus G
+is evaluated in linear arithmetic work even when every gap weight differs.
+The earlier extrema-multiplicity formula remains a cheaper checked scan route.
+
+The key capacity lower bound K has a linear equality test: positive keys
+must have exactly the minimum capacity-profile length sum, and weights
+must decrease between depth layers. A standard max-Cartesian candidate
+attaining K and G is globally optimal for the full mixed objective. The
+constructor and all checks/output use linear work and space. With distinct
+positive key weights it is an exact recognizer of K+G attainment. It does
+not recognize all instances where the candidate happens to be optimal.
+Ties and strict lower-bound gaps remain explicit negative controls.
+
+A perfect skeleton with arbitrary odd-slot expansions gives a positive
+family with Theta(n) key and gap levels and no large common baseline. Even
+slots have maximal gap weight; odd slots have arbitrary intermediate values
+or expand into minimum-weight cherries. Key weights decrease by depth.
+Every threshold gap problem and the key profile are simultaneously attained.
+Independent positive rescaling of p and q preserves this proof, so no
+key-versus-gap mass dominance is needed. Joint signatures can all be distinct.
+
+The independent probe checks 1022 binary patterns, 862118 indicator/tree
+inequalities, 20560 weighted-tree inequalities and key-profile equivalences,
+and 1200 cubic controls. The full harness checks 3000 standalone and 3000
+portfolio solves against independent cubic/Knuth, with 2610 literal controls,
+21844 gap-vector formulas, 36 positive multilevel Knuth fixtures, six scales
+through n=327679, and an iterative 20000-key chain. Twenty dyadic-selection
+controls through 100000 gaps cover random, ordered, duplicate, and organ-pipe
+inputs. The largest positive family uses 655322 Cartesian comparisons and
+constructs 327679 keys; full cost is 253331707448885247. Source-hashed results
+retain all scans, selections, comparisons, reconstruction, and fallback work.
+
+An initial five-way matched benchmark found that placing the new candidate
+first nearly doubled the cost on uniform old-profile fast paths and added
+roughly 50% on earlier nonperiodic profile fixtures. The portfolio was
+reordered to try the old profile certificate first, then this certificate,
+then the earlier signature/affine portfolio. This avoids the extra candidate
+on those old profile successes; a targeted assertion checks that routing.
+The whole correctness harness was rerun successfully before the final
+matched benchmark. Initial source and timing artifacts are retained outside
+the publication tree under work/threshold-first-route*.
+
+During the final matched run, a read-only uptime observation reported
+load averages 25.31, 16.11, 13.19 on the M4. Timings therefore are not an
+isolated machine benchmark, and visible same-kernel variation must not be
+interpreted as saved algorithmic work. Arithmetic bounds and operation
+counts are the scaling evidence.
+
+Standard Cartesian trees, rearrangement, threshold decomposition, and
+deterministic linear selection remain credited. Prior alphabetic-code
+upper bounds also contain variation terms (Bruno et al., arXiv:2407.16443).
+Targeted searches do not establish novelty of the lower bound or certificate.
+The unrestricted mixed-weight objective remains open. The next substantive
+obstacle is nonattainment: separate key and gap optima can be incompatible.
+A joint threshold bound or an efficient exact correction for that deficit
+would broaden this representation beyond equality-certified families.
+
+### Publication audit of twenty-first checkpoint
+
+All three new result manifests match their recorded source hashes (2, 4,
+and 13 files). All eighty final benchmark rows, their paired summaries,
+and the old-profile route assertions were revalidated from local JSON.
+The final 72-page manuscript compiles without warnings or undefined
+references. All pages were rendered; pages 2--66 are pixel-identical to
+the preceding reviewed checkpoint. Page 1 and pages 67--72 were reviewed
+at full resolution. An almost-empty closing-paragraph page was removed
+and the affected pages were compiled, rendered, and reviewed again.
+The TeX/PDF were copied byte-for-byte to the stable user-facing outputs.
+The final source-hashed timings retain high-load qualifications and all
+negative controls. No unrestricted solver or complexity lower bound has
+been proved; the full objective remains active.

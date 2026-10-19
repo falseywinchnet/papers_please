@@ -131,3 +131,11 @@ Global alternating-gap lower bound and exhaustive mixed-tree controls:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_gap_parity.py
 ```
+
+Arbitrary-gap threshold bounds, dyadic selection, and full Cartesian certificate:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/threshold_probe.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_threshold_complete.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_threshold_complete.py
+```

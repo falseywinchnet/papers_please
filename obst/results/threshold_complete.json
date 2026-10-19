@@ -1,0 +1,505 @@
+{
+  "seed": 317205,
+  "checks": {
+    "solve": 3000,
+    "portfolio_solve": 3000,
+    "cubic_controls": 3000,
+    "literal_controls": 2610,
+    "gap_formula_controls": 21844,
+    "positive_multilevel_controls": 36,
+    "deep_iterative_control": 1
+  },
+  "routes": {
+    "certified": 885,
+    "gap_linear_formula": 1279,
+    "gap_profile_rejected": 1188,
+    "gap_selection_formula": 791,
+    "key_profile_rejected": 927
+  },
+  "scaling": [
+    {
+      "n": 319,
+      "cost": 106419295,
+      "key_levels": 319,
+      "gap_levels": 66,
+      "stats": {
+        "input_keys": 319,
+        "validation_input_weights": 639,
+        "cartesian_pushes": 319,
+        "cartesian_comparisons": 622,
+        "cartesian_pops": 311,
+        "candidate_key_visits": 319,
+        "candidate_gap_visits": 320,
+        "positive_keys": 319,
+        "positive_length_sum": 2369,
+        "key_profile_levels": 9,
+        "gap_bound_input_items": 320,
+        "gap_linear_formula": 1,
+        "gap_lower_bound": 104305792,
+        "key_lower_bound": 2113503,
+        "global_lower_bound": 106419295,
+        "candidate_cost": 106419295,
+        "constructed_keys": 319,
+        "certified": 1
+      }
+    },
+    {
+      "n": 1279,
+      "cost": 8421442943,
+      "key_levels": 1279,
+      "gap_levels": 258,
+      "stats": {
+        "input_keys": 1279,
+        "validation_input_weights": 2559,
+        "cartesian_pushes": 1279,
+        "cartesian_comparisons": 2538,
+        "cartesian_pops": 1269,
+        "candidate_key_visits": 1279,
+        "candidate_gap_visits": 1280,
+        "positive_keys": 1279,
+        "positive_length_sum": 12033,
+        "key_profile_levels": 11,
+        "gap_bound_input_items": 1280,
+        "gap_linear_formula": 1,
+        "gap_lower_bound": 8377492992,
+        "key_lower_bound": 43949951,
+        "global_lower_bound": 8421442943,
+        "candidate_cost": 8421442943,
+        "constructed_keys": 1279,
+        "certified": 1
+      }
+    },
+    {
+      "n": 5119,
+      "cost": 644896941567,
+      "key_levels": 5119,
+      "gap_levels": 1026,
+      "stats": {
+        "input_keys": 5119,
+        "validation_input_weights": 10239,
+        "cartesian_pushes": 5119,
+        "cartesian_comparisons": 10214,
+        "cartesian_pops": 5107,
+        "candidate_key_visits": 5119,
+        "candidate_gap_visits": 5120,
+        "positive_keys": 5119,
+        "positive_length_sum": 58369,
+        "key_profile_levels": 13,
+        "gap_bound_input_items": 5120,
+        "gap_linear_formula": 1,
+        "gap_lower_bound": 644031309824,
+        "key_lower_bound": 865631743,
+        "global_lower_bound": 644896941567,
+        "candidate_cost": 644896941567,
+        "constructed_keys": 5119,
+        "certified": 1
+      }
+    },
+    {
+      "n": 20479,
+      "cost": 48116091508735,
+      "key_levels": 20479,
+      "gap_levels": 4098,
+      "stats": {
+        "input_keys": 20479,
+        "validation_input_weights": 40959,
+        "cartesian_pushes": 20479,
+        "cartesian_comparisons": 40930,
+        "cartesian_pops": 20465,
+        "candidate_key_visits": 20479,
+        "candidate_gap_visits": 20480,
+        "positive_keys": 20479,
+        "positive_length_sum": 274433,
+        "key_profile_levels": 15,
+        "gap_bound_input_items": 20480,
+        "gap_linear_formula": 1,
+        "gap_lower_bound": 48099641319424,
+        "key_lower_bound": 16450189311,
+        "global_lower_bound": 48116091508735,
+        "candidate_cost": 48116091508735,
+        "constructed_keys": 20479,
+        "certified": 1
+      }
+    },
+    {
+      "n": 81919,
+      "cost": 3518669006069759,
+      "key_levels": 81919,
+      "gap_levels": 16386,
+      "stats": {
+        "input_keys": 81919,
+        "validation_input_weights": 163839,
+        "cartesian_pushes": 81919,
+        "cartesian_comparisons": 163806,
+        "cartesian_pops": 81903,
+        "candidate_key_visits": 81919,
+        "candidate_gap_visits": 81920,
+        "positive_keys": 81919,
+        "positive_length_sum": 1261569,
+        "key_profile_levels": 17,
+        "gap_bound_input_items": 81920,
+        "gap_linear_formula": 1,
+        "gap_lower_bound": 3518364197093376,
+        "key_lower_bound": 304808976383,
+        "global_lower_bound": 3518669006069759,
+        "candidate_cost": 3518669006069759,
+        "constructed_keys": 81919,
+        "certified": 1
+      }
+    },
+    {
+      "n": 327679,
+      "cost": 253331707448885247,
+      "key_levels": 327679,
+      "gap_levels": 65538,
+      "stats": {
+        "input_keys": 327679,
+        "validation_input_weights": 655359,
+        "cartesian_pushes": 327679,
+        "cartesian_comparisons": 655322,
+        "cartesian_pops": 327661,
+        "candidate_key_visits": 327679,
+        "candidate_gap_visits": 327680,
+        "positive_keys": 327679,
+        "positive_length_sum": 5701633,
+        "key_profile_levels": 19,
+        "gap_bound_input_items": 327680,
+        "gap_linear_formula": 1,
+        "gap_lower_bound": 253326164791525376,
+        "key_lower_bound": 5542657359871,
+        "global_lower_bound": 253331707448885247,
+        "candidate_cost": 253331707448885247,
+        "constructed_keys": 327679,
+        "certified": 1
+      }
+    }
+  ],
+  "selection_scaling": [
+    {
+      "N": 100,
+      "kind": "random",
+      "stats": {
+        "rank_copy_items": 100,
+        "rank_level_items": 226,
+        "selection_copy_items": 331,
+        "selection_input_items": 552,
+        "bound_weight_comparisons": 1703,
+        "selection_group_items": 473,
+        "selection_partition_items": 473,
+        "rank_partition_items": 226,
+        "rank_output_items": 127,
+        "rank_sum_items": 353
+      }
+    },
+    {
+      "N": 100,
+      "kind": "ascending",
+      "stats": {
+        "rank_copy_items": 100,
+        "rank_level_items": 226,
+        "selection_copy_items": 336,
+        "selection_input_items": 569,
+        "bound_weight_comparisons": 1363,
+        "selection_group_items": 487,
+        "selection_partition_items": 487,
+        "rank_partition_items": 226,
+        "rank_output_items": 127,
+        "rank_sum_items": 353
+      }
+    },
+    {
+      "N": 100,
+      "kind": "descending",
+      "stats": {
+        "rank_copy_items": 100,
+        "rank_level_items": 226,
+        "selection_copy_items": 339,
+        "selection_input_items": 585,
+        "bound_weight_comparisons": 1425,
+        "selection_group_items": 501,
+        "selection_partition_items": 501,
+        "rank_partition_items": 226,
+        "rank_output_items": 127,
+        "rank_sum_items": 353
+      }
+    },
+    {
+      "N": 100,
+      "kind": "duplicates",
+      "stats": {
+        "rank_copy_items": 100,
+        "rank_level_items": 226,
+        "selection_copy_items": 296,
+        "selection_input_items": 354,
+        "bound_weight_comparisons": 1228,
+        "selection_group_items": 328,
+        "selection_partition_items": 328,
+        "rank_partition_items": 226,
+        "rank_output_items": 127,
+        "rank_sum_items": 353
+      }
+    },
+    {
+      "N": 100,
+      "kind": "organpipe",
+      "stats": {
+        "rank_copy_items": 100,
+        "rank_level_items": 226,
+        "selection_copy_items": 317,
+        "selection_input_items": 475,
+        "bound_weight_comparisons": 1289,
+        "selection_group_items": 418,
+        "selection_partition_items": 418,
+        "rank_partition_items": 226,
+        "rank_output_items": 127,
+        "rank_sum_items": 353
+      }
+    },
+    {
+      "N": 1000,
+      "kind": "random",
+      "stats": {
+        "rank_copy_items": 1000,
+        "rank_level_items": 2022,
+        "selection_copy_items": 3225,
+        "selection_input_items": 6037,
+        "bound_weight_comparisons": 19667,
+        "selection_group_items": 5729,
+        "selection_partition_items": 5729,
+        "rank_partition_items": 2022,
+        "rank_output_items": 1023,
+        "rank_sum_items": 3045
+      }
+    },
+    {
+      "N": 1000,
+      "kind": "ascending",
+      "stats": {
+        "rank_copy_items": 1000,
+        "rank_level_items": 2022,
+        "selection_copy_items": 3119,
+        "selection_input_items": 5496,
+        "bound_weight_comparisons": 14010,
+        "selection_group_items": 5224,
+        "selection_partition_items": 5224,
+        "rank_partition_items": 2022,
+        "rank_output_items": 1023,
+        "rank_sum_items": 3045
+      }
+    },
+    {
+      "N": 1000,
+      "kind": "descending",
+      "stats": {
+        "rank_copy_items": 1000,
+        "rank_level_items": 2022,
+        "selection_copy_items": 3150,
+        "selection_input_items": 5644,
+        "bound_weight_comparisons": 14510,
+        "selection_group_items": 5341,
+        "selection_partition_items": 5341,
+        "rank_partition_items": 2022,
+        "rank_output_items": 1023,
+        "rank_sum_items": 3045
+      }
+    },
+    {
+      "N": 1000,
+      "kind": "duplicates",
+      "stats": {
+        "rank_copy_items": 1000,
+        "rank_level_items": 2022,
+        "selection_copy_items": 2540,
+        "selection_input_items": 2567,
+        "bound_weight_comparisons": 9433,
+        "selection_group_items": 2536,
+        "selection_partition_items": 2536,
+        "rank_partition_items": 2022,
+        "rank_output_items": 1023,
+        "rank_sum_items": 3045
+      }
+    },
+    {
+      "N": 1000,
+      "kind": "organpipe",
+      "stats": {
+        "rank_copy_items": 1000,
+        "rank_level_items": 2022,
+        "selection_copy_items": 2997,
+        "selection_input_items": 4958,
+        "bound_weight_comparisons": 13384,
+        "selection_group_items": 4731,
+        "selection_partition_items": 4731,
+        "rank_partition_items": 2022,
+        "rank_output_items": 1023,
+        "rank_sum_items": 3045
+      }
+    },
+    {
+      "N": 10000,
+      "kind": "random",
+      "stats": {
+        "rank_copy_items": 10000,
+        "rank_level_items": 26382,
+        "selection_copy_items": 42563,
+        "selection_input_items": 81120,
+        "bound_weight_comparisons": 270227,
+        "selection_group_items": 79603,
+        "selection_partition_items": 79603,
+        "rank_partition_items": 26382,
+        "rank_output_items": 16383,
+        "rank_sum_items": 42765
+      }
+    },
+    {
+      "N": 10000,
+      "kind": "ascending",
+      "stats": {
+        "rank_copy_items": 10000,
+        "rank_level_items": 26382,
+        "selection_copy_items": 41481,
+        "selection_input_items": 75522,
+        "bound_weight_comparisons": 196455,
+        "selection_group_items": 74079,
+        "selection_partition_items": 74079,
+        "rank_partition_items": 26382,
+        "rank_output_items": 16383,
+        "rank_sum_items": 42765
+      }
+    },
+    {
+      "N": 10000,
+      "kind": "descending",
+      "stats": {
+        "rank_copy_items": 10000,
+        "rank_level_items": 26382,
+        "selection_copy_items": 41589,
+        "selection_input_items": 76001,
+        "bound_weight_comparisons": 198722,
+        "selection_group_items": 74535,
+        "selection_partition_items": 74535,
+        "rank_partition_items": 26382,
+        "rank_output_items": 16383,
+        "rank_sum_items": 42765
+      }
+    },
+    {
+      "N": 10000,
+      "kind": "duplicates",
+      "stats": {
+        "rank_copy_items": 10000,
+        "rank_level_items": 26382,
+        "selection_copy_items": 34054,
+        "selection_input_items": 38305,
+        "bound_weight_comparisons": 140411,
+        "selection_group_items": 38261,
+        "selection_partition_items": 38261,
+        "rank_partition_items": 26382,
+        "rank_output_items": 16383,
+        "rank_sum_items": 42765
+      }
+    },
+    {
+      "N": 10000,
+      "kind": "organpipe",
+      "stats": {
+        "rank_copy_items": 10000,
+        "rank_level_items": 26382,
+        "selection_copy_items": 39544,
+        "selection_input_items": 66133,
+        "bound_weight_comparisons": 178312,
+        "selection_group_items": 65012,
+        "selection_partition_items": 65012,
+        "rank_partition_items": 26382,
+        "rank_output_items": 16383,
+        "rank_sum_items": 42765
+      }
+    },
+    {
+      "N": 100000,
+      "kind": "random",
+      "stats": {
+        "rank_copy_items": 100000,
+        "rank_level_items": 231070,
+        "selection_copy_items": 380247,
+        "selection_input_items": 746616,
+        "bound_weight_comparisons": 2495367,
+        "selection_group_items": 740148,
+        "selection_partition_items": 740148,
+        "rank_partition_items": 231070,
+        "rank_output_items": 131071,
+        "rank_sum_items": 362141
+      }
+    },
+    {
+      "N": 100000,
+      "kind": "ascending",
+      "stats": {
+        "rank_copy_items": 100000,
+        "rank_level_items": 231070,
+        "selection_copy_items": 355375,
+        "selection_input_items": 621748,
+        "bound_weight_comparisons": 1648878,
+        "selection_group_items": 616869,
+        "selection_partition_items": 616869,
+        "rank_partition_items": 231070,
+        "rank_output_items": 131071,
+        "rank_sum_items": 362141
+      }
+    },
+    {
+      "N": 100000,
+      "kind": "descending",
+      "stats": {
+        "rank_copy_items": 100000,
+        "rank_level_items": 231070,
+        "selection_copy_items": 357439,
+        "selection_input_items": 631747,
+        "bound_weight_comparisons": 1675419,
+        "selection_group_items": 626667,
+        "selection_partition_items": 626667,
+        "rank_partition_items": 231070,
+        "rank_output_items": 131071,
+        "rank_sum_items": 362141
+      }
+    },
+    {
+      "N": 100000,
+      "kind": "duplicates",
+      "stats": {
+        "rank_copy_items": 100000,
+        "rank_level_items": 231070,
+        "selection_copy_items": 303130,
+        "selection_input_items": 360207,
+        "bound_weight_comparisons": 1331331,
+        "selection_group_items": 360149,
+        "selection_partition_items": 360149,
+        "rank_partition_items": 231070,
+        "rank_output_items": 131071,
+        "rank_sum_items": 362141
+      }
+    },
+    {
+      "N": 100000,
+      "kind": "organpipe",
+      "stats": {
+        "rank_copy_items": 100000,
+        "rank_level_items": 231070,
+        "selection_copy_items": 367310,
+        "selection_input_items": 682570,
+        "bound_weight_comparisons": 1800140,
+        "selection_group_items": 677863,
+        "selection_partition_items": 677863,
+        "rank_partition_items": 231070,
+        "rank_output_items": 131071,
+        "rank_sum_items": 362141
+      }
+    }
+  ],
+  "source_sha256": {
+    "check_threshold_complete.py": "f7d8dc0d24f6a75d7ba250e5c6fab5cadab11a7f736832a9777c30c85201b571",
+    "threshold_complete.py": "9e1e10992b71ec2ce4bb6b6628b6b19c7ce58b81c2c93d4e7246cd8982106353",
+    "threshold_probe.py": "35a858a92224189d5bc3e7526c6a73090749330129a12212f19ce9fcc3072d28",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}
