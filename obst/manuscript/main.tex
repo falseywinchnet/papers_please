@@ -1877,6 +1877,81 @@ input has many peaks. Positive cells outside this certified part require a
 nonunimodal outer span. The remaining interactions and the below-capacity
 mixed region still require separate size bounds.
 
+\subsection{Valley weights and logarithmic implicit queries}
+\label{sec:valley-queries}
+A valley is nonincreasing up to a minimum and nondecreasing afterward,
+in the fixed key order. Its above-capacity scores have a different compact
+representation from the single-peak case. Section~\ref{sec:valley-dense}
+shows that their explicit cores can nevertheless be quadratic.
+
+\begin{lemma}[Universal end-block domination]\label{lem:valley-domination}
+For every $c$, one $c$-element subsequence of a valley componentwise
+dominates every other $c$-element subsequence. It consists of the $c$
+largest weights as a prefix and suffix, resolving ties toward the left.
+It simultaneously maximizes every nonnegative rank-reward vector.
+\end{lemma}
+\begin{proof}
+Split a valley $x_0,\ldots,x_{k-1}$ at a minimum position $z$, assigning
+the minimum to the nondecreasing right part. If a subsequence selects $t$
+keys from the left part, move them to the first $t$ positions and the
+remaining keys to the last $c-t$ positions. Each selected value weakly
+increases within its monotone wing. Let $X(t)$ be this end-block word.
+Its feasible splits satisfy
+\[
+ \max(0,c-(k-z))\le t\le\min(c,z).
+\]
+The words $X(t)$ and $X(t+1)$ differ only at rank $t+1$, replacing
+$x_{k-c+t}$ by $x_t$. On this feasible range, $x_t$ is nonincreasing and
+$x_{k-c+t}$ is nondecreasing. Their difference is therefore nonincreasing.
+Move through all nonnegative differences and stop before the first negative
+one. The stopping word dominates every preceding and subsequent $X(t)$,
+and hence every original subsequence. It selects the largest $c$ values
+from the two decreasing end lists. Binary search finds its split in
+$O(\log(k+1))$ comparisons, including ties and empty wings.
+\end{proof}
+
+For arbitrary key weights define the ruler-prefix score
+\[
+ P_p(a,t)=\sum_{r=1}^{t}p_{a+r-1}\nu_2(r),\qquad P_p(a,0)=0.
+\]
+Retain the arrays $B_k$ from \eqref{eq:unimodal-windows}, with $B_0=0$.
+For $2^k\le t<2^{k+1}$ the ruler identity gives
+\begin{equation}\label{eq:valley-prefix}
+ P_p(a,t)=B_k(a)+k p_{a+2^k-1}+P_p(a+2^k,t-2^k).
+\end{equation}
+Scanning decreasing powers evaluates this in $O(\log(n+1))$ arithmetic
+work. The construction assumes no constant-time population-count operation.
+
+\begin{theorem}[Implicit above-capacity queries for valley keys]
+\label{thm:valley-queries}
+For nonnegative valley key weights and arbitrary nonnegative gap weights,
+$O(n\log(n+1))$ preprocessing and space support an exact layer-value
+query for any $h\ge1$, $c=2^h-1\le j-i$, with a valid terminal penalty,
+in $O(\log(n+1))$ work. A query returns two end blocks identifying an
+optimal selected subsequence; emitting its keys or perfect partial skeleton
+costs $O(c)$ additional output work. All layers share the preprocessing.
+\end{theorem}
+\begin{proof}
+Build the perfect-ruler windows for $p$ and its reversal $\bar p$, using
+\eqref{eq:unimodal-window-recurrence}. Their total construction and storage
+are $O(n\log(n+1))$. Every interval of a valley is a valley. Find its
+optimal split $t$ using Lemma~\ref{lem:valley-domination}, clipping the
+two wings to the interval before binary search. Ruler symmetry
+$\nu_2(c+1-r)=\nu_2(r)$ yields
+\begin{align}
+ S_h(i,j)&=P_p(i,t)+P_{\bar p}(n-j,c-t),\nonumber\\
+ A_h(i,j)&=M(j-i-c)+hW(i,j)-S_h(i,j).
+ \label{eq:valley-query}
+\end{align}
+The split search and two prefix queries take logarithmic work; prefix
+mass sums give $W(i,j)$ in constant time. The witness is $[i,i+t)$ followed
+by $[j-(c-t),j)$. No interval table or explicit core is constructed.
+\end{proof}
+This gives exact implicit queries even when the original above-capacity
+core is dense. Below-capacity mixed intervals and efficient composition
+of these representations remain requirements for a general full-tree
+algorithm.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -6652,6 +6727,92 @@ Monge nor anti-Monge, despite its nonnegative values. A general construction
 must control these signed interactions rather than apply the published
 Monge product to the correction without an additional argument.
 
+\subsection{A single valley has a quadratic original interval core}
+\label{sec:valley-dense}
+Two monotone pieces do not by themselves guarantee a sparse above-capacity
+core. Unlike the rank-transfer example, the following family uses the
+original interval coordinates.
+
+\begin{theorem}[Dense valley square]\label{thm:valley-dense}
+Let $s=2^t\ge4$, $n=4s$, $m=2s$, and $c=m-1=2^h-1$. Set
+\begin{equation}\label{eq:valley-family}
+ p_k=\begin{cases}2(m-k),&0\le k<m,\\
+                  2(k-m)+1,&m\le k<2m.
+       \end{cases}
+\end{equation}
+With arbitrary nonnegative gap weights and a valid terminal penalty, the
+above-capacity square $0\le i<s$, $3s\le j<4s$ satisfies
+\begin{equation}\label{eq:valley-density}
+ D_{A_h}(i,j)=\nu_2\!\left(3s-\left\lceil\frac{i+j}{2}\right\rceil\right).
+\end{equation}
+It has exactly $s^2/2=n^2/32$ positive densities.
+\end{theorem}
+\begin{proof}
+The key weights are $1,\ldots,n$ arranged as decreasing evens followed
+by increasing odds. In the inner interval $[i+1,j)$ write
+\[
+ d=j-i-m,\qquad a=m-i-1-\lfloor d/2\rfloor,\qquad b=c-a.
+\]
+Its largest $c$ keys omit the $d$ globally smallest values, occupying
+$[m-\lfloor d/2\rfloor,m+\lceil d/2\rceil)$. The chosen square places
+this interval and the next two smallest weights strictly inside the relevant
+endpoints. The two smallest retained weights are $z=d+1$ and $w=d+2$.
+There is at least one selected key on each wing even after both are removed.
+Lemma~\ref{lem:valley-domination} applies at every corner. Let $L_t,R_t$
+be ruler-prefix scores of the inner interval's left and reversed right
+wings. Write $L'_t,R'_t$ for the same prefixes after adjoining the new
+left or right endpoint, respectively. The four scores are
+\[
+\begin{array}{c|cc}
+ \text{corner}&d\text{ even}&d\text{ odd}\\\hline
+ {[i+1,j)}&L_a+R_b&L_a+R_b\\
+ {[i,j)}&L'_{a+1}+R_{b-1}&L'_a+R_b\\
+ {[i+1,j+1)}&L_a+R'_b&L_{a-1}+R'_{b+1}\\
+ {[i,j+1)}&L'_a+R'_b&L'_a+R'_b.
+\end{array}
+\]
+Ruler symmetry justifies the reversed prefixes, as in
+\eqref{eq:valley-query}. For even $d$, $z$ is the first retained right
+key and $w$ the last retained left key. The score difference
+$S_h(i,j)+S_h(i+1,j+1)-S_h(i,j+1)-S_h(i+1,j)$ is exactly
+\[
+ (L'_{a+1}-L'_a)+(R_{b-1}-R_b)
+ =w\nu_2(a+1)-z\nu_2(b)=\nu_2(a+1),
+\]
+because $b=m-(a+1)$ and $w-z=1$. For odd $d$, $z$ is the last retained
+left key and $w$ the first retained right key, giving
+\[
+ (L_{a-1}-L_a)+(R'_{b+1}-R'_b)
+ =w\nu_2(b+1)-z\nu_2(a)=\nu_2(a),
+\]
+because $b+1=m-a$. Substituting $a$ gives
+\eqref{eq:valley-density}. The affine terms of \eqref{eq:valley-query},
+including all gap contributions, cancel from the original density.
+
+The argument of $\nu_2$ lies between $s/2+1$ and $3s/2$. It is even
+exactly when $i+j$ is $0$ or $3$ modulo four. Each row has $s$ columns,
+of which exactly $s/2$ meet these residues, proving the count.
+\end{proof}
+
+The dense square itself has a short density representation:
+\begin{equation}\label{eq:valley-modular-density}
+ D_{A_h}(i,j)=\sum_{\ell=1}^{\log_2s}
+ \mathbf 1\{i+j\equiv6s\text{ or }6s-1\pmod{2^{\ell+1}}\}.
+\end{equation}
+This follows by expressing $\nu_2(r)$ as the number of powers of two
+dividing $r$. It describes the density by logarithmically many modular
+diagonal patterns; it does not assert a fast product algorithm for them.
+
+With zero gap weights, the integer family has $W=n(n+1)/2$. Dividing
+every key weight by $n$ gives positive rational weights of total
+$W=(n+1)/2$, with $O(\log n)$-bit numerators and denominators. Every
+density scales by $1/n$, so the same quadratic support remains.
+Consequently the integral-mass core bound cannot be extended to normalized
+real mass alone. Theorem~\ref{thm:valley-queries} still supplies logarithmic
+exact interval queries for both versions. This separates explicit-core
+size from query complexity and gives no lower bound for computing a full
+optimal BST.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -8502,6 +8663,37 @@ The record is \texttt{unimodal\_above\_audit.json}. It retains exact operation
 counts, both signed-correction witnesses, verification scopes, and the final
 executed-source SHA-256 manifest. The support and work bounds follow from
 contiguous domination, the ruler recurrence and visibility geometry.
+
+\clearpage
+\section{Valley domination, implicit queries, and dense-square audit}
+\label{app:valley-audit}
+The independent audit exhausts 920 valley words over $\{0,1,2\}$ through
+eight keys. It checks all 136,802 nonempty subsequences for componentwise
+domination by the selected end blocks, and 6198 arbitrary nonnegative
+reward vectors. An independent definition rejects 8920 nonvalley words.
+
+On 256 mixed inputs through 64 keys, the original all-root recurrence
+checks 56,076 above-capacity interval values and their two-block witnesses.
+Inputs include monotone and constant words, geometric and irregular valleys,
+rational weights, and nonzero gap weights. The original recurrence uses
+1,396,993 root candidates and 113,799 states. The explicit dense family
+and its normalized rational version have 672 square cells checked against
+that recurrence, at sides four, eight, and sixteen. Each square also has
+the proved exact support count $s^2/2$.
+
+Fourteen larger implicit constructions reach 65,536 keys. Their checks
+comprise 896 sampled literal largest-key selections, 896 literal ruler-prefix
+sums at arbitrary lengths, and 640 sampled dense-formula cells. These are
+separate from the original all-root controls; no original all-root layer is
+computed at the large sizes. At $n=65,536$, each construction performs
+1,835,076 ruler-window updates and stores 1,966,150 window entries across
+the forward and reversed arrays, including their zero bases. No interval
+table or dense core is constructed.
+
+The record \texttt{valley\_above\_audit.json} retains operation counts and
+the executed-source SHA-256 manifest. The theoretical work bounds follow
+from the two-wing binary search and ruler-prefix recurrence; the core
+lower bound follows from \eqref{eq:valley-density} and its residue count.
 
 \clearpage
 \begingroup\small

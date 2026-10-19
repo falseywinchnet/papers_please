@@ -3450,3 +3450,81 @@ proof on pages 26--27, signed-correction argument on page 96, audit on page
 The final audit's four source hashes match the committed source candidates.
 The stable PDF and TeX exports are byte-identical to the manuscript, and
 the five-member source archive was rebuilt and checked member by member.
+
+
+## Checkpoint 46: valley queries and quadratic original interval cores
+
+The previous goal turn was progress: checkpoint 45 was committed, pushed,
+and checked against the remote Git blobs. This turn attacks extension beyond
+one peak, while preserving the full mixed-weight objective. Replacing a peak
+by a valley yields both a new exact implicit representation and a sharp
+obstruction to extending the linear explicit-core bound.
+
+For any nonincreasing-then-nondecreasing key sequence, the c largest values
+can be selected as a prefix and suffix, with deterministic left ties. This
+single selected word componentwise dominates every c-subsequence, for every
+nonnegative rank-reward vector. Compress a candidate independently toward
+the ends of the two monotone wings. Consecutive feasible end-block splits
+differ in only one component, and its replacement difference decreases
+monotonically across the feasible split range. The common best split is
+therefore found by binary search. The feasible-range restriction handles
+flat wings correctly; an unrestricted comparison predicate is not assumed.
+
+All perfect-ruler windows, in both orientations, give arbitrary ruler-prefix
+queries by peeling descending powers of two. Ruler symmetry turns the
+selected prefix and suffix into two such queries. This proves O(n log(n+1))
+preprocessing and storage for every above-capacity layer, O(log(n+1)) exact
+interval queries including arbitrary nonnegative gap weights, and a two-block
+selected witness. Emitting its c keys or partial skeleton costs O(c). The
+implementation does not enumerate interval pairs or construct any core.
+
+The same class has quadratic original interval cores. For s a power of two
+at least four, n=4s, m=2s, c=m-1, take decreasing even weights 2m,...,2 and
+increasing odd weights 1,...,2m-1. On [0,s) x [3s,4s), the exact ordinary
+density is nu_2(3s-ceil((i+j)/2)). The proof computes all four corner scores
+as left and reversed-right prefixes. All common terms cancel, leaving the
+difference between the two smallest retained weights, multiplied by one
+ruler valuation. Each row has s/2 positive entries, so the square has exactly
+s^2/2=n^2/32. These are original interval coordinates, not transfer states.
+The density also equals a sum of log2(s) modular diagonal indicators.
+
+The integer family has mass n(n+1)/2 when gaps vanish. Scaling by 1/n leaves
+the same support at rational mass (n+1)/2, with O(log n)-bit numerators and
+denominators. This explicitly blocks removing integrality by normalizing
+weights. It does not contradict the integer-mass theorem or its open local
+support target. Logarithmic queries remain available even for the dense
+family, so it is not an unrestricted OBST lower bound.
+
+Harness first: a small exhaustive domination probe preceded the optimized
+query implementation. It also tested the density expression at several
+sizes; the support count has a small s=2 exception, so the theorem explicitly
+starts at s=4. The first complete audit tested the integer family; a second
+complete run added original-recurrence checks for the normalized rational
+family. The final record matches all four executed-source hashes.
+
+Final counts: 920 exhaustive ternary valleys; 136802 subsequences; 6198
+arbitrary reward vectors; 8920 independently rejected nonvalleys. Original
+all-root controls on 256 mixed inputs through 64 keys check 56076 interval
+values and witnesses, and 672 density-formula cells across the integer and
+rational families. They use 1396993 root candidates and 113799 states.
+Fourteen larger implicit constructions through 65536 keys have 896 sampled
+literal top-key controls, 896 literal ruler-prefix controls, and 640 sampled
+dense-formula cells. They have no large all-root references. At the largest
+size the two orientations use 1835076 window updates and 1966150 stored
+window entries. No timings or fitted exponents enter any theorem.
+
+The standalone proof is VALLEY_QUERIES.md. The positive query theorem is
+in Section 2.17, the dense-core barrier in Section 5.22, and the new audit
+in Appendix V. The next general obligation is an implicit representation
+that composes through the mixed below-capacity region; the current oracle
+alone does not provide that operation or a full-tree constructor.
+
+Publication validation: the manuscript compiles without warnings to 131
+pages. All 352 prior labels remain among 363 unique labels; references
+resolve. All pages were rendered and reviewed in contact sheets, with detail
+inspection of the new query proof on page 28, dense proof and interpretation
+on pages 97--99, audit on page 129, and final dedication on page 131. The
+dedication's source remains byte-identical to the previous checkpoint.
+Both new and reused-source audit manifests match the final source files.
+The stable PDF and TeX exports match the manuscript byte for byte; the
+five-member buildable source archive was rebuilt and verified individually.

@@ -29,6 +29,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Linear one-block core construction and local boundary charge](PLATEAU_CORE.md)
 - [Complete two-block above-capacity cores and a finite band factorization](TWO_BLOCK_CORES.md)
 - [Unimodal above-capacity cores and certified spans in arbitrary inputs](UNIMODAL_ENVELOPE.md)
+- [Valley interval queries and quadratic original-coordinate cores](VALLEY_QUERIES.md)
 - [Arbitrary-key rank transfers and exact dense-core barriers](RANK_TRANSFER_BARRIER.md)
 - [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
@@ -59,6 +60,22 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+Valley key weights now have an [exact implicit above-capacity query
+representation](VALLEY_QUERIES.md): O(n log(n+1)) preprocessing and storage,
+with O(log(n+1)) interval queries and two-block witnesses, for arbitrary
+nonnegative gaps. A single selection of the largest end keys componentwise
+dominates every subsequence of the same length. Ruler-prefix queries then
+evaluate its reward without scanning the selected keys.
+
+A valley can nevertheless have a quadratic core in the original interval
+coordinates. An explicit permutation of weights 1,...,n gives exactly s^2/2
+positive densities on a side-s square, with n=4s, and an exact ruler formula.
+Normalizing by n preserves that support at rational total mass (n+1)/2;
+the integer-mass hypothesis therefore cannot be replaced by normalized real
+mass. The square's densities also have a logarithmic modular-pattern
+description. This is a barrier to explicit-core sparsity, while the query
+representation remains compact; the full mixed BST objective is ongoing.
 
 All above-capacity cores for **arbitrary unimodal key weights** now have an
 [O(n log(n+1)) total constructor](UNIMODAL_ENVELOPE.md), including unequal

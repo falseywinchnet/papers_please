@@ -1,0 +1,304 @@
+{
+  "scope": "Exact above-capacity implicit queries for valley keys with arbitrary nonnegative gaps; explicit quadratic original interval-core family; no full-BST solver claim.",
+  "checks": {
+    "exhaustive_valley_words": 920,
+    "valley_split_queries": 62274,
+    "literal_domination_controls": 136802,
+    "arbitrary_reward_controls": 6198,
+    "window_base_entries": 4882,
+    "ruler_window_updates": 10810,
+    "ruler_prefix_stored_entries": 15692,
+    "valley_mass_prefix_entries": 4626,
+    "all_root_candidates": 1396993,
+    "dense_states": 113799,
+    "ruler_prefix_bit_steps": 644738,
+    "ruler_prefix_queries": 112152,
+    "ruler_prefix_chunks": 117698,
+    "original_interval_controls": 56076,
+    "witness_controls": 56076,
+    "original_inputs": 256,
+    "valley_validation_comparisons": 1929,
+    "valley_split_comparisons": 45296,
+    "nonvalleys_rejected": 8920,
+    "original_dense_formula_cells": 672
+  },
+  "scale_rows": [
+    {
+      "n": 64,
+      "kind": "distinct_valley",
+      "counts": {
+        "valley_validation_comparisons": 63,
+        "window_base_entries": 130,
+        "ruler_window_updates": 540,
+        "ruler_prefix_stored_entries": 670,
+        "valley_mass_prefix_entries": 129,
+        "valley_split_queries": 576,
+        "ruler_prefix_bit_steps": 8512,
+        "ruler_prefix_chunks": 2823,
+        "ruler_prefix_queries": 1216,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 2153,
+        "large_sampled_dense_formula_cells": 128
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 64,
+      "kind": "irregular_valley",
+      "counts": {
+        "valley_validation_comparisons": 63,
+        "window_base_entries": 130,
+        "ruler_window_updates": 540,
+        "ruler_prefix_stored_entries": 670,
+        "valley_mass_prefix_entries": 129,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 1344,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 269,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 27
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 127,
+      "kind": "distinct_valley",
+      "counts": {
+        "valley_validation_comparisons": 126,
+        "window_base_entries": 256,
+        "ruler_window_updates": 1298,
+        "ruler_prefix_stored_entries": 1554,
+        "valley_mass_prefix_entries": 255,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 1344,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 308,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 40
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 127,
+      "kind": "irregular_valley",
+      "counts": {
+        "valley_validation_comparisons": 126,
+        "window_base_entries": 256,
+        "ruler_window_updates": 1298,
+        "ruler_prefix_stored_entries": 1554,
+        "valley_mass_prefix_entries": 255,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 1344,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 300,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 26
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 256,
+      "kind": "distinct_valley",
+      "counts": {
+        "valley_validation_comparisons": 255,
+        "window_base_entries": 514,
+        "ruler_window_updates": 3108,
+        "ruler_prefix_stored_entries": 3622,
+        "valley_mass_prefix_entries": 513,
+        "valley_split_comparisons": 3130,
+        "valley_split_queries": 576,
+        "ruler_prefix_bit_steps": 10944,
+        "ruler_prefix_chunks": 3980,
+        "ruler_prefix_queries": 1216,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "large_sampled_dense_formula_cells": 128
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 256,
+      "kind": "irregular_valley",
+      "counts": {
+        "valley_validation_comparisons": 255,
+        "window_base_entries": 514,
+        "ruler_window_updates": 3108,
+        "ruler_prefix_stored_entries": 3622,
+        "valley_mass_prefix_entries": 513,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 1728,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 383,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 46
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 1023,
+      "kind": "distinct_valley",
+      "counts": {
+        "valley_validation_comparisons": 1022,
+        "window_base_entries": 2048,
+        "ruler_window_updates": 16408,
+        "ruler_prefix_stored_entries": 18456,
+        "valley_mass_prefix_entries": 2047,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 1920,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 513,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 67
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 1023,
+      "kind": "irregular_valley",
+      "counts": {
+        "valley_validation_comparisons": 1022,
+        "window_base_entries": 2048,
+        "ruler_window_updates": 16408,
+        "ruler_prefix_stored_entries": 18456,
+        "valley_mass_prefix_entries": 2047,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 1920,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 500,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 78
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 4096,
+      "kind": "distinct_valley",
+      "counts": {
+        "valley_validation_comparisons": 4095,
+        "window_base_entries": 8194,
+        "ruler_window_updates": 81972,
+        "ruler_prefix_stored_entries": 90166,
+        "valley_mass_prefix_entries": 8193,
+        "valley_split_queries": 576,
+        "ruler_prefix_bit_steps": 15808,
+        "ruler_prefix_queries": 1216,
+        "ruler_prefix_chunks": 6196,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 5115,
+        "large_sampled_dense_formula_cells": 128
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 4096,
+      "kind": "irregular_valley",
+      "counts": {
+        "valley_validation_comparisons": 4095,
+        "window_base_entries": 8194,
+        "ruler_window_updates": 81972,
+        "ruler_prefix_stored_entries": 90166,
+        "valley_mass_prefix_entries": 8193,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 2496,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 640,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 85
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 16384,
+      "kind": "distinct_valley",
+      "counts": {
+        "valley_validation_comparisons": 16383,
+        "window_base_entries": 32770,
+        "ruler_window_updates": 393276,
+        "ruler_prefix_stored_entries": 426046,
+        "valley_mass_prefix_entries": 32769,
+        "valley_split_queries": 576,
+        "ruler_prefix_bit_steps": 18240,
+        "ruler_prefix_queries": 1216,
+        "ruler_prefix_chunks": 7412,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "valley_split_comparisons": 6200,
+        "large_sampled_dense_formula_cells": 128
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 16384,
+      "kind": "irregular_valley",
+      "counts": {
+        "valley_validation_comparisons": 16383,
+        "window_base_entries": 32770,
+        "ruler_window_updates": 393276,
+        "ruler_prefix_stored_entries": 426046,
+        "valley_mass_prefix_entries": 32769,
+        "valley_split_comparisons": 61,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 2880,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 712,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 65536,
+      "kind": "distinct_valley",
+      "counts": {
+        "valley_validation_comparisons": 65535,
+        "window_base_entries": 131074,
+        "ruler_window_updates": 1835076,
+        "ruler_prefix_stored_entries": 1966150,
+        "valley_mass_prefix_entries": 131073,
+        "valley_split_comparisons": 7267,
+        "valley_split_queries": 576,
+        "ruler_prefix_bit_steps": 20672,
+        "ruler_prefix_chunks": 8589,
+        "ruler_prefix_queries": 1216,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64,
+        "large_sampled_dense_formula_cells": 128
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    },
+    {
+      "n": 65536,
+      "kind": "irregular_valley",
+      "counts": {
+        "valley_validation_comparisons": 65535,
+        "window_base_entries": 131074,
+        "ruler_window_updates": 1835076,
+        "ruler_prefix_stored_entries": 1966150,
+        "valley_mass_prefix_entries": 131073,
+        "valley_split_comparisons": 86,
+        "valley_split_queries": 64,
+        "ruler_prefix_bit_steps": 3264,
+        "ruler_prefix_queries": 192,
+        "ruler_prefix_chunks": 866,
+        "large_literal_top_key_controls": 64,
+        "large_literal_prefix_controls": 64
+      },
+      "verification": "implicit query construction, sampled literal top-key selections and prefix sums, and sampled formula cells; no original all-root layer at this size"
+    }
+  ],
+  "source_sha256": {
+    "valley_above.py": "f341838f220710bf31d4bff334c63163987e8e4544e02af2bd1c351c3665076b",
+    "valley_above_audit.py": "a792e18b260a866ce0e0139dc732c231c0698c8c05e8621ba608e8c0d9779f26",
+    "unimodal_above.py": "ed74c4f0b3c6ff6983296b90940ba75c023ee65247fc8cd9094bc4398cd00b86",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

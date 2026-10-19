@@ -451,3 +451,14 @@ The exhaustive majorization controls use arbitrary nonnegative reward templates,
 separately from the original mixed all-root recurrence. Larger rows construct
 all sparse above-capacity cores and have sampled literal window controls; they
 do not claim large all-root references. Copy the JSON before another mirror.
+
+Valley-key universal domination, implicit ruler queries, and quadratic interval cores:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/valley_above_audit.py
+```
+
+This audit separates literal componentwise domination and arbitrary rewards,
+original mixed all-root layers, and larger sampled implicit-query controls.
+The dense family uses original interval coordinates. Copy its JSON result
+back before the next mirror operation.

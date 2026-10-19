@@ -1,5 +1,13 @@
 # A boundary term in the local core-size bound
 
+The valley family in `VALLEY_QUERIES.md` gives s^2/2 original densities in
+an above-capacity side-s square using integer mass Theta(s^2). It therefore
+does not contradict the integer-mass hypothesis below. Scaling those weights
+by 1/(4s) preserves the support at total rational mass Theta(s), so a version
+for arbitrarily normalized real weights would be false. The same family has
+logarithmic exact interval queries after near-linear preprocessing, separating
+the size question from an unrestricted algorithmic lower bound.
+
 The remaining linear-mass core gap is a factor sqrt(log n). The proved bound
 sums integer density mass 2h W(J) on each maximal dyadic tile. A different
 local statement would remove that factor:
