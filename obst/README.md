@@ -8,6 +8,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Research record and prior-work map](RESEARCH.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
+- [Concave baseline-price extension](BASELINE_PRICES.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
@@ -38,6 +39,8 @@ python3 obst/code/recursive_contract.py --max-n 1024
 python3 obst/code/benchmark_recursive.py
 python3 obst/code/complete.py --max-n 1024
 python3 obst/code/benchmark_complete.py
+python3 obst/code/baseline_prices.py
+python3 obst/code/benchmark_baseline.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -68,6 +71,11 @@ while failed or skipped attempts retain the quadratic worst case. It closes
 the earlier near-uniform failure on the tested sizes near powers of two;
 ordinary random inputs still fail the certificate. See COMPLETE.md for the
 proof, exact operation counts, and the unsuccessful regimes.
+The optional `optimize_baseline=True` flag on either solver searches a
+concave family of valid exclusion bounds, capped at logarithmically many
+additional linear oracle calls. It recovers some failed certificates while
+preserving every earlier success and the O(n log n) attempted-shortcut bound.
+The default remains False so earlier measurements remain reproducible.
 
 The depth dual is a separate experimental lower-bound component. Its affine
 tail permits exact O(n log n) oracle evaluations without bounding the unknown

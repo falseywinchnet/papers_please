@@ -162,6 +162,42 @@ shape spaces. These are exploratory Python measurements; full counters and
 all timing observations are retained. A cheaper next experiment before
 excess-shape DP is the concave baseline-price search derived in COMPLETE.md.
 
+## Fifth checkpoint: optimize the exclusion baseline
+
+The previous turn was progress: the minimum-I shortcut, both fallback
+variants, exact checks, matched timings, and manuscript were committed and
+uploaded. This turn implements the proposed baseline-price extension.
+
+BASELINE_PRICES.md proves that the exclusion bound is concave in a common
+decrease of the key and gap baselines. A lexicographic Huffman oracle gives
+both its value and a supergradient from internal path length. Binary
+elimination finds the best integer price when uncapped; production permits
+only bit_length(n) extra linear oracle calls, preserving O(n log n) work
+for the attempted shortcut. Every sampled price remains a valid exclusion
+bound whether or not the integer maximum was reached.
+
+Exact checks cover 400 small shape-profile oracle comparisons, 1,200 full
+integer-price sweeps, and 3,000 cubic-checked mixed-weight inputs for both
+fallback versions. The new search recovers 87 previously unsuccessful
+unrestricted certificates. The seeded perturbation sweep recovers n=1,024
+with amplitude2 and n=2,048 with amplitude1, while larger perturbations
+generally fail the fixed-profile ceiling and receive no extra oracle calls.
+
+The remaining barrier is now sharper: baseline optimization cannot beat
+the order-free minimum-I profile ceiling. The next representation needs
+additional order information in its residual bound or an expanded shape
+class. The full objective is still open; this checkpoint is not completion.
+The next concrete experiment is to substitute the existing order-sensitive
+depth-chain lower bound for the order-free residual bound in the exclusion
+certificate. It need not be exact because the baseline supplies a positive
+exclusion margin; all extra bound work must still be counted.
+
+The matched six-trial experiment newly certified all n=1,024 amplitude2
+and n=2,048 amplitude1 inputs, with median priced/Knuth ratios0.04953 and
+0.06128. Larger perturbations and ordinary random controls still failed.
+A zero-extra-call control showed noticeable timing variation, so only
+large effects are interpretable; exact operation counts remain primary.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

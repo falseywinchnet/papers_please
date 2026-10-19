@@ -159,5 +159,6 @@ Starting with a0=min(p), b0=min(q), replace a=a0-delta, b=b0-delta while
 a+b>=0. Residual weights remain nonnegative. The exclusion bound is a
 concave function of delta; a minimizing residual tree with path length I
 supplies slope 2*(I-I_min-1). This suggests a one-dimensional price search
-using the same sorted queues. The current implementation uses delta=0
-only; no improvement from this proposed search is claimed.
+using the same sorted queues. The optional implementation and exact checks
+are now described in BASELINE_PRICES.md. The default remains delta=0 for
+reproducibility; `optimize_baseline=True` enables the capped search.

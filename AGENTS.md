@@ -17,6 +17,8 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/depth_order.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/complete.py --max-n 1024
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_complete.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/baseline_prices.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_baseline.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not

@@ -124,7 +124,7 @@ def residual_huffman(ps, qs, a, b, stats):
     return answer
 
 
-def attempt(p, q, unrestricted=False):
+def attempt(p, q, unrestricted=False, optimize_baseline=False):
     n = len(p)
     h, slots, r = parameters(n)
     rare = min(r, slots-r)
@@ -161,12 +161,20 @@ def attempt(p, q, unrestricted=False):
     if candidate <= lower_nonminimal:
         stats['certified'] = 1
         return candidate, tree, stats
+    if optimize_baseline:
+        from baseline_prices import search_prices
+        improved = search_prices(ps,qs,a,b,minimum_ipl(n),lower_nonminimal,stats,
+                                 candidate=candidate,max_calls=n.bit_length())
+        stats['priced_nonminimal_lower_bound'] = improved
+        if candidate <= improved:
+            stats['certified'] = stats['price_rescued'] = 1
+            return candidate, tree, stats
     stats['certificate_failed'] = 1
     return None, None, stats
 
 
-def solve(p, q):
-    value, tree, stats = attempt(p, q)
+def solve(p, q, optimize_baseline=False):
+    value, tree, stats = attempt(p, q, optimize_baseline=optimize_baseline)
     if value is None:
         value, tree, scans = knuth(p, q)
         stats['fallback_dp_states'] = len(p)*(len(p)+1)//2
@@ -174,10 +182,10 @@ def solve(p, q):
     return value, tree, dict(stats)
 
 
-def hybrid_solve(p, q):
+def hybrid_solve(p, q, optimize_baseline=False):
     """Keep the earlier recursive contraction algorithm as the fallback."""
     from recursive_contract import solve as recursive_solve
-    value, tree, stats = attempt(p, q)
+    value, tree, stats = attempt(p, q, optimize_baseline=optimize_baseline)
     if value is None:
         value, tree, counts = recursive_solve(p, q)
         for name, count in counts.items():

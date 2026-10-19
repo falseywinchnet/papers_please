@@ -419,6 +419,81 @@ sorting, lower bounds, and reconstruction; they do not establish broad
 superiority. The final early-rejection and two-queue implementations were
 also checked against the original heap certificate on all 3,000 inputs.
 
+\paragraph{Optimize the baseline rather than fix it.}
+The largest subtractable baseline need not give the strongest certificate.
+Set $a_0=\min p_i$, $b_0=\min q_j$, and use
+$a=a_0-\delta$, $b=b_0-\delta$ for an integer
+$0\le\delta\le\lfloor(a_0+b_0)/2\rfloor$.
+The residual weights remain nonnegative and $a+b\ge0$. Although one
+baseline term may become negative, it is only an algebraic decomposition;
+the input probabilities are unchanged. Let $H_\delta$ denote the residual
+order-free optimum. The exclusion bound is
+\[
+ B(\delta)=(a_0+b_0-2\delta)(I_*+1)
+              +(a_0+2b_0-3\delta)n+H_\delta.
+\]
+Every tree outside the minimum-$I$ class costs at least $B(\delta)$.
+Thus any sampled price with $C_*\le B(\delta)$ certifies the same candidate.
+
+For a fixed residual tree, increasing $\delta$ adds one unit to every
+key and gap weight, changing its cost at rate $2I+3n$. Consequently
+$B$ is a pointwise minimum of affine functions, hence concave. A minimizing
+residual tree supplies a supergradient
+\[
+ g=2(I-I_*-1),\qquad
+ B(x)\le B(\delta)+g(x-\delta).
+\]
+If $g>0$, smaller prices cannot improve the current value; if $g<0$,
+larger prices cannot improve it. If $g=0$, the value is globally maximal.
+Binary interval elimination, retaining the best sample, therefore finds
+the maximum over allowed integer prices when run to completion.
+
+The same linear oracle supplies $I$. Give every original outcome secondary
+weight1, order queue items lexicographically by residual mass and number
+of original outcomes, and sum both merge coordinates. The first gives
+$H_\delta$ and the second gives $2I+3n$. This is the Huffman exchange
+argument with an infinitesimal positive common perturbation, choosing
+minimum $I$ among residual-cost ties. The weight order is independent of
+$\delta$, so no additional sorting is needed. Each price costs $O(n)$.
+
+The fixed-profile ceiling extends to all prices:
+$B(\delta)\le F+a_0+b_0-2\delta$. Therefore an input rejected by the
+existing profile test cannot be rescued by this search. The implementation
+tries prices only after the old certificate fails while passing that test,
+and permits at most $\lfloor\log_2n\rfloor+1$ extra oracle calls.
+This preserves the $O(n\log n)$ attempted-shortcut bound. Reaching the cap
+does not establish that the best price was found; every sampled certificate
+is still valid, and failure invokes the exact fallback.
+
+The lexicographic oracle matched 400 exhaustive shape-profile comparisons
+through eight keys. Uncapped search matched exhaustive evaluation of all
+allowed integer prices on 1,200 inputs. On 3,000 additional full-OBST
+inputs through thirty keys, both capped fallback versions matched cubic
+DP and direct tree costs; 87 previously unsuccessful unrestricted
+certificates were recovered. A separate seeded sweep recovered the
+$n=1,024$, amplitude 2 input with two additional oracle calls, and the
+$n=2,048$, amplitude 1 input with three. Larger tested perturbations
+usually exceeded the profile ceiling. This applies standard concave-price
+optimization to the certificate; it is not a general subquadratic result.
+
+In the seeded 2,048-key case, the candidate costs 43,032,446; the bound
+rises from 43,031,347 at $\delta=0$ to 43,032,459 at $\delta=125$.
+The three extra passes use 6,144 contractions and 6,141 pair comparisons,
+in addition to 4,096 shape states, 6,142 transitions, 20,784 sorting
+comparisons, and 2,752 original merge comparisons. Knuth uses 2,098,176
+interval states and 4,198,710 root candidates on that input.
+
+A separate six-trial comparison uses all orderings of Knuth, the old
+hybrid, and the price-search hybrid. All six $n=1,024$, amplitude 2 cases
+and all six $n=2,048$, amplitude 1 cases were newly certified. Median
+per-trial price-search/Knuth ratios were respectively 0.04953 and 0.06128.
+At $n=2,048$, amplitude 2 still failed, with ratio 0.99391. Ordinary random
+and gap-spike controls at $n=1,024$ gave ratios 1.06492 and 1.12941.
+The already-certified $n=1,024$, amplitude 1 control made no extra oracle
+calls yet showed a price-search/old-hybrid ratio of 1.13564. This variability
+limits interpretation of small timing differences; operation counts and
+all raw observations are retained. The host was Apple M4 with Python 3.9.6.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
