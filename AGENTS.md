@@ -25,6 +25,9 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_excess.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/split_height.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_split_height.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/mass_frontier.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_mass_frontier.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/frontier_separation.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not

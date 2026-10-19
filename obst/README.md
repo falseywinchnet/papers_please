@@ -11,6 +11,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Concave baseline-price extension](BASELINE_PRICES.md)
 - [Bounded-excess dyadic construction](EXCESS.md)
 - [Split-height construction and taller-tree certificate](SPLIT_HEIGHT.md)
+- [Exact variable mass frontier and uniform-width comparison](MASS_FRONTIER.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
@@ -49,6 +50,9 @@ python3 obst/code/excess.py --max-n 1024
 python3 obst/code/benchmark_excess.py
 python3 obst/code/split_height.py
 python3 obst/code/benchmark_split_height.py
+python3 obst/code/mass_frontier.py
+python3 obst/code/benchmark_mass_frontier.py
+python3 obst/code/frontier_separation.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -112,3 +116,16 @@ split-height/Monge mechanism, implemented with aligned dyadic tilings and
 SMAWK. For any fixed extra height, attempted work is O(n^(3/2)) at every n;
 fallback still makes the worst case quadratic. See SPLIT_HEIGHT.md for the
 prior-art distinction, padding argument, verification, and failure controls.
+
+`mass_frontier.solve(p,q,mode='adaptive')` instead selects a domain guaranteed
+to contain an unrestricted optimum, using a directly proved mixed-weight
+Fibonacci subtree-mass bound. It stores only admissible intervals and composes
+them with an exact top skeleton. The work bound is
+O(n log(n+1) + min_d [S_d+n*2^d]), where S_d counts admissible intervals at
+depth d. The `uniform` mode implements the corresponding global-width
+envelope as a controlled prior-architecture baseline. Every solve is exact;
+the selector may choose the full Knuth table. The worst case stays quadratic.
+The variable contour has a proved exponent advantage on a positive light-block
+family relative to this uniform envelope, not relative to all earlier methods.
+See MASS_FRONTIER.md for proofs, exact counts, matched timings, and the
+counterexample that invalidated the initially imported mass-bound constant.

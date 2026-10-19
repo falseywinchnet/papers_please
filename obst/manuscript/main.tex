@@ -17,37 +17,33 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We investigate exact construction of optimal binary search trees with weights
-on both keys and gaps. We give sufficient conditions for contracting a single
-key, or a contiguous block of keys and gaps, without changing the optimum
-except for an explicitly known additive cost. A linear preprocessing pass
-selects certified blocks from a Cartesian-tree hierarchy and chooses a size
-threshold minimizing the number of subsequent dynamic-programming states.
-If the surviving core has $m$ keys and the selected blocks have sizes $k_t$,
-construction takes $O(n+m^2+\sum_t k_t^2)$ arithmetic operations.
-The method remains quadratic in the worst case. On one seeded positive-weight
-instance with 512 keys and sparse heavy separators, it reduced the number of
-DP states from 131,328 to 10,344; ordinary random mixed weights benefited little.
-An additional certificate optimizes all minimum-unweighted-path-length
-shapes and excludes every other shape using a residual-weight lower bound.
-A dyadic extension also optimizes trees with bounded excess unweighted
-path length and certifies them against all remaining shapes. The shortcuts
-provide an $O(n\log n)$ exact route when their explicit tests pass,
-including tested near-uniform instances left unresolved by contraction.
-For sizes with a wide shape band, we implement the known split-height
-Monge construction and certify its output against all taller trees. At any
-size its attempted work is $O(n^{3/2})$ for a fixed excess height; failed
-certificates still require quadratic fallback.
-We also document an order-free Huffman relaxation, its failed sparse-DP
-implementation, and exact counterexamples to proposed local certificates.
-A second relaxation prices depth-count constraints along the ordered key
-sequence. An affine-tail lemma evaluates it in $O(n\log n)$ time without
-assuming the optimal tree is shallow. We characterize the missing ordering
-condition and give a strictly positive family showing that unique-minimum
-checks on any fixed window width cannot make this relaxation exact.
-These are research results and reproducible observations, not a resolution
-of general subquadratic construction. Novelty of the contraction conditions
-has not been established.
+We investigate exact optimal binary search trees with ordered weights on
+both keys and gaps. We give sufficient key and block contraction rules,
+with construction cost $O(n+m^2+\sum_t k_t^2)$ for a surviving core of
+$m$ keys and contracted blocks of sizes $k_t$. Complementary shortcuts
+optimize minimum or bounded-excess unweighted path-length classes and
+certify unrestricted optimality with residual-weight bounds. Successful
+narrow-class attempts take $O(n\log n)$ work. A known split-height Monge
+construction supplies an $O(n^{3/2})$ attempted route at every size, with a
+separate certificate against taller trees.
+
+We also implement the established short-interval/top-skeleton architecture
+using a variable mass contour. A directly proved mixed-weight Fibonacci
+bound guarantees that the contour contains every optimal subtree at a
+chosen depth $d$. If $S_d$ intervals are admitted, exact full construction
+takes $O(n\log(n+1)+\min_d\{S_d+n2^d\})$ arithmetic work, including
+parameter selection. A cancellation argument bounds all short-table root
+searches by $3S_d$. On a positive family with a localized light block, the
+variable contour gives $O(n^{1.59024})$ work while the specified uniform
+width envelope requires $\Omega(n^{1.75})$ work. This is a comparison
+within one architecture, not a new general subquadratic bound.
+
+Exact enumeration, independent cubic recurrences, adversarial inputs, and
+operation counts accompany all implementations. We preserve a failed
+mass-bound transfer and document an ordered depth relaxation, its
+$O(n\log n)$ oracle, and obstructions to local repairs. General worst-case
+construction remains quadratic; novelty and broad practical superiority
+are not established. The full subquadratic research objective remains open.
 \end{abstract}
 
 \section{Model, scope, and prior work}
@@ -820,6 +816,229 @@ The earlier bounded-excess solver is more efficient on that narrow class.
 No broad practical superiority or improvement over the known width-limited
 Larmore/KLR constructor is established by this experiment.
 
+\section{A variable interval frontier for exact full construction}
+The height test can fail even when its candidate is optimal. We now use a
+class guaranteed in advance to contain an unrestricted optimum. The
+short-interval/top-skeleton architecture is established work of Larmore
+and Karpinski--Larmore--Rytter~\cite{larmore,klr}; the experiment compares
+a uniform width envelope with a variable interval contour. Both use the
+same safe mass guarantee and matrix infrastructure. This is not a priority
+claim for the architecture or its restricted subquadratic regime.
+
+\paragraph{A failed transfer of the sharper mass constant.}
+The initial implementation used $2W/F_{d+3}$ as the maximum internal
+subtree mass at edge depth $d$, following a literal transfer of the
+Fibonacci formula in~\cite{hlm}. Its first full-input check failed: the
+resulting class could be empty. The positive two-key example
+\[
+ p=(1,1),\qquad q=(1,100,1)
+\]
+explains the failure. Both trees cost 206; the total mass is 104 and the
+internal child has mass 102. Thus $102>2\cdot104/3$ at depth one. Charging
+an additional comparison at every gap is a tree-independent constant and
+does not remove this violation. We preserve the counterexample and use
+the following independently justified, weaker constant in our model.
+This does not refute the KLR architecture or its asymptotic guarantees.
+
+\begin{lemma}[A sufficient mixed-weight subtree bound]\label{lem:mass}
+If $S$ is an internal subtree at edge depth $d$ in an optimal full OBST
+of total outcome mass $W$, then
+\[
+ W(S)\le W/F_{d+1},\qquad F_1=F_2=1.
+\]
+\end{lemma}
+\begin{proof}
+Let $X$ be an internal grandchild of $v$, with parent $y$, and let $O$
+be the mass inside $v$'s subtree but outside $y$'s, including key $v$.
+For a straight two-edge path, rotating $y$ upward changes cost by
+$O-p_y-W(X)$. For a bent path, promoting $X$ with a double rotation
+changes cost by $O-p_X-W(X)$. Optimality therefore implies $O\ge W(X)$
+in either case. These formulas include all external gap weights.
+
+Going upward from $S$, write $T_0=S,T_1,\ldots,T_d=T$. Nonnegativity
+gives $W(T_1)\ge W(T_0)$, and the grandchild inequality gives
+$W(T_i)\ge W(T_{i-1})+W(T_{i-2})$ for $i\ge2$.
+Induction gives $W(T_d)\ge F_{d+1}W(S)$. Weak inequalities include
+zero weights and ties.
+\end{proof}
+This lemma concerns internal subtrees. A heavy interior external gap can
+have nearly all the mass at depth two; zero-key subtrees remain permitted.
+The Fibonacci approach is prior work~\cite{hlm}; sharpness of this
+particular sufficient bound is not claimed.
+
+\paragraph{Store a contour instead of a global width.}
+For fixed $d$, let $E_d(i)$ be the largest $j>i$ satisfying
+$F_{d+1}W(i,j)\le W$, or $i$ if there is none. Empty intervals always
+have stored cost zero. Nonnegative weights imply that $E_d(i)$ is
+nondecreasing and the domain is closed under taking subintervals.
+A two-pointer scan computes it in $O(n)$ work. Write
+\[
+ S_d=\sum_{i=0}^n(E_d(i)-i).
+\]
+By Lemma~\ref{lem:mass}, every internal subtree at depth $d$ of an
+optimal tree belongs to the domain. For comparison, the uniform version
+sets $\ell_d=\max_i(E_d(i)-i)$ and stores
+\[
+ U_d=\ell_d(n+1)-\ell_d(\ell_d+1)/2\ \ge S_d
+\]
+intervals. Both classes contain an unrestricted optimum.
+
+\begin{lemma}[Root-search work on a hereditary contour]
+Computing all unrestricted interval optima in this domain takes
+$O(n+S_d)$ work, with at most $3S_d$ tested roots.
+\end{lemma}
+\begin{proof}
+Bucket only existing cells by length in $O(n+S_d)$ work. Knuth's
+recurrence applies because every child and adjacent shorter interval is
+present. Let $r(i,j)$ be the leftmost optimal root and put
+$t(i,j)=r(i,j)-i\ge0$. For length at least two, the root count is
+$2+t(i+1,j)-t(i,j-1)$. Sum over the domain. A positive occurrence
+$t(a,b)$ cancels its negative occurrence whenever $(a,b+1)$ is present.
+An unmatched positive occurrence requires $b=E_d(a)$ and
+$E_d(a-1)=E_d(a)$. There is at most one per row, of size at most
+$E_d(a)-a$. Discard unmatched negative occurrences. Adding the length-one
+cells proves the $3S_d$ bound. Scanning nonexistent diagonal cells would
+lose this saving; the buckets are essential.
+\end{proof}
+
+\paragraph{Compose the exact interval costs.}
+Use $2^d$ top-grid blocks and the preceding dyadic transitions, replacing
+height-limited lower costs by these unrestricted interval costs. A block
+starting after $i$ gaps can finish after $j$ exactly when
+$i<j\le E_d(i)+1$. It contributes $C(i,j-1)+dW(i,j-1)$ and the
+starting boundary key cost $p_{i-1}(d-v_2(b))$ at $b>0$.
+Coarse gaps retain their aligned power-of-two skip transitions. Every
+optimal tree is represented, while every reconstructed candidate is a
+valid full tree. Thus the resulting optimum is unrestricted.
+
+The variable band needs another implementation detail. Reachable input
+rows, and their union of feasible output columns, may have holes. Scan
+once per top boundary to retain exactly output columns covered by some
+reachable row. Put $L(j)=\min\{i:E_d(i)+1\ge j\}$, a nondecreasing
+sequence with $L(j)\le j-1$. In the transposed matrix, use finite true
+entries when $L(j)\le i<j$, and padding
+\[
+ Z+L(j)-i\quad(i<L(j)),\qquad
+ Z+i-j+1\quad(i\ge j),\qquad Z=(n+d+1)W+1.
+\]
+All finite prefix costs are smaller than $Z$. Within the band, exact
+interval costs are Monge. Across padding, opposite-side differences
+\mbox{$i_1+i_2+1-j-L(j)$} are nonincreasing; same-side preferences also
+move right. Thus the matrix is totally monotone,
+even after removing arbitrary rows and columns, and every searched column
+has a feasible minimum. SMAWK, scans, and coarse transitions together
+cost $O(n2^d)$. Backpointers recover every key and gap contribution.
+
+\begin{theorem}[Exact mass-frontier constructor]
+The adaptive implementation constructs a full optimal BST in
+\[
+ O\!\left(n\log(n+1)+\min_{d\ge0}\{S_d+n2^d\}\right)
+\]
+arithmetic work. The uniform-envelope implementation replaces $S_d$ by
+$U_d$. At the selected depth, storage is $O(n+S_d+n2^d)$ or
+$O(n+U_d+n2^d)$ respectively. Both remain quadratic in the worst case.
+\end{theorem}
+\begin{proof}
+The interval and composition arguments establish exactness at every depth.
+Start with depth zero and the full Knuth table. Evaluate successive depths
+while $n2^d$ is smaller than the best work proxy so far; each contour costs
+$O(n)$. No later depth can improve the proxy because its top term alone
+is too large. At most $O(\log(n+1))$ depths are evaluated. Depth zero
+uses Knuth directly, omitting a redundant top pass and its lower-order
+$n$ proxy term. The preceding work and storage bounds now apply.
+\end{proof}
+This constructor has no posterior certificate failure followed by a second
+solve. It may select the full table initially. The Python prototype uses
+dictionaries; bounded integer top coordinates also allow direct arrays.
+When each key has weight at least $a>0$ and $W=O(na)$, we have
+$S_d=O(n^2/\phi^d)$, where $\phi=(1+\sqrt5)/2$. Balancing against
+$n2^d$ recovers the known exponent $1+\log_{2\phi}2\simeq1.59023$.
+
+\paragraph{A scoped asymptotic separation.}
+Let $n$ range over fourth powers and $L=n^{3/4}$. Give every key and gap
+weight $A=n^2$, except a central block of $L$ keys and its $L+1$ gaps,
+all of weight one. Every weight is positive and $W=\Theta(nA)$.
+An admitted interval contains at most $m=O(n/F_{d+1})$ heavy keys.
+Intervals wholly inside the light block number $O(L^2)$. Other starts
+contribute $O(nm)$ ordinary endpoints; only $O(m)$ outside starts can
+reach across a block boundary and gain $O(L)$ endpoints, and starts
+inside add at most $O(Lm)$ heavy endpoints. Consequently
+\[
+ S_d=O(n^2/F_{d+1}+L^2).
+\]
+With $d=\lfloor\log_{2\phi}n\rfloor$, the adaptive work is
+$O(n^{1+\log_{2\phi}2}+n^{3/2})=O(n^{1.59024})$.
+
+Every uniform-envelope plan, however, has proxy $\Omega(nL)$.
+If $2^d\ge L$, the top term suffices. Otherwise
+$F_{d+1}=O(L^{\log_2\phi})$, so $W/F_{d+1}$ exceeds the entire light
+block's $O(L)$ mass. Hence $\ell_d\ge L$ and the uniform table has
+at least $nL/2$ cells. This gives $\Omega(n^{1.75})$ at every depth.
+The separation is within the specified architecture, not against every
+prior OBST algorithm or combinations of our shortcuts. In particular,
+this light block also offers an opportunity for certified contraction.
+
+Both modes were checked against Knuth on this positive family at
+$n=16,81,256,625$, with cubic checks also at the first two sizes. Larger
+instances were used only for plan counting. At $n=65{,}536$, the chosen
+adaptive and uniform proxies were 119,041,540 and 361,608,522, both at
+depth nine. These are $S_d+n2^d$ and $U_d+n2^d$, not measured full-solve
+operation totals or timings. All parameter counts are retained.
+
+\paragraph{Independent verification.}
+The harness passed 960 weighted exhaustive-shape comparisons through
+eight keys on arbitrary nondecreasing contours, including infeasible
+classes. It checked 914 interval costs independently and 90,193 top
+minima by brute search. Another 2,400 full solves, using both modes on
+1,200 inputs through 40 keys, matched cubic DP and reconstructed costs.
+All 24,600 internal subtrees in the cubic-optimal trees satisfied
+Lemma~\ref{lem:mass}. Families include zeros, ties, geometric variants,
+spikes, and key-only and gap-only controls. A further 56 fixtures through
+2,048 keys matched Knuth in both modes, including ordinary random inputs
+that failed the preceding height certificates.
+
+At 2,048 random keys, the adaptive version chose depth six and returned
+cost 21,053,524. It used 309,261 interval cells and 616,642 root candidates,
+versus Knuth's 2,098,176 cells and 4,215,527 candidates. Additional work
+included 24,035 contour mass checks across seven parameter depths,
+1,245,431 genuine matrix queries, 149,319 padding queries, 131,136 scans
+of each row/column type, and 107,859 coarse transitions. The uniform
+version stored 337,550 cells. On log-uniform weights the corresponding
+cell counts were 308,487 versus 431,951; on a single heavy key they were
+1,048,576 versus 1,573,376. Geometric inputs selected the full table.
+All operation categories and parameter levels are retained separately.
+
+\paragraph{Matched timings.}
+All six orders of Knuth, uniform width, and adaptive contour are used per
+fixture, for 48 trials. Preprocessing and reconstruction are timed; every
+result is directly evaluated and checked against Knuth. Inputs vary except
+for deterministic geometric and spike fixtures. The timing light window
+uses weights near 1,000 outside a block of $\lfloor n^{3/4}\rfloor$ keys
+and weight one inside, with varying position; it is separate from the
+$A=n^2$ asymptotic family. M4/Python~3.9.6 median paired ratios were:
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+Fixture & uniform/Knuth & adaptive/Knuth & adaptive/uniform\\
+\midrule
+512, random & 1.59908 & 1.61204 & 0.96602\\
+1,024, random & 1.56592 & 1.55650 & 1.00412\\
+2,048, random & 0.90002 & 0.91021 & 1.00096\\
+2,048, light window & 1.13693 & 0.77546 & 0.65523\\
+2,048, near-uniform & 0.87926 & 0.91295 & 1.02587\\
+1,024, log-uniform & 1.67408 & 1.47983 & 0.88390\\
+512, geometric & 0.98060 & 1.04487 & 1.01772\\
+2,048, heavy key & 1.50542 & 1.04249 & 0.70113\\
+\bottomrule
+\end{tabular}
+\end{center}
+The smaller random cases remain slower than Knuth. The contour's saving
+over uniform width is clearest on localized structure; ordinary random
+inputs show little timing difference. Both geometric variants execute the
+same Knuth kernel after selection, so the sub-unit ratio there is noise.
+These instrumented Python measurements do not establish production-language
+or broad practical superiority. Every raw observation is retained.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
@@ -1129,12 +1348,12 @@ Another 120 cases combine $2\le w\le16$ with forced prefix depths
 $1\le D\le8$. Cubic DP, Knuth, direct costs, and inspection of the optimal
 prefix verify the exact additive identity and preserved strict gap.
 
-\clearpage
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
-exact contraction, bounded-excess and split-height constructions, global certificates,
+exact contraction, bounded-excess and split-height constructions, variable
+interval frontiers, global certificates,
 and scoped obstructions to depth relaxations. Mathematical novelty, broad
-practical benefit, and comparisons against Larmore-style implementations
+practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
 
 Standard-library Python code, seeded exact results, and matched timing
@@ -1145,6 +1364,7 @@ establish a rigorously scoped complexity lower bound.
 
 \begingroup\small
 \begin{thebibliography}{9}
+\setlength{\itemsep}{0pt}
 \raggedright
 \bibitem{knuth}
 D. E. Knuth. Optimum binary search trees.
@@ -1165,6 +1385,11 @@ approximately optimal binary search trees. \emph{Proceedings of SODA},
 M. Karpinski, L. L. Larmore, and W. Rytter. Same title as~\cite{klr},
 longer preprint version, Section~5: Short height limited trees.
 \href{https://www.researchgate.net/publication/2710579_Sequential_and_Parallel_Subquadratic_Work_Algorithms_for_Constructing_Approximately_Optimal_Binary_Search_Trees}{Archived preprint text}.
+\bibitem{hlm}
+D. S. Hirschberg, L. L. Larmore, and M. Molodowitch.
+Subtree weight ratios for optimal binary search trees. Technical Report
+86-02, University of California, Irvine, 1986.
+\href{https://ics.uci.edu/~dhirschb/pubs/TR86-02.pdf}{Author-hosted report}.
 \bibitem{becker}
 P. Becker. Optimal binary search trees with near minimal height. 2010.
 \href{https://arxiv.org/abs/1011.1337}{arXiv:1011.1337}.

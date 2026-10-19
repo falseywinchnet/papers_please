@@ -288,6 +288,63 @@ the already-tested baseline-price search from a minimum-IPL cutoff to the
 exact taller-tree IPL cutoff. Neither extension is presently implemented.
 The mixed-weight problem remains the objective; this is not completion.
 
+## Eighth checkpoint: full exact construction on a variable mass frontier
+
+The previous turn was progress: commit3ad277b uploaded the split-height
+implementation, proof, exact checks, and18-page manuscript. This turn examined
+the stated width-limited prior-work baseline and implemented both a uniform
+envelope and a variable contour, preserving full mixed key/gap weights.
+
+The first mass-bound transfer failed. Using2W/F_(d+3) at edge depth d produced
+an empty admissible class on a gap-spike input. A smaller positive witness is
+p=[1,1],q=[1,100,1]: both trees cost206, total mass104, and the depth-one
+internal child has mass102>2*104/3. The sharper constant is therefore not used
+in this model. MASS_FRONTIER.md proves a sufficient W/F_(d+1) internal-subtree
+bound directly by single/double rotations and a Fibonacci recurrence, retaining
+the broad known architecture and asymptotic regime. The rejected transfer and
+exact counterexample are preserved; this is not a claim to refute KLR's method.
+
+For depth d, only intervals with mass at most W/F_(d+1) are stored, with empty
+intervals always allowed. Their right endpoints form a hereditary monotone
+contour. A cancellation proof bounds all Knuth root searches by3S_d, where
+S_d is the number of stored intervals. Bucketing only actual cells avoids
+scanning nonexistent diagonals. Variable-band SMAWK handles holes in reachable
+rows and output columns. All global optimal trees are represented, so this
+constructor has no failed certificate followed by a second quadratic solve.
+Selection takes O(n log n), and total work is
+O(n log(n+1)+min_d[S_d+n*2^d]); worst case remains quadratic via depth zero.
+
+The harness passed960 exhaustive weighted contour-class checks,914 independent
+interval costs,90,193 brute matrix minima,2,400 full cubic-checked solves, and
+24,600 internal-subtree mass inequalities. Both implementations also match
+Knuth on56 larger mixed-weight fixtures through2,048 keys. At n=2048 random,
+adaptive stores309,261 cells versus Knuth's2,098,176, with616,642 root checks
+plus1,245,431 genuine top queries and separately retained padding/scanning work.
+Geometric inputs choose the full table. The Fibonacci and top-skeleton ideas
+are prior work; priority of this particular contour specialization is unproven.
+
+A positive family with a central n^(3/4)-key light block proves a separation
+within this architecture: adaptive work O(n^1.59024), whereas every global-width
+plan has proxy Omega(n^1.75). This is not a lower bound on other algorithms;
+the same family can also benefit from our existing certified contraction.
+Both modes were exactly checked at n=16,81,256,625. Larger inputs only count
+plans: at n=65536, depth9 proxies are119,041,540 adaptive and361,608,522
+uniform. These are not completed large solves or runtime predictions.
+
+The48 matched timing trials show adaptive/Knuth ratios1.61204,1.55650,0.91021
+on random input at512/1024/2048 keys. On a2048-key localized light window,
+adaptive costs0.77546 times Knuth and0.65523 times uniform width. On a single
+heavy key it costs1.04249 times Knuth and0.70113 times uniform width. The
+instrumented Python implementation still loses on several small cases and
+does not establish broad superiority. All observations are retained.
+
+The next substantive step is to combine the variable contour with the existing
+certified contractions or use a multi-depth frontier so a heavy outcome does
+not inflate the interval domain everywhere. A compiled implementation would
+clarify the constant-factor question, but a faster language alone would not
+remove the worst-case quadratic state count. The unrestricted mixed-weight
+objective remains active and unresolved.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

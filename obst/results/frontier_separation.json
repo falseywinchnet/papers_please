@@ -1,0 +1,120 @@
+{
+  "exact_checked_sizes": [
+    16,
+    81,
+    256,
+    625
+  ],
+  "rows": [
+    {
+      "n": 256,
+      "light_keys": 64,
+      "counts": {
+        "adaptive": {
+          "contour_mass_checks": 2552,
+          "parameter_levels": 6,
+          "selected_depth": 5,
+          "selected_width": 87,
+          "selected_short_states": 9203,
+          "selected_work_proxy": 17395
+        },
+        "uniform": {
+          "contour_mass_checks": 2552,
+          "parameter_levels": 6,
+          "selected_depth": 4,
+          "selected_width": 102,
+          "selected_short_states": 20961,
+          "selected_work_proxy": 25057
+        }
+      }
+    },
+    {
+      "n": 1024,
+      "light_keys": 181,
+      "counts": {
+        "adaptive": {
+          "contour_mass_checks": 12236,
+          "parameter_levels": 7,
+          "selected_depth": 6,
+          "selected_width": 245,
+          "selected_short_states": 91575,
+          "selected_work_proxy": 157111
+        },
+        "uniform": {
+          "contour_mass_checks": 14260,
+          "parameter_levels": 8,
+          "selected_depth": 5,
+          "selected_width": 286,
+          "selected_short_states": 252109,
+          "selected_work_proxy": 284877
+        }
+      }
+    },
+    {
+      "n": 4096,
+      "light_keys": 512,
+      "counts": {
+        "adaptive": {
+          "contour_mass_checks": 56487,
+          "parameter_levels": 8,
+          "selected_depth": 7,
+          "selected_width": 682,
+          "selected_short_states": 900323,
+          "selected_work_proxy": 1424611
+        },
+        "uniform": {
+          "contour_mass_checks": 64615,
+          "parameter_levels": 9,
+          "selected_depth": 7,
+          "selected_width": 682,
+          "selected_short_states": 2561251,
+          "selected_work_proxy": 3085539
+        }
+      }
+    },
+    {
+      "n": 16384,
+      "light_keys": 1448,
+      "counts": {
+        "adaptive": {
+          "contour_mass_checks": 257940,
+          "parameter_levels": 9,
+          "selected_depth": 8,
+          "selected_width": 1887,
+          "selected_short_states": 8767125,
+          "selected_work_proxy": 12961429
+        },
+        "uniform": {
+          "contour_mass_checks": 290541,
+          "parameter_levels": 10,
+          "selected_depth": 8,
+          "selected_width": 1887,
+          "selected_short_states": 29137167,
+          "selected_work_proxy": 33331471
+        }
+      }
+    },
+    {
+      "n": 65536,
+      "light_keys": 4096,
+      "counts": {
+        "adaptive": {
+          "contour_mass_checks": 1160711,
+          "parameter_levels": 10,
+          "selected_depth": 9,
+          "selected_width": 5213,
+          "selected_short_states": 85487108,
+          "selected_work_proxy": 119041540
+        },
+        "uniform": {
+          "contour_mass_checks": 1422166,
+          "parameter_levels": 12,
+          "selected_depth": 9,
+          "selected_width": 5213,
+          "selected_short_states": 328054090,
+          "selected_work_proxy": 361608522
+        }
+      }
+    }
+  ]
+}
