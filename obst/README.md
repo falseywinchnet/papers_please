@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Sufficient unrestricted height after setting aside exceptional outcomes](TRIMMED_HEIGHT.md)
 - [Linear run dependence with arbitrary mixed gaps at a prescribed height](SLOT_VECTOR_CONSTRUCTION.md)
 - [Finite slot-window products and complete prescribed-height run construction](SLOT_RUN_CONSTRUCTION.md)
 - [Complete below-capacity plateau cores and local side charge](PLATEAU_BELOW_CORE.md)
@@ -68,6 +69,17 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The [exceptional-outcome height bound](TRIMMED_HEIGHT.md) makes the mixed
+run-vector method a full unrestricted constructor. After an optimal-tree
+path accumulates more than the unmarked mass, disjoint ancestor increments
+must contain different marked outcomes. Sorting the weights selects a
+sufficient height in O(n log n). For a fixed number of bounded positive
+key runs and exceptional key/gap weights, this gives
+O(n^(log_phi 2) log n) arithmetic work, log_phi 2 approximately 1.44042,
+independently of the exceptional magnitudes. A work selector retains Knuth
+when its quadratic bound is preferable. The finite forced-kernel tests
+validate full construction; they do not show a practical crossover.
 
 The [below-capacity plateau classification](PLATEAU_BELOW_CORE.md) proves a
 boundary-only local charge on the complementary side: with one constant

@@ -38,6 +38,11 @@ length $m$ with $d=n-m$ arbitrary fringe keys admits $O(mb+nd)$ full
 construction via Wilber's linear concave least-weight-subsequence primitive.
 Positive affine translation of key and gap weights also gives $O(nb)$
 construction, including geometric scaling and opposing arithmetic drifts.
+A height bound charging disjoint ancestor increments to exceptional outcomes
+turns the mixed run-vector construction into an unrestricted exact solver.
+With a fixed number of bounded positive key runs and exceptional key/gap
+weights, it takes $O(n^{\log_\varphi 2}\log(n+1))$ arithmetic work,
+where $\varphi=(1+\sqrt5)/2$, independently of the exceptional magnitudes.
 We give the certificate once and derive the family
 guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
@@ -1943,10 +1948,156 @@ For arbitrary weights, $r\le n$ and $e\le n-2$; if every stage is a
 singleton, \eqref{eq:slot-vector-refined} gives $O(nc)$ work. The signed
 checkerboard in Theorem~\ref{thm:slot-gap-checkerboard} thus permits fast
 vector application despite obstructing a sparse density list. The height
-constraint remains explicit; unrestricted optimality requires a sufficient
-height certificate. The original interval-core bound and local support
+constraint remains explicit; the next subsection supplies a sufficient
+height for unrestricted construction. The original interval-core bound and local support
 question are unchanged. Independent controls appear in
 Appendix~\ref{app:rank-transfer}.
+
+\subsection{Unrestricted height from a small exceptional set}
+\label{sec:trimmed-height}
+The full mixed rotation inequalities also control height after a chosen set
+of outcomes is set aside in the accounting. Every weight remains in the
+optimization. Write $\mu$ for the smallest positive singleton-interval mass,
+and $z$ for the longest all-zero interval:
+\[
+ \mu=\min\{p_i+q_i+q_{i+1}:p_i+q_i+q_{i+1}>0\},\qquad
+ \ell=\lceil\log_2(z+1)\rceil.
+\]
+Here $z$ is the longest consecutive run of indices with
+$p_i=q_i=q_{i+1}=0$. When the total mass is positive, $\mu$ exists.
+Every positive-mass nonempty interval contains a positive singleton
+interval: for a positive key use that key, and for a positive gap use
+an adjacent key inside the interval. Thus its mass is at least $\mu$.
+For $V\ge0$ define
+\[
+ t(V)=\min\{j\ge0:F_{j+1}\mu>V\},\qquad F_1=F_2=1.
+\]
+
+\begin{lemma}[Disjoint charges beyond the light mass]
+\label{lem:trimmed-height}
+Mark any $k$ key or gap outcomes and let $V$ be the total mass of the
+unmarked outcomes. Put
+\[
+ P=\begin{cases}t(W),&k=0,\\t(V)+k+1,&k\ge1.\end{cases}
+\]
+Every positive-mass internal subtree in every optimal tree has root depth
+less than $P$. Some optimal tree has height at most $\min\{n,P+\ell\}$.
+If $W=0$, a balanced tree is optimal directly.
+\end{lemma}
+\begin{proof}
+Fix a positive internal subtree at depth $d$ and ascend to the root.
+Let $A_0,\ldots,A_d$ be the successive masses and
+$B_i=A_i-A_{i-1}$ the mass of the new ancestor key and its off-path
+sibling subtree. Lemma~\ref{lem:mass}, including its explicit straight
+and bent rotations, gives
+\begin{equation}\label{eq:trimmed-increments}
+ A_j\ge F_{j+1}\mu,\qquad B_i\ge A_{i-2}\quad(2\le i\le d).
+\end{equation}
+The outcome sets counted by the $B_i$ are disjoint. For any fixed $j$,
+all sets $B_i$ with $i>j$ are also disjoint from the subtree of mass $A_j$.
+This partition includes each external gap once.
+
+If $k=0$, then $A_d\le W$ implies $d<t(W)$. Suppose $k\ge1$.
+When $d<t(V)$ there is nothing to prove. Otherwise let $j$ be the first
+index with $A_j>V$. Equation~\eqref{eq:trimmed-increments} ensures
+$j\le t(V)$. The subtree of mass $A_j$ contains a marked outcome.
+For every $i\ge j+2$, its monotonicity and the same equation give
+$B_i\ge A_{i-2}\ge A_j>V$, so each such disjoint increment contains
+another marked outcome. If $d\ge j+1$, counting these sets gives
+$k\ge1+(d-j-1)=d-j$; when $d=j$ the same conclusion is immediate.
+Consequently $d\le j+k\le t(V)+k<P$.
+The increment $B_{j+1}$ is deliberately uncharged: its inequality only
+involves $A_{j-1}$, which need not exceed $V$.
+
+Replace every maximal zero-mass subtree by a balanced tree on its own
+keys. This changes no cost or positive outcome depth. Such a subtree
+contains at most $z$ keys and has replacement height at most $\ell$.
+It attaches below a positive internal node, giving height at most
+$P+\ell$. The trivial height $n$ completes the bound.
+\end{proof}
+
+This is a consequence of the sufficient mixed rotation lemma; the
+Fibonacci method is prior work~\cite{hlm}. No dominance assumption on
+the marked weights, integrality, or separation of their positions is used.
+For fixed $k$, selecting the $k$ largest outcome weights minimizes $V$
+and hence $t(V)$. Sorting them and scanning all suffix masses finds the
+best stated height in $O(n\log(n+1))$ work and $O(n)$ space. Compute
+$\mu,z$ in one scan. Generate $\mu F_{j+1}$ only until it exceeds $W$
+or $j=n$; the table has $O(n)$ entries and its last entry is at most
+$2W$. As the suffix mass decreases, the index $\min\{t(V),n\}$ only
+decreases, so all index updates take $O(n)$ work. Truncation at $n$ cannot
+falsely improve a bound already capped by the trivial height $n$.
+
+The same global height works for every contiguous interval. Its marked
+set and unmarked mass can only decrease, its smallest positive singleton
+mass can only increase, and its zero interval length is at most $z$.
+Use the stronger $k=0$ case for an interval containing no marked outcome,
+and balance an all-zero interval directly. Hence this selected budget
+also suffices for convergence of the original terminal-penalty iteration
+on the fixed original or normalized instance, with its penalty recomputed
+for that height.
+
+\begin{theorem}[Full construction with a selected sufficient height]
+\label{thm:trimmed-construction}
+Apply the normalization of Theorem~\ref{thm:slot-vector}, and select
+height $h$ by Lemma~\ref{lem:trimmed-height} on the normalized weights.
+Put $c=2^h-1$. With $r$ normalized key runs and $e$ positive residual
+internal gaps, a complete unrestricted optimum can be constructed in
+\[
+ O\bigl(n\log(n+1)+(r+e)c\log(c+1)\bigr)\text{ work},\qquad
+ O\bigl(n+(r+e)c\bigr)\text{ words}.
+\]
+More precisely, if $R_2$ passes are long runs and $S_1$ are singletons,
+choosing between the vector kernel and Knuth before construction gives
+\begin{equation}\label{eq:trimmed-construction}
+ O\!\left(n\log(n+1)+
+ \min\{n^2,c(1+hR_2+S_1)\}\right)
+\end{equation}
+arithmetic work and quadratic worst-case space.
+\end{theorem}
+\begin{proof}
+The normalization changes every tree cost by the same constant $bn$.
+Thus its sufficient height contains an original unrestricted optimum.
+Theorem~\ref{thm:slot-vector} optimizes exactly over that height and
+constructs the entire tree. Equation~\eqref{eq:slot-vector-refined}
+supplies the precise kernel work and space. Compare its work proxy with
+$n^2$ before allocating slot arrays; the selected kernel has the smaller
+asymptotic bound. If $h>2\lceil\log_2(n+1)\rceil$, the slot capacity
+already exceeds $n^2$ and can be rejected without constructing it.
+All-zero normalized input is handled by a balanced tree.
+\end{proof}
+
+\begin{corollary}[Few exceptional outcomes of arbitrary magnitude]
+\label{cor:trimmed-runs}
+Let $\varphi=(1+\sqrt5)/2$ and $\alpha=\log_\varphi2\approx1.44042$.
+Suppose all normalized keys weigh at least $a>0$. Apart from $s$
+exceptional keys of unrestricted size, their weights lie in $[a,Ca]$
+for fixed $C$. Suppose the background has $r_0$ constant runs before
+these exceptional keys are substituted, and there are $e$ positive
+residual gap weights, also of unrestricted size. For fixed $r_0,s,e$,
+a complete unrestricted optimum can be constructed in
+$O(n^\alpha\log(n+1))$ arithmetic work.
+\end{corollary}
+\begin{proof}
+Mark the $s$ exceptional keys and $e$ positive residual gaps. The remaining
+mass is $V\le Cna$, every positive singleton has mass at least $a$, and
+$z=0$. Since $F_{j+1}\ge\varphi^{j-1}$ for $j\ge1$,
+\[
+ t(V)\le2+\lceil\log_\varphi(1+V/\mu)\rceil,\qquad
+ 2^h=O\bigl(2^{s+e}n^\alpha\bigr).
+\]
+The $k=0$ case has at least as good a bound. Substituting exceptional
+keys makes at most $r_0+2s$ key runs. Apply
+Theorem~\ref{thm:trimmed-construction}; for fixed $s+e$, $h=O(\log(n+1))$.
+The constants depend on $C,r_0,s,e$, not on the exceptional magnitudes.
+\end{proof}
+The earlier dominant-core construction may be faster when its certificate
+passes. This corollary needs no such certificate, and permits unrelated
+exceptional magnitudes. Its bound counts exact arithmetic operations;
+unbounded integer bit costs are additional. Arbitrarily many runs and
+exceptional outcomes remain valid inputs to the full solver, with the
+quadratic fallback guarantee. The general arbitrary-weight objective and
+the original local interval-core support bound remain open.
 
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
@@ -9751,6 +9902,46 @@ singleton passes. It makes 752,788 finite run-entry queries, processes
 eleven executed-source hashes. SMAWK is the published primitive cited in
 Theorem~\ref{thm:slot-vector}; the full construction bound follows from
 its finite Monge interface and the valuation-sum amortization.
+
+\paragraph{Sufficient unrestricted height and full vector construction.}
+The height audit exhausts 22,140 mixed inputs over $\{0,1,9\}$ through
+four keys. A further 72 inputs through eight keys bring the literal shape
+count to 323,604, including 30,955 optimal shapes. The audit computes
+$\mu$ and $z$ independently from every interval. It checks 152,072 sorted
+marked-set cuts and 790,245 positive-subtree depth assertions across the
+optimal shapes. Separately, 287,760 arbitrary marked subsets through three
+keys check the disjoint-charge bound without choosing the largest weights.
+
+There are 6454 complete constructor controls against shape or original
+all-root optima, including rational scaling, geometric weights, isolated
+positive outcomes and zero-mass intervals; three empty inputs are checked
+separately. The all-root references use 1,357,542 root candidates. Twelve
+additional full vector constructions through 384 keys use three key runs
+and moderate or arbitrarily large exceptional key/gap weights. Every one
+matches an independent ordinary Knuth optimum and has its original tree
+cost, order and height checked. These twelve runs deliberately force the
+vector kernel: at these sizes the work selector would choose Knuth.
+
+For the 384-key row with one $2^{192}$ key and one $2^{128}$ gap, the
+untrimmed sufficient height is 278; marking those two outcomes gives
+height 18, with remaining mass 767 and $\mu=1$. The full forced kernel
+makes 12,489,698 finite run-entry queries, processes 524,018 singleton
+states, and stores 1,835,008 predecessor slots. This verifies the
+construction and height theorem, and does not establish a practical
+speed advantage at that size. A separate 1024-key geometric input checks
+iterative reconstruction of the complete rightmost-root chain against
+its endpoint-dominance optimum $2^{1025}-1026$.
+
+Twelve height-only plans with two exceptional outcomes and background
+keys in $\{1,2,3\}$ give heights 20, 23, 26 and 29 at sizes 1024, 4096,
+16,384 and 65,536. Exceptional exponents 64/80 and 4096/4112 give the
+same budgets; no full construction is run at these sizes. A separate
+all-root audit checks 145,424 intervals across 1552 original or globally
+normalized inputs, using 2,551,952 root candidates and retaining minimum
+height among tied optimal costs. Rational and large weights are included.
+The records \texttt{trimmed\_height\_audit.json} and
+\texttt{trimmed\_interval\_audit.json} retain separate operation counters,
+reference scopes, and seven and three executed-source hashes, respectively.
 
 
 \clearpage

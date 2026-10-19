@@ -4139,3 +4139,99 @@ Every page was rendered and visually reviewed, with detailed checks of the
 new proof on pages 27--28, the audit on pages 142--143, and dedication on
 page 151. The final PDF, TeX and five-member source/font archive are refreshed
 and byte-verified before publication. No elapsed-time result is used.
+
+## Checkpoint 55: sufficient unrestricted height by exceptional-outcome charges
+
+The previous turn was progress: checkpoint 54 at 7e67c22 published the
+arbitrary mixed prefix-vector constructor and its independent audit. This
+turn examined its unresolved sufficient-height dependence. The existing
+minimum-tall-IPL plus residual-Huffman exclusion certificate was inspected
+first. The resulting development is instead an a priori height bound, so
+the new full constructor has no posterior failure of that certificate.
+
+Let mu be the least positive singleton mass p_i+q_i+q_(i+1), z the longest
+consecutive zero-singleton run, and ell=ceil(log2(z+1)). Any positive internal
+interval contains a positive singleton, so its mass is at least mu. Mark
+any k outcomes and let V be the total unmarked mass. With t(V) the first
+j>=0 such that F_(j+1)mu>V, every positive internal subtree of every optimum
+has root depth below t(W) when k=0, and below t(V)+k+1 otherwise. Balancing
+maximal zero-mass subtrees gives a sufficient full height P+ell, capped by n.
+
+For the proof, ascend from a positive subtree, writing A_j for accumulated
+mass and B_i=A_i-A_(i-1) for the new ancestor key and off-path sibling.
+The detailed mixed rotation lemma gives B_i>=A_(i-2). Let j be the first
+index with A_j>V; the Fibonacci lower bound gives j<=t(V). The subtree
+A_j contains a marked outcome, and every disjoint B_i for i>=j+2 contains
+another. Thus d-j<=k. The increment B_(j+1) is explicitly uncharged, since
+its lower bound only involves A_(j-1). No dominance or placement assumption
+on the marked outcomes is used. This is a consequence of the already
+proved sufficient mixed rotation lemma, not a transfer of a sharper
+literature constant. The Fibonacci method remains credited to prior work.
+
+For fixed k the largest weights minimize V. Sorting and a monotone scan
+select the best stated height in O(n log n) work and O(n) space. The
+Fibonacci mass table stops at the first entry above W or at n, and its
+largest value is at most 2W. No irrelevant n-bit Fibonacci tail is built.
+The same global height works for every contiguous interval: marked count,
+unmarked mass and zero-run size can only decrease, while positive singleton
+mass can only increase. It can therefore also replace the sufficient
+budget in the original terminal-penalty iteration on a fixed original or
+normalized instance, with its penalty recomputed.
+
+Apply the exact common-gap normalization and construct at this sufficient
+height using the prefix vectors. For c=2^h-1 and r transformed key runs,
+e positive residual gaps, complete unrestricted work is
+O(n log(n+1)+(r+e)c log(c+1)), with O(n+(r+e)c) words. Before allocating
+slots, compare c(1+h R_2+S_1) with n^2 and select Knuth when smaller.
+Both paths are globally exact. The new fallback reconstructs iteratively,
+including chains longer than Python's default recursion limit.
+
+For normalized keys at least a>0, a bounded-ratio background of r_0 constant
+runs, s exceptional keys, and e positive residual gaps, mark the s+e
+exceptional outcomes. The unmarked mass is at most Cna and mu>=a. Hence
+c=O(2^(s+e)n^alpha), alpha=log_phi 2 approximately 1.44042. For fixed
+r_0,s,e this proves O(n^alpha log n) full unrestricted construction,
+independently of the exceptional magnitudes. Existing dominant-core
+methods can be faster on their accepted families. The theorem does not
+claim a practical improvement at the finite forced-kernel audit sizes,
+nor a general arbitrary-weight subquadratic bound. The original local
+interval-core support question is unchanged.
+
+The exhaustive audit covers 22,140 mixed inputs over {0,1,9} through four
+keys. With 72 extra inputs through eight keys, it examines 323,604 shapes
+and 30,955 optimal shapes, 152,072 sorted cuts and 790,245 positive-node
+assertions. Another 287,760 arbitrary marked sets through three keys
+test the stronger set-independent statement. It independently obtains
+mu and z from every literal interval. There are 6454 complete small
+constructor controls and three empty cases. Twelve forced full vector
+constructions through 384 keys all match independent Knuth optima; a
+1024-key geometric chain matches the endpoint-dominance closed form and
+checks iterative fallback reconstruction. The initial harness used an
+integer bit-count method unavailable on the host's Python version; it was
+replaced by a portable population count before the successful runs.
+
+At 384 keys with one 2^192 key and one 2^128 gap, the sufficient height
+falls from 278 to 18. The forced vector kernel uses 12,489,698 finite
+run-entry queries, 524,018 singleton states and 1,835,008 predecessor
+slots. Its proxy exceeds Knuth's, as do all twelve larger forced rows;
+they are correctness controls, not performance wins. Twelve larger
+height-only plans through 65,536 keys keep the same selected height as
+exceptional exponents rise from 64/80 to 4096/4112. No unexecuted large
+construction is claimed. The final constructor audit records seven
+executed-source hashes and separate operation categories.
+
+The independent all-interval audit checks 145,424 interval heights across
+1552 original or globally normalized inputs, using 2,551,952 all-root
+candidates and minimizing height among tied optimal costs. It includes
+rational and large exceptional weights and records three source hashes.
+TRIMMED_HEIGHT.md supplies the proof; the manuscript adds Section 2.18,
+Lemma 31, Theorem 32 and Corollary 33, with the verification in Appendix T.
+
+The final manuscript compiles cleanly at 153 pages. All 430 previous labels
+are retained among 436 unique labels; references and citations resolve.
+The dedication source is byte-identical to checkpoint 54. Seventy-four
+executed-source hash entries across fourteen audit records match local
+sources. Every page was rendered and reviewed, with detailed proof checks
+on pages 28--30, the new audit on page 145 and dedication on page 153.
+The PDF, TeX and five-member source/font archive are refreshed and verified
+before publication. No elapsed-time result is used.

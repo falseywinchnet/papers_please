@@ -554,3 +554,20 @@ finite factors, and original mixed all-root height optima. Larger rows return
 full trees; only uniform rows have a separate closed-form optimum reference.
 The theorem is height constrained and records all predecessor storage. Copy
 the JSON before another mirror operation.
+
+Sufficient unrestricted height, disjoint exceptional-outcome charges, and
+complete mixed vector/Knuth construction:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/trimmed_height_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/trimmed_interval_audit.py
+```
+
+The audit checks every optimal small shape and arbitrary marked sets before
+full constructor comparisons. The larger vector rows are explicitly forced
+kernel controls with independent Knuth references; the default work selector
+would choose Knuth at those sizes. A deep geometric chain checks iterative
+fallback reconstruction. The largest rows select heights only. Copy the JSON
+back before another mirror operation. The separate interval audit checks every
+interval against an all-root cost/height recurrence, on both original and
+globally normalized weights.
