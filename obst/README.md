@@ -33,6 +33,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Individual-weight charges and all above-capacity valley cores](VALLEY_CORE_MASS.md)
 - [Exact full mixed construction by periodic phase](PERIODIC_OBST.md)
 - [Arbitrary fringes around a periodic middle](FRINGE_OBST.md)
+- [Positive affine translation and finite phase construction](AFFINE_PERIOD_OBST.md)
 - [Arbitrary-key rank transfers and exact dense-core barriers](RANK_TRANSFER_BARRIER.md)
 - [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
@@ -63,6 +64,16 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The phase quotient now supports [positive affine translation](AFFINE_PERIOD_OBST.md):
+p_(i+b)=lambda p_i+alpha and q_(j+b)=lambda q_j-alpha, with lambda>0.
+Every tree's translated cost is lambda times its old cost minus alpha times
+its number of keys. This preserves every optimal shape and gives O(nb)
+full construction, including exact recognition of the smallest admissible b.
+The proof uses only finite nonnegative input intervals; the last b-1 lengths
+are handled directly. Geometric mixed weights and opposing arithmetic drifts
+are included. For b=1, exactly 2n-1 root candidates suffice. The general
+nonperiodic worst case remains quadratic.
 
 A periodic middle of length m and period b now tolerates d=n-m arbitrary
 fringe keys in [O(mb+nd) full construction](FRINGE_OBST.md). Each boundary

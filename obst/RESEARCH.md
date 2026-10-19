@@ -3758,3 +3758,78 @@ manuscript byte for byte; the five-member TeX/font archive was rebuilt and
 verified member by member. An initial compile invocation used the repository
 root's unrelated main.tex and failed on its missing figure; its generated
 log was removed and the correct obst/manuscript source was then compiled.
+
+## Checkpoint 50: a finite affine quotient for full mixed weights
+
+Checkpoint 49 was progress: the exact linear boundary extension and its
+periodic-middle composition were published at 356a21d. This turn revalidated
+the clean checkout and the full mixed-weight objective. No subagents were
+used. An arbitrary join between different interior patterns remains open;
+the endpoint-response barriers do not supply such a join. The productive
+extension here is a broader exact translation symmetry.
+
+The external/internal path-length identity gives a shape-independent rule:
+p->lambda p+alpha, q->lambda q-alpha changes the cost of every ell-key tree
+to lambda times its old cost minus alpha ell. With lambda>0, every optimal
+shape and leftmost root is preserved. Thus inputs satisfying this law under
+translation by b support a phase/length quotient even when neither sequence
+is literally periodic. Pure geometric scaling and opposing arithmetic drifts
+are included. No height restriction or certificate is needed.
+
+The finite domain requires care: an affine continuation can become negative.
+The construction computes all b phases only through m=n-b+1, where every
+interval is inside the original input. The inclusive Knuth ranges telescope
+to 2b candidates at every length after the first. The remaining b-1 lengths
+use ordinary actual-input diagonals. Their total candidate bound is
+(b-1)n+(b-1)(b-2)/2 and their state count is b(b-1)/2. The complete quotient
+stores exactly nb-b(b-1)/2 nonempty states. Full construction, all interval
+queries, and iterative reconstruction take O(nb) arithmetic work and space.
+
+An O(n) feasibility test for b uses proportionality of the adjacent sums
+p_i+q_i and p_i+q_(i+1), then checks the original equations. A first positive
+component determines lambda; the all-zero constrained case and b=n are
+handled explicitly. Scanning periods until the first success b_* costs
+O(nb_*), so recognition has no extra asymptotic overhead. An initial capped
+planner was replaced by this complete scan after observing that the scan's
+work is already within the construction bound. The final harness independently
+solves the two-variable original equations to check recognition completeness.
+
+Harness first: literal shape transformations were placed before solver
+controls. The completed audit passes 6250 shape identities, 1063 small mixed
+inputs, 84584 interval values, 74877 leftmost roots, and 28534 phase states.
+It checks 8644 independent period decisions, 860 minimum periods, and 21
+negative-continuation cases. Reference tables use 640661 candidates and
+74877 states; separate enumeration checks 7882 shapes. Sixteen ordinary
+Knuth controls through 512 keys use 1393110 candidates. Nine complete
+arithmetic-drift constructions reach 65537 keys and two geometric cases
+reach 4095, with every output tree independently traversed. The largest
+period-five case has 655325 phase and 18 terminal candidates. Geometric
+rows retain exact growing integers and claim arithmetic, not bit, bounds.
+All four final executed-source hashes match. No timings are reported.
+
+AFFINE_PERIOD_OBST.md gives the proof. The manuscript adds the theorem
+after the boundary extension and puts verification in Appendix Z. A simple
+strictly positive family p_i=i+1, q_j=n+1-j has mass (n+1)^2 and exactly
+2n-1 root candidates, yielding linear work on O(log n)-bit words. The
+general central-oracle lemma also extends an affine middle through arbitrary
+fringes. The implemented audit covers the global affine constructor; the
+fringe corollary is a composition of the already proved lemmas.
+
+Targeted literature searches on static OBST, geometric probabilities,
+periodic weights, and arithmetic progressions did not locate a directly
+applicable primary statement for this finite affine mixed quotient. This
+is not an exhaustive absence or priority claim. The proof explicitly uses
+the classical path-length identity and Knuth monotonicity. The arbitrary
+nonperiodic objective, interior changes, and local core-size gap remain open.
+
+Publication validation: the final manuscript compiles without warnings to
+142 pages. All 390 prior labels remain, all 399 current labels are unique,
+and every reference and citation resolves. All pages were rendered and
+visually reviewed; detailed checks covered the theorem on pages 34--35,
+Appendix Z on page 140, and dedication on page 142. The dedication source
+is byte-identical to checkpoint 49. Twenty-seven source-hash entries across
+the new and five preceding audits match. Stable TeX/PDF outputs match the
+manuscript byte for byte, and the five-member TeX/font archive was rebuilt
+and verified member by member. The appendix insertion initially used a
+repository-relative path from the manuscript directory and made no edit;
+it was reapplied from the repository root before the final clean build.

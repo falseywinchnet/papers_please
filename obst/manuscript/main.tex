@@ -36,6 +36,8 @@ specified families. Independently, a common key/gap period $b$ permits
 $O(nb)$ full construction by cyclic root amortization. A periodic middle of
 length $m$ with $d=n-m$ arbitrary fringe keys admits $O(mb+nd)$ full
 construction via Wilber's linear concave least-weight-subsequence primitive.
+Positive affine translation of key and gap weights also gives $O(nb)$
+construction, including geometric scaling and opposing arithmetic drifts.
 We give the certificate once and derive the family
 guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
@@ -2294,6 +2296,118 @@ its composition with the central quotient supply the bounds above.
 A small number of arbitrary interior defects need not leave a long middle,
 so the general nonperiodic worst case remains quadratic. Independent
 verification and implementation details are in Appendix~\ref{app:fringe-obst}.
+
+\subsection{Positive affine translation of both weight sequences}
+\label{sec:affine-period}
+
+Literal repetition can be replaced by a transformation that preserves all
+optimal shapes. The key and gap offsets must have opposite signs.
+
+\begin{lemma}[Affine shape-cost identity]\label{lem:affine-shape-cost}
+For a tree $T$ on $\ell$ keys, replacing every key weight by
+$\lambda p+\alpha$ and every gap weight by $\lambda q-\alpha$ gives
+\begin{equation}\label{eq:affine-shape-cost}
+ \operatorname{cost}_{\mathrm{new}}(T)
+ =\lambda\operatorname{cost}_{\mathrm{old}}(T)-\alpha\ell.
+\end{equation}
+For $\lambda>0$, all minimizing shapes and their leftmost roots are preserved.
+\end{lemma}
+\begin{proof}
+If $I$ is internal path length, key comparison lengths sum to $I+\ell$
+and gap depths sum to $I+2\ell$. The latter identity follows inductively:
+joining the two subtrees increases the internal sum by $\ell-1$ and the
+external sum by $\ell+1$, giving difference $2\ell$. The offset contribution
+is therefore $\alpha(I+\ell)-\alpha(I+2\ell)=-\alpha\ell$.
+\end{proof}
+
+\begin{theorem}[Finite affine phase construction]\label{thm:affine-period}
+Let $n\ge1$ and suppose the nonnegative input weights satisfy, for some
+$1\le b\le n$, $\lambda>0$, and $\alpha\in\mathbb R$,
+\begin{equation}\label{eq:affine-weight-law}
+ p_{i+b}=\lambda p_i+\alpha\quad(0\le i<n-b),\qquad
+ q_{j+b}=\lambda q_j-\alpha\quad(0\le j\le n-b).
+\end{equation}
+A complete unrestricted optimal BST, with constant-time access to every
+interval cost and leftmost optimal root, can be constructed in $O(nb)$
+arithmetic work and space. The smallest admissible $b$ can be found within
+the same bound. Positivity outside the finite input is not assumed.
+\end{theorem}
+\begin{proof}
+Let $P_k=\lambda^k$ and $G_k=\sum_{t=0}^{k-1}\lambda^t$, with
+$P_0=1,G_0=0$. Tabulate these by multiplication and addition.
+Lemma~\ref{lem:affine-shape-cost} implies, for $i=a+kb$ and $0\le a<b$,
+\begin{equation}\label{eq:affine-lookup}
+ C(i,i+\ell)=P_k C(a,a+\ell)-\alpha\ell G_k,
+\end{equation}
+whenever the intervals lie in the input. Their relative leftmost roots
+are equal. All intermediate translations also lie inside the input.
+
+Put $m=n-b+1$. For each length $1\le\ell\le m$, all $b$ phase intervals
+$[a,a+\ell)$ are actual input intervals. Compute their costs $C_a(\ell)$
+and relative roots $\rho_a(\ell)$ by the original recurrence, using
+\eqref{eq:affine-lookup} for child costs. Every child has smaller length.
+Actual prefix masses give each interval weight in constant time.
+Knuth's theorem~\cite{knuth} restricts roots at $\ell\ge2$ to
+\[
+ \rho_a(\ell-1)\le r\le1+\rho_{(a+1)\bmod b}(\ell-1).
+\]
+For $a=b-1$, the right neighbor begins at $b$ and ends at
+$b+\ell-1\le n$. Its roots equal those of phase zero by
+\eqref{eq:affine-lookup}. Thus every monotonicity argument uses actual
+nonnegative input weights. Summing the inclusive ranges around all phases
+gives $2b$ candidates per length, hence exactly $b(2m-1)$ overall.
+
+For the remaining lengths $\ell=m+1,\ldots,n$, compute the
+$t=n-\ell+1<b$ actual intervals directly. Ordinary Knuth bounds telescope:
+if $\rho_i$ is the relative root of $[i,i+\ell-1)$, the total number of
+candidates at length $\ell$ is
+\begin{equation}\label{eq:affine-tail-candidates}
+ 2t+\rho_t-\rho_0\le2t+\ell-2=2n-\ell.
+\end{equation}
+Both end roots lie in $[0,\ell-2]$. The last $b-1$ diagonals therefore use
+at most $(b-1)n+(b-1)(b-2)/2$ candidates and store exactly $b(b-1)/2$
+nonempty states. Short child intervals use \eqref{eq:affine-lookup};
+long children use the already completed terminal diagonals. The total
+number of stored nonempty states is exactly
+\begin{equation}\label{eq:affine-states}
+ bm+\frac{b(b-1)}2=nb-\frac{b(b-1)}2\le nb.
+\end{equation}
+This proves the work and space bounds. Prefixes and power sums cost $O(n)$.
+An explicit stack follows the stored phase or terminal root, visiting every
+key and gap once, including degenerate zero-weight chains.
+
+It remains to recognize the law. For a candidate $b<n$, set
+$X_i=p_i+q_i$ and $Y_i=p_i+q_{i+1}$. Equation~\eqref{eq:affine-weight-law}
+implies $X_{i+b}=\lambda X_i$ and $Y_{i+b}=\lambda Y_i$.
+Conversely, put $e_j=q_{j+b}-\lambda q_j$. These two proportionality
+conditions give $p_{i+b}-\lambda p_i=-e_i=-e_{i+1}$, so all $e_j$ are
+constant and $\alpha=-e_0$. A positive source component determines
+$\lambda$ by its target/source ratio; zero components require zero targets.
+Reject a nonpositive ratio and verify all original equations. If all paired
+components are zero, nonnegativity makes all constrained weights zero;
+$\lambda=1,\alpha=0$ works. This is a complete $O(n)$ test.
+For $b=n$, $\lambda=1,\alpha=q_0-q_n$ always works. Testing
+$b=1,2,\ldots$ until the first success $b_*$ costs $O(nb_*)$, including
+recognition and construction. The empty input has cost zero separately.
+\end{proof}
+
+The finite boundary is essential to this proof. The valid input
+$p=(1,2,2,3,3)$, $q=(2,2,1,1,0,0)$ has
+$b=2,\lambda=1,\alpha=1$, but its continued gap sequence becomes negative.
+The construction uses complete cycles only through $m=4$ and then computes
+the last length directly. It never applies nonnegative-weight root
+monotonicity to that continuation.
+
+For $b=1$, exactly $2n-1$ root candidates suffice. This includes pure
+geometric mixed weights, and the strictly positive opposing arithmetic
+sequences $p_i=i+1$, $q_j=n+1-j$. The latter have total mass $(n+1)^2$
+and admit $O(n)$ full construction with $O(\log n)$-bit words. Geometric
+weights can have growing bit lengths; the general theorem counts exact
+arithmetic operations. Ordinary periodicity is $\lambda=1,\alpha=0$.
+The established boundary-extension lemma also permits an affine-period
+middle with arbitrary fringes in $O(mb+nd+n)$ work. Arbitrary interior
+changes and the general nonperiodic subquadratic problem remain open.
+Verification is in Appendix~\ref{app:affine-period}.
 
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
@@ -9154,6 +9268,46 @@ comes from Lemma~\ref{lem:fringe-extension} and the exact state identity
 \eqref{eq:fringe-states}. The result record retains the seed, costs, operation
 counts, verification scopes, and six executed-source hashes. No timing or
 fitted exponent enters the theorem.
+
+\clearpage
+\section{Affine translation and finite-domain construction audit}
+\label{app:affine-period}
+
+Before running the quotient solver, the harness checks the shape-cost
+identity on 6250 literal ordered trees through seven keys. The transformations
+include positive scales below and above one and offsets of both signs.
+The full audit then checks 1063 small mixed inputs: all binary key/gap
+vectors through four keys, seeded affine inputs through 32 keys, and 21
+finite inputs whose hypothetical continuations develop negative weights.
+Explicit witnesses include periods close to the input length, testing the
+terminal diagonals as well as the complete phase cycles.
+
+Independent all-root tables examine 640,661 candidates and 74,877 states.
+They check 84,584 original interval values, all 74,877 leftmost roots, and
+28,534 stored phase states. Ordered-tree enumeration separately checks
+7882 small optimal costs. Recognition has an independent reference: solving
+the original two-variable linear equations checks 8644 period-feasibility
+decisions, and 860 automatic inputs verify the smallest admissible period.
+This reference does not use the production adjacent-sum test. Another
+2916 checks validate returned parameter witnesses directly.
+
+Sixteen matched inputs through 512 keys use the ordinary uncompressed
+Knuth recurrence, examining 1,393,110 candidates. Nine larger arithmetic-drift
+constructions reach 65,537 keys, with periods one, three, and five. At that
+size the period-one construction examines exactly 131,073 root candidates;
+the period-five case examines 655,325 phase candidates and 18 terminal
+candidates. The candidate bounds and exact state count are checked against
+\eqref{eq:affine-tail-candidates} and \eqref{eq:affine-states}.
+Two further exact geometric constructions reach 4095 keys; their integers
+grow with the input length, so their counts concern arithmetic work.
+
+Every output is independently traversed to check key order, child links,
+key and gap depths, and weighted cost. The eleven largest construction rows
+have no separate quadratic optimality reference; their optimality guarantee
+is Theorem~\ref{thm:affine-period}. The result record retains the seed,
+operation counts, exact costs, per-row reference scopes, and four source
+hashes. No timing, fitted exponent, or infinite positive extension enters
+the proof.
 
 \clearpage
 \begingroup\small

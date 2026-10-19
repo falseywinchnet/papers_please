@@ -494,3 +494,15 @@ The audit first checks the prior-work LWS implementation against a dense
 recurrence, then every small interval and boundary column. Larger full-tree
 rows have separately labeled reference scopes. Copy the JSON result back
 before another mirror operation.
+
+Positive affine translation of mixed key/gap weights and finite-domain quotient:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/affine_period_audit.py
+```
+
+The harness checks literal shape cost transformations before the solver.
+It separately checks all original intervals, the incomplete phase boundary,
+negative hypothetical extensions, and complete output trees. Copy the JSON
+record back before another mirror operation; geometric rows count arithmetic
+operations and retain their growing exact-integer bit lengths.
