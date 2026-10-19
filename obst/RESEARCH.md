@@ -1539,3 +1539,100 @@ The TeX/PDF were copied byte-for-byte to the stable user-facing outputs.
 The final source-hashed timings retain high-load qualifications and all
 negative controls. No unrestricted solver or complexity lower bound has
 been proved; the full objective remains active.
+
+
+## Twenty-second checkpoint: joint obstruction and shifted alphabetic certificates
+
+The preceding turn's Jessesort discussion did not advance this goal. The
+saved mixed-merge experiments were recovered from the M4, their completed
+results copied locally, and all source hashes revalidated before use.
+
+The free-key/fixed-gap relaxation J retains global internal-depth profile
+coupling: with P=sum p and S_j the sum of the j largest keys, its key term
+is P+sum_t(P-S_{a_t}), where a_t counts internal lengths at most t. The
+function P-S_j is decreasing and discretely convex, but no fast minimizer
+of this joint profile expression is established.
+
+A proposed extension of compatible merging, adding the next smallest key
+to each merged mass, fails on p=(7,1,5,8,6,4), q=(18,2,13,3,17,1,2).
+All weights are positive, keys distinct, and all pair choices strict.
+The relaxed candidate costs 214, while J=full OPT=213. The candidate's
+original ordered-tree cost is 220, a distinction retained in the note.
+The failure persists on an open positive perturbation box and extends to
+all n>=6 with O(n)-bit weights. All 8192 integer box corners and padding
+through 256 keys pass the independent controls. This is a rejection of
+one algorithmic rule, not a general computational lower bound.
+
+Uniform transfer p'=p-a, q'=q+a changes every mixed tree cost by an.
+It leaves the K+G threshold-bound deficit and the rejected greedy schedule
+invariant. Critically, it does NOT leave K+A invariant when A is the
+exact alphabetic gap optimum. That distinction led to the constructive
+result, rather than ending with only a negative result.
+
+For m=min(p), L=K(p-m)+A(q+m)-mn is a valid full mixed lower bound.
+It is the strongest member over the entire admissible scalar-transfer
+interval: every affine term after subtracting a E(n+1) has nonnegative
+slope. An alphabetic optimum for q+m whose original full cost equals L
+is globally optimal. A leftist-heap/priority-queue implementation of the
+established Hu--Tucker compatible-merging algorithm, followed by residual
+key sorting, yields O(n log(n+1)) complete screening and construction,
+with O(n) space. A maximum-original-leaf-index tie representation exactly
+implements symbolic leaf weights 2^i without materializing those integers.
+Rejection uses exact Knuth. The previous portfolio is unchanged.
+
+The new positive family has n=7*2^h-1 keys and repeated seven-gap blocks.
+A perfect skeleton of six-key gadgets is alphabetic-optimal after adding
+one to the gaps; the compatible-merge phase proof is in SHIFTED_ALPHABETIC.md.
+Residual-positive keys attain capacity, but original unit keys at the
+bottom create a deficit (n+1)/7 in the original key bound. Thus the new
+certificate strictly extends beyond the original capacity-equality family.
+The concrete construction has 6*2^h distinct key weights, six gap values,
+all outcomes positive, minimum key weight 1, and O(log n)-bit weights.
+No mass-dominance hypothesis is used in the equality proof.
+
+Harness first: the independent shifted-bound probe ran before the optimized
+constructor. It checks 960 cubic controls, 3629 scalar shifts, and 37500
+literal tree inequalities, with 138 certificates and 24 strictly stronger
+than K+G. The implementation matches all 9840 ternary gap vectors through
+seven keys, including literal candidate depth sequences. Its 960 full
+mixed controls match cubic and Knuth, including 560 exhaustive controls;
+336 certify and 624 fall back. All 279 constant-key controls certify.
+Eight new-family sizes match Knuth, the four smallest also match cubic,
+and a 1199-key skewed tree validates iterative reconstruction/traversal.
+
+Five large constructions reach 229375 keys and 196608 distinct key weights,
+with original capacity deficit 32768 and exact full cost 2029411090432.
+The independent explicit family tree, output tree, and bound agree.
+The largest run records 229375 compatible merges, 458749 priority pushes
+and pops, 6885341 priority comparisons, 5136371 heap-item comparisons,
+1473827 key-sort comparisons, and 5021690 meld calls; all fixed scans and
+full reconstruction/cost visits are also retained. No interval cells occur.
+These are logical arithmetic counts, not machine instructions or bit costs.
+
+The matched experiment uses all six orders of standalone shifted,
+previous portfolio, and Knuth on seven families at two sizes: 84 trials,
+252 full constructions. At n=895, median paired shifted/Knuth ratios are
+0.07629 new family, 1.02507 random, 1.14523 near-uniform, and 1.04554
+geometric. The known constant-key reduction with arbitrary gaps gives
+0.05598. The standalone constructor loses old routes: 213.67 times the
+old portfolio on the old profile fixture, and 12.57 times it on the
+639-key multilevel fixture. It is therefore not promoted over that
+portfolio. All regressions remain in the raw source-hashed JSON.
+
+The host was Apple M4, Python 3.9.6, macOS 26.5 arm64. Load averages were
+11.57/11.66/13.47 at start and 13.56/12.13/13.54 at end. Same-process
+order cycling, six observations, and this substantial load do not support
+precise speedup claims. The mathematical bounds and counters establish
+scaling. Hu--Tucker, uniform-key absorption, standard heaps, rearrangement,
+and the depth identity remain credited. Targeted prior-work searches do
+not establish novelty. The full unrestricted objective remains active.
+
+### Publication audit of twenty-second checkpoint
+
+All six new JSON manifests match their recorded source hashes. Every final
+matched ratio was recomputed from the 84 raw rows. The 76-page manuscript
+compiles without warnings, overfull boxes, or undefined references. All
+pages were rendered; pages 2--70 are pixel-identical to the preceding
+checkpoint, and page 1 plus pages 71--76 were reviewed at full resolution.
+Stable user-facing TeX/PDF outputs match the manuscript byte-for-byte.
+The full unrestricted objective remains active; no completion claim is made.

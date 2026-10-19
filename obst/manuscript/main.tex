@@ -18,15 +18,15 @@
 \maketitle
 \begin{abstract}
 We investigate exact optimal binary search trees with ordered weights on
-both keys and gaps. Thresholding arbitrary gap weights gives a global
-lower bound from exact binary-indicator optima: minimum unit-leaf depth
-sum plus the number of zero runs. Its order-sensitive term is a variation
-sum; its ranked term is evaluated in linear work by dyadic selection.
-A max-Cartesian candidate attaining this bound and the independent key-depth
-bound is fully optimal. Recognition and reconstruction take $O(n)$
-arithmetic work and space. A proved positive family has $\Theta(n)$
-distinct key and gap weights, nonalternating gaps, and no large common
-baseline. Bound attainment is not universal; exact fallback remains necessary.
+both keys and gaps. Subtracting the smallest key weight and adding it to
+every gap yields a stronger alphabetic certificate, evaluated with full
+construction in $O(n\log(n+1))$ arithmetic work and $O(n)$ space. A positive
+nonuniform family certifies even though its original key-depth capacity
+bound has a linear deficit. A separate threshold-gap bound and Cartesian
+certificate give linear construction on other positive families with
+$\Theta(n)$ distinct key and gap weights. These certificates retain all
+original mixed weights; rejection uses exact fallback. A strict compatible-merge
+counterexample rules out one proposed extension, not general subquadratic work.
 
 For alternating gaps and two-level keys, interlaced parity intervals give
 a separate linear constructor, including nonperfect strictly alternating
@@ -4561,6 +4561,265 @@ operation counts, including all regressions, are retained in
 work counts are the scaling evidence.
 
 \clearpage
+\section{Joint profile coupling and a strict merge obstruction}
+The separate key and gap minima need not coexist. Let $J(p,q)$ relax only
+the key positions, keeping the gaps alphabetic. With key weights
+$p_{[r]}$ decreasing and key comparison lengths $\ell_{(r)}(T)$ increasing,
+\[
+ J(p,q)=\min_T\left\{\sum_r p_{[r]}\ell_{(r)}(T)+\sum_iq_id_i(T)\right\}.
+\]
+Writing $A(q)$ for the exact alphabetic gap optimum gives
+$K(p)+G(q)\le K(p)+A(q)\le J(p,q)\le\OPT(p,q)$.
+If $P=\sum p_i$, $S_j$ sums the $j$ largest key weights, and $a_t(T)$
+counts keys of comparison length at most $t$, then
+\[
+ \sum_r p_{[r]}\ell_{(r)}(T)
+   =P+\sum_{t\ge1}(P-S_{a_t(T)}).
+\]
+Each key is counted once plus once per additional level. The function
+$P-S_j$ is decreasing and discretely convex. This standard rearrangement
+and tail-sum identity describes global depth-profile coupling; it does
+not give a fast minimizer over alphabetic trees.
+
+\subsection{A precisely specified rejected extension}
+Start with ordered original gap leaves. Active items are compatible when
+no unmerged original leaf lies strictly between them. Merge a compatible
+pair of minimum total mass, adding the smallest unused key weight to its
+mass; replace its left item and delete its right item. Recover original
+leaf depths, reconstruct an alphabetic tree, and optimally reassign the
+key multiset to its internal depths. This is a proposed mixed extension
+of compatible merging, not the established alphabetic algorithm of Hu
+and Tucker~\cite{hutucker}.
+
+For the full ordered instance
+\[
+ p=(7,1,5,8,6,4),\qquad q=(18,2,13,3,17,1,2),
+\]
+the next-key/pair/new-mass triples are
+\[
+ (1;1,2;4),\ (4;2,13;19),\ (5;3,17;25),\
+ (6;18,4;28),\ (7;19,25;51),\ (8;28,51;87).
+\]
+The margins over the next compatible pair are $12,1,1,1,3$, followed
+by the sole remaining pair. Thus all choices are strict, all weights
+positive, and all key weights distinct. The charges sum to $214$.
+\begin{center}\small
+\begin{tabular}{lrr}
+\toprule
+Quantity & Greedy profile & Better feasible tree\\
+\midrule
+Sorted key lengths & $1,2,2,3,3,3$ & $1,2,2,3,3,4$\\
+Ordered gap depths & $2,3,3,3,3,3,3$ & $2,4,4,3,2,3,3$\\
+Optimally assigned key cost & 64 & 65\\
+Gap cost & 150 & 148\\
+Total & 214 & 213\\
+\bottomrule
+\end{tabular}
+\end{center}
+The better tree has root $3$, left root $0$ with right child $2$ and
+$2$'s left child $1$, and right root $4$ with right child $5$. Its inorder
+key lengths are $(2,4,3,1,2,3)$, so the displayed ordered weights attain
+the relaxed assignment. Enumeration of all $132$ shapes gives $J=213$;
+independent cubic and Knuth recurrences give $\OPT=213$.
+Here $K=64$, $G=144$, and $A=148$, leaving deficits even for $K+A=212$.
+The value $214$ is a relaxed candidate cost: the greedy reconstructed
+shape with the original ordered $p$ costs $220$. Thus the failure persists
+even after freeing all key positions, and $214$ is unsafe as a lower bound.
+
+\begin{theorem}
+This specified merge extension fails on a positive open box, has arbitrarily
+large additive error under scaling, and fails for every number of keys
+$n\ge6$ with positive weights, distinct keys, and strict pair choices.
+The latter family uses weights with $O(n)$ bits.
+\end{theorem}
+\begin{proof}
+Scaling multiplies $214$ and $213$ by the same factor. Perturb all thirteen
+weights independently by at most $\epsilon=1/1000$. Key ranks are unchanged.
+Each active mass is a sum of original outcomes, so each pair-score
+difference changes by at most $26\epsilon<1$. Induction preserves every
+strict merge. Candidate minus displayed witness cost is
+$q_4-q_1-q_2-\min p$, at least $1-4\epsilon>0$. No optimality assumption
+on the perturbed witness is required.
+
+For padding, let an old full instance have mass $W$ and known optimum
+$U$. Put $B=W+U+1$, and prepend a key of weight $2B$ and a gap of weight
+$B$. The tree rooted at the new key, with the old tree on the right,
+costs $3B+W+U=4B-1$. Any other root puts the new key at comparison length
+at least two, costing at least $4B$. Therefore
+$\OPT'=3B+W+\OPT$. All old compatible pair masses are at most $W$,
+whereas any pair involving the new gap exceeds $B>W$. The new key is
+largest. All old merges occur first and the final charge is $3B+W$.
+Alphabetic reconstruction raises all old depths by one, so the relaxed
+candidate gains the same amount and its excess of one persists.
+The recurrences $W'=W+3B$, $U'=4B-1$, $B'=W+7B$ imply $7B\le B'<8B$,
+and hence linear bit length. This proves failure of the rule, not a
+computational lower bound for the original problem.
+\end{proof}
+
+\subsection{Uniform-transfer invariance and exact controls}
+Every extended binary tree satisfies
+$\sum d_i(\text{gap})-\sum\ell_i(\text{key})=n$.
+For $-\min q\le a\le\min p$, set $p'=p-a$, $q'=q+a$. Every full tree
+cost, and also $J$, increases by $an$. If $M(n)$ is the minimum unit-key
+comparison-length sum, $E(n+1)-M(n)=n$. The key bound decreases by
+$aM(n)$, while $G$ increases by $aE(n+1)$: its variation term is
+translation invariant and its rank coefficients sum to $E(n+1)$.
+Consequently $K(p')+G(q')-an=K(p)+G(q)$.
+For the rejected merge rule every active cluster has one more original
+gap than consumed key. Its mass increases by $a$, so all pair scores
+increase by $2a$, all choices and margins are unchanged, and the sum of
+charges increases by $an$. Uniform transfer cannot repair that rule or
+the $K+G$ deficit. The exact alphabetic bound behaves differently below.
+
+The initial probe checks $1092$ alphabetic controls, $2400$ mixed controls,
+$616500$ literal tree evaluations, and $42563$ pair evaluations: $2385$
+candidates are exact and $15$ are suboptimal. Exhausting key multisets
+and ordered gaps over $\{0,1\}$ and $\{1,2\}$ through seven keys gives
+$7172$ cases, including $14$ binary failures and no $\{1,2\}$ failures;
+the latter finite observation is not a theorem. There are $2036$
+constant-key controls, $6918$ profile/depth identities, and $1421$
+transfer controls. All $8192$ integer corners of $1000(p,q)\pm1$ retain
+a gap at least $996$. Padding is checked by Knuth through $256$ keys
+(largest weight $732$ bits), with cubic checks through $16$.
+
+\section{Shifted alphabetic certificates beyond key-capacity equality}
+\begin{theorem}\label{thm:shifted-alphabetic}
+Let $m=\min p$, with $m=0$ when $n=0$. Define
+\[
+ L_m=K(p-m)+A(q+m)-mn.
+\]
+Then $K(p)+G(q)\le K(p)+A(q)\le L_m\le\OPT(p,q)$.
+Among all admissible uniform transfers, $m$ gives the largest such
+separate key/exact-gap bound. An alphabetic optimum $T$ for $q+m$
+with original full cost $C(T;p,q)=L_m$ is globally optimal.
+The bound, candidate, certificate, and complete tree construction take
+$O(n\log(n+1))$ arithmetic work and $O(n)$ space.
+\end{theorem}
+\begin{proof}
+The transfer identity gives
+$L(a)=K(p-a)+A(q+a)-an\le\OPT$ for all admissible $a$.
+Uniform subtraction preserves ranks and $K(p-a)=K(p)-aM(n)$, so
+\[
+ L(a)=K(p)+\min_T\left\{\sum_iq_id_i(T)
+                  +a\left(\sum_i d_i(T)-E(n+1)\right)\right\}.
+\]
+Every affine term has nonnegative slope. Their minimum is nondecreasing,
+so the largest admissible $a=m$ maximizes the bound. Taking $a=0$ gives
+the claimed chain of inequalities. Equality of a feasible full cost
+with a lower bound proves optimality. Equivalently, the alphabetic
+candidate must attain $K(p-m)$ in the original residual key order.
+
+Implement Hu--Tucker compatible merging using a leftist heap of internal
+items in each gap between consecutive original leaves, and a priority
+queue of each group's best compatible pair. Each pair is selected among
+at most four items: two boundary leaves and two heap minima. Removing
+a leaf melds its incident groups. There are $O(n)$ groups and events,
+each meld or priority operation takes $O(\log(n+1))$, and stale events
+are discarded. Recovering depths, alphabetic stack reconstruction, and
+full original-cost evaluation are linear. Sorting residual keys costs
+$O(n\log(n+1))$. No interval table is used on acceptance.
+\end{proof}
+
+The tie convention exactly reproduces infinitesimal original-leaf weights
+$2^i$ without storing those large integers. Active items partition the
+leaves; at equal mass, individual items compare by their largest original
+index. Two pairs compare lexicographically by the larger, then the smaller,
+of their items' largest indices. A shared item cancels; otherwise the
+largest differing leaf determines the symbolic sum order. Only ordinary
+indices are stored. The implementation separately counts heap-item,
+priority-entry, and key-sort comparisons, as well as all events, melds,
+reconstruction, cost visits, and fixed scans. These are arithmetic/logical
+counts, with bit costs additional.
+
+The six-key obstruction has $L_1=213$, and its shifted alphabetic candidate
+is the full optimum. Thus normalization repairs the bound when the exact
+alphabetic optimum replaces $G$, even though $K+G$ is invariant.
+Tied alphabetic optima can hide an attaining candidate, and rejection
+does not prove suboptimality or nonattainment. The standalone implementation
+uses exact Knuth fallback. The earlier portfolio is unchanged.
+
+\subsection{A positive nonuniform family with linear capacity deficit}
+\begin{theorem}\label{thm:shifted-family}
+Let $r=2^h$, $n=7r-1$, and repeat the original seven-gap vector
+$(18,2,13,3,17,1,2)$ exactly $r$ times. Place the six-key witness tree
+above into every leaf of a perfect $r$-leaf skeleton. Give its $r$
+deepest keys weight $1$, and every other key weight $1$ plus a positive
+residual decreasing between depth layers. The shifted alphabetic
+certificate constructs a full optimal tree in $O(n\log(n+1))$ work.
+Its original key contribution exceeds $K(p)$ by exactly $r$.
+\end{theorem}
+\begin{proof}
+The $6r-1$ residual-positive keys fill all capacity levels above the last
+occupied level, with $2r$ keys in that last level. Their weights decrease
+between levels, so they attain $K(p-1)$. The $r$ residual-zero keys have
+length $h+4$, one greater than their original unit-weight capacity slots
+at length $h+3$. This gives the deficit $r$.
+
+The shifted gap block is $(19,3,14,4,18,2,3)$. In every block compatible
+merging performs $2+3=5$, $3+14=17$, $17+4=21$, and $18+5=23$.
+Each stage finishes in all blocks before the next: cross-block pairs
+do not undercut these costs. Per block remain an original leaf $19$
+and internal items $21,23$. For even $r$, all original leaves pair at
+$38$ before any competing remaining pair, removing all barriers.
+Then $21$ pairs to $42$ and $23$ to $46$, giving $r/2$ copies of twice
+$(19,21,23)$. Repeat until a single triple remains, with final merges
+$19+21=40$ and $40+23=63$. For $r=1$ these are already compatible.
+All same-stage ties give the same depths. Thus the ordered gap depths
+are $h+(2,4,4,3,2,3,3)$ per block, with alphabetic cost $r(169+63h)$.
+Reconstruction gives the stated tree, which attains both shifted terms.
+\end{proof}
+
+For a concrete integer family, if $\ell_i$ is its key comparison length,
+set $p_i=1$ at length $h+4$, and otherwise
+\[
+ p_i=1+(h+4-\ell_i)(n+1)+i.
+\]
+This gives $6r$ distinct key weights, six distinct gap weights, strictly
+positive outcomes, common key minimum $1$, and $O(\log n)$-bit weights.
+No key-versus-gap dominance assumption is needed for the equality proof.
+The family is outside the earlier original-capacity certificate for every
+$r$: its full cost exceeds $K(p)+G(q)$ by at least $r$.
+
+\subsection{Independent checks, scaling, and limitations}
+The independent probe precedes the optimized constructor: $960$ cubic
+controls, $3629$ scalar-transfer checks, and $37500$ literal tree inequalities.
+It certifies $138$ candidates, including $24$ strictly above the old bound.
+The constructor checks all $9840$ ternary gap vectors through seven keys
+against cubic values and the literal compatible-pair implementation,
+including identical ordered gap depths. Another $960$ full mixed solves
+match cubic and Knuth, including $560$ exhaustive controls: $336$
+certificates and $624$ fallbacks, with all $279$ constant-key cases accepted.
+Random, near-uniform, geometric, binary, and zero inputs are included.
+Eight family sizes through $895$ keys match Knuth; the four smallest also
+match cubic. A $1199$-key skewed tree tests iterative traversal.
+
+Five large constructions reach $n=229375$, with $196608$ distinct key
+weights, capacity deficit $32768$, and exact full cost $2029411090432$.
+The independent explicit family tree, constructed tree, and bound agree.
+The largest run uses $229375$ compatible merges, $458749$ priority pushes
+and pops, $6885341$ priority comparisons, $5136371$ heap-item comparisons,
+$1473827$ key-sort comparisons, and $5021690$ meld calls. It reconstructs
+every key and uses no interval-DP cells. The solver receives only $p,q$.
+
+The matched benchmark runs three full constructors in all six orders on
+seven families at two sizes: $84$ trials and $252$ constructions. Direct
+cost checks and garbage collection are outside timing. On M4, Python
+3.9.6, macOS 26.5 arm64, the median paired shifted/Knuth ratio at $n=895$
+is $0.07629$ for the new family, $1.02507$ for random, $1.14523$ for
+near-uniform, and $1.04554$ for geometric inputs. The known constant-key
+reduction has ratio $0.05598$ with random gaps; it is not a new result.
+The standalone route loses old shortcuts: the old profile family costs
+$213.67$ times the previous portfolio at $895$ keys, and the preceding
+multilevel family costs $12.57$ times that portfolio at $639$ keys.
+These regressions are retained, and this route is not promoted over the
+existing portfolio. Load averages range from $11.57,11.66,13.47$ initially
+to $13.56,12.13,13.54$ finally. Same-process order cycling and six trials
+do not establish precise or isolated-machine speedups. The proof and
+operation counts establish scaling; source-hashed raw results retain
+all timings and fallback work. General subquadratic construction,
+mathematical priority, and broad practical superiority remain open.
+
+\clearpage
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
@@ -4587,6 +4846,10 @@ without a large baseline, including nonperfect alternating inputs.
 Threshold-run bounds now apply to arbitrary gaps and admit linear
 evaluation by dyadic selection. A linear Cartesian certificate handles
 a positive family with linearly many distinct key and gap values.
+Shifted exact alphabetic certificates now extend beyond original key-capacity
+equality in $O(n\log(n+1))$ work. A positive nonuniform family has linear
+original-capacity deficit. A strict robust counterexample rejects one
+mixed compatible-merge extension without implying general hardness.
 Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
@@ -4661,6 +4924,11 @@ J. Vuillemin. A unifying look at data structures.
 R. Bruno, R. De Prisco, R. De Santis, and U. Vaccaro.
 Bounds and Algorithms for Alphabetic Codes and Binary Search Trees.
 \href{https://arxiv.org/abs/2407.16443}{arXiv:2407.16443}, 2024.
+\bibitem{hutucker}
+T. C. Hu and A. C. Tucker.
+Optimal Computer Search Trees and Variable-Length Alphabetical Codes.
+\emph{SIAM Journal on Applied Mathematics} 21(4), 514--532, 1971.
+\href{https://doi.org/10.1137/0121057}{doi:10.1137/0121057}.
 \end{thebibliography}
 \endgroup
 \end{document}

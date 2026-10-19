@@ -1,0 +1,291 @@
+{
+  "seed": 317207,
+  "checks": {
+    "search_cases": 36,
+    "shrink_cases": 158,
+    "positive_box_corners": 8192
+  },
+  "key_multiset": [
+    1,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "p": [
+    7,
+    1,
+    5,
+    8,
+    6,
+    4
+  ],
+  "q": [
+    18,
+    2,
+    13,
+    3,
+    17,
+    1,
+    2
+  ],
+  "optimum": 213,
+  "oracle": {
+    "tree": [
+      3,
+      [
+        0,
+        null,
+        [
+          2,
+          [
+            1,
+            null,
+            null
+          ],
+          null
+        ]
+      ],
+      [
+        4,
+        null,
+        [
+          5,
+          null,
+          null
+        ]
+      ]
+    ],
+    "pd": [
+      2,
+      4,
+      3,
+      1,
+      2,
+      3
+    ],
+    "qd": [
+      2,
+      4,
+      4,
+      3,
+      2,
+      3,
+      3
+    ]
+  },
+  "candidate": {
+    "valid": true,
+    "value": 214,
+    "qd": [
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "pd": [
+      2,
+      3,
+      1,
+      3,
+      2,
+      3
+    ],
+    "tree": [
+      2,
+      [
+        0,
+        null,
+        [
+          1,
+          null,
+          null
+        ]
+      ],
+      [
+        4,
+        [
+          3,
+          null,
+          null
+        ],
+        [
+          5,
+          null,
+          null
+        ]
+      ]
+    ],
+    "trace": [
+      {
+        "key": 1,
+        "left_mass": 1,
+        "right_mass": 2,
+        "positions": [
+          5,
+          6
+        ],
+        "pair_margin": 12
+      },
+      {
+        "key": 4,
+        "left_mass": 2,
+        "right_mass": 13,
+        "positions": [
+          1,
+          2
+        ],
+        "pair_margin": 1
+      },
+      {
+        "key": 5,
+        "left_mass": 3,
+        "right_mass": 17,
+        "positions": [
+          2,
+          3
+        ],
+        "pair_margin": 1
+      },
+      {
+        "key": 6,
+        "left_mass": 18,
+        "right_mass": 4,
+        "positions": [
+          0,
+          3
+        ],
+        "pair_margin": 1
+      },
+      {
+        "key": 7,
+        "left_mass": 19,
+        "right_mass": 25,
+        "positions": [
+          1,
+          2
+        ],
+        "pair_margin": 3
+      },
+      {
+        "key": 8,
+        "left_mass": 28,
+        "right_mass": 51,
+        "positions": [
+          0,
+          1
+        ],
+        "pair_margin": null
+      }
+    ],
+    "charges": 214,
+    "pair_evaluations": 26
+  },
+  "separate_bound": 208,
+  "scaled": [
+    {
+      "scale": 1,
+      "candidate": 214,
+      "optimum": 213
+    },
+    {
+      "scale": 2,
+      "candidate": 428,
+      "optimum": 426
+    },
+    {
+      "scale": 3,
+      "candidate": 642,
+      "optimum": 639
+    },
+    {
+      "scale": 10,
+      "candidate": 2140,
+      "optimum": 2130
+    },
+    {
+      "scale": 100,
+      "candidate": 21400,
+      "optimum": 21300
+    },
+    {
+      "scale": 10000,
+      "candidate": 2140000,
+      "optimum": 2130000
+    },
+    {
+      "scale": 1000000000000000000000000000000,
+      "candidate": 214000000000000000000000000000000,
+      "optimum": 213000000000000000000000000000000
+    }
+  ],
+  "perturbation_min_gap_scaled": 996,
+  "embedded": [
+    {
+      "n": 6,
+      "optimum": 213,
+      "candidate": 214,
+      "max_weight_bits": 5,
+      "pair_evaluations": 26
+    },
+    {
+      "n": 7,
+      "optimum": 1203,
+      "candidate": 1204,
+      "max_weight_bits": 10,
+      "pair_evaluations": 36
+    },
+    {
+      "n": 8,
+      "optimum": 8775,
+      "candidate": 8776,
+      "max_weight_bits": 13,
+      "pair_evaluations": 44
+    },
+    {
+      "n": 16,
+      "optimum": 84393576447,
+      "candidate": 84393576448,
+      "max_weight_bits": 36,
+      "pair_evaluations": 144
+    },
+    {
+      "n": 32,
+      "optimum": 7833396020865720119197695,
+      "candidate": 7833396020865720119197696,
+      "max_weight_bits": 82,
+      "pair_evaluations": 536
+    },
+    {
+      "n": 64,
+      "optimum": 67488762584321806169415353024918993947647204747378687,
+      "candidate": 67488762584321806169415353024918993947647204747378688,
+      "max_weight_bits": 175,
+      "pair_evaluations": 2088
+    },
+    {
+      "n": 128,
+      "optimum": 5009498258867559147567972544728485846903485268258132425326539308425218225786137761524275887773017583046885375,
+      "candidate": 5009498258867559147567972544728485846903485268258132425326539308425218225786137761524275887773017583046885376,
+      "max_weight_bits": 361,
+      "pair_evaluations": 8264
+    },
+    {
+      "n": 256,
+      "optimum": 27600678558160221264843981303541544266602272280696967651052195998374986437686483990099956964455054046886304931982767026810420754399996120944154891877770313768827656834809090465132855555703167767869606514383886034715803647,
+      "candidate": 27600678558160221264843981303541544266602272280696967651052195998374986437686483990099956964455054046886304931982767026810420754399996120944154891877770313768827656834809090465132855555703167767869606514383886034715803648,
+      "max_weight_bits": 732,
+      "pair_evaluations": 32904
+    }
+  ],
+  "source_sha256": {
+    "joint_merge_obstruction.py": "4fca8af61c2c8b8b501b06ca62e3ac25f18b8c8198c3d942edb266a25c11434c",
+    "joint_merge_probe.py": "fb77a589ccfc179c2b2c1fd7db662139179f8923d08f51aeddbc7fdd36109db3",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "threshold_probe.py": "35a858a92224189d5bc3e7526c6a73090749330129a12212f19ce9fcc3072d28"
+  }
+}

@@ -139,3 +139,14 @@ Arbitrary-gap threshold bounds, dyadic selection, and full Cartesian certificate
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_threshold_complete.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_threshold_complete.py
 ```
+
+Joint-profile obstruction and shifted alphabetic full certificates:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/joint_merge_probe.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/joint_merge_obstruction.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/joint_coupling_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/shifted_gap_probe.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_shifted_alphabetic.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_shifted_alphabetic.py
+```

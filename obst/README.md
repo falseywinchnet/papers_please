@@ -24,12 +24,47 @@ selection by the repository owner. The general research objective is ongoing.
 - [Global alternating-gap bound and linear full construction](GAP_PARITY.md)
 - [Interlaced parity intervals for key-profile attainment](PROFILE_INTERVALS.md)
 - [Arbitrary-gap threshold bound and linear Cartesian certificate](THRESHOLD_CERTIFICATE.md)
+- [Shifted alphabetic certificate beyond key-capacity equality](SHIFTED_ALPHABETIC.md)
+- [Joint-profile coupling and strict compatible-merge obstruction](JOINT_MERGE_OBSTRUCTION.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The latest constructor tests a max-Cartesian candidate against independent
+The latest standalone constructor subtracts the smallest key weight m and
+adds it to every gap. An exact alphabetic optimum for q+m supplies a candidate
+and the lower bound K(p-m)+A(q+m)-mn. This is the strongest bound of this form
+over all admissible uniform transfers. Equality with the original full tree
+cost certifies global mixed optimality in O(n log(n+1)) arithmetic work and
+O(n) space. A positive nonuniform family has an original key-capacity deficit
+of (n+1)/7, so it strictly extends the previous equality families. Full
+construction reaches 229,375 keys, 196,608 distinct key weights, and cost
+2,029,411,090,432 without interval-DP cells. See [the proof](SHIFTED_ALPHABETIC.md).
+
+The independent probe checks 960 cubic cases, 3,629 scalar shifts, and 37,500
+literal inequalities. The optimized constructor matches independent oracles
+on 9,840 alphabetic cases and 960 mixed solves, including 560 exhaustive
+controls, with 336 certificates and 624 exact Knuth fallbacks. Hu--Tucker
+merging, its heap implementation, explicit tie handling, reconstruction, and
+all full-cost checks are included. The general worst case remains quadratic.
+
+Across 84 matched trials (252 full constructions), the new family has median
+paired shifted/Knuth ratio 0.07629 at 895 keys. Random, near-uniform, and
+geometric ratios are 1.02507, 1.14523, and 1.04554. The standalone route is
+213.67 times slower than the previous portfolio on its old profile family,
+and 12.57 times slower on its 639-key multilevel family. The previous portfolio
+is unchanged. All raw timings and operation counts are retained; the M4 was
+under substantial load, so these are qualified observations rather than
+precise speedup claims. Mathematical priority is not established.
+
+A separate mixed extension of compatible merging is rejected by a positive,
+strict-choice six-key counterexample: even with freely permutable key weights
+it returns 214, while the full ordered optimum is 213. The failure survives
+an open perturbation box and extends to every n>=6. This is an obstruction
+to the specified rule, not a general lower bound. The shifted alphabetic
+certificate correctly obtains 213 on that same example.
+
+The preceding constructor tests a max-Cartesian candidate against independent
 global key and gap lower bounds. For arbitrary gap weights, the new bound
 integrates exact binary-indicator optima, each equal to a unit-leaf depth
 minimum plus the number of zero runs. Its order-sensitive term is a variation

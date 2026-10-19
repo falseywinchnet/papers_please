@@ -1,0 +1,1262 @@
+{
+  "seed": 317208,
+  "checks": {
+    "constant_key_shift_controls": 2036,
+    "profile_and_depth_identity_controls": 6918,
+    "transfer_invariance_controls": 1421
+  },
+  "small_alphabets": [
+    {
+      "n": 0,
+      "low": 0,
+      "high": 1,
+      "cases": 2,
+      "exact": 2
+    },
+    {
+      "n": 1,
+      "low": 0,
+      "high": 1,
+      "cases": 8,
+      "exact": 8
+    },
+    {
+      "n": 2,
+      "low": 0,
+      "high": 1,
+      "cases": 24,
+      "exact": 24
+    },
+    {
+      "n": 3,
+      "low": 0,
+      "high": 1,
+      "cases": 64,
+      "exact": 64
+    },
+    {
+      "n": 4,
+      "low": 0,
+      "high": 1,
+      "cases": 160,
+      "exact": 160
+    },
+    {
+      "n": 5,
+      "low": 0,
+      "high": 1,
+      "cases": 384,
+      "exact": 384
+    },
+    {
+      "n": 6,
+      "low": 0,
+      "high": 1,
+      "cases": 896,
+      "exact": 893,
+      "suboptimal": 3
+    },
+    {
+      "n": 7,
+      "low": 0,
+      "high": 1,
+      "cases": 2048,
+      "exact": 2037,
+      "suboptimal": 11
+    },
+    {
+      "n": 0,
+      "low": 1,
+      "high": 2,
+      "cases": 2,
+      "exact": 2
+    },
+    {
+      "n": 1,
+      "low": 1,
+      "high": 2,
+      "cases": 8,
+      "exact": 8
+    },
+    {
+      "n": 2,
+      "low": 1,
+      "high": 2,
+      "cases": 24,
+      "exact": 24
+    },
+    {
+      "n": 3,
+      "low": 1,
+      "high": 2,
+      "cases": 64,
+      "exact": 64
+    },
+    {
+      "n": 4,
+      "low": 1,
+      "high": 2,
+      "cases": 160,
+      "exact": 160
+    },
+    {
+      "n": 5,
+      "low": 1,
+      "high": 2,
+      "cases": 384,
+      "exact": 384
+    },
+    {
+      "n": 6,
+      "low": 1,
+      "high": 2,
+      "cases": 896,
+      "exact": 896
+    },
+    {
+      "n": 7,
+      "low": 1,
+      "high": 2,
+      "cases": 2048,
+      "exact": 2048
+    }
+  ],
+  "failures": [
+    {
+      "p": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "q": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "optimum": 15,
+      "candidate": {
+        "valid": true,
+        "value": 16,
+        "qd": [
+          4,
+          4,
+          3,
+          3,
+          3,
+          2,
+          2
+        ],
+        "pd": [
+          4,
+          3,
+          2,
+          3,
+          1,
+          2
+        ],
+        "tree": [
+          4,
+          [
+            2,
+            [
+              1,
+              [
+                0,
+                null,
+                null
+              ],
+              null
+            ],
+            [
+              3,
+              null,
+              null
+            ]
+          ],
+          [
+            5,
+            null,
+            null
+          ]
+        ],
+        "trace": [
+          {
+            "key": 0,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              2,
+              3
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 1,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              1,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 2,
+            "right_mass": 1,
+            "positions": [
+              0,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 4,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": null
+          }
+        ],
+        "charges": 16,
+        "pair_evaluations": 24
+      }
+    },
+    {
+      "p": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "q": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "optimum": 15,
+      "candidate": {
+        "valid": true,
+        "value": 16,
+        "qd": [
+          4,
+          4,
+          3,
+          2,
+          3,
+          3,
+          2
+        ],
+        "pd": [
+          4,
+          3,
+          2,
+          1,
+          3,
+          2
+        ],
+        "tree": [
+          3,
+          [
+            2,
+            [
+              1,
+              [
+                0,
+                null,
+                null
+              ],
+              null
+            ],
+            null
+          ],
+          [
+            5,
+            [
+              4,
+              null,
+              null
+            ],
+            null
+          ]
+        ],
+        "trace": [
+          {
+            "key": 0,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              3,
+              4
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 1,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              1,
+              3
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 2,
+            "right_mass": 1,
+            "positions": [
+              0,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 4,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": null
+          }
+        ],
+        "charges": 16,
+        "pair_evaluations": 24
+      }
+    },
+    {
+      "p": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "q": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "optimum": 15,
+      "candidate": {
+        "valid": true,
+        "value": 16,
+        "qd": [
+          3,
+          4,
+          4,
+          2,
+          3,
+          3,
+          2
+        ],
+        "pd": [
+          3,
+          4,
+          2,
+          1,
+          3,
+          2
+        ],
+        "tree": [
+          3,
+          [
+            2,
+            [
+              0,
+              null,
+              [
+                1,
+                null,
+                null
+              ]
+            ],
+            null
+          ],
+          [
+            5,
+            [
+              4,
+              null,
+              null
+            ],
+            null
+          ]
+        ],
+        "trace": [
+          {
+            "key": 0,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              1,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              3,
+              4
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              1,
+              3
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 2,
+            "right_mass": 1,
+            "positions": [
+              0,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 4,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": null
+          }
+        ],
+        "charges": 16,
+        "pair_evaluations": 26
+      }
+    },
+    {
+      "p": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "q": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "optimum": 16,
+      "candidate": {
+        "valid": true,
+        "value": 17,
+        "qd": [
+          5,
+          5,
+          4,
+          3,
+          2,
+          3,
+          3,
+          2
+        ],
+        "pd": [
+          5,
+          4,
+          3,
+          2,
+          1,
+          3,
+          2
+        ],
+        "tree": [
+          4,
+          [
+            3,
+            [
+              2,
+              [
+                1,
+                [
+                  0,
+                  null,
+                  null
+                ],
+                null
+              ],
+              null
+            ],
+            null
+          ],
+          [
+            6,
+            [
+              5,
+              null,
+              null
+            ],
+            null
+          ]
+        ],
+        "trace": [
+          {
+            "key": 0,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              3,
+              4
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              1,
+              3
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 2,
+            "right_mass": 1,
+            "positions": [
+              0,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 4,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": null
+          }
+        ],
+        "charges": 17,
+        "pair_evaluations": 31
+      }
+    },
+    {
+      "p": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "q": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "optimum": 16,
+      "candidate": {
+        "valid": true,
+        "value": 17,
+        "qd": [
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2
+        ],
+        "pd": [
+          4,
+          3,
+          2,
+          3,
+          1,
+          3,
+          2
+        ],
+        "tree": [
+          4,
+          [
+            2,
+            [
+              1,
+              [
+                0,
+                null,
+                null
+              ],
+              null
+            ],
+            [
+              3,
+              null,
+              null
+            ]
+          ],
+          [
+            6,
+            [
+              5,
+              null,
+              null
+            ],
+            null
+          ]
+        ],
+        "trace": [
+          {
+            "key": 0,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              2,
+              3
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              3,
+              4
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 1,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              1,
+              3
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 2,
+            "right_mass": 1,
+            "positions": [
+              0,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 4,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": null
+          }
+        ],
+        "charges": 17,
+        "pair_evaluations": 36
+      }
+    },
+    {
+      "p": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "q": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "optimum": 19,
+      "candidate": {
+        "valid": true,
+        "value": 20,
+        "qd": [
+          4,
+          4,
+          3,
+          4,
+          4,
+          3,
+          2,
+          2
+        ],
+        "pd": [
+          4,
+          3,
+          2,
+          4,
+          3,
+          1,
+          2
+        ],
+        "tree": [
+          5,
+          [
+            2,
+            [
+              1,
+              [
+                0,
+                null,
+                null
+              ],
+              null
+            ],
+            [
+              4,
+              [
+                3,
+                null,
+                null
+              ],
+              null
+            ]
+          ],
+          [
+            6,
+            null,
+            null
+          ]
+        ],
+        "trace": [
+          {
+            "key": 0,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              2,
+              3
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 1,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              1,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              2,
+              3
+            ],
+            "pair_margin": 2
+          },
+          {
+            "key": 1,
+            "left_mass": 2,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 5,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": null
+          }
+        ],
+        "charges": 20,
+        "pair_evaluations": 32
+      }
+    },
+    {
+      "p": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "q": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "optimum": 19,
+      "candidate": {
+        "valid": true,
+        "value": 20,
+        "qd": [
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2
+        ],
+        "pd": [
+          4,
+          3,
+          2,
+          3,
+          1,
+          3,
+          2
+        ],
+        "tree": [
+          4,
+          [
+            2,
+            [
+              1,
+              [
+                0,
+                null,
+                null
+              ],
+              null
+            ],
+            [
+              3,
+              null,
+              null
+            ]
+          ],
+          [
+            6,
+            [
+              5,
+              null,
+              null
+            ],
+            null
+          ]
+        ],
+        "trace": [
+          {
+            "key": 0,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              4,
+              5
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 1,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 1,
+            "positions": [
+              1,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              2,
+              3
+            ],
+            "pair_margin": 1
+          },
+          {
+            "key": 1,
+            "left_mass": 2,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 5,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": null
+          }
+        ],
+        "charges": 20,
+        "pair_evaluations": 34
+      }
+    },
+    {
+      "p": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "q": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "optimum": 19,
+      "candidate": {
+        "valid": true,
+        "value": 20,
+        "qd": [
+          3,
+          3,
+          4,
+          4,
+          3,
+          3,
+          3,
+          2
+        ],
+        "pd": [
+          3,
+          2,
+          4,
+          3,
+          1,
+          3,
+          2
+        ],
+        "tree": [
+          4,
+          [
+            1,
+            [
+              0,
+              null,
+              null
+            ],
+            [
+              3,
+              [
+                2,
+                null,
+                null
+              ],
+              null
+            ]
+          ],
+          [
+            6,
+            [
+              5,
+              null,
+              null
+            ],
+            null
+          ]
+        ],
+        "trace": [
+          {
+            "key": 0,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              2,
+              3
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 0,
+            "positions": [
+              4,
+              5
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 1,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 0,
+            "right_mass": 1,
+            "positions": [
+              1,
+              2
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 1,
+            "right_mass": 0,
+            "positions": [
+              2,
+              3
+            ],
+            "pair_margin": 1
+          },
+          {
+            "key": 1,
+            "left_mass": 2,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": 0
+          },
+          {
+            "key": 1,
+            "left_mass": 5,
+            "right_mass": 2,
+            "positions": [
+              0,
+              1
+            ],
+            "pair_margin": null
+          }
+        ],
+        "charges": 20,
+        "pair_evaluations": 37
+      }
+    }
+  ],
+  "source_sha256": {
+    "joint_coupling_audit.py": "cc8af0b61b5483a8a50514856bef07014ae0a09c7f6b5faa6b5aee3402baaf19",
+    "joint_merge_probe.py": "fb77a589ccfc179c2b2c1fd7db662139179f8923d08f51aeddbc7fdd36109db3",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "threshold_probe.py": "35a858a92224189d5bc3e7526c6a73090749330129a12212f19ce9fcc3072d28"
+  }
+}
