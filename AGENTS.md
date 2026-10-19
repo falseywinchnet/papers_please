@@ -529,3 +529,16 @@ The plateau theorem assumes zero gaps below capacity. Large rows enumerate
 sparse cores and check their coordinate identities; independent original
 all-root controls have a separate size limit. The excess search proves no
 upper bound. Copy both JSON results back before the next mirror operation.
+
+Finite slot-window products, full prescribed-height run construction, and
+single-gap signed transition densities:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_run_audit.py
+```
+
+The audit checks the complete finite product, literal slot selections, and
+original all-root height optima separately. Large three-run rows verify
+complete output trees but have no independent large optimum reference.
+The single-gap checkerboard uses consecutive-slot coordinates, not original
+interval cores. Copy the JSON back before the next mirror operation.

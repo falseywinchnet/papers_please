@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Finite slot-window products and complete prescribed-height run construction](SLOT_RUN_CONSTRUCTION.md)
 - [Complete below-capacity plateau cores and local side charge](PLATEAU_BELOW_CORE.md)
 - [Linear-mass odd-ramp core lower bound](RAMP_CORE_TIGHTNESS.md)
 - [Per-outcome charging and the aggregate core bound](AGGREGATE_CORES.md)
@@ -165,6 +166,25 @@ certifies the 2s-1 local bound for those tiles. The remaining nonnegative
 value correction has both density signs, already on two small binary words;
 concatenating them gives one input with both signs. The below-capacity mixed
 region and interactions across uncertified spans remain open.
+
+A [finite slot-window product](SLOT_RUN_CONSTRUCTION.md) now gives a complete
+**prescribed-height** constructor for arbitrary nonnegative keys with equal
+internal gaps and arbitrary endpoint gaps. An exact tree identity absorbs
+the gaps into nonnegative key weights. If those transformed weights have
+r constant runs and c=2^h-1, the full construction uses
+O(n+r^2 c log(c+1)) arithmetic operations, including witnesses and tree
+repair. Each run factor has fewer than 2c core entries, available directly
+in linear work. At minimum feasible height, constant r gives O(n log(n+1)).
+An unrestricted optimum still requires a sufficient height certificate;
+the exponential dependence of c on h is explicit.
+
+For unequal internal gaps, the natural consecutive-slot transition already
+has a dense signed checkerboard at unit gap weight. A side-s square has
+exactly s^2 nonzero densities, half positive and half negative, by a closed
+formula. This rules out a finite Monge completion of that transition and
+subquadratic storage for its explicit signed-density list.
+The original interval-core hypothesis is a different question and remains
+open. The new theorem and barrier are supported by separately scoped audits.
 
 The finite-product method now has an [exact arbitrary-key rank-transfer
 representation](RANK_TRANSFER_BARRIER.md). A constant-weight run is a band

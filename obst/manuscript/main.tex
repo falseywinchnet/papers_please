@@ -1689,6 +1689,145 @@ to allow arbitrary nonnegative gaps. Independent verification and the
 separate fixed-tile excess search are recorded in
 Appendix~\ref{app:plateau-below}.
 
+\subsection{Finite slot-window products and a complete run constructor}
+\label{sec:slot-run}
+The top-sum identity also composes unequal constant runs, if the matrix
+coordinates are slot boundaries and every input key is retained. This
+complements the rank transfers of Section~\ref{sec:rank-transfer-barrier},
+which select input keys for consecutive ruler ranks.
+
+\begin{lemma}[Finite slot-window factor]\label{lem:slot-run-factor}
+Fix $h\ge1$, $c=2^h-1$, and nonnegative key runs $(w_\ell,m_\ell)$,
+$1\le\ell\le r$, with $m_\ell\ge1$. Put
+$P=\sum_\ell w_\ell m_\ell$ and $K=1+(h-1)P$. For $0\le a,b\le c$,
+\begin{equation}\label{eq:slot-run-factor}
+ Q_\ell(a,b)=K\max(m_\ell-b+a,0)
+ -w_\ell\sum_{t=1}^{h-1}
+ \min\left(m_\ell,\left\lfloor\frac b{2^t}\right\rfloor
+                       -\left\lfloor\frac a{2^t}\right\rfloor\right).
+\end{equation}
+This is a finite Monge matrix with fewer than $2c$ core entries and an
+$O(c)$ condensed construction. If $b-a\ge m_\ell$, it is the negative
+maximum reward of the run placed in slots $(a,b]$.
+\end{lemma}
+\begin{proof}
+The feasible-entry formula follows by counting valuation thresholds among
+the $m_\ell$ largest ruler values. The signed counts in
+\eqref{eq:slot-run-factor} also define all other entries. Write $m=m_\ell$
+and $w=w_\ell$. The hinge contributes density $K$ on $b-a=m$.
+For a threshold $d=2^t$, a nonzero mixed difference requires both $a+1$
+and $b+1$ to be multiples of $d$. With
+$x=\lfloor b/d\rfloor-\lfloor a/d\rfloor$, its density is
+\[
+ w\,[2\min(m,x)-\min(m,x-1)-\min(m,x+1)].
+\]
+It equals $w$ exactly when $x=m$, and is zero otherwise, including for
+negative $x$. Hence the complete density list consists of
+\begin{align*}
+ &K &&\text{at }(a,b)=(a,a+m),\quad 0\le a<c-m,\\
+ &w &&\text{at }(a,b)=(kd-1,(k+m)d-1),\quad
+       1\le k\le\lfloor c/d\rfloor-m,\quad d=2^t,\ 1\le t<h.
+\end{align*}
+Zero-weight entries are omitted. These supports are disjoint: the second
+line has $b-a=md$, which distinguishes its levels and the hinge. Thus
+\[
+ \delta(Q_\ell)\le(c-m)_+
+       +\sum_{t=1}^{h-1}(\lfloor c/2^t\rfloor-m)_+<2c.
+\]
+Let $F(a)=\sum_{j=1}^a\nu_2(j)$. The left boundary is
+$Q_\ell(a,0)=K(m+a)+wF(a)$. To construct the top boundary, sweep $b$;
+threshold $t$ changes precisely when $t\le\nu_2(b)$ and $b/2^t\le m$.
+The total threshold visits are $\sum_{b=1}^c\nu_2(b)=c-h<c$.
+Generate the listed core directly and order it by two bucket passes.
+All boundaries and core entries therefore take $O(c)$ work and words,
+even when $m>c$ and no feasible window exists.
+\end{proof}
+
+\begin{theorem}[Balanced slot-window construction]\label{thm:slot-run-product}
+For the runs in Lemma~\ref{lem:slot-run-factor}, let $n=\sum_\ell m_\ell$
+and let $w_1,\ldots,w_n$ be the expanded weights. The finite Monge product
+$T=Q_1\otimes\cdots\otimes Q_r$ satisfies
+\begin{equation}\label{eq:slot-run-product}
+ T(a,b)=-\max_{a<t_1<\cdots<t_n\le b}
+                 \sum_{i=1}^n w_i\nu_2(t_i)\qquad(b-a\ge n).
+\end{equation}
+Its core has at most $2r2^{\lceil\log_2r\rceil}c\le4r^2c$ entries.
+The condensed product and an optimal selected sequence for any feasible
+entry can be constructed in $O(n+r^2c\log(c+1))$ arithmetic operations.
+The ordinary witness arrays used here take $O(r^2c\log(c+1))$ auxiliary
+words.
+\end{theorem}
+\begin{proof}
+A feasible product path partitions $(a,b]$ into consecutive windows, one
+per run, each of length at least its run length. The best independent
+selections within these windows concatenate in key order. Conversely,
+any all-key slot selection admits such a partition: cut after the final
+selected slot of each run except the last. Thus feasible paths give
+exactly \eqref{eq:slot-run-product}.
+
+An infeasible path has an integer window deficit at least one and incurs
+at least $K$ penalty. Every threshold minimum in
+\eqref{eq:slot-run-factor} is at most $m_\ell$, even for a reversed window.
+Consequently the reward part of any path is at least $-(h-1)P$. An
+infeasible path costs at least $K-(h-1)P=1$, whereas every feasible path
+costs at most zero. This proves strict exclusion, also for zero weights
+and ties. No infinite entries are used.
+
+Multiply in a balanced tree using the published condensed product and
+witness primitive~\cite{coremonge}. Its bound
+$\delta(X\otimes Y)\le2(\delta(X)+\delta(Y))$ charges each leaf by at
+most $2^{\lceil\log_2r\rceil}$, proving the final core bound. The sum
+of core sizes over all nodes is $O(r^2c)$: at product-tree depth $j$
+there are at most $2^j$ nodes with at most $\lceil r/2^j\rceil$ leaves
+each, and the resulting quadratic bounds form a geometric sum. Matrix
+boundaries contribute $O(rc)$ and the product logarithm is
+$O(\log(c+1))$. Extracting the runs costs $O(n)$.
+
+Retained witnesses recover each leaf's window in $O(r\log(c+1))$ work;
+the penalty argument ensures that every recovered window is feasible.
+Bucket its valuations into $h$ levels and select the largest $m_\ell$,
+breaking cutoff ties by earliest slot. Disjoint leaf windows partition the
+outer window, so this costs $O(c+rh)$ altogether. These costs fit the
+stated bound, including the conservative space for ordinary witness maps.
+\end{proof}
+
+\begin{corollary}[Equal internal gaps at a prescribed height]
+\label{cor:slot-run-mixed}
+Let $n\ge2$, let $q_1=\cdots=q_{n-1}=b\ge0$, and allow arbitrary
+nonnegative keys and endpoint gaps. Define
+\begin{equation}\label{eq:slot-run-gap-gauge}
+ w_0=p_0+q_0,\qquad w_i=p_i+b\ (1\le i\le n-2),\qquad
+ w_{n-1}=p_{n-1}+q_n.
+\end{equation}
+If these weights have $r$ constant runs and $c=2^h-1\ge n$, a complete
+optimal tree of height at most $h$ can be constructed in
+$O(n+r^2c\log(c+1))$ arithmetic work and
+$O(r^2c\log(c+1))$ auxiliary words. At the minimum feasible height
+$h=\lceil\log_2(n+1)\rceil$, the work is $O(n+r^2n\log(n+1))$.
+\end{corollary}
+\begin{proof}
+If $\ell_i$ are key comparison lengths, the total external path length is
+$E=I+2n=\sum_i\ell_i+n$. The endpoint gaps have depths $\ell_0$ and
+$\ell_{n-1}$. Subtracting their two contributions from $bE$ and restoring
+the actual endpoint weights proves, for every tree,
+\[
+ C_{p,q}(T)=\sum_{i=0}^{n-1}w_i\ell_i+bn.
+\]
+All transformed weights are nonnegative, even when an endpoint gap is
+smaller than $b$. Apply Theorem~\ref{thm:slot-run-product} and the
+$O(c+n)$ slot repair of Theorem~\ref{thm:mixed-slots}. The original mixed
+optimum is $h\sum_iw_i+T(0,c)+bn$, and the repaired tree attains it.
+For minimum feasible height, $c<2(n+1)$. For $n=1$ the unique tree has
+cost $p_0+q_0+q_1$ and needs no product.
+\end{proof}
+If the original keys have $r_0$ runs, the transformed sequence has at most
+$r_0+2$. The theorem solves the stated height-constrained problem;
+unrestricted optimality still requires a sufficient height certificate.
+Its explicit factor $c=2^h-1$ must be retained when applying such a
+certificate. Unequal internal gaps introduce the signed transition
+obstruction in Theorem~\ref{thm:slot-gap-checkerboard}. The audit appears
+in Appendix~\ref{app:rank-transfer}.
+
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
 The one-block representation extends to two equal positive blocks, including
@@ -7250,6 +7389,45 @@ deleting thirteen or fourteen gives reward two from key twelve;
 deleting fifteen or sixteen gives rewards two and one from keys twelve
 and fourteen. These cases directly prove the four optima.
 
+\subsection{A single internal gap and signed slot densities}
+\label{sec:slot-gap-barrier}
+In the mixed slot representation, the transition between consecutive
+selected slots $u<v$ contributes
+$B_q(u,v)=-q\min(\nu_2(u),\nu_2(v))$ for an internal gap of weight $q$.
+This natural transition fails the finite Monge requirement even at unit
+weight, before any products are taken.
+
+\begin{theorem}[Dense signed gap-transition squares]
+\label{thm:slot-gap-checkerboard}
+Put $e(u)=u+(u\bmod2)$. For $q>0$ and every cell with $u+1<v$ and
+$v+1\le c=2^h-1$, the exact density is
+\begin{equation}\label{eq:slot-gap-checkerboard}
+ D_{B_q}(u,v)=(-1)^{u+v}q
+            \min\{\nu_2(e(u)),\nu_2(e(v))\}.
+\end{equation}
+For any power of two $s\ge2$, choose $h=\log_2s+2$, hence $c=4s-1$.
+The square $1\le u\le s$, $2s+1\le v\le3s$ has exactly $s^2$ nonzero
+densities, half positive and half negative. Every corner is feasible.
+\end{theorem}
+\begin{proof}
+Each adjacent pair of slots has one odd valuation-zero member and one
+even positive-valuation member. Precisely one of the four entries of
+$B_q$ is nonzero. Its coefficient in the density is negative when $u,v$
+have equal parity and positive otherwise; since that entry itself is
+negative, this gives \eqref{eq:slot-gap-checkerboard}. The minimum is
+always positive. The stated square has $u+1<v$ and $v+1\le c$;
+each row has equally many columns of either parity.
+\end{proof}
+No Monge or anti-Monge completion preserving these feasible entries can
+exist, and adding row or column potentials leaves the obstruction
+unchanged. A representation explicitly listing its nonzero signed second
+differences requires quadratic size already for $q=1$. These are
+consecutive-slot coordinates. The result gives no original interval-core
+lower bound and no barrier to every representation; the original
+single-gap interval core has its separate sparse classification. Indeed,
+Corollary~\ref{cor:slot-run-mixed} removes equal internal-gap terms by a
+global tree identity. The general interval-tile hypothesis remains open.
+
 \subsection{Arbitrary-key rank transfers and dense local cores}
 \label{sec:rank-transfer-barrier}
 The finite-product representation extends to arbitrary key weights by
@@ -9391,6 +9569,38 @@ The record is \texttt{rank\_transfer\_audit.json}. It preserves exact
 operation counts and executed-source SHA-256 manifests. These finite
 checks verify the implementations and identities at the recorded sizes;
 the dense families and construction bounds follow from the proofs.
+
+
+\paragraph{Slot-window products and full prescribed-height trees.}
+The independent slot-window audit exhausts 363 inputs over $\{0,1,3\}$
+through five keys. All 23,232 finite product entries, including infeasible
+completion entries, agree with separately evaluated dense products using
+459,456 candidate additions. The 2946 feasible entries also agree with an
+independent weighted-subsequence DP and 20,340 literal subsequences.
+Twenty-five rational single-run cases, including runs longer than capacity,
+check another 6820 finite factor entries.
+
+One hundred mixed inputs through 24 keys use constant internal gaps,
+arbitrary endpoint gaps, and uniform, geometric, zero, or random keys.
+The complete constructor agrees with 200 original all-root height optima;
+every output tree has independently checked inorder, height, and original
+mixed cost. The references use 235,160 root candidates and 34,270 states.
+The audit also checks 220 insufficient-capacity rejections and the explicit
+rejection of unequal internal gaps.
+
+Nine checkerboard squares through side 512 verify 349,524 four-corner
+transition densities against \eqref{eq:slot-gap-checkerboard}. Eight larger
+uniform or three-run constructions through 8192 keys include the sparse
+product, witness traceback, full tree repair, and independent output-tree
+cost and height. Uniform rows additionally match the closed minimum-IPL
+optimum; the larger three-run rows have no independent dense optimum
+reference. At 8192 keys and height 14, the three-run construction has
+61,431 input core entries, two run-product multiplications, and a final
+core of 20,147 entries. Leaf traceback scans the 16,383 slots twice in
+total, once for buckets and once for output. The record
+\texttt{slot\_run\_audit.json} contains exact operation counts and seven
+executed-source hashes. The theoretical bounds and signed obstruction
+follow from the proofs above.
 
 
 \clearpage

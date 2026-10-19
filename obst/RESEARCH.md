@@ -3966,3 +3966,87 @@ match, including both new final runs. The TeX/PDF deliverables and five-member
 font/source archive were refreshed and verified byte for byte. The final
 proof wording explicitly includes empty endpoint fringes in its non-strict
 candidate bounds.
+
+## Checkpoint 53: finite slot windows and complete prescribed-height run trees
+
+Checkpoint 52 was progress, published at 8a341d3: it proved the complete
+below-capacity plateau core and a local side charge, and preserved the
+excess-directed falsification search. This turn tested whether the same
+threshold identity could compose unequal runs without losing exactness.
+
+The new slot-window factor retains every key of a run of weight w and
+length m. With slot boundaries a,b, it is
+K max(m-b+a,0)-w sum_t min(m,floor(b/2^t)-floor(a/2^t)), where
+K=1+(h-1)P, P is total key weight, and c=2^h-1. This formula defines an
+entire finite square, including reversed windows. Its complete density
+list has K on b-a=m and w at (kd-1,(k+m)d-1), d=2^t>=2. These supports
+are disjoint and have fewer than 2c entries. The top boundary has a linear
+threshold-update sweep, so condensed factors require O(c), not a dense
+conversion.
+
+Every invalid product path has penalty at least K, while even a reversed
+path's reward is bounded below by -(h-1)P. It therefore costs at least
+one, strictly more than every feasible path. Feasible paths partition the
+outer slot window between the runs and represent every increasing all-key
+selection. Balanced products using the published core-sparse primitive
+have O(r^2 c) aggregate core size and O(n+r^2 c log(c+1)) work. Retained
+witnesses recover the leaf windows; bucket selection visits their disjoint
+slots twice in total. The established threaded slot repair returns a full
+optimal tree at the prescribed height, within the same construction bound.
+
+A tree identity extends this to arbitrary nonnegative keys, equal internal
+gaps b, and arbitrary endpoint gaps. Set w_0=p_0+q_0,
+w_(n-1)=p_(n-1)+q_n, and w_i=p_i+b internally. The mixed cost of every
+tree is exactly sum_i w_i ell_i+bn, by E=sum_i ell_i+n and the endpoint
+gap-depth identities. Thus no negative transformed weights are needed.
+The number of runs increases by at most two. The capacity c remains
+explicit; minimum feasible height gives c=O(n), but no unrestricted
+optimal-height certificate follows. This is an additional exact family,
+not a replacement for the full arbitrary mixed-weight objective.
+
+The attempted direct inclusion of a gap transition has an exact obstruction.
+B_q(u,v)=-q min(nu_2(u),nu_2(v)) has density
+(-1)^(u+v) q min(nu_2(e(u)),nu_2(e(v))), e(u)=u+(u mod 2).
+For c=4s-1 and power-of-two s>=2, rows 1..s and columns 2s+1..3s form a
+fully feasible square with s^2 nonzero densities, half of each sign, even
+for q=1. The four-corner proof has only one nonzero entry per cell. No
+finite Monge or anti-Monge completion or added unary potentials can remove
+these signs. This only obstructs the stated consecutive-slot coordinates
+and explicit signed-density lists; it does not give an original interval
+core lower bound. The equal-gap identity demonstrates an alternative
+representation on its own family. The general local tile hypothesis and
+remaining square-root-logarithm gap are unchanged.
+
+Harness-first validation: all 23232 entries of finite products on 363
+ternary inputs agree with an independent dense product, using 459456
+candidate additions. All 2946 feasible entries also agree with a separate
+weighted-subsequence DP and 20340 literal subsets. Twenty-five rational
+single-run cases add 6820 finite entry checks, including overlong runs.
+An initial constructor run exposed that the old shared weight validator
+accepts integers only; the new real-weight interface now validates lengths
+and nonnegativity directly. The full final audit was then run successfully.
+No theorem was changed in response to that interface correction.
+
+One hundred mixed inputs through 24 keys give 200 original all-root height
+optimum controls, with complete tree order, height, and original-cost checks.
+The references use 235160 candidates and 34270 states. There are 220
+insufficient-capacity checks and one unequal-internal-gap rejection. Nine
+signed-transition squares through side 512 check 349524 densities.
+Eight larger full constructions through 8192 keys use uniform or three-run
+keys and nonzero gaps. Uniform rows have closed minimum-IPL optimum checks;
+large three-run rows verify output trees but have no independent dense
+optimum oracle. The largest three-run input has 61431 leaf core entries,
+two run products, final core size 20147, and two total scans of 16383 leaf
+slots. Exact operation counters and seven final source hashes are saved.
+
+SLOT_RUN_CONSTRUCTION.md contains the complete argument. The manuscript
+places the positive results in Section 2.16, the signed obstruction in
+Section 5.20, and the counts in existing Appendix T. It compiles without
+warnings to 148 pages. All 414 prior labels survive among 424 unique
+labels, and every reference and citation resolves. The dedication source
+is byte-identical to checkpoint 52. All pages were rendered and visually
+reviewed, with detailed formula checks on pages 25--27 and 107, the audit
+on page 140, and dedication on page 148. Fifty-three executed-source hash
+entries across eleven audit records match the local sources. The final
+TeX/PDF deliverables and five-member source/font archive are refreshed and
+verified byte for byte before publication.
