@@ -7,6 +7,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Contraction argument](CONTRACTION.md)
+- [Minimum-path-length shape certificate](COMPLETE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
@@ -35,6 +36,8 @@ python3 obst/code/block_check.py
 python3 obst/code/block_contract.py --max-n 512
 python3 obst/code/recursive_contract.py --max-n 1024
 python3 obst/code/benchmark_recursive.py
+python3 obst/code/complete.py --max-n 1024
+python3 obst/code/benchmark_complete.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -55,6 +58,16 @@ Python measurements, not a general performance guarantee. At n=1024 the
 heavy-separator median runtime ratio is about 0.134 versus Knuth; ordinary
 random and near-uniform inputs are roughly tied, and several n=512 controls
 are slower. Full counters are retained alongside timings.
+
+The additional `complete.py` shortcut optimizes every minimum-unweighted-
+path-length shape within a logarithmic state-width budget, then certifies
+that no other shape can improve its weighted cost. It retains both key and
+gap weights. `hybrid_solve` combines it with the recursive contraction solver;
+`solve` uses Knuth directly as fallback. Successful attempts cost O(n log n),
+while failed or skipped attempts retain the quadratic worst case. It closes
+the earlier near-uniform failure on the tested sizes near powers of two;
+ordinary random inputs still fail the certificate. See COMPLETE.md for the
+proof, exact operation counts, and the unsuccessful regimes.
 
 The depth dual is a separate experimental lower-bound component. Its affine
 tail permits exact O(n log n) oracle evaluations without bounding the unknown

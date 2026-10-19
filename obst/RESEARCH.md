@@ -129,6 +129,39 @@ The next representation must retain nonlocal subtree allocation. Adaptive
 violated-interval constraints or compression of the global frontier remain
 unresolved; the bounded-window DP is no longer the first experiment to build.
 
+## Fourth checkpoint: a successful shape certificate
+
+The preceding turn was progress: it committed and uploaded the global
+ordering characterization and arbitrary-window obstruction. Inspection of
+Becker's full frontier confirmed that the straightforward representation
+is existing work and remains quadratic near minimum height. The new route
+instead optimizes the minimum-unweighted-path-length shape class, then
+uses a separate residual-weight bound to exclude all other shapes.
+
+COMPLETE.md gives the proof and a DP over optional bottom-level expansions.
+Its width is min(r,2^h-r)+1 rather than the number of intervals. A successful
+attempt with logarithmic width uses O(n log n) work including sorting and
+the lower bound. A necessary-condition test rejects impossible certificates
+before merging, and sorted lists support the standard two-queue bound.
+Both key and gap weights remain arbitrary nonnegative inputs; an explicit
+certificate, not a near-uniformity assumption, determines success.
+
+The constructor is validated against all tree shapes through eight keys,
+and the Knuth-fallback and recursive-fallback variants both match cubic DP
+on 3,000 mixed-weight inputs. Near-uniform sizes near powers of two benefit;
+ordinary random data and wide shape spaces still require fallback.
+The global subquadratic objective remains unresolved. A potential next
+extension is a bounded excess in unweighted path length rather than only
+the exact minimum; no such extension is currently claimed.
+
+The final six-trial matched test at n=1,024 gave median hybrid/Knuth ratios
+0.03934 on near-uniform, 0.10478 on heavy separators, and1.05454 on random.
+At n=512 some failed attempts add material overhead relative to the prior
+recursive solver. The additional size controls deliberately expose skipped
+shape spaces. These are exploratory Python measurements; full counters and
+all timing observations are retained. A cheaper next experiment before
+excess-shape DP is the concave baseline-price search derived in COMPLETE.md.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

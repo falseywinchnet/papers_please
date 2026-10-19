@@ -9,8 +9,8 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\OPT}{\operatorname{OPT}}
 \newcommand{\tri}[1]{\tau(#1)}
-\title{Certified Contractions and Depth Bounds\\for Full Optimal Binary Search Trees\\
-\large Research checkpoint: exact preprocessing and unsuccessful relaxations}
+\title{Certified Shortcuts and Depth Bounds\\for Full Optimal Binary Search Trees\\
+\large Research checkpoint: exact shortcuts and barriers to relaxations}
 \author{OpenAI Codex Sydney\\
 \small Problem selection and sponsorship: the repository owner}
 \date{October 18, 2026}
@@ -28,6 +28,10 @@ construction takes $O(n+m^2+\sum_t k_t^2)$ arithmetic operations.
 The method remains quadratic in the worst case. On one seeded positive-weight
 instance with 512 keys and sparse heavy separators, it reduced the number of
 DP states from 131,328 to 10,344; ordinary random mixed weights benefited little.
+An additional certificate optimizes all minimum-unweighted-path-length
+shapes and excludes every other shape using a residual-weight lower bound.
+It provides an $O(n\log n)$ exact route when its explicit tests pass,
+including tested near-uniform instances left unresolved by contraction.
 We also document an order-free Huffman relaxation, its failed sparse-DP
 implementation, and exact counterexamples to proposed local certificates.
 A second relaxation prices depth-count constraints along the ordered key
@@ -301,6 +305,119 @@ DP count was 30,017 versus 524,800. On random mixed weights the ratio was
 At $n=512$, the respective random and near-uniform ratios were 1.131 and
 1.093: preprocessing can make the method slower. These are exploratory
 measurements on one M4 host, not production-language or cross-machine claims.
+
+\newpage
+\section{A certified shortcut through nearly complete shapes}
+Let $I(T)$ be the sum of internal-node depths, with root depth zero.
+The external path length is $I(T)+2n$, by induction on the two subtrees.
+Consequently uniform key weight $a$ and gap weight $b$ give cost
+\[
+ (a+b)I(T)+(a+2b)n.
+\]
+For an arbitrary instance set $a=\min_i p_i$, $b=\min_j q_j$, and let
+$H'$ be the order-free mixed-node Huffman bound of
+Section~\ref{sec:unordered} on residual weights $p_i-a,q_j-b$.
+These weights remain nonnegative. Write $I_*(n)$ for the minimum possible
+unweighted internal path length, and let $C_*$ be the best weighted cost
+among all trees with $I(T)=I_*(n)$.
+
+\begin{samepage}
+\begin{theorem}[Minimum-path-length certificate]
+For $n\ge1$, if
+\[
+ C_*\ \le\ (a+b)(I_*(n)+1)+(a+2b)n+H',
+\]
+then a tree attaining $C_*$ is a globally optimal full OBST.
+\end{theorem}
+\end{samepage}
+\begin{proof}
+Split each outcome weight into its uniform baseline and residual. Every
+tree outside the minimum-$I$ class has integer $I(T)\ge I_*(n)+1$, and its
+residual cost is at least $H'$. Its full cost is therefore at least the
+right-hand side. Within the class, $C_*$ is minimal by definition.
+Equality is sufficient, including when $a+b=0$.
+\end{proof}
+
+\paragraph{Optimize the class without interval tables.}
+Put $h=\lfloor\log_2(n+1)\rfloor$, $S=2^h$, $m=S-1$, and $r=n-m$.
+Every minimum-$I$ tree has the complete upper skeleton with $m$ keys,
+and expands exactly $r$ of its $S$ external slots into single-key cherries.
+Indeed, a missing shallower slot could otherwise receive a deepest internal
+leaf, strictly reducing $I$. Inorder relabeling preserves search-tree
+feasibility in this unweighted shape argument. Thus
+\[
+ I_*(n)=(h-2)2^h+2+hr.
+\]
+
+Process skeleton slots $j=0,\ldots,S-1$ in inorder. State $(j,e)$ records
+the number of processed slots and expansions, so the next input index is
+$i=j+e$. An unexpanded slot charges $h q_i$; an expanded slot charges
+$(h+1)(p_i+q_i+q_{i+1})$. Except after the last slot, also charge the next
+skeleton key at comparison length
+\[
+ d_j=h-v_2(j+1),
+\]
+using $p_i$ after an unexpanded slot and $p_{i+1}$ after an expansion.
+Here $v_2$ counts trailing zero bits. Exactly $r$ expansions are required,
+so state $(j,e)$ is retained only when
+\[
+ \max(0,r-(S-j))\le e\le\min(r,j).
+\]
+With $s=\min(r,S-r)$, each stage has at most $s+1$ states and each state
+has two outgoing choices. This computes $C_*$ and backpointers in
+$O(n(1+s))$ time and space. A linear Cartesian-tree pass converts the
+chosen comparison lengths into the labeled tree. No key or gap weights
+are discarded in these transitions.
+
+There is an exact early rejection test. Let $F$ be the cost obtained by
+assigning independently sorted key and gap weights to the shallowest
+depths of a minimum-$I$ shape. This is feasible for the order-free residual
+relaxation, so $H'\le F-[(a+b)I_*+(a+2b)n]$. Therefore $C_*>F+a+b$
+proves the certificate cannot succeed. Otherwise the sorted lists are
+reused in a two-queue Huffman implementation: nonnegative weights and
+nondecreasing internal weights make the sequence of merged weights
+nondecreasing. This adds linear work after sorting. The queue optimization
+is standard and is not claimed as novel.
+
+The implementation attempts this DP only when
+$s\le\lfloor\log_2 n\rfloor+1$. Including the residual bound,
+preprocessing, and reconstruction, a successful attempt costs
+$O(n\log n)$ arithmetic operations and space. A skipped or failed attempt
+falls back to Knuth, or to the preceding recursive construction. Both
+versions remain exact and have quadratic worst-case time. The test is a
+certificate, not an assumption that near-uniform inputs have balanced optima.
+Novelty of this shortcut has not been established.
+
+\paragraph{Verification and limits.}
+Minimum-$I$ optimization matched independent enumeration of all tree shapes
+through eight keys on 360 weighted inputs. Both fallback versions matched
+independent cubic DP and direct tree costs on 3,000 further mixed-weight
+inputs through thirty keys; the unrestricted certificate succeeded on 768.
+At $n=1,024$, one seeded input with every weight in $\{999,1000,1001\}$
+used 2,048 shape states, 3,070 transitions, 10,511 sorting comparisons,
+and 1,350 merge comparisons, certifying cost 19,479,590. The nonminimum-$I$ lower bound was
+19,480,123. Knuth used 524,800 states and 1,050,139 root candidates.
+These work units have different costs; the state ratio is not a timing claim.
+
+The selected perturbation sweep certified amplitude 8 around 1,000 at
+$n=256$, amplitude 4 at $n=512$, and amplitude 1 at $n=1,024$; larger tested
+amplitudes at those sizes failed. These are seeded observations, not
+universal thresholds. Ordinary random inputs failed the certificate.
+Sizes 384, 768, and 1,000 deliberately skip the shortcut because their
+minimum-$I$ shape space exceeds the logarithmic width budget.
+
+Six matched trials per fixture used all six orderings of Knuth, recursive
+contraction, and the combined solver, with identical inputs and correctness
+checks outside timing. On Apple M4 with Python 3.9.6, median per-trial
+combined/Knuth time ratios at $n=1,024$ were 0.03934 for near-uniform,
+0.10478 for heavy separators, 1.05454 for random, 0.91929 for log-uniform,
+and 1.03117 for gap spikes. All six near-uniform cases certified. The skipped
+near-uniform controls at $n=768$ and $n=1,000$ gave ratios 1.17886 and 1.04896.
+At $n=512$ the combined method was about 21\% slower than recursive
+contraction alone on heavy separators. These exploratory timings include
+sorting, lower bounds, and reconstruction; they do not establish broad
+superiority. The final early-rejection and two-queue implementations were
+also checked against the original heap certificate on all 3,000 inputs.
 
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
@@ -615,14 +732,16 @@ prefix verify the exact additive identity and preserved strict gap.
 This investigation has not proved that subquadratic full OBST construction
 is impossible, nor supplied a general subquadratic construction.
 The positive contribution of this checkpoint is an exact decomposition
-argument, an adaptive implementation, and a precise obstruction to a
-proposed depth-bound repair. Mathematical novelty, broad practical benefit,
+argument, adaptive implementations, a minimum-path-length certificate,
+and a precise obstruction to a proposed depth-bound repair.
+Mathematical novelty, broad practical benefit,
 and comparison against Larmore-style implementations remain to be assessed.
 
 All programs use only the Python standard library. The code and seeded
 results are stored under \texttt{obst/code} and \texttt{obst/results}.
 The repository README provides commands for independent oracles, exact
-construction, matched timing, both depth-price models, and depth ordering.
+construction, both matched timing experiments, the shape certificate,
+both depth-price models, and depth ordering.
 The active objective remains to avoid most of the quadratic table on a
 substantially broader class, or establish a rigorously scoped lower bound.
 
