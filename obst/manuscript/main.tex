@@ -18,44 +18,40 @@
 \maketitle
 \begin{abstract}
 We investigate exact optimal binary search trees with ordered weights on
-both keys and gaps. Our latest constructor uses affine reference weights
-to certify a small corridor in a minimum-path-length shape DP. A signed
-residual profile bounds possible improvement; an additive slot potential
-then excludes states whose unavoidable reference cost is too large.
-The original weights determine every retained transition. A separate
-mixed-node lower bound certifies unrestricted optimality. For $n\ge32$,
-$B=4(n+1)^3$, $p_i=B+i+u_i$, and $q_i=B+i+v_i$, arbitrary signed integer
-perturbations of total magnitude at most $n$ give exact $O(n\log^2 n)$
-construction. Independent unit perturbations at every key and gap give
-$O(n\log n)$ construction. Both guarantees include robust slope inference,
-certification, and reconstruction; the weights need not remain monotone
-and the optimal tree may change.
+both keys and gaps. A new representation optimizes minimum-path-length
+shapes using runs of the joint signature $(p_i,q_i+q_{i+1})$. Within a
+constant-signature block, the reward telescopes in skeleton rank, leaving
+four sliding-window boundary transfers. With $k$ blocks, exact class
+optimization and complete reconstruction take $O(nk)$ arithmetic operations
+and $O(n)$ auxiliary space. A separate mixed-node bound certifies full
+optimality. For $M\ge1$ and arbitrary $0\le u_i,v_i\le M$, the positive family
+$p_i=B+u_i$, $q_i=B+v_i$, $B=4(n+1)^2M$, always certifies. Thus few joint
+blocks give exact subquadratic full construction even with large,
+non-affine residuals and gap weights alternating at every position.
+An observed-block-count route avoids expensive use of this kernel on
+fragmented inputs; its fallback can use quadratic space.
 
-A complementary reduction uses published core-sparse Monge multiplication
-and witness algorithms on penalized partial-tree layers. It gives exact
+A complementary affine-regret corridor retains only shape states whose
+unavoidable reference cost can be offset by a signed residual gain bound.
+For $n\ge32$, $p_i=B+i+u_i$, $q_i=B+i+v_i$, $B=4(n+1)^3$, integer errors
+of total magnitude at most $n$ give $O(n\log^2 n)$ full construction;
+independent unit errors give $O(n\log n)$. The optimum may change.
+
+A published core-sparse Monge primitive also yields exact
 $O(n^{3/2}\log^{5/2}(n+1))$ construction for nonnegative integer mixed weights
-of total mass $O(n)$, including zeros. Centering around minimum key and gap
-weights gives $O(n(1+\sqrt R)\log^3(n+1))$ arithmetic work for polynomial
-total deviation $R$, independently of baseline magnitudes in the operation
-count. Condensed Python/C++ constructors verify the reduction, but the
-implemented backend loses to matched Knuth construction through 2048 keys.
-Those negative results remain explicit.
+of total mass $O(n)$, and a centered extension gives
+$O(n(1+\sqrt R)\log^3(n+1))$ arithmetic work for polynomial deviation $R$.
+The implemented condensed backend loses to matched Knuth construction;
+those negative measurements remain explicit. Positive ramp examples have
+quadratic difference support yet compact exact formulas, and endpoint
+counterexamples separate response size from composition sufficiency.
+These are representation barriers, not general computational lower bounds.
 
-We distinguish representation size from computational hardness. Positive
-linear weights can yield quadratic Monge and fourth-difference support
-while admitting logarithmic-time interval queries and linear construction.
-Other counterexamples show identical endpoint responses with different
-surrounding optima, and quadratic affine-piece counts with linear exact
-factorizations. These are scoped representation barriers, not general
-computational lower bounds. An implemented portfolio also retains
-contractions, bounded-excess shapes, dominant-gap and heavy-outcome
-certificates, and the established short-interval/top-skeleton architecture.
-
-Independent enumeration, cubic recurrences, adversarial inputs, source-hashed
-data, operation counts, and matched construction timings accompany the work.
-The unrestricted subquadratic question remains open. Mathematical priority
-and broad practical superiority are unestablished; existing algorithms used
-by the reductions and negative controls are credited and retained.
+Independent enumeration, cubic recurrences, source-hashed results, full
+operation counts, and matched construction timings accompany the work.
+Standard sliding maxima, Hirschberg traceback, established shape structure,
+and prior OBST algorithms remain credited. The unrestricted subquadratic
+question, mathematical priority, and broad practical superiority remain open.
 \end{abstract}
 \newpage
 
@@ -3738,6 +3734,281 @@ are supported by state counts and the preceding theorem; they do not extend
 to unrestricted inputs. The earlier compiled core backend's negative
 measurements remain unchanged.
 
+\section{Exact transfers for joint key/gap signatures}\label{sec:run-shapes}
+The affine corridor needs a favorable reference slope. The following
+representation instead compresses constant runs of a local mixed-weight
+signature, allowing arbitrary values between blocks and no small-residual
+assumption. Full optimality still requires a separate certificate.
+
+\subsection{A skeleton word and its exact reward}
+For $n\ge1$, let $h=\lfloor\log_2(n+1)\rfloor$, $S=2^h$, $m=S-1$,
+and $s=n-m$. Encode a minimum-path-length shape by a word on its inorder
+keys: a skeleton key is one and an added bottom cherry is zero. Exactly
+the words with $m$ ones and no adjacent zeros are feasible. Initial and
+terminal zeros are allowed. Each zero selects a distinct bottom slot,
+so this is a bijection with the $\binom Ss$ slot subsets.
+
+The skeleton key of rank $r$ among the ones has comparison length
+$h-\nu_2(r)$; a cherry has length $h+1$. A gap has length $h+1$ exactly
+when adjacent to a cherry, and otherwise length $h$. Put
+$c_i=q_i+q_{i+1}$. Since zeros are nonadjacent, no deep gap is counted
+twice. The full original cost of a feasible word $x$ is therefore
+\begin{align}
+ C(x)&=A-\sum_{i:x_i=1}\bigl((1+\nu_2(r_i))p_i+c_i\bigr),
+       \label{eq:run-word-cost}\\
+ A&=(h+1)\sum p_i+h\sum q_i+\sum c_i.\nonumber
+\end{align}
+Both weight types remain in this identity. It does not apply to arbitrary
+taller shapes.
+
+Partition $(p_i,c_i)$ into its $k$ maximal constant runs. In a block of
+length $L$ with signature $(a,c)$, define
+\[
+ U(r)=(2a+c)r-a\operatorname{popcount}(r).
+\]
+The sum of $\nu_2(t)$ through $r$ is $r-\operatorname{popcount}(r)$.
+Consequently every feasible block increasing the skeleton count from
+$r_0$ to $r_1$ earns exactly $U(r_1)-U(r_0)$. Its internal arrangement
+affects only feasibility, not reward.
+
+Let $t$ be the previous key's bit and $u$ the final bit of a nonempty
+block. Its possible number of ones is every integer in $[\ell,b]$:
+\[
+\begin{array}{cc|cc}
+t&u&\ell&b\\\hline
+1&1&\lceil L/2\rceil&L\\
+0&1&\lfloor L/2\rfloor+1&L\\
+1&0&\lfloor L/2\rfloor&L-1\\
+0&0&\lceil L/2\rceil&L-1
+\end{array}
+\]
+Empty ranges are infeasible. These bounds follow by separating zeros
+with ones, respecting the first and last bits; every intermediate count
+is attained. Use virtual initial bit $t=1$ and either final bit.
+
+\subsection{Sliding transfers and linear-space reconstruction}
+For a prefix reward profile $D_t(r_0)$, the exact next profile is
+\begin{equation}
+ D'_u(r)=U(r)+\max_{t\in\{0,1\}}
+       \max_{r-b\le r_0\le r-\ell}\{D_t(r_0)-U(r_0)\}.
+ \label{eq:run-transfer}
+\end{equation}
+Bounds $\ell,b$ depend on $t,u$. Exclude unreachable and out-of-range
+entries. The inner maximum is a sliding window; a standard monotone
+deque evaluates all ranks in linear time. Each candidate is inserted
+and removed at most once. There are four bit pairs. Backward profiles
+use the analogous window over $r_1\in[r+\ell,r+b]$ with values
+$B'_u(r_1)+U(r_1)$, then subtract $U(r)$. Popcounts are tabulated once.
+
+\begin{theorem}[Exact joint-signature optimizer]
+For arbitrary nonnegative mixed weights, let $k$ be the number of runs
+of $(p_i,q_i+q_{i+1})$. Exact optimization over all minimum-path-length
+shapes, including full reconstruction, takes $O(nk)$ arithmetic operations
+and $O(n)$ auxiliary space for $n\ge1$.
+\end{theorem}
+\begin{proof}
+An initial sweep finds the maximum final reward at rank $m$. For traceback,
+split the block list in half and compute its left forward and right
+backward profiles between fixed endpoint ranks and bits. Their sum selects
+an optimal middle state. Release both profiles before recursively solving
+the two halves. A one-block leaf explicitly places its required count of
+nonadjacent zeros using the boundary rules. The complete word yields all
+comparison lengths and the existing linear Cartesian reconstruction.
+This uses Hirschberg's established recomputation principle~\cite{hirschberg}.
+
+At recursion level $d$, an active subproblem has at most
+$\lceil k/2^d\rceil$ blocks. The sum of active rank-interval widths is
+at most $m+2^d$, because endpoint rank spans partition the original span.
+Summing sweep work gives $O(km+k\log(k+1))$, plus $O(n)$ preprocessing
+and output. Since $m=\Theta(n)$ and $k\le n$, this is $O(nk)$.
+Only a constant number of profiles is retained at once; releasing them
+before recursion prevents a stack of profiles. All other summaries and
+the output occupy $O(n)$ space.
+\end{proof}
+
+A perfect shape or a single signature block is constructed directly.
+The potential and transfer use arbitrary block values; they do not assume
+that an affine approximation is accurate or that the reference tree stays
+optimal.
+
+\subsection{Certification and full mixed-weight guarantees}
+The mixed residual-Huffman gate remains
+\[
+ C_*\le(a_0+b_0)(I_{\min}(n)+1)+(a_0+2b_0)n+H,
+ \qquad a_0=\min p,\quad b_0=\min q.
+\]
+It can also be built from the compressed signatures. Each block contains
+one key weight. Its gap weights obey $q_{i+1}=c-q_i$, so they alternate
+between at most two values. Record the block's $L$ keys as one weighted
+multiplicity and its $L$ left gaps as at most two; finally add $q_n$ once.
+There are at most $k$ key records and $2k+1$ gap records. Sort these
+records, expand their multiplicities, and run the two-queue bound. The
+total work is $O(k\log(k+1)+n)$ and space is $O(n)$. Gaps at block
+boundaries occur once. Thus an accepted full solve retains the theorem's
+time and space bounds. Failed gates use exact Knuth; the fixed-profile
+preflight rejection also remains available.
+
+\begin{theorem}[Arbitrary mixed block values above a baseline]
+For $n\ge1$, $M\ge1$, $0\le u_i,v_i\le M$, set
+\[
+ B=4(n+1)^2M,\qquad p_i=B+u_i,\qquad q_i=B+v_i.
+\]
+If $(u_i,v_i+v_{i+1})$ has $k$ runs, the standalone signature constructor
+returns a full optimal mixed-weight BST in $O(nk)$ arithmetic operations
+and $O(n)$ auxiliary space. Constant $k$ gives linear construction and
+$k=o(n)$ gives subquadratic construction.
+\end{theorem}
+\begin{proof}
+The residual mass above $a_0,b_0$ is at most $(2n+1)M$. Every class
+candidate has residual cost at most $(h+1)(2n+1)M<2B\le a_0+b_0$.
+A tree outside the class pays an additional baseline cost of at least
+$a_0+b_0$. Hence the gate passes even with $H=0$, and preflight cannot
+reject. The exact class optimum is a full optimum. The preceding theorem
+and compressed certificate give the stated work and space.
+\end{proof}
+
+The weights are positive and both types may be nonconstant. Key values
+can change arbitrarily between blocks, and gap weights can alternate at
+every position. No small perturbation budget or affine-closeness assumption
+is imposed on $u,v$. If $M$ is polynomial in $n$, all weights and costs
+have $O(\log n)$ bits, giving the corresponding word-RAM bound. For
+arbitrarily large $M$, bit costs remain additional. The large baseline
+is a real restriction; few signatures alone do not guarantee the full gate.
+For example, $p=(100,1,1,1)$ and $q=(1,1,1,1,1)$ have only two signatures,
+but their best minimum-path-length shape costs 218 and their full optimum
+is 121. Direct enumeration of all fourteen trees, cubic DP, and Knuth agree;
+the separate gate correctly rejects the class candidate.
+
+\subsection{Bounded routing and its space qualification}
+Generic transfer sweeps and recomputation have substantial constants when
+$k=n$. The initial matched experiment exposed roughly tenfold regressions
+against Knuth in this regime. The standalone kernel remains an explicit
+control. The implemented portfolio first scans signatures and selects it
+only when $k\le\max\{16,\lfloor n/32\rfloor\}$; otherwise it calls the
+existing affine solver and its exact fallback. The empirical threshold is
+not a correctness assumption or a claim of optimal routing.
+
+On the preceding positive family, portfolio work is still $O(nk)$: the
+signature route certifies, while rejected block counts satisfy $k>n/32$,
+making even quadratic fallback $O(nk)$. The portfolio does not preserve
+the standalone kernel's linear-space guarantee on every such input;
+the affine or Knuth route may use more space. The separate standalone
+constructor retains the theorem's time and space bounds. All scans,
+certificates, and output reconstruction are included in the implementation
+and matched measurements.
+
+\subsection{Independent checks and complete work counts}
+The identity harness preceded the implementation. It checked all forty
+boundary-count intervals through block length ten, 1,365 direct costs
+using independent slot-expanded tree shapes, and 228 block path-independence
+identities. All 120 feasible short boundary/count reconstructions were
+checked. Another 1,000 forward/backward transfer vectors were compared
+with explicit word enumeration, including negative profile values and
+unreachable entries. The oracle does not reuse the production deque.
+
+The final source-hashed M4 suite passes 1,023 standalone full solves,
+778 cubic comparisons, 1,023 unrestricted shape-DP controls, 762
+independent shape enumerations, and 1,023 independent checks of multiplicity
+sorting. There are 366 certificates and 657 gate rejections, including
+411 in preflight. Another 1,023 portfolio solves return the same exact
+costs: 912 select signatures and 111 select the affine route. Eight large
+portfolio controls agree with the standalone constructor. Inputs include
+zeros, ties, large integers, geometric weights, arbitrary block values,
+and one-key blocks. Both scaling families at 1536 keys also match Knuth
+and the unrestricted shape optimizer.
+
+Table~\ref{tab:run-counts} includes every block transfer performed during
+traceback, not just the initial forward sweep. The four-block 98,304-key
+solve also scans 2,228,224 source positions, pushes 311,317 deque entries,
+and performs 311,283 deque value comparisons, 262,146 traceback split
+checks, 98,304 residual contractions, and 110,590 bound-queue comparisons.
+Its certificate sorts thirteen multiplicity records using 26 comparisons
+and expands all 196,609 input weights. The sixteen-block solve uses
+forty-nine records, 167 sorting comparisons, 2,207,873 deque pushes,
+2,415,139 deque value comparisons, and 524,310 traceback split checks.
+Both construct and directly evaluate all 98,304 keys. These are distinct
+operation categories, not a machine-instruction total. Maximum profile
+width counts ranks and is not a measured peak-memory byte count.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rrrrr}
+\toprule
+Keys & Blocks & Window queries & Potential terms & Max. profile width \\
+\midrule
+1,536 & 4 & 40,968 & 10,242 & 1,024 \\
+1,536 & 16 & 188,552 & 47,138 & 1,024 \\
+6,144 & 4 & 163,848 & 40,962 & 4,096 \\
+6,144 & 16 & 753,800 & 188,450 & 4,096 \\
+24,576 & 4 & 655,368 & 163,842 & 16,384 \\
+24,576 & 16 & 3,014,792 & 753,698 & 16,384 \\
+98,304 & 4 & 2,621,448 & 655,362 & 65,536 \\
+98,304 & 16 & 12,058,760 & 3,014,690 & 65,536 \\
+\bottomrule
+\end{tabular}
+\caption{Actual full-constructor transfer counts on certified non-affine
+mixed signatures, including linear-space traceback recomputation.
+Larger-than-1536 cases use the proved certificate and direct output-cost
+checks, rather than executing the dense comparison tables.}
+\label{tab:run-counts}
+\end{table}
+
+\subsection{Matched timings and retained regressions}
+The final experiment uses exact Python integers on the M4 host, Python
+3.9.6 and macOS 26.5 arm64. Five cyclic execution orders put each solver
+in every position once: portfolio, standalone signature kernel, affine
+solver, unrestricted shape DP with fallback, and Knuth. Twelve size/family
+groups give sixty matched trials and three hundred full constructions.
+Preprocessing, routing scans, certification, and complete reconstruction
+are timed; independent cost checks and garbage collection are outside the
+timed region. Table~\ref{tab:run-timing} reports medians of paired ratios.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rlrrr}
+\toprule
+Keys & Family & P / Knuth & P / Shape & R / Knuth \\
+\midrule
+768 & Four signatures & 0.0555 & 0.1507 & 0.0741 \\
+768 & Sixteen signatures & 0.2670 & 0.7813 & 0.2916 \\
+768 & Irregular, large baseline & 0.7449 & 1.9778 & 11.3195 \\
+768 & Ordinary random & 1.0771 & 0.8238 & 1.0088 \\
+768 & Geometric & 1.0373 & 0.7441 & 1.0290 \\
+768 & Alternating affine errors & 0.0501 & 0.1424 & 11.3288 \\
+1,536 & Four signatures & 0.0259 & 0.0893 & 0.0329 \\
+1,536 & Sixteen signatures & 0.0961 & 0.3958 & 0.0976 \\
+1,536 & Irregular, large baseline & 1.0612 & 3.1576 & 10.4922 \\
+1,536 & Ordinary random & 1.0687 & 0.7952 & 0.9749 \\
+1,536 & Geometric & 1.0216 & 0.7535 & 0.9835 \\
+1,536 & Alternating affine errors & 0.0292 & 0.0899 & 10.8220 \\
+\bottomrule
+\end{tabular}
+\caption{Five paired full-construction trials per row. P is the routed
+portfolio, R the standalone signature constructor, and Shape the preceding
+unrestricted shape DP with fallback. Ratios below one favor the numerator.}
+\label{tab:run-timing}
+\end{table}
+
+The four- and sixteen-signature fixtures have arbitrary block key values
+and alternating gap values, above the proved baseline. At 1536 keys the
+portfolio's paired ratios versus the preceding affine solver are 0.0247
+and 0.0981. These complement the earlier affine regime. On selected
+signature routes, the portfolio executes the same kernel plus an extra
+scan; subunit portfolio/kernel timing ratios are variation, not saved work.
+
+The negative controls matter. With one signature per key, the standalone
+kernel is about ten to eleven times slower than Knuth at 1536 keys.
+The routed irregular large-baseline case reaches Knuth through the affine
+budget rejection, while its 768-key version certifies using the whole
+affine shape grid. The preceding full shape DP remains faster on both
+irregular fixtures: portfolio/shape ratios are 1.9778 and 3.1576. Thus
+the empirical route is useful but not the best strategy on every input.
+Ordinary random and geometric inputs fall back, with modest overhead;
+subunit standalone fallback ratios are timing variation. The affine
+fixture retains its earlier fast route. No production-language or broad
+optimized-library superiority is established by these small Python trials.
+Earlier negative C++ core-backend results remain unchanged.
+
 \clearpage
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
@@ -3756,6 +4027,9 @@ logarithmic-time interval queries and linear construction.
 Affine-regret corridors extend exact construction to arbitrary signed
 perturbations of that family, with $O(n\log^2 n)$ work under a total-magnitude
 bound and $O(n\log n)$ under independent unit perturbations.
+Joint key/adjacent-gap signatures give an exact $O(nk)$ minimum-path-length
+optimizer with linear-space reconstruction and a fully certified positive
+family with arbitrary block values.
 Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
@@ -3814,6 +4088,10 @@ P. Gawrychowski, E. Gorbachev, and T. Kociumaka.
 Core-sparse Monge matrix multiplication: improved algorithm and applications.
 \emph{ESA 2025}, LIPIcs 351, 74:1--74:17.
 \href{https://doi.org/10.4230/LIPIcs.ESA.2025.74}{doi:10.4230/LIPIcs.ESA.2025.74}.
+\bibitem{hirschberg}
+D. S. Hirschberg. A linear space algorithm for computing maximal common
+subsequences. \emph{Communications of the ACM} 18(6), 341--343, 1975.
+\href{https://ics.uci.edu/~dhirschb/pubs/p341-hirschberg.pdf}{Author-hosted paper}.
 \end{thebibliography}
 \endgroup
 \end{document}

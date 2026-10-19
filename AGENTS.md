@@ -105,3 +105,10 @@ Affine-regret corridor, independent exact checks, and matched full constructors:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_ramp_complete.py --max-n 768 --scale-n 98304
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_ramp_complete.py
 ```
+
+Joint key/adjacent-gap signature transfers and linear-space reconstruction:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_run_complete.py --max-n 768 --scale-n 98304
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_run_complete.py
+```

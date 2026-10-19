@@ -28,6 +28,11 @@ signed perturbations of total magnitude at most n admit O(n log^2 n) full
 construction, while independent unit perturbations on all keys and gaps
 admit O(n log n). The global certificate is proved to pass for these
 families, including nonmonotone inputs and changes of optimal tree shape.
+Joint-signature blocks now give an O(nk)-time, O(n)-space class optimizer
+and an explicit full certified family with arbitrary non-affine residuals.
+The signature is (p_i,q_i+q_(i+1)); raw gaps may alternate within a block.
+A measured block-count route combines this kernel with the affine solver,
+while retaining the standalone kernel's adverse fragmented-input controls.
 The general objective and priority remain unresolved.
 
 Input: ordered keys 1..n, key weights p[1..n], gap weights q[0..n], all
@@ -1202,3 +1207,112 @@ Both new result manifests match their recorded source hashes. The final
 TeX/PDF output copies are byte-identical to the repository artifacts. Exact
 family bounds, formula-only dense comparison counts, fallback timing noise,
 unestablished priority, and the unrestricted remaining objective are explicit.
+
+## Nineteenth checkpoint: joint-signature block transfers
+
+This turn starts from published afd8e80 and extends the representation beyond
+small perturbations of affine slopes. A minimum-IPL shape is encoded by an
+inorder key word with S-1 ones and no adjacent zeros: ones are perfect-skeleton
+keys, zeros are optional cherries. For c_i=q_i+q_(i+1), its full cost is a
+tree-independent constant minus the selected rewards
+(1+v_2(r_i))p_i+c_i. The internal and external weights remain present.
+
+For each constant run of (p_i,c_i)=(a,c), the reward from skeleton ranks
+r0 to r1 telescopes as U(r1)-U(r0), where
+U(r)=(2a+c)r-a*popcount(r). Four boundary-bit pairs determine intervals of
+feasible rank increments. Their exact transfers are sliding maxima, computed
+with standard monotone deques. No affine fit or residual-gain approximation
+is needed. The shape kernel takes O(nk) arithmetic operations for k runs.
+Hirschberg-style forward/backward recomputation reconstructs in O(n) space:
+split the block list, restrict rank intervals to selected endpoints, and
+release profiles before recursion. At level d the total rank width is at
+most m+2^d and each subproblem has at most ceil(k/2^d) blocks, giving
+O(km+k log k) total sweep work plus linear output. The established traceback
+principle is credited to Hirschberg's 1975 primary paper.
+
+The global certificate also compresses. Constant c forces gap weights to
+alternate, so at most k key and 2k+1 gap multiplicity records suffice for
+sorting and the mixed residual-Huffman bound. For arbitrary nonnegative
+u_i,v_i<=M, M>=1, adding B=4(n+1)^2M to every weight forces the gate to
+pass. The full standalone constructor is O(nk) time and O(n) auxiliary
+space on this family, including input scans, bound construction, and output.
+This allows arbitrary block values and gaps changing at every position.
+Polynomial M gives O(log n)-bit words. Without the baseline, few blocks do
+not ensure certification: p=(100,1,1,1), q=(1,1,1,1,1) has two signatures,
+class optimum 218 and full optimum 121. All fourteen four-key trees, cubic
+DP, and Knuth independently confirm those values; the gate rejects.
+
+The identity harness was written before the production module. It checks
+40 boundary count intervals, 1,365 independent shape/word costs, 228 block
+path-independence identities, 120 block reconstructions, and 1,000 forward
+and backward transfer vectors by exhaustive word enumeration. The final
+M4 run passes 1,023 standalone full solves, 778 cubic controls, 1,023 full
+shape-DP controls, 762 independent shape enumerations, and 1,023 compressed
+sorting checks. There are 366 certificates, 657 gate rejections (411 in
+preflight), and no cost mismatches. Another 1,023 portfolio solves match:
+912 route to signatures and 111 to affine. Eight large portfolio controls
+also agree; the two 1536-key scaling cases match both dense solvers.
+
+The full standalone constructor reaches 98,304 keys with four and sixteen
+signatures. Including traceback, it uses 2,621,448 and 12,058,760 window
+queries respectively. Both maximum profile widths are 65,536 ranks; this
+is not a peak-memory byte measurement. The four-block case sorts thirteen
+records using 26 comparisons, expands 196,609 weights, performs 98,304
+residual contractions, and reconstructs every key. Full vectors retain all
+source scans, deque operations, potentials, bound work, and output costs.
+
+An initial matched experiment revealed roughly tenfold standalone regressions
+on one-key blocks. The final portfolio scans k and calls the signature
+kernel only when k<=max(16,floor(n/32)); otherwise it uses the existing
+affine solver and its exact fallback. The threshold is empirical, not a
+correctness premise. On the explicit positive family, O(nk) work is preserved
+even if routed away, since then k>n/32 and O(n^2) is O(nk). The portfolio
+does not preserve the standalone kernel's linear-space guarantee on all
+such inputs, because the alternate route may use more space. Both APIs
+and the negative standalone control remain available.
+
+The final benchmark uses five solvers in five cyclic orders across twelve
+groups: sixty matched trials, three hundred complete constructions, exact
+Python integers, M4 arm64, Python 3.9.6/macOS 26.5. Preprocessing, routing,
+certification, and reconstruction are timed. At n=1536, portfolio/Knuth
+ratios are 0.0259 (four signatures) and 0.0961 (sixteen); portfolio/full-shape
+ratios are 0.0893 and 0.3958, and portfolio/affine ratios 0.0247 and 0.0981.
+The standalone kernel's irregular and affine ratios versus Knuth are
+10.4922 and 10.8220. Routing changes these to 1.0612 and 0.0292. Ordinary
+random and geometric portfolio ratios are 1.0687 and 1.0216 with fallback.
+The old full shape DP is still better on irregular large-baseline inputs:
+portfolio/full-shape ratios are 1.9778 at 768 and 3.1576 at 1536. The route
+is not claimed optimal. Subunit timing ratios between identical selected
+kernels or fallback paths are variation, not saved algorithmic work. Earlier
+source-hashed implementations and negative compiled measurements are unchanged.
+
+Targeted searches did not establish priority. Standard deque maxima,
+minimum-IPL structure, mixed-node bounds, and Hirschberg traceback are
+credited. The full objective still requires a representation covering much
+more irregular signatures and taller optimal shapes.
+
+A separate, unpublished probe identifies a possible next step: alternating
+two-level key weights with alternating gaps have k=n but their shape optimum
+appears directly constructible. Eighty small cases through n=40 matched
+the unrestricted shape DP. These are exploratory observations, not a claimed
+full theorem or a replacement for the original objective. The next test is
+whether a profile-attainment construction extends beyond strict alternation.
+
+## Publication audit of nineteenth checkpoint
+
+The pending work was revalidated from the authoritative checkout after an
+intervening JesseSort discussion that made no OBST research progress. Both
+new result manifests match all nine recorded source hashes. All sixty
+matched trials contain five full constructions, and all paired portfolio
+summary ratios recompute from the raw times. The exact harness, independent
+transfer oracle, and production reconstruction were inspected against the
+proof. No source changes invalidate the stored experiments.
+
+The 63-page manuscript was compiled again with Tectonic without warnings.
+All pages have been rendered and visually reviewed, including full-size
+inspection of the abstract and new proof, count, timing, and status pages.
+The final TeX/PDF are copied byte-for-byte to the user-facing output paths.
+The unrestricted mixed-weight objective remains open; the new theorem's
+large-baseline condition and the portfolio's space qualification are explicit.
+The next research step is profile attainment with fragmented signatures,
+starting with independent enumeration before a production implementation.

@@ -20,12 +20,46 @@ selection by the repository owner. The general research objective is ongoing.
 - [Centered core bounds for large integer baselines](CENTERED_MONGE.md)
 - [Ruler-pattern identities, dense-core barrier, and exchange shortcut](RULER_REPRESENTATION.md)
 - [Affine-regret corridors and arbitrary signed perturbations](RAMP_CORRIDOR.md)
+- [Joint key/gap signature transfers and linear-space reconstruction](RUN_SHAPES.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The latest exact constructor prunes a minimum-path-length shape DP using an
+The latest representation groups consecutive equal pairs (p_i,q_i+q_(i+1)).
+With k such blocks, the standalone minimum-path-length optimizer takes O(nk)
+arithmetic work and O(n) auxiliary space, including full reconstruction.
+An exact block reward telescopes in skeleton rank; four sliding maxima and
+Hirschberg-style forward/backward recomputation replace the individual steps.
+The full mixed certificate also uses O(k) weighted multiplicity records,
+even when gap weights alternate at every position inside a block.
+For arbitrary 0<=u_i,v_i<=M, M>=1, B=4(n+1)^2M, p_i=B+u_i, q_i=B+v_i,
+the gate always passes. Thus the full standalone construction is O(nk)
+time and O(n) space on this non-affine family. Both weight types can vary;
+the large baseline and small signature count are substantive restrictions.
+
+The portfolio scans the block count and uses this kernel only when
+k<=max(16,floor(n/32)); otherwise it uses the preceding affine solver and
+its exact fallback. This avoids expensive fragmented-input behavior found
+in the retained standalone control. The portfolio retains O(nk) time on
+the explicit family, but its alternate route may use more than linear space.
+The standalone kernel is available separately. Neither solves unrestricted
+weights subquadratically; all fallback results remain exact.
+
+The new exact suite checks 1,023 cases with both standalone and routed
+construction, including 778 cubic controls, 1,023 full shape-DP comparisons,
+and 1,000 independently enumerated transfer vectors. Certified construction
+reaches 98,304 keys with four and sixteen joint blocks. Sixty matched M4
+trials compare five full constructors. At 1536 keys the portfolio/Knuth
+median paired ratios are 0.0259 and 0.0961 for those two families; the old
+full shape-DP ratios are 0.0893 and 0.3958. The standalone kernel is roughly
+ten times slower than Knuth on fragmented controls, and the old full shape
+DP still beats the routed solver on irregular large-baseline inputs. Those
+negative results, all operation counts, and source hashes are retained in
+`results/run_complete*.json`. The linear-space theorem belongs to the
+standalone accepted path; routing and fallback have explicit qualifications.
+
+A complementary exact constructor prunes a minimum-path-length shape DP using an
 affine slot potential and a signed residual-profile bound. For n>=32,
 B=4(n+1)^3, p_i=B+i+u_i, q_i=B+i+v_i, arbitrary signed integer perturbations
 of total magnitude at most n give O(n log^2(n+1)) full construction; independent
@@ -118,6 +152,8 @@ python3 obst/code/ruler_barrier.py --max-n 512
 python3 obst/code/ordered_complete.py --max-n 768
 python3 obst/code/check_ramp_complete.py --max-n 768 --scale-n 98304
 python3 obst/code/benchmark_ramp_complete.py
+python3 obst/code/check_run_complete.py --max-n 768 --scale-n 98304
+python3 obst/code/benchmark_run_complete.py
 ```
 
 At 512 keys, a positive-weight instance with 22 randomly located heavy keys
