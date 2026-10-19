@@ -4050,3 +4050,92 @@ on page 140, and dedication on page 148. Fifty-three executed-source hash
 entries across eleven audit records match the local sources. The final
 TeX/PDF deliverables and five-member source/font archive are refreshed and
 verified byte for byte before publication.
+
+## Checkpoint 54: mixed prefix vectors remove quadratic run dependence
+
+Checkpoint 53 was progress, published at 0de1687: it provided a finite
+slot-window product and full prescribed-height equal-internal-gap constructor,
+plus an exact signed gap-transition obstruction. Initial inspection this turn
+confirmed that the common-gap shift already follows from the established
+shape-independent cost identity. More consequentially, complete construction
+needs only prefix vectors, not the full product matrix. The implementation
+and proof now use that smaller object while retaining arbitrary mixed weights.
+
+Normalize with b=min of the internal gaps, endpoint keys w_0=p_0+q_0 and
+w_(n-1)=p_(n-1)+q_n, interior keys w_i=p_i+b, residual internal gaps
+g_i=q_i-b and zero endpoint gaps. Every tree's original cost is its
+transformed cost plus bn. All weights remain nonnegative, even for endpoint
+gaps below b. Let r count transformed key runs and e count positive residual
+gaps. Every original nonnegative mixed input is accepted.
+
+The prefix vector records the minimum negative slot reward ending at each
+slot. An equal-key run with m>=2 forces its final key to the destination
+slot and chooses its other m-1 slots from the intervening open window. The
+finite matrix is the prior (m-1)-window factor shifted one column, plus the
+last-slot potential. Transposition and addition of the arbitrary prefix
+vector preserve Monge. With K=1+(h-1)(sum w+sum g), every invalid candidate
+costs at least one and every feasible candidate costs at most zero. Each
+row has a feasible candidate; the SMAWK search therefore returns the exact
+prefix value and predecessor using O(c) queries of cost O(h) each.
+
+An arbitrary residual gap followed by one key is processed by a sweep.
+Exact-valuation minima and suffix minima give the best predecessor among
+slots a<z for the reward g min(nu_2(a),nu_2(z)). Insertion and querying
+cost 1+nu_2(a) and 1+nu_2(z), respectively. Their sums over the ruler are
+O(c), giving a linear pass including all predecessors. Thus the signed
+checkerboard from checkpoint 53 obstructs that matrix's density list but
+does not obstruct linear vector application. The valuation-group mechanism
+is related to the previous capacity-deficit solver and is credited as such
+through the existing slot representation; SMAWK itself is prior work.
+
+Isolate the first key after each positive residual gap and otherwise batch
+maximal constant-key zero-gap segments. There are at most r+2e stages.
+For R_2 long-run and S_1 singleton stages, full work is
+O(n+c(1+h R_2+S_1)) and storage O(n+c(1+R_2+S_1)). This gives
+O(n+(r+e)c log(c+1)) work and O(n+(r+e)c) words, including every
+backpointer, bucket traceback over disjoint windows, and threaded full-tree
+repair. When e=0 this improves complete construction from quadratic to
+linear run dependence. The all-entry product theorem is preserved because
+it provides a different object. If all stages are singletons the implemented
+bound is O(nc), without a hidden logarithm. A prescribed height remains a
+constraint and c=2^h-1 remains explicit; the main unrestricted mixed bound
+and original local support hypothesis are not replaced or declared solved.
+
+Harness-first checks exhaust 680 mixed binary inputs through four keys.
+They verify 7880 literal tree normalization identities, 12496 prefix values
+and attaining predecessors using 53824 literal selected-slot sequences,
+and 1184 insufficient-capacity decisions. Forty-eight forced-end finite
+factors, including rational and infeasible cases, give 15600 comparisons
+against the earlier condensed factor and 14256 Monge density checks.
+Another 84 mixed inputs through 32 keys include geometric and rational
+weights, arbitrary gaps, and long key runs with isolated gap changes.
+There are 1528 combined original all-root height-optimum controls with
+complete tree order, height, and original-cost verification. The independent
+references use 828560 candidates and 107736 states.
+
+Twelve larger full constructions through 8192 keys include uniform keys,
+three runs, and unequal internal and endpoint gaps. Only uniform rows have
+a separate closed minimum-IPL optimum; other large rows independently check
+the returned tree but have no dense optimum oracle. At 8192 keys and h=14,
+three exceptional gaps and modified endpoints give five transformed runs,
+six long-run and five singleton passes, 752788 finite run-entry queries,
+61437 singleton states, and 180224 stored predecessor slots. The final
+successful run records eleven source hashes and exact operation counts.
+
+The primary SMAWK source was checked through IBM Research and the authors'
+Technion record: Aggarwal, Klawe, Moran, Shor and Wilber, Algorithmica 2,
+195--208 (1987), DOI 10.1007/BF01840359. Its finite-real totally-monotone
+matrix-search interface applies; each new matrix is explicitly finite
+Monge, and the O(c) query bound includes its rectangular dimensions. The
+new paper citation credits the primitive rather than claiming its invention.
+
+SLOT_VECTOR_CONSTRUCTION.md supplies the full proof. The manuscript's new
+Section 2.17 states the mixed vector theorem; verification remains in
+Appendix T. Compilation is clean at 151 pages. All 424 previous labels are
+preserved among 430 unique labels, and references and citations resolve.
+The dedication source is byte-identical to checkpoint 53. Sixty-four
+executed-source hash entries across twelve audit records match local sources.
+Every page was rendered and visually reviewed, with detailed checks of the
+new proof on pages 27--28, the audit on pages 142--143, and dedication on
+page 151. The final PDF, TeX and five-member source/font archive are refreshed
+and byte-verified before publication. No elapsed-time result is used.

@@ -542,3 +542,15 @@ original all-root height optima separately. Large three-run rows verify
 complete output trees but have no independent large optimum reference.
 The single-gap checkerboard uses consecutive-slot coordinates, not original
 interval cores. Copy the JSON back before the next mirror operation.
+
+Mixed prefix-vector construction with finite run minima and arbitrary gap sweeps:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_vector_audit.py
+```
+
+The harness checks literal prefix values and predecessors, complete forced-end
+finite factors, and original mixed all-root height optima. Larger rows return
+full trees; only uniform rows have a separate closed-form optimum reference.
+The theorem is height constrained and records all predecessor storage. Copy
+the JSON before another mirror operation.

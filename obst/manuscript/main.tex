@@ -1828,6 +1828,126 @@ certificate. Unequal internal gaps introduce the signed transition
 obstruction in Theorem~\ref{thm:slot-gap-checkerboard}. The audit appears
 in Appendix~\ref{app:rank-transfer}.
 
+\subsection{Run vectors with arbitrary mixed gaps}
+\label{sec:slot-vector}
+A complete tree needs a vector of prefix costs rather than every transfer
+entry. This removes one factor of the run count and handles unequal gaps
+without representing their signed transition matrices explicitly.
+
+\begin{theorem}[Mixed run-vector construction]\label{thm:slot-vector}
+Let $n\ge2$ and allow arbitrary nonnegative key and gap weights. Put
+$b=\min_{1\le i<n}q_i$, define $w$ by
+\eqref{eq:slot-run-gap-gauge}, and put
+$g_0=g_n=0$, $g_i=q_i-b$ for $1\le i<n$.
+Let $r$ be the number of constant runs in $w$ and
+$e=|\{i:g_i>0\}|$. For prescribed $h$ with $c=2^h-1\ge n$, a complete
+optimal tree of height at most $h$ can be constructed in
+\[
+ O\bigl(n+(r+e)c\log(c+1)\bigr)\quad\text{arithmetic work},\qquad
+ O\bigl(n+(r+e)c\bigr)\quad\text{words}.
+\]
+The bounds include preprocessing, backpointers and full tree reconstruction.
+At minimum feasible height the work is $O(n+(r+e)n\log(n+1))$.
+\end{theorem}
+\begin{proof}
+The external-path identity used in Corollary~\ref{cor:slot-run-mixed}, now
+retaining the residual internal gaps, gives for every tree
+\begin{equation}\label{eq:slot-vector-normalization}
+ C_{p,q}(T)=C_{w,g}(T)+bn.
+\end{equation}
+All transformed weights are nonnegative. Their total mass is $W-b$.
+By Theorem~\ref{thm:mixed-slots}, it suffices to maximize their mixed
+slot reward and add $bn$ after reconstruction. Write $v(t)=\nu_2(t)$,
+set $R=(h-1)(\sum_iw_i+\sum_i g_i)$ and $K=R+1$.
+Let $f_k(a)$ be the minimum negative reward of the first $k$ keys ending
+at slot $a$. For $k>0$ retain exactly $k\le a\le c$; initially the only
+state is $f_0(0)=0$.
+
+Consider a constant run of $m\ge2$ keys of weight $w$, with zero residual
+gaps preceding and inside the run. Force its last key to slot $z$ and
+let the preceding prefix end at $a$. Define the finite matrix
+\begin{equation}\label{eq:slot-vector-forced}
+ B_{w,m}(a,z)=K(m-z+a)_+-wv(z)
+ -w\sum_{t=1}^{h-1}\min\left(m-1,
+          \left\lfloor\frac{z-1}{2^t}\right\rfloor
+         -\left\lfloor\frac a{2^t}\right\rfloor\right).
+\end{equation}
+On $z-a\ge m$, this chooses the best $m-1$ preceding slots in $(a,z)$.
+The whole matrix is the window factor for $m-1$ keys, shifted by one
+column, plus a column potential. Lemma~\ref{lem:slot-run-factor}'s density
+proof applies for this larger positive $K$, so it is finite Monge.
+
+To compute $f_{k+m}(z)$, take row minima of
+$f_k(a)+B_{w,m}(a,z)$, with rows $z=k+m,\ldots,c$ and columns
+$a=k,\ldots,c-m$ when $k>0$, or just column $0$ when $k=0$.
+Transposition and the prefix potential preserve Monge. Each row has a
+feasible candidate. An infeasible candidate incurs at least $K$ penalty,
+while the prefix and new-run negative rewards together are at least $-R$,
+also when $a\ge z$. It therefore costs at least one. A feasible candidate
+costs at most zero. The finite row minimum consequently gives exactly the
+true prefix optimum and its attaining predecessor. SMAWK~\cite{smawk}
+uses $O(c)$ entry evaluations and additional work; each entry of
+\eqref{eq:slot-vector-forced} takes $O(h)$ arithmetic operations.
+Thus a run pass costs $O(ch)$ work and $O(c)$ working words.
+
+To append a single key of weight $w$ after an arbitrary residual gap $g$,
+the exact update is
+\begin{equation}\label{eq:slot-vector-gap}
+ f_{k+1}(z)=-wv(z)+\min_{k\le a<z}
+                  \{f_k(a)-g\min(v(a),v(z))\}.
+\end{equation}
+For $k=0$, only $a=0$ is present, with $v(0)=0$ and $g=0$.
+Sweep $z$ increasingly, inserting $a=z-1$ when that prefix state exists.
+Maintain $E_d$, the minimum prefix value at exact valuation $d$, and
+$S_d$, the minimum at valuation at least $d$, with leftmost predecessors.
+For $t=v(z)$ the minimum in \eqref{eq:slot-vector-gap} is
+\[
+ \min\left\{\min_{d<t}(E_d-gd),\ S_t-gt\right\},
+\]
+with absent states omitted. Inserting valuation $d$ updates
+$E_d,S_0,\ldots,S_d$; a query scans $t$ lower levels and reads $S_t$.
+Every slot is inserted and queried at most once, and
+$\sum_{a=1}^c v(a)=c-h<c$. Array initialization, all updates, all queries,
+and their predecessors therefore take $O(c+h)=O(c)$ work and $O(c)$
+words. This also processes singleton zero-gap runs. No gap-transition
+matrix or signed density list is constructed.
+
+Make the key after each positive residual gap a singleton stage.
+Otherwise collect a maximal constant-weight segment with zero residual
+gaps preceding and inside it. The $e$ exceptional gap positions split the
+$r$ original runs into at most $r+e$ segments; isolating their first keys
+adds at most $e$ further stages. Hence there are at most $r+2e$ stages.
+If $R_2$ stages have length at least two and $S_1$ are singletons, the
+more precise bounds are
+\begin{equation}\label{eq:slot-vector-refined}
+ O\bigl(n+c(1+hR_2+S_1)\bigr)\text{ work},\qquad
+ O\bigl(n+c(1+R_2+S_1)\bigr)\text{ words}.
+\end{equation}
+They imply the theorem because $h=\log_2(c+1)$.
+
+Retain a predecessor array per stage, choose an attaining final slot for
+$\min_z f_n(z)$, and trace backward. In each long run choose the $m-1$
+largest valuations in its recovered open window, then append its forced
+last slot. Valuation buckets and earliest cutoff ties take window length
+plus $O(h)$ work. The recovered windows are disjoint, so all slot recovery
+costs $O(c+(r+e)h+n)$. The $O(c+n)$ threaded deletion repair of
+Theorem~\ref{thm:mixed-slots} produces a complete optimal transformed tree;
+\eqref{eq:slot-vector-normalization} proves original mixed optimality.
+For minimum feasible height, $c<2(n+1)$. The case $n=1$ is direct.
+\end{proof}
+
+For equal internal gaps, $e=0$, so this improves complete construction in
+Corollary~\ref{cor:slot-run-mixed} from quadratic to linear run dependence.
+The all-entry product and its core bound remain useful separately.
+For arbitrary weights, $r\le n$ and $e\le n-2$; if every stage is a
+singleton, \eqref{eq:slot-vector-refined} gives $O(nc)$ work. The signed
+checkerboard in Theorem~\ref{thm:slot-gap-checkerboard} thus permits fast
+vector application despite obstructing a sparse density list. The height
+constraint remains explicit; unrestricted optimality requires a sufficient
+height certificate. The original interval-core bound and local support
+question are unchanged. Independent controls appear in
+Appendix~\ref{app:rank-transfer}.
+
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
 The one-block representation extends to two equal positive blocks, including
@@ -9603,6 +9723,36 @@ executed-source hashes. The theoretical bounds and signed obstruction
 follow from the proofs above.
 
 
+\paragraph{Vector construction with arbitrary mixed gaps.}
+The subsequent audit exhausts all 680 mixed binary inputs through four
+keys. Literal enumeration checks 7880 tree-cost normalization identities.
+Independent prefix enumeration checks 12,496 state values and their
+attaining predecessors using 53,824 selected-slot sequences. Forty-eight
+finite forced-end factors supply 15,600 entry comparisons with the prior
+condensed window factor and 14,256 four-corner Monge controls, including
+infeasible entries and rational weights.
+
+Another 84 mixed inputs through 32 keys include geometric weights,
+unequal gaps, rational weights, long key runs and isolated gap changes.
+Together the two input groups give 1528 comparisons with the original
+all-root height optimum, each with independent output-tree order, height
+and original mixed cost, plus 1184 insufficient-capacity checks. The
+reference recurrence uses 828,560 root candidates and 107,736 states.
+
+Twelve larger complete constructions through 8192 keys cover uniform keys,
+three key runs, and three key runs with exceptional internal and endpoint
+gaps. Uniform rows additionally match the closed minimum-IPL optimum;
+the other larger rows have output-tree checks but no independent large
+optimum oracle. At 8192 keys and height 14, the case with three exceptional
+internal gaps has five transformed key runs, six long-run passes and five
+singleton passes. It makes 752,788 finite run-entry queries, processes
+61,437 singleton states, and stores 180,224 predecessor slots. The record
+\texttt{slot\_vector\_audit.json} retains the separate exact counters and
+eleven executed-source hashes. SMAWK is the published primitive cited in
+Theorem~\ref{thm:slot-vector}; the full construction bound follows from
+its finite Monge interface and the valuation-sum amortization.
+
+
 \clearpage
 \section{Unimodal domination and certified-envelope audit}
 \label{app:unimodal-envelope}
@@ -9914,6 +10064,11 @@ T. C. Hu and A. C. Tucker.
 Optimal Computer Search Trees and Variable-Length Alphabetical Codes.
 \emph{SIAM Journal on Applied Mathematics} 21(4), 514--532, 1971.
 \href{https://doi.org/10.1137/0121057}{doi:10.1137/0121057}.
+\bibitem{smawk}
+A. Aggarwal, M. M. Klawe, S. Moran, P. Shor, and R. Wilber.
+Geometric Applications of a Matrix-Searching Algorithm.
+\emph{Algorithmica} 2, 195--208, 1987.
+\href{https://doi.org/10.1007/BF01840359}{doi:10.1007/BF01840359}.
 \end{thebibliography}
 \endgroup
 

@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Linear run dependence with arbitrary mixed gaps at a prescribed height](SLOT_VECTOR_CONSTRUCTION.md)
 - [Finite slot-window products and complete prescribed-height run construction](SLOT_RUN_CONSTRUCTION.md)
 - [Complete below-capacity plateau cores and local side charge](PLATEAU_BELOW_CORE.md)
 - [Linear-mass odd-ramp core lower bound](RAMP_CORE_TIGHTNESS.md)
@@ -166,6 +167,18 @@ certifies the 2s-1 local bound for those tiles. The remaining nonnegative
 value correction has both density signs, already on two small binary words;
 concatenating them gives one input with both signs. The below-capacity mixed
 region and interactions across uncertified spans remain open.
+
+The [mixed run-vector constructor](SLOT_VECTOR_CONSTRUCTION.md) improves
+complete prescribed-height construction to **O(n+(r+e)c log(c+1)) work and
+O(n+(r+e)c) words**, where c=2^h-1, r counts transformed key runs, and e
+counts internal gaps above their common minimum. Every nonnegative mixed
+input is accepted. Constant runs use finite Monge row minima; arbitrary
+gap transitions use a linear sweep over ruler valuations, so their dense
+signed matrices need not be stored. The constructor retains every
+predecessor and returns the full tree. For equal internal gaps it improves
+the previous quadratic run dependence to linear. The height constraint and
+capacity factor remain explicit, and the unrestricted core-size question
+remains open.
 
 A [finite slot-window product](SLOT_RUN_CONSTRUCTION.md) now gives a complete
 **prescribed-height** constructor for arbitrary nonnegative keys with equal
