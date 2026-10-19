@@ -27,11 +27,13 @@ core-sparse Monge multiplication primitive. It gives exact
 O(n^(3/2) log^(5/2)(n+1)) construction for arbitrary nonnegative integer mixed
 weights of total mass O(n), including zeros. The intermediate-core bound,
 finite completion, and witness reconstruction are proved in the note and
-manuscript. **The new code is a dense reference audit; the compact product
-backend is not implemented yet, and no practical speedup is claimed.**
+manuscript. **Condensed Python and C++ constructors are now implemented and
+checked against dense products and independent BST oracles. No practical
+speedup is claimed for this backend.** Ordinary witness arrays can use an
+extra logarithmic factor in storage relative to the published succinct maps.
 The numerical-mass dependence does not settle the unrestricted objective.
 
-The input has weights on **both keys and gaps**. The latest constructor retains
+The input has weights on **both keys and gaps**. A complementary constructor retains
 the constant-size search-path skeleton of the first possible two-gap core
 violation, and bounds its remaining cost with mixed forests. It certifies a
 family with a linear number of nonuniform keys at arbitrary middle positions
@@ -104,6 +106,8 @@ python3 obst/code/pair_skeleton_family.py
 python3 obst/code/pair_skeleton_crossover.py
 python3 obst/code/boundary_response.py
 python3 obst/code/penalty_layers.py
+python3 obst/code/check_core_monge.py
+python3 obst/code/check_compact_obst.py --max-n 512
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -249,3 +253,32 @@ not executed at that size. Nonuniform positive mixed backgrounds are also
 checked, including selected keys as well as gaps. See CORE_EXCLUSION.md for
 proofs, 6,560 full correctness solves, 57 larger fixtures, all 320 matched
 measurements, and the explicit failure on an optimal-but-uncertified 2n-gap core.
+
+
+The condensed product implementation credits Gawrychowski, Gorbachev, and
+Kociumaka (ESA 2025). The new OBST layer construction uses exact whole-table
+fixed-point stopping and full witness reconstruction. `MONGE_PENALTY.md`
+describes the implementation, the ordinary-map storage overhead, and its
+independent tests. Source-hashed raw results are in `core_monge.json`,
+`compact_obst.json`, and `compact_cpp_{sanitize,release}.json`.
+
+Reproduce the compiled audit locally with an available Clang C++20 compiler:
+
+```sh
+clang++ -std=c++20 -O3 -DNDEBUG -Wall -Wextra obst/code/compact_obst.cpp -o /tmp/obst-compact-release
+python3 obst/code/check_compact_cpp.py /tmp/obst-compact-release --max-n 2048 --trials 3
+```
+
+The root AGENTS.md gives the M4 sanitizer and release commands. Both constructors
+in the benchmark use exact signed-128 arithmetic and construct all keys. The
+C++ driver rejects out-of-range weights before either solve; Python retains
+arbitrary-precision arithmetic. The compact constructor itself does not allocate
+the quadratic interval table, although the separate Knuth oracle does.
+
+The release audit passed 1,362 complete solves through 2,048 keys. All 90
+scaling trials were slower than the matched C++ Knuth constructor. At 2,048
+keys, median compact/Knuth time ratios range from 44.3 to 185.1. The maximum
+completed core is much smaller than the interval table, but 55.7--306.9 million
+core visits and retained witness maps dominate these implementations. The
+note and manuscript report these negative results, full counter categories,
+and the distinction between instrumented work and machine instructions.

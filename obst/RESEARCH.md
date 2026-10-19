@@ -870,6 +870,56 @@ and reviewed in contact sheets; the new proof pages 42--45 were also inspected
 individually. The final harness source hash matches its result file. Publication
 includes the theoretical construction's implementation boundary explicitly.
 
+## Fifteenth checkpoint: actual condensed constructors and measured costs
+
+The previous reduction was published at 44b248161661a2dc07a5e791c6c1a49cdf54658f.
+The next implementation replaces the dense layer tables with top/left
+boundaries and nonzero Monge densities. Python and C++ versions implement the
+published Gawrychowski--Gorbachev--Kociumaka compression, balanced core split,
+staircase merge, decompression, and root witnesses. Product authors retain
+credit; OBST reduction/implementation/exposition credit is OpenAI Codex Sydney.
+
+The constructors detect equality of entire consecutive condensed tables and
+stop exactly at a fixed point. Uniqueness follows by induction on interval
+length. Root reconstruction is iterative and checks every original key.
+Ordinary witness maps add a possible logarithmic storage factor relative to
+the published succinct witness oracle. C++ uses bounded dense product leaves
+of at most 64 cells; these preserve the asymptotic product time. The C++ driver
+uses signed-128 arithmetic with an explicit conservative domain check and
+n<=8192, while Python uses arbitrary-precision integers.
+
+The final Python product audit passed 1,600 rectangular products, 251,779
+cells/witnesses, and 1,600 arbitrary submatrix checks. Three seven-core distance
+matrix products through dimension 2048 retain nonempty seven-entry outputs.
+The complete Python audit passed 1,134 solves, 838 cubic checks, 32 fixed-budget
+controls, 78 fully checked layers (3,367 cells/witnesses), and 15,544 keys.
+The C++ sanitizer audit passed 1,278 solves and 18,248 keys with no reported
+address or undefined-behavior error. The release run passed 1,362 solves and
+88,904 keys, with 1,302 independent Python Knuth comparisons and 826 cubic
+checks. Full costs also match the separate C++ Knuth implementation on every
+case. Each binary explicitly rejected three invalid inputs.
+
+The complete compiled comparison is negative: all 90 scaling trials lose to
+Knuth. At n=2048, the six family median time ratios range from 44.3 to 185.1.
+Their maximum completed cores are 17,894--116,104 entries versus 2,098,176
+nonempty interval cells, but the product machinery traverses 55.7--306.9
+million core entries, and retains 3.68--9.33 million witness integer slots.
+These counts expose real costs that representation sizes omit. They are
+separate counter categories, not equal-cost machine instructions or RSS.
+Measurements use Apple Clang 21, C++20 -O3 -DNDEBUG, exact signed-128 arithmetic,
+full preprocessing and reconstruction, and alternating execution order.
+Sanitizer timings and independent Python audit costs are excluded from the
+performance claims. Three trials per family/size are a scoped experiment,
+not a universal performance estimate.
+
+All four new result files have matching recorded source hashes. The actual
+constructor now exists; no new asymptotic theorem or practical speedup is
+claimed from these tests. The next research target is reducing repeated
+core traversal and retained maps, while investigating a representation whose
+work does not depend on small total integer mass. The original full mixed-
+weight objective is still open and active. This checkpoint does not replace
+it with an implementation-only objective.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the
@@ -878,3 +928,13 @@ includes the theoretical construction's implementation boundary explicitly.
   appropriate matched benchmarks against Knuth and relevant alternatives.
 - TeX manuscript and compiled, visually checked PDF uploaded to papers_please.
 - Continued pursuit of the full objective; intermediate notes are not completion.
+
+## Publication audit of the fifteenth checkpoint
+
+The final 47-page manuscript compiles with Tectonic without warnings. All pages
+were rendered and reviewed in contact sheets; the updated theorem introduction
+and new implementation/evidence pages 42 and 45--47 were inspected individually.
+The rendered table agrees with the three-trial medians in the release JSON.
+All four new result files' recorded source hashes match the committed sources.
+The updated manuscript preserves the numerical-mass restriction and explicitly
+reports all 90 compiled scaling losses. The original objective remains active.

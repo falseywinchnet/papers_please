@@ -2,8 +2,9 @@
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
 the repository owner. This is a mathematical reduction using an existing sparse
-matrix multiplication theorem. The accompanying implementation is a **dense
-reference audit**, not an implementation or benchmark of the fast backend.
+matrix multiplication theorem. Dense reference audits and actual condensed
+Python and C++ constructors now accompany the reduction. The implementation
+details, operation counts, and measured limitations are recorded below.
 Priority is unestablished; the unrestricted subquadratic objective remains open.
 
 ## Result and computational model
@@ -21,8 +22,9 @@ Monge product and witness oracle, gives full exact BST construction in
 
     O(H [n + min(n^2, n sqrt(W L))] log(n+1))
 
-arithmetic operations. Retaining the witnesses uses at most
-O(H [n + min(n^2,n sqrt(W L))]) words. In particular **W=O(n) gives
+arithmetic operations. Using the published succinct witness representation, retaining the witnesses
+uses at most O(H [n + min(n^2,n sqrt(W L))]) words. The implementations here
+use ordinary index arrays and can incur an extra logarithmic factor in space. In particular **W=O(n) gives
 O(n^(3/2) log^(5/2)(n+1)) exact construction**, with arbitrary ordered mixed
 integer weights, including zeros. The bit lengths of the intermediate numbers
 are O(log(n+1)+log(W+1)). The claim for linear mass therefore also fits the
@@ -189,10 +191,106 @@ failed: rotations can move an unfinished interval upward and require costly
 refinement to restore the specified number of levels. Small passing tests
 were not a proof. The large upper penalty avoids that argument entirely.
 
-The next required implementation step is the actual compact Monge product and
-witness path, followed by full-construction operation counts and adversarial
-comparisons. Broad practical performance and priority are unresolved. This
-reduction advances the full mixed-weight objective without asserting that the
+## Implemented condensed product and exact stopping rule
+
+`core_monge.py` stores a top row, left column, and positive density triples.
+Two linear bucket passes order and combine those triples. Selecting submatrices
+aggregates their cores and recovers only the required boundary rows/columns.
+The product follows the published compression, balanced core split, staircase
+merge, and decompression algorithm. Adjacent-entry recomputation scans each
+relevant core row or column only a constant number of times per merge.
+Leftmost root witnesses are retained through ordinary coordinate maps.
+No production operation expands the full matrix into its entries.
+
+`compact_obst.py` implements the penalty layers, finite completion, conversion,
+and iterative full-tree reconstruction on those representations. It stops at
+H or at an exact fixed point of the **whole condensed table**. The left column
+is fixed; equality of the top row and canonical core triples is equality of
+the matrix. A fixed point satisfies the original interval recurrence, whose
+solution is unique by induction on interval length. Equality of the full cost
+alone is not used. The stored finite-layer witnesses still reconstruct a full
+tree: any nonempty unfinished terminal would cost M, exceeding the cost of an
+optimal tree of height at most H. All charges are nonnegative.
+
+The ordinary witness maps occupy at most O((n+K) log(n+1)) words per product,
+where K bounds the input cores. This is one logarithmic factor more than the
+published succinct witness bound. Each recursive level takes O(n+K) work,
+with dimensions bounded by core size after compression; the core count halves
+along a branch. Thus the time bound of the reduction is preserved. These are
+algorithmic bounds; a Python dictionary operation is not a machine-instruction
+count, and the C++ implementation uses vector buckets for the core.
+
+`compact_obst.cpp` independently implements the same construction using
+signed 128-bit integers. It uses constant-size dense product leaves of at
+most 64 output cells. Each such leaf costs O(64 times the compressed inner
+dimension), plus bounded-many boundary sweeps; this preserves the asymptotic
+bound. It does not allocate the full OBST interval table. The benchmark
+executable separately runs Knuth, which does allocate that table.
+The driver accepts n<=8192 and rejects weights outside a conservative safe
+arithmetic domain before running either algorithm:
+
+    W <= (2^120-1)/(16 n^2 (H+2)+16).
+
+These are prototype driver restrictions, not assumptions of the mathematical
+reduction. Python uses arbitrary-precision integers.
+
+The matrix harness passed 1,600 random rectangular products, checking 251,779
+values and exact leftmost witnesses against dense enumeration, plus 1,600
+arbitrary submatrix selections. Three sparse distance-matrix products at
+sizes 128, 512, and 2048 each have seven nonzero input and output core entries.
+Their nontrivial products are checked by exact queried minima; core visits
+stay at 673 while dimension scans grow. This tests real sparse output rather
+than only products with an empty core.
+
+The complete Python constructor passed 1,134 solves, including 682 exhaustive
+binary-weight inputs (with the two zero-key cases), 838 independent cubic
+solves, and 32 controls with fixed-point stopping disabled. The latter include
+78 layers checked on every interval, totaling 3,367 exact values and leftmost
+root witnesses. Complete reconstructed trees contain 15,544 checked keys.
+
+The C++ sanitizer run passed 1,278 complete solves and 18,248 reconstructed
+keys, including 826 cubic comparisons, 12 Python compact comparisons, all
+binary weights through n=4, random weights through n=48, geometric and folded
+weights through n=64, and zero/one-active-gap controls. Its independent parent
+array audit checks inorder validity, unique key coverage, and direct mixed
+weighted cost. Three invalid-input tests confirm explicit rejection. No
+address- or undefined-behavior sanitizer error was reported.
+
+Release measurements are recorded in `results/compact_cpp_release.json`.
+Both algorithms include preprocessing and full-tree reconstruction, use the
+same signed-128 arithmetic, and alternate execution order. Instrumented
+categories count core traversal, boundary and map slots, candidate evaluation,
+and witness work; they are not interchangeable machine instructions or an
+exhaustive count of every arithmetic operation. Independent Python audits
+are outside the timed regions. Sanitizer timings are not performance evidence.
+
+The release run passed 1,362 full solves and checked 88,904 reconstructed
+keys; 1,302 also matched the independent Python Knuth oracle. Every case
+matched the separate C++ Knuth implementation. The scaling portion consists
+of 90 paired trials (six families, five sizes 128..2048, three trials each).
+The compact backend lost **all 90**. At n=2048, medians are:
+
+| Input | Maximum core | Core visits | Compact seconds | Knuth milliseconds | Paired time ratio |
+|---|---:|---:|---:|---:|---:|
+| Uniform | 20,493 | 69,545,038 | 1.455 | 34.98 | 44.3 |
+| Mixed 1--2 | 54,860 | 164,643,682 | 3.236 | 34.41 | 92.4 |
+| Mixed 100--102 | 116,104 | 306,935,485 | 5.142 | 27.79 | 185.1 |
+| Mixed 1--16 | 78,225 | 260,374,190 | 4.694 | 32.96 | 145.2 |
+| Sparse 0--1 | 17,894 | 55,747,535 | 1.417 | 21.88 | 64.8 |
+| Alternating | 30,229 | 102,416,246 | 1.959 | 34.35 | 56.2 |
+
+The time-ratio column is the median of paired ratios, not the ratio of medians.
+Knuth uses about 4.19 million root candidates and 2,098,176 interval cells
+per trial at this size. A core visit is not the same unit as a root-candidate
+evaluation. The full counter vectors, including the remaining categories,
+are retained. Ordinary witness maps retain 3.68--9.33 million integer slots
+across these median fixtures; these are not peak-RSS measurements. Maximum
+core counts alone substantially understate implementation work. No crossover
+or practical improvement has been demonstrated. The known next costs are
+repeated core traversal, allocation, and retained witness maps.
+
+Broad practical performance and priority remain unresolved. This reduction
+advances the full mixed-weight objective without asserting that the
 unrestricted question is settled.
 
 Primary source:

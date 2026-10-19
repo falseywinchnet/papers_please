@@ -26,9 +26,10 @@ residual. A dyadic argument bounds all intermediate cores, including the
 early layers before a full balanced tree is feasible. For nonnegative
 integer weights of total mass $W=O(n)$, the reduction gives exact
 $O(n^{3/2}\log^{5/2}(n+1))$ construction, including reconstruction and
-allowing zero weights. A dense reference harness verifies the reduction;
-the compact multiplication backend is not yet implemented here, and no
-practical speedup is claimed for this result.
+allowing zero weights. Dense audits and condensed Python/C++ constructors
+verify the reduction and full reconstruction. The implemented backend
+loses to matched Knuth construction at the tested sizes through 2048 keys;
+we report the traversal and witness costs behind that negative result.
 
 An implemented portfolio provides complementary exact shortcuts: key and
 block contractions, minimum- or bounded-excess path-length classes,
@@ -52,9 +53,9 @@ general computational lower bound.
 
 Exact enumeration, independent cubic recurrences, adversarial inputs,
 source-hashed data, and operation counts accompany the implementations.
-The unrestricted subquadratic question remains open. Mathematical priority,
-compact-backend performance, and broad practical superiority remain
-unestablished; existing algorithms used by the reductions are credited.
+The unrestricted subquadratic question remains open. Mathematical priority
+and broad practical superiority remain unestablished; the measured compact
+backend regressions and existing algorithms used by the reductions are explicit.
 \end{abstract}
 \newpage
 
@@ -2702,9 +2703,9 @@ interval costs in compressed form. We now give a reduction to the published
 core-sparse Monge product of Gawrychowski, Gorbachev, and
 Kociumaka~\cite{coremonge}. It yields a smaller exponent, up to logarithms,
 for linear total integer mass than the frontier bound above, and permits
-zero weights. The reference implementation in this checkpoint audits the
-reduction with dense tables; it does not implement the fast product or
-establish a practical speedup. Priority of this application is unestablished.
+zero weights. Dense reference audits and condensed Python/C++ constructors
+check the reduction. The compact backend is slower than matched Knuth
+construction at tested sizes; priority of this application is unestablished.
 
 Let $n\ge1$, let all key and gap weights be nonnegative integers, and put
 $W=\sum p_i+\sum q_i$ and $L=\lceil\log_2(n+1)\rceil$. Write $f(W)$ for
@@ -2898,11 +2899,125 @@ The audit actually computed 6,318,862 dense states and examined 12,381,033
 root candidates across its full suite. It constructed 11,912 keys.
 Source-hashed raw data is in \texttt{penalty\_layers.json}.
 
-The asymptotic result is a reduction to a published primitive; that compact
-primitive is not implemented by this dense reference harness. Implementing
-and testing the full compact path, measuring total construction work, and
-checking priority remain required research steps. The unrestricted
-mixed-weight subquadratic or impossibility question remains open.
+
+\subsection{Implemented condensed constructors}
+The compact path is now implemented in Python and independently in C++.
+The product algorithm is the published compression, balanced core split,
+staircase merge, and decompression method of~\cite{coremonge}. We credit
+that primitive separately from the OBST reduction. A matrix stores its top
+row, left column, and positive density triples. Two linear bucket passes
+canonicalize the triples. Boundary extraction uses one-dimensional sweeps;
+the product merge uses adjacent-entry recomputation along its staircase.
+Each relevant core row or column is scanned only a constant number of times
+per merge. None of these operations enumerates the full interval table.
+
+\paragraph{Exact early stopping.}
+The constructors compare consecutive completed layers by their top rows
+and canonical core triples; the left column is fixed. Equality is therefore
+equality of the whole table. A fixed point satisfies the ordinary OBST
+recurrence with zero diagonal. Induction on interval length proves that
+this recurrence has a unique solution, namely $C$. Stopping at such a fixed
+point is exact. Equality of the single full-interval cost is not used.
+Retained layer witnesses reconstruct a complete optimum: any unfinished
+nonempty terminal would contribute at least $M>HW$, exceeding the
+cost of an optimal tree of height at most $H$. All charges are nonnegative.
+Reconstruction uses an explicit stack and visits every original key.
+
+\paragraph{Implementation costs and arithmetic.}
+Both implementations retain ordinary integer coordinate maps and recursive
+witness nodes. Their witness storage is bounded by
+$O(H(n+K)\log(n+1))$ words, where
+$K=O(n+\min\{n^2,n\sqrt{WL}\})$ bounds the completed cores. This can
+exceed the succinct storage bound in Theorem~\ref{thm:penalty-reduction}
+by a logarithmic factor. Compression bounds recursive dimensions by core
+size, and the core count halves along a recursive branch, so the time bound
+is preserved. No succinct rank/select implementation is claimed.
+
+The C++ variant stops product recursion at leaves with at most 64 output
+cells. These bounded dense leaves cost at most a constant times the inner
+dimension and core size, preserving the product bound. They do not form a
+dense OBST interval table. The Python variant uses scalar leaves and
+arbitrary-precision integers. The C++ driver uses signed 128-bit integers,
+limits $n$ to 8192, and rejects inputs outside the conservative domain
+\[
+ W\le \frac{2^{120}-1}{16n^2(H+2)+16}.
+\]
+Validation precedes both timed constructors. These are prototype-driver
+limits, not restrictions of the theorem. The benchmark executable separately
+runs Knuth, which allocates a dense table.
+
+\paragraph{Independent evidence.}
+The condensed matrix harness passed 1,600 random rectangular products,
+checking 251,779 output values and exact leftmost witnesses by enumeration,
+and 1,600 arbitrary submatrix selections. Sparse distance-matrix products
+at dimensions 128, 512, and 2048 each retain seven nonzero output core
+entries from seven entries in each input. Core visits remain 673 in these
+three checks, while dimension scans grow. This exercises nontrivial sparse
+output, not just products with empty cores.
+
+The complete Python constructor passed 1,134 solves, including 682 exhaustive
+binary-weight cases through four keys (including two empty-key inputs),
+838 cubic checks, and 32 fixed-budget controls that disable early stopping.
+On 78 layers of the small controls, all 3,367 interval values and leftmost
+witnesses agree with explicit all-root enumeration. Full tree audits check
+15,544 reconstructed keys. Geometric and folded weights through 64 keys
+remain adversarial controls; the geometric input requires all 64 layers.
+
+The C++ address/undefined-behavior sanitizer run passed 1,278 complete solves,
+including 826 independent cubic checks, 12 Python compact comparisons,
+random weights through 48 keys, geometric/folded inputs through 64 keys,
+and all-zero and single-active-gap controls. It checked 18,248 reconstructed
+keys. The release run passed 1,362 solves and 88,904 reconstructed keys,
+including 1,302 independent Python Knuth comparisons. All release cases
+also compare against the separately implemented C++ Knuth constructor.
+The independent parent-array audit verifies inorder validity, unique key
+coverage, and direct mixed weighted cost. Three malformed/out-of-domain
+inputs are explicitly rejected by each binary. No sanitizer error was
+reported. Results include source hashes, compiler flags, and seeds.
+
+\paragraph{Complete work and negative performance result.}
+The release measurements use Apple Clang 21, C++20, \texttt{-O3 -DNDEBUG},
+on the sponsor's M4 host. Each size/family has three trials. Both constructors
+include preprocessing and full tree reconstruction, use the same signed
+128-bit arithmetic, and alternate execution order. Independent Python audits
+run outside those timings. At $n=2048$, the following are medians; the last
+column is the median of the three paired compact/Knuth time ratios, which
+need not equal the ratio of the two median times.
+
+\begin{center}\small
+\begin{tabular}{lrrrrr}
+\toprule
+Input & Max. core & Visits ($10^6$) & Compact (s) & Knuth (ms) & Ratio \\
+\midrule
+Uniform & 20,493 & 69.55 & 1.455 & 34.98 & 44.3 \\
+Mixed 1--2 & 54,860 & 164.64 & 3.236 & 34.41 & 92.4 \\
+Mixed 100--102 & 116,104 & 306.94 & 5.142 & 27.79 & 185.1 \\
+Mixed 1--16 & 78,225 & 260.37 & 4.694 & 32.96 & 145.2 \\
+Sparse 0--1 & 17,894 & 55.75 & 1.417 & 21.88 & 64.8 \\
+Alternating & 30,229 & 102.42 & 1.959 & 34.35 & 56.2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Knuth examines approximately 4.19 million root candidates and fills
+2,098,176 nonempty interval cells per trial at this size. A core visit and
+a root-candidate evaluation are different units; neither is a complete
+machine-instruction count. The compact counters also record core records
+constructed, dimension/map slots, adjacent-core scans, tiny-leaf candidate
+evaluations, and witness traversal. The much larger core-traversal counts
+expose substantial work hidden by simply reporting the maximum core size.
+Retained ordinary witness arrays contain between 3.68 and 9.33 million
+integer slots across these median fixtures. These counts are not peak RSS.
+
+The compact backend loses every one of the 90 scaling trials at sizes
+128 through 2048. At 2048 keys the median paired losses range from
+44.3 to 185.1 times. Small cores establish a representation advantage;
+they do not establish an implementation speedup. The current constructor
+is a verified implementation of the reduction, not a practical replacement
+for Knuth at the tested sizes. Repeated core traversal, allocation, and
+witness-map storage are concrete remaining costs. Broad superiority and
+mathematical priority remain unestablished, and the unrestricted numerical-
+weight problem remains open.
 
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
@@ -2910,12 +3025,13 @@ exact contraction, bounded-excess and split-height constructions, variable
 interval frontiers, dominant-gap separators, joint heavy-outcome cores,
 residual exclusion and coupled two-gap skeleton certificates, global certificates,
 scoped obstructions to depth and endpoint-response representations, and
-a core-sparse product reduction for integer-mass inputs.
+a core-sparse product reduction for integer-mass inputs with verified
+condensed constructors and measured implementation regressions.
 Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
 
-Standard-library Python code, seeded exact results, and matched timing
+Standard-library Python and C++ code, seeded exact results, and matched timing
 observations are under \texttt{obst/code} and \texttt{obst/results}.
 The README gives reproduction commands. The active objective remains to
 avoid most of the quadratic table on a substantially broader class, or
