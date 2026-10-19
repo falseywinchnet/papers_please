@@ -16,6 +16,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact computation of all capacity-band intervals](CAPACITY_BANDS.md)
 - [Necessary tail terms and targeted adversarial diagnostics](CORE_TAIL_EXTREMES.md)
 - [Capacity densities, sharp interaction allowance, and wider-band obstruction](CAPACITY_INTERACTION.md)
+- [Explicit two-key disproof of logarithmic interaction allowances](SPARSE_INTERACTION_BARRIER.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -63,7 +64,10 @@ The capacity density also has an exact two-maximum formula. It proves a
 sharp (h-1)P allowance for the interaction in total off-capacity mass, where
 P is key mass. An explicit alternating family attains the leading constant;
 a four-key gap example prevents the same argument from covering wider bands.
-See [the interaction theorem](CAPACITY_INTERACTION.md).
+See [the interaction theorem](CAPACITY_INTERACTION.md). A later
+[two-key family](SPARSE_INTERACTION_BARRIER.md) disproves every all-width
+additive O(hW) allowance over the unit-input tails. Its interaction grows
+like the leading c/d term, so that term must cover joint optimization as well.
 
 The sharper time bound charges each individual outcome weight to covering
 tiles and sums their geometrically spaced layer boundaries. It proves total

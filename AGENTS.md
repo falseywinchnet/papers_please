@@ -228,3 +228,21 @@ Sharp capacity-interaction families:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/capacity_interaction_sharp.py
 ```
+
+One-sided tail interaction diagnostics:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/one_sided_interaction.py
+```
+
+Sparse-weight interaction falsification:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/core_interaction_search.cpp -o /tmp/obst-core-interaction-search && python3 obst/code/sparse_interaction_search.py /tmp/obst-core-interaction-search'
+```
+
+Explicit two-key interaction barrier:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/sparse_interaction_barrier.py
+```

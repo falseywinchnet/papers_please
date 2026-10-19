@@ -1,0 +1,273 @@
+{
+  "scope": "Proved two-key obstruction to every O(hW) additive unit-tail allowance; the broader O(W(L+c/d)) target is not contradicted.",
+  "checks": {
+    "slot_pairs": 415042,
+    "slot_defects": 33239,
+    "table_checks": 32424,
+    "summation_checks": 8,
+    "all_root_candidates": 66536256,
+    "dense_states": 870624,
+    "density_checks": 123585,
+    "one_sided_family_checks": 6,
+    "independent_band_entries": 920,
+    "independent_family_checks": 3
+  },
+  "rows": [
+    {
+      "h": 5,
+      "n": 64,
+      "W": 2,
+      "positions": [
+        27,
+        32
+      ],
+      "d": 4,
+      "band_sums": [
+        24,
+        20,
+        14,
+        8
+      ],
+      "full_interaction": 2,
+      "pair_tail": 28,
+      "unit_tail": 16,
+      "interaction": 12,
+      "lower_interaction": 4,
+      "upper_interaction": 8,
+      "proposed_allowance": 10,
+      "verification": "independent all-root layers and literal slot choices"
+    },
+    {
+      "h": 6,
+      "n": 128,
+      "W": 2,
+      "positions": [
+        59,
+        64
+      ],
+      "d": 4,
+      "band_sums": [
+        56,
+        48,
+        34,
+        22
+      ],
+      "full_interaction": 3,
+      "pair_tail": 67,
+      "unit_tail": 44,
+      "interaction": 23,
+      "lower_interaction": 8,
+      "upper_interaction": 15,
+      "proposed_allowance": 12,
+      "verification": "independent all-root layers and literal slot choices"
+    },
+    {
+      "h": 7,
+      "n": 256,
+      "W": 2,
+      "positions": [
+        123,
+        128
+      ],
+      "d": 4,
+      "band_sums": [
+        120,
+        104,
+        74,
+        50
+      ],
+      "full_interaction": 4,
+      "pair_tail": 148,
+      "unit_tail": 104,
+      "interaction": 44,
+      "lower_interaction": 16,
+      "upper_interaction": 28,
+      "proposed_allowance": 14,
+      "verification": "independent all-root layers and literal slot choices"
+    },
+    {
+      "h": 8,
+      "n": 512,
+      "W": 2,
+      "positions": [
+        251,
+        256
+      ],
+      "d": 4,
+      "band_sums": [
+        248,
+        216,
+        154,
+        106
+      ],
+      "full_interaction": 5,
+      "pair_tail": 313,
+      "unit_tail": 228,
+      "interaction": 85,
+      "lower_interaction": 32,
+      "upper_interaction": 53,
+      "proposed_allowance": 16,
+      "verification": "literal slot choices and closed-form summation"
+    },
+    {
+      "h": 9,
+      "n": 1024,
+      "W": 2,
+      "positions": [
+        507,
+        512
+      ],
+      "d": 4,
+      "band_sums": [
+        504,
+        440,
+        314,
+        218
+      ],
+      "full_interaction": 6,
+      "pair_tail": 646,
+      "unit_tail": 480,
+      "interaction": 166,
+      "lower_interaction": 64,
+      "upper_interaction": 102,
+      "proposed_allowance": 18,
+      "verification": "literal slot choices and closed-form summation"
+    },
+    {
+      "h": 10,
+      "n": 2048,
+      "W": 2,
+      "positions": [
+        1019,
+        1024
+      ],
+      "d": 4,
+      "band_sums": [
+        1016,
+        888,
+        634,
+        442
+      ],
+      "full_interaction": 7,
+      "pair_tail": 1315,
+      "unit_tail": 988,
+      "interaction": 327,
+      "lower_interaction": 128,
+      "upper_interaction": 199,
+      "proposed_allowance": 20,
+      "verification": "literal slot choices and closed-form summation"
+    },
+    {
+      "h": 11,
+      "n": 4096,
+      "W": 2,
+      "positions": [
+        2043,
+        2048
+      ],
+      "d": 4,
+      "band_sums": [
+        2040,
+        1784,
+        1274,
+        890
+      ],
+      "full_interaction": 8,
+      "pair_tail": 2656,
+      "unit_tail": 2008,
+      "interaction": 648,
+      "lower_interaction": 256,
+      "upper_interaction": 392,
+      "proposed_allowance": 22,
+      "verification": "literal slot choices and closed-form summation"
+    },
+    {
+      "h": 12,
+      "n": 8192,
+      "W": 2,
+      "positions": [
+        4091,
+        4096
+      ],
+      "d": 4,
+      "band_sums": [
+        4088,
+        3576,
+        2554,
+        1786
+      ],
+      "full_interaction": 9,
+      "pair_tail": 5341,
+      "unit_tail": 4052,
+      "interaction": 1289,
+      "lower_interaction": 512,
+      "upper_interaction": 777,
+      "proposed_allowance": 24,
+      "verification": "literal slot choices and closed-form summation"
+    },
+    {
+      "h": 16,
+      "n": 131072,
+      "W": 2,
+      "positions": [
+        65531,
+        65536
+      ],
+      "d": 4,
+      "pair_tail": 85969,
+      "unit_tail": 65476,
+      "interaction": 20493,
+      "proposed_allowance": 32,
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "h": 32,
+      "n": 8589934592,
+      "W": 2,
+      "positions": [
+        4294967291,
+        4294967296
+      ],
+      "d": 4,
+      "pair_tail": 5637144481,
+      "unit_tail": 4294967172,
+      "interaction": 1342177309,
+      "proposed_allowance": 64,
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "h": 64,
+      "n": 36893488147419103232,
+      "W": 2,
+      "positions": [
+        18446744073709551611,
+        18446744073709551616
+      ],
+      "d": 4,
+      "pair_tail": 24211351596743786305,
+      "unit_tail": 18446744073709551364,
+      "interaction": 5764607523034234941,
+      "proposed_allowance": 128,
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "h": 128,
+      "n": 680564733841876926926749214863536422912,
+      "W": 2,
+      "positions": [
+        340282366920938463463374607431768211451,
+        340282366920938463463374607431768211456
+      ],
+      "d": 4,
+      "pair_tail": 446620606583731733295679172254195777153,
+      "unit_tail": 340282366920938463463374607431768210948,
+      "interaction": 106338239662793269832304564822427566205,
+      "proposed_allowance": 256,
+      "verification": "closed-form evaluation only"
+    }
+  ],
+  "source_sha256": {
+    "sparse_interaction_barrier.py": "015ea90ff406ecd4d8b5620db0217ed80555c15db950e79b8c7b84fe40c47a9b",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

@@ -127,17 +127,16 @@ has depth two, so R_h(w)=4 and the unit full costs sum to four. The proposed
 right-hand side is zero. This also disproves every all-width allowance
 expressed only in key mass: here P=0.
 
-The example leaves the separate candidate
+The separate candidate
 
     T_d(w)<=sum_x w_x T_d(e_x)+hW
 
-open. The sharp width-one proof cannot establish that candidate by merely
-including extra diagonals in the boundary sum. Uniform unit keys show that,
-if the candidate is true, its hW coefficient cannot be reduced uniformly:
-with n=2^(h+1), d=2^(h-1), every unit-key tail is zero by the consecutive-power
-classification, whereas the uniform-key tail is (h-1)n+h-c. Its ratio to hW
-tends to one. The full mixed tail upper bound and the main construction bound
-remain unchanged.
+has since been disproved by the explicit two-key family in
+[SPARSE_INTERACTION_BARRIER.md](SPARSE_INTERACTION_BARRIER.md). At width four,
+its excess is 5*2^h/16+h-3 with W=2, so even a constant multiple of hW cannot
+cover it. The width-one theorem above remains valid and sharp. The broader
+full mixed target T_d=O(W(L+c/d)) also remains open: the new family shows
+that interaction itself can have the order of the c/d term.
 
 ## Independent audits and directed falsification
 
@@ -155,7 +154,8 @@ searches with 1200 mutations each, three starting patterns per size through
 n=256, plus structured mixed, gap, key, alternating, ramp, and random inputs.
 Unit profiles are recomputed by the same optimized recurrence, and small
 vectors are independently checked against an all-root recurrence. The
-largest observed ratio is 1223/1536, attained by uniform keys. This is evidence
-for choosing the next proof target, not an upper-bound proof. The complete
+largest observed ratio is 1223/1536, attained by uniform keys. Those initial searches missed the sparse two-key family subsequently proved
+to violate the allowance. Their finite results remain reproducible historical
+controls. The complete
 weights, seeds, counters, and executed-source hashes are retained in
 results/core_interaction_search.json.

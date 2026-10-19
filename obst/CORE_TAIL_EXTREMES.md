@@ -78,16 +78,16 @@ A further diagnostic tests the stronger interaction allowance
 
     T_(h,d)(w)<=sum_x w_x T_(h,d)(e_x)+hW.
 
-For d>1 this inequality remains unproved. The d=1 case now follows from
-the sharper key-mass allowance in [CAPACITY_INTERACTION.md](CAPACITY_INTERACTION.md),
-which also explains why its boundary argument does not extend to wider bands.
+For d>1 this inequality is false: the explicit two-key family in
+[SPARSE_INTERACTION_BARRIER.md](SPARSE_INTERACTION_BARRIER.md) defeats even
+an arbitrary constant multiple of hW. The d=1 case remains valid, with the
+sharper key-mass allowance in [CAPACITY_INTERACTION.md](CAPACITY_INTERACTION.md).
 The original diagnostic checks 3103 basis/input vectors,
 including all mixed binary vectors at n=4,5 and random/structured inputs
 through n=32, with 46370 interaction comparisons. The largest observed
 positive excess divided by hW is 17/26. The all-root work is 4983120
-candidate roots and 537572 states. This is a potential proof route, not a
-consequence of the existing one-key theorem; the gap unit inputs and the
-interaction term must both be controlled. Records are in
+candidate roots and 537572 states. These initial finite checks did not expose the later counterexample; they
+do not support the rejected general interaction bound. Records are in
 `results/core_tail_interaction.json`.
 
 ## Boundary computation

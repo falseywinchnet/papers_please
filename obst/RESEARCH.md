@@ -2299,3 +2299,68 @@ previous 57 legacy labels and the verbatim dedication are preserved. The
 full mixed tail estimate is still the outstanding upper-bound target; the
 new theorem resolves its width-one interaction component and gives a concrete
 reason that the same proof cannot cover arbitrary widths.
+
+## Checkpoint 33: sparse weights falsify the all-width interaction route
+
+The preceding turn was progress: it proved a sharp width-one interaction
+allowance and isolated a small wider-band obstruction. This turn investigated
+whether above-capacity tails could still be controlled by full-interval
+interaction, then changed the search distribution to sparse weights.
+
+An independent all-root diagnostic found a ten-key counterexample to the
+one-sided control: h=3,c=7,d=2,unit keys at 3 and 6. The sole eligible upper
+cell has density two, both unit tails vanish, and full-interval interaction
+is one. The original skeleton rewards 3,3,3,1 give a direct proof. The audit
+checks 2956 vectors and 91370 inequalities, using 1770275 states and 28876151
+candidate roots.
+
+The sparse search then falsified the broader proposed allowance
+T_d(w)<=sum_x w_x T_d(e_x)+hW. It covers every unit pair on keys and gaps
+through n=64, structured unequal-weight pairs, and small random supports
+through n=512: 19614 inputs total. Growing ratios reach 6/5,23/12,22/7,85/16
+at sizes 64,128,256,512. This is actual falsification of a previously open
+candidate, not evidence for a theorem. The earlier dense-start searches
+missed these pairs. Their historical records remain intact.
+
+The winners yielded an explicit family with a closed-form proof. For h>=5,
+C=2^h,c=C-1,n=2C, put unit key weights at C-5 and C and zero elsewhere.
+At width four the combined tail is 21C/16-3h+1 and the sum of unit tails is
+C-4h+4. The excess is therefore 5C/16+h-3. Since W=2, its ratio to hW tends
+to infinity; no absolute constant multiple of hW repairs the rejected
+allowance. Scaling both weights by C gives W=n with the same ratio.
+
+The proof removes terminal penalties and forms the interval cost interaction
+E. Summing density diagonals reduces the tail interaction to
+E(0,n)+F_(c-3)-F_(c-4)+F_(c+3)-F_(c+4). Full interaction is h-3. The four
+band sums are C-8,7C/8-8,5C/8-6,7C/16-6. They follow from explicit feasible
+rank pairs, two periodic lower-side tables, and upper-side formulas involving
+neighboring ruler valuations. Both clipping corrections are included. Thus
+the growth is proved from exact rank formulas, independently of the search.
+
+Independent all-root layers for the pair and both unit inputs through h=7
+check 123585 eligible densities, 920 band entries, and all three family
+identities, using 870624 states and 66536256 root candidates. Literal rank
+choices check 32424 local formulas through h=12; 415042 feasible pairs are
+counted. Rows through h=128 are explicitly closed-form-only. Source hashes
+match all executed scripts. The sparse diagnostic includes unit-profile
+construction and records 4587178568 states, 9062247119 root candidates,
+and 19197336 band evaluations; retained winners through n=64 have independent
+all-root controls.
+
+The main O(n^(3/2) log^(3/2)(n+1)) construction theorem is unchanged. The
+broader target T_d=O(W(L+c/d)) is not falsified: the new family's tail and
+that target are both Theta(C) at d=4. What fails is assigning all interaction
+to the logarithmic term. The c/d contribution must cover joint optimization
+as well as independent unit-input tails. This closes the proposed additive
+interaction route and changes the next proof target accordingly.
+
+The paper adds the explicit sparse barrier in the grouped negative section
+and puts search and formula counts in Appendix I. Current proof notes and
+PR text identify the all-width allowance as false; earlier research-log
+entries retain their historical status. The 94-page PDF compiles cleanly.
+The 57 legacy labels and the verbatim dedication are preserved.
+
+The same exact telescoping separates the excess: C/8 lies below the band
+and 3C/16+h-3 above it. Each side individually defeats every O(hW)
+interaction allowance. The all-root family audit additionally checks all
+six one-sided equalities through h=7.
