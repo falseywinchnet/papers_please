@@ -1,0 +1,238 @@
+{
+  "scope": "Audit of alternating-template matching representation, explicit augmentations, upper bound U_d<=P min((c-1)/2,2+(c-3)/d), and two necessary scales. Does not prove the full clipped-ruler or mixed tail estimate.",
+  "seed": 35214,
+  "checks": {
+    "matching_candidates": 14081433,
+    "score_entries": 163010,
+    "matching_transitions": 18877851,
+    "matching_scores": 219352,
+    "representation_inputs": 2887,
+    "tail_bound_checks": 58142,
+    "endpoint_bounds": 147191,
+    "augmentation_paths": 41517,
+    "augmentation_packings": 18703,
+    "upper_densities": 134269,
+    "cluster_formulas": 16,
+    "cluster_endpoint_formulas": 1045,
+    "cluster_end_formulas": 32,
+    "spaced_maximum_formulas": 11,
+    "retained_rank_counterexamples": 1
+  },
+  "cluster_family": [
+    {
+      "h": 4,
+      "C": 16,
+      "K": 3,
+      "n": 32,
+      "P": 3,
+      "d": 3,
+      "tail": 4,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 4,
+      "n": 32,
+      "P": 4,
+      "d": 4,
+      "tail": 3,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 3,
+      "n": 64,
+      "P": 3,
+      "d": 3,
+      "tail": 12,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 4,
+      "n": 64,
+      "P": 4,
+      "d": 4,
+      "tail": 11,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 5,
+      "n": 64,
+      "P": 5,
+      "d": 5,
+      "tail": 9,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 8,
+      "n": 64,
+      "P": 8,
+      "d": 8,
+      "tail": 5,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 3,
+      "n": 128,
+      "P": 3,
+      "d": 3,
+      "tail": 28,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 4,
+      "n": 128,
+      "P": 4,
+      "d": 4,
+      "tail": 27,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 5,
+      "n": 128,
+      "P": 5,
+      "d": 5,
+      "tail": 25,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 8,
+      "n": 128,
+      "P": 8,
+      "d": 8,
+      "tail": 21,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 12,
+      "n": 128,
+      "P": 12,
+      "d": 12,
+      "tail": 15,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 3,
+      "n": 256,
+      "P": 3,
+      "d": 3,
+      "tail": 60,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 4,
+      "n": 256,
+      "P": 4,
+      "d": 4,
+      "tail": 59,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 5,
+      "n": 256,
+      "P": 5,
+      "d": 5,
+      "tail": 57,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 8,
+      "n": 256,
+      "P": 8,
+      "d": 8,
+      "tail": 53,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 12,
+      "n": 256,
+      "P": 12,
+      "d": 12,
+      "tail": 47,
+      "verification": "independent subsequence and matching DP"
+    },
+    {
+      "h": 8,
+      "C": 256,
+      "K": 16,
+      "n": 512,
+      "P": 16,
+      "d": 16,
+      "tail": 105,
+      "verification": "proved closed form only"
+    },
+    {
+      "h": 16,
+      "C": 65536,
+      "K": 256,
+      "n": 131072,
+      "P": 256,
+      "d": 256,
+      "tail": 32385,
+      "verification": "proved closed form only"
+    },
+    {
+      "h": 32,
+      "C": 4294967296,
+      "K": 65536,
+      "n": 8589934592,
+      "P": 65536,
+      "d": 65536,
+      "tail": 2147385345,
+      "verification": "proved closed form only"
+    },
+    {
+      "h": 64,
+      "C": 18446744073709551616,
+      "K": 4294967296,
+      "n": 36893488147419103232,
+      "P": 4294967296,
+      "d": 4294967296,
+      "tail": 9223372030412324865,
+      "verification": "proved closed form only"
+    },
+    {
+      "h": 128,
+      "C": 340282366920938463463374607431768211456,
+      "K": 18446744073709551616,
+      "n": 680564733841876926926749214863536422912,
+      "P": 18446744073709551616,
+      "d": 18446744073709551616,
+      "tail": 170141183460469231704017187605319778305,
+      "verification": "proved closed form only"
+    }
+  ],
+  "source_sha256": {
+    "alternating_tail_bound.py": "4aeb108a27c1d8e548c2078b71819fb1a231f8d290540c0064277803b9695b0c",
+    "rank_reward_tail.py": "497e654c8f0f241e5f3e4a9404cb30f72568cdfe5ea1a690b9ac17b10f13aca5",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

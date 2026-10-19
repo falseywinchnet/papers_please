@@ -18,6 +18,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Capacity densities, sharp interaction allowance, and wider-band obstruction](CAPACITY_INTERACTION.md)
 - [Explicit two-key disproof of logarithmic interaction allowances](SPARSE_INTERACTION_BARRIER.md)
 - [Coupled rank-reward stability and periodic clipping obstruction](RANK_REWARD_STABILITY.md)
+- [Alternating-tail matching bound and exact growing-width families](ALTERNATING_TAIL_BOUND.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -74,11 +75,22 @@ A rank-coordinate stability theorem now controls joint optimization above
 capacity: increasing one skeleton reward by Delta raises any upper tail by
 at most P Delta. Clipping the ruler rewards at level t therefore costs at
 most P(2^(h-t)-(h-t)-1), which is O(Pc/d) for t near log2 d. The remaining
-periodic template still needs a bound: even its alternating 0,1 version has
+periodic template needs capacity-dependent control: its alternating 0,1 version has
 an explicit two-key family with tail 2^(h-1)-4 at width two. See
 [the stability proof and periodic obstruction](RANK_REWARD_STABILITY.md).
 Expanded sparse and repeated-cluster searches retain the broader mixed
 tail estimate as an open target.
+
+The alternating clipped template now has a proved width-sensitive bound
+for arbitrary nonnegative real key weights:
+U_d <= P min((c-1)/2, 2+(c-3)/d). Its fixed-cardinality path-matching
+representation provides d explicit repairs after an endpoint deletion;
+their disjoint matched-edge costs give the 1/d factor. Both P and Pc/d
+are necessary. K unit keys at spacing three have an exact tail near c/2
+at d=K, including K near sqrt(c). See
+[the matching proof and sharp scales](ALTERNATING_TAIL_BOUND.md).
+Higher clipped levels change rewards on retained matching edges and still
+need a separate argument.
 
 The sharper time bound charges each individual outcome weight to covering
 tiles and sums their geometrically spaced layer boundaries. It proves total

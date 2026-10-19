@@ -267,3 +267,15 @@ Repeated sparse clusters across ruler scales:
 
 Exact periodic-template barrier audit:
 `/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/periodic_tail_barrier.py`
+
+Clipped-ruler width-sensitive tail falsification:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/periodic_tail_probe.cpp -o /tmp/obst-periodic-tail-probe && python3 obst/code/periodic_tail_probe.py /tmp/obst-periodic-tail-probe'
+```
+
+Alternating-template matching, augmentation, and sharp-scale audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/alternating_tail_bound.py
+```

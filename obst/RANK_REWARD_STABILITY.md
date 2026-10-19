@@ -138,6 +138,14 @@ This is an obstruction for the auxiliary clipped template, not an additional
 claim about the original ruler's tail. The clipping error and the remaining
 periodic component can both need a capacity-dependent bound.
 
+## Subsequent level-one upper bound
+
+[ALTERNATING_TAIL_BOUND.md](ALTERNATING_TAIL_BOUND.md) now proves
+U_d<=P min((c-1)/2,2+(c-3)/d) for the alternating template, with arbitrary
+nonnegative real weights. Its path-matching repair argument supplies the
+capacity-dependent control demanded by (5). Both scales are necessary,
+including a family with growing d. Higher clipped levels remain open.
+
 ## Verification and search records
 
 The proof above is independent of computation. `rank_reward_tail.py` audits

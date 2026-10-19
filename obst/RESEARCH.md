@@ -2440,3 +2440,86 @@ were inspected at higher resolution. References resolve, all 57 legacy
 labels remain, and the title-asterisk dedication and sponsor name are
 preserved. Stable TeX/PDF outputs and the complete font-bearing source
 archive are refreshed for publication.
+
+
+## Checkpoint 35: width-sensitive alternating tails by matching augmentation
+
+The preceding turn was progress: rank-coordinate stability controlled the
+high clipped rewards and a two-key family showed why the periodic remainder
+still required capacity-dependent control. This turn attacked that remainder,
+starting with the alternating level-one template and retaining arbitrary
+nonnegative real key weights.
+
+A compiled generic rank-template probe evaluates 25683 inputs, including
+exhaustive small binary vectors, structured periodic combs and sparse
+clusters, and fixed-mass mutation searches through 256 keys. It tests the
+ratio U_d/[P(t+(c+1)/d)] at every width. The largest ratio is 321/292 on
+the full height-seven ruler template with unit keys at 123 and 132. This
+falsifies coefficient one for the displayed inequality, but supplies no
+asymptotic upper bound. The alternating-template maximum is 121/210, on
+widely spaced unit keys. The engine records 84957303 interval scores,
+4737828651 candidate transitions, and 82044166 densities. All 451 small
+control vectors agree with the independent Python subsequence recurrence.
+
+The new theorem proves, for every odd c=2m+1>=3 and all d>=1,
+
+U_d <= P min(m, 2+(c-3)/d)
+
+for the alternating template v_r=1 at even ranks and zero at odd ranks.
+The subsequence problem is exactly maximum-weight matching of cardinality m
+on the path with edge indices i+1,...,j-2. After deleting a selected first
+edge and the first vertex, there are d+1 unmatched vertices. The d segments
+between consecutive unmatched vertices are explicit augmenting paths with
+disjoint matched-edge sets. One removes at most a 1/d share of the remaining
+matched weight. This proves the endpoint inequality
+
+d [S(i,j)-S(i+1,j)] <= (d-1)p_(i+1)+S(i,j),   j-i=c+d.
+
+Tail telescoping and a k-2 interval-overlap count give the stated upper
+bound. Classical augmentation is credited to Berge; the path packing and
+tail charge are proved directly. Nonnegative real weights suffice, with
+no independent-input additivity assumption.
+
+Both scales are necessary. For C=2^h, K>=3, C>=4K, n=2C, place K unit keys
+at x,x+3,...,C, where x=C-3(K-1). At width d=K the exact upper tail is
+ceil(x/2)-1=ceil((C-3K+1)/2). The proof enumerates endpoint losses by parity
+and telescopes their boundary corrections. K=2^floor(h/2) tends to infinity,
+and U_K/(Pc/K) tends to 1/2. Scaling by n/K gives integer total mass W=n.
+For the additive term, c=3 is an interior range maximum. K unit keys spaced
+s positions apart give exactly K-1 unit densities at distance s-1; allowing
+K,s to grow rules out a bound O(Pc/d) alone.
+
+The independent audit compares generic subsequence and cardinality-matching
+recurrences on 2887 inputs. It checks 147191 endpoint bounds and 58142 tail
+bounds, and explicitly builds 41517 augmenting paths in 18703 packings.
+Every repair is checked for cardinality, feasibility, removed weight, and
+score. Sixteen cluster-family instances through C=128 include 1045 endpoint
+formula checks and 32 terminal-score checks; eleven spaced-max families
+check the additive term. Larger rows through h=128 are formula-only.
+The generic recurrence records 14081433 candidates and 163010 scores; the
+matching recurrence records 18877851 transitions and 219352 scores.
+
+The first implementation of the independent matcher included the left
+filler as a reward edge. The four-key input (0,1,0,0) exposed this off-by-one
+error immediately. The corrected recurrence starts with edge i+1; all
+reported counts come from the corrected and fully completed audit. A final
+rerun additionally checks the higher-rank counterexample below. Executed
+source manifests match both result records.
+
+The exact obstacle to carrying the endpoint inequality unchanged to level
+two is already visible on ten keys. With c=7,d=3,p_3=1 and template
+(0,1,0,2,0,1,0), S(0,10)=2 and S(1,10)=1, whereas p_1=0. Thus the left
+side of the proposed endpoint inequality is three and the right side is
+two. Augmentations can change the rank-dependent reward of a retained key.
+Accounting for those changes is the next proof problem. The alternating
+upper theorem settles one component; it does not narrow the full mixed
+OBST objective or change the main construction bound.
+
+The manuscript places the upper theorem and its sharp-scale corollary in
+Section 2.13, the retained-rank obstruction in the grouped negative section,
+and all finite counts in Appendix K. It compiles without warnings to 99
+pages. Contact-sheet review covers every page; the new proof, obstruction,
+audit, and dedication pages also received detailed visual inspection.
+All 57 legacy labels, references, the title asterisk, sponsor attribution,
+and verbatim final dedication are preserved. The stable TeX/PDF files and
+complete source/font archive are refreshed for publication.

@@ -1117,9 +1117,129 @@ otherwise $2^t>d/2$ gives the stated estimate.
 \end{proof}
 The remaining template has period $2^t$. The corollary controls the
 high-rank contribution at the desired capacity-over-width scale while
-retaining joint optimization of all weights. A bound on the periodic
-part is still required; Lemma~\ref{prop:periodic-tail-barrier}
-shows that it can itself have linear-capacity tail mass.
+retaining joint optimization of all weights. The next theorem controls
+the periodic part at level one. Higher levels remain open;
+Lemma~\ref{prop:periodic-tail-barrier} shows that even level one
+requires a capacity-dependent term.
+
+\subsection{A width-sensitive bound for the alternating template}
+\label{sec:alternating-tail-bound}
+The level-one clipped ruler has a fixed-cardinality path-matching
+representation. Its tail can be bounded while retaining arbitrary
+nonnegative real key weights and all their interactions.
+
+\begin{theorem}[Alternating-template upper tail]\label{thm:alternating-tail-bound}
+Let $c=2m+1\ge3$, $n\ge c$, and $v_r=1$ for even $r$ and zero for odd
+$r$. With the scores and tails of \eqref{eq:rank-upper-tail}, for every
+integer $d\ge1$,
+\begin{equation}\label{eq:alternating-tail-bound}
+ U_d(v)\le P\min\left\{m,\,2+\frac{c-3}{d}\right\}.
+\end{equation}
+Thus $U_d(v)=O(P(1+c/d))$.
+\end{theorem}
+\begin{proof}
+The $m$ rewarded positions of a length-$c$ subsequence lie in
+$[i+1,j-2]$, with at least one filler before them, between consecutive
+positions, and after them. Conversely any $m$ indices in this range
+separated by at least two admit those fillers. Regard index $x$ as
+edge $(x,x+1)$ of the path on vertices $i+1,\ldots,j-1$, with weight
+$p_x$. Then $S_v(i,j)$ is exactly the maximum weight of a matching
+with $m$ edges.
+
+Fix $j-i=c+d$ and put $\delta=S_v(i,j)-S_v(i+1,j)$. If an optimum
+omits the first edge $i+1$, it remains feasible on the shorter path
+and $\delta=0$. Otherwise remove that edge and the first vertex.
+The remaining path has $2m+d-1$ vertices and a matching $M$ of size
+$m-1$, hence exactly $d+1$ unmatched vertices $z_0<\cdots<z_d$.
+Between consecutive unmatched vertices every interior vertex is matched.
+Each of the $d$ intervening segments is therefore an augmenting path:
+its edges alternate unused and matched, starting and ending unused.
+Flipping it gives a matching of size $m$ on the shorter path. This is
+the classical matching augmentation operation~\cite{berge}; here all
+candidate paths and their weight accounting are explicit.
+
+These paths can share unmatched endpoints, but their matched edges are
+disjoint. Their removed weights sum to at most the weight of $M$.
+One flip therefore removes at most
+$\bigl(S_v(i,j)-p_{i+1}\bigr)/d$; its added edges have nonnegative
+weight. Including the omitted-edge case gives
+\begin{equation}\label{eq:alternating-endpoint-loss}
+ d\delta\le(d-1)p_{i+1}+S_v(i,j).
+\end{equation}
+
+For $k=c+d<n$ put $b=n-k$. Equation~\eqref{eq:rank-tail-telescope}
+becomes
+\[
+ U_d(v)=\sum_{i=0}^{b-1}\bigl(S_v(i,i+k)-S_v(i+1,i+k)\bigr)
+       +S_v(b,n)-S_v(0,n).
+\]
+The last difference is nonpositive by containment. Each score in the
+sum is at most $\sum_{x=i+1}^{i+k-2}p_x$, and a fixed key appears in
+at most $k-2$ such intervals. Summing
+\eqref{eq:alternating-endpoint-loss} yields
+\[
+ dU_d(v)\le(d-1)P+(k-2)P=(2d+c-3)P.
+\]
+For $k\ge n$ the tail is empty. Finally, increasing the $m$ even-rank
+rewards from zero to one and applying
+Theorem~\ref{thm:rank-tail-stability} gives $U_d(v)\le mP$.
+\end{proof}
+
+\begin{corollary}[Both alternating-tail scales are necessary]
+\label{cor:alternating-tail-scales}
+The additive $P$ term and the $Pc/d$ term in
+\eqref{eq:alternating-tail-bound} are both necessary up to constants.
+The latter remains necessary when $d$ tends to infinity.
+\end{corollary}
+\begin{proof}
+For the capacity term, take $C=2^h$, $K\ge3$, $C\ge4K$,
+$c=C-1$, $n=2C$, and unit weights at
+$x,x+3,\ldots,x+3(K-1)=C$, where $x=C-3(K-1)$. We show
+\begin{equation}\label{eq:alternating-cluster-tail}
+ U_K(v)=\lceil x/2\rceil-1
+       =\left\lceil\frac{C-3K+1}{2}\right\rceil.
+\end{equation}
+Put $k=c+K$ and $b=n-k=C-K+1$. For $i<x$, the interval $[i,i+k)$
+rewards all $K$ positive keys. Their first local position is
+$r=x-i+1\ge2$. Omit $u=0$ positions before it if $r$ is even, or
+$u=1$ if odd, and one position between each successive pair of positive
+keys. This uses $K-1+u\le K$ omissions. The final rewarded rank is
+$C-K+2-i-u\le C-2$; when $K=3,i=0$, parity forces $u=1$ and the
+same inequality holds. Any remaining omission follows the last key.
+
+The shortened interval $[i+1,i+k)$ has only $K-1$ omissions. It rewards
+all $K$ keys exactly when $x-i$ is even: the odd spacing already needs
+one omission between every pair. When $x-i$ is odd, dropping the first
+positive key from the rewarded set permits $K-1$ rewards. Its new first
+local position $x-i+3$ is even and only $K-2$ inter-key omissions are
+needed. The final rank fits; the potential endpoint $K=3,i=0$ belongs
+to the even case. Consequently the endpoint loss is one precisely
+when $x-i$ is odd.
+
+For $i\ge x$, both intervals reward every positive key strictly after
+their left endpoints: at most $K-1$ positives remain eligible, and the
+parity corrections fit their omission budgets. The loss is therefore
+one exactly when $i+1$ is positive. On $[b,n)$ every positive key
+strictly after $b$ is rewarded, while the full score is $K$. The tail
+telescope cancels these positive-key boundary losses, leaving
+$\lceil x/2\rceil-1$, as claimed. Taking $K=2^{\lfloor h/2\rfloor}$
+gives $d=K\to\infty$, $P=K$, and $U_K/(Pc/K)\to1/2$.
+Scaling each unit by $n/K$ gives integer total mass $W=n$.
+
+For the additive term take $c=3$, so
+$S_v(i,j)=\max_{i+1\le x\le j-2}p_x$. Put $K\ge2$ unit keys at
+$1,1+s,\ldots,1+(K-1)s$, with $s\ge2$ and $n=(K-1)s+3$.
+The positive upper densities connect consecutive unit keys $x,y$:
+at $(i,j)=(x-1,y+1)$ the outer and side scores are one and the inner
+score is zero. There are $K-1$ such unit densities, all at distance
+$s-1$ from capacity. Hence $U_{s-1}=K-1$ with $P=K$. Letting $K,s$
+grow rules out a bound $O(Pc/d)$ alone.
+\end{proof}
+For higher clipped levels, a matching edge's reward depends on its rank
+among selected edges. Augmentation can change rewards on retained edges;
+Section~\ref{sec:periodic-tail-barrier} gives a small explicit failure of
+\eqref{eq:alternating-endpoint-loss} at level two. That additional rank
+accounting remains necessary for the full ruler tail.
 
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
@@ -5146,6 +5266,15 @@ an obstruction to finishing the clipping argument with a height-only
 allowance. Scaling both weights by $C$ gives total mass $W=n$ and
 preserves the unbounded ratio to $tP$.
 
+\paragraph{Retained ranks obstruct an unchanged matching bound.}
+The endpoint inequality \eqref{eq:alternating-endpoint-loss} cannot be
+reused at clipping level two. Take $c=7$, $d=3$, $n=10$, one unit key
+at position three, and template $(0,1,0,2,0,1,0)$. On $[0,10)$ that
+key can have rank four, giving score two. On $[1,10)$ its feasible
+ranks are one through three, giving score one. Thus $\delta=1$ and
+$p_1=0$, but $d\delta=3>S_v(0,10)=2$. Counting only removed edge
+weights misses the changed reward on a retained key.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -6403,11 +6532,41 @@ an upper bound. The records \texttt{sparse\_tail\_search.json} and
 \texttt{cluster\_tail\_search.json} retain exact weights, objectives,
 operation counts, and executed-source hashes.
 
+\section{Alternating-tail matching and sharp-scale audit}
+\label{app:alternating-tail-bound}
+The matching audit compares generic rank-subsequence scores with an
+independent cardinality-matching recurrence on 2887 inputs. It checks
+147,191 endpoint inequalities and constructs 41,517 augmenting paths
+in 18,703 packings, verifying every resulting matching, removed weight,
+and repair inequality. There are 58,142 global tail-bound checks.
+The inputs include all binary vectors through nine keys at every
+admissible odd capacity, and random integer weights through 128 keys.
+Sixteen cluster instances through $C=128$ check
+\eqref{eq:alternating-cluster-tail}, 1045 endpoint formulas, and 32
+terminal scores. Eleven spaced-maximum families check the additive
+scale. Larger cluster rows through $h=128$ use only the proved formula.
+The record is \texttt{alternating\_tail\_bound.json}.
+
+A separate compiled probe tests the wider clipped-ruler candidate
+$U_d/[P(t+(c+1)/d)]$. It evaluates 25,683 inputs and records 84,957,303
+interval scores, 4,737,828,651 candidate transitions, and 82,044,166
+upper densities. All 451 small control vectors agree with the generic
+subsequence recurrence. Its maximum observed ratio is $321/292$, on
+a height-seven template with two unit keys. This disproves coefficient
+one in that inequality but supplies no asymptotic upper estimate.
+The exact weights, seed, counts, and source hashes are retained in
+\texttt{periodic\_tail\_probe.json}.
+
 \clearpage
 \begingroup\small
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
 \raggedright
+\bibitem{berge}
+C. Berge. Two theorems in graph theory.
+\emph{Proceedings of the National Academy of Sciences} 43(9),
+842--844, 1957.
+\href{https://doi.org/10.1073/pnas.43.9.842}{doi:10.1073/pnas.43.9.842}.
 \bibitem{knuth}
 D. E. Knuth. Optimum binary search trees.
 \emph{Acta Informatica} 1, 14--25, 1971.
