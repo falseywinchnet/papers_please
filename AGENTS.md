@@ -472,3 +472,14 @@ Valley top-c support inclusion, boundary-mass charges, and all-layer sparse core
 The audit checks literal top-c support separately from original all-root
 mixed layers. Larger rows construct every above-capacity core and use sampled
 literal subsequence controls. Copy its JSON record before another mirror.
+
+Jointly periodic mixed OBST, phase-root telescoping, and full reconstruction:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/periodic_obst_audit.py
+```
+
+This audit includes every synthetic phase interval used in the cyclic root
+amortization. Large rows reconstruct complete trees and record exact candidate
+counts; independent all-root and ordinary Knuth controls have separate scopes.
+Copy the result JSON back before the next mirror operation.

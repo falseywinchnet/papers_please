@@ -31,6 +31,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Unimodal above-capacity cores and certified spans in arbitrary inputs](UNIMODAL_ENVELOPE.md)
 - [Valley interval queries and quadratic original-coordinate cores](VALLEY_QUERIES.md)
 - [Individual-weight charges and all above-capacity valley cores](VALLEY_CORE_MASS.md)
+- [Exact full mixed construction by periodic phase](PERIODIC_OBST.md)
 - [Arbitrary-key rank transfers and exact dense-core barriers](RANK_TRANSFER_BARRIER.md)
 - [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
@@ -61,6 +62,16 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+A joint key/gap period b now gives an [exact full-tree construction in
+O(nb) work](PERIODIC_OBST.md), with arbitrary nonnegative real weights.
+Intervals are represented by starting phase and length. Knuth root ranges
+cancel around the complete phase cycle: exactly 2b candidates per length
+after the first, hence b(2n-1) overall. Linear period recognition includes
+the terminal gap; iterative reconstruction emits every key and gap. The
+method is linear for fixed period and remains quadratic on arbitrary inputs
+whose shortest common period is linear in n. The independent audit includes
+all synthetic phases and complete constructions through 262144 keys.
 
 Valley cores now have a [direct integer-weight charge and a sparse
 constructor](VALLEY_CORE_MASS.md). With integer key mass P, each layer has

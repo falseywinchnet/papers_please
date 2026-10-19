@@ -32,7 +32,8 @@ $O(n(1+\sqrt R)\log^3(n+1))$ arithmetic work when their total nonnegative
 deviation $R$ is polynomial in $n$.
 
 A common lower-bound certificate also gives faster exact construction on
-specified families. We give the certificate once and derive the family
+specified families. Independently, a common key/gap period $b$ permits
+$O(nb)$ full construction by cyclic root amortization. We give the certificate once and derive the family
 guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
 additive separable transfers. A contiguous odd ramp with total mass exactly $n$ has
@@ -2085,6 +2086,85 @@ $n^2/32$ entries. On its displayed square the row-endpoint mass is
 $3s^2+s$, the column-endpoint mass is $3s^2$, and the core has $s^2/2$
 entries. Thus the local bound \eqref{eq:valley-boundary-mass} is attained
 within a factor of six by the proved family.
+
+\subsection{An exact periodic quotient for the full mixed problem}
+\label{sec:periodic-obst}
+
+Periodicity offers a different way to avoid most interval states. Both types
+of weights are retained, and the construction uses the unrestricted optimum.
+
+\begin{theorem}[Cyclic phase construction]\label{thm:periodic-obst}
+Let $n\ge1$. If the key and gap weights are restrictions of nonnegative
+real sequences with common period $b$, a complete optimal BST can be
+constructed in $O(nb)$ arithmetic work and space. The dynamic program
+examines exactly $b(2n-1)$ root candidates. The input length need not be a
+multiple of $b$. Given arbitrary explicit weights, their shortest common
+finite period can be detected in $O(n)$ work; it is at most $n+1$.
+\end{theorem}
+\begin{proof}
+Extend both period words indefinitely. Translation by $b$ preserves the
+cost of every ordered tree. Let $C_a(\ell)$ denote the optimum for length
+$\ell$ and starting phase $a\in\{0,\ldots,b-1\}$, and let $\rho_a(\ell)$
+be its leftmost optimal root relative to the interval start. Then
+$C_a(0)=0$ and
+\begin{equation}\label{eq:periodic-recurrence}
+ C_a(\ell)=W_a(\ell)+\min_{0\le r<\ell}
+ \left\{C_a(r)+C_{(a+r+1)\bmod b}(\ell-r-1)\right\}.
+\end{equation}
+Process lengths in increasing order. Knuth's monotone-root theorem
+\cite{knuth}, with consistent leftmost ties, restricts the search at
+$\ell\ge2$ to
+\begin{equation}\label{eq:periodic-root-range}
+ \rho_a(\ell-1)\le r\le 1+\rho_{(a+1)\bmod b}(\ell-1).
+\end{equation}
+The endpoints lie in $[0,\ell-1]$. For $a=b-1$, the right neighbor begins
+at absolute position $b$; translation identifies it with phase zero.
+The total number of candidates at any fixed length $\ell\ge2$ is therefore
+\begin{equation}\label{eq:periodic-telescope}
+ \sum_{a=0}^{b-1}
+ \left(2+\rho_{(a+1)\bmod b}(\ell-1)-\rho_a(\ell-1)\right)=2b.
+\end{equation}
+Length one uses $b$ candidates, giving exactly $b(2n-1)$ overall.
+Individual phase ranges can be large; the bound uses the whole cycle.
+In particular, the algorithm computes all phases at every length, including
+synthetic intervals extending beyond the original input. Omitting those
+states would invalidate this cyclic cancellation.
+
+A prefix sum $U$ of $p_t+q_t$ over $n+b$ consecutive positions gives
+\[
+ W_a(\ell)=U(a+\ell)-U(a)+q_{(a+\ell)\bmod b}
+\]
+in constant work. Every lookup in \eqref{eq:periodic-recurrence} uses a
+shorter length. Thus candidate evaluation, mass queries, and minimizer
+maintenance take $O(nb)$ work. Cost and relative-root tables each store
+$(n+1)b$ entries. For reconstruction, interval $[i,j)$ uses absolute root
+$i+\rho_{i\bmod b}(j-i)$. An explicit stack emits its two child intervals,
+visiting every key and gap once. This includes the degenerate all-zero case,
+whose leftmost optimum can have height $n$.
+
+For period detection, form the signature word
+\begin{equation}\label{eq:periodic-signature}
+ (p_i,q_i,q_{i+1}),\qquad 0\le i<n.
+\end{equation}
+The prefix-function algorithm finds its shortest finite period
+$d=n-\pi_{n-1}$ in linear work. If $d<n$, signature equality gives every
+required key and gap equality, including the final gap, so $b=d$.
+If $d=n$, use $b=n$ when $q_n=q_0$, and $b=n+1$ otherwise. Every common
+period below $n$ is a period of \eqref{eq:periodic-signature}, proving
+minimality. For $b=n+1$, set the unobserved padding key $p_n=0$ and use
+period words $(p_0,\ldots,p_{n-1},0)$ and $(q_0,\ldots,q_n)$.
+Their restriction to the input is exact. The empty input is handled
+separately with cost zero.
+\end{proof}
+
+For constant $b$ this is linear construction with arbitrary nonnegative
+real magnitudes inside the two periods. More generally $b=O(n^\alpha)$,
+$\alpha<1$, gives $O(n^{1+\alpha})$ work. A defect in the final gap can
+invalidate an otherwise repeating pattern; both adjacent gaps in
+\eqref{eq:periodic-signature} are needed. The method is a direct cyclic
+application of Knuth's theorem, independent of the integer-mass analysis
+and the later lower-bound certificate. Its general nonperiodic worst case
+remains quadratic. Verification is in Appendix~\ref{app:periodic-obst}.
 
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
@@ -8866,6 +8946,39 @@ against \eqref{eq:valley-density}, through side 64. The record
 \texttt{valley\_core\_audit.json} retains all operation counts, scopes,
 the nonvalley witness, and executed-source hashes. The support and work
 bounds follow from the charge and event-enumeration proofs.
+
+\clearpage
+\section{Periodic phase construction and full-tree audit}
+\label{app:periodic-obst}
+
+The independent audit checks 1042 small inputs: all mixed binary vectors
+through four keys, every binary key/gap period through length three at
+several complete and incomplete repetition lengths, and seeded geometric,
+zero, rational, and final-gap-defect inputs through 48 keys. Literal period
+enumeration checks every detected joint period. Independent all-root tables
+check 62,376 original interval values and 54,672 leftmost roots. Extended
+all-root tables additionally check all 38,756 synthetic phase states used
+in the cyclic cancellation, including intervals crossing the input endpoint.
+These references use 1,993,994 root candidates and 154,391 states. Separate
+ordered-tree enumeration evaluates 7882 shapes on the small exhaustive cases.
+
+Twenty larger matched instances through 512 keys use an independent ordinary
+Knuth recurrence, which examines 1,744,227 candidates. Every reconstructed
+tree is traversed independently, checking inorder placement, all child links,
+all key and gap depths, and weighted cost. Sixteen further complete
+constructions reach 262,144 keys, with periods one, three, and five and both
+zero and positive gap patterns. At that size the period-five mixed input uses
+exactly 2,621,435 root candidates, and the period-three input uses 1,572,861,
+as predicted by \eqref{eq:periodic-telescope}. The all-zero case reconstructs
+the full leftmost-optimal chain iteratively. These large rows verify complete
+construction, exact operation counts, and independently evaluated tree costs;
+they do not claim an independent quadratic optimality reference at that size.
+
+The result record retains optimal costs, reconstruction counts,
+verification scopes, and executed-source hashes. No timing or fitted exponent
+is used. The complexity and optimality claims follow from the exact quotient
+\eqref{eq:periodic-recurrence} and cyclic amortization
+\eqref{eq:periodic-telescope}, both of which include the synthetic phases.
 
 \clearpage
 \begingroup\small

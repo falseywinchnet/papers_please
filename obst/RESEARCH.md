@@ -3614,3 +3614,83 @@ is byte-identical to the previous checkpoint. All 13 source-hash entries
 across the new valley-core and prior valley/unimodal audits match. The stable
 TeX and PDF outputs are byte-identical to the manuscript, and the five-file
 source archive was refreshed and checked member by member.
+
+## Checkpoint 48: a cyclic quotient for full mixed construction
+
+The previous checkpoint was progress: the valley support theorem, sparse
+constructor, exact audit, and manuscript were published at bd4f3cc. This
+turn first revalidated the clean checkout and the unresolved arbitrary-input
+local support hypothesis. No subagents were used.
+
+The directed next experiment padded short unequal valleys with long zero
+regions. Across the tested sizes through 2048 their above-capacity cores
+stayed much smaller than an n^(3/2) scale; this is finite direction only.
+Unrestricted fixed-mass mutations found a 128-key, mass-128 input with 270
+above-capacity entries at h=5. The independent all-root recurrence confirms
+all 270, using 1788800 candidates and 41280 states. This refutes coefficient
+one in K_above<=n+P and does not refute an arbitrary constant in O(n+P).
+The exact input is retained in periodic_obst_audit.json.
+
+Periodic probes suggested a better representation than explicit core output.
+For the repeated binary word 001, the observed positive diagonals obey a
+simple two-height recursion through h=10: retain the h-2 diagonals and add
+excess lengths 2^(h-1)-2 and 2^(h-1). Their displayed nonzero phase densities
+are two and one. This remains an unproved pattern. The above-capacity
+Omega(n log n) conjecture and general local support bound remain open;
+no fitted growth statement is promoted to a theorem.
+
+The proved result from this investigation is a full, unrestricted-height
+mixed OBST construction in O(nb) arithmetic work and space, where b is the
+common period of key and gap weights. It applies to arbitrary nonnegative
+reals, permits zeros, and reconstructs every node. Translation identifies
+intervals by starting phase a and length l. Knuth's leftmost roots restrict
+phase a to [rho_a(l-1),1+rho_(a+1)(l-1)]. Summing these inclusive lengths
+around all b phases telescopes to exactly 2b. Including length one gives
+exactly b(2n-1) root candidates. Synthetic intervals beyond the input end
+are essential to this cancellation and are computed explicitly.
+
+The detector computes the shortest finite period of signatures
+(p_i,q_i,q_(i+1)). A proper signature period enforces final-gap consistency.
+If only period n remains, q_n=q_0 decides between common period n and n+1;
+the latter uses one unobserved padding key. The ordinary prefix-function
+algorithm gives linear detection. An iterative reconstruction handles even
+an all-zero leftmost-optimal chain without a recursion limit. The method
+is a direct cyclic use of Knuth, not a claim to a new monotone-root theorem.
+Targeted literature searches combining optimal/optimum binary search trees
+with periodic weights did not locate a directly applicable primary statement;
+no claim of priority or exhaustive absence is made.
+
+Harness first: independent all-root tables and ordered-shape enumeration
+were in the audit before the first remote run. The final audit checks 1042
+small inputs, including all binary mixed inputs through four keys and every
+binary key/gap period through three, plus rational, geometric, gap-only,
+key-only, final-gap-defect, and nonmultiple lengths. It checks 62376 original
+interval values, 54672 leftmost roots, and 38756 synthetic phase states.
+References use 1993994 all-root candidates and 154391 states. Separate
+shape enumeration checks 7882 shapes. Twenty ordinary Knuth controls
+through 512 keys examine 1744227 candidates. Sixteen larger constructions
+through 262144 keys traverse every key and gap independently. At that size
+period five has exactly 2621435 candidates; period three has 1572861.
+Large rows have no independent quadratic optimality reference. All four
+executed-source hashes match; no timings are used.
+
+The proof is PERIODIC_OBST.md, the implementation periodic_obst.py, and the
+audit periodic_obst_audit.py. The manuscript adds the theorem after the
+valley charge and puts verification counts in Appendix X. The original
+Monge result still leads, and the general nonperiodic objective remains
+active. The next avenues are proving the periodic density pattern and
+finding a useful exact compression beyond a single global period, while
+continuing the arbitrary-input local support problem.
+
+Publication validation: the final manuscript compiles cleanly to 136 pages.
+All 374 previous labels are preserved, all 381 current labels are unique,
+and all references resolve. All pages were rendered and visually reviewed;
+full-page checks covered the new theorem/proof on pages 31--32, Appendix X
+on page 134, and dedication on page 136. The dedication source is byte-identical
+to the previous checkpoint. Seventeen source-hash entries across the new
+periodic and prior valley-core, valley-query, and unimodal audits match.
+Stable TeX/PDF outputs are byte-identical to the manuscript. The five-member
+TeX/font archive was rebuilt and verified member by member. Exploratory
+probe sources and raw records are preserved outside the repository in the
+local revision48-probes work directory; the independently verified 128-key
+counterexample is included in the committed audit record.
