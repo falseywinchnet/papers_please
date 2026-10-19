@@ -1,0 +1,398 @@
+{
+  "scope": "Information sufficiency of signed endpoint response with known key weights, total mass, and left endpoint gap; not a general subquadratic constructor.",
+  "seed": 511020,
+  "counts": {
+    "boundary_union_controls": 19184,
+    "unique_chain_controls": 2792,
+    "small_inputs": 800,
+    "signed_reference_candidates": 1926832,
+    "independent_signed_queries": 3968,
+    "signed_shape_evaluations": 107608,
+    "signed_chain_updates": 3192,
+    "signed_line_comparisons": 10576,
+    "signed_recovery_queries": 3968,
+    "signed_largest_denominator": 25450,
+    "signed_recovered_gaps": 4776,
+    "signed_collinear_fills": 149,
+    "signed_strict_splits": 2251,
+    "whole_quadrant_domination_controls": 18,
+    "context_shape_evaluations": 2860
+  },
+  "collision": {
+    "keys": [
+      2,
+      1,
+      2,
+      4
+    ],
+    "interior_gaps_A": [
+      4,
+      2,
+      1
+    ],
+    "interior_gaps_B": [
+      4,
+      1,
+      2
+    ],
+    "actual_endpoint_gaps": [
+      1,
+      1
+    ],
+    "actual_mass": 18,
+    "profile_tables": [
+      [
+        [
+          1,
+          2,
+          45
+        ],
+        [
+          1,
+          3,
+          42
+        ],
+        [
+          1,
+          4,
+          44
+        ],
+        [
+          2,
+          1,
+          43
+        ],
+        [
+          2,
+          2,
+          36
+        ],
+        [
+          2,
+          3,
+          36
+        ],
+        [
+          3,
+          1,
+          39
+        ],
+        [
+          3,
+          2,
+          36
+        ],
+        [
+          4,
+          1,
+          43
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          45
+        ],
+        [
+          1,
+          3,
+          42
+        ],
+        [
+          1,
+          4,
+          45
+        ],
+        [
+          2,
+          1,
+          43
+        ],
+        [
+          2,
+          2,
+          36
+        ],
+        [
+          2,
+          3,
+          37
+        ],
+        [
+          3,
+          1,
+          39
+        ],
+        [
+          3,
+          2,
+          36
+        ],
+        [
+          4,
+          1,
+          42
+        ]
+      ]
+    ],
+    "retained_planes": [
+      [
+        1,
+        2,
+        45
+      ],
+      [
+        1,
+        3,
+        42
+      ],
+      [
+        2,
+        1,
+        43
+      ],
+      [
+        2,
+        2,
+        36
+      ],
+      [
+        3,
+        1,
+        39
+      ]
+    ],
+    "context_keys": [
+      1,
+      6,
+      2,
+      1,
+      2,
+      4,
+      4,
+      3
+    ],
+    "context_gaps_A": [
+      1,
+      1,
+      1,
+      4,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "context_gaps_B": [
+      1,
+      1,
+      1,
+      4,
+      1,
+      2,
+      1,
+      1,
+      1
+    ],
+    "context_costs": [
+      101,
+      100
+    ],
+    "context_root_costs": [
+      [
+        128,
+        106,
+        103,
+        101,
+        101,
+        101,
+        109,
+        120
+      ],
+      [
+        128,
+        106,
+        103,
+        101,
+        100,
+        101,
+        109,
+        120
+      ]
+    ],
+    "signed_absolute_endpoint_probe": [
+      0,
+      -1
+    ],
+    "signed_values": [
+      33,
+      34
+    ]
+  },
+  "rows": [
+    {
+      "n": 1024,
+      "kind": "random",
+      "counts": {
+        "signed_chain_updates": 1023,
+        "signed_line_comparisons": 10240,
+        "signed_recovery_queries": 1024,
+        "signed_largest_denominator": 524800,
+        "signed_strict_splits": 1022,
+        "signed_recovered_gaps": 1025
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 1024,
+      "kind": "uniform",
+      "counts": {
+        "signed_chain_updates": 1023,
+        "signed_line_comparisons": 10240,
+        "signed_recovery_queries": 1024,
+        "signed_largest_denominator": 1025,
+        "signed_strict_splits": 1022,
+        "signed_recovered_gaps": 1025
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 1024,
+      "kind": "zeros",
+      "counts": {
+        "signed_chain_updates": 1023,
+        "signed_line_comparisons": 30,
+        "signed_recovery_queries": 3,
+        "signed_largest_denominator": 1025,
+        "signed_collinear_fills": 1022,
+        "signed_recovered_gaps": 1025
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 4096,
+      "kind": "random",
+      "counts": {
+        "signed_chain_updates": 4095,
+        "signed_line_comparisons": 49152,
+        "signed_recovery_queries": 4096,
+        "signed_largest_denominator": 16777215,
+        "signed_strict_splits": 4094,
+        "signed_recovered_gaps": 4097
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 4096,
+      "kind": "uniform",
+      "counts": {
+        "signed_chain_updates": 4095,
+        "signed_line_comparisons": 49152,
+        "signed_recovery_queries": 4096,
+        "signed_largest_denominator": 4097,
+        "signed_strict_splits": 4094,
+        "signed_recovered_gaps": 4097
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 4096,
+      "kind": "zeros",
+      "counts": {
+        "signed_chain_updates": 4095,
+        "signed_line_comparisons": 36,
+        "signed_recovery_queries": 3,
+        "signed_largest_denominator": 4097,
+        "signed_collinear_fills": 4094,
+        "signed_recovered_gaps": 4097
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 16384,
+      "kind": "random",
+      "counts": {
+        "signed_chain_updates": 16383,
+        "signed_line_comparisons": 229376,
+        "signed_recovery_queries": 16384,
+        "signed_largest_denominator": 134258690,
+        "signed_strict_splits": 16382,
+        "signed_recovered_gaps": 16385
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 16384,
+      "kind": "uniform",
+      "counts": {
+        "signed_chain_updates": 16383,
+        "signed_line_comparisons": 229376,
+        "signed_recovery_queries": 16384,
+        "signed_largest_denominator": 16385,
+        "signed_strict_splits": 16382,
+        "signed_recovered_gaps": 16385
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 16384,
+      "kind": "zeros",
+      "counts": {
+        "signed_chain_updates": 16383,
+        "signed_line_comparisons": 42,
+        "signed_recovery_queries": 3,
+        "signed_largest_denominator": 16385,
+        "signed_collinear_fills": 16382,
+        "signed_recovered_gaps": 16385
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 65536,
+      "kind": "random",
+      "counts": {
+        "signed_chain_updates": 65535,
+        "signed_line_comparisons": 1048576,
+        "signed_recovery_queries": 65536,
+        "signed_largest_denominator": 2147975175,
+        "signed_strict_splits": 65534,
+        "signed_recovered_gaps": 65537
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 65536,
+      "kind": "uniform",
+      "counts": {
+        "signed_chain_updates": 65535,
+        "signed_line_comparisons": 1048576,
+        "signed_recovery_queries": 65536,
+        "signed_largest_denominator": 65537,
+        "signed_strict_splits": 65534,
+        "signed_recovered_gaps": 65537
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    },
+    {
+      "n": 65536,
+      "kind": "zeros",
+      "counts": {
+        "signed_chain_updates": 65535,
+        "signed_line_comparisons": 48,
+        "signed_recovery_queries": 3,
+        "signed_largest_denominator": 65537,
+        "signed_collinear_fills": 65534,
+        "signed_recovered_gaps": 65537
+      },
+      "verification": "exact linear chain representation and complete recovery; no large independent signed-DP oracle"
+    }
+  ],
+  "source_sha256": {
+    "signed_boundary.py": "177b7d4c3cba27ed093376c7e0e5f09e767ab3e209e05fa872d7843634ecb14d",
+    "signed_boundary_audit.py": "cbff23484fe869670011918d5f1ba7fff2917902f222ad915f7fbcb230cc48e3",
+    "boundary_response.py": "1a5817328e881530c8f3d9b6d3ae8b25a2f2d81c2cedd9bc429e03631f3143ce",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "pair_skeleton.py": "58a05021111273c3295366b07987330fc10d93ac97e62a5688779abfee9c587a"
+  }
+}

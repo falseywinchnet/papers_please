@@ -3833,3 +3833,64 @@ manuscript byte for byte, and the five-member TeX/font archive was rebuilt
 and verified member by member. The appendix insertion initially used a
 repository-relative path from the manuscript directory and made no edit;
 it was reapplied from the repository root before the final clean build.
+
+
+## Checkpoint 51: legal endpoint information loss and exact signed recovery
+
+The boundary representation question now has a proved distinction. A
+strengthened four-key collision has identical responses under every legal
+nonnegative reassignment of its two endpoint gaps, not merely under added
+nonnegative penalties. Transferring the old unit outer gaps to their adjacent
+keys preserves every shape intercept. The resulting positive inputs have
+keys (2,1,2,4), unit endpoint gaps, interior gaps (4,2,1) or (4,1,2), and
+mass 18. Their complete legal envelopes coincide. A common eight-key context
+has optimal costs 101 and 100. Complete intercept domination and independent
+shape enumeration certify both statements.
+
+The complete endpoint-depth profile behaves differently. Its n extreme
+states, where the endpoint depths sum to n+1, are unique two-sided chains.
+Their costs C_r form a convex sequence with second differences
+2p_r+q_r+q_(r+1). The first difference and total mass recover q_1; successive
+second differences recover the interior gaps; mass recovers the last gap.
+Given p, W, and q_0, these n coefficients determine the entire gap vector in
+linear arithmetic work, for arbitrary nonnegative real weights. A collision
+preserving this full profile and these metadata is therefore impossible.
+Initial small profile-rank probes suggested this direction but are not used
+as proof or published as evidence of unknown-key injectivity.
+
+A bounded signed endpoint line exposes exactly these chains: a sufficiently
+large common negative endpoint price rewards maximal boundary-depth sum.
+The proof bounds the entire non-chain class explicitly. For integer input,
+a rational perturbation encodes the active chain index in a scalar value's
+residue modulo n+1. Recursive chord queries recover every coefficient with
+at most n value-only calls, O(n) further arithmetic work and space, and
+rational denominators at most n^2-1. The collinear stopping rule compares
+scores: its decoded minimizer can lie outside the current interval. This
+avoids an incorrect membership-based test. No witnesses or infinitesimal
+limits are required. The oracle is specified, not supplied by a faster
+general signed-OBST algorithm. The chain-only oracle is implemented separately.
+
+The final remote exact audit passes 800 small integer inputs, 3968 independent
+signed all-root queries, 107608 literal signed shape evaluations, 19184
+boundary-union controls, and 2792 unique-chain checks. All-root references
+use 1926832 candidates, including the signed collision probes. Whole-quadrant
+equality uses 18 domination checks; the two contextual inputs use 2860 shape
+evaluations. Twelve larger rows through 65536 keys recover every gap using
+the proved chain-line oracle, with no claim of a large independent signed
+reference. Random and uniform cases use n queries; zero cases use three.
+All five executed-source hashes match. No timings are reported.
+
+SIGNED_BOUNDARY_RECOVERY.md and the manuscript contain the full proofs.
+Verification is added to the existing endpoint-response appendix, keeping
+the theorem's information claim separate from oracle construction costs.
+The arbitrary-weight OBST objective and the local core-support bound remain
+open; this checkpoint closes a precise interface-information question.
+
+Publication validation: the manuscript compiles without warnings to 144
+pages. All 399 prior labels remain; all 408 current labels are unique and
+all references and citations resolve. All pages were rendered and visually
+reviewed, with detailed inspection of the new proofs on pages 80--82,
+verification on page 117, and dedication on page 144. The dedication source
+is byte-identical to checkpoint 50. Thirty-two executed-source hash entries
+across seven audits match. Stable TeX/PDF deliverables match the manuscript;
+the five-member source/font archive was rebuilt and checked byte for byte.

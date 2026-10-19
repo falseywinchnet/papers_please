@@ -59,11 +59,22 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Root/nonroot coupling beyond the entire transfer class](ROOT_PARTITION.md)
 - [Joint-profile coupling and strict compatible-merge obstruction](JOINT_MERGE_OBSTRUCTION.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
+- [Legal-domain collision and exact signed-response recovery](SIGNED_BOUNDARY_RECOVERY.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The boundary-interface analysis now separates [legal endpoint assignments
+from signed responses](SIGNED_BOUNDARY_RECOVERY.md). Two strictly positive
+four-key inputs have identical responses for every nonnegative reassignment
+of their endpoint gaps, but the same surrounding context has optima 101 and
+100. Conversely, the complete endpoint-depth profile determines every gap
+when the keys, total mass, and left gap are known. For integer weights,
+a bounded signed-response line permits recovery in at most n exact
+value-only queries, without minimizer witnesses. This establishes which
+information survives; a fast general composition algorithm remains open.
 
 The phase quotient now supports [positive affine translation](AFFINE_PERIOD_OBST.md):
 p_(i+b)=lambda p_i+alpha and q_(j+b)=lambda q_j-alpha, with lambda>0.

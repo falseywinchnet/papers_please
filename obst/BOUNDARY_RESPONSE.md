@@ -259,3 +259,14 @@ along the boundary paths, or about internal alternatives that the isolated
 endpoint response discards. These obstructions prevent two tempting shortcuts
 from being mistaken for a general solution. They neither resolve nor replace
 the full mixed-weight subquadratic objective.
+
+## Full legal domain and signed-response recovery
+
+SIGNED_BOUNDARY_RECOVERY.md strengthens the collision to every nonnegative
+endpoint reassignment, using strictly positive original inputs with common
+keys (2,1,2,4) and mass 18. It also resolves the information question for a
+richer interface: all endpoint-depth states, or the signed response on an
+explicit bounded line, recover the original gaps given the keys, mass, and
+left endpoint gap. Integer inputs need at most n value-only signed queries.
+Thus the old negative result cannot be extended to those richer data. The
+cost of computing or composing a general sufficient response remains open.

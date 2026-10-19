@@ -506,3 +506,14 @@ It separately checks all original intervals, the incomplete phase boundary,
 negative hypothetical extensions, and complete output trees. Copy the JSON
 record back before another mirror operation; geometric rows count arithmetic
 operations and retain their growing exact-integer bit lengths.
+
+Signed endpoint-response recovery and the full legal-domain collision:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/signed_boundary_audit.py
+```
+
+Small signed queries use an independent all-root recurrence that permits
+negative endpoint weights; ordinary Knuth is not valid for those queries.
+Large rows use the proved convex-chain restriction and are labeled separately.
+Copy the result JSON before the next mirror operation.

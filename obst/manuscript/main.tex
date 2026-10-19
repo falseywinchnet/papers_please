@@ -5524,8 +5524,9 @@ with the identical surrounding context therefore have unequal answers.
 In particular, exact prepend/append updates closed on the stated summary
 cannot exist: identical starting summaries and identical updates would
 remain indistinguishable. The theorem does not exclude extra shape
-information, non-exposed depth states, signed-price responses, or richer
-interfaces. It does not assert a distinction between mixed and alphabetic
+information or richer interfaces. Section~\ref{sec:signed-boundary}
+proves that non-exposed depth states and signed-price responses do retain
+the original gap vector with the stated metadata. It does not assert a distinction between mixed and alphabetic
 algorithms; it rejects this summary even on small positive mixed inputs.
 
 The lost information includes internal alternatives with identical boundary
@@ -5534,6 +5535,146 @@ rooted at key 2, with left child 0 (whose right child is 1) and right
 child 3, also has depths $(2,2)$, but costs 37 in $A$ and 36 in $B$.
 The least intercept erases this distinction; the surrounding tree can
 make the additional alternative valuable.
+
+\subsubsection{The legal domain loses information; signed prices recover it}
+\label{sec:signed-boundary}
+
+The information boundary can be located more precisely. Allowing all
+nonnegative endpoint assignments still loses information, while a bounded
+line of signed assignments determines the original interval.
+
+\begin{theorem}[Insufficiency on the full legal endpoint domain]
+\label{thm:legal-response-collision}
+Even the response to every nonnegative reassignment of the two endpoint
+gaps, together with the key vector, total mass, original endpoint gaps,
+and gap multiset, does not determine arbitrary contextual optima.
+\end{theorem}
+\begin{proof}
+Use $p=(2,1,2,4)$ and interior gaps $(4,2,1)$ or $(4,1,2)$.
+With endpoints set to $u,v\ge0$, both responses equal
+\[
+ \min\{45+u+2v,42+u+3v,43+2u+v,36+2u+2v,39+3u+v\}.
+\]
+Indeed, move each unit outer gap in Theorem~\ref{thm:response-insufficient}
+to its adjacent endpoint key. Their depths agree in every isolated tree,
+so the same complete intercept table and domination certificate apply.
+Choose actual endpoints one: both inputs are strictly positive, have mass
+18, and have all the listed metadata equal. Prepending keys $(1,6)$,
+appending $(4,3)$, and giving the four new gaps weight one yields keys
+$(1,6,2,1,2,4,4,3)$ and full gap vectors
+$(1,1,1,4,2,1,1,1,1)$ and $(1,1,1,4,1,2,1,1,1)$.
+The root-conditioned costs are respectively
+\[
+ (128,106,103,101,101,101,109,120),\qquad
+ (128,106,103,101,100,101,109,120).
+\]
+Their optima are 101 and 100. Thus equality holds on the entire legal
+domain, including zero endpoints, yet the same context distinguishes them.
+\end{proof}
+
+\begin{lemma}[Extreme boundary states determine all gaps]
+\label{lem:chain-recovery}
+For nonnegative real weights, the complete endpoint-depth profile determines
+the original gaps when the key vector $p$, total mass $W$, and left gap
+$q_0$ are retained. Only its $n$ states with endpoint-depth sum $n+1$
+are needed, and recovery takes $O(n)$ arithmetic operations.
+\end{lemma}
+\begin{proof}
+If the endpoint depths are $a,b$, their two paths contain $a+b-1$ distinct
+keys. Equality $a+b=n+1$ forces every key onto these paths. For each root
+$r$, there is exactly one such tree: a decreasing left chain and increasing
+right chain, with endpoint depths $(r+1,n-r)$. Let its cost be $C_r$.
+Every outcome depth changes by at most one between adjacent chain trees,
+so $|C_r-C_{r-1}|\le W$. Direct differencing gives
+\begin{align}
+ C_{r-1}-2C_r+C_{r+1}&=2p_r+q_r+q_{r+1}\ge0,
+       &&1\le r\le n-2,\label{eq:chain-curvature}\\
+ C_1-C_0&=2(p_0+q_0)+q_1-W.\label{eq:chain-first-difference}
+\end{align}
+For example, key comparison length is $|i-r|+1$; interior gap $j$ has
+depth $r-j+2$ for $j\le r$ and $j-r+1$ for $j>r$.
+The outer gaps have depths $r+1,n-r$. These formulas prove both identities.
+For $n\ge2$, recover
+\begin{align}
+ q_1&=W+C_1-C_0-2(p_0+q_0),\nonumber\\
+ q_{r+1}&=C_{r-1}-2C_r+C_{r+1}-2p_r-q_r,
+       &&1\le r\le n-2,\label{eq:chain-gap-recovery}\\
+ q_n&=W-\sum_i p_i-\sum_{j=0}^{n-1}q_j.\nonumber
+\end{align}
+For $n=1$, the last mass identity suffices. The chain coefficients themselves
+are computable in linear work: initialize
+$C_0=\sum_i(i+1)p_i+q_0+nq_n+\sum_{j=1}^{n-1}(j+1)q_j$,
+then use \eqref{eq:chain-first-difference} and \eqref{eq:chain-curvature}.
+\end{proof}
+
+\begin{theorem}[Recovery from a bounded signed response]
+\label{thm:signed-recovery}
+Define $F(x,y)=\min_T\{\operatorname{cost}(T)+xd_0(T)+yd_n(T)\}$
+for arbitrary real $x,y$. Given $p,W,q_0$, a bounded line of this signed
+response determines all gaps. For nonnegative integer input on $n\ge2$
+keys, at most $n$ exact value-only oracle queries recover them, with
+$O(n)$ additional arithmetic work and space. Query coordinates have
+magnitude $O(n(W+2))$, denominator at most $n^2-1$, and bit length
+$O(\log(n(W+2)))$.
+\end{theorem}
+\begin{proof}
+Put $M=n+1$ and $K=4(n+1)(W+2)$. On the line
+$x=-K+t$, $y=-K$, $|t|\le W+2$, any non-chain tree has endpoint-depth
+sum at most $n$ and value at least $-Kn-n|t|$.
+Any chain has value at most $nW-K(n+1)+n|t|$.
+Since $K>nW+2n|t|$, a chain always wins. Hence
+\begin{equation}\label{eq:signed-chain-line}
+ G(t):=F(-K+t,-K)+K(n+1)
+      =\min_{0\le r<n}\{C_r+(r+1)t\}.
+\end{equation}
+By \eqref{eq:chain-curvature}, $C$ is convex, and its first differences
+lie in $[-W,W]$. Thus every coefficient is exposed, possibly with ties:
+\[
+ C_r=\sup_{|t|\le W+1}\{G(t)-(r+1)t\}.
+\]
+Together with Lemma~\ref{lem:chain-recovery}, this proves determination
+for real input weights.
+
+For integer input, take a rational $t_0=A/B$ in lowest terms, $B>0$,
+and query at $t=t_0+1/(BM)$. Unperturbed scores are multiples of $1/B$;
+the perturbation changes each pairwise difference by less than $1/B$.
+It therefore selects the smallest index among the minimizers at $t_0$.
+If that index is $r$, put $a=r+1$. The returned value gives an integer
+\[
+ z=BM G(t)=BM C_r+a(AM+1),\qquad z\bmod M=a.
+\]
+Because $1\le a\le n<M$, the residue recovers $r$, and then
+$C_r=G(t)-at$ is exact. No minimizer witness or numerical limit is requested.
+
+Queries with $t_0=W+1$ and $-W-1$ recover the two extreme coefficients.
+For known endpoints $l<r$ with $r-l\ge2$, query at the negative chord
+slope $t_0=(C_l-C_r)/(r-l)$. If the recovered unperturbed score equals
+the endpoint score, convexity puts every intermediate coefficient on the
+chord; fill them by interpolation. Otherwise the recovered index lies
+strictly inside $(l,r)$; recurse on the two resulting intervals.
+In the collinear case, the decoded minimizer can lie outside $[l,r]$;
+score equality, rather than index membership, is the stopping test.
+
+Each nonterminal query discovers at least one previously unknown interior
+coefficient, and the recursive interiors are disjoint. Including the first
+two queries, at most $n$ queries suffice. Interpolation, recursion, and
+\eqref{eq:chain-gap-recovery} take $O(n)$ further work and space.
+Chord denominators satisfy $B\le n-1$, so $BM\le n^2-1$.
+Their slopes have magnitude at most $W$; the initial queries have magnitude
+$W+1$ before perturbation. All requested points satisfy the stated bounds.
+\end{proof}
+
+The oracle's signed domain is part of its specification: endpoint weights
+may become negative. Ordinary nonnegative-weight Knuth monotonicity is not
+used for those queries. For the legal-domain collision, the absolute
+assignment $(u,v)=(0,-1)$ already gives distinct costs 33 and 34.
+The complete endpoint-depth profile is therefore sufficient with the stated
+metadata, whereas its envelope on legal endpoint weights is not.
+A known chain sequence supports \eqref{eq:signed-chain-line} by binary
+search in $O(\log(n+1))$ comparisons after linear preprocessing.
+These are representation and recovery results; an efficient general
+composition rule still has to be supplied. Verification is in
+Appendix~\ref{app:signed-boundary}.
 
 \subsubsection{Quadratic explicit envelopes with linear factorizations}\label{sec:legacy-18-2}
 For any $n\ge1$, the endpoint paths share only the root. If their depths
@@ -7919,10 +8060,29 @@ It does not depend on the clipping implementation or sampled parameters.
 Code, raw results, and the harness source hash are in
 \texttt{boundary\_response.py/json}.
 
-A richer representation must preserve some information about boundary
-path decisions or internal alternatives discarded by the isolated value
-response. The present results rule out two specific shortcuts; they do
-not resolve or replace the full mixed-weight subquadratic objective.
+\paragraph{Legal-domain collision and signed recovery.}\label{app:signed-boundary}
+The independent recovery audit checks 800 integer inputs: all binary mixed
+vectors through four keys and seeded inputs through 24 keys, including
+geometric, uniform, gap-only, key-only, and zero weights. It compares 3968
+signed value queries against a fresh all-root recurrence using 1,926,832
+root candidates, with negative endpoint weights permitted. Literal shape
+evaluation supplies 107,608 further signed cost controls. The boundary-path
+classification has 19,184 shape controls and 2792 unique-chain checks.
+All recovered gap vectors agree exactly, and each instance checks the
+query-count and rational-denominator bounds.
+
+The whole legal quadrant is certified by two complete intercept tables and
+18 exact domination checks. Independent enumeration evaluates all 2860
+ordered trees across the two eight-key contexts and agrees with the
+root-conditioned costs. The signed absolute probe $(0,-1)$ is checked by
+the original recurrence. Twelve larger recoveries reach 65,536 keys using
+the separately proved chain-line oracle. Random and uniform instances at
+that size use 65,536 value queries each; the all-zero instance uses three.
+These larger rows verify complete recovery from the chain representation;
+they have no independent large signed-DP oracle. The result record retains
+counts, the exact collision, verification scopes, and five source hashes.
+The recovery theorem bounds calls to its specified oracle and does not
+provide a faster general OBST solver.
 
 \newpage
 
