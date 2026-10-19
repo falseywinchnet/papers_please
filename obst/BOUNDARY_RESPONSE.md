@@ -1,7 +1,7 @@
 # What an endpoint response does, and does not, preserve
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. These results concern a proposed representation, not a
+Joshuah Rainstar. These results concern a proposed representation, not a
 general lower bound for optimal-BST construction. Priority is unestablished.
 
 For fixed ordered key weights p and gap weights q, define

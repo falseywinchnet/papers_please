@@ -1,11 +1,13 @@
 # Full optimal binary search trees: research checkpoint
 
 Research and exposition by OpenAI Codex Sydney, with sponsorship and problem
-selection by the repository owner. The general research objective is ongoing.
+selection by Joshuah Rainstar. The general research objective is ongoing.
 
 - [Manuscript (PDF)](manuscript/main.pdf)
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
+- [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Linear-mass odd-ramp core lower bound](RAMP_CORE_TIGHTNESS.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -32,6 +34,40 @@ selection by the repository owner. The general research objective is ongoing.
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
+
+## Main result and the new size lower bound
+
+The paper now leads with the exact core-sparse Monge construction for arbitrary
+nonnegative integer weights on keys and gaps. At total mass W=O(n), its bound is
+O(n^(3/2) log^(5/2)(n+1)) arithmetic operations, including full reconstruction.
+The sparse product and succinct witnesses are the published ESA 2025 algorithms
+of Gawrychowski, Gorbachev, and Kociumaka.
+
+An explicit new family attacks the intermediate size bound. Put n=m^2, where
+m is a power of two at least 32, and put weights 1,3,...,2m-1 on a centered
+block of m keys, with every other key and gap weight zero. Its mass is exactly
+W=n. One layer has at least nm/16-9n/64-m/4 >= n^(3/2)/32 positive densities.
+Their formula is 2 nu_2(b-2s) on an explicitly counted band. A perfect-slot
+embedding and rightmost-zero deletion lemma prove the formula. This excludes
+a uniform n polylog n bound on these explicit cores. The sqrt(log n) gap in
+the upper core bound remains; this is not a general OBST complexity lower bound.
+
+The search preceding that proof evaluates 145,155 fixed-mass candidates over
+72 starts, plus 120 explicit patterns through 4096 keys. The proof audit checks
+42,748 deletion formulas, 17,688 densities against independent subsequence DP,
+and every one of the 1,896 proved cells at n=1024 against the original layer.
+All counts and exact source hashes are recorded. No asymptotic result is
+inferred from the search measurements.
+
+The manuscript now gives the straight and bent rotation depth changes in full,
+a boundary-counting lemma for arbitrary n, and the published product theorem's
+exact statement and interface. It states one certificate pattern, groups its
+family corollaries, consolidates negative results, and puts verification in
+appendices. Python timing passages have been removed from the paper; historical
+raw records remain in the repository. The title asterisk refers to the sponsor's
+verbatim dedication at the end. The bundled Hebrew font includes its OFL license.
+
+## Earlier certificate results
 
 The latest certificate partitions trees according to whether the largest
 residual key is the root. The root case forces an alphabetic split at that
@@ -573,3 +609,10 @@ python3 obst/code/check_marked_event.py
 Use the M4 wrappers in the root AGENTS.md for substantial runs. The standalone
 root certificate and its fallback are in `code/root_partition.py`; the event
 probe is explicitly experimental and is not called by that solver.
+
+## Reproducing the current audit
+
+From the repository root, use the M4 commands in `AGENTS.md` for the search,
+explicit patterns, rotation/tiling checks, and `ramp_core_tightness.py`.
+Build the manuscript **from `obst/manuscript/`** with
+`tectonic --keep-logs main.tex`; the root repository has a different TeX project.

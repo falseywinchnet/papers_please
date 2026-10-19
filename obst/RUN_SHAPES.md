@@ -1,7 +1,7 @@
 # Exact transfers for joint key/gap signatures
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. The full unrestricted mixed-weight objective remains
+Joshuah Rainstar. The full unrestricted mixed-weight objective remains
 open. This note proves an exact O(nk) shape optimizer with linear auxiliary
 space and a full-optimality certificate. It does not assert mathematical
 priority or replace the general problem by the gap-only case.

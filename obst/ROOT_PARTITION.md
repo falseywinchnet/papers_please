@@ -1,7 +1,7 @@
 # Root/nonroot coupling beyond every additive separable transfer
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. The full mixed-weight objective remains active. These are
+Joshuah Rainstar. The full mixed-weight objective remains active. These are
 exact certificates and a proved separation from the preceding bound class;
 there is no unrestricted subquadratic algorithm or impossibility theorem here.
 Mathematical priority has not been established.

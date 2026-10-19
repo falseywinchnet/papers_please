@@ -1,7 +1,7 @@
 # Ruler patterns, a dense-core barrier, and an exchange shortcut
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. These are exact statements for the full mixed key/gap
+Joshuah Rainstar. These are exact statements for the full mixed key/gap
 model. The unrestricted subquadratic objective remains open. Priority of the
 identities and sufficient conditions is not established.
 

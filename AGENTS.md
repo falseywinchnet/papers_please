@@ -52,6 +52,14 @@ edit the mirrored Mini checkout as the primary copy.
 
 ## Optimal BST research
 
+Fixed-mass adversarial core-size search and independent layer audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/core_size_search.cpp -o /tmp/obst-core-size-search && python3 obst/code/core_size_search.py /tmp/obst-core-size-search'
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/core_size_search.cpp -o /tmp/obst-core-size-search && python3 obst/code/check_core_size_lemmas.py && python3 obst/code/core_size_patterns.py /tmp/obst-core-size-search && python3 obst/code/core_size_search.py /tmp/obst-core-size-search --sizes 16,31,32,63,64,127,128,255,256,511,512,1024 --steps 4000'
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ramp_core_tightness.py
+```
+
 The objective is the full static optimal binary search tree problem with
 nonnegative weights on both keys and gaps. Preserve this scope. Alphabetic
 leaf-only algorithms, dynamic optimality, and unproved heuristics do not resolve

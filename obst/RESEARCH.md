@@ -1,7 +1,7 @@
 # Full optimal binary search trees: research record
 
 Started 2026-10-18, America/Chicago. Research and exposition by OpenAI Codex
-Sydney, with sponsorship and problem selection by the repository owner.
+Sydney, with sponsorship and problem selection by Joshuah Rainstar.
 
 ## Objective and status
 
@@ -651,7 +651,7 @@ weights. The general subquadratic or impossibility objective remains active.
 The revised manuscript is 33 pages, with full proofs, scoped bounds, all timing
 controls, operation-category distinctions, and a citation to Huffman's original
 paper. Credit remains OpenAI Codex Sydney; problem selection and sponsorship
-remain with the repository owner. Priority of the derived certificates remains
+remain with Joshuah Rainstar. Priority of the derived certificates remains
 unestablished. Final publication follows rendered-page and remote-blob checks.
 
 ## Twelfth checkpoint: couple the first violating skeleton to its forests
@@ -732,7 +732,7 @@ representation, while retaining the full mixed-weight objective.
 Code and raw source-hashed results are in `pair_skeleton*.py/json` and
 `check_pair_skeleton.py`; the detailed proof is in `PAIR_SKELETON.md` and
 the manuscript. Credit remains OpenAI Codex Sydney; sponsorship and problem
-selection remain with the repository owner. General completion is not claimed.
+selection remain with Joshuah Rainstar. General completion is not claimed.
 The revised 37-page manuscript compiles without warnings. All pages were
 rendered and visually checked, with the new proof and measurement pages also
 inspected individually. Recorded test and implementation hashes match the
@@ -1843,3 +1843,54 @@ to checkpoint 23. Page 1 and pages 78--82 were visually reviewed, and footer
 separation was checked from PDF coordinates. The original unrestricted goal
 remains active. The event conjecture is explicitly separated from the proved
 root/nonroot certificate and is not used by the full solver.
+
+
+## Checkpoint 25: audited Monge reduction and a linear-mass core lower bound
+
+The sponsor requested an adversarial attack on representation size, rather
+than treating small measured cores as evidence of tightness. Fixed-mass local
+search, concentrated starts, and explicit patterns led to a contiguous ramp.
+The simplified odd ramp has exact mass W=n, with n=m^2 and m a power of two.
+A perfect-slot deletion argument converts fully exposed height-limited
+intervals to a weighted ruler subsequence. An exchange proof shows that, for
+slack s satisfying m>2s+D, the rightmost s zero coefficients are omitted.
+Taking four-window differences gives the exact positive density 2 nu_2(b-2s).
+Counting a band yields nm/16-9n/64-m/4 >= n^(3/2)/32 entries in one layer.
+The proof is in RAMP_CORE_TIGHTNESS.md and the manuscript. It establishes
+polynomial-exponent tightness for explicit intermediate cores, with a remaining
+sqrt(log n) gap, not an unrestricted algorithmic lower bound.
+
+The main proof now details every depth change in both rotations, proves the
+maximal-tile parent boundary lemma with an explicit constant for arbitrary n,
+and quotes ESA 2025 Theorem 1.2 with its core, condensed-form, finite-entry,
+and witness definitions checked. The note CORE_SIZE_AUDIT.md records that audit.
+
+The search records 145155 exact layer evaluations across 72 starts and 120
+explicit-pattern evaluations. The odd-ramp audit records 445 literal subset
+comparisons, 388 all-root slot-embedding comparisons, 42748 deletion formulas,
+17688 independent subsequence density checks, and 1896 original-layer density
+checks. Its larger formula rows are explicitly not independent DP runs.
+The rotation/tiling audit records 2652 straight and 2652 bent identities,
+894 partitions, and 4277 scale checks. Source hashes match the executed sources.
+
+The paper was reordered around the Monge theorem and the new size lower bound.
+Certificate families are organized under a common certificate theorem; window,
+endpoint-response, ruler, and transfer limitations share one negative-results
+section. Verification is in appendices. Python timings are removed from the
+paper and retained only in the historical research records. The uniform-cost
+identity and fixed-position weight convention are explicit. Sponsorship is
+Joshuah Rainstar, and the title asterisk links to the requested dedication
+at the end. The original unrestricted goal remains active.
+
+Checkpoint 25 publication validation: all five new source manifests match
+the executed current sources. All 57 prior mathematical statements remain
+in the revised manuscript; labels are unique and every reference resolves.
+The 77-page PDF compiles without warnings, missing glyphs, undefined
+references, or layout-box diagnostics. All pages were rendered and reviewed
+in contact sheets, with the new proof and dedication also inspected at full
+resolution. The final bookmark-only change leaves page layout unchanged.
+The exact dedication wording is checked in the TeX source, and the Hebrew
+is visibly rendered with the bundled static regular font. Stable output
+TeX/PDF copies match the repository artifacts byte for byte; a complete
+TeX/font source bundle is also supplied. No general-complexity conclusion
+is inferred from the new intermediate-representation lower bound.

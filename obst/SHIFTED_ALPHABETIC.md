@@ -1,7 +1,7 @@
 # Shifted alphabetic certificates for full mixed OBSTs
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. Hu--Tucker alphabetic construction, rearrangement, and
+Joshuah Rainstar. Hu--Tucker alphabetic construction, rearrangement, and
 the internal/external path-length identity are established ingredients.
 Priority for the certificate and explicit family is not established. This
 is an exact shortcut with quadratic fallback, not an unrestricted solution.

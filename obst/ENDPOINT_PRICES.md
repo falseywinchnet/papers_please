@@ -1,7 +1,7 @@
 # Exact endpoint prices and the limit of additive weight transfers
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. This extends the full mixed-weight investigation. The
+Joshuah Rainstar. This extends the full mixed-weight investigation. The
 unrestricted subquadratic problem and mathematical priority remain open.
 
 ## All cost-preserving additive transfers, not just one normalization

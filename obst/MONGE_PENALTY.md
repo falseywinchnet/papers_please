@@ -1,7 +1,7 @@
 # Penalized partial trees and a core-sparse Monge reduction
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. This is a mathematical reduction using an existing sparse
+Joshuah Rainstar. This is a mathematical reduction using an existing sparse
 matrix multiplication theorem. Dense reference audits and actual condensed
 Python and C++ constructors now accompany the reduction. The implementation
 details, operation counts, and measured limitations are recorded below.
@@ -25,8 +25,8 @@ Monge product and witness oracle, gives full exact BST construction in
 arithmetic operations. Using the published succinct witness representation, retaining the witnesses
 uses at most O(H [n + min(n^2,n sqrt(W L))]) words. The implementations here
 use ordinary index arrays and can incur an extra logarithmic factor in space. In particular **W=O(n) gives
-O(n^(3/2) log^(5/2)(n+1)) exact construction**, with arbitrary ordered mixed
-integer weights, including zeros. The bit lengths of the intermediate numbers
+O(n^(3/2) log^(5/2)(n+1)) exact construction**, with arbitrary nonnegative integer weights on keys
+and on the gaps between them, including zeros. The bit lengths of the intermediate numbers
 are O(log(n+1)+log(W+1)). The claim for linear mass therefore also fits the
 usual O(log n)-bit arithmetic model. Knuth remains the fallback when this bound
 is not favorable. Neither a general strongly subquadratic bound independent
@@ -304,3 +304,13 @@ O(n(1+sqrt(R)) log^3(n+1)) arithmetic work for polynomial integer deviation R,
 regardless of baseline magnitudes. It retains the full mixed objective and
 the existing product implementation. The earlier performance losses remain
 unchanged; this is an extension of the bound, not a new timing claim.
+
+## Expanded audit and polynomial tightness
+
+See [CORE_SIZE_AUDIT.md](CORE_SIZE_AUDIT.md) for the outcome-by-outcome
+rotations, explicit arbitrary-n dyadic boundary lemma, and checked published
+product interface. See [RAMP_CORE_TIGHTNESS.md](RAMP_CORE_TIGHTNESS.md) for
+a family with W=n and Omega(n^(3/2)) nonzero intermediate densities. Its
+closed-form lower bound rules out an n polylog n core bound at linear mass;
+a sqrt(log n) factor remains between the lower and upper core bounds.
+The revised manuscript leads with this reduction and contains no timing claims.

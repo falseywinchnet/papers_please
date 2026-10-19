@@ -1,7 +1,7 @@
 # Joint key/gap coupling and a strict compatible-merge obstruction
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. This is a rejected algorithm with a proved obstruction,
+Joshuah Rainstar. This is a rejected algorithm with a proved obstruction,
 not an unrestricted complexity lower bound or a new production solver.
 
 ## The relaxation being tested

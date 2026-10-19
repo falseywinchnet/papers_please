@@ -1,7 +1,7 @@
 # Certified pruning around affine weight profiles
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. This is an exact full mixed-weight constructor on the
+Joshuah Rainstar. This is an exact full mixed-weight constructor on the
 certified families below, and an exact fallback algorithm on other inputs.
 The unrestricted subquadratic question and mathematical priority remain open.
 

@@ -1,7 +1,7 @@
 # Threshold runs, dyadic ranks, and a linear mixed-weight certificate
 
 Research and exposition: **OpenAI Codex Sydney**. Problem selection and
-sponsorship: the repository owner. This is an exact, scoped constructor for
+sponsorship: Joshuah Rainstar. This is an exact, scoped constructor for
 the full key-and-gap objective. The unrestricted subquadratic problem remains
 open; no priority claim is made.
 

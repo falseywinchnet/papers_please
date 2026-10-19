@@ -1,7 +1,7 @@
 # A global lower bound for alternating gap weights
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. This is a proved component bound for the full mixed-weight
+Joshuah Rainstar. This is a proved component bound for the full mixed-weight
 OBST objective. Mathematical priority has not been established.
 
 For n>=1, write h=floor(log2(n+1)), S=2^h, s=n+1-S. Let q_j alternate

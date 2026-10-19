@@ -47,8 +47,10 @@ straight two-edge path, promoting y changes cost by
 
     O - p_y - mass(X).
 
-Optimality implies O>=mass(X). For a bent path, promoting X by a double
-rotation changes cost by
+Optimality implies O>=mass(X). For a bent path, write X=x(B,C) and the local tree as v(y(A,x(B,C)),D).
+The double rotation gives x(y(A,B),v(C,D)). Key x rises two levels; B and C
+rise one level; key v and D fall one level; y and A keep their depths.
+Thus, with O=p_v+mass(D), promoting X changes cost by
 
     O - p_X - mass(X),
 

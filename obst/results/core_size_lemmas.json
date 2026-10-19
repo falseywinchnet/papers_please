@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "bent_identities": 2652,
+    "straight_identities": 2652,
+    "partitions": 894,
+    "scale_bounds": 4277
+  },
+  "source_sha256": {
+    "check_core_size_lemmas.py": "cab0b570b1d6aca624cb15fa31bdf2625b72d8b91995cbecdf844495071fa615",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

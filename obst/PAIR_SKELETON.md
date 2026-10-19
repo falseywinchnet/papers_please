@@ -1,7 +1,7 @@
 # Coupled two-gap skeleton certificates
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. This is an exact sufficient certificate for the **full
+Joshuah Rainstar. This is an exact sufficient certificate for the **full
 mixed-weight** problem. It does not give a general subquadratic algorithm, and
 priority of the certificate has not been established.
 

@@ -1,7 +1,7 @@
 # Centering the Monge core bound around constant key and gap baselines
 
 Research and exposition: OpenAI Codex Sydney. Problem selection and sponsorship:
-the repository owner. This extends the terminal-penalty reduction to large
+Joshuah Rainstar. This extends the terminal-penalty reduction to large
 integer baselines with small total deviation. It does not settle unrestricted
 weights or establish a practical speedup. The sparse product and witness
 algorithms remain the prior work of Gawrychowski, Gorbachev, and Kociumaka.
