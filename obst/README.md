@@ -11,6 +11,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Per-outcome charging and the aggregate core bound](AGGREGATE_CORES.md)
 - [Single-weight obstruction to constant tile charging](LOCAL_TILE_OBSTRUCTION.md)
 - [Full mixed ruler slots and capacity-deficit construction](MIXED_SLOTS.md)
+- [Exact gap-core mass and sharp binary leading term](GAP_CORE_IDENTITY.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -61,6 +62,16 @@ Their formula is 2 nu_2(b-2s) on an explicitly counted band. A perfect-slot
 embedding and rightmost-zero deletion lemma prove the formula. This excludes
 a uniform n polylog n bound on these explicit cores. The sqrt(log n) gap in
 the upper core bound remains; this is not a general OBST complexity lower bound.
+
+A separate control theorem settles fixed-mass binary gap inputs: for n=2^s
+and W=n/2, their largest completed core over every input and layer lies between
+sn/2+1 and (s+1)n/2+4. An exact telescoping identity proves the upper bound;
+an explicit alternating family has unit densities on specified ruler diagonals
+and proves the lower bound. Thus this maximum is (1/2)n log2 n+O(n), whereas
+the odd-ramp key family has Omega(n^(3/2)) support. This distinguishes the
+gap-only control from the full mixed objective. See [the proof](GAP_CORE_IDENTITY.md).
+The 84 binary searches are diagnostic; only the proved gap bounds support an
+asymptotic claim.
 
 The search preceding that proof evaluates 145,155 fixed-mass candidates over
 72 starts, plus 120 explicit patterns through 4096 keys. The proof audit checks

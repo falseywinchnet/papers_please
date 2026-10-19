@@ -1,0 +1,148 @@
+{
+  "scope": "Exact all-root controls; asymptotic claims are proved separately.",
+  "checks": {
+    "all_root_candidates": 8892512,
+    "dense_states": 492579,
+    "mass_identity_checks": 5282,
+    "one_missing_slot_checks": 32899,
+    "whole_triangle_identity_checks": 3976,
+    "inputs": 2189,
+    "density_checks": 427990,
+    "capacity_formula_checks": 22335,
+    "above_capacity_zero_checks": 157129,
+    "binary_bound_checks": 60,
+    "explicit_density_checks": 10524
+  },
+  "search_winner_controls": [
+    {
+      "n": 16,
+      "mass": 8,
+      "cores": [
+        16,
+        31,
+        38,
+        44,
+        35,
+        32,
+        31
+      ],
+      "maximum_completed_core": 44
+    },
+    {
+      "n": 32,
+      "mass": 16,
+      "cores": [
+        32,
+        63,
+        81,
+        96,
+        100,
+        84,
+        77,
+        74
+      ],
+      "maximum_completed_core": 100
+    },
+    {
+      "n": 64,
+      "mass": 32,
+      "cores": [
+        64,
+        127,
+        165,
+        205,
+        226,
+        228,
+        196,
+        183,
+        180
+      ],
+      "maximum_completed_core": 228
+    },
+    {
+      "n": 128,
+      "mass": 64,
+      "cores": [
+        128,
+        255,
+        338,
+        423,
+        480,
+        516,
+        516,
+        452,
+        429,
+        420
+      ],
+      "maximum_completed_core": 516
+    }
+  ],
+  "explicit_family_controls": [
+    {
+      "n": 16,
+      "mass": 8,
+      "cores": [
+        16,
+        31,
+        36,
+        38,
+        34,
+        33,
+        33
+      ],
+      "maximum_completed_core": 38
+    },
+    {
+      "n": 32,
+      "mass": 16,
+      "cores": [
+        32,
+        63,
+        76,
+        86,
+        90,
+        82,
+        81,
+        81
+      ],
+      "maximum_completed_core": 90
+    },
+    {
+      "n": 64,
+      "mass": 32,
+      "cores": [
+        64,
+        127,
+        156,
+        182,
+        202,
+        210,
+        194,
+        193,
+        193
+      ],
+      "maximum_completed_core": 210
+    },
+    {
+      "n": 128,
+      "mass": 64,
+      "cores": [
+        128,
+        255,
+        316,
+        374,
+        426,
+        466,
+        482,
+        450,
+        449,
+        449
+      ],
+      "maximum_completed_core": 482
+    }
+  ],
+  "source_sha256": {
+    "code/gap_core_identity.py": "e5aa730799166809257d8c307e9d03af170bb931cdd4b3aa7253209f24ba2182",
+    "results/binary_core_search.json": "f81d2d4bef29d6db8d67e8ae344e362f2289f510c654a20ee34f6b4d66a25b65"
+  }
+}

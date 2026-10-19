@@ -762,6 +762,122 @@ independent of all gap weights: the gap contribution $hW(i,j)$ and the
 penalty's affine length term both have zero density there. Mixed gap/key
 interactions remain in the fully exposed region and on the boundary.
 
+\subsection{Exact gap-only mass and a sharp binary control}
+\label{sec:gap-core-identity}
+The mixed representation separates two sources of core growth. The following
+identity settles the binary gap-only control case and identifies where its
+argument uses the absence of key weights. Write $D_h(i,j)$ for the ordinary
+density of $A_h$ at $(i,j)$.
+
+\begin{lemma}[Gap-only core mass]\label{lem:gap-core-mass}
+Let $p_i=0$, $h\ge1$, $c=2^h-1\le n$, and $M>hW$. For $0\le i<n-c$, put
+\[
+ Q_i=\max\{q_{i+1},q_{i+3},\ldots,q_{i+c}\}.
+\]
+Densities strictly above $j-i=c$ vanish, and those on that line equal
+$M-Q_i>0$. The density mass strictly below the line is exactly
+\begin{equation}\label{eq:gap-core-mass}
+ S_h=(h-2)W+q_0+q_n+\sum_{i=0}^{n-c-1}Q_i.
+\end{equation}
+For integer gaps, let $X_h=\sum_{j-i<c}\max\{D_h(i,j)-1,0\}$. Then
+\[
+ \delta(E_h)=2n-c+S_h-X_h.
+\]
+In particular, binary gaps satisfy
+\begin{equation}\label{eq:binary-gap-core}
+ \delta(E_h)\le3n-2c+(h-2)W+q_0+q_n.
+\end{equation}
+\end{lemma}
+\begin{proof}
+A length-$c$ interval has the forced perfect tree and cost $h$ times its
+gap mass. At length $c-1$, Theorem~\ref{thm:mixed-slots} selects all but
+one perfect slot. Removing an even slot yields no gap reward. Removing
+an odd slot yields one reward, the corresponding even-indexed gap's weight:
+the neighboring valuations have minimum one, or the endpoint neighbor
+has valuation one. Thus
+\begin{equation}\label{eq:gap-one-slot}
+ A_h(a,a+c-1)=h\sum_{t=a}^{a+c-1}q_t
+       -\max\{q_a,q_{a+2},\ldots,q_{a+c-1}\}.
+\end{equation}
+When $h=1$, the empty interval gives $q_a-q_a=0$ directly.
+Equation~\eqref{eq:mixed-slots-above} gives $M(k-c)+hW(i,j)$ at
+length $k\ge c$. Four-corner subtraction now gives zero above the line
+and $M-Q_i$ on it.
+
+For each $i<n-c$, summing below-line densities in that row telescopes to
+\[
+ \sum_{j=i+1}^{i+c-1}D_h(i,j)
+ =A_h(i,i+c)-A_h(i+1,i+c)-A_h(i,i+1)
+ =hq_i+Q_i-(q_i+q_{i+1}).
+\]
+The remaining triangular corner has mass
+\[
+ A_h(n-c,n)-\sum_{i=n-c}^{n-1}(q_i+q_{i+1}).
+\]
+Its full interval has length $c$ and hence perfect-tree cost. Adding these
+expressions proves~\eqref{eq:gap-core-mass}, including $c=1$ and $c=n$.
+For integer weights, below-line support is $S_h-X_h$; the capacity line
+contributes $n-c$ entries and the completion contributes $n$. Finally,
+$Q_i\le1$ proves~\eqref{eq:binary-gap-core}.
+\end{proof}
+
+\begin{theorem}[Sharp leading term for fixed-mass binary gaps]
+\label{thm:binary-gap-leading}
+Let $n=2^s$, $s\ge4$. Over all inputs with zero key weights, binary gap
+weights, and $W=n/2$, the largest completed core over all layers satisfies
+\[
+ \frac{sn}{2}+1
+ \ \le\ \max_{q,h}\delta(E_h)
+ \ \le\ \frac{(s+1)n}{2}+4.
+\]
+In particular, this maximum is $\tfrac12n\log_2 n+O(n)$.
+\end{theorem}
+\begin{proof}
+For $1\le h\le s$, use~\eqref{eq:binary-gap-core} and $q_0+q_n\le2$.
+The resulting upper bound $U(h)=3n-2(2^h-1)+(h-2)n/2+2$ satisfies
+$U(h+1)-U(h)=n/2-2^{h+1}$. Its maximum occurs at $h=s-2,s-1$ and
+is $(s+1)n/2+4$. Layer zero has core $n$. For $h\ge s+1$, a perfect
+$(n-1)$-key skeleton plus one bottom cherry has gap cost at most $sW+2$.
+Whole-triangle telescoping gives ordinary density mass
+$A_h(0,n)-\sum_{i=0}^{n-1}(q_i+q_{i+1})$. Integer densities therefore
+give $\delta(E_h)\le n+(s-2)W+q_0+q_n+2\le sn/2+4$.
+
+For the lower bound, put $q_i=1$ for even $i<n$, and set every other gap
+weight, including $q_n$, to zero. This has mass exactly $n/2$. Take
+$h=s+1$. An interval avoiding $q_n$ has alternating gap weights. By the
+parity contraction bound of Lemma~\ref{result:legacy-40}, its optimum is
+\[
+ F(i,k)=tQ+(k+1-2^t),\qquad t=\lfloor\log_2(k+1)\rfloor,
+\]
+where $k$ is its key count and $Q$ its positive-gap count. A minimum-path-
+length tree attains it within height $h$. For $k\ge1$ and $i+k+1\le n-1$,
+its four-corner difference is
+\begin{equation}\label{eq:binary-gap-densities}
+ D_h(i,i+k)=
+ \begin{cases}
+ 1,&i\text{ even and }k=2^d-1\text{ for some }d\ge1,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+Indeed, away from $k=2^d-2,2^d-1$, the logarithms agree and both the
+mass and residual terms cancel. At $k=2^d-2$, the longest interval has
+$2^d$ alternating gaps, exactly $2^{d-1}$ positive, which cancels its
+logarithm jump. At $k=2^d-1$, subtraction gives $2^{d-1}-Q_{\rm short}$,
+equal to one for even $i$ and zero for odd $i$. This includes $d=1$,
+where the shortest interval is empty with cost zero.
+
+For each $1\le d\le s-1$, equation~\eqref{eq:binary-gap-densities}
+counts $(n-2^d)/2$ positive entries. Summing gives $(s-2)n/2+1$;
+adding the $n$ completion entries proves the lower bound.
+\end{proof}
+
+This establishes the binary gap-only asymptotic by explicit upper and lower
+proofs. The fixed-mass search in Appendix~\ref{app:binary-core} supplies
+finite controls. Key weights change the saturated perfect-skeleton cost,
+so the telescoping identity does not extend unchanged to the full mixed
+objective. The odd-ramp theorem already rules out an $O(n\log n)$ bound
+for all linear-mass mixed inputs.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -5575,6 +5691,54 @@ deletes exactly $r$ nodes, and outputs all $n$ original keys. The stated
 asymptotic bound follows from the valuation-sum proof, independently of
 these rows. The executed source hashes and operation records are in
 \texttt{mixed\_slots.json}.
+
+\section{Binary-weight search and exact gap-core audit}
+\label{app:binary-core}
+The binary diagnostic performs 84 searches: seven power-of-two sizes, three
+placements of positive weights, and four initial patterns (random,
+alternating, centered, and prefix). Mutations exchange a zero and a one;
+occasional reversals preserve that invariant. Mixed runs have mass $n$;
+key-only and gap-only runs have mass $n/2$. The objective is the maximum
+completed core across all terminal-penalty layers, including the completion
+diagonal. Whole-table fixed points allow identical remaining layers to be
+reported without recomputation.
+
+The search evaluates 117,084 candidates, recording 40,476,345,560 dense
+states, 80,519,888,452 root candidates, and 40,301,399,592 density evaluations.
+These are diagnostic operations, not sparse-constructor costs. An independent
+Python reference checks 81 vectors, including every winning vector through
+$n=128$; its small cases include all-root and exhaustive-shape controls.
+The largest value among the four starts in each placement is:
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & mixed & keys only & gaps only & proved gap upper bound\\
+\midrule
+16 & 69 & 50 & 44 & 44\\
+32 & 182 & 137 & 100 & 100\\
+64 & 465 & 341 & 228 & 228\\
+128 & 1151 & 861 & 516 & 516\\
+256 & 2762 & 2118 & 1156 & 1156\\
+512 & 6473 & 5032 & 2564 & 2564\\
+1024 & 14701 & 11571 & 5635 & 5636\\
+\bottomrule
+\end{tabular}
+\end{center}
+The last column follows from Theorem~\ref{thm:binary-gap-leading}; it is
+an upper bound over every fixed-mass binary gap input and all layers.
+The mixed and key-only columns support no asymptotic assertion.
+
+A separate all-root recurrence checks 2,189 inputs: all binary gap vectors
+through eight keys, all vectors over $\{0,1,3\}$ through five keys,
+seeded nonbinary vectors, four search winners, and four explicit alternating
+family members. It checks 5,282 mass identities, 32,899 one-missing-slot
+formulas, 22,335 capacity densities, 157,129 vanishing above-capacity
+densities, and 3,976 whole-triangle identities. The explicit family contributes
+10,524 independently evaluated density formulas. Total reference work is
+492,579 states and 8,892,512 root candidates. The binary bound is checked
+on 60 eligible layers. Exact weights, seeds, operation counts, and source
+hashes are retained in \texttt{binary\_core\_search.json} and
+\texttt{gap\_core\_identity.json}.
 
 \begingroup\small
 \begin{thebibliography}{99}

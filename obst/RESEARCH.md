@@ -818,8 +818,7 @@ gap weights: some sequence of decisions along the boundary paths, or internal
 alternatives suppressed by the isolated optimization. These are concrete
 obstructions to candidate representations, not completion of the original
 mixed-weight subquadratic or impossibility objective. Credit remains OpenAI
-Codex Sydney; sponsorship and problem selection remain with the repository
-owner. Novelty remains unestablished.
+Codex Sydney; sponsorship and problem selection remain with Joshuah Rainstar. Novelty remains unestablished.
 
 ## Publication audit of the thirteenth checkpoint
 
@@ -2044,3 +2043,60 @@ or box diagnostics. Every page was rendered and reviewed in contact sheets;
 the new representation, amortized proof, complementary regime, and audit
 were inspected at full resolution. Stable TeX/PDF copies and the source/font
 bundle are refreshed from the final compiled sources.
+
+
+## Checkpoint 29: binary search and an exact gap-core control
+
+The previous goal turn published the full mixed slot representation and the
+capacity-deficit constructor. This turn investigated interactions by restricting
+individual weights to zero or one. The fixed-mass search performs 84 runs at
+n=16,...,1024, with mixed, key-only, and gap-only placements and four starts.
+It evaluates 117084 candidates and records every winner, seed, layer core,
+and operational counter. The dense diagnostic uses 40476345560 states,
+80519888452 root candidates, and 40301399592 density evaluations. The Python
+reference independently audits 81 vectors, including all winners through
+n=128 and all-root/all-shape controls on small vectors. These searches imply
+no asymptotic mixed/key bound.
+
+The gap-only results led to an exact identity. At capacity c=2^h-1<=n,
+define Q_i=max(q_(i+1),q_(i+3),...,q_(i+c)) for i<n-c. The total ordinary
+density mass strictly below the capacity line is
+S_h=(h-2)W+q_0+q_n+sum Q_i. All above-line densities vanish and each
+on-line density equals M-Q_i. The proof selects all but one perfect slot
+for a length c-1 interval, then telescopes full rows and the remaining
+triangular corner. It includes h=1, c=n, and arbitrary nonnegative real
+gaps. Integer gaps give exact completed core 2n-c+S_h-X_h, where X_h is
+the sum of positive density excess above one.
+
+For n=2^s>=16, binary gaps with W=n/2 therefore have every layer core at
+most (s+1)n/2+4. The early-layer bound is maximized at h=s-2,s-1; late
+layers use a perfect skeleton plus one bottom cherry and whole-triangle
+telescoping. The explicit family q_i=1 for even i<n, q_n=0, all other
+weights zero, gives at least sn/2+1 entries. On intervals avoiding q_n,
+its alternating-gap optimum has a closed formula. Four-corner subtraction
+gives unit densities precisely for even rows and lengths 2^d-1. Counting
+those entries proves the lower bound. Consequently the maximum in this
+fixed-mass binary gap class is (1/2)n log2 n+O(n), with matching leading
+term. The new theorem is a control for the full objective; it is not a
+replacement for the mixed-weight theorem or a new alphabetic constructor.
+The mixed odd-ramp core still grows as Omega(n^(3/2)).
+
+The new all-root audit checks 2189 inputs, 5282 mass identities, 32899
+one-missing-slot formulas, 22335 capacity densities, 157129 vanishing
+above-capacity densities, 3976 whole-triangle identities, and 10524 explicit
+family densities. It uses 492579 states and 8892512 root candidates. The
+binary bound has 60 eligible layer checks. Search winners attain the proved
+upper bound through n=512; the n=1024 winner is one below it. Explicit
+alternating family members and search winners through n=128 are checked
+against the independent all-root recurrence. Proofs are in GAP_CORE_IDENTITY.md
+and Section 2.9; counts and the search table are confined to Appendix E.
+
+Checkpoint 29 publication validation: the new source manifests and the
+previous size-bound/slot manifests match current files. All 57 legacy
+statement labels remain, labels are unique, references resolve, and the
+dedication is byte-identical. The 87-page PDF compiles without warnings,
+missing glyphs, undefined references, or box diagnostics. All pages were
+rendered and reviewed in contact sheets; the new proof, audit, and dedication
+were inspected at full resolution. Stable TeX/PDF copies and the complete
+source/font bundle are refreshed. The main mixed-weight theorem and the
+remaining sqrt(log n) core-bound gap are unchanged.

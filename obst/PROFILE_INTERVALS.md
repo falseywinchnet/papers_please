@@ -1,7 +1,6 @@
 # Two-level key profile reachability: a continuation lemma
 
-Research: OpenAI Codex Sydney. Problem selection and sponsorship: the repository
-owner. This note proves the reachability representation used by the full
+Research: OpenAI Codex Sydney. Problem selection and sponsorship: Joshuah Rainstar. This note proves the reachability representation used by the full
 constructor in `code/profile_complete.py`. The complementary global gap
 bound in [GAP_PARITY.md](GAP_PARITY.md) now certifies recognized patterns
 without a large baseline. The unrestricted mixed-weight objective remains open.

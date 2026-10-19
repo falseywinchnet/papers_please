@@ -192,3 +192,10 @@ Full root/nonroot constructor, independent oracles, scaling, and matched runs:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/root_partition_family.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_root_partition.py
 ```
+
+Binary-weight adversarial controls and exact gap-core mass audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/binary_core_search.cpp -o /tmp/obst-binary-core-search && python3 obst/code/binary_core_search.py /tmp/obst-binary-core-search'
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/gap_core_identity.py
+```
