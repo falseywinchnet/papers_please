@@ -109,3 +109,12 @@ only the ruler-pair classification and interval geometry.
 
 Records and executed-source hashes are in `tile_boundary_probe.json`,
 `tile_capacity_support.json`, and `one_key_square.json`.
+
+A subsequent fixed-side variable-mass search evaluates 40557 inputs through
+256 keys, with 121969824 tile visits. Its maximum observed ratio is 136/149
+(side 32, core 136, local mass 117), and all 15 small retained winner tiles
+agree with independent all-root layers. The record is
+`tile_support_frontier.json`. This leaves (1) open. The separate exact
+full-ruler tail in [RULER_CLIPPING_SHARPNESS.md](RULER_CLIPPING_SHARPNESS.md)
+shows why the capacity-over-width term is needed in the density-mass route;
+it does not convert that mass into a larger core-cardinality lower bound.

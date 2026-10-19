@@ -1,0 +1,367 @@
+{
+  "scope": "Exact spaced-rank family and exploratory clipping increments; generic subsequence controls only.",
+  "rows": [
+    {
+      "kind": "spaced",
+      "d": 1,
+      "m": 2,
+      "n": 12,
+      "c": 5,
+      "tail": 1
+    },
+    {
+      "kind": "spaced",
+      "d": 1,
+      "m": 3,
+      "n": 16,
+      "c": 7,
+      "tail": 2
+    },
+    {
+      "kind": "spaced",
+      "d": 1,
+      "m": 4,
+      "n": 20,
+      "c": 9,
+      "tail": 3
+    },
+    {
+      "kind": "spaced",
+      "d": 1,
+      "m": 7,
+      "n": 32,
+      "c": 15,
+      "tail": 6
+    },
+    {
+      "kind": "spaced",
+      "d": 2,
+      "m": 2,
+      "n": 24,
+      "c": 11,
+      "tail": 1
+    },
+    {
+      "kind": "spaced",
+      "d": 2,
+      "m": 3,
+      "n": 32,
+      "c": 15,
+      "tail": 2
+    },
+    {
+      "kind": "spaced",
+      "d": 2,
+      "m": 4,
+      "n": 40,
+      "c": 19,
+      "tail": 3
+    },
+    {
+      "kind": "spaced",
+      "d": 2,
+      "m": 7,
+      "n": 64,
+      "c": 31,
+      "tail": 6
+    },
+    {
+      "kind": "spaced",
+      "d": 3,
+      "m": 2,
+      "n": 36,
+      "c": 17,
+      "tail": 1
+    },
+    {
+      "kind": "spaced",
+      "d": 3,
+      "m": 3,
+      "n": 48,
+      "c": 23,
+      "tail": 2
+    },
+    {
+      "kind": "spaced",
+      "d": 3,
+      "m": 4,
+      "n": 60,
+      "c": 29,
+      "tail": 3
+    },
+    {
+      "kind": "spaced",
+      "d": 3,
+      "m": 7,
+      "n": 96,
+      "c": 47,
+      "tail": 6
+    },
+    {
+      "kind": "spaced",
+      "d": 4,
+      "m": 2,
+      "n": 48,
+      "c": 23,
+      "tail": 1
+    },
+    {
+      "kind": "spaced",
+      "d": 4,
+      "m": 3,
+      "n": 64,
+      "c": 31,
+      "tail": 2
+    },
+    {
+      "kind": "spaced",
+      "d": 4,
+      "m": 4,
+      "n": 80,
+      "c": 39,
+      "tail": 3
+    },
+    {
+      "kind": "spaced",
+      "d": 4,
+      "m": 7,
+      "n": 128,
+      "c": 63,
+      "tail": 6
+    },
+    {
+      "kind": "spaced",
+      "d": 5,
+      "m": 2,
+      "n": 60,
+      "c": 29,
+      "tail": 1
+    },
+    {
+      "kind": "spaced",
+      "d": 5,
+      "m": 3,
+      "n": 80,
+      "c": 39,
+      "tail": 2
+    },
+    {
+      "kind": "spaced",
+      "d": 5,
+      "m": 4,
+      "n": 100,
+      "c": 49,
+      "tail": 3
+    },
+    {
+      "kind": "spaced",
+      "d": 5,
+      "m": 7,
+      "n": 160,
+      "c": 79,
+      "tail": 6
+    },
+    {
+      "kind": "spaced",
+      "d": 8,
+      "m": 2,
+      "n": 96,
+      "c": 47,
+      "tail": 1
+    },
+    {
+      "kind": "spaced",
+      "d": 8,
+      "m": 3,
+      "n": 128,
+      "c": 63,
+      "tail": 2
+    },
+    {
+      "kind": "spaced",
+      "d": 8,
+      "m": 4,
+      "n": 160,
+      "c": 79,
+      "tail": 3
+    },
+    {
+      "kind": "spaced",
+      "d": 8,
+      "m": 7,
+      "n": 256,
+      "c": 127,
+      "tail": 6
+    },
+    {
+      "kind": "spaced",
+      "d": 12,
+      "m": 2,
+      "n": 144,
+      "c": 71,
+      "tail": 1
+    },
+    {
+      "kind": "spaced",
+      "d": 12,
+      "m": 3,
+      "n": 192,
+      "c": 95,
+      "tail": 2
+    },
+    {
+      "kind": "spaced",
+      "d": 12,
+      "m": 4,
+      "n": 240,
+      "c": 119,
+      "tail": 3
+    },
+    {
+      "kind": "spaced",
+      "d": 12,
+      "m": 7,
+      "n": 384,
+      "c": 191,
+      "tail": 6
+    },
+    {
+      "kind": "clipped",
+      "t": 2,
+      "h": 3,
+      "d": 2,
+      "m": 1,
+      "n": 16,
+      "tails": [
+        0,
+        0,
+        0
+      ],
+      "increment": 0
+    },
+    {
+      "kind": "clipped",
+      "t": 2,
+      "h": 4,
+      "d": 2,
+      "m": 3,
+      "n": 32,
+      "tails": [
+        0,
+        2,
+        3
+      ],
+      "increment": 2
+    },
+    {
+      "kind": "clipped",
+      "t": 2,
+      "h": 5,
+      "d": 2,
+      "m": 7,
+      "n": 64,
+      "tails": [
+        0,
+        6,
+        10
+      ],
+      "increment": 6
+    },
+    {
+      "kind": "clipped",
+      "t": 3,
+      "h": 4,
+      "d": 4,
+      "m": 1,
+      "n": 32,
+      "tails": [
+        0,
+        0,
+        0
+      ],
+      "increment": 0
+    },
+    {
+      "kind": "clipped",
+      "t": 3,
+      "h": 5,
+      "d": 4,
+      "m": 3,
+      "n": 64,
+      "tails": [
+        0,
+        2,
+        3
+      ],
+      "increment": 2
+    },
+    {
+      "kind": "clipped",
+      "t": 3,
+      "h": 6,
+      "d": 4,
+      "m": 7,
+      "n": 128,
+      "tails": [
+        0,
+        6,
+        10
+      ],
+      "increment": 6
+    },
+    {
+      "kind": "clipped",
+      "t": 4,
+      "h": 5,
+      "d": 8,
+      "m": 1,
+      "n": 64,
+      "tails": [
+        0,
+        0,
+        0
+      ],
+      "increment": 0
+    },
+    {
+      "kind": "clipped",
+      "t": 4,
+      "h": 6,
+      "d": 8,
+      "m": 3,
+      "n": 128,
+      "tails": [
+        0,
+        2,
+        3
+      ],
+      "increment": 2
+    },
+    {
+      "kind": "clipped",
+      "t": 4,
+      "h": 7,
+      "d": 8,
+      "m": 7,
+      "n": 256,
+      "tails": [
+        0,
+        6,
+        10
+      ],
+      "increment": 6
+    }
+  ],
+  "checks": {
+    "spaced_generic_controls": 28
+  },
+  "compiled_counts": {
+    "inputs": 55,
+    "score_states": 22844485,
+    "densities": 103588
+  },
+  "source_sha256": {
+    "spaced_rank_tail.py": "eb21105115a9e54d346c484e3432c7de7736726de4f3b25e9fb9055f3e1ef7be",
+    "template_tail_probe.cpp": "7f30aeeb3f6cdbd109fb1c07bb0240b5f6fcb66a81cb24de4c60f3888c6a5cb9"
+  }
+}

@@ -18,6 +18,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Capacity densities, sharp interaction allowance, and wider-band obstruction](CAPACITY_INTERACTION.md)
 - [Explicit two-key disproof of logarithmic interaction allowances](SPARSE_INTERACTION_BARRIER.md)
 - [Coupled rank-reward stability and periodic clipping obstruction](RANK_REWARD_STABILITY.md)
+- [Exact full-ruler tail and sharp clipping scale](RULER_CLIPPING_SHARPNESS.md)
 - [Alternating-tail matching bound and exact growing-width families](ALTERNATING_TAIL_BOUND.md)
 - [Rank-weighted repair certificates and tie-independent barriers](RANK_REPAIR_BARRIER.md)
 - [Exact weighted cluster tails and pointwise-sensitivity obstruction](WEIGHTED_CLUSTER_TAIL.md)
@@ -82,6 +83,13 @@ most P(2^(h-t)-(h-t)-1), which is O(Pc/d) for t near log2 d. The remaining
 periodic template needs capacity-dependent control: its alternating 0,1 version has
 an explicit two-key family with tail 2^(h-1)-4 at width two. See
 [the stability proof and periodic obstruction](RANK_REWARD_STABILITY.md).
+An [exact full-ruler family](RULER_CLIPPING_SHARPNESS.md) now proves the
+clipping error has the necessary order: for d=2^a, Q=2^b, C=dQ, and two
+unit keys at C-3d,C, the full tail is 5Q/4-3b+2 while the level-a clipped
+tail is zero. Its ratio to the proved allowance tends to 5/8. A separate
+sparse periodic template disproves every general bound based only on
+P(max v+sum v/d). These are density-mass results; the support-size gap
+and the main complexity theorem remain unchanged.
 Expanded sparse and repeated-cluster searches retain the broader mixed
 tail estimate as an open target.
 

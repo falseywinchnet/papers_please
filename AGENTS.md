@@ -345,3 +345,19 @@ Literal zero-threshold-tail counterexample:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/nested_tail_example.py
 ```
+
+Fixed-side, variable-mass local support falsification:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/tile_support_frontier.cpp -o /tmp/obst-tile-support-frontier && python3 obst/code/tile_support_frontier.py /tmp/obst-tile-support-frontier'
+```
+
+General-template tail probe and explicit spaced-rank family:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/template_tail_probe.cpp -o /tmp/obst-template-tail-probe && python3 obst/code/template_tail_probe.py /tmp/obst-template-tail-probe && python3 obst/code/spaced_rank_tail.py /tmp/obst-template-tail-probe && python3 obst/code/ruler_clipping_sharp.py /tmp/obst-template-tail-probe'
+```
+
+The sharpness audit reads the spaced-rank result as an independently computed
+control and records its hash. The two-key rank enumeration and original
+all-root checks are distinct from the generic compiled subsequence recurrence.

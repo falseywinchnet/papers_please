@@ -1117,10 +1117,118 @@ otherwise $2^t>d/2$ gives the stated estimate.
 \end{proof}
 The remaining template has period $2^t$. The corollary controls the
 high-rank contribution at the desired capacity-over-width scale while
-retaining joint optimization of all weights. The next theorem controls
-the periodic part at level one. Higher levels remain open;
+retaining joint optimization of all weights. That error scale is necessary,
+as the following exact family shows. The subsequent alternating-template
+theorem controls the periodic part at level one. Higher levels remain open;
 Lemma~\ref{prop:periodic-tail-barrier} shows that even level one
 requires a capacity-dependent term.
+
+\begin{theorem}[Exact full-ruler clipping tail]\label{thm:ruler-clipping-sharp}
+Let $a\ge0$, $b\ge3$, $d=2^a$, $Q=2^b$, $C=dQ$, $h=a+b$,
+$c=C-1$, and $n=2C$. Give unit weight to the keys at one-based positions
+$x=C-3d$ and $y=C$, and zero weight to every other key. For
+$v_r=\nu_2(r)$,
+\begin{equation}\label{eq:ruler-clipping-sharp}
+ U_d(v)=\frac{5Q}{4}-3b+2,\qquad U_d(v^{(a)})=0.
+\end{equation}
+These above-capacity tails are unchanged by arbitrary nonnegative gap
+weights. Since $P=2$, the ratio of their difference to the clipping
+allowance $P(Q-b-1)$ tends to $5/8$ as $b\to\infty$.
+\end{theorem}
+\begin{proof}
+Put $\ell_r=\min(v_r,a)$ and $z_r=(v_r-a)_+$. The high reward $z_r$
+vanishes away from multiples of $d$, and $z_{dt}=\nu_2(t)$.
+We first verify compatible optimization on the boundary intervals in
+\eqref{eq:rank-tail-telescope}. This step is needed because optimized
+scores are not generally additive.
+
+Consider an interval with slack $e=d$ or $d-1$ containing both unit keys,
+and let $r$ be the first key's relative one-based position. Their selected
+ranks have the form
+\[
+ r-u,\quad r+3d-w,\qquad 0\le u\le w\le e,
+\]
+with both ranks in $[1,C-1]$. If $r\bmod d\ne0$ and the two multiples
+of $d$ in the feasible rank windows are valid, $u=w=r\bmod d$ selects
+both. Every other rank has low reward less than $a$ and high reward zero.
+A selection using one multiple can round the other rank to its multiple
+without violating $u\le w$, so the same selection maximizes both parts.
+For slack $d-1$ and $r\bmod d=0$, the unique feasible pair of multiples
+has this same property.
+
+For slack $d$ and $r=dR$, the pairs of multiples, after division by $d$, are
+\[
+ (R,R+3),\quad(R-1,R+2),\quad(R,R+2),
+\]
+with out-of-range pairs discarded. The boundary starts with both keys
+present have $1\le R\le Q-3$, so the third pair is always valid.
+If one selected rank is off the multiples, round it while retaining the
+rank already on a multiple: the extreme shifts force the first two pairs,
+and the intermediate shifts use the third. A pair with neither rank on
+a multiple is dominated in low reward by the third pair. Thus a high-score
+maximizer also has low score $2a$.
+
+The remaining two-key case is $1\le r<d$. The first key's best low rank
+lies in $[1,r]$; the second key's unique multiple is $3d$, with reward
+$a$ and high reward zero. These choices are compatible: the first omission
+count is less than $r$, and the second is $r$. With only one key present,
+its feasible rank window either contains a multiple of $d$, giving maximum
+$a$ plus the high maximum, or contains none and has zero high maximum.
+On the full interval, two selected ranks are at distance at most $3d$,
+so at most one is divisible by $4d$. Their reward is at most
+$(h-1)+(a+1)=h+a$. Ranks $C/2,C/2+2d$ attain it, have low score $2a$,
+and have high score $b$. They are feasible at $x,y$ because $Q\ge8$.
+Consequently every boundary score and the full score satisfy
+\[
+ S_v=S_\ell+S_z.
+\]
+On these same intervals the low score is also the sum of the separate
+one-key low scores. A one-key capped-ruler maximum is the sum, over
+$1\le t\le a$, of the indicators that its rank window meets a multiple
+of $2^t$. Its density cells have capacity distance $2^t-1<d$, by the
+consecutive-multiple classification in Section~\ref{sec:local-tile-obstruction}.
+Hence $U_d(\ell)=0$ and $U_d(v)=U_d(z)$.
+
+For the high scores put $k=C+d-1$ and divide selected multiple ranks by $d$.
+The coarse instance has length $2Q$, capacity $Q-1$, unit keys at
+$Q-3,Q$, and ruler rewards $\nu_2(t)$. If $i=jd$, the long boundary
+score $S_z(i,i+k)$ maps to the coarse interval $[j,j+Q)$. If
+$i=jd+r$ with $1\le r<d$, it maps to $[j+1,j+Q)$. Every short score
+$S_z(i+1,i+k)$ in this block maps to $[j+1,j+Q)$.
+These are exactly the unique-pair and three-pair alternatives above.
+The terminal high score is zero, and the full score maps to the coarse
+full interval. Cancelling within each block of
+\eqref{eq:rank-tail-telescope}, including the zero endpoint terms, gives
+$U_d(z)=U_1$ for the coarse instance.
+
+Set $V(r)=\nu_2(r)$ for $1\le r<Q$ and zero otherwise. In that coarse
+instance write $R=Q-3-i$. The long interval has one omission and the
+short interval has none. Their score difference is
+\[
+ \delta_R=\max\{V(R)+V(R+3),\ V(R)+V(R+2),\
+                    V(R-1)+V(R+2)\}-V(R-1)-V(R+2).
+\]
+The nonzero range is $-2\le R\le Q-3$. For even $R$ this is $V(R)$,
+whose sum is $Q-b-2$. For odd $R$ it is
+$[V(R+3)-V(R-1)]_+$. The boundary values $R=-1,1$ contribute $1,2$;
+values $R=3\pmod4$ contribute zero. Writing $R=4t+1$ for the others
+leaves the positive differences $\nu_2(t+1)$ for odd $t$, except the
+last $t=Q/4-1$, where $V(Q)=0$. Thus the odd sum is
+\[
+ 3+\sum_{j=1}^{Q/4-1}\nu_2(j)=Q/4-b+4.
+\]
+The full coarse score is $b$: two ranks within distance three cannot both
+be divisible by four, and $Q/2,Q/2+2$ attain $(b-1)+1$.
+Subtracting this full score gives \eqref{eq:ruler-clipping-sharp}.
+Corollary~\ref{cor:ruler-clipping} removes reward $Q-b-1$, giving the
+stated ratio. Gap independence follows from \eqref{eq:mixed-slots-above}.
+\end{proof}
+
+This proves necessity of the $PC/d$ scale for full-ruler density mass.
+Multiplying both key weights by $C$ makes total key mass $n$ and scales
+the displayed tails by $C$; the number of positive cells does not scale.
+The theorem therefore sharpens the tail analysis without changing the
+current core-cardinality upper bound.
 
 \subsection{A width-sensitive bound for the alternating template}
 \label{sec:alternating-tail-bound}
@@ -5557,6 +5665,47 @@ tails $1,0,0$. Scaling the weights scales the positive tail and preserves
 the zero threshold integral.
 \end{proof}
 
+\subsection{Sparse rank rewards defeat an average-reward tail bound}
+\label{sec:sparse-rank-tail}
+The full-ruler capacity term cannot be replaced by average template reward
+in a theorem for arbitrary nonnegative rank templates.
+\begin{lemma}[Sparse periodic rank obstruction]\label{lem:sparse-rank-tail}
+There is no absolute constant $A$ such that
+\[
+ U_d(v)\le A P\left(\max_r v_r+\frac1d\sum_r v_r\right)
+\]
+for every nonnegative template and input, even for periodic binary
+templates and two unit keys.
+\end{lemma}
+\begin{proof}
+For integers $d\ge1$ and $m\ge2$, put $C=2d(m+1)$, $c=C-1$, and
+$n=2C$. Give unit weight to one-based input positions $x=C-3d,y=C$.
+Let $v_r=1$ exactly at ranks $2d,4d,\ldots,2dm$. We show $U_d(v)=m-1$.
+
+At slack $d$, both keys receive reward one precisely when the first
+relative rank is $2dt$, $1\le t\le m-1$. Their separation $3d$ requires
+all $d$ omissions between them to reach consecutive rewarding ranks.
+There are $m-1$ such starts. At slack $d-1$, a simultaneous reward is
+impossible: feasible rank gaps lie in $[2d+1,3d]$, containing no positive
+multiple of $2d$.
+
+For a key at $X$, long starts giving reward one lie in
+$[X-2dt-d,X-2dt]$, $1\le t\le m$. Taking the union for $x,y$ within
+the boundary start range gives
+\[
+ [0,C-4d]\ \cup\ [C-3d,C-2d],
+\]
+containing $C-3d+2$ starts. For short starts the union is
+$[1,C-4d]\cup[C-3d+1,C-2d]$, containing $C-3d$ starts.
+The two boundary sums in \eqref{eq:rank-tail-telescope} are therefore
+$C-3d+m+1$ and $C-3d$. The full score is two, so $U_d=m-1$.
+Taking $m=d\ge2$ gives ratio $(d-1)/4$ to the proposed right-hand
+expression without $A$, which is unbounded.
+\end{proof}
+This sparse auxiliary template differs from the full ruler. The obstruction
+preserves the full-ruler target $O(P(h+C/d))$; its capacity term accommodates
+the explicit family.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -7031,6 +7180,46 @@ The proof of Lemma~\ref{lem:one-key-square} uses only the ruler-pair
 classification and interval geometry. The record is
 \texttt{one\_key\_square.json}. All records retain exact inputs,
 operation counts, seeds where used, and executed-source hashes.
+
+\section{Full-ruler clipping sharpness and directed support searches}
+\label{app:ruler-clipping-sharp}
+The audit of Theorem~\ref{thm:ruler-clipping-sharp} enumerates feasible
+ranks of the two positive keys on 16 parameter pairs, through 1024 keys.
+It checks 3544 compatible score decompositions, 3544 coarse score mappings,
+and 16 parity sums. Twenty generic subsequence controls independently check
+full and clipped tails through 128 keys, using 2,370,068 score transitions
+and 20,424 densities. Twelve original all-root controls through 64 keys
+include nonzero gap weights and a key-weight scaling factor of seven;
+they use 1,473,440 root candidates and 71,664 states. Literal enumeration
+checks 11,520 subsequences for 18 boundary scores.
+
+The sparse-rank boundary counts in Lemma~\ref{lem:sparse-rank-tail} have
+28 independent two-key rank controls against the generic subsequence
+diagnostic, plus 840 literal subsequences for 14 scores on the smallest
+instance. Across both families, the rank audit uses 174,756 one-rank
+candidates and 433,864 two-rank candidates for 14,276 scores. Larger
+formula-only rows are marked separately. The records are
+\texttt{ruler\_clipping\_sharp.json} and \texttt{spaced\_rank\_tail.json}.
+
+A preceding joint input/template search evaluates 22,212 inputs through
+128 positions. Its largest observed ratio to
+$P(\max v+\sum v/d)$ is $16/17$. The explicit family in
+Lemma~\ref{lem:sparse-rank-tail} instead has unbounded ratio.
+The search records 865,917,888 score transitions and 9,089,940 densities;
+three retained small tails have 34,560 literal-subsequence checks for
+54 scores. The record is \texttt{template\_tail\_probe.json}.
+
+A separate fixed-side, variable-integer-mass search attacks
+\eqref{eq:boundary-tile-hypothesis}. It evaluates 40,557 inputs through
+256 keys and visits 121,969,824 accepted tiles. Its maximum observed
+ratio is $136/149$, at side 32 with 136 positive entries and local mass
+117. Fifteen retained small winner tiles agree with independent all-root
+layers, using 2,266,528 candidates and 109,936 states. The compiled search
+records 2,806,155,040 states, 5,480,712,131 root candidates, and
+2,774,094,048 density evaluations. These finite tests leave the local
+support hypothesis open. The record is \texttt{tile\_support\_frontier.json}.
+All records retain exact inputs, operation counts, and executed-source
+hashes; seeded searches also retain their seeds.
 
 \clearpage
 \begingroup\small

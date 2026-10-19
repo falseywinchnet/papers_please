@@ -2774,3 +2774,85 @@ result labels and the exact dedication source were preserved. The five new
 executed-source manifests match the committed-source candidates. Stable PDF,
 TeX, and a self-contained source ZIP with the Hebrew font and license were
 refreshed from this build.
+
+## Checkpoint 39: exact full-ruler clipping sharpness
+
+The preceding turn was progress: checkpoint 38 published the threshold-tail
+obstruction, the one-key square lemma, and the conditional boundary-plus-mass
+target. This turn attacked the open size question directly and tested a
+second route through width-sensitive sequence-selection tails. The full
+mixed-weight objective and the main construction bound remain unchanged.
+
+A fixed-side variable-integer-mass search evaluates 40557 inputs through
+256 keys, visiting 121969824 accepted tiles. It improves the observed local
+ratio to 136/149 (side 32, core 136, local mass 117). All 15 retained small
+winner tiles agree with independent all-root layers. Counts are 2806155040
+states, 5480712131 root candidates, and 2774094048 density evaluations;
+independent checks use 2266528 candidates and 109936 states. The winners
+concentrate near the main diagonal, so they do not resolve the difficult
+capacity-adjacent support charge. No upper bound is inferred.
+
+The broader proposed general-template inequality
+U_d <= A P(max v + sum v/d) is false for every constant A. A joint
+input/template search tested 22212 inputs through 128 positions, with
+maximum ratio 16/17, and missed the explicit family derived afterward.
+That search uses 865917888 score transitions and 9089940 densities; three
+small tails have 34560 literal-subsequence controls over 54 scores.
+
+For the counterfamily take d>=1,m>=2,C=2d(m+1),c=C-1,n=2C, unit keys
+at one-based C-3d,C, and binary rank rewards at 2d,4d,...,2dm. The long
+boundary sum is C-3d+m+1, the short sum C-3d, and full reward two. Thus
+U_d=m-1. Taking m=d gives unbounded ratio (d-1)/4. This is a sparse
+auxiliary-template obstruction, not a disproof of the full-ruler tail target.
+
+The same aligned input yields a new exact full-ruler theorem. For
+a>=0,b>=3,d=2^a,Q=2^b,C=dQ,h=a+b,n=2C, place unit keys at C-3d,C.
+Then the full ruler has U_d=5Q/4-3b+2, while clipping at level a gives
+zero tail. Any gap weights cancel above capacity. Scaling key weights
+scales mass but preserves support; this is not a new core-cardinality
+lower bound. The ratio to the existing clipping allowance P(Q-b-1) tends
+to 5/8, proving that allowance has the necessary PC/d order.
+
+The proof checks compatible low/high optimizers on every boundary interval
+rather than assuming additivity. At slack d or d-1, feasible two-key ranks
+are r-u,r+3d-w with 0<=u<=w<=e. Rounding to multiples of d preserves
+feasibility and an optimal high reward while attaining the low optimum;
+the near-endpoint case and full interval are handled explicitly. Dividing
+multiple ranks by d makes every non-phase boundary score cancel, leaving
+a width-one coarse ruler on Q-1 ranks. Its even-start contributions sum
+to Q-b-2, odd-start contributions to Q/4-b+4, and full reward is b.
+The low clipped tail vanishes because its one-key densities lie strictly
+inside width d and its two-key boundary scores are compatible sums.
+
+A preliminary guess Q-b-2 matched the first two small coarse sizes but
+was not retained: the parity calculation gives 5Q/4-3b+2, confirmed at
+all subsequent sizes. The closed-form statement and final artifact use
+only the latter formula.
+
+The final audit covers 16 parameter pairs through 1024 keys, checking 3544
+compatible score decompositions and 3544 coarse mappings. Twenty generic
+subsequence tails through 128 keys use 2370068 transitions and 20424
+densities. Twelve original all-root controls through 64 keys include
+nonzero gaps and scale-seven key weights, using 1473440 candidates and
+71664 states. Literal enumeration checks 11520 subsequences for 18 full-
+ruler scores, plus 840 subsequences for 14 sparse-template scores. There
+are 28 independent sparse-template boundary-sum controls. Overall explicit
+rank enumeration uses 174756 single-rank and 433864 pair-rank candidates
+for 14276 scores. Formula-only large rows are separately marked.
+
+The manuscript places the exact theorem beside rank clipping, the sparse
+template obstruction with the negative results, and counts in Appendix O.
+RULER_CLIPPING_SHARPNESS.md gives the expanded proof. All four new JSON
+records have matching executed-source manifests. The next outstanding
+proof obligation remains the height-independent local support charge,
+or a genuinely larger explicit core family; the new tail formula prevents
+trying to eliminate the necessary clipping term along that route.
+
+Publication validation: Tectonic compiled the 108-page manuscript without
+warnings, unresolved references, or overfull/underfull boxes. All pages were
+rendered and inspected in contact sheets; pages 17--19, 83, 106, and the
+final dedication were additionally inspected at reading resolution. All
+57 legacy result labels and the exact dedication source are preserved.
+The four new result manifests match their executed-source files and the
+recorded independent-input artifact. Stable TeX, PDF, and the self-contained
+source ZIP with its Hebrew font and license were refreshed from this build.

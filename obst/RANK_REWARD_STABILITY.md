@@ -164,3 +164,11 @@ inputs through n=1024; the second evaluates 462 repeated sparse clusters
 through n=2048. Their largest respective ratios are 485/168 and 2828/1107.
 These finite maxima provide no upper-bound proof. All four result records
 include operation counts and hashes of the sources actually executed.
+
+## Exact necessity of the clipping scale
+
+[RULER_CLIPPING_SHARPNESS.md](RULER_CLIPPING_SHARPNESS.md) proves a full-ruler
+two-key family with U_d=5Q/4-3b+2 and zero level-a clipped tail, where
+d=2^a, Q=2^b, b>=3. Its ratio to the allowance P(Q-b-1) tends to 5/8.
+The proof uses compatible low/high optimizers for this family and an exact
+coarse-boundary reduction; it does not assume input-unit additivity.
