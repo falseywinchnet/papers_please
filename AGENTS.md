@@ -361,3 +361,25 @@ General-template tail probe and explicit spaced-rank family:
 The sharpness audit reads the spaced-rank result as an independently computed
 control and records its hash. The two-key rank enumeration and original
 all-root checks are distinct from the generic compiled subsequence recurrence.
+
+Exact unit-gap density classification and unit-support envelope audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/unit_support_envelope.py
+```
+
+Directed support search excluding every unit-outcome envelope cell:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/interaction_support_probe.cpp -o /tmp/obst-interaction-support-probe && python3 obst/code/interaction_support_probe.py /tmp/obst-interaction-support-probe'
+```
+
+Explicit two-key off-envelope interaction witnesses:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/unit_envelope_obstruction.py
+```
+
+Copy each remote result back before the next mirror operation. The witness
+audit uses independent feasible-rank enumeration through 8192 keys; original
+all-root and generic subsequence controls are restricted to n<=128.

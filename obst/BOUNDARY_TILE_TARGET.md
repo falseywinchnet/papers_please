@@ -16,6 +16,13 @@ and padding and inclusive gap endpoints are as in AGGREGATE_CORES.md.
 This hypothesis is unproved. It is compatible with the existing one-key
 obstruction, which has logarithmic support inside a large tile.
 
+The subsequent [unit-support analysis](UNIT_SUPPORT_ENVELOPE.md) bounds the
+envelope of every possible individual outcome by 2s cells per dyadic tile,
+with sharp leading coefficient two. Even after removing this entire envelope,
+two unit keys create at least log2(s)-2 positive cells in one maximal tile.
+Thus a constant-per-weight charge fails for the remaining interaction
+support as well; the side term in (1) still accommodates this obstruction.
+
 ## A proved logarithmic-side bound for one key
 
 **Lemma.** If exactly one key has positive weight and all gaps have weight

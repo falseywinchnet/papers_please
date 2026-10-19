@@ -5706,6 +5706,73 @@ This sparse auxiliary template differs from the full ruler. The obstruction
 preserves the full-ruler target $O(P(h+C/d))$; its capacity term accommodates
 the explicit family.
 
+\subsection{Interactions survive removal of every unit-outcome support}
+\label{sec:off-envelope-obstruction}
+One possible repair to constant-per-weight charging is to first remove
+every cell attainable by a single positive outcome. The geometric envelope
+$\mathcal E_h$ in Lemma~\ref{lem:unit-support-envelope} contains all such
+cells, for every key and gap position. Even removing this whole envelope
+does not make the remaining support bounded by a constant times local mass.
+
+\begin{theorem}[Off-envelope interaction support]
+\label{thm:off-envelope-interaction}
+Let $s=2^t$, $t\ge3$, $n=8s$, $C=4s$, $c=C-1$, and $h=t+2$.
+Put unit keys at one-based positions $X=3s+3$ and $Y=4s+2$, with
+all other weights zero. The accepted maximal tile
+$T=[0,s)\times[5s,6s)$ has local mass two and at least
+$\log_2s-2$ positive densities outside $\mathcal E_h$.
+In particular, no absolute constant bounds off-envelope support by
+that constant times local mass.
+\end{theorem}
+\begin{proof}
+The tile has minimum interval length $4s+1>c$; its parent
+$[0,2s)\times[4s,6s)$ meets capacity. For each $r=2,\ldots,t-1$,
+consider
+\[
+ i=s+3-2^r,\qquad j=5s+2^{r-1}.
+\]
+These are distinct cells in $T$. Their distance above capacity is
+$g=3\cdot2^{r-1}-2$. Since $g+1$ is not a power of two, they lie
+outside $\mathcal E_h$.
+
+For an above-capacity interval $[a,b)$ containing both keys, feasible
+exposed ranks $u<v$ are characterized by
+\[
+ 1\le u<v\le c,\quad u\le X-a,\quad v\ge Y+c-b,
+ \quad v-u\le Y-X=s-1.
+\]
+These conditions give enough zero keys before, between, and after the
+two positive keys to fill the remaining selected ranks. Write
+$X-a=2s+x$ and $Y+c-b=3s-y$. At all four corners of each witness,
+$3\le x\le s/2$ and $1\le y\le s/4$.
+If $v<3s$, replacing $u$ by $2s$ is feasible and does not lower its
+valuation: $v>2s$, $v-2s\le s-1$, and $2s\le X-a$.
+If $v\ge3s$, replacing $v$ by $3s$ is feasible and does not lower
+its valuation: the original separation forces $u\ge2s+1$, while
+$u\le X-a<3s$. The valuations of $2s$ and $3s$ are $t+1$ and $t$.
+The largest valuation on $[3s-y,3s-1]$ is $\lfloor\log_2y\rfloor$,
+and on $[2s+1,2s+x]$ it is $\lfloor\log_2x\rfloor$.
+Both resulting pairs are feasible, so the exact maximum score is
+\[
+ S(a,b)=t+F(x,y),\qquad
+ F(x,y)=\max\{\lfloor\log_2x\rfloor,1+\lfloor\log_2y\rfloor\}.
+\]
+Omitting one positive key gives score at most $t+1$, and omitting
+both gives zero; neither improves this formula.
+
+At the witness cell, $x=2^r$ and $y=2^{r-1}-1$. The affine penalty
+and the constant $2h$ cancel in the cost density, leaving
+\[
+ F(x,y)+F(x-1,y+1)-F(x,y+1)-F(x-1,y)
+ =r+r-r-(r-1)=1.
+\]
+There are $t-2$ such cells and the local mass is two. Their ratio to
+local mass is unbounded as $t$ grows.
+\end{proof}
+The theorem rules out a mass-only charge after removing the entire
+unit-outcome envelope. It is compatible with the boundary-plus-mass
+hypothesis below, whose side term also covers these interaction cells.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -5771,6 +5838,113 @@ handles $s=1$. Multiplying the positive key weight preserves support.
 Finally Theorem~\ref{thm:local-tile-obstruction} has $s=2^{h-2}$ and
 $K(T)=h-3=\log_2s-1$, proving sharpness of the leading logarithmic term.
 \end{proof}
+
+\begin{lemma}[Exact single-gap densities]\label{lem:unit-gap-density}
+Fix $h\ge1$, $C=2^h$, $c=C-1$, and put a unit weight at gap $x$,
+with all other weights zero. Ordinary off-capacity densities above
+$j-i=c$ vanish. Below capacity put $g=c-(j-i)>0$. The density is one
+exactly in the following cases, and zero otherwise:
+\begin{enumerate}
+\item $x=i$ or $x=j+1$, and $g+1$ is a power of two;
+\item $i<x\le j$, $g+2=2^r$, and
+$x-i-1\equiv2^{r-1}\pmod{2^r}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+For an interval $[i,j)$ containing the gap with $k=j-i\le c$, put
+$u=x-i$ and $v=u+c-k=x+c-j$. Its maximal gap reward $F(u,v)$ is the
+largest $a$ for which $[u,v]$ contains an aligned integer block
+$[z,z+2^a-1]$, with $2^a\mid z$. Its cost is $h-F(u,v)$.
+Indeed, the block represents $2^a$ consecutive external slots of a
+collapsed perfect subtree, whose $2^a-1$ internal slots are omitted.
+The $u$ preceding keys fit exactly when $z\ge u$; the $k-u$ following
+keys fit exactly when $z+2^a-1\le u+c-k=v$.
+The mixed-slot deletion repair gives a tree with no greater gap depth.
+Conversely, a gap at depth $h-a$ in an embedded height-$h$ tree occupies
+such an aligned block. This also covers empty intervals, where
+$[u,v]=[0,c]$ and $F=h$.
+
+Write $F=\sum_{a=1}^h I_a$, where $I_a$ indicates that an aligned
+block of length $d=2^a$ fits. For an interior gap the density is
+\[
+ F(u,v)+F(u-1,v-1)-F(u,v-1)-F(u-1,v).
+\]
+For $I_a$ this difference is $-1$ when the outer interval $[u-1,v]$
+is exactly one aligned $d$-block, $+1$ when it is exactly two consecutive
+$d$-blocks, and zero otherwise. To check every endpoint case, removing
+the right endpoint changes $I_a$ only if that endpoint finishes a block
+and no earlier complete block is present. Moving the left endpoint
+from $u-1$ to $u$ changes this event only if the removed endpoint
+starts that same block or its immediate predecessor. These give the
+one-block and two-block cases respectively.
+The outer interval has length $g+2$. At $g+2=2^r$, the positive
+contribution from level $r-1$ cancels the negative contribution from
+level $r$ when $u-1\equiv0\pmod{2^r}$; otherwise it survives precisely
+when $u-1\equiv2^{r-1}\pmod{2^r}$.
+
+For $x=i$ or $x=j+1$, the endpoint gap cost is
+$h-\lfloor\log_2(g+1)\rfloor$. The two contributing interval costs
+give density $\lfloor\log_2(g+1)\rfloor-\lfloor\log_2g\rfloor$.
+Gaps outside the four intervals contribute zero. Above capacity, every
+gap has comparison length $h$, whose interval sums have zero density.
+\end{proof}
+
+\begin{lemma}[Universal unit-outcome support envelope]
+\label{lem:unit-support-envelope}
+Define $\mathcal E_h$ on ordinary off-capacity cells by
+\[
+\begin{array}{ll}
+j-i<c:&g=c-(j-i)>0,\quad g+1\text{ or }g+2\text{ is a power of two};\\
+j-i>c:&g=(j-i)-c>0,\quad g+1\text{ is a power of two}.
+\end{array}
+\]
+The support of every possible single positive key or gap is contained
+in $\mathcal E_h$. Every dyadically aligned square of side $s$, wholly
+in the ordinary region and on one side of capacity, contains at most
+$2s$ envelope cells; below capacity the bound is $2s-1$.
+Maximality is unnecessary. The leading coefficient two is sharp for
+the union over all unit outcomes.
+\end{lemma}
+\begin{proof}
+The preceding lemma handles gaps. The key ruler-pair classification in
+Section~\ref{sec:local-tile-obstruction} gives capacity distance $2^r-1$.
+Scaling a single outcome preserves its support.
+
+The claim is immediate for $s=1$. Otherwise write the square as
+$[a,a+s)\times[b,b+s)$, with $a,b$ multiples of $s$.
+Successive interval lengths have multiplicities $1,2,\ldots,s,\ldots,2,1$.
+Below capacity, the smallest gap is $g_0=C-(b-a+s)>0$.
+Since $b-a\ge s$, we have $C\ge4s$, so $g_0$ is a positive multiple
+of $s$. The gap range is $[g_0,g_0+2s-2]$. A contributing power $d$
+with $g=d-1$ or $d-2$ exceeds $s$ and is a multiple of $s$.
+Only $d=g_0+s$ or $d=g_0+2s$ can contribute. They cannot both be
+powers of two: the first is at least $2s$ and their difference is $s$.
+The first contributes diagonals of lengths $s$ and $s-1$; the second
+contributes only the final corner. This proves the bound $2s-1$.
+
+Above capacity, $g_0=b-a-s-C+2$, and only $g=d-1$ contributes.
+If $C\ge s$, write $g_0=ms+2$; positivity forces $m\ge0$.
+For $m\ge1$, contributing powers are at least $2s$, so a window of
+width $2s-2$ contains at most two, each contributing at most $s$ cells.
+For $m=0$, powers $d\le s$ contribute $d-2$ cells each, and $d=2s$
+contributes two. Their sum is $2s-2\log_2s\le2s$.
+If $C<s$, write $g_0=ms-C+2$. Since $2\le C\le s/2$, positivity
+forces $m\ge1$. Contributing powers are at least $s$, and again at
+most two fit in the distance window. Restricting a padded grid to
+arbitrary $n$ only removes cells.
+
+For sharpness take $s\ge2$, $n=C=4s$, and
+$T=[0,s)\times[2s,3s)$. Its envelope diagonals $j-i=2s$ and $2s+1$
+contain $s$ and $s-1$ cells. A cell on the first is realized by a unit
+key at one-based position $i+1$; a cell on the second by a unit gap at
+$x=i+s+1$, using Lemma~\ref{lem:unit-gap-density}.
+The parent meets capacity, so the tile is accepted and maximal.
+This attains $2s-1$ for the union over different inputs.
+\end{proof}
+For early layers $h<L$, the envelope uses $O(L)$ diagonals and therefore
+$O(nL)$ cells per layer, or $O(nL^2)$ over all early layers.
+Theorem~\ref{thm:off-envelope-interaction} shows that support outside
+this envelope still requires accounting for joint outcomes across scales.
 
 \begin{lemma}[Conditional improvement from a boundary charge]
 \label{lem:boundary-tile-conditional}
@@ -7220,6 +7394,39 @@ records 2,806,155,040 states, 5,480,712,131 root candidates, and
 support hypothesis open. The record is \texttt{tile\_support\_frontier.json}.
 All records retain exact inputs, operation counts, and executed-source
 hashes; seeded searches also retain their seeds.
+
+\section{Unit-support geometry and off-envelope interactions}
+\label{app:unit-support-envelope}
+The single-gap density formula has 274,066 independent ordinary-density
+controls, using 3,079,878 all-root candidates and 307,625 states. The
+geometric audit checks 78,240 maximal dyadic tiles, 688 literal envelope
+counts, 248 single-key support sets, and 1222 arbitrary squares against
+the weaker $8s$ bound. The largest observed envelope-to-side ratio is
+$511/256$, consistent with the proved $2s-1$ family. The record is
+\texttt{unit\_support\_envelope.json}.
+
+A directed two-outcome search excludes every envelope cell from its
+support objective. It evaluates 819 inputs through 2048 keys and scans
+22,696,956 tiles. Its counts are 3,760,248,528 states, 7,001,021,069 root
+candidates, and 3,755,113,776 density evaluations. Six retained small
+winner tiles agree with independent all-root layers, using 718,432
+candidates and 35,984 states. This search suggested the explicit family;
+the asymptotic obstruction follows from
+Theorem~\ref{thm:off-envelope-interaction}. The record is
+\texttt{interaction\_support\_probe.json}.
+
+The explicit-family audit checks $s=8,16,\ldots,1024$, hence
+$n=64,128,\ldots,8192$. It verifies 36 density-one witnesses and 144
+four-corner score formulas by independent feasible-rank enumeration,
+using 23,808 single-rank and 2,090,940 pair-rank candidates.
+At $n\le128$, twelve scores also agree with a generic subsequence
+recurrence, using 302,446 transitions and 2806 score entries; three
+densities agree with original all-root layers, using 2,375,360 root
+candidates and 59,936 states. Larger cases use feasible-rank enumeration,
+rather than a dense all-root computation. The record is
+\texttt{unit\_envelope\_obstruction.json}. All three records retain
+executed-source SHA-256 manifests. Verification counts do not enter
+the proofs of the gap formula, geometric envelope, or interaction family.
 
 \clearpage
 \begingroup\small

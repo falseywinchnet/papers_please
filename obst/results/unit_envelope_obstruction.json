@@ -1,0 +1,385 @@
+{
+  "scope": "Exact positive-density witnesses outside the support envelope of every unit outcome. The lower bound is log2(side)-2 at local mass two; no exact total-support formula is asserted.",
+  "checks": {
+    "all_root_candidates": 2375360,
+    "dense_states": 59936,
+    "matching_candidates": 302446,
+    "score_entries": 2806,
+    "one_rank_candidates": 23808,
+    "two_rank_candidates": 2090940,
+    "two_key_scores": 144,
+    "generic_score_controls": 12,
+    "explicit_score_formulas": 144,
+    "original_density_controls": 3,
+    "explicit_density_witnesses": 36
+  },
+  "rows": [
+    {
+      "s": 8,
+      "n": 64,
+      "h": 5,
+      "key_positions_one_based": [
+        27,
+        34
+      ],
+      "tile": [
+        0,
+        40,
+        8
+      ],
+      "local_mass": 2,
+      "proved_off_envelope_cells": [
+        {
+          "i": 7,
+          "j": 42,
+          "r": 2,
+          "density": 1
+        }
+      ],
+      "verification": "independent feasible-rank enumeration; generic and original-layer controls only at n<=128"
+    },
+    {
+      "s": 16,
+      "n": 128,
+      "h": 6,
+      "key_positions_one_based": [
+        51,
+        66
+      ],
+      "tile": [
+        0,
+        80,
+        16
+      ],
+      "local_mass": 2,
+      "proved_off_envelope_cells": [
+        {
+          "i": 15,
+          "j": 82,
+          "r": 2,
+          "density": 1
+        },
+        {
+          "i": 11,
+          "j": 84,
+          "r": 3,
+          "density": 1
+        }
+      ],
+      "verification": "independent feasible-rank enumeration; generic and original-layer controls only at n<=128"
+    },
+    {
+      "s": 32,
+      "n": 256,
+      "h": 7,
+      "key_positions_one_based": [
+        99,
+        130
+      ],
+      "tile": [
+        0,
+        160,
+        32
+      ],
+      "local_mass": 2,
+      "proved_off_envelope_cells": [
+        {
+          "i": 31,
+          "j": 162,
+          "r": 2,
+          "density": 1
+        },
+        {
+          "i": 27,
+          "j": 164,
+          "r": 3,
+          "density": 1
+        },
+        {
+          "i": 19,
+          "j": 168,
+          "r": 4,
+          "density": 1
+        }
+      ],
+      "verification": "independent feasible-rank enumeration; generic and original-layer controls only at n<=128"
+    },
+    {
+      "s": 64,
+      "n": 512,
+      "h": 8,
+      "key_positions_one_based": [
+        195,
+        258
+      ],
+      "tile": [
+        0,
+        320,
+        64
+      ],
+      "local_mass": 2,
+      "proved_off_envelope_cells": [
+        {
+          "i": 63,
+          "j": 322,
+          "r": 2,
+          "density": 1
+        },
+        {
+          "i": 59,
+          "j": 324,
+          "r": 3,
+          "density": 1
+        },
+        {
+          "i": 51,
+          "j": 328,
+          "r": 4,
+          "density": 1
+        },
+        {
+          "i": 35,
+          "j": 336,
+          "r": 5,
+          "density": 1
+        }
+      ],
+      "verification": "independent feasible-rank enumeration; generic and original-layer controls only at n<=128"
+    },
+    {
+      "s": 128,
+      "n": 1024,
+      "h": 9,
+      "key_positions_one_based": [
+        387,
+        514
+      ],
+      "tile": [
+        0,
+        640,
+        128
+      ],
+      "local_mass": 2,
+      "proved_off_envelope_cells": [
+        {
+          "i": 127,
+          "j": 642,
+          "r": 2,
+          "density": 1
+        },
+        {
+          "i": 123,
+          "j": 644,
+          "r": 3,
+          "density": 1
+        },
+        {
+          "i": 115,
+          "j": 648,
+          "r": 4,
+          "density": 1
+        },
+        {
+          "i": 99,
+          "j": 656,
+          "r": 5,
+          "density": 1
+        },
+        {
+          "i": 67,
+          "j": 672,
+          "r": 6,
+          "density": 1
+        }
+      ],
+      "verification": "independent feasible-rank enumeration; generic and original-layer controls only at n<=128"
+    },
+    {
+      "s": 256,
+      "n": 2048,
+      "h": 10,
+      "key_positions_one_based": [
+        771,
+        1026
+      ],
+      "tile": [
+        0,
+        1280,
+        256
+      ],
+      "local_mass": 2,
+      "proved_off_envelope_cells": [
+        {
+          "i": 255,
+          "j": 1282,
+          "r": 2,
+          "density": 1
+        },
+        {
+          "i": 251,
+          "j": 1284,
+          "r": 3,
+          "density": 1
+        },
+        {
+          "i": 243,
+          "j": 1288,
+          "r": 4,
+          "density": 1
+        },
+        {
+          "i": 227,
+          "j": 1296,
+          "r": 5,
+          "density": 1
+        },
+        {
+          "i": 195,
+          "j": 1312,
+          "r": 6,
+          "density": 1
+        },
+        {
+          "i": 131,
+          "j": 1344,
+          "r": 7,
+          "density": 1
+        }
+      ],
+      "verification": "independent feasible-rank enumeration; generic and original-layer controls only at n<=128"
+    },
+    {
+      "s": 512,
+      "n": 4096,
+      "h": 11,
+      "key_positions_one_based": [
+        1539,
+        2050
+      ],
+      "tile": [
+        0,
+        2560,
+        512
+      ],
+      "local_mass": 2,
+      "proved_off_envelope_cells": [
+        {
+          "i": 511,
+          "j": 2562,
+          "r": 2,
+          "density": 1
+        },
+        {
+          "i": 507,
+          "j": 2564,
+          "r": 3,
+          "density": 1
+        },
+        {
+          "i": 499,
+          "j": 2568,
+          "r": 4,
+          "density": 1
+        },
+        {
+          "i": 483,
+          "j": 2576,
+          "r": 5,
+          "density": 1
+        },
+        {
+          "i": 451,
+          "j": 2592,
+          "r": 6,
+          "density": 1
+        },
+        {
+          "i": 387,
+          "j": 2624,
+          "r": 7,
+          "density": 1
+        },
+        {
+          "i": 259,
+          "j": 2688,
+          "r": 8,
+          "density": 1
+        }
+      ],
+      "verification": "independent feasible-rank enumeration; generic and original-layer controls only at n<=128"
+    },
+    {
+      "s": 1024,
+      "n": 8192,
+      "h": 12,
+      "key_positions_one_based": [
+        3075,
+        4098
+      ],
+      "tile": [
+        0,
+        5120,
+        1024
+      ],
+      "local_mass": 2,
+      "proved_off_envelope_cells": [
+        {
+          "i": 1023,
+          "j": 5122,
+          "r": 2,
+          "density": 1
+        },
+        {
+          "i": 1019,
+          "j": 5124,
+          "r": 3,
+          "density": 1
+        },
+        {
+          "i": 1011,
+          "j": 5128,
+          "r": 4,
+          "density": 1
+        },
+        {
+          "i": 995,
+          "j": 5136,
+          "r": 5,
+          "density": 1
+        },
+        {
+          "i": 963,
+          "j": 5152,
+          "r": 6,
+          "density": 1
+        },
+        {
+          "i": 899,
+          "j": 5184,
+          "r": 7,
+          "density": 1
+        },
+        {
+          "i": 771,
+          "j": 5248,
+          "r": 8,
+          "density": 1
+        },
+        {
+          "i": 515,
+          "j": 5376,
+          "r": 9,
+          "density": 1
+        }
+      ],
+      "verification": "independent feasible-rank enumeration; generic and original-layer controls only at n<=128"
+    }
+  ],
+  "source_sha256": {
+    "unit_envelope_obstruction.py": "f54c944470429805a6a69bebc322aef54adfdd0db41e875dd8bf2ef142930d21",
+    "unit_support_envelope.py": "c71fdf8079497bca3231ba71663aeeb4fe1a7dfd81dabf10bb146c9aa6768a0d",
+    "ruler_clipping_sharp.py": "08a732239ef7d0b830c6ce44f3186aa0b62de3f91f17f47b91e941afa474a312",
+    "rank_reward_tail.py": "497e654c8f0f241e5f3e4a9404cb30f72568cdfe5ea1a690b9ac17b10f13aca5",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

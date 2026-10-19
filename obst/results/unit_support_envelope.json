@@ -1,0 +1,93 @@
+{
+  "scope": "Exact all-root unit-gap density classification and geometric envelope counts. No bound on interaction support is assumed.",
+  "checks": {
+    "all_root_candidates": 3079878,
+    "dense_states": 307625,
+    "unit_gap_density_controls": 274066,
+    "maximal_envelope_controls": 78240,
+    "literal_envelope_counts": 688,
+    "unit_key_support_controls": 248,
+    "arbitrary_square_controls": 1222
+  },
+  "rows": [
+    {
+      "n": 1,
+      "H": 2,
+      "gap_positions": 2
+    },
+    {
+      "n": 2,
+      "H": 3,
+      "gap_positions": 3
+    },
+    {
+      "n": 3,
+      "H": 3,
+      "gap_positions": 4
+    },
+    {
+      "n": 4,
+      "H": 4,
+      "gap_positions": 5
+    },
+    {
+      "n": 5,
+      "H": 4,
+      "gap_positions": 6
+    },
+    {
+      "n": 7,
+      "H": 4,
+      "gap_positions": 8
+    },
+    {
+      "n": 8,
+      "H": 5,
+      "gap_positions": 9
+    },
+    {
+      "n": 9,
+      "H": 5,
+      "gap_positions": 10
+    },
+    {
+      "n": 15,
+      "H": 5,
+      "gap_positions": 16
+    },
+    {
+      "n": 16,
+      "H": 6,
+      "gap_positions": 17
+    },
+    {
+      "n": 17,
+      "H": 6,
+      "gap_positions": 18
+    },
+    {
+      "n": 24,
+      "H": 6,
+      "gap_positions": 25
+    },
+    {
+      "n": 31,
+      "H": 6,
+      "gap_positions": 32
+    },
+    {
+      "n": 32,
+      "H": 7,
+      "gap_positions": 33
+    }
+  ],
+  "largest_observed_envelope_to_side": [
+    511,
+    256
+  ],
+  "source_sha256": {
+    "unit_support_envelope.py": "c71fdf8079497bca3231ba71663aeeb4fe1a7dfd81dabf10bb146c9aa6768a0d",
+    "one_key_square.py": "7ae2ae21e754fba769b48725894e5afc531a39e549d7ed403b306c170773e726",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

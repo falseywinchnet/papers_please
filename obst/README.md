@@ -24,6 +24,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact weighted cluster tails and pointwise-sensitivity obstruction](WEIGHTED_CLUSTER_TAIL.md)
 - [Nested threshold-tail obstruction](NESTED_TAIL_OBSTRUCTION.md)
 - [Single-key square bound and the open boundary-plus-mass target](BOUNDARY_TILE_TARGET.md)
+- [Unit-outcome support envelope and the surviving two-key interaction](UNIT_SUPPORT_ENVELOPE.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -52,6 +53,16 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+An exact single-gap density classification now complements the single-key
+classification. Together they put every possible unit-outcome support inside
+an explicit envelope occupying at most 2s cells in any dyadically aligned
+side-s square off capacity; the coefficient two is sharp for their union.
+Removing that entire envelope still does not give a constant-per-weight
+charge: two unit keys have at least log2(s)-2 explicit density-one cells
+outside it in one maximal tile. Both conclusions have closed-form proofs in
+[the unit-support note](UNIT_SUPPORT_ENVELOPE.md). The open bound
+K(T)=O(s+W(J_T)) and the main construction theorem remain unchanged.
 
 The paper now leads with the exact core-sparse Monge construction for arbitrary
 nonnegative integer weights on keys and gaps. At total mass W=O(n), its bound is

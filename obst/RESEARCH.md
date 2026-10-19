@@ -2856,3 +2856,87 @@ final dedication were additionally inspected at reading resolution. All
 The four new result manifests match their executed-source files and the
 recorded independent-input artifact. Stable TeX, PDF, and the self-contained
 source ZIP with its Hebrew font and license were refreshed from this build.
+
+## Checkpoint 40: a sharp unit-support envelope and surviving interactions
+
+Checkpoint 39 established exact full-ruler clipping sharpness and left the
+local support target open. This turn continued the size-bound investigation
+by isolating every possible single-outcome contribution. The full mixed-weight
+objective and the main construction bound remain unchanged.
+
+An initial zero-run compression check found that unrestricted removal of
+zero-weight keys was already covered by the existing contraction certificate.
+Height-constrained layers retain the lengths of those runs. No duplicate
+solver or new unrestricted compression claim was introduced.
+
+The new single-gap classification is exact. Below capacity c=2^h-1, put
+g=c-(j-i)>0. A unit gap at x gives density one at x=i or x=j+1 precisely
+when g+1 is a power of two. For i<x<=j it gives one precisely when
+g+2=2^r and x-i-1 is congruent to 2^(r-1) modulo 2^r. All other
+off-capacity densities vanish, including every above-capacity density.
+The proof expresses gap reward as the largest aligned dyadic block in an
+integer window and explicitly accounts for the one-block and two-block
+endpoint differences. The scale contributions cancel except for the stated
+residue class.
+
+Combining this with the key ruler-pair formula gives a universal envelope:
+below capacity its distances have g+1 or g+2 a power of two; above capacity
+g+1 is a power of two. Every dyadically aligned side-s square off capacity
+contains at most 2s envelope cells, with the stronger 2s-1 below capacity.
+The proof enumerates the possible powers in the tile's distance window,
+including C<s and non-power-of-two input boundaries. The union over all
+unit outcomes attains 2s-1 in [0,s) x [2s,3s) at n=C=4s. This is a
+union across inputs, not a simultaneous single-input core claim. Over early
+layers the entire envelope has O(nL^2) cells. The expanded note also gives
+the weaker 8s bound for arbitrary integer-aligned squares.
+
+Removing every envelope cell still does not restore a constant-per-weight
+charge. For s=2^t, t>=3, n=8s, C=4s, c=C-1, h=t+2, place unit keys at
+one-based X=3s+3 and Y=4s+2. The maximal tile [0,s) x [5s,6s) has
+local mass two. For r=2,...,t-1, its cell
+
+    i=s+3-2^r, j=5s+2^(r-1)
+
+has density exactly one and capacity distance 3*2^(r-1)-2, outside the
+entire unit-outcome envelope. The proof reduces every feasible positive
+rank pair to one containing 2s or 3s. At the four witness corners its
+score is t+max(floor(log2 x),1+floor(log2 y)), with
+X-a=2s+x and Y+c-b=3s-y. The four-corner difference is one. Hence
+off-envelope support divided by local mass is at least (log2 s-2)/2,
+which diverges. No exact formula for the tile's total support is claimed.
+The proposed K(T)=O(s+W(J_T)) bound remains compatible and unproved.
+
+The single-gap audit checks 274066 original-layer densities, using 3079878
+root candidates and 307625 states. It also checks 78240 maximal envelope
+counts, 688 literal counts, 248 key-support sets, and 1222 arbitrary squares.
+The directed off-envelope search examines 819 two-outcome inputs through
+2048 keys, using 3760248528 states, 7001021069 root candidates,
+3755113776 density evaluations, and 22696956 tile visits. Six small
+winner tiles agree with independent all-root layers (718432 candidates,
+35984 states). The search supplied direction; the explicit theorem above
+provides the asymptotic obstruction.
+
+The final witness audit covers s=8,...,1024 and n=64,...,8192. It checks
+36 density witnesses and 144 score formulas by feasible-rank enumeration,
+with 23808 single-rank and 2090940 pair-rank candidates. At n<=128,
+twelve generic subsequence score controls use 302446 transitions and 2806
+score entries; three original-layer density controls use 2375360 all-root
+candidates and 59936 states. The larger cases retain independent rank
+enumeration, rather than being formula-only rows. All three new records
+have matching executed-source SHA-256 manifests.
+
+The manuscript places the interaction obstruction in Section 5.17, the
+single-gap formula and envelope in Section 6.1, and counts in Appendix P.
+UNIT_SUPPORT_ENVELOPE.md gives the expanded proofs. The next unresolved
+obligation is still a height-independent local support bound for interacting
+integer outcomes. The new results identify a small universal single-outcome
+part and show explicitly why the residual interaction needs a scale-aware
+charge as well.
+
+Publication validation: Tectonic compiled the 112-page manuscript without
+warnings, unresolved references, or overfull/underfull boxes. All pages were
+rendered and inspected in contact sheets; pages 84--87, Appendix P, and the
+final dedication were additionally inspected at reading resolution. All
+73 existing sec:legacy labels and the exact dedication source are preserved.
+Stable TeX, PDF, and the self-contained source ZIP with its Hebrew font and
+license were refreshed from this build.
