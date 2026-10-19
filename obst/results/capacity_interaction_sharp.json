@@ -1,0 +1,132 @@
+{
+  "scope": "Explicit sharpness formulas, independent all-root controls, and separately labeled formula-only rows.",
+  "checks": {
+    "all_root_candidates": 6131120,
+    "dense_states": 194152,
+    "capacity_identities": 4138,
+    "density_checks": 187928,
+    "total_identities": 174,
+    "vectors": 38,
+    "unit_full_checks": 28,
+    "independent_interaction_checks": 3,
+    "family_formula_checks": 5,
+    "wide_family_checks": 5
+  },
+  "rows": [
+    {
+      "h": 2,
+      "n": 8,
+      "P": 4,
+      "total_tail": 8,
+      "full_residual": 7,
+      "unit_full": 5,
+      "interaction": 2,
+      "bound": 4,
+      "verification": "all-root family and all weighted unit inputs"
+    },
+    {
+      "h": 3,
+      "n": 16,
+      "P": 8,
+      "total_tail": 48,
+      "full_residual": 20,
+      "unit_full": 12,
+      "interaction": 8,
+      "bound": 16,
+      "verification": "all-root family and all weighted unit inputs"
+    },
+    {
+      "h": 4,
+      "n": 32,
+      "P": 16,
+      "total_tail": 224,
+      "full_residual": 53,
+      "unit_full": 27,
+      "interaction": 26,
+      "bound": 48,
+      "verification": "all-root family and all weighted unit inputs"
+    },
+    {
+      "h": 5,
+      "n": 64,
+      "P": 32,
+      "total_tail": 960,
+      "full_residual": 134,
+      "unit_full": 58,
+      "interaction": 76,
+      "bound": 128,
+      "verification": "all-root family; unit full costs use proved slot formula"
+    },
+    {
+      "h": 6,
+      "n": 128,
+      "P": 64,
+      "total_tail": 3968,
+      "full_residual": 327,
+      "unit_full": 121,
+      "interaction": 206,
+      "bound": 320,
+      "verification": "all-root family; unit full costs use proved slot formula"
+    },
+    {
+      "h": 8,
+      "n": 512,
+      "P": 256,
+      "total_tail": 65024,
+      "full_residual": 1801,
+      "unit_full": 503,
+      "interaction": 1298,
+      "bound": 1792,
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "h": 16,
+      "n": 131072,
+      "P": 65536,
+      "total_tail": 4294836224,
+      "full_residual": 983057,
+      "unit_full": 131055,
+      "interaction": 852002,
+      "bound": 983040,
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "h": 32,
+      "n": 8589934592,
+      "P": 4294967296,
+      "total_tail": 18446744065119617024,
+      "full_residual": 133143986209,
+      "unit_full": 8589934559,
+      "interaction": 124554051650,
+      "bound": 133143986176,
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "h": 64,
+      "n": 36893488147419103232,
+      "P": 18446744073709551616,
+      "total_tail": 340282366920938463426481119284349108224,
+      "full_residual": 1162144876643701751873,
+      "unit_full": 36893488147419103167,
+      "interaction": 1125251388496282648706,
+      "bound": 1162144876643701751808,
+      "verification": "closed-form evaluation only"
+    },
+    {
+      "h": 128,
+      "n": 680564733841876926926749214863536422912,
+      "P": 340282366920938463463374607431768211456,
+      "total_tail": 115792089237316195423570985008687907852589419931798687112530834793049593217024,
+      "full_residual": 43215860598959184859848575143834562855041,
+      "unit_full": 680564733841876926926749214863536422783,
+      "interaction": 42535295865117307932921825928971026432258,
+      "bound": 43215860598959184859848575143834562854912,
+      "verification": "closed-form evaluation only"
+    }
+  ],
+  "source_sha256": {
+    "capacity_interaction_sharp.py": "7c03088c7632afc5e82d01209ba3609268487be3e454dd84e23b673f78a8b41e",
+    "capacity_interaction.py": "99cb9753a304725c18d7ff7fc5750391d6b5a18d2d4e0b0c7fdb95feb8d45f6e",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

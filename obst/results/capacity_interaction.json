@@ -1,0 +1,62 @@
+{
+  "scope": "Exact capacity identity and proved width-one interaction bound; wider-band superadditivity is tested separately.",
+  "checks": {
+    "all_root_candidates": 3302476,
+    "dense_states": 371731,
+    "capacity_identities": 28259,
+    "density_checks": 324902,
+    "total_identities": 6416,
+    "vectors": 3091,
+    "subadditivity_checks": 5856,
+    "interaction_checks": 33696,
+    "width_one_checks": 5856
+  },
+  "maximum_width_one_ratio": [
+    1,
+    2
+  ],
+  "winner": {
+    "n": 5,
+    "h": 2,
+    "weights": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "excess": 1,
+    "full_gain": 1
+  },
+  "wider_band_counterexample": {
+    "n": 4,
+    "h": 2,
+    "d": 2,
+    "weights": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "tail": 1,
+    "unit_tail": 0,
+    "full_gain": 0,
+    "excess": 1,
+    "band_interaction": -1
+  },
+  "source_sha256": {
+    "capacity_interaction.py": "99cb9753a304725c18d7ff7fc5750391d6b5a18d2d4e0b0c7fdb95feb8d45f6e",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

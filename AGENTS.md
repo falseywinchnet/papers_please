@@ -215,3 +215,16 @@ All-band tail diagnostics and exact capacity-band construction:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/core_tail_interaction.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_capacity_band.py
 ```
+
+Capacity interaction identity and adversarial interaction search:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/capacity_interaction.py
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/core_interaction_search.cpp -o /tmp/obst-core-interaction-search && python3 obst/code/core_interaction_search.py /tmp/obst-core-interaction-search'
+```
+
+Sharp capacity-interaction families:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/capacity_interaction_sharp.py
+```

@@ -2232,3 +2232,70 @@ match, legacy theorem labels and references remain valid, and the dedication
 is byte-identical. The 90-page PDF compiles cleanly and is rendered for visual
 review. Stable TeX/PDF outputs and the complete source/font bundle are refreshed.
 The main O(n^(3/2) log^(3/2)(n+1)) bound at W=O(n) is unchanged.
+
+## Checkpoint 32: sharp width-one interaction and its extension barrier
+
+The preceding turn was progress: checkpoint 31 published an exact full-mixed
+capacity-band constructor and explicit necessary tail terms. This turn attacked
+the interaction allowance needed for the remaining general tail bound. The
+full mixed objective and the main construction bound remain unchanged.
+
+The new exact capacity density is D_h(i,i+c)=M-F_i-G_i. Here G_i is the
+previous one-missing-slot weighted-prefix maximum, while F_i is the maximum
+negative prefix walk. The long c+1 interval omits one key; its reward relative
+to omission of the first key is the negative walk. Combining it with the
+short c-1 interval and the two perfect intervals proves the identity.
+
+Summing all ordinary densities and removing the capacity line gives
+T_1(w)=R_h(w)-P-2Q+q_0+q_n+sum_i(F_i+G_i), where R is the full interval's
+comparison cost after removing terminal penalty. The two maxima are
+subadditive and positively homogeneous. Therefore
+T_1(w)-sum_x w_x T_1(e_x) <= R_h(w)-sum_x w_x R_h(e_x) <= (h-1)P.
+The first inequality is exact in its dependence on the full-interval
+interaction. The second follows because all gaps have depth h in the
+saturated full interval, and each independent key reward is at most h-1.
+This is a theorem for arbitrary nonnegative real mixed weights.
+
+An explicit sharp family uses C=2^h,n=2C,p_even=1,p_odd=0,q=0. All prefix
+walks are monotone, so the maxima are exactly additive. The full residual is
+(h-1)C+h+1; the sum of unit full residuals is 2C-h-1. Thus the interaction
+is exactly (h-3)C+2h+2, asymptotic to (h-1)P. Scaling keys by two gives W=n.
+This rules out an O(P) allowance independent of height. The proof computes
+the skeleton reward and unit-rank intervals explicitly; no fitted exponent
+supports the claim.
+
+A four-key counterexample prevents extending the first inequality merely
+by enlarging the excluded band. At h=2,c=3,d=2,p=0,q_2=q_4=1, the tail is
+one while both unit tails are zero. Full residual costs are additive, all
+gaps having depth two. Thus tail interaction is one but full-interval
+interaction is zero. It also defeats every all-width key-mass-only allowance.
+The separate candidate T_d(w)<=sum_x w_x T_d(e_x)+hW remains open. Uniform
+keys, d=2^(h-1), show its coefficient one would be asymptotically necessary:
+unit tails vanish, while the combined tail is (h-1)n+h-c.
+
+The independent all-root audit checks 3091 vectors, 28259 capacity identities,
+6416 total identities, 5856 subadditivity bounds, and 5856 width-one bounds.
+It uses 371731 states and 3302476 root candidates. Its first wider-band
+counterexample is the four-key gap example retained above. The sharp-family
+audit uses 194152 states and 6131120 candidates, with 28 unit controls, five
+family formulas, three independent interaction differences, and five uniform
+wide-tail formulas. Larger rows through h=128 are explicitly formula-only.
+
+The directed C++ diagnostic changes the objective from total-tail ratio to
+interaction/hW. It checks every width and early layer. There are 235 structured
+inputs and 15 fixed-mass searches with 1200 mutations each; each size has
+random, uniform-key, and uniform-gap starting modes. Small independent
+all-root controls verify 150 optimized vectors. Including basis profiles,
+structured work is 1296 evaluations, 157388626 states, and 313030555 root
+candidates. Search work is 21006 evaluations, 1667827872 states, and 3310832256
+candidates. Its maximum ratio is 1223/1536 on uniform keys. This does not
+certify the open all-width upper bound. All weights, seeds, and source hashes
+are retained in the new result records.
+
+The paper adds the capacity interaction theorem and sharpness corollary in
+Section 2.11, the wider-band barrier in the grouped negative-results section,
+and operation counts in Appendix H. It compiles cleanly to 93 pages. The
+previous 57 legacy labels and the verbatim dedication are preserved. The
+full mixed tail estimate is still the outstanding upper-bound target; the
+new theorem resolves its width-one interaction component and gives a concrete
+reason that the same proof cannot cover arbitrary widths.

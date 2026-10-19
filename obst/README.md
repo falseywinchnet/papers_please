@@ -15,6 +15,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Full mixed boundary mass and the bounded-positive obstruction](MIXED_BOUNDARY_MASS.md)
 - [Exact computation of all capacity-band intervals](CAPACITY_BANDS.md)
 - [Necessary tail terms and targeted adversarial diagnostics](CORE_TAIL_EXTREMES.md)
+- [Capacity densities, sharp interaction allowance, and wider-band obstruction](CAPACITY_INTERACTION.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -57,6 +58,12 @@ capacity-line density in O(n log n) work for arbitrary mixed weights. See
 [the band construction](CAPACITY_BANDS.md). The separate
 [tail investigation](CORE_TAIL_EXTREMES.md) proves that both proposed tail
 terms are necessary; its general upper estimate remains open.
+
+The capacity density also has an exact two-maximum formula. It proves a
+sharp (h-1)P allowance for the interaction in total off-capacity mass, where
+P is key mass. An explicit alternating family attains the leading constant;
+a four-key gap example prevents the same argument from covering wider bands.
+See [the interaction theorem](CAPACITY_INTERACTION.md).
 
 The sharper time bound charges each individual outcome weight to covering
 tiles and sums their geometrically spaced layer boundaries. It proves total

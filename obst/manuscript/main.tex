@@ -942,6 +942,95 @@ solves one height-limited instance. Unrestricted optimality still requires
 an adequate height or a separate certificate. The main core bound does
 not depend on an unproved estimate outside this band.
 
+\subsection{Exact capacity densities and their interaction allowance}
+\label{sec:capacity-interaction}
+The capacity line admits a closed form that separates joint optimization
+from the contributions of individual weight units. Write $P=\sum p_i$,
+$Q=\sum q_i$, and $v(t)=\nu_2(t)$.
+
+\begin{theorem}[Capacity interaction]\label{thm:capacity-interaction}
+Fix $h\ge1$, $c=2^h-1\le n$, and $M>hW$. For $0\le i<n-c$, define
+\[
+ Z_{i,r}=\sum_{\ell=1}^{r}v(2\ell)(p_{i+2\ell}-p_{i+2\ell-1}),\qquad
+ F_i=\max_{0\le r\le(c-1)/2}(-Z_{i,r}),\qquad
+ G_i=\max_{0\le r\le(c-1)/2}(Z_{i,r}+q_{i+2r+1}).
+\]
+Then $D_h(i,i+c)=M-F_i-G_i$. Let $T_1(w)$ denote total ordinary density
+mass strictly off this line, $e_x$ a unit on outcome $x$, and
+$R_h(w)=A_h(0,n)-M(n-c)$. For arbitrary nonnegative real weights,
+\begin{equation}\label{eq:capacity-interaction}
+ T_1(w)-\sum_x w_xT_1(e_x)
+ \le R_h(w)-\sum_x w_xR_h(e_x)\le(h-1)P.
+\end{equation}
+The middle expression is nonnegative. These quantities are independent of
+the choice of sufficiently large terminal penalties in the unit instances.
+\end{theorem}
+\begin{proof}
+Put $B_i=\sum_{t=1}^c p_{i+t-1}v(t)$. The two length-$c$ intervals are
+perfect. Their inner length-$c-1$ interval has reward $B_i+G_i$, by the
+one-missing-slot calculation in Lemma~\ref{lem:mixed-boundary-mass}.
+The outer length-$c+1$ interval exposes exactly $c$ keys. Omitting its first
+key gives reward $B_{i+1}$. Moving the omitted key to index $i+t$ changes
+this reward by
+\[
+ \sum_{k=1}^t v(k)(p_{i+k-1}-p_{i+k})=-Z_{i,\lfloor t/2\rfloor}.
+\]
+Thus its optimum reward is $B_{i+1}+F_i$. All its gaps have depth $h$.
+The four-corner difference cancels the interval masses and perfect rewards,
+leaving $M-F_i-G_i$. For $h=1$, the inner interval is empty and the formula
+holds with $F_i=0$, $G_i=q_{i+1}$.
+
+The sum of all ordinary densities is the full interval cost minus the
+singleton costs. Subtracting the capacity densities therefore gives
+\begin{equation}\label{eq:total-off-capacity}
+ T_1(w)=R_h(w)-P-2Q+q_0+q_n+\sum_i(F_i(w)+G_i(w)).
+\end{equation}
+Both maxima are positively homogeneous and subadditive in the weights.
+Apply this to $w=\sum_x w_xe_x$ and cancel the linear terms in
+\eqref{eq:total-off-capacity}; this proves the first inequality.
+
+For the second, the full interval's perfect exposed skeleton has reward
+\[
+ S_h(p)=\max_{1\le t_1<\cdots<t_c\le n}
+                    \sum_{j=1}^c p_{t_j-1}v(j),\qquad R_h(w)=hW-S_h(p).
+\]
+All gap terms cancel from the interaction. Its value is
+$\sum_{x=0}^{n-1}p_xS_h(e_x)-S_h(p)$, which is nonnegative because $S_h$
+is a maximum of linear forms. It is at most $(h-1)P$ because each unit
+reward is at most $h-1$ and $S_h(p)\ge0$.
+\end{proof}
+
+\begin{corollary}[Sharp key-mass allowance]\label{cor:sharp-capacity-interaction}
+No uniform factor smaller than one can multiply $(h-1)P$ in
+\eqref{eq:capacity-interaction}. In particular an $O(P)$ allowance independent
+of height is impossible.
+\end{corollary}
+\begin{proof}
+Take $h\ge2$, $C=2^h$, $n=2C$, $p_x=1$ for even $x$ and zero otherwise,
+and $q=0$. Thus $P=C$. Each walk $Z_{i,r}$ is monotone: increasing for even
+$i$ and decreasing for odd $i$. The maximizing endpoints of $F_i,G_i$ are
+common to every positive unit key, so their sums are exactly additive.
+Equality therefore holds in the first inequality of
+\eqref{eq:capacity-interaction}.
+
+The skeleton reward is $c-h$: no reward exceeds $\sum_{j=1}^c v(j)=c-h$,
+and the contiguous subsequence starting at key index one attains it by
+putting unit keys at every even skeleton rank. Hence
+$R_h(w)=(h-1)C+h+1$. For a unit key at one-based position $X$, feasible
+skeleton ranks form
+$[\max(1,X-C-1),\min(C-1,X)]$. Among odd positions, $C/2+1$ can occupy the
+root. The leftmost has comparison length $h$. The remaining positions
+occur in pairs of groups with comparison length $h-t$ and $2^{t-1}$
+positions per group, for $1\le t\le h-2$. Consequently
+\[
+ \sum_{x\ {
+m even}}R_h(e_x)
+   =C/2+1+h+2\sum_{t=1}^{h-2}(h-t)2^{t-1}=2C-h-1.
+\]
+The interaction is exactly $(h-3)C+2h+2$, whose ratio to $(h-1)C$ tends
+to one. Scaling all positive weights by two gives $W=n$ with the same ratio.
+\end{proof}
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -4785,6 +4874,32 @@ also each add $O(n)$ entries, proving the support bound.
 The obstruction concerns a mass-only proof of core size. Its large densities
 occupy a single diagonal and do not establish a large support lower bound.
 
+\subsection{Wider bands need a different interaction argument}
+\label{sec:wider-band-interaction}
+For $d\ge1$, let $T_d$ sum ordinary densities with $|j-i-c|\ge d$.
+The first inequality of Theorem~\ref{thm:capacity-interaction} does not extend
+to every $d$. Take four keys of weight zero and gaps $q_2=q_4=1$, all other
+gaps zero, at $h=2$, $c=3$, $d=2$. Only length-one density cells qualify.
+The sole positive one is
+\[
+ D_h(2,3)=A_h(2,4)-A_h(2,3)-A_h(3,4)=3-1-1=1.
+\]
+Each gap alone has zero eligible density mass. Yet the full interval's
+gaps all have depth two, so $R_h(w)=4=R_h(e_{q_2})+R_h(e_{q_4})$.
+Thus the tail interaction is one while the full-interval interaction is zero.
+Since $P=0$, this also defeats any all-width interaction allowance based
+only on key mass.
+
+The separate candidate
+$T_d(w)\le\sum_xw_xT_d(e_x)+hW$ remains open. If it holds, its last
+coefficient cannot be reduced uniformly: with $n=2^{h+1}$ unit-weight keys,
+zero gap weights, and $d=2^{h-1}$, every unit-key tail is zero by the
+consecutive-power classification in Section~\ref{sec:local-tile-obstruction}.
+The uniform-key layer has density one on lengths $2^t-1$, $1\le t<h$,
+so its tail is $(h-1)n+h-c$. The ratio to $hW$ tends to one. Neither this
+necessary allowance nor the width-one theorem establishes the general
+off-capacity tail upper bound.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -5949,6 +6064,36 @@ These counts cover all retained intervals across all twelve layers, rather
 than one slot-DP instance. The asymptotic bound follows from band closure
 and telescoping root ranges in Theorem~\ref{thm:capacity-band}. Exact rows
 and executed-source hashes are in \texttt{capacity\_band.json}.
+
+\section{Capacity interaction audit}\label{app:capacity-interaction}
+The independent all-root audit includes every mixed binary vector through
+five keys, seeded integer inputs through 32 keys, and unit-input controls.
+It checks 28,259 capacity identities, 6,416 telescoping totals, 5,856
+subadditivity bounds, and 5,856 width-one interaction inequalities. Its
+3,091 vectors use 371,731 states and 3,302,476 candidate roots. It also
+retains the four-key wider-band counterexample from
+Section~\ref{sec:wider-band-interaction}.
+
+The separate sharp-family audit checks heights two through six, including
+28 independently solved unit inputs at the smaller sizes. It verifies five
+alternating-family formulas, three direct interaction differences, and five
+uniform-key wider-tail formulas, using 194,152 states and 6,131,120 root
+candidates. Larger rows through height 128 are closed-form evaluations only.
+These records are \texttt{capacity\_interaction.json} and
+\texttt{capacity\_interaction\_sharp.json}.
+
+An optimized dense diagnostic searches the unproved all-width allowance,
+maximizing $[T_d(w)-\sum_xw_xT_d(e_x)]/(hW)$ over every band width and early
+layer. It uses 15 fixed-mass searches through 256 keys, with 1,200 mutations
+each and three starting patterns per size. Structured inputs include uniform
+keys, uniform gaps, mixed weights, alternating keys, odd ramps, and seeded
+random weights. Independent all-root controls check 150 optimized vectors.
+Including unit-profile construction, structured evaluation uses 157,388,626
+states and 313,030,555 root candidates; search uses 1,667,827,872 states and
+3,310,832,256 candidates. The largest observed ratio is $1223/1536$, attained
+by uniform keys. It supplies no universal upper bound. Exact weights, seeds,
+counters, and executed-source hashes are in
+\texttt{core\_interaction\_search.json}.
 
 \clearpage
 \begingroup\small
