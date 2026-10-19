@@ -8,13 +8,14 @@ Sydney, with sponsorship and problem selection by the repository owner.
 Find a substantively useful improvement for the full optimal binary search tree
 problem, or prove an appropriate barrier to subquadratic construction. The
 general exact subquadratic problem remains unresolved by this project.
-The current checkpoint combines exact contractions, variable mass frontiers,
-and excluded-class certificates. The latest bound retains the first violating
-two-gap path skeleton and its mixed-weight residual forests. It strengthens
-the earlier fixed-pair certificate on nonuniform-key families and reduces
-measured complete-construction work. Those families already fall within the
-global frontier's restricted subquadratic regime; no new general exponent
-or complexity lower bound is claimed. Novelty remains unestablished.
+The current checkpoint combines exact certificates and frontiers with an
+implemented core-sparse Monge construction. Its centered extension gives
+O(n(1+sqrt(R)) log^3(n+1)) arithmetic work for polynomial integer deviation R
+above constant key and gap baselines, independently of baseline magnitudes
+in the operation count. Bit costs still depend on representation length.
+The compiled compact backend loses to Knuth in all 90 published scaling
+trials; representation bounds do not establish practical superiority. The
+unrestricted objective and mathematical priority remain unresolved.
 
 Input: ordered keys 1..n, key weights p[1..n], gap weights q[0..n], all
 nonnegative. No normalization is required. Use comparison cost with root key
@@ -938,3 +939,75 @@ The rendered table agrees with the three-trial medians in the release JSON.
 All four new result files' recorded source hashes match the committed sources.
 The updated manuscript preserves the numerical-mass restriction and explicitly
 reports all 90 compiled scaling losses. The original objective remains active.
+
+
+## Sixteenth checkpoint: baseline-centered core bounds
+
+The complete compact constructor and negative compiled measurements were
+published at 542854f4d3037fed8bd435dc4de99b301635fe85. Those implementations and
+source-hashed results remain unchanged. The next investigation centers the
+representation analysis around a=min(p), b=min(q), with total nonnegative
+integer deviation R. The solver retains the original mixed weights.
+
+For the same large terminal penalty, the baseline-optimal h-level layer has
+an explicit length-only formula. Its nonzero density is supported only at
+lengths 2^t-1. The actual layer differs from it by a residual between zero
+and h times local deviation mass. Remove those exceptional diagonals and
+tile the remainder by maximal dyadic squares. At scale s, O(nL/s) tiles
+exist, but each input position lies in only O(n/s) spanning intervals:
+the diagonal distances are geometric. Therefore total residual mass over
+all tiles is O(nR/s), without an additional factor L. Combining tile area
+with integer density mass gives O(min(nLs,hnR/s)) nonzero cells per scale,
+and O(nL+n sqrt(hRL)) over all scales including the removed lines.
+
+A normalized height bound uses the minimum positive singleton mass. Every
+positive internal interval contains such a singleton. The mixed Fibonacci
+subtree inequality therefore bounds depth using W/s rather than W. Balanced
+zero-mass subtrees add at most L. In general H=O(log(n+R+1)), independent
+of baseline magnitudes. With polynomial R the resulting construction uses
+O(n(1+sqrt(R)) log^3(n+1)) arithmetic operations. Thus R=O(n) gives
+O(n^(3/2) log^3(n+1)), and R=O(n^(2-epsilon)) gives
+O(n^(2-epsilon/2) log^3(n+1)) for fixed 0<epsilon<=2. This extends our
+core-size theorem, not the scope of the original objective. Earlier
+restricted-weight subquadratic algorithms are still prior work; the
+small-total-mass theorem retains its better logarithmic factor.
+
+The dense diagnostic passed 1,100 solves, 824 cubic comparisons, 3,317
+all-root cells, 1,538 baseline all-shape checks, 99,087 baseline-density
+checks, 685,288 tiles, and 2,327 scale checks. It recorded 4,153,053 dense
+states and 8,223,340 candidate evaluations. An independent geometry audit
+passed 163 sizes through 4096 and 749 scales, checking every input position's
+maximum spanning-interval overlap. These observations audit the code; the
+packing theorem is proved geometrically in CENTERED_MONGE.md and the paper.
+
+The actual condensed Python variant passed 999 complete solves, 790 cubic
+comparisons, 32 fixed-budget controls, 1,001 intermediate interval values and
+leftmost witnesses, 12 original-compact comparisons, and 9,992 reconstructed
+keys. Independent key/gap baselines include 2^256 and 2^200. At n=256 the
+three large-baseline fixtures finish in ten layers and have completed cores
+6,624, 6,540, and 6,496. Their allowed height budgets are 14, 14, and 12
+instead of the old numerical-mass budgets of 256. This is not a measured
+speedup: the earlier constructor already uses exact fixed-point stopping.
+The geometric 64-key control still needs H=64 and has a dense interior core.
+
+A targeted prior-work check also encountered Larmore's 1987 paper titled
+Height Restricted Optimal Binary Trees. Its title alone does not establish
+a competing full mixed-weight theorem: Larmore and Przytycka's own 1994
+abstract identifies that older hybrid bound as length-limited Huffman coding.
+Primary source: https://doi.org/10.1137/S0097539792231167 . The full mixed
+Larmore/Karpinski-Larmore-Rytter work already cited remains relevant. No
+priority claim is inferred from the absence of a search result.
+
+All three new result files match their recorded source hashes. The unchanged
+compiled benchmark losses remain prominent. The full mixed-weight objective
+is still active; arbitrary nonuniform weights with large deviation and the
+compact implementation's substantial overhead remain unresolved.
+
+## Publication audit of the sixteenth checkpoint
+
+The final 50-page manuscript compiles without warnings. All pages were rendered
+and reviewed as contact sheets; the revised abstract and new proof/evidence
+pages 47--50 were inspected individually. The normalized height, baseline
+formula, weighted packing proof, arithmetic-model qualification, and unchanged
+negative performance evidence are all explicit. New source hashes match the
+three result files. The full original research objective remains active.

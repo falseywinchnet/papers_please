@@ -72,3 +72,21 @@ Compiled condensed-Monge checks (binary outside the mirrored repository):
 /Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer obst/code/compact_obst.cpp -o /tmp/obst-compact-sanitize && python3 obst/code/check_compact_cpp.py /tmp/obst-compact-sanitize --max-n 128 --trials 1 --label sanitize --flags="-std=c++20 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer"'
 /Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -DNDEBUG -Wall -Wextra obst/code/compact_obst.cpp -o /tmp/obst-compact-release && python3 obst/code/check_compact_cpp.py /tmp/obst-compact-release --max-n 2048 --trials 3'
 ```
+
+Baseline-centered core and normalized-height diagnostic:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/centered_layers.py
+```
+
+Full condensed constructor with normalized height:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_centered_obst.py
+```
+
+Weight-independent baseline-diagonal packing audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/centered_geometry.py
+```

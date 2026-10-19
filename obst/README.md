@@ -17,6 +17,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Residual-cost core exclusion and linear-weight family](CORE_EXCLUSION.md)
 - [Coupled two-gap skeletons and arbitrary nonuniform key placements](PAIR_SKELETON.md)
 - [Terminal-penalty layers and core-sparse Monge reduction](MONGE_PENALTY.md)
+- [Centered core bounds for large integer baselines](CENTERED_MONGE.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
@@ -31,7 +32,13 @@ manuscript. **Condensed Python and C++ constructors are now implemented and
 checked against dense products and independent BST oracles. No practical
 speedup is claimed for this backend.** Ordinary witness arrays can use an
 extra logarithmic factor in storage relative to the published succinct maps.
-The numerical-mass dependence does not settle the unrestricted objective.
+A centered extension bounds work by deviation R above the minimum key and gap
+weights: for polynomial R, O(n(1+sqrt(R)) log^3(n+1)) arithmetic construction,
+independent of baseline magnitudes in the operation count. R=O(n) yields
+O(n^(3/2) log^3(n+1)); bit costs still depend on input length. The actual
+normalized-height Python constructor and independent baseline/tile audits
+are included. Neither result settles unrestricted weights or establishes
+priority or practical superiority.
 
 The input has weights on **both keys and gaps**. A complementary constructor retains
 the constant-size search-path skeleton of the first possible two-gap core
@@ -108,6 +115,9 @@ python3 obst/code/boundary_response.py
 python3 obst/code/penalty_layers.py
 python3 obst/code/check_core_monge.py
 python3 obst/code/check_compact_obst.py --max-n 512
+python3 obst/code/centered_layers.py
+python3 obst/code/centered_geometry.py
+python3 obst/code/check_centered_obst.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py

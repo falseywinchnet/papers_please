@@ -295,3 +295,12 @@ unrestricted question is settled.
 
 Primary source:
 https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2025.74
+
+
+The subsequent [centered analysis](CENTERED_MONGE.md) replaces the numerical
+mass dependence in the core bound by total deviation above constant key/gap
+baselines, with a normalized height budget. It gives
+O(n(1+sqrt(R)) log^3(n+1)) arithmetic work for polynomial integer deviation R,
+regardless of baseline magnitudes. It retains the full mixed objective and
+the existing product implementation. The earlier performance losses remain
+unchanged; this is an extension of the bound, not a new timing claim.

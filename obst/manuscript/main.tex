@@ -26,7 +26,11 @@ residual. A dyadic argument bounds all intermediate cores, including the
 early layers before a full balanced tree is feasible. For nonnegative
 integer weights of total mass $W=O(n)$, the reduction gives exact
 $O(n^{3/2}\log^{5/2}(n+1))$ construction, including reconstruction and
-allowing zero weights. Dense audits and condensed Python/C++ constructors
+allowing zero weights. Centering the core analysis around constant key and
+gap baselines extends the guarantee to arbitrary baseline magnitudes: for
+total integer deviation $R$ polynomial in $n$, construction takes
+$O(n(1+\sqrt R)\log^3(n+1))$ arithmetic operations. A normalized singleton-
+mass bound controls the required height. Dense audits and condensed Python/C++ constructors
 verify the reduction and full reconstruction. The implemented backend
 loses to matched Knuth construction at the tested sizes through 2048 keys;
 we report the traversal and witness costs behind that negative result.
@@ -3019,6 +3023,221 @@ witness-map storage are concrete remaining costs. Broad superiority and
 mathematical priority remain unestablished, and the unrestricted numerical-
 weight problem remains open.
 
+\section{A centered core bound for large integer baselines}
+The total-mass bound can be pessimistic when large constant key and gap
+weights dominate smaller variations. We retain the original weights in the
+solver and center only the analysis of its matrix representation. Let
+\[
+ a=\min_i p_i,\quad b=\min_j q_j,\quad
+ u_i=p_i-a,\quad v_j=q_j-b,\quad R=\sum_i u_i+\sum_j v_j.
+\]
+All quantities remain nonnegative integers. The two baselines may differ
+arbitrarily; the deviations may occur at arbitrary key and gap positions.
+Write $L=\lceil\log_2(n+1)\rceil$ as before.
+
+\begin{lemma}[Normalized height budget]\label{lem:normalized-height}
+For $W>0$, let $s$ be the smallest positive singleton mass
+$p_i+q_i+q_{i+1}$. Put $z=0$ if every singleton mass is positive and $z=L$
+otherwise. Every interval has an optimal tree with height at most
+\[
+ H=\min\{n,f(\lfloor W/s\rfloor)+z\}.
+\]
+For $W=0$, use $H=L$.
+\end{lemma}
+\begin{proof}
+Every positive-mass nonempty interval contains a positive-mass singleton:
+choose a positive key, or an adjacent key within the interval if a gap
+supplies its positive mass. Thus every positive internal subtree has mass
+at least $s$. Lemma~8 gives $W\ge F_{d+1}s$ for such a subtree at depth $d$
+in an optimal tree. The positive part has the resulting bounded depth;
+zero-mass subtrees can be balanced, adding at most $L$ levels without
+changing the cost. If all singleton masses are positive no nonempty zero
+subtree exists. The global $W,s,L$ bounds also apply to every subinterval.
+The trivial height $n$ and the all-zero balanced case complete the argument.
+\end{proof}
+
+Use this $H$, $M=(H+1)W+1$, and the same finite completion and penalty
+iteration. All previous preservation arguments apply. Reconstruction is
+complete because any unfinished nonempty terminal costs at least $M$,
+whereas an optimal tree of height at most $H$ costs at most $HW$.
+
+\subsection{The exact baseline layer and its exceptional diagonals}
+Let $I(k)$ be the minimum unweighted internal path length for $k$ keys.
+For $k\ge1$, with $d=\lfloor\log_2 k\rfloor$,
+\[
+ I(k)=dk-2^{d+1}+d+2,\qquad I(0)=0.
+\]
+The familiar baseline identity is
+$(a+b)I(T)+(a+2b)k$ for a full $k$-key tree. It was already used by the
+minimum-path-length certificate; the following application concerns every
+partial-tree layer.
+
+\begin{lemma}[Centered partial-tree formula]\label{lem:centered-layer}
+With $c_h=2^h-1$, define
+\[
+ F_h(k)=
+ \begin{cases}
+ (a+b)I(k)+(a+2b)k,&k\le c_h,\\
+ M(k-c_h)+(a+b)h(k+1)-ac_h,&k>c_h.
+ \end{cases}
+\]
+Then the full-weight layer admits
+\[
+ A_h(i,j)=F_h(j-i)+U_h(i,j),\qquad
+ 0\le U_h(i,j)\le hR(i,j),
+\]
+where $R(i,j)=\sum_{i\le r<j}u_r+\sum_{i\le r\le j}v_r$.
+The baseline's density at interval length $k\ge1$ is
+\[
+ F_h(k+1)+F_h(k-1)-2F_h(k)=
+ \begin{cases}
+ a+b,&k=2^t-1,\quad 1\le t<h,\\
+ M-b,&k=2^h-1,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+\end{lemma}
+\begin{proof}
+The penalty forces exactly $\min(k,c_h)$ explicit keys. If $k\le c_h$,
+a full minimum-path-length tree fits in $h$ levels. Otherwise a partial
+tree exposing $c_h$ keys must fill every position in the first $h$ levels.
+Its explicit keys have baseline cost
+$a\sum_{t=0}^{h-1}(t+1)2^t$; unfinished keys cost $ah(k-c_h)$, and all
+$k+1$ gaps cost $bh(k+1)$. This gives the second branch of $F_h$.
+Nonnegative deviations cannot reduce the baseline optimum. Conversely,
+a baseline-optimal partial tree charges every deviation at most $h$ times,
+proving the residual bounds. The displayed densities follow by taking
+second differences of the two branches. In particular, changes in the
+full-tree slope occur only at $k=2^t-1$.
+\end{proof}
+
+The residual $U_h$ need not be Monge. The actual layer is Monge, and on
+any square whose density cells avoid the exceptional diagonals, its density
+equals the residual density. Baseline magnitudes do not increase the number
+of exceptional diagonals.
+
+\subsection{A weighted packing argument}
+Remove all density cells on $j-i=2^t-1$ within the domain, and the main
+diagonal, accounting for $O(nL)$ cells. Tile the remainder with maximal
+aligned dyadic squares that avoid those lines and the outer boundary.
+For a side-$s$ tile $T=[x,x+s)\times[y,y+s)$, let
+$J_T=[x,y+s]$ be its spanning input interval, including both gap endpoints.
+
+There are $O(nL/s)$ tiles at scale $s$: every parent meets a removed line
+or an outer boundary, and each line meets $O(n/s)$ aligned parent squares.
+A stronger weighted statement is
+\begin{equation}\label{eq:centered-cover}
+ \sum_{T:\,\mathrm{side}(T)=s} R(J_T)=O(nR/s).
+\end{equation}
+It has no factor $L$. To prove it, fix an input position and charge each
+tile to a boundary met by its parent. A tile charged to a diagonal at
+distance $d\ge s$ lies within $O(s)$ of that diagonal. For its spanning
+interval to contain the fixed position, its row start lies in an interval
+of length $O(d+s)$. Row starts are spaced by $s$, with only $O(1)$ eligible
+column starts per row near that diagonal. Thus it contributes
+$O(1+d/s)$ covers. The distances $d=2^t-1$ are geometric, so summing these
+bounds gives $O(n/s)$. All distances $d<s$ lie together in an $O(s)$-wide
+strip near the main diagonal and contribute only $O(1)$ covers of the fixed
+position. Outer-boundary tiles number $O(n/s)$ in total. Charging each
+nonnegative deviation to its covering intervals proves~\eqref{eq:centered-cover}.
+This argument handles non-power-of-two domains by including their outer
+boundaries in the same subdivision.
+
+On an ordinary tile the density sum telescopes to
+\[
+ U_h(x,y+s)+U_h(x+s,y)-U_h(x,y)-U_h(x+s,y+s)
+ \le 2hR(J_T).
+\]
+The true densities are nonnegative integers. The number of nonzero entries
+on a tile is therefore bounded both by $s^2$ and by that density sum.
+Using the tile count and~\eqref{eq:centered-cover}, the number across all
+tiles of side $s$ is $O(\min\{nLs,hnR/s\})$. Splitting the dyadic geometric
+sum at $s\asymp\sqrt{hR/L}$ gives $O(n\sqrt{hRL})$; for $R=0$ every
+ordinary density vanishes. No cancellation of negative residual densities
+on the removed lines is assumed.
+
+\begin{theorem}[Centered core construction]\label{thm:centered-core}
+For arbitrary nonnegative integer mixed weights, the normalized-height
+penalty construction has completed layer cores bounded by
+\[
+ K_c=O\!\left(n+\min\{n^2,nL+n\sqrt{HRL}\}\right).
+\]
+Using the published compact product and witness algorithms, a complete
+optimum can be constructed in $O(HK_c\log(n+1))$ arithmetic operations.
+Published succinct witnesses use $O(HK_c)$ words; the implemented ordinary
+maps can require $O(HK_c\log(n+1))$ words.
+\end{theorem}
+\begin{proof}
+Add the $O(nL)$ removed cells and $n$ completion densities to the ordinary
+tile bound, and use $h\le H$. The initial layer has only $O(n)$ core entries.
+The quadratic cap is immediate. All products, conversion steps, and root
+queries operate on the actual condensed matrices, so the already established
+product reduction applies. The previous $O(n+n\sqrt{WL})$ bound is also
+available; either bound may be used when smaller.
+\end{proof}
+
+\begin{corollary}[Arbitrarily large baselines with polynomial deviation]
+If $R$ is polynomial in $n$, exact full construction takes
+\[
+ O\!\left(n(1+\sqrt R)\log^3(n+1)\right)
+\]
+arithmetic operations, independently of the magnitudes of $a,b$ in the
+operation count. In particular, $R=O(n)$ gives
+$O(n^{3/2}\log^3(n+1))$, and $R=O(n^{2-\varepsilon})$ gives
+$O(n^{2-\varepsilon/2}\log^3(n+1))$ for fixed $0<\varepsilon\le2$.
+\end{corollary}
+\begin{proof}
+If $a+b=0$, then $W=R$, and $s\ge1$ whenever $W>0$. Otherwise every
+singleton has mass at least $a+2b\ge1$, and
+\[
+ W=na+(n+1)b+R\le n(a+2b)+R,\qquad W/s\le n+R.
+\]
+Thus $H=O(\log(n+R+1))=O(\log(n+1))$ for polynomial $R$, including the
+possible additional $L$ and the all-zero case. Substituting in the theorem
+gives the result.
+\end{proof}
+
+For example, $p_i=n^c+u_i$ and $q_j=n^d+v_j$, with fixed nonnegative
+integer $c,d$ and bounded nonnegative integer deviations, satisfy the
+linear-$R$ condition even when $W$ is superlinear. Intermediate integers
+then still use $O(\log n)$ bits. Arbitrary larger baselines retain a bit-cost
+dependence on their representation lengths. These families permit nonuniform
+weights on both keys and gaps. This extends this project's core-size theorem;
+it is not a claim that all such families lacked restricted subquadratic
+algorithms before this work. The earlier total-mass result has a smaller
+logarithmic factor when $W=O(n)$. Mathematical priority is unestablished.
+
+\subsection{Independent tests and remaining limitations}
+The dense falsification harness \texttt{centered\_layers.py} passed 1,100
+complete solves, 824 cubic comparisons, 3,317 all-root cells, 1,538 baseline
+all-shape checks, 99,087 baseline-density checks, 685,288 tile checks, and
+2,327 scale checks. It explicitly computed 4,153,053 dense states and
+8,223,340 root candidates and reconstructed 11,656 keys. Baselines include
+$2^{256}$ and $2^{200}$ independently for keys and gaps. Zeros, concentrated
+gap mass, and geometric weights remain in the suite.
+
+At 256 keys, three large-baseline fixtures have deviations 501, 505, and 504,
+normalized height budgets 14, 14, and 12, and maximum interior cores 6,428,
+6,386, and 6,351. The earlier numerical-mass budgets were all 256. These
+are budget comparisons, not measured speedups: the original constructor
+already stops at exact fixed points. The 64-key geometric control still has
+$H=64$ and all 2,016 interior density cells nonzero.
+
+The actual condensed variant \texttt{centered\_obst.py} passed 999 complete
+solves, 790 cubic comparisons, 32 fixed-budget controls, 1,001 intermediate
+values and leftmost witnesses, and 12 original-compact controls. It checked
+9,992 reconstructed keys. Its large-baseline 256-key fixtures finish in ten
+layers with completed cores 6,624, 6,540, and 6,496. The earlier solver and
+its source-hashed compiled performance controls remain unchanged.
+
+A separate geometry harness checks the partition and maximum overlap at
+every input position, independently of residual weights. It passed 163
+sizes through 4096 and 749 scale checks, including irregular domain sizes.
+Observed constants support the implementation audit; the asymptotic packing
+claim rests on the proof above. All three new result files include source
+hashes. No new timing advantage is claimed. The previous compiled backend's
+severe regressions remain relevant, and unrestricted weights are still open.
+
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
@@ -3026,7 +3245,9 @@ interval frontiers, dominant-gap separators, joint heavy-outcome cores,
 residual exclusion and coupled two-gap skeleton certificates, global certificates,
 scoped obstructions to depth and endpoint-response representations, and
 a core-sparse product reduction for integer-mass inputs with verified
-condensed constructors and measured implementation regressions.
+condensed constructors and measured implementation regressions, and a
+centered core bound independent of large baseline magnitudes in the
+arithmetic operation count.
 Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
