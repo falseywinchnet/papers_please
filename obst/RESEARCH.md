@@ -97,6 +97,38 @@ on positive heavy-separator inputs, but essentially no gain on random or
 near-uniform mixed weights. Several n=512 controls were slower. No broad
 practical superiority is claimed.
 
+## Third checkpoint: the nonlocal ordering obstruction
+
+The JesseSort discussion did not advance this objective. The next research
+turn revalidated the checkout and pursued the proposed bounded-window repair.
+
+DEPTH_ORDER.md now characterizes exact BST depth sequences as reverse-ranked
+paths satisfying level flow. Its proof equates the number of unfilled runs
+after level d with the required number of keys at level d+1. A linear stack
+recognizer checks the global ranking condition, but this is not an optimizer.
+Ranking and bounded-path ranking are established notions; primary sources
+are cited, and no priority claim is made for this reformulation.
+
+More decisively, for every window width w>=2 there is a positive-weight
+instance with w+3 keys whose invalid sequence passes all window-minimum and
+global flow checks, but whose cost is at most (7/8+1/(8t)) OPT at weight
+scale t. All multiplier penalties vanish on it. The harness uses t=16,
+giving ratio 113/128, and checks every width through128. This eliminates
+the hope that simply enlarging the window and optimizing prices perfectly
+could turn this relaxation into a universal exact certificate. It does not
+exclude different constraints or prove a general algorithmic lower bound.
+
+The obstruction can also be buried under any fixed number of forced optimal
+top levels using a new dominant root and a positive gap. This preserves the
+strict additive gap, though not the constant relative one. An additional
+120 cubic/Knuth/direct-tree checks exercise depths1..8 and widths2..16.
+
+Exhaustive enumeration through seven keys (873,612 sequences) matches
+independent tree shapes exactly and checks the stack recognizer separately.
+The next representation must retain nonlocal subtree allocation. Adaptive
+violated-interval constraints or compression of the global frontier remain
+unresolved; the bounded-window DP is no longer the first experiment to build.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

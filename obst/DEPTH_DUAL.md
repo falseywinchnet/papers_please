@@ -181,11 +181,13 @@ instance. Only two survive on the gap-spike instance. A tighter cost bound
 is therefore not automatically an effective root-pruning bound. This is an
 experimental lower-bound component, not a competitive exact solver.
 
-The next relevant question is whether excluding repeated minima inside
-short windows or enforcing additional top-level subtree structure improves
-root elimination enough to pay for its cost. The five-key counterexample
-survives the unique-root strengthening. More iterations alone cannot remove
-that structural limitation.
+The proposed short-window repair has now been checked: DEPTH_ORDER.md gives
+an exact characterization using all intervals, and a positive-weight
+obstruction for every window width. At a chosen weight scale the latter
+limits the repaired bound to at most 113/128 of OPT, for any multipliers.
+This does not preclude pruning benefits on particular inputs, but rules out
+universal exactness for that repair. Additional top-level subtree structure
+or adaptive nonlocal constraints remain possible directions.
 
 Primary reference for the depth identity:
 Peter Becker, *Optimal Binary Search Trees with Near Minimal Height* (2010),

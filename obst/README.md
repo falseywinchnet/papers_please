@@ -9,6 +9,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Contraction argument](CONTRACTION.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
+- [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 The input has weights on **both keys and gaps**. The checkpoint gives exact
 sufficient conditions for collapsing keys or blocks, plus a linear pass that
@@ -36,6 +37,7 @@ python3 obst/code/recursive_contract.py --max-n 1024
 python3 obst/code/benchmark_recursive.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
+python3 obst/code/depth_order.py
 ```
 
 The sponsor's host-specific remote commands are in the root AGENTS.md.
@@ -59,5 +61,10 @@ tail permits exact O(n log n) oracle evaluations without bounding the unknown
 optimal BST height. It does not yet give competitive general exact construction:
 the root bounds leave 254/256 candidates on a random mixed instance, and a
 five-key counterexample proves a structural gap in this relaxation family.
+The extension in DEPTH_ORDER.md characterizes the missing global ordering
+condition and proves that unique-minimum checks of any fixed window width
+cannot repair the gap. A strictly positive family limits that relaxation's
+bound to at most 113/128 of OPT, independently of multiplier optimization.
+This is a limitation of one relaxation, not a general complexity lower bound.
 
 Compile `manuscript/main.tex` with Tectonic or a compatible LaTeX installation.

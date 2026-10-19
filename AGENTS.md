@@ -14,6 +14,7 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/recursive_contract.py --max-n 1024
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_recursive.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/depth_order.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not

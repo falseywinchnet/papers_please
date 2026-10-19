@@ -32,8 +32,9 @@ We also document an order-free Huffman relaxation, its failed sparse-DP
 implementation, and exact counterexamples to proposed local certificates.
 A second relaxation prices depth-count constraints along the ordered key
 sequence. An affine-tail lemma evaluates it in $O(n\log n)$ time without
-assuming the optimal tree is shallow, but a five-key counterexample proves
-that this relaxation is not universally exact.
+assuming the optimal tree is shallow. We characterize the missing ordering
+condition and give a strictly positive family showing that unique-minimum
+checks on any fixed window width cannot make this relaxation exact.
 These are research results and reproducible observations, not a resolution
 of general subquadratic construction. Novelty of the contraction conditions
 has not been established.
@@ -492,18 +493,136 @@ alternating instance. Only two survive on the gap-spike instance.
 These results identify a lower-bound component and its limitations;
 they do not establish a faster general exact solver.
 
+\section{Exact depth ordering and an arbitrary-window obstruction}
+Call a positive integer sequence \emph{ranked} if every nonempty contiguous
+interval has a unique minimum. Equivalently, equal labels have a smaller
+label between them. This is vertex ranking on a path with the label order
+reversed; vertex ranking and bounded-path variants are existing
+notions~\cite{ranking,localranking}. The following results explain the
+ordering information absent from the preceding relaxation; no novelty claim
+is made for this characterization.
+
+\begin{theorem}[Depth characterization]
+A sequence $l\in\{1,\ldots,n\}^n$, $n\ge1$, is the inorder
+key-comparison-length sequence of a BST if and only if it is ranked,
+$K_1=1$, and every level-flow equality holds, with gaps derived from $l$
+as above.
+\end{theorem}
+\begin{proof}
+Necessity follows from the unique shallowest key in each inorder interval
+and the two children of every internal node. For sufficiency, delete all
+labels at most $d$. Let $U_d$ count the remaining nonempty runs, and let
+$A_d$ count the deleted labels. If the deleted labels form $R$ runs and
+include $e$ endpoints, then the number of gaps of length at most $d$ is
+$A_d-R+e$, whereas $U_d=R+1-e$. Thus
+\[
+ G_{\le d}=A_d+1-U_d.
+\]
+Summing the level-flow equalities from 1 through $d$, and using $K_1=1$,
+also gives
+\[
+ G_{\le d}=A_d+1-K_{d+1}.
+\]
+Hence $U_d=K_{d+1}$. Ranking permits at most one label $d+1$ per remaining
+run, so equality forces exactly one. Starting with the unique length1
+root, every remaining nonempty interval therefore receives its root at
+the next level. This constructs the tree with exactly the supplied lengths.
+\end{proof}
+
+Ranking has a linear recognizer: scan with an increasing stack, pop larger
+labels, reject an equal top, and otherwise push. A rejected pair has no
+smaller intervening label; conversely every such pair causes rejection.
+Each entry is pushed once and popped at most once. This establishes cheap
+recognition, not cheap minimization over all valid sequences.
+
+\begin{theorem}[Bounded-window obstruction]
+For every integer $w\ge2$ and $t\ge2$, there is a strictly positive full-OBST
+instance with $n=w+3$ keys and an inadmissible depth sequence satisfying
+all level-flow equalities, a unique length1 root, and ranking on every
+interval of at most $w$ keys. Its cost is at most
+$(7/8+1/(8t))\OPT$. Consequently every lower bound obtained by pricing
+the level-flow equalities over this window-constrained domain has the same
+upper limitation, regardless of the multipliers.
+\end{theorem}
+\begin{proof}
+Take
+\[
+ l=(3,1,2,3,4,\ldots,w+1,2).
+\]
+The ascending middle portion has $w-1$ entries. Its two enclosing length2
+labels form the only interval with a repeated minimum, of width $w+1$.
+Every shorter window passes. Direct substitution into the gap formula
+verifies $K_1=1$ and every level-flow equality. The sequence is invalid:
+the unique root is key1, but its singleton left subtree has length3,
+and two keys to its right both claim length2.
+
+Give every gap weight1 and every key weight1 except
+\[
+ p_1=3B,\qquad p_2=p_{n-1}=B.
+\]
+The unit-weight outcomes contribute
+$E=w^2+4w+10$ in the inadmissible sequence, whose cost is $7B+E$.
+Every actual tree costs at least $8B$. If key1 is the root, the two
+$B$-weight keys lie to its right and their comparison lengths sum to at
+least5, giving $3B+5B$. Otherwise key1 has length at least2 and each
+$B$-weight key has length at least1, giving $6B+2B$.
+
+Set $B=tE$. The inadmissible cost satisfies
+\[
+ 7B+E=\left(\frac78+\frac{1}{8t}\right)8B
+       \le\left(\frac78+\frac{1}{8t}\right)\OPT.
+\]
+Its level-flow penalty is zero for every multiplier vector, so every
+priced minimum is at most this cost.
+\end{proof}
+
+For $t=16$ the upper ratio is $113/128$, independently of $w$; as $t$
+increases it approaches $7/8$. This rules out universal exactness of the
+specified window-minimum repair, not other local constraints, adaptive
+nonlocal cuts, or subquadratic full-OBST algorithms.
+Equivalently, at every $n\ge5$ the construction passes all windows of up
+to $n-3$ keys.
+
+\paragraph{Burying the obstruction below a forced prefix.}
+Let a current instance have mass $W$ and a feasible tree of cost $U$.
+Prepend a key of weight $A=W+U+2$ and a new leftmost gap of weight1.
+Using the new key as root costs $A+1+W+U=2A-1$, while every other root
+costs at least $2A$ from that key alone. Hence the new root is forced and
+$\OPT_{\rm new}=A+1+W+\OPT_{\rm old}$.
+The transformation $l\mapsto(1,l_0+1,\ldots,l_{n-1}+1)$ preserves zero
+flow and local window ranking, and changes the inadmissible cost by the
+same $A+1+W$. Repeating this $D$ times places the strict gap beneath the
+true optimal top-$D$ right-chain prefix. Thus fixing any constant number
+of top levels cannot make the remaining window/flow relaxation exact.
+The constant relative gap is not claimed after this embedding, because
+the forcing weights add a potentially large common cost.
+
+\paragraph{Independent verification.}
+The harness enumerated all 873,612 sequences in $\{1,\ldots,n\}^n$ for
+$1\le n\le7$. The characterization accepted exactly the independently
+generated BST depth sequences: respectively 1, 2, 5, 14, 42, 132, and 429.
+The stack recognizer agreed with direct interval scans on every sequence.
+Width3 and exact flow already admit four invalid sequences at $n=6$ and
+34 at $n=7$. The positive family was checked at $t=16$ for all 127 widths
+$2\le w\le128$: exact costs, window validity, zero flow, and the tree-cost
+lower bound all passed. Knuth and direct tree evaluation checked every
+instance; independent cubic DP also checked $w\le24$.
+Another 120 cases combine $2\le w\le16$ with forced prefix depths
+$1\le D\le8$. Cubic DP, Knuth, direct costs, and inspection of the optimal
+prefix verify the exact additive identity and preserved strict gap.
+
 \section{Status and reproducibility}
 This investigation has not proved that subquadratic full OBST construction
 is impossible, nor supplied a general subquadratic construction.
 The positive contribution of this checkpoint is an exact decomposition
-argument, an adaptive implementation, and reproducible evidence of its
-scope and limitations. Mathematical novelty, broad practical benefit,
+argument, an adaptive implementation, and a precise obstruction to a
+proposed depth-bound repair. Mathematical novelty, broad practical benefit,
 and comparison against Larmore-style implementations remain to be assessed.
 
 All programs use only the Python standard library. The code and seeded
 results are stored under \texttt{obst/code} and \texttt{obst/results}.
 The repository README provides commands for independent oracles, exact
-construction, matched timing, and both depth-price models.
+construction, matched timing, both depth-price models, and depth ordering.
 The active objective remains to avoid most of the quadratic table on a
 substantially broader class, or establish a rigorously scoped lower bound.
 
@@ -528,6 +647,14 @@ approximately optimal binary search trees. \emph{Proceedings of SODA},
 \bibitem{becker}
 P. Becker. Optimal binary search trees with near minimal height. 2010.
 \href{https://arxiv.org/abs/1011.1337}{arXiv:1011.1337}.
+\bibitem{ranking}
+D. C. McDonald. On-line vertex ranking of trees.
+\emph{SIAM Journal on Discrete Mathematics} 29(1), 145--156, 2015.
+\href{https://arxiv.org/abs/1401.2669}{arXiv:1401.2669}.
+\bibitem{localranking}
+P. Bose, V. Dujmovi\'{c}, M. Javarsineh, and P. Morin.
+Asymptotically optimal vertex ranking of planar graphs. 2022 version.
+\href{https://arxiv.org/abs/2007.06455}{arXiv:2007.06455}.
 \end{thebibliography}
 \endgroup
 \end{document}
