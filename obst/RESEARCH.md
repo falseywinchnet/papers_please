@@ -719,6 +719,98 @@ rendered and visually checked, with the new proof and measurement pages also
 inspected individually. Recorded test and implementation hashes match the
 published sources.
 
+## Thirteenth checkpoint: audit the endpoint-response representation
+
+The previous turn published a stronger core certificate but did not enlarge
+the asymptotic subquadratic regime. The next question was whether an interval
+could instead be summarized by its response F(x,y) to added endpoint-gap
+weights. This is a natural way to keep boundary decisions explicit while
+postponing interior construction. Harness-first investigation now establishes
+both an information obstruction and a separate explicit-representation bound.
+
+Two four-key intervals have identical key vector p=(1,1,2,3), gap vectors
+(1,4,2,1,1) and (1,4,1,2,1), equal mass 16, equal endpoint gap weights,
+and the same gap multiset. Their complete nonnegative endpoint response is
+the same minimum of five affine planes. Enumerating all 14 shapes proves
+this exactly: every differing plane is pointwise dominated by a shared plane
+whose slopes and intercept are no larger. Nevertheless, prepending keys
+(7,1), appending (1,7), and giving all new gaps weight one yields optima
+101 and 100. Independent enumeration of all 1,430 eight-key trees per
+instance, cubic DP, and Knuth agree. Thus even an exactly represented value
+response plus these metadata is not sufficient for contextual composition.
+The result does not exclude extra witnesses, non-exposed states, signed
+responses, or richer interfaces, and is not asserted to distinguish mixed
+from alphabetic algorithms.
+
+Separately, the response has at most n(n+1)/2 affine pieces because its
+integer slopes are endpoint depths a,b with a+b-1<=n. A strictly positive
+geometric family attains Omega(n^2). On m keys, set P_i=4m*8^i, all gaps
+one, and probe added left weight x_j=2*sum_(i<=j)P_i+2m. Strict endpoint
+dominance forces depth m-j. Mirror two copies about a sufficiently heavy
+central key to obtain all m^2 depth pairs in a bounded parameter box.
+Weights have O(n)-bit length; this is an output-size obstruction to explicit
+facet listing, not a general computational or fixed-word-size lower bound.
+
+The same family exposes the limit of that argument. Its one-sided response
+is exactly C0+m*x-sum_i max(0,x-(P_i-P_0)); the two-sided response separates
+into two such functions plus an affine term in the forced-center box.
+For the entire quadrant, any optimal root must be the center or an outer
+key. Any other root puts the center and both added endpoint weights at
+comparison depths at least two, and is strictly beaten by a center-root
+candidate with both outer keys as children. The analogous one-sided argument
+after choosing an outer root reduces the full function to a minimum of five
+expressions in the two hinge functions. It has exactly m^2+2m+2 affine pieces
+but only O(n) hinge terms. Threshold prefix sums support O(log n) value
+queries after O(n) arithmetic preprocessing over the entire quadrant.
+The selected expression reconstructs exactly n keys in O(n) additional work.
+The family is already easy for endpoint-dominance methods. No expression-size
+lower bound, difficult-query result, or new general solver is claimed.
+
+A favorable general bound also follows from the existing mixed Fibonacci
+mass lemma. If original endpoint gaps are positive and original mass is W,
+then any optimal endpoint depths a,b after arbitrary x,y>=0 satisfy
+F_(a-1)<=W/q_0 and F_(b-1)<=W/q_n when the respective depth is at least two.
+Take the root's left subtree to exclude added y (and symmetrically for x);
+the last endpoint ancestor has mass at least q_0+x. Hence the entire response
+has O(log(2+W/q_0)*log(2+W/q_n)) affine pieces, independent of the added
+weights. Polynomial mass ratios give O(log^2 n) pieces. This does not bound
+their discovery cost, and the five-piece composition counterexample still
+applies. Compactness and sufficiency are distinct requirements.
+
+The final exact harness passes 875 envelope queries on 175 inputs through
+seven keys, 725 retained-plane Fibonacci checks, 408 hinge formula queries,
+1,496 product-family queries through 33 keys, 204 full cubic comparisons,
+30 all-shape checks of unique optimal depth pairs, and 680 strict endpoint
+inequalities. Product queries execute 887,808 Knuth root candidates. Another
+304 queries expose the outer-root pieces and 384 test arbitrary parameters
+and the global transition threshold. All 2,184 factored full constructions
+match exact Knuth and direct evaluation, with exactly n keys constructed.
+The generator was changed from repeated prefix summation to a single pass
+before the final run, so the actual preprocessing matches the linear bound.
+The first collision search used outer weights 16; the reduced publication example
+uses seven. Its envelope equality is checked by direct componentwise
+domination, independently of rational polygon clipping. Both full tree sets
+are enumerated directly. Code and source-hashed raw results are in
+`boundary_response.py/json`; the proof is in `BOUNDARY_RESPONSE.md` and
+the manuscript.
+
+The next interface must retain more than the value response to two added
+gap weights: some sequence of decisions along the boundary paths, or internal
+alternatives suppressed by the isolated optimization. These are concrete
+obstructions to candidate representations, not completion of the original
+mixed-weight subquadratic or impossibility objective. Credit remains OpenAI
+Codex Sydney; sponsorship and problem selection remain with the repository
+owner. Novelty remains unestablished.
+
+## Publication audit of the thirteenth checkpoint
+
+The endpoint-response harness source hash matches its recorded results.
+The 42-page manuscript compiles with Tectonic without warnings. All pages
+were rendered and reviewed as contact sheets, and pages 37--41 containing
+the new statements and proofs were inspected individually. The publication
+preserves the distinction between a representation obstruction and a general
+algorithmic lower bound. The unrestricted objective remains open.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

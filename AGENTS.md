@@ -41,6 +41,7 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_pair_skeleton.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/pair_skeleton_family.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/pair_skeleton_crossover.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/boundary_response.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not

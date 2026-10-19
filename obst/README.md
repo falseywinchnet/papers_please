@@ -16,6 +16,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Joint heavy-outcome cores and protected-height certificate](HEAVY_CORE.md)
 - [Residual-cost core exclusion and linear-weight family](CORE_EXCLUSION.md)
 - [Coupled two-gap skeletons and arbitrary nonuniform key placements](PAIR_SKELETON.md)
+- [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
@@ -39,6 +40,14 @@ bounded-shape methods remain available as controlled comparisons. The general
 worst case remains quadratic; no unrestricted subquadratic solution or
 impossibility proof is claimed. Priority of the sufficient conditions has
 not been established.
+
+The latest representation audit gives two positive mixed intervals with
+identical endpoint-response functions, mass, and endpoint weights but different
+optima in the same surrounding context (101 versus 100). Thus that value
+function alone is not an exact composition interface. A separate construction
+requires quadratically many explicit affine pieces but has a linear-size
+factorization; polynomial endpoint mass ratios give only O(log^2 n) pieces.
+These are scoped representation results, not a general complexity lower bound.
 
 At 512 keys, a positive-weight instance with 22 randomly located heavy keys
 needed 10,344 total DP states rather than 131,328. This includes the tables
@@ -83,6 +92,7 @@ python3 obst/code/core_exclusion_scale.py
 python3 obst/code/check_pair_skeleton.py
 python3 obst/code/pair_skeleton_family.py
 python3 obst/code/pair_skeleton_crossover.py
+python3 obst/code/boundary_response.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py

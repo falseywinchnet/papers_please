@@ -53,6 +53,11 @@ $\alpha=1+\log_{2\varphi}2<1.59024$ through the existing local frontier.
 The same exponent already applies globally to this linear-total-mass
 family; the advance is the stronger certificate and measured work reduction.
 
+An endpoint-response audit gives two small positive mixed intervals with
+identical value responses but different optima in the same surrounding
+context. Explicit response envelopes can have quadratically many pieces,
+although the constructed example has a linear-size factorization.
+
 Exact enumeration, independent cubic recurrences, adversarial inputs, and
 operation counts accompany all implementations. We preserve a failed
 mass-bound transfer and document an ordered depth relaxation, its
@@ -323,7 +328,6 @@ At $n=512$, the respective random and near-uniform ratios were 1.131 and
 1.093: preprocessing can make the method slower. These are exploratory
 measurements on one M4 host, not production-language or cross-machine claims.
 
-\newpage
 \section{A certified shortcut through nearly complete shapes}
 Let $I(T)$ be the sum of internal-node depths, with root depth zero.
 The external path length is $I(T)+2n$, by induction on the two subtrees.
@@ -2403,12 +2407,309 @@ Another 120 cases combine $2\le w\le16$ with forced prefix depths
 $1\le D\le8$. Cubic DP, Knuth, direct costs, and inspection of the optimal
 prefix verify the exact additive identity and preserved strict gap.
 
+\section{Endpoint responses: insufficiency and representation size}
+An intact subtree interacts with its ancestors through its relative cost
+and total mass. If its interior is not yet fixed, one tempting richer
+summary is the response to added weights at its endpoint gaps:
+\[
+ \mathcal R(x,y)=\OPT(p,q+xe_0+ye_n),\qquad x,y\ge0.
+\]
+For a fixed tree the response is $C(T)+xd_0(T)+yd_n(T)$, so
+$\mathcal R$ is a concave lower envelope of affine planes. We distinguish
+whether this function contains enough information for composition from
+how many pieces an explicit representation requires. Neither result below
+is a general lower bound for optimal-BST construction; priority remains
+unestablished.
+
+\subsection{Equal responses need not be interchangeable}
+\begin{theorem}[Insufficient endpoint-value interface]\label{thm:response-insufficient}
+An interval's endpoint response, length, total mass, and endpoint gap
+weights do not determine its optimal cost in an arbitrary surrounding
+search problem. This remains true if its full vector of key weights
+and its multiset of gap weights are also retained.
+\end{theorem}
+\begin{proof}
+Consider two four-key intervals with
+\[
+ p=(1,1,2,3),\quad q^A=(1,4,2,1,1),\quad q^B=(1,4,1,2,1).
+\]
+Both have mass 16 and endpoint gap weights one. Enumerating the 14
+four-key shapes gives the following least intercepts for each possible
+endpoint-depth pair:
+\begin{center}
+\begin{tabular}{crr}
+\toprule
+Depths & $A$ & $B$\\
+\midrule
+$(1,2)$ & 45 & 45\\
+$(1,3)$ & 42 & 42\\
+$(1,4)$ & 44 & 45\\
+$(2,1)$ & 43 & 43\\
+$(2,2)$ & 36 & 36\\
+$(2,3)$ & 36 & 37\\
+$(3,1)$ & 39 & 39\\
+$(3,2)$ & 36 & 36\\
+$(4,1)$ & 43 & 42\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each plane with slopes $(1,4),(2,3),(3,2)$, or $(4,1)$ is pointwise
+dominated on the nonnegative quadrant by a common plane whose slopes
+and intercept are no larger. Hence both responses are exactly
+\begin{align*}
+ \mathcal R(x,y)=\min\{&45+x+2y,\ 42+x+3y,\ 43+2x+y,\\
+                      &36+2x+2y,\ 39+3x+y\}.
+\end{align*}
+This proves equality for all parameters, not just sampled ones.
+
+Prepend keys of weights $(7,1)$, append keys of weights $(1,7)$, and
+give the four new gaps weight one. The full inputs are
+\begin{align*}
+ P&=(7,1,1,1,2,3,1,7),\\
+ Q^A&=(1,1,1,4,2,1,1,1,1),\\
+ Q^B&=(1,1,1,4,1,2,1,1,1).
+\end{align*}
+Using the exact recurrence, the least full costs conditional on each
+root are
+\begin{center}\small
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Root & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
+\midrule
+$A$ & 108 & 108 & 103 & 101 & 101 & 101 & 111 & 110\\
+$B$ & 108 & 108 & 103 & 101 & 100 & 101 & 111 & 110\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus the optima are 101 and 100. Direct enumeration of all 1,430
+eight-key trees independently verifies both rows. Equal summaries
+with the identical surrounding context therefore have unequal answers.
+\end{proof}
+
+In particular, exact prepend/append updates closed on the stated summary
+cannot exist: identical starting summaries and identical updates would
+remain indistinguishable. The theorem does not exclude extra shape
+information, non-exposed depth states, signed-price responses, or richer
+interfaces. It does not assert a distinction between mixed and alphabetic
+algorithms; it rejects this summary even on small positive mixed inputs.
+
+The lost information includes internal alternatives with identical boundary
+depths. Both intervals have minimum cost 36 at depths $(2,2)$. The shape
+rooted at key 2, with left child 0 (whose right child is 1) and right
+child 3, also has depths $(2,2)$, but costs 37 in $A$ and 36 in $B$.
+The least intercept erases this distinction; the surrounding tree can
+make the additional alternative valuable.
+
+\subsection{Quadratic explicit envelopes with linear factorizations}
+For any $n\ge1$, the endpoint paths share only the root. If their depths
+are $a,b$, their union has $a+b-1\le n$ keys. At most one least
+intercept per depth pair is needed, giving at most $n(n+1)/2$ affine
+pieces. The quadratic order can occur already for a single interval.
+
+\begin{theorem}[Explicit-facet obstruction]\label{thm:response-facets}
+There are strictly positive mixed-weight instances on $n=2m+1$ keys
+whose endpoint response has at least $m^2$ affine pieces on the
+nonnegative quadrant. Consequently, explicitly listing all such pieces
+can require $\Omega(n^2)$ entries.
+\end{theorem}
+\begin{proof}
+Set $K=4m$ and $P_i=K8^i$ for $0\le i<m$. First consider these $m$
+keys with all gaps one and added left endpoint weight $x$. Write
+$S_j=\sum_{i=0}^jP_i$ and $x_j=2S_j+2m$.
+
+An endpoint key and its adjoining outer gap are forced to the root
+if their combined weight exceeds the mass of all other outcomes.
+Indeed, each rotation of that key toward the root saves one comparison
+on both outcomes and adds at most one to each other outcome. The strict
+inequality makes every rotation improve cost. At $x_j$, for every $k>j$,
+\[
+ P_k+1>S_{k-1}+x_j+k+1,
+\]
+while in the remaining prefix
+\[
+ P_0+1+x_j>(S_j-P_0)+(j+1).
+\]
+The geometric series and $K=4m$ imply these inequalities. For example,
+$S_{k-1}<P_k/7$ and $x_j\le2S_{k-1}+2m$ for $k>j$, whereas
+$P_k\ge32m$. Thus every optimum first uses roots
+$m-1,m-2,\ldots,j+1$, then key 0, giving left endpoint depth $m-j$.
+All $m$ possible one-sided slopes occur, with strict inequalities
+persisting in open neighborhoods of the probes.
+
+Mirror this instance about a central key:
+\[
+ p=(P_0,\ldots,P_{m-1},R,P_{m-1},\ldots,P_0),\quad q=(1,\ldots,1).
+\]
+Let $X=x_{m-1}$, $S=S_{m-1}$,
+$B=2S+2m+2+2X$, and $R=(2m+2)B$.
+For $0\le x,y\le X$, the mass outside the central key is at most $B$.
+A center-root tree costs at most $R+nB<2R$; any other root charges
+the central key at least $2R$. Thus the center root is forced.
+At $(x_j,x_k)$, every optimum has endpoint depths
+\[
+ (m-j+1,m-k+1).
+\]
+These are $m^2$ different gradients. Since there are finitely many
+trees and all minimizing trees at each probe have the same gradient,
+that probe has an open affine neighborhood. Different gradients require
+different pieces.
+\end{proof}
+
+The weights have $O(n)$ bits each. This is an arithmetic/output-size
+obstruction to explicit facet enumeration, not a word-RAM lower bound
+with $O(\log n)$-bit weights, nor a lower bound for a single optimum query.
+The same example also explains why counting facets cannot rule out
+implicit representations.
+
+\begin{lemma}[Exact hinge factorization]\label{lem:response-hinges}
+For the one-sided family above, let
+\[
+ C_0=\sum_{i=0}^{m-1}(m-i)P_i+m+\frac{m(m+1)}2.
+\]
+Its response for every $x\ge0$ is
+\[
+ H_m(x)=C_0+mx-\sum_{i=1}^{m-1}\max\{0,x-(P_i-P_0)\}.
+\]
+Within the forced-center box the two-sided response equals
+\[
+ R+2S+2m+2+x+y+H_m(x)+H_m(y).
+\]
+\end{lemma}
+\begin{proof}
+At $x_j$, the remaining right subtree of key 0 is a decreasing-key
+chain, by the same strict endpoint condition. Passing from $j$ to
+$j+1$ rotates key 0 above key $j+1$. At base weights the intercept
+increases by $P_{j+1}-P_0$, while the endpoint slope decreases by one.
+At $j=0$ the intercept is $C_0$. Every possible endpoint depth occurs
+among these $m$ trees, and optimality at a probe proves its intercept
+is minimal for that depth. Their successive intersections are the
+increasing thresholds $P_i-P_0$, giving the hinge formula. The center-root
+recurrence gives the two-sided identity.
+\end{proof}
+
+The factorization extends to the entire quadrant. Set
+\begin{align*}
+ W&=R+2S+2m+2, & V&=W-P_0-1,\\
+ L&=C_0-mP_0-m-1, & J&=R+2(S-P_0)+2m+2L.
+\end{align*}
+Here $L$ is the fixed cost of the remaining one-sided keys
+$1,\ldots,m-1$, and $J$ is the fixed inner cost after both outer keys
+and outer gaps are removed.
+
+\begin{theorem}[Full-quadrant factorization]\label{thm:response-global}
+For the geometric family and every $x,y\ge0$,
+\begin{align*}
+ \mathcal R(x,y)=W+x+y+\min\{&H_m(x)+H_m(y),\\
+ &V+y+L+H_m(y),\ V+y+J,\\
+ &V+x+L+H_m(x),\ V+x+J\}.
+\end{align*}
+This function has exactly $m^2+2m+2$ affine pieces. It admits $O(m)$
+arithmetic preprocessing and storage, $O(\log m)$ value queries, and
+$O(m)$ complete tree construction per query.
+\end{theorem}
+\begin{proof}
+Any root other than keys $0,m,2m$ gives both added endpoint weights
+depth at least two and the central key comparison length at least two.
+A center-root candidate with the two outer keys as children also puts
+both endpoints at depth two, with base cost at most
+$R+n(W-R)<2R$. It therefore strictly beats such a root for all $x,y$.
+If root 0 is used, its remaining one-sided problem similarly has only
+the center or the other outer key as a possible root; symmetrically for
+root $2m$. Expanding these five cases gives the formula. The fixed
+remaining intervals are geometric chains on either side of a forced
+central root, giving the stated $L,J$.
+
+The center-root term supplies $m^2$ slopes, all exposed by the original
+probes. For root 0, the same $2R$ argument forces the center in the
+right problem throughout the original probe range, exposing all $m$
+pieces inherited from $H_m(y)$. As $y$ grows unbounded, one final piece
+appears when the outer key becomes its root. Taking $x$
+sufficiently large forces root 0, exposing these $m+1$ pieces globally.
+Their slopes are $(1,2),\ldots,(1,m+2)$. Reflection gives another
+$m+1$ pieces with second slope one. All slopes are distinct. The formula
+has no further candidate slopes, proving the count.
+
+Prefix sums of the ordered thresholds let two binary searches evaluate
+$H_m(x)$ and $H_m(y)$. Four comparisons select the outer minimum.
+The selected case and one-sided chain indices reconstruct
+exactly $2m+1$ keys in linear work.
+\end{proof}
+
+Thus $2(m-1)$ hinge terms and five alternatives represent a quadratic
+number of affine regions. Endpoint-dominance shortcuts already solve this
+family. It is not a hard-query example, and the facet theorem is not an
+expression-size lower bound. A lossless factorization also does not repair
+Theorem~\ref{thm:response-insufficient}: the value function itself omits
+information needed by some surrounding contexts.
+
+\subsection{A favorable bound independent of the added weights}
+\begin{lemma}[Endpoint mass-ratio bound]\label{lem:response-ratio}
+Let the original total mass be $W$, with $q_0,q_n>0$. The entire response
+for arbitrary $x,y\ge0$ has
+\[
+ O\!\left(\log(2+W/q_0)\log(2+W/q_n)\right)
+\]
+affine pieces, also bounded by $O(n^2)$. Polynomial endpoint mass ratios
+therefore give $O(\log^2 n)$ pieces.
+\end{lemma}
+\begin{proof}
+If an optimum has left endpoint depth $a\ge2$, its last internal
+ancestor is at depth $a-2$ in the root's left subtree. This subtree
+is optimal and excludes the opposite endpoint and its added weight $y$.
+Its mass is at most $W+x$, while the last ancestor's subtree has mass
+at least $q_0+x$. Lemma~\ref{lem:mass} gives
+\[
+ F_{a-1}\le\frac{W+x}{q_0+x}\le\frac{W}{q_0},\qquad F_1=F_2=1.
+\]
+The symmetric bound is $F_{b-1}\le W/q_n$ for right depth $b\ge2$.
+Fibonacci growth bounds the number of possible slopes in each direction;
+only a least intercept per pair can be required.
+\end{proof}
+
+The added parameters do not occur in this bound. The quadratic example
+has exponential original mass ratio, so the two results are consistent.
+This lemma bounds output size, not the work to discover the pieces.
+Moreover, the composition counterexample has just five pieces: a small
+response need not be a sufficient interface.
+
+\paragraph{Independent checks and remaining question.}
+The exact-arithmetic harness checks 875 response queries against cubic DP
+on 175 inputs through seven keys. Rational half-plane clipping checks
+exposed pieces; 725 retained planes with positive endpoint weights satisfy
+the Fibonacci bound. The geometric family passes 408 hinge queries,
+including thresholds and neighboring integers; 1,496 two-parameter probes
+through 33 keys; 204 full cubic comparisons; 30 all-shape checks that
+every optimum has the prescribed depth pair; and 680 strict endpoint
+inequalities. The product checks execute 887,808 Knuth root candidates.
+Another 304 queries expose all outer-root pieces, and 384 queries test
+arbitrary parameters and the global transition threshold. All 2,184
+factored complete constructions agree with Knuth and direct evaluation,
+and construct exactly $n$ keys. Full-quadrant envelopes through nine
+keys have 5, 10, 17, and 26 pieces, agreeing with the proved formula.
+The factored constructions use 14,492 threshold comparisons, 8,736
+outer-minimum comparisons, and construct 52,232 keys in total; these
+categories exclude the independently executed reference solvers.
+
+The collision search found an initial surrounding context with outer
+weights 16; reducing them to seven preserves the one-unit optimum
+difference. The published certificate independently checks domination
+of discarded planes and enumerates both full eight-key tree sets.
+It does not depend on the clipping implementation or sampled parameters.
+Code, raw results, and the harness source hash are in
+\texttt{boundary\_response.py/json}.
+
+A richer representation must preserve some information about boundary
+path decisions or internal alternatives discarded by the isolated value
+response. The present results rule out two specific shortcuts; they do
+not resolve or replace the full mixed-weight subquadratic objective.
+
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
 interval frontiers, dominant-gap separators, joint heavy-outcome cores,
 residual exclusion and coupled two-gap skeleton certificates, global certificates,
-and scoped obstructions to depth relaxations. Mathematical novelty, broad
+and scoped obstructions to depth and endpoint-response representations.
+Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
 
