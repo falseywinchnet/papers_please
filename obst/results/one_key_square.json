@@ -1,0 +1,79 @@
+{
+  "scope": "Closed-form ruler-pair square counts, independent all-root support sets on small inputs, and literal non-dyadic square controls. The general boundary-plus-mass bound is not assumed.",
+  "checks": {
+    "all_root_candidates": 93664,
+    "dense_states": 16272,
+    "all_root_support_controls": 155,
+    "maximal_square_checks": 1038774,
+    "arbitrary_square_checks": 1300
+  },
+  "maxima_by_side": {
+    "1": 1,
+    "2": 1,
+    "4": 1,
+    "8": 2,
+    "16": 3,
+    "32": 3
+  },
+  "rows": [
+    {
+      "n": 4,
+      "all_key_positions": 4,
+      "independent_all_root": true
+    },
+    {
+      "n": 7,
+      "all_key_positions": 7,
+      "independent_all_root": true
+    },
+    {
+      "n": 8,
+      "all_key_positions": 8,
+      "independent_all_root": true
+    },
+    {
+      "n": 15,
+      "all_key_positions": 15,
+      "independent_all_root": true
+    },
+    {
+      "n": 16,
+      "all_key_positions": 16,
+      "independent_all_root": true
+    },
+    {
+      "n": 31,
+      "all_key_positions": 31,
+      "independent_all_root": false
+    },
+    {
+      "n": 32,
+      "all_key_positions": 32,
+      "independent_all_root": false
+    },
+    {
+      "n": 63,
+      "all_key_positions": 63,
+      "independent_all_root": false
+    },
+    {
+      "n": 64,
+      "all_key_positions": 64,
+      "independent_all_root": false
+    },
+    {
+      "n": 127,
+      "all_key_positions": 127,
+      "independent_all_root": false
+    },
+    {
+      "n": 128,
+      "all_key_positions": 128,
+      "independent_all_root": false
+    }
+  ],
+  "source_sha256": {
+    "one_key_square.py": "7ae2ae21e754fba769b48725894e5afc531a39e549d7ed403b306c170773e726",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

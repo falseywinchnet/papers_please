@@ -152,3 +152,11 @@ The formula audit records 700024 interval checks, 697992 density checks,
 1023 penalty-line checks, and 1316 general one-key cases with 88170 additional
 density checks. Its totals are 6387678 dense diagnostic states and 12975174
 root candidates. The probe records 1199 evaluations and 123 all-root controls.
+
+## Side length resolves the one-key local growth
+
+[The square-support lemma](BOUNDARY_TILE_TARGET.md) proves that every side-s
+ordinary square off capacity has at most 1+floor(log2 s) one-key densities.
+The family above has log2 s-1, so the leading logarithmic dependence is sharp.
+An additional boundary term proportional to s therefore accommodates this
+obstruction. The general boundary-plus-mass local bound remains open.

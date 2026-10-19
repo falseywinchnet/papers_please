@@ -5511,6 +5511,52 @@ requirement than the aggregate bound. The corollary concerns the auxiliary
 alternating template; the corresponding full-ruler sensitivity question
 remains open.
 
+\subsection{Nested binary threshold tails can all vanish}
+\label{sec:nested-tail-obstruction}
+Grouping weights by threshold does not by itself preserve a tail bound.
+For $B_a=\{i:p_i\ge a\}$, even a constant-factor transfer from
+$\int_0^\infty U_d(\mathbf1_{B_a})\,da$ can fail.
+
+\begin{lemma}[Zero threshold tails with a positive weighted tail]
+\label{lem:nested-tail-obstruction}
+There is no finite constant $A$ such that
+\[
+ U_d(p)\le A\int_0^\infty U_d(\mathbf1_{B_a})\,da
+\]
+for every nonnegative input, even for the full height-three ruler template.
+The same holds for its alternating clipping.
+\end{lemma}
+\begin{proof}
+Take $n=10$, $c=7$, $d=1$, and
+\[
+ p=(0,0,0,0,2,1,1,2,1,0).
+\]
+Its two nonempty threshold vectors are
+$b=(0,0,0,0,1,1,1,1,1,0)$ and
+$e=(0,0,0,0,1,0,0,1,0,0)$, each over a threshold interval of length one.
+For $v=(0,1,0,2,0,1,0)$ the scores are as follows.
+\begin{center}
+\begin{tabular}{c r r r r r r r}
+\toprule
+Input & $S(0,8)$ & $S(1,9)$ & $S(2,10)$ & $S(1,8)$ & $S(2,9)$ & $S(0,10)$ & $U_1$\\
+\midrule
+$p$ & 5 & 6 & 5 & 5 & 4 & 6 & 1\\
+$b$ & 3 & 3 & 4 & 3 & 3 & 4 & 0\\
+$e$ & 2 & 3 & 1 & 2 & 1 & 3 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each entry is the maximum of $p_{a_1}+2p_{a_2}+p_{a_3}$ over
+$i+1\le a_1<a_2<a_3\le j-2$ with consecutive indices separated by at
+least two. Equation~\eqref{eq:rank-tail-telescope} subtracts the last
+three scores from the first three. Both threshold tails vanish, while
+the weighted tail is one, proving the claim for every $A$.
+For the alternating template the three score rows become
+$(3,4,4;3,3,4)$, $(2,2,3;2,2,3)$, and $(1,2,1;1,1,2)$, again giving
+tails $1,0,0$. Scaling the weights scales the positive tail and preserves
+the zero threshold integral.
+\end{proof}
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -5535,6 +5581,83 @@ subquadratic construction problem remains open, as does the possibility
 of computing with a more compact representation of these structured dense
 cores. The quadratic ruler example already shows why representation size
 alone cannot establish a general algorithmic lower bound.
+
+\subsection{A boundary term in the local support charge}
+The remaining gap suggests the following open local hypothesis. For an
+absolute constant $A$, every accepted early-layer tile $T$ of side $s$
+and inclusive outcome span $J_T$ satisfies
+\begin{equation}\label{eq:boundary-tile-hypothesis}
+ K(T)\le A\bigl(s+W(J_T)\bigr)
+ \qquad\text{for nonnegative integer input weights.}
+\end{equation}
+Here $K(T)$ counts positive densities, rather than their sum. The side
+term accommodates the known one-key obstruction. Integer normalization
+is essential: rescaling an input preserves support while changing mass.
+The hypothesis remains unproved. The following one-key bound explains
+its compatibility with the logarithmic local obstruction.
+
+\begin{lemma}[Single-key square support]\label{lem:one-key-square}
+With one positive key and zero gap weights, any $s\times s$ square of
+ordinary density cells lying wholly on one side of the capacity line
+has at most $1+\lfloor\log_2s\rfloor\le s$ positive entries. The square
+need not be maximal or dyadically aligned. The logarithmic dependence
+has sharp leading coefficient one.
+\end{lemma}
+\begin{proof}
+Use the ruler-pair classification in
+Section~\ref{sec:local-tile-obstruction}. Each positive density corresponds
+to consecutive multiples $u<v$ of $2^r$, for some $1\le r<h$.
+Below capacity the mapping is $i=x-u$, $j=c+x+1-v$; above it the mapping
+is $i=x+1-v$, $j=c+x-u$. For a square wholly off capacity, the possible
+$u$ and $v$ values occupy ordered disjoint integer intervals $I,J$, each
+with at most $s$ values, and gap $g=\min J-\max I\ge2$. Clipping to the
+allowed ruler range only shortens these intervals.
+
+Every contributing pair spans a common point between $I$ and $J$.
+At each scale, intervals between consecutive multiples have disjoint
+interiors, so at most one pair at that scale contributes. Their lengths
+lie between $g$ and $g+2s-2$, whose ratio is at most $s$. There are at
+most $1+\lfloor\log_2s\rfloor$ powers of two in that range. This also
+handles $s=1$. Multiplying the positive key weight preserves support.
+Finally Theorem~\ref{thm:local-tile-obstruction} has $s=2^{h-2}$ and
+$K(T)=h-3=\log_2s-1$, proving sharpness of the leading logarithmic term.
+\end{proof}
+
+\begin{lemma}[Conditional improvement from a boundary charge]
+\label{lem:boundary-tile-conditional}
+If \eqref{eq:boundary-tile-hypothesis} holds uniformly, then the aggregate
+completed core size satisfies
+\[
+ S=O_A\bigl(nH+(n+W)L^2+n\sqrt W+HWL\bigr).
+\]
+At $W=O(n)$ this is $O(n^{3/2})$, and the existing Monge construction
+would take $O(n^{3/2}\log(n+1))$ arithmetic operations, including full
+reconstruction.
+\end{lemma}
+\begin{proof}
+At early layer $h<L$, put $c=2^h-1$. The established tile count and
+inclusive-position overlap bounds give at most $24n/s$ side-$s$ tiles
+and total span mass at most $60W(1+c/s)$. Combining the hypothesis with
+the area bound yields
+\[
+ K_{h,s}\le\min\{24ns,\ A[24n+60W(1+c/s)]\}.
+\]
+Separate the constant-per-scale term from $Wc/s$, and sum the geometric
+minimum over dyadic scales. Including the exceptional and completion
+diagonals gives
+\[
+ K_h=O_A\bigl((n+W)L+\sqrt{nWc}\bigr).
+\]
+Now $\sum_{h<L}\sqrt{c_h}=O(\sqrt n)$, so the early layers contribute
+$O_A((n+W)L^2+n\sqrt W)$. Late layers retain their proved bound $n+LW$,
+giving the claimed aggregate expression. At linear mass $H=O(L)$, and
+$nL^2=O(n^{3/2})$. Product, conversion, and succinct reconstruction costs
+are $O(S\log(n+1))$.
+\end{proof}
+This conditional core scale matches the odd-ramp lower bound. Establishing
+or refuting \eqref{eq:boundary-tile-hypothesis} is therefore a direct
+local route to deciding the remaining logarithmic gap; the main theorem
+continues to use the proved height-dependent charge.
 
 \appendix\section{Independent verification and operation counts}\label{app:verification}
 The theoretical statements above do not depend on these finite tests.
@@ -6866,6 +6989,48 @@ these quantities remain distinct in the records
 \texttt{key\_sensitivity\_search.json} and
 \texttt{key\_tail\_sensitivity.json}. All records retain exact inputs,
 operation counts, seeds, and executed-source hashes.
+
+\section{Threshold falsification and boundary-tile diagnostics}
+\label{app:boundary-tile-target}
+The nested-threshold probe evaluates 14,432 inputs and 35,722 width
+comparisons, including exhaustive ternary interior weights on ten positions.
+It records 1852 upper-relation violations and 4003 reverse-relation
+violations. The counterexample in Lemma~\ref{lem:nested-tail-obstruction}
+is separately checked by literal enumeration of 876 subsequences for
+36 interval scores, comparison with the generic subsequence recurrence,
+and three original all-root terminal-layer controls. The records are
+\texttt{nested\_tail\_probe.json} and
+\texttt{nested\_tail\_example.json}.
+
+The broad boundary-plus-mass diagnostic evaluates 21,436 inputs, with
+structured inputs through 1024 keys, non-power-of-two sizes, sparse unit
+outcomes, and fixed-mass mutations over keys, gaps, and mixed outcomes.
+It scans 87,706,185 accepted tiles. Its largest observed ratio
+$K(T)/(s+W(J_T))$ is $121/136$, on a gap-only input. All 93 small
+independent all-root controls agree with its layerwise maxima; these
+controls enumerate 15,301 tiles independently. The compiled run records
+3,240,243,236 states, 6,584,091,125 root candidates, and 3,217,996,956
+density evaluations. The record is \texttt{tile\_boundary\_probe.json}.
+
+The maximum-over-all-tiles objective often settles on a small tile.
+A second search therefore restricts its objective to capacity-adjacent
+tiles with $s\ge4$ and $c\ge4s$, preserving total mass $n/4$ or $n$.
+It evaluates 37,224 inputs through 512 keys and visits 212,592,240 tiles;
+the largest eligible ratio is $11/14$. Six retained small winner tiles
+agree with independent all-root layers. It records 8,185,066,752 states,
+16,269,275,134 root candidates, and 8,131,873,536 density evaluations.
+The record is \texttt{tile\_capacity\_support.json}. Both searches are
+finite falsification diagnostics; neither proves
+\eqref{eq:boundary-tile-hypothesis}.
+
+The one-key square audit checks 1,038,774 maximal squares over all key
+positions at selected sizes through 128 keys, including non-power-of-two
+inputs. It also checks 1300 arbitrary squares, including non-dyadic sides,
+and compares 155 full support sets against independent all-root layers.
+The proof of Lemma~\ref{lem:one-key-square} uses only the ruler-pair
+classification and interval geometry. The record is
+\texttt{one\_key\_square.json}. All records retain exact inputs,
+operation counts, seeds where used, and executed-source hashes.
 
 \clearpage
 \begingroup\small

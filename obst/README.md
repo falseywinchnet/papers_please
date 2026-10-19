@@ -21,6 +21,8 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Alternating-tail matching bound and exact growing-width families](ALTERNATING_TAIL_BOUND.md)
 - [Rank-weighted repair certificates and tie-independent barriers](RANK_REPAIR_BARRIER.md)
 - [Exact weighted cluster tails and pointwise-sensitivity obstruction](WEIGHTED_CLUSTER_TAIL.md)
+- [Nested threshold-tail obstruction](NESTED_TAIL_OBSTRUCTION.md)
+- [Single-key square bound and the open boundary-plus-mass target](BOUNDARY_TILE_TARGET.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -105,6 +107,17 @@ the tail at fixed cluster mass. A unique minimum can have an individual
 sensitivity far above h+C/d, even at W=n, while the aggregate bound remains
 valid. The next charge must accommodate groups of interacting weights.
 See [the weighted formula and exact sensitivity proof](WEIGHTED_CLUSTER_TAIL.md).
+
+A ten-key full-ruler counterexample has positive weighted upper tail while
+both binary threshold tails vanish, so a constant-factor threshold transfer
+cannot supply the missing charge. A more direct core-size target is the open
+local bound K(T)=O(side(T)+W(span(T))). It would imply aggregate core size
+O(n^(3/2)) at W=O(n), removing the remaining sqrt(log n) factor. The proved
+one-key special case is stronger: every side-s square off capacity contains
+at most 1+floor(log2 s) positive densities, with sharp leading logarithmic
+scale. See [the threshold obstruction](NESTED_TAIL_OBSTRUCTION.md) and
+[the local target and conditional summation](BOUNDARY_TILE_TARGET.md).
+The general local hypothesis remains unproved.
 
 The sharper time bound charges each individual outcome weight to covering
 tiles and sums their geometrically spaced layer boundaries. It proves total

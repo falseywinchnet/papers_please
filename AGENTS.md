@@ -315,3 +315,33 @@ Weighted alternating-cluster formula and sensitivity audit:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/weighted_cluster_tail.py
 ```
+
+Nested-threshold tail charging falsification:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/nested_tail_probe.py
+```
+
+Boundary-plus-mass local core-support search:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/tile_boundary_probe.cpp -o /tmp/obst-tile-boundary-probe && python3 obst/code/tile_boundary_probe.py /tmp/obst-tile-boundary-probe'
+```
+
+Capacity-adjacent tile-support search avoiding small-tile plateaus:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/tile_capacity_support.cpp -o /tmp/obst-tile-capacity-support && python3 obst/code/tile_capacity_support.py /tmp/obst-tile-capacity-support'
+```
+
+Single-key logarithmic-square support audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/one_key_square.py
+```
+
+Literal zero-threshold-tail counterexample:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/nested_tail_example.py
+```

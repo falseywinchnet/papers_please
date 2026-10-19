@@ -2684,3 +2684,93 @@ new appendix, and dedication received detailed visual review. All 57 legacy
 labels and references resolve, and the dedication is byte-identical to the
 previous checkpoint. Stable TeX/PDF outputs and the complete source/font
 archive are refreshed for publication.
+
+## Checkpoint 38: threshold falsification and a direct local support target
+
+The preceding turn was progress: the weighted cluster formula showed how
+an aggregate charge can survive large individual sensitivities. This turn
+first tested a nested-threshold transfer, then returned directly to the
+remaining logarithmic factor in core size.
+
+The nested-threshold proposal was U_d(p)<=A integral U_d(1_{p>=a}) da.
+The exact diagnostic evaluates 14432 inputs and 35722 widths, including
+exhaustive ternary interior vectors on ten positions. It records 1852
+violations of the coefficient-one upper relation and 4003 of the reverse
+relation. A separately retained zero-denominator example proves a stronger
+failure, for every finite A.
+
+Take n=10,c=7,d=1 and p=(0,0,0,0,2,1,1,2,1,0). The two nonempty binary
+threshold sets are {4,5,6,7,8} and {4,7}. For the full height-three ruler,
+the six boundary scores of p are (5,6,5;5,4,6), yielding tail one. The
+threshold score rows are (3,3,4;3,3,4) and (2,3,1;2,1,3), each yielding
+zero. The alternating template has the same tail pattern 1,0,0. Thus no
+multiplicative transfer from binary threshold tails can hold. The proof
+table is checked independently by 876 literal subsequences for 36 scores,
+generic recurrence comparisons, and three original all-root terminal layers.
+This is a falsification for the full ruler, not merely an auxiliary example.
+
+The direct core-size target is an open local hypothesis:
+
+K(T) <= A (s+W(J_T)),
+
+for nonnegative integer weights, accepted maximal dyadic tiles of side s,
+and inclusive outcome spans J_T. It counts support, not density mass. The
+side term permits the known one-key logarithmic obstruction. Rescaling
+shows why integer normalization matters. The target is not proved.
+
+Its conditional consequences are now explicit. The established count of
+24n/s tiles and span-mass overlap 60W(1+c/s) give
+K_(h,s)<=min(24ns,A[24n+60W(1+c/s)]). Dyadic summation gives
+K_h=O_A((n+W)L+sqrt(nWc_h)). Summing growing capacities and adding the
+proved late-layer bounds yields
+S=O_A(nH+(n+W)L^2+n sqrt(W)+HWL).
+At W=O(n), this would be O(n^(3/2)) aggregate support and
+O(n^(3/2) log(n+1)) construction work, matching the odd-ramp core lower
+scale. The paper retains the existing main theorem; this is conditional.
+
+A positive special case is proved. With one positive key and zero gaps,
+any side-s ordinary square wholly off the capacity line contains at most
+1+floor(log2 s)<=s nonzero densities, whether or not dyadically aligned.
+The ruler-pair mapping puts its two endpoints in ordered intervals of
+at most s integers with gap g>=2. Every contributing dyadic interval
+crosses a common point, so at most one occurs at each scale. Pair lengths
+lie in [g,g+2s-2], a ratio at most s, proving the bound. The old maximal-tile
+family has log2 s-1 entries, so the leading logarithmic scale is sharp.
+The proof resolves the dependence on side length rather than assuming that
+a finite height test controls arbitrary h.
+
+The broad boundary-plus-mass diagnostic evaluates 21436 inputs through 1024
+keys, including non-power-of-two sizes, sparse unit outcomes, and fixed-mass
+key/gap/mixed searches. It visits 87706185 accepted tiles. Its maximum
+observed ratio is 121/136. There are 93 independent all-root input controls,
+covering 15301 independently counted tiles. The compiled run records
+3240243236 states, 6584091125 root candidates, and 3217996956 densities.
+
+The maximum-over-all-tiles objective often settles on a tiny tile, so a
+second diagnostic targets capacity-adjacent tiles with s>=4 and c>=4s.
+It preserves mass n/4 or n, evaluates 37224 inputs through 512 keys, and
+visits 212592240 tiles; its maximum eligible ratio is 11/14. Six retained
+size-64 winner tiles have independent all-root checks. The run records
+8185066752 states, 16269275134 candidates, and 8131873536 densities.
+Neither finite search proves the open support hypothesis.
+
+The one-key audit checks 1038774 maximal squares over every key position
+at selected sizes through 128 keys, 1300 arbitrary squares including
+non-dyadic sides, and 155 support sets against independent all-root layers.
+All five new result records retain matching executed-source hashes.
+
+Section 5.15 contains the threshold obstruction. Section 6.1 states the open
+local hypothesis, proves the one-key square lemma, and gives the conditional
+summation. Appendix N contains the diagnostics. The next proof obligation
+is a height-independent support charge for interacting integer outcomes;
+telescoping density mass alone still supplies only the older hW allowance.
+The full mixed-weight goal and its current main bound remain unchanged.
+
+Publication validation: Tectonic compiled the 106-page manuscript without
+warnings, undefined references, or overfull/underfull boxes. All pages were
+rendered and inspected in contact sheets; the new proofs, diagnostic appendix,
+and final dedication were also inspected at reading resolution. All legacy
+result labels and the exact dedication source were preserved. The five new
+executed-source manifests match the committed-source candidates. Stable PDF,
+TeX, and a self-contained source ZIP with the Hebrew font and license were
+refreshed from this build.
