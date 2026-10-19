@@ -1933,3 +1933,50 @@ page was rendered and reviewed in contact sheets; the new proof and final
 dedication were also inspected at full resolution. The dedication source is
 unchanged byte for byte. Stable TeX/PDF output copies and the complete font
 source bundle are refreshed from this revision.
+
+
+## Checkpoint 27: a local charging obstruction and exact one-key cores
+
+The previous turn made concrete progress by publishing the aggregate bound
+and O(n^(3/2) log^(3/2)(n+1)) linear-mass construction. This turn attacked
+the remaining per-layer logarithm by testing whether the local 2hW(J_T)
+tile-density bound could lose its h factor. That shortcut is false.
+
+The dyadic-mass probe evaluates 1199 inputs including 123 independent all-root
+controls, with 19699184 dense states, 38539843 candidate roots, and 1169332
+tiles. One concentrated key gives tile-mass ratios 2,3,4 at n=64,128,256.
+The normalized family has W=1, h>=4, s=2^(h-2), n=8s, and key x=4s+1.
+Its accepted tile [2s,3s) x [7s,8s) has exactly h-3 unit densities, at
+(3s+2-2^d,7s), d=2,...,h-2. Both constant local mass charging and constant
+local support charging are therefore impossible. The tile's parent meets
+the capacity diagonal, so the example uses the actual upper-bound tiling.
+
+The proof first gives an exact one-key layer formula, including intervals
+above capacity: exposing c=2^h-1 keys forces a perfect skeleton, and the
+weighted key can occupy a precisely bounded range of ruler slots. Four-window
+differences of maximum valuations classify every ordinary density. Positive
+pairs are consecutive multiples of a power of two, and every density equals
+one. In the explicit family there are 2^h-2 below-capacity entries and
+2^h-2h above-capacity entries, plus n-c penalty and n completion entries.
+Thus the completed core has exactly 2n+2^h-2h-1 entries. More generally,
+any one-key input has at most 3n completed entries in each layer. This is a
+structural control for the charging approach, not a change of the full mixed
+research objective. The existing upper and odd-ramp lower bounds stand.
+
+The independent formula audit checks 700024 interval values, 697992 densities,
+and 1023 penalty-line cells through 1024 keys. It uses literal all-root
+recurrence through 64 keys and monotone-root recurrence above that. Another
+1316 cases cover all key positions through n=16, two masses, and the tested
+layers, with 88170 additional density checks. Totals are 6387678 states and
+12975174 candidate roots. Larger formula-only evaluations are labeled.
+The proof, code, source hashes, and exact records are retained. The new
+negative result is grouped with the paper's barriers and verification remains
+in an appendix. No empirical fit or timing supports the asymptotic claims.
+
+Checkpoint 27 publication validation: both new manifests match the executed
+sources. The dedication remains byte-identical, all 57 legacy statement
+labels remain, all labels are unique, and every reference resolves. The
+82-page PDF compiles without warnings, missing glyphs, undefined references,
+or layout-box diagnostics. All pages were rendered and reviewed in contact
+sheets; the new proof and audit were inspected at full resolution. Stable
+TeX/PDF copies and the complete source/font bundle are refreshed.

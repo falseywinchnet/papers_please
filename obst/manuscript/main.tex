@@ -4259,6 +4259,128 @@ restore the prescribed number of levels. Small passing tests do not remove
 that issue. The upper-penalty proof above avoids that argument.
 
 
+\subsection{A single weight unit obstructs constant per-tile charging}
+\label{sec:local-tile-obstruction}
+The aggregate argument charges each tile at most $2h$ times the mass of
+its span. Removing $h$ from this local inequality would strengthen the
+core bound. The following family rules out that local step for both
+density mass and support, while retaining a linear global core.
+
+\begin{theorem}[Local charging obstruction]\label{thm:local-tile-obstruction}
+Let $h\ge4$, $s=2^{h-2}$, $n=8s$, $c=2^h-1$, and $x=4s+1$.
+Set $p_x=1$ and every other key and gap weight to zero. At layer $h$,
+with terminal penalty $M>h$, the maximal dyadic tile
+\[
+ T=[2s,3s)\times[7s,8s)
+\]
+contains exactly $h-3$ nonzero densities, each equal to one. Its span
+has mass one. The completed layer core has exactly
+\[
+ \delta(E_h)=2n+2^h-2h-1
+\]
+entries. Thus no universal constant bounds either a tile's density mass
+or its support by that tile's span mass.
+\end{theorem}
+\begin{proof}
+Write $C=2^h=c+1$ and $v(r)=\nu_2(r)$ for $1\le r\le c$.
+For an interval $[i,j)$ containing $x$, put
+\[
+ k=j-i,\qquad U=x-i+1,\qquad V=c+x+1-j.
+\]
+Its exact cost is
+\begin{equation}\label{eq:one-key-window}
+ A_h(i,j)=M(k-c)_++h-
+ \max_{r\in[\min(U,V),\max(U,V)]\cap[1,c]}v(r).
+\end{equation}
+Intervals not containing $x$ have value $M(k-c)_+$.
+For $k\le c$, the perfect-slot representation permits the positive key
+in exactly the slots $U,\ldots,V$. For $k\ge c$, the $c$ exposed keys
+form a perfect height-$h$ skeleton. Exposing $x$ at slot $r$ requires
+$r-1$ preceding keys and $c-r$ following keys; these inequalities give
+$V\le r\le U$, clipped to $[1,c]$. Leaving $x$ unexposed contributes
+$h$, which cannot improve on a feasible slot with nonnegative valuation.
+The maximum-exposure argument uses $M>hW=h$.
+
+Extend the valuations to virtual endpoints by $v(0)=v(C)=h$.
+For two endpoints $a<b$, write $t$ for the maximum valuation strictly
+between them, taking $t=0$ for an empty interior. A four-window
+range-maximum difference has value
+\begin{equation}\label{eq:ruler-endpoint-density}
+ \max\{0,\min(v(a),v(b))-t\}.
+\end{equation}
+This is positive precisely for consecutive multiples of $2^d$,
+$1\le d<h$, and then equals one. To see this, let $d$ be the smaller
+endpoint valuation. A separation greater than $2^d$ contains an interior
+multiple of $2^d$; at separation $2^d$ the interior maximum is $d-1$.
+Valuation zero cannot give a positive difference. The pair $(0,C)$
+would instead map to $i=j$ and is excluded.
+
+Taking differences in~\eqref{eq:one-key-window}, the positive cells
+below and above the penalty line respectively have coordinates
+\begin{align*}
+ j-i<c:&\quad (i,j)=(x-a,\ c+x+1-b),
+                  &&0\le a<b\le C,\\
+ j-i>c:&\quad (i,j)=(x+1-b,\ c+x-a),
+                  &&1\le a<b\le c.
+\end{align*}
+In each line, $(a,b)$ ranges over the consecutive-multiple pairs just
+described. Below the line, a virtual endpoint handles the key entering
+or leaving a contributing interval: its valuation $h$ cancels the
+formal $h$ cost. Above the line, clipping that prevents an endpoint
+from moving gives zero density; at a key boundary its comparison
+length is $h$ in both relevant intervals. Cells whose intervals all
+miss the key have zero ordinary density.
+
+For the stated $n,x$, every listed pair lies inside the input grid.
+The counts below and above the line are
+\[
+ \sum_{d=1}^{h-1}2^{h-d}=2^h-2,\qquad
+ \sum_{d=1}^{h-1}(2^{h-d}-2)=2^h-2h.
+\]
+On the penalty line there are $n-c$ positive entries. Their residual
+density is either zero or minus the absolute difference of adjacent,
+possibly virtual, valuations, whose magnitude is at most $h$; adding
+$M>h$ makes them positive. Including the $n$ completion entries proves
+the asserted total.
+
+Every cell of $T$ lies above $j-i=c$, while its side-$2s$ parent at
+$(2s,6s)$ meets that line. Hence $T$ is a maximal accepted tile.
+Its four corner slot windows, in telescoping order, are
+\[
+ [1,2s+2],\quad[s+1,s+2],\quad[s+1,2s+2],\quad[1,s+2].
+\]
+Their maximum valuations are $h-1,1,h-1,h-2$, so their ordinary
+costs are $1,h-1,1,2$. The affine penalty cancels and the density mass
+is $h-3$. Explicitly, its positive cells are exactly
+\[
+ (i,j)=(3s+2-2^d,\ 7s),\qquad d=2,\ldots,h-2,
+\]
+corresponding to endpoint pairs $(s,s+2^d)$. Each has density one.
+\end{proof}
+
+\begin{corollary}[One-key global support]\label{cor:one-key-core}
+If a single key has positive weight and all other key and gap weights
+are zero, every completed terminal-penalty layer has at most $3n$
+core entries.
+\end{corollary}
+\begin{proof}
+Scaling the positive weight scales the ordinary densities without changing
+their support. Input boundaries can only remove pairs from the preceding
+classification. If $c<n$, the two ordinary regions have at most $c-1$
+and $c+1-2h$ entries. Add $n-c$ penalty-line entries and $n$ completion
+entries to obtain fewer than $3n$. If $n\le c<2n-1$, only the first
+region occurs, with at most $c-1$ entries, again giving fewer than $3n$.
+If $c\ge2n-1$, every interval can put the weighted key at the root and
+balance its zero-weight sides within height $h$. Its cost is the key's
+weight when it contains that key and zero otherwise, so all interior
+densities vanish. Layer zero has only $n$ completion entries.
+\end{proof}
+
+The local obstruction therefore coexists with a global linear bound.
+An improved general charging argument must account for how one outcome's
+contributions are distributed across tiles; it cannot give each tile an
+independent constant allowance per weight unit.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -4273,6 +4395,10 @@ The aggregate bound of Theorem~\ref{thm:aggregate-cores} already removes
 one logarithmic factor from construction time by charging individual
 outcomes across geometrically spaced layer boundaries. It leaves the
 per-layer $\sqrt{\log n}$ gap above unresolved.
+Theorem~\ref{thm:local-tile-obstruction} shows why simply removing the
+height factor from each tile charge cannot close it: even one weight unit
+can cause a logarithmic number of positive entries in one tile, although
+Corollary~\ref{cor:one-key-core} bounds its entire layer core linearly.
 
 The bound concerns an explicit density representation. The unrestricted
 subquadratic construction problem remains open, as does the possibility
@@ -5231,6 +5357,52 @@ holds for every $n=2^{2t}$, $t\ge5$, by its proof. These records are in
 \texttt{core\_size\_search*.json}, \texttt{core\_size\_patterns.json},
 \texttt{core\_size\_lemmas.json}, and \texttt{ramp\_core\_tightness.json}.
 Each records hashes of the exact sources used.
+
+\section{Local tile charging: probe and exact one-key audit}
+\label{app:local-tile}
+The tile-mass probe evaluates mixed random, sparse, uniform, geometric,
+and concentrated inputs, followed by fixed-mass local mutations. Its
+objective is the ratio of a maximal tile's density mass to the mass of
+its own span. The 1199 evaluations include 123 independent all-root
+controls. They examine 19,699,184 dense states, 38,539,843 root candidates,
+and 1,169,332 tiles. The largest observed ratio is four at $n=256$,
+$h=7$, with one key carrying all the weight. Scaling that weight to one
+leads to Theorem~\ref{thm:local-tile-obstruction}; the search alone does
+not establish the unbounded ratio.
+
+The separate formula audit checks every interval value and every interior
+density of the explicit family through $n=1024$. It uses all-root
+recurrences through $n=64$ and monotone-root recurrences at larger sizes.
+There are 700,024 interval-formula checks, 697,992 density-formula checks,
+and 1023 penalty-line checks. The exact completed core sizes are:
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & $h$ & Completed core & Tile support & Tile mass\\
+\midrule
+16 & 3 & 33 & 0 & 0\\
+32 & 4 & 71 & 1 & 1\\
+64 & 5 & 149 & 2 & 2\\
+128 & 6 & 307 & 3 & 3\\
+256 & 7 & 625 & 4 & 4\\
+512 & 8 & 1263 & 5 & 5\\
+1024 & 9 & 2541 & 6 & 6\\
+\bottomrule
+\end{tabular}
+\end{center}
+The general one-key corollary is additionally checked on 1316 cases:
+every key position through $n=16$, two positive masses, and all tested
+layers, using literal all-root recurrence. These contribute 88,170
+additional density checks. Together the formula harness records
+6,387,678 dense diagnostic states and 12,975,174 root candidates.
+Larger rows through $h=30$ evaluate only the proved formulas and are
+explicitly labeled as such. They are not independent dense solves.
+
+The executed sources and exact operation records are retained in
+\texttt{dyadic\_mass\_probe.json} and \texttt{single\_key\_tile.json}.
+The proofs in Section~\ref{sec:local-tile-obstruction} establish the
+asymptotic local obstruction and global linear bound independently of
+these finite checks.
 
 \begingroup\small
 \begin{thebibliography}{99}

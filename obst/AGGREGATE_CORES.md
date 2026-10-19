@@ -108,3 +108,13 @@ and 1139 late-layer checks. The diagnostic uses 685551 dense states and
 8636426 candidate roots. These are verification operations, not the sparse
 constructor's complexity. The source-hashed result is
 `results/aggregate_core_audit.json`.
+
+
+## Limit of the local mass inequality
+
+[LOCAL_TILE_OBSTRUCTION.md](LOCAL_TILE_OBSTRUCTION.md) proves that even
+W=1 can produce h-3 unit densities inside one maximal tile. Thus replacing
+2hW(J_T) by C W(J_T), for a universal C, is false for density mass and
+support alike. The same input has a linear global core, and every one-key
+input has at most 3n completed entries per layer. The remaining improvement
+therefore calls for a global charge across tiles or additional structure.

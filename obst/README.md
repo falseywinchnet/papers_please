@@ -9,6 +9,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
 - [Linear-mass odd-ramp core lower bound](RAMP_CORE_TIGHTNESS.md)
 - [Per-outcome charging and the aggregate core bound](AGGREGATE_CORES.md)
+- [Single-weight obstruction to constant tile charging](LOCAL_TILE_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -74,6 +75,15 @@ family corollaries, consolidates negative results, and puts verification in
 appendices. Python timing passages have been removed from the paper; historical
 raw records remain in the repository. The title asterisk refers to the sponsor's
 verbatim dedication at the end. The bundled Hebrew font includes its OFL license.
+
+A further exact family identifies a limit of local charging. With just one
+unit-weight key and n=2^(h+1), one accepted tile has h-3 nonzero densities,
+each equal to one. The entire completed layer nevertheless has exactly
+2n+2^h-2h-1 entries, and every one-key input has at most 3n entries per
+layer. Thus the height factor cannot simply be dropped from individual tile
+charges; a stronger global charging argument remains possible. The formula
+audit checks every interval and density through 1024 keys, with additional
+all-position one-key controls. See [the proof](LOCAL_TILE_OBSTRUCTION.md).
 
 ## Earlier certificate results
 
