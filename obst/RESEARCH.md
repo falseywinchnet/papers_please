@@ -2100,3 +2100,61 @@ rendered and reviewed in contact sheets; the new proof, audit, and dedication
 were inspected at full resolution. Stable TeX/PDF copies and the complete
 source/font bundle are refreshed. The main mixed-weight theorem and the
 remaining sqrt(log n) core-bound gap are unchanged.
+
+
+## Checkpoint 30: full mixed boundary identity and concentrated mass
+
+The previous goal turn proved and published the binary gap-only leading term.
+This turn returns to arbitrary mixed weights. At capacity c=2^h-1<=n,
+the exact below-capacity density mass is
+(h-1)P+(h-2)Q+q_0+q_n+sum_i G_i-B_tail. Here G_i is the maximum of
+q_(i+2r+1)+sum_(l=1)^r nu_2(2l)(p_(i+2l)-p_(i+2l-1)), and B_tail is
+the final c-key perfect ruler reward. Omitting one perfect slot and grouping
+its reward changes proves this formula; even omitted slots are dominated
+by the preceding odd slot. Telescoping rows and the remaining triangular
+corner then proves the full identity. It includes arbitrary nonnegative real
+weights, h=1, c=n, and the prior gap-only formula as a specialization.
+
+At n=2^s>=16, h=s-1, c=n/2-1, keys alternating 2,1 and every gap equal
+to 1 have W=5n/2+1 but below-capacity mass
+n^2/8+n(h-3)/4+2((h-1)n+h-c). Exactly n/4+1 entries on the diagonal
+j-i=c-1 have density c+1-h=n/2-h; other entries there vanish. Removing
+that one diagonal leaves O(nh) density mass. Above capacity only the
+j-i=c+1 diagonal can be nonzero, with density c-h on odd rows. Integrality
+therefore proves O(n log n) completed support in the same layer. The proof
+separates mass from support on strictly positive bounded mixed weights;
+quadratic mass is not evidence of a quadratic core. It rules out a naive
+global mass-only proof strategy without claiming an algorithmic lower bound.
+
+The independent all-root audit checks 308 inputs, 756 mixed identities,
+6656 one-slot formulas, 3376 lower-neighbor densities, 136680 above-capacity
+densities, and 80 family formulas. Its reference work is 369396 states and
+13048220 root candidates. The family checks cover n through 128 and four
+baseline pairs. Source hashes and exact rows are retained.
+
+A separate falsification probe studies T_(h,d), density mass outside the band
+|j-i-c|<d. The candidate O(W(L+c/d)) bound remains unproved. If true, it
+would give O(n+WL+sqrt(nWc)) support after charging the band directly, and
+close the sqrt(log n) loss at W=O(n) after summing layers. The retained run
+has 981 evaluations, 105 independent all-root controls, 16327392 states,
+32066815 candidate roots, and 16062720 densities. Its largest tested ratio
+is 342/151 on a single-key n=255 input at h=7,d=3. This finite result
+supplies direction only. The identical diagnostic was rerun after a mirror
+sync removed its first uncopied result; the recorded counts are per retained
+run. Both final JSON files were copied back before publication.
+
+A direct subadditivity shortcut for off-boundary mass fails: two adjacent
+unit keys at h=2 create a length-one density absent for either key alone.
+The proposed additive WL allowance must account for mixed/combined outcome
+interactions. A proof or explicit growing counterexample for the tail bound
+is the next concrete task; the full mixed-weight objective is unchanged.
+
+The exact mixed identity and positive-weight obstruction are in Section 5.9,
+with verification counts in Appendix F. The probe and conditional direction
+are retained in MIXED_BOUNDARY_MASS.md, not promoted to a theorem. All legacy
+statement labels and references remain valid; the dedication is byte-identical.
+The 89-page PDF compiles without warnings, missing glyphs, undefined references,
+or box diagnostics. Every page was rendered and checked in contact sheets;
+new proof and audit pages were inspected at full resolution. The bibliography
+starts on a fresh page to avoid leaving its last entry alone. Stable TeX/PDF
+outputs and the complete source/font bundle are refreshed.

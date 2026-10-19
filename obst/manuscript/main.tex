@@ -4621,6 +4621,106 @@ An improved general charging argument must account for how one outcome's
 contributions are distributed across tiles; it cannot give each tile an
 independent constant allowance per weight unit.
 
+\subsection{Quadratic density mass with bounded positive weights}
+\label{sec:mixed-boundary-mass}
+Counting support through total density mass can lose a polynomial factor,
+even when every weight is positive and bounded. An exact mixed identity
+makes that obstruction explicit. Put $P=\sum p_i$, $Q=\sum q_i$, and
+$v(t)=\nu_2(t)$.
+
+\begin{lemma}[Full mixed boundary mass]\label{lem:mixed-boundary-mass}
+Fix $h\ge1$, $c=2^h-1\le n$, and $M>h(P+Q)$. Define
+\begin{align*}
+ G_i&=\max_{0\le r\le(c-1)/2}\left\{
+ q_{i+2r+1}+\sum_{\ell=1}^{r}v(2\ell)
+                  (p_{i+2\ell}-p_{i+2\ell-1})\right\},\quad 0\le i<n-c,\\
+ B_{\rm tail}&=\sum_{t=1}^{c}p_{n-c+t-1}v(t).
+\end{align*}
+The ordinary density mass strictly below $j-i=c$ is
+\begin{equation}\label{eq:mixed-boundary-mass}
+ S_h=(h-1)P+(h-2)Q+q_0+q_n+\sum_{i=0}^{n-c-1}G_i-B_{\rm tail}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $B_i=\sum_{t=1}^c p_{i+t-1}v(t)$. The length-$c$ interval is
+perfect, with reward $B_i$. For its final $c-1$ keys, omitting perfect
+slot one gives the same key reward since $v(1)=0$. Moving the omitted slot
+to $t$ changes that reward by
+\[
+ \sum_{k=1}^{t-1}p_{i+k}\bigl(v(k)-v(k+1)\bigr).
+\]
+An even omitted slot cannot improve on the preceding odd one: the additional
+term is nonpositive, and the odd choice also has a nonnegative gap reward.
+For odd $t=2r+1$, grouping consecutive terms gives the sum defining $G_i$,
+with gap reward $q_{i+2r+1}$. The mixed slot representation therefore gives
+\[
+ A_h(i+1,i+c)=hW(i+1,i+c)-B_i-G_i.
+\]
+For $h=1$, this is the empty-interval identity $q_{i+1}-q_{i+1}=0$.
+Telescoping row $i<n-c$ below capacity gives
+$h(p_i+q_i)+G_i-(p_i+q_i+q_{i+1})$. The remaining triangular corner
+has mass $A_h(n-c,n)-\sum_{i=n-c}^{n-1}(p_i+q_i+q_{i+1})$;
+its full interval is perfect with reward $B_{\rm tail}$. Addition proves
+the formula, including $c=n$.
+\end{proof}
+
+\begin{corollary}[Mass can be quadratic while support is small]
+\label{cor:mixed-quadratic-mass}
+Let $n=2^s\ge16$, $h=s-1$, $c=n/2-1$, and
+$p_i=2$ for even $i$, $p_i=1$ for odd $i$, $q_i=1$ for all gaps.
+Then $W=5n/2+1$, and this layer has
+\[
+ S_h=\frac{n^2}{8}+\frac{n(h-3)}4+2\bigl((h-1)n+h-c\bigr)
+\]
+below-capacity density mass, but only $O(n\log n)$ completed core entries.
+\end{corollary}
+\begin{proof}
+More generally let $p_i=a+1$ for even $i$, $p_i=a$ for odd $i$, and
+$q_i=b$, with nonnegative integers $a,b$. Since
+$\sum_{\ell=1}^{(c-1)/2}v(2\ell)=c-h$, the prefix walk is increasing
+for even $i$ and decreasing for odd $i$. Hence $G_i=b+(c-h)$ or $b$,
+respectively. The tail starts at odd $n-c$, so
+$B_{\rm tail}=(a+1)(c-h)$. Equation~\eqref{eq:mixed-boundary-mass} gives
+\[
+ S_h=\frac{n^2}{8}+\frac{n(h-3)}4+(a+b)\bigl((h-1)n+h-c\bigr).
+\]
+The diagonal immediately below capacity has the explicit densities
+\begin{equation}\label{eq:mixed-neighbor-density}
+ D_h(i,i+c-1)=\begin{cases}c+1-h,&i\text{ even},\\0,&i\text{ odd}.
+ \end{cases}
+\end{equation}
+To verify this, put $m=2^{h-1}$ and
+$K(t)=\sum_{r=1}^t\operatorname{bitlength}(r)$. At lengths $c-1,c-2$,
+Corollary~\ref{result:legacy-43} supplies a minimum-path-length tree
+attaining the sorted high-key profile. Its cost is the uniform $(a,b)$
+baseline plus $K(t)$ for the high-key count $t$. The baseline has zero
+density at the even length $c-1$. At length $c$, a high-first perfect
+interval has incremental high-key cost $hm$; a low-first interval has $K(m-1)$.
+Thus an even row gives
+\[
+ hm+K(m-2)-2K(m-1)=2m-h,
+\]
+using $K(m-1)=(h-2)m+1$ and $K(m-2)=K(m-1)-(h-1)$.
+An odd row gives zero, proving~\eqref{eq:mixed-neighbor-density}.
+
+There are $n/4+1$ nonzero entries on that diagonal. Removing their mass
+$J_h=(n/4+1)(n/2-h)$ leaves
+\[
+ S_h-J_h=\frac{n(2h-5)}4+h+(a+b)\bigl((h-1)n+h-c\bigr).
+\]
+At $a=b=1$ this is $O(nh)$, so integrality bounds the remaining
+below-capacity support by $O(nh)$.
+For lengths at least $c+1$, choose a contiguous $c$-key skeleton starting
+with a low key: every even skeleton rank is high, attaining the maximum
+reward $(a+1)(c-h)$. Four-corner subtraction shows that above-capacity
+densities vanish except at length $c+1$, where odd rows have density $c-h$.
+This adds $O(n)$ entries. The removed diagonal, capacity line, and completion
+also each add $O(n)$ entries, proving the support bound.
+\end{proof}
+
+The obstruction concerns a mass-only proof of core size. Its large densities
+occupy a single diagonal and do not establish a large support lower bound.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -5740,6 +5840,20 @@ on 60 eligible layers. Exact weights, seeds, operation counts, and source
 hashes are retained in \texttt{binary\_core\_search.json} and
 \texttt{gap\_core\_identity.json}.
 
+\section{Mixed boundary-mass audit}
+\label{app:mixed-boundary-mass}
+An independent all-root recurrence checks 308 inputs: every mixed binary
+vector through three keys, seeded integer vectors through sixteen keys,
+and alternating families through $n=128$ with four baseline pairs.
+The audit checks 756 mixed mass identities, 6,656 one-missing-slot formulas,
+3,376 densities immediately below capacity, 136,680 above-capacity densities,
+and 80 closed family mass formulas. Reference work is 369,396 states and
+13,048,220 root candidates. The source hashes and exact family rows are in
+\texttt{mixed\_boundary\_mass.json}. These checks accompany the proofs in
+Section~\ref{sec:mixed-boundary-mass}; the asymptotic conclusions follow
+from the displayed identities.
+
+\clearpage
 \begingroup\small
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}

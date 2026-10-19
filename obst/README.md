@@ -12,6 +12,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Single-weight obstruction to constant tile charging](LOCAL_TILE_OBSTRUCTION.md)
 - [Full mixed ruler slots and capacity-deficit construction](MIXED_SLOTS.md)
 - [Exact gap-core mass and sharp binary leading term](GAP_CORE_IDENTITY.md)
+- [Full mixed boundary mass and the bounded-positive obstruction](MIXED_BOUNDARY_MASS.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
