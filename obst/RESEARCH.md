@@ -22,6 +22,13 @@ exact interval formula and linear tree construction. An adjacent-exchange
 condition also removes wide last-level shape DPs on certified inputs. These
 are a representation barrier and a conditional exact shortcut, not a general
 lower bound or unrestricted subquadratic construction.
+The next constructor uses the affine structure to prune the minimum-IPL
+shape grid by an exact regret lower bound. Near p_i=q_i=4(n+1)^3+i, arbitrary
+signed perturbations of total magnitude at most n admit O(n log^2 n) full
+construction, while independent unit perturbations on all keys and gaps
+admit O(n log n). The global certificate is proved to pass for these
+families, including nonmonotone inputs and changes of optimal tree shape.
+The general objective and priority remain unresolved.
 
 Input: ordered keys 1..n, key weights p[1..n], gap weights q[0..n], all
 nonnegative. No normalization is required. Use comparison cost with root key
@@ -1095,3 +1102,103 @@ separates the conditional fast constructor from its exact fallback and the
 representation barrier from a general computational lower bound. Existing
 source-hashed implementations and measurements remain unchanged. The full
 research objective remains active.
+
+## Eighteenth checkpoint: affine-regret corridors
+
+The exact ruler formula now supplies a pruning potential rather than an
+explicit density support. A minimum-IPL shape is a binary word over the
+bottom slots of a perfect skeleton. Under affine key/gap slopes lambda,mu,
+the cost of an expansion moving right across boundary g is
+lambda+2mu+lambda*v_2(g+1). Integrating gives
+F(g)=(2lambda+2mu)g-lambda*popcount(g). For a prefix with a zeros already
+used and b ones still needed, the exact least affine regret through that
+state is a four-prefix-sum expression K(a,b). It is at least
+(lambda+2mu)ab.
+
+A signed residual rearrangement bound limits any class optimum's possible
+gain over the reference to V. Every prefix of a class-optimal path therefore
+has K(a,b)<=V. Retained transitions still charge the original weights;
+unnecessary retained paths cannot invalidate the exact class optimum. With
+D=floor(V/(lambda+2mu)), at most S+1+min(sz,D*bit_length(z)) states survive.
+Zero slope, zero gain, and perfect-tree cases have explicit safe handling.
+The global mixed residual-Huffman certificate remains separate, with exact
+Knuth fallback and a pre-DP budget cap.
+
+The full positive family p_i=B+i+u_i, q_i=B+i+v_i, B=4(n+1)^3, n>=32, now
+has two complete construction guarantees. Arbitrary integer perturbations
+with total absolute magnitude <=n give O(n log^2 n) time and space;
+independent unit perturbations at every position give O(n log n). The
+forward slopes are recovered by a median of disjoint half-separated secants.
+All fits, sorts, certification, and reconstruction are included. The first
+gain bound is V<=h E_p+E_q. The second uses total key depth deficits
+2S-h-2 and gap cardinality min(2s,z), yielding V<6S. The large constant
+baseline forces the global gate to pass even with zero residual lower bound.
+Both weight types vary, may be nonmonotone, and use O(log n) bits. This is
+a restricted-family result; no unrestricted or priority claim follows.
+
+A positive n=24 witness costs 13,252,388 in the reference shape and
+13,252,387 after moving one expansion by two slots. The old exchange-only
+constructor rejects it; the new optimizer finds and certifies the better
+tree. At n=98,304 the alternating perturbation similarly improves on the
+reference by 13 units, using 410,752 states and 788,734 candidate transitions.
+Independent unit perturbations of both lists use 411,924 states. Formula
+counts for the unrestricted shape grid and Knuth table at this size are
+1,073,807,360 and 4,831,887,360; these dense tables were not executed there.
+
+The final harness passes 1,166 full solves, 802 cubic checks, 1,107 full
+shape-DP checks, 782 independent shape enumerations, 819 affine cost checks,
+579 minimum-prefix-regret checks, 819 signed-profile checks, 299 retained
+optimum checks, 1,383 direct exchanges, 280 slope-recovery pairs, and 42
+concentrated-perturbation solves. There are 535 certificates, one budget
+rejection, and 630 gate rejections. Two n=1536 controls compare the scaling
+families to both dense solvers. All new recorded source hashes match.
+
+The initial matched run revealed wasted shape work before certificate
+failure. A preflight compares the original-weight relaxed class-profile
+lower bound with the gate ceiling. If the former is larger, no candidate
+can pass this sufficient certificate, so the solver skips directly to Knuth.
+This does not assert that class optimality fails. The final suite includes
+391 preflight rejections and 802 unfiltered controls with equal exact cost
+and certificate outcome. A large-baseline near-constant case separately
+exercises budget rejection after preflight passes. The only earlier test
+interruption was a missing zero counter in progress printing, corrected
+before the full suite was rerun; no cost mismatch preceded it.
+
+Final measurements use four solvers in four cyclic orders on ten groups:
+40 matched trials, 160 complete constructions, exact Python integers,
+M4 arm64, Python 3.9.6 and macOS 26.5. At n=1536 the median paired ratios
+versus Knuth are 0.0284, 0.0364, 0.0320 on the three certified families;
+ratios versus unrestricted shape DP are 0.0818, 0.1091, 0.0995. Random and
+geometric controls fall back, with ratios versus Knuth 1.1247 and 1.0110
+at n=768, and 0.9962 and 0.9777 at n=1536. Subunit fallback ratios are
+timing variation, not saved Knuth work. At n=768 preflight eliminates
+66,048 wasted shape states and 131,582 transitions; versus unfiltered
+construction its ratios are 0.6017 and 0.5570. Timings include all
+preprocessing and reconstruction. Prior negative C++ backend measurements
+remain unchanged, and no optimized prior-library comparison is claimed.
+
+The user's JesseSort suggestion was checked against its current primary
+repository (https://github.com/lewj85/jessesort). It already describes
+dual-direction Patience decomposition, compact assignment blueprints,
+deferred reconstruction, and adaptive routes. These are useful examples
+of representing discovered structure before materializing data, not an
+unclaimed new sorting direction. Barbay and Navarro's earlier compressed
+permutation work (https://arxiv.org/abs/1108.4408) also connects monotone
+subsequence representations with adaptive sorting. For full OBST, preserving
+inorder key/gap positions and certifying discarded candidates are essential;
+sorting weights or importing a pile count alone does not give an exact
+composition rule. The affine corridor is a concrete, separately proved
+instance of the broader representation principle. No claimed theorem here
+relies on JesseSort's reported speedups.
+
+## Publication audit of the eighteenth checkpoint
+
+The final 58-page manuscript compiles with Tectonic without warnings,
+undefined references, or overfull/underfull boxes. All pages were rendered
+and reviewed in contact sheets; the abstract and pages 53--58 were also
+inspected individually. A final page-break adjustment keeps the status
+section together and the affected pages were rendered and inspected again.
+Both new result manifests match their recorded source hashes. The final
+TeX/PDF output copies are byte-identical to the repository artifacts. Exact
+family bounds, formula-only dense comparison counts, fallback timing noise,
+unestablished priority, and the unrestricted remaining objective are explicit.

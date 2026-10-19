@@ -98,3 +98,10 @@ Ruler-pattern identities, dense-difference barrier, and exchange constructor:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ruler_barrier.py --max-n 512
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ordered_complete.py --max-n 768
 ```
+
+Affine-regret corridor, independent exact checks, and matched full constructors:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_ramp_complete.py --max-n 768 --scale-n 98304
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_ramp_complete.py
+```

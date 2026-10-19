@@ -19,12 +19,35 @@ selection by the repository owner. The general research objective is ongoing.
 - [Terminal-penalty layers and core-sparse Monge reduction](MONGE_PENALTY.md)
 - [Centered core bounds for large integer baselines](CENTERED_MONGE.md)
 - [Ruler-pattern identities, dense-core barrier, and exchange shortcut](RULER_REPRESENTATION.md)
+- [Affine-regret corridors and arbitrary signed perturbations](RAMP_CORRIDOR.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The latest mathematical reduction uses penalized partial trees and a published
+The latest exact constructor prunes a minimum-path-length shape DP using an
+affine slot potential and a signed residual-profile bound. For n>=32,
+B=4(n+1)^3, p_i=B+i+u_i, q_i=B+i+v_i, arbitrary signed integer perturbations
+of total magnitude at most n give O(n log^2(n+1)) full construction; independent
+unit perturbations at every key and gap give O(n log(n+1)) construction.
+Both guarantees include slope inference, a global optimality certificate, and
+reconstruction. The input weights need not stay monotone, and the optimum
+need not keep the reference shape. A preflight test skips shape work when
+the sufficient certificate cannot succeed. Other inputs retain exact Knuth
+fallback; these are restricted-family results, not an unrestricted solution.
+
+The new solver passes 1,166 exact full solves, including 802 cubic controls,
+and reaches 98,304 keys with 410,752 shape states on alternating perturbations.
+Its tree improves on the affine reference by 13 cost units. A four-constructor,
+four-order M4 Python benchmark includes all preprocessing and reconstruction.
+At 1536 keys the three certified families have median paired time ratios
+0.0284--0.0364 versus Knuth and 0.0818--0.1091 versus the full shape DP.
+Ordinary random/geometric inputs fall back; at 768 keys their ratios versus
+Knuth are 1.1247 and 1.0110. These small matched measurements accompany proved
+state bounds; they are not evidence of unrestricted or optimized-library
+superiority. Full counters and timings are in `results/ramp_complete*.json`.
+
+A complementary mathematical reduction uses penalized partial trees and a published
 core-sparse Monge multiplication primitive. It gives exact
 O(n^(3/2) log^(5/2)(n+1)) construction for arbitrary nonnegative integer mixed
 weights of total mass O(n), including zeros. The intermediate-core bound,
@@ -93,6 +116,8 @@ the complete proofs, rejection controls, operation categories, and limitations.
 python3 obst/code/ruler_layers.py --max-n 512
 python3 obst/code/ruler_barrier.py --max-n 512
 python3 obst/code/ordered_complete.py --max-n 768
+python3 obst/code/check_ramp_complete.py --max-n 768 --scale-n 98304
+python3 obst/code/benchmark_ramp_complete.py
 ```
 
 At 512 keys, a positive-weight instance with 22 randomly located heavy keys

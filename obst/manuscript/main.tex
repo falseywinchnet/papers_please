@@ -18,52 +18,44 @@
 \maketitle
 \begin{abstract}
 We investigate exact optimal binary search trees with ordered weights on
-both keys and gaps. Our latest construction is a reduction to the published
-core-sparse Monge multiplication and witness algorithms. Starting from a
-large terminal penalty, successive partial-tree layers form decreasing
-Monge upper bounds. Each layer is an explicit penalty ramp plus a bounded
-residual. A dyadic argument bounds all intermediate cores, including the
-early layers before a full balanced tree is feasible. For nonnegative
-integer weights of total mass $W=O(n)$, the reduction gives exact
-$O(n^{3/2}\log^{5/2}(n+1))$ construction, including reconstruction and
-allowing zero weights. Centering the core analysis around constant key and
-gap baselines extends the guarantee to arbitrary baseline magnitudes: for
-total integer deviation $R$ polynomial in $n$, construction takes
-$O(n(1+\sqrt R)\log^3(n+1))$ arithmetic operations. A normalized singleton-
-mass bound controls the required height. Dense audits and condensed Python/C++ constructors
-verify the reduction and full reconstruction. The implemented backend
-loses to matched Knuth construction at the tested sizes through 2048 keys;
-we report the traversal and witness costs behind that negative result.
+both keys and gaps. Our latest constructor uses affine reference weights
+to certify a small corridor in a minimum-path-length shape DP. A signed
+residual profile bounds possible improvement; an additive slot potential
+then excludes states whose unavoidable reference cost is too large.
+The original weights determine every retained transition. A separate
+mixed-node lower bound certifies unrestricted optimality. For $n\ge32$,
+$B=4(n+1)^3$, $p_i=B+i+u_i$, and $q_i=B+i+v_i$, arbitrary signed integer
+perturbations of total magnitude at most $n$ give exact $O(n\log^2 n)$
+construction. Independent unit perturbations at every key and gap give
+$O(n\log n)$ construction. Both guarantees include robust slope inference,
+certification, and reconstruction; the weights need not remain monotone
+and the optimal tree may change.
 
-An implemented portfolio provides complementary exact shortcuts: key and
-block contractions, minimum- or bounded-excess path-length classes,
-dominant-gap separators, and joint heavy-outcome cores. A coupled two-gap
-certificate retains the first violating path skeleton and bounds its
-payloads with mixed forests. We also implement the established
-short-interval/top-skeleton architecture with a variable mass contour.
-A directly proved mixed Fibonacci mass bound and a root-search cancellation
-argument give $O(n\log(n+1)+\min_d\{S_d+n2^d\})$ arithmetic work,
-where $S_d$ counts admitted intervals. On the specified positive linear-mass
-families this yields exponent below $1.59024$; the core-sparse reduction
-improves that exponent, up to logarithmic factors, in the integer-mass regime.
+A complementary reduction uses published core-sparse Monge multiplication
+and witness algorithms on penalized partial-tree layers. It gives exact
+$O(n^{3/2}\log^{5/2}(n+1))$ construction for nonnegative integer mixed weights
+of total mass $O(n)$, including zeros. Centering around minimum key and gap
+weights gives $O(n(1+\sqrt R)\log^3(n+1))$ arithmetic work for polynomial
+total deviation $R$, independently of baseline magnitudes in the operation
+count. Condensed Python/C++ constructors verify the reduction, but the
+implemented backend loses to matched Knuth construction through 2048 keys.
+Those negative results remain explicit.
 
-We distinguish representation size from computational hardness. A positive
-mixed family has quadratic Monge and fourth-difference support, but admits
-logarithmic-time interval queries and linear exact tree construction.
-An adjacent-exchange condition also removes wide last-level shape DPs when
-the existing global certificate succeeds. Two positive mixed
-intervals have identical responses to all nonnegative endpoint-gap weight
-additions but different optima in the same surrounding context. A separate
-example has quadratically many affine response regions yet a linear-size
-exact factorization. Depth-order relaxations and local repairs also have
-explicit obstructions. These are scoped representation barriers, not a
-general computational lower bound.
+We distinguish representation size from computational hardness. Positive
+linear weights can yield quadratic Monge and fourth-difference support
+while admitting logarithmic-time interval queries and linear construction.
+Other counterexamples show identical endpoint responses with different
+surrounding optima, and quadratic affine-piece counts with linear exact
+factorizations. These are scoped representation barriers, not general
+computational lower bounds. An implemented portfolio also retains
+contractions, bounded-excess shapes, dominant-gap and heavy-outcome
+certificates, and the established short-interval/top-skeleton architecture.
 
-Exact enumeration, independent cubic recurrences, adversarial inputs,
-source-hashed data, and operation counts accompany the implementations.
+Independent enumeration, cubic recurrences, adversarial inputs, source-hashed
+data, operation counts, and matched construction timings accompany the work.
 The unrestricted subquadratic question remains open. Mathematical priority
-and broad practical superiority remain unestablished; the measured compact
-backend regressions and existing algorithms used by the reductions are explicit.
+and broad practical superiority are unestablished; existing algorithms used
+by the reductions and negative controls are credited and retained.
 \end{abstract}
 \newpage
 
@@ -3468,6 +3460,285 @@ runtime ratios. All three result files retain source hashes. The existing
 compact backend's measured regressions remain unchanged, and the general
 mixed-weight objective remains unresolved.
 
+\section{Certified pruning around affine weight profiles}
+\label{sec:ramp-corridor}
+The dense ruler example suggests retaining its structure symbolically.
+Here it bounds the states of a shape DP instead of the entries of a Monge
+matrix. Perturbations may change the optimal tree; we optimize over all
+retained shapes and separately certify global optimality. The result covers
+arbitrary signed perturbations on both keys and gaps, under explicit size
+conditions. The unrestricted question and priority remain open.
+
+\subsection{An affine potential and a signed residual bound}
+Let $h=\lfloor\log_2(n+1)\rfloor$, $S=2^h$, $s=n-(S-1)$, and $z=S-s$.
+A minimum internal-path-length shape expands $s$ of $S$ skeleton slots.
+Let $T_0$ expand the first $s$ slots. Choose nonnegative slopes
+$\lambda,\mu$ and reference weights $\bar p_i=\lambda i$,
+$\bar q_i=\mu i$. Constant intercepts contribute equally to every shape
+in this class and can be omitted. Define
+\[
+ \gamma=\lambda+2\mu,\qquad
+ F(g)=(2\lambda+2\mu)g-\lambda\operatorname{popcount}(g).
+\]
+By~\eqref{eq:ruler-exchange}, moving an expansion one slot right costs
+$\gamma+\lambda\nu_2(g+1)=F(g+1)-F(g)$. Thus the affine cost of a
+selected slot set $A$, relative to $T_0$, is
+\begin{equation}\label{eq:affine-regret}
+ G(A)=\sum_{g\in A}F(g)-\sum_{g=0}^{s-1}F(g).
+\end{equation}
+For $\gamma>0$, it is at least $\gamma$ times the number of unexpanded
+slots preceding expanded slots.
+
+The analytical residuals $\delta_p=p-\bar p$, $\delta_q=q-\bar q$ may
+be signed. Actual problem weights remain nonnegative. All minimum-path-length
+shapes have the same key and gap depth multisets. Assigning the largest
+residual weights to the shallowest lengths, separately by type, gives a
+valid rearrangement lower bound even for signed residuals. With descending
+sorts indicated by $\downarrow$, it is
+\begin{align*}
+ L_\delta={}&\sum_{i=0}^{n-1}\delta_{p,i}^{\downarrow}
+                          \operatorname{bitlength}(i+1)
+       +h\sum_i\delta_{q,i}\\
+       &+\text{sum of the smallest $2s$ gap residuals}.
+\end{align*}
+The last term is zero for $s=0$. Set
+\begin{equation}\label{eq:affine-gain}
+ V=C_\delta(T_0)-L_\delta\ge0.
+\end{equation}
+For a class optimum $T^*$, comparison with $T_0$ gives
+\[
+ G(T^*)\le C_\delta(T_0)-C_\delta(T^*)\le V.
+\]
+Adding a constant to all residuals of either type changes both terms in
+\eqref{eq:affine-gain} equally. The bound is therefore independent of
+intercepts and takes $O(n\log n)$ work including sorting.
+
+\subsection{A certified corridor with few states}
+At a slot-prefix state let $a$ be the number of zeros already used and
+$b$ the number of ones still needed, with $0\le a\le z$, $0\le b\le s$.
+Increasing $F$ makes the earliest available slots optimal on each side of
+this prefix. The exact minimum affine regret of any completion through it is
+\begin{equation}\label{eq:affine-state}
+ K(a,b)=\sum_{t=s-b}^{s-1}\bigl(F(t+a)-F(t)\bigr).
+\end{equation}
+For $P(t)=\sum_{g=0}^{t-1}F(g)$, this is
+$P(s+a)-P(s-b+a)-P(s)+P(s-b)$, computable in constant time after a
+linear prefix pass. Every prefix of $T^*$ satisfies $K(a,b)\le V$.
+Delete the others and run the existing two-transition shape DP using the
+\emph{original} weights. The bound preserves a class optimum; unnecessarily
+retained paths are still feasible original shapes.
+
+\begin{theorem}[Affine-regret corridor]
+For $\gamma>0$, put $D=\lfloor V/\gamma\rfloor$. Exact optimization
+over minimum internal-path-length shapes, including preprocessing and
+reconstruction, takes
+\[
+ O\!\left(n\log(n+1)+\min\{n^2,D\log(n+1)\}\right)
+\]
+arithmetic work and
+$O(n+\min\{n^2,D\log(n+1)\})$ auxiliary space.
+\end{theorem}
+\begin{proof}
+Each term in~\eqref{eq:affine-state} is at least $\gamma a$, so a retained
+state must satisfy $ab\le D$. The two boundary segments have $S+1$ states;
+the total is bounded by
+\begin{equation}\label{eq:affine-state-count}
+ S+1+\sum_{a=1}^z\min\{s,\lfloor D/a\rfloor\}
+ \le S+1+\min\{sz,D\operatorname{bitlength}(z)\}.
+\end{equation}
+Group the harmonic sum into dyadic blocks for the last inequality.
+Popcounts and $P$ are computed in a linear pass, each state has at most
+two transitions, and stored predecessors reconstruct all keys. Sorting
+for~\eqref{eq:affine-gain} adds $O(n\log n)$ work.
+\end{proof}
+
+For $\gamma=0$ the safe bound is the full shape grid. If $V=0$, the
+reference is already class-optimal; a perfect skeleton also bypasses DP.
+The implementation tries both orientations and uses the smaller certified
+state bound. The default full solver rejects a bound exceeding
+$n\operatorname{bitlength}(n)^2$ before starting the shape DP.
+An unbudgeted class optimizer remains available for the theorem above.
+
+Global optimality still requires the mixed residual-Huffman gate. It also
+provides an exact preflight rejection: let $L_{\rm class}$ be the same
+order-free fixed-profile lower bound on the original weights and
+$L_{\rm out}$ the gate's lower bound for every nonminimum-path-length tree.
+If $L_{\rm class}>L_{\rm out}$, no class candidate can satisfy the gate.
+The solver goes directly to Knuth before fitting or shape optimization.
+This rejects an impossible certificate, not the possibility that a class
+tree is optimal. When preflight passes, its sorted lists and lower bound
+are reused. An unfiltered mode is retained as a performance control.
+
+\subsection{Robust fitting and full mixed-weight guarantees}
+For a list of length $N$, let $m=\lfloor N/2\rfloor$. Take the median of
+the disjoint secants $w_{i+m}-w_i$, $0\le i<m$, divide by $m$, round to
+the nearest integer, and clip at zero. Sorting costs $O(n\log n)$.
+If $w_i=A+\lambda i+u_i$ with integer $\lambda\ge0$, the sum of secant
+errors is at most $E=\sum|u_i|$. Hence its median differs from $\lambda m$
+by at most $E/\lceil m/2\rceil$. The odd unused endpoint remains in every
+cost and certificate. Fitting quality controls the bound's usefulness;
+arbitrary fitted slopes still give valid pruning inequalities.
+
+\begin{theorem}[Arbitrary perturbations of a positive linear profile]
+Let $n\ge32$, $B=4(n+1)^3$, and
+\[
+ p_i=B+i+u_i,\qquad q_i=B+i+v_i,
+\]
+with integer perturbations. The implemented full constructor has the
+following guarantees, including inference of slopes, the global certificate,
+and complete reconstruction:
+\begin{enumerate}
+\item If $\sum|u_i|+\sum|v_i|\le n$, time and auxiliary space are
+      $O(n\log^2(n+1))$.
+\item If $|u_i|\le1$ and $|v_i|\le1$ independently at every position,
+      time and auxiliary space are $O(n\log(n+1))$.
+\end{enumerate}
+Both types of weights are positive and may be nonmonotone. The returned
+tree is globally optimal in the full mixed-weight problem.
+\end{theorem}
+\begin{proof}
+For the first case the forward fits recover $\lambda=\mu=1$:
+$E/(m\lceil m/2\rceil)<1/2$ for either list at these sizes. Key lengths
+range from one to $h+1$ and gap lengths from $h$ to $h+1$, even in the
+relaxed profile assignment. Writing $E_p=\sum|u_i|$ and $E_q=\sum|v_i|$,
+\[
+ V\le hE_p+E_q\le hn,\qquad \gamma=3.
+\]
+Equation~\eqref{eq:affine-state-count} gives $O(n\log^2 n)$ states and
+a bound below the default budget. Choosing the better orientation cannot
+increase that bound.
+
+For the second case every secant error is at most two, so the forward
+slopes are again recovered. Let $\rho_p,\rho_q\le2$ be residual ranges.
+The total key depth deficit from $h+1$ is
+\[
+ Q=n(h+1)-(I_{\min}(n)+n)=2S-h-2.
+\]
+The profile's possible key gain is at most $\rho_p Q$. For gaps it is at
+most $\rho_q\min\{2s,z\}$, using either the deeper set or its complement.
+Thus $V<6S$, $D<2S$, and~\eqref{eq:affine-state-count} gives $O(n\log n)$
+states, again below the default budget for $n\ge32$.
+
+It remains to certify unrestricted optimality in both cases. Put
+$a_0=\min p$, $b_0=\min q$, and
+$R_0=\sum(p-a_0)+\sum(q-b_0)$. In the first case,
+\[
+ a_0+b_0\ge2B-n,\qquad
+ R_0\le n^2+(n+1)E_p+(n+2)E_q\le2n^2+2n.
+\]
+In the second, $a_0+b_0\ge2B-2$ and
+$R_0\le n^2+4n+2\le2n^2+2n$. The residual cost of any class candidate is
+at most
+\[
+ (h+1)R_0\le2n(n+1)^2<2B-n.
+\]
+Every tree outside the class pays at least one extra unit of internal
+path length, whose constant-baseline penalty is $a_0+b_0$. Therefore the
+existing global gate passes even with zero residual lower bound. In
+particular, preflight cannot reject these candidates. The computed class
+optimum is a full optimum. All weights and intermediate costs have
+$O(\log n)$ bits on these families, so the arithmetic bounds also hold
+in a word RAM with $O(\log n)$-bit words.
+\end{proof}
+
+These guarantees allow perturbations at arbitrary positions and do not
+require the reference tree to remain optimal. For example, at $n=24$,
+$B=62{,}500$, $p_i=B+i+(-1)^i$, $q_i=B+i$, the left-filled tree costs
+13,252,388. Moving its expansion from slot~7 to slot~9 uses two adjacent
+exchanges and reduces the cost to the exact optimum 13,252,387. The previous
+one-direction exchange certificate rejects this input; the corridor DP
+finds and certifies the better tree.
+
+\subsection{Exact checks, state counts, and matched construction timings}
+The final source-hashed harness passes 1,166 full solves, including 802
+independent cubic checks, 1,107 unrestricted shape-DP comparisons, and 782
+independent shape enumerations. It separately checks 819 affine shape costs,
+579 minimum prefix regrets, 819 signed profile bounds, 299 optimal-path
+retention conditions, and 1,383 direct exchanges. There are 280 slope-recovery
+pairs and 42 full concentrated-perturbation solves, including errors at the
+unused odd fitting endpoint. Of the full solves, 535 certify, one rejects
+the state budget, and 630 reject the global gate; 391 of the latter reject
+in preflight. An additional 802 unfiltered controls have the same cost and
+certificate outcome. A large-baseline near-constant input exercises budget
+rejection even when preflight passes. These counters have different units
+and are not a machine-instruction total.
+
+Table~\ref{tab:affine-scaling} reports actual corridor states for
+$p_i=B+i+(-1)^i$, $q_i=B+i$. The two dense columns are state-count formulas,
+not executions at the largest sizes. Both the alternating and independent
+unit-perturbation families at 1536 keys were also checked against Knuth and
+the unrestricted shape DP. Larger solves use the proved global certificate
+and direct reconstructed-tree cost checks. At 98,304 keys, independent
+perturbations of both weight lists use 411,924 states. The alternating
+case uses 788,734 candidate transitions, 1,083,251 profile-sort comparisons,
+196,604 slope-fit comparisons, 505,813 bound-sort comparisons, 98,304
+residual contractions, and 121,509 bound-queue comparisons, in addition to
+the recorded scans and complete reconstruction. Its optimum improves on
+the reference by 13 cost units.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rrrrr}
+\toprule
+Keys & Corridor states & Full shape states & Knuth states & Gain \\
+\midrule
+1,536 & 4,270 & 263,168 & 1,180,416 & 7 \\
+6,144 & 19,947 & 4,198,400 & 18,877,440 & 9 \\
+24,576 & 91,251 & 67,125,248 & 302,002,176 & 11 \\
+98,304 & 410,752 & 1,073,807,360 & 4,831,887,360 & 13 \\
+\bottomrule
+\end{tabular}
+\caption{Actual affine-corridor states and reference-cost improvement on
+alternating key perturbations. Dense columns are formulas for the full
+shape grid and interval table.}\label{tab:affine-scaling}
+\end{table}
+
+The matched experiment uses exact Python integers on the M4 host
+(Python 3.9.6, macOS 26.5, arm64). Four cyclic execution orders put each
+constructor in every position once: corridor, unfiltered corridor, full
+shape DP with fallback, and Knuth. There are 40 matched trials across ten
+size/family groups, hence 160 complete constructions. Every timing includes
+preprocessing and tree reconstruction; independent cost checks and garbage
+collection are outside the timed region. Table~\ref{tab:affine-timing}
+reports medians of paired ratios, not ratios of median seconds.
+The random-signed family distributes $n$ signed unit contributions over
+keys and gaps, so its total absolute perturbation is at most $n$.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rlrrr}
+\toprule
+Keys & Family & / Knuth & / Full shape & / Unfiltered \\
+\midrule
+768 & Alternating keys & 0.0553 & 0.1642 & 1.0371 \\
+768 & Random signed & 0.0609 & 0.1817 & 0.9423 \\
+768 & Unit perturbations, both & 0.0631 & 0.1869 & 0.9382 \\
+768 & Ordinary random & 1.1247 & 0.8231 & 0.6017 \\
+768 & Geometric & 1.0110 & 0.7121 & 0.5570 \\
+1,536 & Alternating keys & 0.0284 & 0.0818 & 0.9898 \\
+1,536 & Random signed & 0.0364 & 0.1091 & 1.1537 \\
+1,536 & Unit perturbations, both & 0.0320 & 0.0995 & 0.9527 \\
+1,536 & Ordinary random & 0.9962 & 0.7722 & 0.9721 \\
+1,536 & Geometric & 0.9777 & 0.7216 & 0.9664 \\
+\bottomrule
+\end{tabular}
+\caption{Median paired full-construction time ratios, four trials per row.
+The numerator is always the preflight-enabled corridor solver; lower is
+better. These small Python comparisons do not establish superiority over
+optimized implementations of other published algorithms.}\label{tab:affine-timing}
+\end{table}
+
+The two ordinary-input controls reject in preflight and run Knuth.
+At 768 keys this eliminates 66,048 wasted shape states and 131,582 candidate
+transitions present in the unfiltered control, but preprocessing still
+has a cost. Ratios below one on fallback cases are timing variation, not
+an algorithmic saving over Knuth. At 1536 keys the unfiltered solver already
+rejects the larger shape grid by its budget. The favorable family timings
+are supported by state counts and the preceding theorem; they do not extend
+to unrestricted inputs. The earlier compiled core backend's negative
+measurements remain unchanged.
+
+\clearpage
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
@@ -3482,6 +3753,9 @@ An exchange certificate now avoids wide last-level shape DPs on accepted
 inputs. A positive ramp family proves a quadratic support barrier for
 explicit Monge cores and their fourth differences, while admitting exact
 logarithmic-time interval queries and linear construction.
+Affine-regret corridors extend exact construction to arbitrary signed
+perturbations of that family, with $O(n\log^2 n)$ work under a total-magnitude
+bound and $O(n\log n)$ under independent unit perturbations.
 Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
