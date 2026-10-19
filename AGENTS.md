@@ -462,3 +462,13 @@ This audit separates literal componentwise domination and arbitrary rewards,
 original mixed all-root layers, and larger sampled implicit-query controls.
 The dense family uses original interval coordinates. Copy its JSON result
 back before the next mirror operation.
+
+Valley top-c support inclusion, boundary-mass charges, and all-layer sparse cores:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/valley_core_audit.py
+```
+
+The audit checks literal top-c support separately from original all-root
+mixed layers. Larger rows construct every above-capacity core and use sampled
+literal subsequence controls. Copy its JSON record before another mirror.

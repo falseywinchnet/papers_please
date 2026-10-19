@@ -1,5 +1,13 @@
 # A boundary term in the local core-size bound
 
+For integer valley key spans wholly above capacity, `VALLEY_CORE_MASS.md`
+now proves the stronger bound K(T)<=min(sum_row_endpoints p_i,
+sum_column_endpoints p_j)<=W(J_T). The proof charges auxiliary top-c-sum
+support directly to endpoint weight units and constructs all such cores
+in O((n+P) log^2(n+1)) work. A two-peak binary counterexample prevents using
+that support inclusion unchanged on general inputs. The general hypothesis
+below remains open, as does the below-capacity mixed region.
+
 The valley family in `VALLEY_QUERIES.md` gives s^2/2 original densities in
 an above-capacity side-s square using integer mass Theta(s^2). It therefore
 does not contradict the integer-mass hypothesis below. Scaling those weights

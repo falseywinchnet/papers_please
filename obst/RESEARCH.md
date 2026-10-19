@@ -3528,3 +3528,89 @@ dedication's source remains byte-identical to the previous checkpoint.
 Both new and reused-source audit manifests match the final source files.
 The stable PDF and TeX exports match the manuscript byte for byte; the
 five-member buildable source archive was rebuilt and verified individually.
+
+
+## Checkpoint 47: direct endpoint-weight charges for valley cores
+
+The previous goal turn was progress: checkpoint 46 published the valley
+query oracle and a quadratic original-coordinate core family. This turn
+began by examining the mixed below-capacity slot representation. A useful
+intermediate question from the valley oracle instead led to a direct
+individual-unit support charge, addressing the open local mass target on
+valley spans without changing the full mixed-weight objective.
+
+Let T_c be the sum of the c largest key weights in an interval, and let
+Gamma_c be its four-corner difference with the score sign convention.
+For any input, with endpoint weights x,y and the two smallest retained
+inner weights z<=w, Gamma_c=max(0,min(x,y,w)-z). The decisive valley lemma
+is 0<=D_Ah<=(h-1)Gamma_c. Its proof uses the universal selected word and
+handles ineffective endpoints, an endpoint between z and w, both endpoints
+at least w, and ties. In the last case the original density is exactly
+(w-z)nu_2(r), with r the selected rank of z. Explicit prefix-score
+cancellation covers the two left-minimum cases; reversal covers the others.
+
+The top-c endpoint difference is max(0,p_i-z_i(j)), where z_i(j) is the
+inner c-th-largest cutoff. Its changes telescope to at most p_i along a
+row; reversal gives the column bound p_j. Integer positive auxiliary
+densities are at least one. Consequently a valley layer's entire original
+above-capacity core has at most P=sum p_i entries, and every rectangle
+has at most min(row-endpoint mass,column-endpoint mass). This proves the
+local boundary-plus-mass target on valley above-capacity spans with no
+additional side term. Gap weights may be arbitrary nonnegative reals.
+
+The dense valley family proves the mass dependence necessary up to constants.
+Its square has s^2/2 entries, row mass 3s^2+s, and column mass 3s^2. Thus
+the local bound is attained within a factor of six. Scaling the weights
+preserves auxiliary support but makes its densities fractional, explaining
+why the integer count does not extend to normalized real mass.
+
+The new constructor enumerates auxiliary cutoff changes without scanning
+interval pairs. If the current cutoff z has m retained copies, find the
+first future right-wing value greater than z at k. The first actual cutoff
+increase occurs at k+m-1. Binary search in the monotone wings gives each
+event in logarithmic work; four existing ruler queries filter the original
+core. Across all layers, the event count is at most P log(n+1). Total work
+is O((n+P) log^2(n+1)), with O((n+P) log(n+1)) storage including outputs.
+The real-weight output-sensitive form uses the actual auxiliary-event count.
+
+The inclusion has a concrete obstruction outside valleys. The previously
+proved nine-key word p+=(0,0,0,1,0,0,0,1,0), at capacity seven and cell
+(0,8), has original score corners (2,3,0,2), hence density one, but all
+four top-c sums equal two. Its auxiliary density is zero. The existing
+rank proof supplies the counterexample without a new search or duplicated
+weight pattern. A separate original recurrence confirms its score table.
+
+Harness first: a preliminary exhaustive probe checked the inclusion before
+implementing event enumeration. The full final audit checks 1513 small
+inputs, including all 1461 ternary valleys through nine keys. Literal sorted
+sums control 73082 auxiliary densities, 32810 two-threshold formulas, and
+4267 support sets. The same number of original ruler support sets agree
+with the independently audited query representation; 198321 eligible small
+squares satisfy the mass bound. Original all-root layers on 972 mixed inputs
+check 49278 densities and 2644 complete support sets, using 1006805 root
+candidates and 163435 states. The nonvalley counterexample has a separate
+495 candidates and 135 states.
+
+Twelve larger complete constructions through 16384 keys have 3264 sampled
+literal density controls. At that size binary end blocks output 4084 original
+entries from 8178 auxiliary events, and bounded valleys output 16477 from
+32995. Five complete dense-family constructions check 5456 formula cells
+through side 64. Large controls are explicitly distinct from all-root
+references. Final source hashes cover the constructor, audit, and three
+reused modules. No timings or fitted asymptotics are used.
+
+The standalone proof is VALLEY_CORE_MASS.md. The new positive section is
+2.18, the existing negative Section 5.21 now includes the failed support
+extension, and the audit is Appendix W. The general local target and mixed
+below-capacity composition remain open. The next proof must handle joint
+rank changes across multiple peaks or the gap interactions below capacity.
+
+Publication validation: the final manuscript compiles cleanly to 134 pages.
+All 363 prior labels are preserved, the 374 current labels are unique, and
+all references resolve. All pages were rendered and visually reviewed, with
+full-size checks of the new proof on pages 29--30, counterexample on page 99,
+audit on page 132, and final dedication on page 134. The dedication source
+is byte-identical to the previous checkpoint. All 13 source-hash entries
+across the new valley-core and prior valley/unimodal audits match. The stable
+TeX and PDF outputs are byte-identical to the manuscript, and the five-file
+source archive was refreshed and checked member by member.

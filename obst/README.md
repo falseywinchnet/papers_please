@@ -30,6 +30,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Complete two-block above-capacity cores and a finite band factorization](TWO_BLOCK_CORES.md)
 - [Unimodal above-capacity cores and certified spans in arbitrary inputs](UNIMODAL_ENVELOPE.md)
 - [Valley interval queries and quadratic original-coordinate cores](VALLEY_QUERIES.md)
+- [Individual-weight charges and all above-capacity valley cores](VALLEY_CORE_MASS.md)
 - [Arbitrary-key rank transfers and exact dense-core barriers](RANK_TRANSFER_BARRIER.md)
 - [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
@@ -60,6 +61,22 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+Valley cores now have a [direct integer-weight charge and a sparse
+constructor](VALLEY_CORE_MASS.md). With integer key mass P, each layer has
+at most P above-capacity entries, and each rectangle has at most the smaller
+of its row-endpoint and column-endpoint key masses. All such cores across
+all layers are constructed in O((n+P) log^2(n+1)) work. The ruler support
+is contained in the support of the sum of the c largest keys; each row of
+the latter telescopes to at most its endpoint key weight. An explicit
+event jump handles repeated weights without scanning zero cells.
+
+The local mass dependence is tight within a factor of six on the proved
+dense valley family. The top-c support inclusion itself fails on a nine-key
+two-peak binary word, whose original density is one while the auxiliary
+density is zero. The general local target and mixed below-capacity region
+remain open; the valley result supplies the individual-weight charging
+mechanism on a class that can have dense cores at larger mass.
 
 Valley key weights now have an [exact implicit above-capacity query
 representation](VALLEY_QUERIES.md): O(n log(n+1)) preprocessing and storage,

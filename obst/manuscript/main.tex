@@ -1952,6 +1952,140 @@ core is dense. Below-capacity mixed intervals and efficient composition
 of these representations remain requirements for a general full-tree
 algorithm.
 
+\subsection{Individual-weight charges for valley cores}
+\label{sec:valley-core-mass}
+The valley query representation also supports a direct charge to individual
+integer key weights, without the height factor in a density-mass estimate.
+Let $T_c(i,j)$ be the sum of the $c$ largest key weights in $[i,j)$, and put
+\begin{equation}\label{eq:valley-top-density}
+ \Gamma_c(i,j)=T_c(i,j)+T_c(i+1,j+1)-T_c(i,j+1)-T_c(i+1,j)
+ \qquad(j-i>c).
+\end{equation}
+For $c\ge2$, write $x=p_i$, $y=p_j$, and let $z,w$ be the $c$th and
+$(c-1)$st largest inner weights in $[i+1,j)$. Only these two smallest
+retained values can be displaced by adjoining the endpoints, giving
+\begin{equation}\label{eq:valley-top-thresholds}
+ \Gamma_c(i,j)=\max\{0,\min(x,y,w)-z\}.
+\end{equation}
+For $c=1$ take $w=+\infty$. Thus $\Gamma_c\ge0$ for arbitrary input weights.
+
+\begin{lemma}[Valley support inclusion]\label{lem:valley-support}
+For nonnegative real valley key weights, arbitrary nonnegative gaps, and
+$c=2^h-1$, every strictly above-capacity cell satisfies
+\begin{equation}\label{eq:valley-support}
+ 0\le D_{A_h}(i,j)\le(h-1)\Gamma_c(i,j).
+\end{equation}
+\end{lemma}
+\begin{proof}
+At $h=1$ the ruler score vanishes. Otherwise, Lemma~\ref{lem:valley-domination}
+makes a largest-$c$ selection optimal at every corner. All largest-$c$
+selections have the same value word: the dominating word has the same sum,
+so its componentwise inequalities must all be equalities.
+
+If $x\le z$, adjoining $x$ leaves the inner largest-$c$ sum and value word
+unchanged. Adjoining $y$ can only raise the cutoff, so $x$ remains
+ineffective afterward. Both ruler-score changes vanish. Reflection treats
+$y\le z$. Suppose now $x,y>z$ but $x<w$. Every inner value on the left
+wing is at most $x$, so at most one selected value is on that wing; every
+retained value except $z$ is at least $w>x$. Adjoining $x$ replaces the
+first selected value $z$ by $x$. The endpoint $y$ is at least $w$, since
+$w$ is on its wing, and adjoining $y$ raises the cutoff to at least $w$.
+Thus the four-corner ruler difference is $(x-z)\nu_2(1)=0$.
+Reflection treats $y<w$.
+
+It remains that $x,y\ge w$. Choose adjacent smallest retained values
+$z\le w$ in the valley word, choosing within its trough if they tie.
+Each one-end extension replaces $z$, and the two-end extension replaces
+$z,w$. If $z$ has selected rank $r$, cancellation gives
+\begin{equation}\label{eq:valley-support-rank}
+ D_{A_h}(i,j)=(w-z)\nu_2(r).
+\end{equation}
+Explicitly, let $L_a,R_b$ be the inner left and reversed-right ruler-prefix
+scores, $a+b=c$, and let primes adjoin the corresponding endpoint.
+If $w,z$ are both left, the scores in order (inner, left, right, both) are
+\[
+ L_a+R_b,\quad L'_a+R_b,\quad L_{a-1}+R'_{b+1},\quad
+ L'_{a-1}+R'_{b+1}.
+\]
+Their difference is
+$(L'_a-L'_{a-1})+(L_{a-1}-L_a)=(w-z)\nu_2(a)$.
+If $z$ is left and $w$ right, only the last expression changes to
+$L'_a+R'_b$. The difference becomes
+$w\nu_2(b+1)-z\nu_2(a)=(w-z)\nu_2(a)$, since $b+1=2^h-a$.
+Reflection covers the right-minimum cases by ruler symmetry; the expressions
+also give zero when $w=z$. Now $\nu_2(r)\le h-1$, and
+\eqref{eq:valley-top-thresholds} equals $w-z$ in this last case.
+The affine and gap terms cancel, proving the lemma.
+\end{proof}
+
+\begin{theorem}[Valley boundary-mass support and construction]
+\label{thm:valley-core-mass}
+Let the valley key weights be nonnegative integers of mass $P=\sum_i p_i$;
+gap weights may be arbitrary nonnegative reals. Every layer's strictly
+above-capacity core has at most $P$ entries. Any rectangle there with row
+set $I$ and column set $J$ has at most
+\begin{equation}\label{eq:valley-boundary-mass}
+ \min\left\{\sum_{i\in I}p_i,\ \sum_{j\in J}p_j\right\}
+\end{equation}
+positive entries. All above-capacity cores over every layer can be constructed
+in $O((n+P)\log^2(n+1))$ arithmetic work and
+$O((n+P)\log(n+1))$ space, including their density values.
+\end{theorem}
+\begin{proof}
+Let $z_i(j)$ be the $c$th largest inner weight in $[i+1,j)$. For arbitrary
+input weights the endpoint difference is
+\[
+ \Delta_i(j)=T_c(i,j)-T_c(i+1,j)=\max\{0,p_i-z_i(j)\}.
+\]
+The cutoff $z_i(j)$ is nondecreasing with $j$, and
+$\Gamma_c(i,j)=\Delta_i(j)-\Delta_i(j+1)$. Hence
+\begin{equation}\label{eq:valley-row-charge}
+ \sum_{j=i+c+1}^{n-1}\Gamma_c(i,j)\le p_i.
+\end{equation}
+Reversal gives the column charge $\sum_i\Gamma_c(i,j)\le p_j$.
+For integer keys every positive $\Gamma_c$ is at least one. Apply
+Lemma~\ref{lem:valley-support} to obtain the global and rectangle bounds.
+
+Preprocess Theorem~\ref{thm:valley-queries}. Binary search in the two
+monotone wings also finds a $c$th-largest cutoff or counts values strictly
+above a threshold in logarithmic work. In row $i$, start at $j=i+c+1$
+and compute $z=z_i(j)$. If $z\ge p_i$, no auxiliary density remains.
+Otherwise let $g$ count inner values greater than $z$ and set $m=c-g$,
+the multiplicity of the smallest retained value. Find the first future
+right-wing position $k$ with $p_k>z$. All intervening values are at most
+$z$, and all values after $k$ are greater than $z$. Exactly $m$ such
+insertions are needed before the cutoff increases; its next event is
+\begin{equation}\label{eq:valley-core-event}
+ j'=k+m-1.
+\end{equation}
+If $j'\ge n$, finish the row. Otherwise query $z'=z_i(j'+1)>z$,
+emit $\Gamma_c(i,j')=\min(p_i,z')-z$, and continue at $j=j'+1$.
+If $j$ is still on the decreasing wing, every later key on that wing is
+at most the current cutoff, justifying the same right-wing search.
+The multiplicity in \eqref{eq:valley-core-event} skips all zero changes
+caused by repeated weights. Every positive auxiliary cell is emitted once.
+
+Each event and final row termination take logarithmic work. Evaluate four
+ruler queries at each emitted cell and retain its original density when
+positive. Lemma~\ref{lem:valley-support} proves completeness; height one
+has zero ruler core and is skipped. With $L=\lceil\log_2(n+1)\rceil$ and
+$\delta$ total auxiliary events, the work is $O((nL+\delta)L)$ and space
+is $O(nL+K)$ for $K$ original output entries. Equation
+\eqref{eq:valley-row-charge} gives $K\le\delta\le PL$, proving the bounds.
+\end{proof}
+This proves the local boundary-plus-mass support target on above-capacity
+valley spans using only endpoint mass. The normalized rational dense family
+has fractional auxiliary densities, consistent with the support inclusion
+and row charge while escaping the integer support count. Below-capacity
+mixed cores still require a separate argument.
+
+The mass dependence is necessary up to constants. In the integer family
+\eqref{eq:valley-family}, $P=n(n+1)/2$ and one layer has at least
+$n^2/32$ entries. On its displayed square the row-endpoint mass is
+$3s^2+s$, the column-endpoint mass is $3s^2$, and the core has $s^2/2$
+entries. Thus the local bound \eqref{eq:valley-boundary-mass} is attained
+within a factor of six by the proved family.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -6727,6 +6861,13 @@ Monge nor anti-Monge, despite its nonnegative values. A general construction
 must control these signed interactions rather than apply the published
 Monge product to the correction without an additional argument.
 
+The same $p^+$ also shows that Lemma~\ref{lem:valley-support} cannot extend
+to arbitrary inputs. At its cell $(0,8)$, the displayed ruler scores give
+original density one, whereas all four largest-seven sums equal two.
+Thus $\Gamma_7(0,8)=0$: the auxiliary support misses an actual two-peak
+interaction at integer key mass two. The score proof above verifies this
+failure directly.
+
 \subsection{A single valley has a quadratic original interval core}
 \label{sec:valley-dense}
 Two monotone pieces do not by themselves guarantee a sparse above-capacity
@@ -8694,6 +8835,37 @@ The record \texttt{valley\_above\_audit.json} retains operation counts and
 the executed-source SHA-256 manifest. The theoretical work bounds follow
 from the two-wing binary search and ruler-prefix recurrence; the core
 lower bound follows from \eqref{eq:valley-density} and its residue count.
+
+\clearpage
+\section{Valley support charges and sparse-core construction audit}
+\label{app:valley-core-audit}
+The audit uses 1513 small inputs: all 1461 ternary valley words through
+nine keys, 48 varied mixed inputs through 32 keys, and four integer or
+normalized rational dense-family inputs. Literal sorted sums check 73,082
+auxiliary densities, 32,810 two-threshold formulas, and 4267 complete
+auxiliary support sets. The same number of constructed ruler support sets
+agree with dense evaluation of the independently audited query representation.
+Every eligible small square gives a boundary-mass control, totaling 198,321.
+Integer inputs additionally check the support count against that mass.
+
+Original all-root mixed layers, separately from those query controls, check
+49,278 densities and 2644 complete original support sets on 972 inputs.
+They use 1,006,805 root candidates and 163,435 states. The nonvalley word
+$p^+$ in Section~\ref{sec:window-envelope-correction} has a separate original
+control, with 495 root candidates and 135 states, confirming original
+density one and auxiliary density zero.
+
+Twelve larger constructions through 16,384 keys enumerate all above-capacity
+cores on binary end blocks and bounded integer valleys. Their 3264 sampled
+literal density controls are kept separate from the original all-root
+controls. At the largest size the binary input emits 4084 original entries
+from 8178 auxiliary events; the bounded valley emits 16,477 from 32,995.
+Both preprocessings perform 393,276 ruler-window updates. Five complete
+dense-family constructions also check 5456 cells
+against \eqref{eq:valley-density}, through side 64. The record
+\texttt{valley\_core\_audit.json} retains all operation counts, scopes,
+the nonvalley witness, and executed-source hashes. The support and work
+bounds follow from the charge and event-enumeration proofs.
 
 \clearpage
 \begingroup\small
