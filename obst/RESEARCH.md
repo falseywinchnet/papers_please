@@ -1354,3 +1354,107 @@ k=n bottleneck. A production constructor, full global gate, independent
 BST cost oracles, and operation measurements are still required. This
 continuation is separate from the published 63-page manuscript and does
 not change that manuscript's claims. The unrestricted goal remains active.
+
+## Twentieth checkpoint: a global alternating-gap bound removes the baseline
+
+The preceding goal turn made progress: 440d6ea published the joint-signature
+constructor and the parity-interval reachability lemma. This turn began with
+an independent full-constructor harness; its identity-only mode passed 865
+profile/tree checks before implementation. The first implementation used the
+existing mixed-Huffman gate, passed 2,134 full solves, and reached 393,216
+keys. Its initial benchmark is preserved outside the repository as exploratory
+evidence, not as the final measurement.
+
+A search for profile-attained candidates that were globally suboptimal led
+to a stronger bound. Give one parity of external leaves weight one and the
+other parity zero. Deleting a zero leaf and contracting its parent decreases
+the selected depth sum by at least one: remaining zeros are separated by
+selected leaves, so the sibling cannot contain only zeros. After Z deletions,
+H selected leaves remain, with external path length at least E_min(H).
+Since S/2<=H<=S, E_min(H)+Z=hH+s. Every minimum-IPL shape attains this
+simultaneously for both parities. Arbitrary alternating nonnegative gap
+weights therefore have global lower bound G=h*sum(q)+s*(q0+q1), attained
+by every class shape. The bound covers all taller trees and needs no baseline.
+
+The level-capacity/rearrangement key bound K=sum sorted(p)_r*bitlength(r)
+is also global. Any legal class tree attaining K attains K+G and is fully
+optimal. The two-level interval constructor attains K when its high count
+is in [S/2-1,S-1] and its profile word is feasible. Its accepted path now
+takes O(n) work and space without residual-Huffman work or a large baseline.
+For nonperfect sizes, strictly alternating keys always admit an explicit
+low-position deletion witness in either orientation. This gives a full
+linear family with k=n and arbitrary relative key/gap magnitudes. Nonperiodic
+witness-generated patterns also qualify. One key level is direct. Perfect
+shapes that miss K retain the old mixed gate or fallback. The exception is
+real: p=(100,1,100), q=0 has balanced cost 401 and full optimum 303. An
+initial handwritten expected value of 302 in the regression assertion was
+corrected after the independent recurrence exposed that arithmetic error;
+no algorithmic inequality failed. Cubic DP and Knuth both return 303.
+
+The separate gap oracle checks every tree through nine keys: 13,834 parity/tree
+and 69,170 mixed-weight/tree inequalities, including equality of each size/parity
+minimum with the formula. The final M4 full suite passes 3,157 standalone
+solves and 3,157 portfolio solves, including 2,847 cubic controls and 1,325
+shape-DP candidate checks. Recognition matches literal words on 1,022 nonempty
+binary patterns. Of 1,201 accepted full solves, 1,083 use global profile
+equality, 116 use the old mixed gate, and two are empty. Rejections comprise
+86 unsupported key alphabets, 600 unsupported gaps, 241 high-count exclusions,
+905 unattained profiles, and 124 failed perfect-shape gates. Rejected full
+solves remain exact. Zeros, ties, huge integers, geometric, random, near-uniform,
+binary patterns with and without baselines, and earlier affine inputs occur.
+
+Scaling now adds no baseline. At n=393,216, the nonperiodic family has
+262,111 signatures, 196,305 interval transitions, and 212,793 membership
+queries; strict alternation has 393,216 signatures, 196,608 transitions,
+and 262,144 queries. Each reconstructs every key, orders two multiplicity
+records, and expands n key weights. Neither uses residual-Huffman contractions
+or a dense shape table. Traceback steps equal stored high boundaries.
+Ten scaling portfolio controls agree; both n=1536 cases also match Knuth
+and the unrestricted shape DP. Larger cases use the proved global bound and
+direct tree-cost checks. These are logical work counts, not instruction totals
+or measured peak bytes.
+
+The final benchmark uses five solvers in five cyclic orders across sixteen
+groups: 80 matched trials and 400 full constructions, exact Python integers,
+M4/Python 3.9.6/macOS 26.5 arm64. At n=1536, no-baseline nonperiodic and
+alternating portfolio/Knuth ratios are 0.0022 and 0.0033; ratios to the
+previous portfolio are 0.0021 and 0.0031, and to full shape DP 0.0018 and
+0.0027. The large-baseline control also certifies. Rejected inputs preserve
+the previous portfolio, with visible costs: at 768 keys, unattained-profile
+and four-signature ratios to the old portfolio are 1.1857 and 1.1662;
+at 1536 keys four-signature and affine ratios are 1.0293 and 1.0590.
+Ordinary random and geometric portfolio/Knuth ratios are 1.0690 and 1.0375.
+Identical kernels and fallback paths vary noticeably; subunit ratios are
+not saved algorithmic work. Five short observations per row do not support
+precise universal speedup claims. Linear bounds and counts are the primary
+evidence. The raw source-hashed vectors retain all results.
+
+GAP_PARITY.md contains the global proof, PROFILE_INTERVALS.md now documents
+the completed constructor, and both are integrated into the manuscript.
+Targeted searches did not establish priority. The unrestricted mixed-weight
+objective remains open. The next extension is arbitrary key profiles and gap
+sequences: the gap bound already applies to arbitrary key weights, but finding
+an attaining legal tree is separate, and not every instance attains the bound.
+
+### Publication audit of twentieth checkpoint
+
+The three new manifests match all recorded sources (2, 11, and 11 hashes).
+All eighty five-constructor trials and every paired summary were revalidated
+from the local JSON. The 67-page manuscript compiles with no warnings or
+undefined references. All pages were rendered: pages 2--61 are pixel-identical
+to the previously reviewed PDF; the new abstract and pages 62--67 were reviewed
+at full size. A split final sentence was removed and the affected pages were
+recompiled, rendered, and reviewed again. The final TeX/PDF were copied
+byte-for-byte to the stable user-facing outputs. The repository-root compile
+log accidentally created by an initially mistargeted command was removed;
+the unrelated root manuscript source was not modified.
+
+Candidate next directions, not claims in this checkpoint: for arbitrary
+key values, a max-Cartesian tree with minimum path length and weight-ordered
+depth layers would attain K(p), suggesting a broader linear certificate.
+For arbitrary gap values, thresholding the weights suggests replacing the
+number of zero leaves by the number of contiguous zero runs in the deletion
+bound. A proposed indicator bound is E_min(H)+number_of_zero_runs for H>0.
+It must be checked independently and proved before use. Layering such bounds
+could extend the global certificate beyond alternating gaps. Both directions
+remain future work; no new solver or performance claim is attached to them.

@@ -118,3 +118,16 @@ Two-level key profile reachability probe (no full solver claim):
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/profile_interval_probe.py --max-n 40 --literal-n 9
 ```
+
+Full two-level profile constructor, independent oracles, and matched routes:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_profile_complete.py --max-n 768 --scale-n 393216
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_profile_complete.py
+```
+
+Global alternating-gap lower bound and exhaustive mixed-tree controls:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_gap_parity.py
+```

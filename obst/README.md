@@ -21,12 +21,48 @@ selection by the repository owner. The general research objective is ongoing.
 - [Ruler-pattern identities, dense-core barrier, and exchange shortcut](RULER_REPRESENTATION.md)
 - [Affine-regret corridors and arbitrary signed perturbations](RAMP_CORRIDOR.md)
 - [Joint key/gap signature transfers and linear-space reconstruction](RUN_SHAPES.md)
+- [Global alternating-gap bound and linear full construction](GAP_PARITY.md)
+- [Interlaced parity intervals for key-profile attainment](PROFILE_INTERVALS.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The latest representation groups consecutive equal pairs (p_i,q_i+q_(i+1)).
+The latest constructor removes the large-baseline requirement on a new
+recognized family. For alternating nonnegative gap weights, deleting one
+parity of zero-weight leaves proves a global gap-cost lower bound attained
+by every minimum-internal-path-length shape. A legal tree attaining the
+independent key-depth profile lower bound is therefore fully optimal.
+For two-level keys, four interval endpoints recognize and reconstruct
+attaining patterns in O(n) arithmetic work and O(n) auxiliary space.
+This includes arbitrary relative key/gap magnitudes, zeros, and nonperiodic
+patterns. Strictly alternating keys and gaps always qualify when n+1 is
+not a power of two. Perfect sizes require separate checks; p=(100,1,100)
+with zero gaps has class cost 401 but full optimum 303.
+
+The full solver validates 3,157 inputs against Knuth, including 2,847 cubic
+controls, and another 3,157 portfolio solves agree. Separate exhaustive
+checks cover 13,834 parity/tree and 69,170 mixed-weight/tree inequalities.
+No-baseline construction reaches 393,216 keys: strict alternation has
+393,216 joint-signature runs but only 196,608 interval transitions,
+262,144 membership queries, and linear reconstruction, with no residual
+Huffman work. Full counters and source hashes are in
+`results/profile_complete.json` and `results/gap_parity.json`.
+
+Eighty matched M4 trials compare five complete constructors (400 total).
+At 1536 keys, the no-baseline nonperiodic and alternating families have
+median paired portfolio/Knuth ratios 0.0022 and 0.0033. Five observations
+per row and visible variation between identical kernels limit the timing
+precision; operation counts are the scaling evidence. Unsupported inputs
+preserve the previous portfolio, with measured overhead on some old fast
+routes. Ordinary random and geometric portfolio/Knuth ratios are 1.0690
+and 1.0375. The standalone solver instead falls directly to Knuth and can
+lose earlier speedups. The general worst case remains quadratic; arbitrary
+gap sequences and nonattaining patterns remain outside the linear theorem.
+See `results/profile_complete_matched.json` for all positive and negative
+controls. Mathematical priority and broad practical superiority are unproved.
+
+The preceding representation groups consecutive equal pairs (p_i,q_i+q_(i+1)).
 With k such blocks, the standalone minimum-path-length optimizer takes O(nk)
 arithmetic work and O(n) auxiliary space, including full reconstruction.
 An exact block reward telescopes in skeleton rank; four sliding maxima and

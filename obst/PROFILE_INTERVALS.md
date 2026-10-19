@@ -1,11 +1,10 @@
 # Two-level key profile reachability: a continuation lemma
 
 Research: OpenAI Codex Sydney. Problem selection and sponsorship: the repository
-owner. This note concerns a new reachability representation. It is not yet an
-implemented or benchmarked full optimal-BST constructor, and it does not resolve
-the unrestricted objective. The published 63-page manuscript covers the previous
-joint-signature checkpoint; this continuation is kept separately until complete
-constructor checks are available.
+owner. This note proves the reachability representation used by the full
+constructor in `code/profile_complete.py`. The complementary global gap
+bound in [GAP_PARITY.md](GAP_PARITY.md) now certifies recognized patterns
+without a large baseline. The unrestricted mixed-weight objective remains open.
 
 ## Why this is relevant
 
@@ -90,8 +89,8 @@ The previous-bit choices can be retained when reconstruction is required.
 Saving each boundary's four endpoints allows backward selection of a valid
 predecessor and one of the explicit short words. Every step has constant
 work; scanning and writing the input/output are linear. This establishes an
-O(n)-arithmetic reachability and witness method. A production implementation
-and its independent tree-cost checks remain next work.
+O(n)-arithmetic reachability and witness method, now implemented with saved
+interval endpoints and backward reconstruction in `code/profile_complete.py`.
 
 It is essential to preserve parity. The high-key pattern 010100 (one means
 high) has final reachable ranks {3,5}; replacing the set by the ordinary
@@ -114,9 +113,9 @@ with attainment of the sorted-profile lower bound: 359 attain it and 506 do
 not. This tests actual mixed costs, independently of the bit-set recurrence.
 The source-hashed result is `results/profile_interval_probe.json`.
 
-This lemma says when a specific sorted depth profile can respect order. It
-neither optimizes nonattaining patterns nor handles arbitrary key alphabets
-or taller shapes. The next constructor must enforce the high-count range,
-construct and evaluate a real BST, and use a separate full-optimality gate.
-Only after comparison with independent shape enumeration, cubic DP, and
-Knuth should a full algorithm or performance claim enter the manuscript.
+The full constructor now checks the high-count range, builds a real BST,
+and certifies it using the global key-plus-gap lower bound in GAP_PARITY.md.
+Perfect-size inputs that miss the free key profile retain the older mixed
+certificate and exact fallback. Full construction and measurement evidence
+are recorded in the manuscript and `results/profile_complete*.json`.
+The lemma does not optimize nonattaining patterns or arbitrary key alphabets.

@@ -18,18 +18,22 @@
 \maketitle
 \begin{abstract}
 We investigate exact optimal binary search trees with ordered weights on
-both keys and gaps. A new representation optimizes minimum-path-length
-shapes using runs of the joint signature $(p_i,q_i+q_{i+1})$. Within a
-constant-signature block, the reward telescopes in skeleton rank, leaving
-four sliding-window boundary transfers. With $k$ blocks, exact class
-optimization and complete reconstruction take $O(nk)$ arithmetic operations
-and $O(n)$ auxiliary space. A separate mixed-node bound certifies full
-optimality. For $M\ge1$ and arbitrary $0\le u_i,v_i\le M$, the positive family
-$p_i=B+u_i$, $q_i=B+v_i$, $B=4(n+1)^2M$, always certifies. Thus few joint
-blocks give exact subquadratic full construction even with large,
-non-affine residuals and gap weights alternating at every position.
-An observed-block-count route avoids expensive use of this kernel on
-fragmented inputs; its fallback can use quadratic space.
+both keys and gaps. For alternating nonnegative gap weights, a leaf-deletion
+argument gives a global gap-cost lower bound attained by every
+minimum-path-length shape. A tree attaining the independent key-depth
+profile bound is therefore fully optimal, without a large-baseline
+assumption. For two-level keys, interlaced parity intervals recognize and
+reconstruct such trees in $O(n)$ arithmetic operations and $O(n)$ auxiliary
+space. This includes strictly alternating keys and gaps whenever $n+1$
+is not a power of two, with arbitrary relative weight magnitudes, and
+nonperiodic recognized patterns. Perfect sizes require separate checks.
+
+A complementary representation groups runs of $(p_i,q_i+q_{i+1})$.
+Block rewards telescope in skeleton rank, yielding an exact $O(nk)$-time,
+$O(n)$-space shape optimizer for $k$ blocks. A mixed-node certificate
+proves full optimality on a positive large-baseline family with arbitrary
+block values. The parity method handles additional cases with $k=n$.
+Routing preserves earlier fast paths; rejected inputs retain exact fallback.
 
 A complementary affine-regret corridor retains only shape states whose
 unavoidable reference cost can be offset by a signed residual gain bound.
@@ -4009,6 +4013,279 @@ fixture retains its earlier fast route. No production-language or broad
 optimized-library superiority is established by these small Python trials.
 Earlier negative C++ core-backend results remain unchanged.
 
+\section{Global alternating-gap bounds and linear profile construction}
+The preceding signature representation can have $k=n$ even on a short
+alternating pattern. We now avoid its rank table by recognizing attainment
+of a global key-depth lower bound. The crucial gap inequality removes the
+large-baseline restriction on the recognized family.
+
+\subsection{A gap lower bound valid for all tree shapes}
+For $n\ge1$, set $h=\lfloor\log_2(n+1)\rfloor$, $S=2^h$, and
+$s=n+1-S$. Suppose $q_i$ alternates between arbitrary nonnegative values
+$a,b$. Every minimum-internal-path-length shape has gap cost
+\[
+ G(q)=h\sum_{i=0}^n q_i+s(a+b).
+\]
+\begin{lemma}[Alternating-gap component bound]
+Every BST on these keys, including every taller tree, has gap contribution
+at least $G(q)$. Every minimum-internal-path-length shape attains equality.
+\end{lemma}
+\begin{proof}
+Fix one parity of the $n+1$ inorder gaps. Give its $H$ leaves unit weight
+and the other $Z=n+1-H$ leaves zero weight. Delete a zero leaf and contract
+its parent into its sibling. The sibling contains a unit-weight leaf:
+remaining zero leaves are separated in inorder by unit leaves, and a
+subtree's leaves are contiguous. An all-zero sibling would contradict
+that separation. Deleting only zero leaves preserves separation.
+Each contraction decreases the selected depth sum by at least one.
+After all $Z$ contractions, a full tree with $H$ unit leaves remains.
+Its external path length is at least $E_{\min}(H)$.
+
+Here $S/2\le H\le S$, so the standard balanced-leaf formula gives
+$E_{\min}(H)=(h+1)H-S$, valid at both endpoints. Thus the original selected
+depth sum is at least
+\[
+ E_{\min}(H)+Z=(h+1)H-S+n+1-H=hH+s.
+\]
+A minimum-path-length shape has gaps at depths $h,h+1$. Each of its $s$
+bottom cherries has two adjacent gaps, one of each parity, at depth $h+1$.
+Thus its selected depth sum is exactly $hH+s$. Apply the inequality to
+both parities and multiply by the nonnegative weights $a,b$.
+\end{proof}
+
+Let $p_{(1)}\ge\cdots\ge p_{(n)}$ be the key weights sorted by value,
+ignoring their fixed positions only for a lower bound. There are at most
+$2^{d-1}$ keys at comparison length $d$. Consequently the sorted lengths
+of every BST dominate $\operatorname{bitlength}(1),\ldots,
+\operatorname{bitlength}(n)$ componentwise. Rearrangement yields the
+globally valid bound
+\[
+ K(p)=\sum_{r=1}^n p_{(r)}\operatorname{bitlength}(r),\qquad
+ \OPT(p,q)\ge K(p)+G(q).                                      \tag{28}
+\]
+An ordered tree attaining both components is globally optimal. This
+compares with all shapes; it does not assume that an optimum is nearly
+complete. Finding a tree attaining $K(p)$ is the remaining constructive task.
+
+\subsection{Two key levels reduce to interlaced intervals}
+Suppose key weights have two distinct levels $\ell<u$, and let $H$ count
+the high keys. Put $m=S-1$ and assume $S/2-1\le H\le m$.
+In a minimum-path-length shape, even skeleton ranks have comparison length
+less than $h$, odd skeleton ranks have length $h$, and cherries have length
+$h+1$. Attainment of $K(p)$ is therefore equivalent to retaining every high
+key in the skeleton and placing high keys at every even skeleton rank.
+Low keys may occupy odd ranks or cherries. The inorder word must have $m$
+ones and no adjacent zeros, as in the preceding section.
+
+Read the high/low pattern from left to right. A high key must be retained;
+a low key can be retained only when its new rank is odd. At a boundary
+immediately after a high key, the previous bit is one. Encode reachable
+even ranks as $2A$ and odd ranks as $2B+1$. The virtual initial boundary
+has $A=\{0\}$, $B=\varnothing$.
+
+\begin{lemma}[Interlaced parity intervals]
+The sets $A,B$ are integer intervals, possibly empty. When both are
+nonempty, their lower endpoint difference and their upper endpoint
+difference each belong to $\{0,1\}$. Four endpoints and empty flags thus
+represent the exact reachable state.
+\end{lemma}
+\begin{proof}
+Let $L$ low keys precede the next high key. The exact transformations are
+\[
+\begin{array}{c|cc}
+L&A'&B'\\\hline
+0&B+1&A\\
+1&(A\cup B)+1&A\\
+2\text{ or }3&A+1&\varnothing\\
+\ge4&\varnothing&\varnothing
+\end{array}
+\]
+For $L=1$, remove the low key or retain it at an odd rank. For $L=2$,
+the low word is $01$ or $10$; for $L=3$ it is $010$. These require an
+even incoming rank. A low-only run can retain at most one key, because
+two retained lows would occupy consecutive skeleton ranks, one even.
+At most one removed key can lie on either side, so $L\ge4$ is impossible.
+
+For $L=0$, each endpoint difference becomes one minus its previous value.
+For $L=1$ with both intervals nonempty, their union is
+$[\min B,\max A]$. The new lower difference is
+$1+\min B-\min A\in\{0,1\}$ and the upper difference is one.
+If only $A$ is nonempty, the pair becomes $(A+1,A)$; if only $B$ is
+nonempty, only $B+1$ survives as $A'$. The remaining cases are immediate.
+This proves the invariant inductively.
+\end{proof}
+
+For a terminal low run, write $R$ for all incoming ranks and $E$ for its
+even subset. The final ranks are $R$ for $L=0$, $R\cup(E+1)$ for $L=1$,
+$E+1$ for $L=2,3$, and empty otherwise. Save each high boundary's intervals.
+After selecting final rank $m$, trace backward: each step has at most two
+candidate predecessor ranks, and the short words above realize the chosen
+transition. Concatenating the words and applying the comparison-length
+Cartesian reconstruction returns the full tree in linear time and space.
+Parity cannot be discarded: the high-key pattern $010100$ has reachable
+final ranks $\{3,5\}$, so a single ordinary interval would invent rank four.
+
+\begin{theorem}[Full linear construction on attaining two-level patterns]
+For arbitrary nonnegative two-level key weights with $S/2-1\le H\le S-1$
+and arbitrary nonnegative alternating gap weights, the recognizer decides
+whether a minimum-path-length shape attains the stated key profile and
+constructs a witness in
+$O(n)$ arithmetic operations and $O(n)$ auxiliary space. Every accepted
+witness is a full optimal mixed-weight BST, without a baseline assumption.
+\end{theorem}
+\begin{proof}
+The interval transitions and traceback take constant work per high boundary
+and linear total input/output work. Only two key multiplicity records are
+ordered, so computing $K(p)$ also takes linear work. The recognized word
+assigns the high keys to the shortest $H$ comparison lengths, attaining
+$K(p)$. Its minimum-path-length shape attains $G(q)$. Equality in (28)
+certifies global optimality, including comparison with every taller tree.
+\end{proof}
+
+One key level is handled directly. At perfect sizes $s=0$, the implementation
+constructs and evaluates the unique class shape. Equality in (28) certifies
+it; otherwise the earlier mixed-Huffman gate may certify it. Failure invokes
+exact Knuth. Rejected recognition does not imply that every minimum-path-length
+shape is suboptimal. The standalone solver and routed portfolio both remain
+exact, with quadratic worst-case fallback. The linear-space guarantee applies
+to the successful route; general fallback can use quadratic space.
+
+\subsection{An explicit alternating family with no baseline}
+\begin{corollary}[Alternating keys and gaps]
+For $n\ge1$ with $n+1$ not a power of two, strictly alternating two-level
+nonnegative key weights and alternating nonnegative gap weights admit full
+exact $O(n)$-time, $O(n)$-space construction. The relative weight magnitudes
+are unrestricted. Equal key levels are handled by the uniform route.
+\end{corollary}
+\begin{proof}
+Here $s>0$. Let $A=1$ if the first key is high and $A=0$ otherwise.
+If $s\bmod2=A$, remove the first $s$ low keys. Otherwise remove the first
+$s-1$ lows and the last low. There are enough lows, and their positions
+are nonadjacent. Every high key remains. Before the initially removed lows
+end, retained keys are high. After removing $t$ initial lows, a high key's
+skeleton-rank parity is $A-t$. The suffix therefore has high keys at even
+ranks when $t\bmod2=A$. In the second construction, removing the final low
+affects at most one subsequent high, which may occupy an odd rank.
+Every even skeleton rank is high. The high count lies in the theorem's
+range, so the recognizer succeeds and (28) proves the full claim.
+\end{proof}
+
+This family has $k=n$ joint signatures when the key levels differ. The
+interval representation therefore escapes the preceding $O(nk)$ bound
+without invoking a small-residual assumption. Nonperiodic accepted patterns
+are also possible: choose any minimum-path-length shape, mark all even
+skeleton ranks high, choose the odd skeleton labels freely, and label every
+cherry low. Recognition receives only the resulting weights, not this witness.
+
+The perfect-size exception matters. For $p=(100,1,100)$ and four zero gaps,
+the unique minimum-path-length tree costs 401 while the full optimum is 303.
+Cubic DP and Knuth agree. Thus the corollary cannot include every size and
+orientation. Arbitrary integer magnitudes also retain their bit costs;
+polynomially bounded weights yield the corresponding word-RAM bounds.
+
+\subsection{Independent evidence and full-construction counts}
+The exact word/tree harness preceded the production constructor. Recognition
+matches literal word enumeration on all 1,022 nonempty binary patterns
+through nine keys; 865 eligible patterns additionally match independent
+minimum-path-length tree enumeration. A separate exhaustive oracle checks
+13,834 parity/tree inequalities and 69,170 mixed-weight/tree inequalities
+through nine keys, including exact equality of each size/parity minimum
+with the gap formula. The perfect-size counterexample is retained.
+
+The full suite passes 3,157 standalone solves against Knuth, including
+2,847 cubic controls and 1,325 class-candidate comparisons against the
+unrestricted shape DP. Another 3,157 routed solves agree. There are 1,201
+accepted full solves: 1,083 use the global profile equality, 116 use the
+older mixed gate on perfect shapes, and two are empty instances.
+The remaining 1,956 route to exact fallback: 86 have unsupported key
+alphabets, 600 unsupported gaps, 241 unsupported high counts, 905 fail
+profile attainment, and 124 fail the perfect-shape mixed gate.
+Zeros, ties, huge integers, random, geometric, near-uniform, arbitrary
+binary patterns with and without a baseline, and earlier affine inputs
+are included.
+
+Both scaling families now have no added baseline. At 393,216 keys,
+a nonperiodic witness-generated pattern has 262,111 joint-signature runs
+but only 196,305 interval transitions; strict alternation has 393,216 runs
+and 196,608 transitions. They require 212,793 and 262,144 membership
+queries respectively, and one traceback step per stored high boundary.
+Each orders two multiplicity records, expands 393,216 key weights,
+constructs every key, and directly checks the full mixed cost. Neither
+uses a residual-Huffman contraction or a dense shape state. These are
+operation categories, not machine-instruction totals or measured peak bytes.
+Ten scaling portfolio controls agree; the two 1536-key cases also match
+Knuth and the unrestricted shape DP. Larger cases use the proved global
+bound and direct output-cost verification.
+
+
+\subsection{Matched full constructions and rejected routes}
+The final M4 experiment uses exact Python integers, Python 3.9.6, and
+macOS 26.5 arm64. Five cyclic orders cover the new portfolio, the standalone
+profile solver with Knuth fallback, the previous portfolio, the unrestricted
+shape DP with fallback, and Knuth. Sixteen size/family groups give eighty
+matched trials and four hundred complete constructions. All preprocessing,
+recognition, certification, and reconstruction are timed; external direct-cost
+checks and garbage collection are outside timing. Every returned cost agrees
+within its matched trial. Table~\ref{tab:profile-timing} gives medians of
+paired ratios, five observations per row.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rlrrr}
+\toprule
+Keys & Family & P / Knuth & P / Previous & S / Knuth \\
+\midrule
+768 & Nonperiodic, no baseline & 0.0121 & 0.0136 & 0.0112 \\
+768 & Alternating, no baseline & 0.0072 & 0.0066 & 0.0134 \\
+768 & Profile unattained & 0.0334 & 1.1857 & 0.9451 \\
+768 & Nonperiodic, large baseline & 0.0111 & 0.0159 & 0.0106 \\
+768 & Ordinary random & 1.0601 & 0.9320 & 1.0584 \\
+768 & Geometric & 1.0609 & 1.0221 & 1.0132 \\
+768 & Four signatures & 0.0681 & 1.1662 & 1.0199 \\
+768 & Affine errors & 0.0555 & 1.0312 & 0.9827 \\
+1,536 & Nonperiodic, no baseline & 0.0022 & 0.0021 & 0.0040 \\
+1,536 & Alternating, no baseline & 0.0033 & 0.0031 & 0.0049 \\
+1,536 & Profile unattained & 0.0157 & 0.9876 & 0.9742 \\
+1,536 & Nonperiodic, large baseline & 0.0062 & 0.0064 & 0.0063 \\
+1,536 & Ordinary random & 1.0690 & 1.0103 & 1.0045 \\
+1,536 & Geometric & 1.0375 & 1.0220 & 1.0204 \\
+1,536 & Four signatures & 0.0290 & 1.0293 & 1.0257 \\
+1,536 & Affine errors & 0.0293 & 1.0590 & 0.9995 \\
+\bottomrule
+\end{tabular}
+\caption{Complete construction with the global profile certificate. P is the
+new routed portfolio; S is its standalone solver with direct Knuth fallback.
+Previous is the preceding signature/affine portfolio. Ratios below one favor
+the numerator. Each row has five paired trials.}
+\label{tab:profile-timing}
+\end{table}
+
+The first two families have no added baseline. The nonperiodic pattern is
+generated from a randomly chosen minimum-path-length witness, which is not
+provided to any solver; strict alternation has $k=n$. At 1536 keys their
+portfolio/Knuth ratios are 0.0022 and 0.0033, and portfolio/previous ratios
+are 0.0021 and 0.0031. Their portfolio/full-shape ratios are 0.0018 and
+0.0027. The large-baseline control also certifies, at ratio 0.0062 to Knuth.
+
+The negative controls expose the price of another attempted representation.
+At 768 keys, the unattained-profile and four-signature cases have
+portfolio/previous ratios 1.1857 and 1.1662. At 1536 keys the four-signature
+and affine cases retain the old fast routes but have ratios 1.0293 and
+1.0590 to the previous portfolio. Ordinary random and geometric cases
+still fall back; their portfolio/Knuth ratios are 1.0690 and 1.0375.
+The standalone solver discards earlier fast routes on rejected inputs,
+which explains its near-Knuth timings on four-signature and affine cases.
+This is why the additional portfolio API is retained.
+
+Identical accepted kernels and identical fallback paths show appreciable
+timing variation, including subunit ratios; these differences are not
+algorithmic savings. The very short accepted runs and five observations
+per row limit the precision of speedup estimates. The linear operation
+bound and full counters are the primary scaling evidence. These small
+Python experiments establish neither optimized-library superiority nor
+an unrestricted subquadratic algorithm. The global gap lemma, interval
+invariant, and full recognized-family guarantee do not depend on the timings.
+
 \clearpage
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
@@ -4030,6 +4307,9 @@ bound and $O(n\log n)$ under independent unit perturbations.
 Joint key/adjacent-gap signatures give an exact $O(nk)$ minimum-path-length
 optimizer with linear-space reconstruction and a fully certified positive
 family with arbitrary block values.
+A global alternating-gap lower bound now combines with interlaced parity
+intervals to give linear full construction on recognized two-level patterns
+without a large baseline, including nonperfect alternating inputs.
 Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
