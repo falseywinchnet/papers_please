@@ -56,6 +56,14 @@ carry rewards. This settles the boundary charge for one plateau above
 capacity, without proving (1) for multiple unequal blocks or the mixed
 below-capacity region.
 
+The [below-capacity plateau classification](PLATEAU_BELOW_CORE.md) now
+proves K(T)<=8s for a single constant positive key block with zero gaps.
+Every positive density equals the common block weight, and complete
+below-capacity cores are generated from explicit ruler-divisibility events
+and uniform-block power-of-two diagonals. Together with the above-capacity
+theorem, this proves a side-only charge on both sides for this family, even
+with real common weights. Arbitrary below-capacity gaps remain open.
+
 The extension to [two equal positive blocks](TWO_BLOCK_CORES.md) now covers
 all above-capacity endpoint cuts: K(T)<=40s, and the entire above-capacity
 core has at most 28n entries with an O(n log(n+1)) constructor. The interaction
@@ -193,3 +201,10 @@ An endpoint-cut and unequal-block search evaluates 1960 inputs through
 ratio is 20/37, with fourteen independent all-root tile controls. Its
 record `endpoint_amplification_probe.json` gives exact counts and source
 hashes. This finite result supplies no general upper bound.
+
+A fixed-tile excess search separately maximizes K(T)-W(J_T), rather than
+its ratio to s+W. It evaluates 34692 inputs through 640 keys on both sides
+of capacity, with 27 small independent all-root winner controls. Its largest
+normalized excess is 39/64, from K=63, W=24, s=64. Full inputs, counts,
+and source hashes are in tile_excess_probe.json. This supplies no uniform
+upper bound; the plateau classification has a separate mathematical proof.

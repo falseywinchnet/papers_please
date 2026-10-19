@@ -517,3 +517,15 @@ Small signed queries use an independent all-root recurrence that permits
 negative endpoint weights; ordinary Knuth is not valid for those queries.
 Large rows use the proved convex-chain restriction and are labeled separately.
 Copy the result JSON before the next mirror operation.
+
+Below-capacity plateau classification and fixed-tile excess falsification:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/plateau_below_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/tile_excess_probe.cpp -o /tmp/obst-tile-excess && python3 obst/code/tile_excess_probe.py /tmp/obst-tile-excess'
+```
+
+The plateau theorem assumes zero gaps below capacity. Large rows enumerate
+sparse cores and check their coordinate identities; independent original
+all-root controls have a separate size limit. The excess search proves no
+upper bound. Copy both JSON results back before the next mirror operation.

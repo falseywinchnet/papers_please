@@ -8,8 +8,10 @@ above capacity has at most max(0,c-m-1) entries. Their coordinates and
 values can be constructed in O(n) arithmetic work and space. The leading
 coefficient one in the support bound is asymptotically sharp.
 
-This constructs the above-capacity part of a layer. The below-capacity
-mixed problem and the general boundary-plus-mass hypothesis remain open.
+This constructs the above-capacity part of a layer. The complementary
+[below-capacity classification](PLATEAU_BELOW_CORE.md) now gives a linear
+local side bound when every gap is zero. The below-capacity mixed problem
+and the general boundary-plus-mass hypothesis remain open.
 
 ## Removing partial-block endpoints
 

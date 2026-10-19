@@ -3894,3 +3894,75 @@ verification on page 117, and dedication on page 144. The dedication source
 is byte-identical to checkpoint 50. Thirty-two executed-source hash entries
 across seven audits match. Stable TeX/PDF deliverables match the manuscript;
 the five-member source/font archive was rebuilt and checked byte for byte.
+
+
+## Checkpoint 52: below-capacity plateau cores and excess-directed search
+
+Checkpoint 51 was progress: the signed-recovery theorem, legal-domain
+collision, audited sources, TeX and PDF were published at 26d8c55. This turn
+returned to the open local support bound rather than treating information
+recovery as a solution of the general construction problem.
+
+The new diagnostic optimizes K(T)-W(J_T) on fixed accepted tiles instead of
+the previous ratio objective. It uses integer additions, deletions, transfers,
+and swaps, with sparse, alternating, flat, and odd-ramp starts; both sides
+of capacity and key-only, gap-only, and mixed modes are included. It evaluates
+34692 inputs through 640 keys, using 5798865516 states, 11439157710 optimized
+root candidates, and 22971840 tile densities. All 27 retained small controls
+agree with independent original all-root layers using 9000132 candidates
+and 330330 states. The maximum normalized excess is 39/64 (K=63,W=24,s=64).
+This neither proves the local hypothesis nor falsifies it. Its objective and
+full winners are preserved in tile_excess_probe.json. Compiler-only cleanup
+removed an unused variable and vector and clarified loop indentation; the
+final executed source was rerun to retain a matching source manifest.
+
+A distinct proof closes the complementary below-capacity region for one
+constant positive key block with zero gaps. On intervals retaining the whole
+block, the weighted slot problem is a top-m sum of ruler valuations. Its
+threshold-count identity gives exact support when ruler endpoints u,v are
+multiples of 2^r separated by m*2^r. Intervals cutting one block endpoint
+reduce to the change of a kth prefix order statistic; their events are
+b=k*2^r. Reflection covers the other endpoint. Intervals with both changed
+keys inside the block give the usual minimum-IPL diagonals. These four cases
+are disjoint and exhaust the below-capacity ordinary core, including empty
+shortest intervals and heights whose capacity exceeds n.
+
+Every positive density equals the common weight alpha. Let
+U_h(m)=sum_(r=1)^(h-1) max(0,m-2^r+1). Complete construction takes
+O(n+U_h(m)) arithmetic work and space, with at most 2(n-m)+U_h(m) entries.
+No capacity-sized array is built when c>n. Removing the unique maximum
+ruler valuation from any s consecutive indices leaves valuation sum at most
+s-1. Charging all other rows or columns to that sum, and the exceptional
+one to its s available neighbors, proves a 2s-1 bound for each of the first
+three cases. Dyadic geometry bounds the uniform diagonals by 2s-1. Hence
+K(T)<=8s. With the earlier above-capacity plateau theorem, the local charge
+is proved on both sides for this key-only family independently of alpha,
+even for real alpha. The general mixed hypothesis remains open.
+
+The audit begins with literal arbitrary-template top-sum controls, then
+compares complete sparse outputs against the original all-root recurrence.
+It checks 1025 block inputs, every block through 17 keys, selected instances
+through 64 keys, rational common weights, and heights through twice the
+binary length. The 8812 complete core comparisons cover 1070212 densities,
+88033 interval values, and 222434 local tiles. There are 336 literal top-sum
+controls; reference recurrences use 18032986 candidates and 1556996 states.
+Sixteen larger sparse constructions through 65536 keys check coordinate
+identities on every emitted entry and every layer through twice the binary
+length. Those rows have no independent large all-root reference. No timing
+or empirical scaling exponent enters the theorem.
+
+PLATEAU_BELOW_CORE.md contains the complete proof. The manuscript places it
+next to the earlier above-capacity plateau construction, with both new audits
+in the existing plateau appendix. The odd-ramp lower bound, main mixed Monge
+construction, and unrestricted research objective are unchanged.
+
+Publication validation: the final manuscript compiles without warnings to
+145 pages. All 408 previous labels remain; all 414 labels are unique, and
+references and citations resolve. Every page was rendered and visually
+reviewed, with detailed checks of the theorem on pages 23--25, both audits
+on page 135, and dedication on page 145. The dedication source is unchanged
+from checkpoint 51. Forty-one executed-source hash entries across ten audits
+match, including both new final runs. The TeX/PDF deliverables and five-member
+font/source archive were refreshed and verified byte for byte. The final
+proof wording explicitly includes empty endpoint fringes in its non-strict
+candidate bounds.

@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Complete below-capacity plateau cores and local side charge](PLATEAU_BELOW_CORE.md)
 - [Linear-mass odd-ramp core lower bound](RAMP_CORE_TIGHTNESS.md)
 - [Per-outcome charging and the aggregate core bound](AGGREGATE_CORES.md)
 - [Single-weight obstruction to constant tile charging](LOCAL_TILE_OBSTRUCTION.md)
@@ -65,6 +66,15 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The [below-capacity plateau classification](PLATEAU_BELOW_CORE.md) proves a
+boundary-only local charge on the complementary side: with one constant
+positive key block and zero gaps, each positive density equals its common
+weight and every dyadic side-s square has at most 8s entries. All below-capacity
+entries can be constructed in O(n+U_h(m)) work, where U_h(m) counts the
+uniform-block power-of-two diagonals. Together with the earlier above-capacity
+result, this covers both sides for this family. Unequal blocks and arbitrary
+below-capacity gaps remain part of the general open support question.
 
 The boundary-interface analysis now separates [legal endpoint assignments
 from signed responses](SIGNED_BOUNDARY_RECOVERY.md). Two strictly positive
