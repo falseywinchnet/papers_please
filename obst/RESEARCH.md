@@ -1894,3 +1894,42 @@ is visibly rendered with the bundled static regular font. Stable output
 TeX/PDF copies match the repository artifacts byte for byte; a complete
 TeX/font source bundle is also supplied. No general-complexity conclusion
 is inferred from the new intermediate-representation lower bound.
+
+
+## Checkpoint 26: per-outcome charging removes a construction logarithm
+
+The early-layer penalty boundary c_h=2^h-1 grows geometrically. Instead of
+paying the largest core H times, charge the mass of each accepted dyadic
+tile to its individual outcome positions. Padding the input by zero weights
+to a power of two, with q_n retained in place, removes the outer cut at n
+from this counting argument. Every accepted tile's parent meets one of the
+two diagonals. A fixed position belongs to at most 60(1+c_h/s) tile spans
+at side s. Hence the scale support is at most
+min(24ns,120hW(1+c_h/s)). The resulting bound is
+
+    sum_h delta(E_h) = O(nH+n sqrt(WL)+WL^3+HWL).
+
+At W=O(n), this is O(n^(3/2) sqrt(log(n+1))). The published products and
+witness queries therefore construct the full tree in
+O(n^(3/2) log^(3/2)(n+1)) arithmetic operations, saving one logarithmic
+factor over checkpoint 25. Retained succinct witness structures use space
+linear in the aggregate core bound. The old general bound remains available.
+The proof is in AGGREGATE_CORES.md and the new manuscript Section 2.7.
+The single-layer sqrt(log n) gap to the proved odd-ramp lower bound remains.
+
+The independent harness ran on the selected M4 host. It checks 766 geometry
+partitions, 4508 scales, 998378 tiles, and 1891752 per-position incidences.
+Its own all-root recurrence checks 290 mixed inputs, 1977 original/padded
+layer equalities, 452644 residual bounds, 28013 weighted tiles, 1367 weighted
+scales, 548 early layers, and 1139 late layers. It records 685551 dense
+diagnostic states and 8636426 candidate roots. No timing is used as a bound.
+The exact executed source hash is retained in aggregate_core_audit.json.
+
+Checkpoint 26 publication validation: the executed audit source hash matches
+the local source. All 57 legacy statement labels remain, all labels are unique,
+and every reference resolves. The 79-page PDF compiles without warnings,
+missing characters, undefined references, or overfull/underfull boxes. Every
+page was rendered and reviewed in contact sheets; the new proof and final
+dedication were also inspected at full resolution. The dedication source is
+unchanged byte for byte. Stable TeX/PDF output copies and the complete font
+source bundle are refreshed from this revision.

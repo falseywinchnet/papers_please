@@ -24,8 +24,10 @@ Monge product and witness oracle, gives full exact BST construction in
 
 arithmetic operations. Using the published succinct witness representation, retaining the witnesses
 uses at most O(H [n + min(n^2,n sqrt(W L))]) words. The implementations here
-use ordinary index arrays and can incur an extra logarithmic factor in space. In particular **W=O(n) gives
-O(n^(3/2) log^(5/2)(n+1)) exact construction**, with arbitrary nonnegative integer weights on keys
+use ordinary index arrays and can incur an extra logarithmic factor in space.
+Combining this reduction with [the aggregate layer bound](AGGREGATE_CORES.md),
+**W=O(n) gives
+O(n^(3/2) log^(3/2)(n+1)) exact construction**, with arbitrary nonnegative integer weights on keys
 and on the gaps between them, including zeros. The bit lengths of the intermediate numbers
 are O(log(n+1)+log(W+1)). The claim for linear mass therefore also fits the
 usual O(log n)-bit arithmetic model. Knuth remains the fallback when this bound
@@ -314,3 +316,14 @@ a family with W=n and Omega(n^(3/2)) nonzero intermediate densities. Its
 closed-form lower bound rules out an n polylog n core bound at linear mass;
 a sqrt(log n) factor remains between the lower and upper core bounds.
 The revised manuscript leads with this reduction and contains no timing claims.
+
+
+## Aggregate refinement
+
+[AGGREGATE_CORES.md](AGGREGATE_CORES.md) strengthens the linear-mass time
+bound by charging individual outcomes to tile spans. With the same layers,
+S=sum_h delta(E_h)=O(nH+n sqrt(WL)+WL^3+HWL). Products, conversion, and
+reconstruction take O(S log(n+1)); retained succinct witnesses use O(S)
+words. At W=O(n), this gives O(n^(3/2) log^(3/2)(n+1)) construction. The
+general maximum-core bound above remains valid. The new argument concerns
+the sum of layer sizes and preserves the odd-ramp lower bound.

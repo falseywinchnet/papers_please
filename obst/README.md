@@ -8,6 +8,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
 - [Linear-mass odd-ramp core lower bound](RAMP_CORE_TIGHTNESS.md)
+- [Per-outcome charging and the aggregate core bound](AGGREGATE_CORES.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -35,13 +36,20 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-## Main result and the new size lower bound
+## Main result and the size bounds
 
 The paper now leads with the exact core-sparse Monge construction for arbitrary
 nonnegative integer weights on keys and gaps. At total mass W=O(n), its bound is
-O(n^(3/2) log^(5/2)(n+1)) arithmetic operations, including full reconstruction.
+O(n^(3/2) log^(3/2)(n+1)) arithmetic operations, including full reconstruction.
 The sparse product and succinct witnesses are the published ESA 2025 algorithms
 of Gawrychowski, Gorbachev, and Kociumaka.
+
+The sharper time bound charges each individual outcome weight to covering
+tiles and sums their geometrically spaced layer boundaries. It proves total
+core size O(n^(3/2) sqrt(log(n+1))) at linear mass, saving one logarithmic
+factor in construction time. See [the aggregate proof](AGGREGATE_CORES.md).
+The independent audit checks 290 mixed inputs and 1,891,752 geometric
+position/scale incidences, including non-power-of-two sizes.
 
 An explicit new family attacks the intermediate size bound. Put n=m^2, where
 m is a power of two at least 32, and put weights 1,3,...,2m-1 on a centered
@@ -297,7 +305,7 @@ superiority. Full counters and timings are in `results/ramp_complete*.json`.
 
 A complementary mathematical reduction uses penalized partial trees and a published
 core-sparse Monge multiplication primitive. It gives exact
-O(n^(3/2) log^(5/2)(n+1)) construction for arbitrary nonnegative integer mixed
+O(n^(3/2) log^(3/2)(n+1)) construction for arbitrary nonnegative integer mixed
 weights of total mass O(n), including zeros. The intermediate-core bound,
 finite completion, and witness reconstruction are proved in the note and
 manuscript. **Condensed Python and C++ constructors are now implemented and

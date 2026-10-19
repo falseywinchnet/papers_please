@@ -22,10 +22,11 @@
 We give an exact construction for optimal binary search trees with arbitrary
 nonnegative integer weights on keys and on the gaps between them. For total
 mass $W=O(n)$, a reduction to the core-sparse Monge product of Gawrychowski,
-Gorbachev, and Kociumaka takes $O(n^{3/2}\log^{5/2}(n+1))$ arithmetic
+Gorbachev, and Kociumaka takes $O(n^{3/2}\log^{3/2}(n+1))$ arithmetic
 operations and returns the complete tree. Terminal-penalty layers preserve
 Monge structure; a mixed-weight subtree bound controls the number of layers,
-and a dyadic boundary argument bounds every intermediate core.
+and a dyadic boundary argument bounds every intermediate core. Charging
+individual outcome weights to tiles bounds the sum of all layer cores.
 Centering around separate constant key and gap baselines gives
 $O(n(1+\sqrt R)\log^3(n+1))$ arithmetic work when their total nonnegative
 deviation $R$ is polynomial in $n$.
@@ -100,7 +101,7 @@ of~\cite{coremonge}, a full optimal BST can be constructed in
 \]
 arithmetic operations. Retaining the witness structures uses
 $O(H[n+\min\{n^2,n\sqrt{WL}\}])$ words. In particular, $W=O(n)$ gives
-$O(n^{3/2}\log^{5/2}(n+1))$ exact construction. Intermediate integers have
+$O(n^{3/2}\log^{3/2}(n+1))$ exact construction. Intermediate integers have
 $O(\log(n+1)+\log(W+1))$ bits.
 \end{theorem}
 The dependence on numerical mass is essential to this statement. The
@@ -365,8 +366,9 @@ would incur at least $M$, but the optimum is at most $LW<M$, since
 $H\ge L$. Thus none survives; when $H=n$, completeness also follows from
 depth alone. Witness recovery costs an additional $O(n\log(n+1))$.
 Equation~\eqref{eq:penalty-core-bound}, summed over $H$ layers, proves
-Theorem~\ref{thm:penalty-reduction}, including dimensions, representation
-conversion, storage, and reconstruction. Since $H\le n$ and the penalties
+the general bound in Theorem~\ref{thm:penalty-reduction}, including
+dimensions, representation conversion, storage, and reconstruction.
+Section~\ref{sec:aggregate-cores} proves its sharper linear-mass clause. Since $H\le n$ and the penalties
 are polynomial in $n,W$, the stated bit-length bound follows as well.
 
 
@@ -519,6 +521,122 @@ concerns a layer's density list, not the complexity of constructing an
 optimal tree by a different representation. The original positive ruler
 family below supplies the complementary quadratic-support result at
 centered deviation $R=n^2$.
+
+\subsection{Charging individual outcomes across all layers}
+\label{sec:aggregate-cores}
+The maximum core size need not be paid at every layer. The exceptional
+penalty diagonal has distance $c_h=2^h-1$ from the main diagonal. Its
+geometric growth allows a sharper sum of the representation sizes.
+
+\begin{lemma}[Per-outcome tile overlap]\label{lem:outcome-overlap}
+Let $N$ be a power of two and $0<c<N$. Partition the integer cells
+$0\le i<j<N$, except $j-i=c$, into maximal dyadic squares avoiding both
+$j-i=0$ and $j-i=c$. For a square
+$T=[a,a+s)\times[b,b+s)$, let $J_T=[a,b+s]$ be its inclusive span of
+outcome positions. At each side length $s$ there are at most $12N/s$
+squares. Each position belongs to at most $60(1+c/s)$ spans $J_T$.
+\end{lemma}
+\begin{proof}
+The whole square meets the main diagonal. Thus every accepted square has
+a rejected parent of side $2s$, with lower-left coordinates $(A,B)$.
+The parent cannot lie outside the upper-triangular domain, since it
+contains the accepted child. Its rejection therefore implies that it
+meets a line $j-i=d$ for $d\in\{0,c\}$. In integer coordinates,
+\[
+ |B-A-d|<2s,\qquad |b-a-d|<3s,
+\]
+since each child coordinate differs from its parent's by either $0$ or
+$s$. For a fixed row coordinate $a$ and a fixed $d$, at most six
+multiples of $s$ can be the column coordinate $b$. There are $N/s$
+row coordinates and two lines, giving $12N/s$ squares.
+
+If $x\in J_T$, then $a\le x\le b+s<a+d+4s$. Hence $a$ is a multiple
+of $s$ in an interval of length $d+4s$, with at most $d/s+5$ choices.
+Multiplying by six column choices and summing over $d=0,c$ gives
+$60+6c/s\le60(1+c/s)$. Counting a square under both lines only enlarges
+the bound. Inclusive endpoints cover every gap weight, and also bound
+the incidences of key weights, whose right endpoint is excluded.
+\end{proof}
+
+\begin{theorem}[Aggregate core bound]\label{thm:aggregate-cores}
+For the layers of Theorem~\ref{thm:penalty-reduction},
+\begin{equation}\label{eq:aggregate-cores}
+ S:=\sum_{h=0}^H\delta(E_h)
+ =O\!\left(nH+n\sqrt{WL}+WL^3+HWL\right).
+\end{equation}
+The complete construction takes $O(S\log(n+1))$ arithmetic operations,
+and the retained succinct witness structures occupy $O(S)$ words.
+In particular, if $W=O(n)$, these bounds are respectively
+$O(n^{3/2}\log^{3/2}(n+1))$ and $O(n^{3/2}\sqrt{\log(n+1)})$.
+\end{theorem}
+\begin{proof}
+For the early layers $1\le h<L$, pad the input for analysis to
+$N=2^{\lceil\log_2 n\rceil}$ keys, where $n\le N<2n$. Append zero key
+and gap weights, retaining the original $q_n$ at position $n$.
+Keep the same penalty $M$ and the same layer index. Every interval
+contained in $[0,n]$ has exactly its original recurrence and value.
+No assertion about the optimal height of the padded full input is needed.
+The proof of~\eqref{eq:penalty-residual} applies on every padded interval:
+its mass is at most $W$ and $M>hW$. Thus its residual is between zero
+and $h$ times its own interval mass, and its layer is Monge.
+
+Apply Lemma~\ref{lem:outcome-overlap} to the padded grid with $c=c_h$.
+There is no outer cut through a tile at $n$: the entire padded tile is
+used for the bound, even if only part of it lies in the original grid.
+For a tile $T$ of side $s$, the two positive corners in the telescoping
+density sum are residuals on subintervals of $J_T$. Its density sum is
+therefore at most $2hW(J_T)$. Its number of positive integer densities
+is at most both this sum and $s^2$. Charging each key and gap weight
+separately to its covering spans gives
+\[
+ \sum_{T:\,\operatorname{side}(T)=s} W(J_T)
+ \le60W(1+c_h/s).
+\]
+Writing $K_{h,s}$ for the number of nonzero original densities covered
+by these tiles, we obtain
+\begin{equation}\label{eq:outcome-scale}
+ K_{h,s}\le\min\{24ns,120hW(1+c_h/s)\}.
+\end{equation}
+The original exceptional line and completion diagonal add at most $2n$
+entries. There are at most $L$ dyadic scales. Using
+$\min(x,y+z)\le\min(x,y)+\min(x,z)$ and summing geometrically yields
+\begin{align*}
+ \delta(E_h)
+ &\le 2n+120\sum_s\min\{ns,hW(1+c_h/s)\}\\
+ &=O\!\left(n+hWL+\sqrt{nhWc_h}\right).
+\end{align*}
+Indeed, the $hW$ term contributes at most $hWL$, while
+$\sum_s\min\{ns,hWc_h/s\}\le4\sqrt{nhWc_h}$.
+If $hWc_h<n$, the latter inequality follows directly from
+$\sum_s hWc_h/s\le2hWc_h$; otherwise split at
+$s=\sqrt{hWc_h/n}$. Zero mass makes both terms zero.
+
+Now $2^L\le2(n+1)\le4n$, and
+\[
+ \sum_{h=1}^{L-1}\sqrt{h\,c_h}
+ \le\sqrt L\sum_{h=1}^{L-1}2^{h/2}
+ =O(\sqrt{Ln}).
+\]
+The early layers consequently contribute
+$O(nL+WL^3+n\sqrt{WL})$. For $h\ge L$, the earlier balanced-tree
+argument bounds each completed core by $n+LW$; the initial core has
+$n$ entries. Since $H\ge L$, summing proves~\eqref{eq:aggregate-cores}.
+
+The product, representation conversion, and witness construction at
+layer $h$ cost $O((n+\delta(E_{h-1}))\log(n+1))$. The product core is
+bounded by its input cores. The $n$ root queries add $O(n\log(n+1))$,
+and each completed core already has $n$ completion entries. Hence the
+total time is $O(S\log(n+1))$. The per-product succinct witness space
+is $O(n+\delta(E_{h-1}))$, so retaining all such structures costs $O(S)$.
+This storage statement is for the published succinct witness structures;
+it does not assert the same space for an arbitrary range-query implementation.
+
+Finally $W=O(n)$ implies $H=O(L)$. Equation~\eqref{eq:aggregate-cores}
+then gives $S=O(n^{3/2}\sqrt L+nL^3)=O(n^{3/2}\sqrt L)$, using
+$L^{5/2}=O(\sqrt n)$. This proves the sharper linear-mass clause in
+Theorem~\ref{thm:penalty-reduction}. The general maximum-core bound
+remains available whenever it is smaller.
+\end{proof}
 
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
@@ -4151,6 +4269,11 @@ additional nonzero cells. The family arose from the adversarial search;
 its theorem follows from the deletion lemma and the closed-form density,
 independently of the search outcomes.
 
+The aggregate bound of Theorem~\ref{thm:aggregate-cores} already removes
+one logarithmic factor from construction time by charging individual
+outcomes across geometrically spaced layer boundaries. It leaves the
+per-layer $\sqrt{\log n}$ gap above unresolved.
+
 The bound concerns an explicit density representation. The unrestricted
 subquadratic construction problem remains open, as does the possibility
 of computing with a more compact representation of these structured dense
@@ -4161,6 +4284,19 @@ alone cannot establish a general algorithmic lower bound.
 The theoretical statements above do not depend on these finite tests.
 Independent cubic recurrences, literal tree enumeration, direct original-cost
 evaluation, and operation counters provide falsification controls.
+
+The per-outcome overlap audit checks 766 padded dyadic partitions, 4508
+scales, and 1,891,752 position/scale incidences, including sizes immediately
+below and above powers of two. An independent all-root recurrence checks
+290 mixed-weight inputs: 1977 original/padded layer equalities, 452,644
+local residual bounds, and 28,013 weighted tiles. It examines 685,551
+dense diagnostic states and 8,636,426 root candidates. The tests include
+all binary inputs through three keys, zero mass, uniform and random mixed
+weights, geometric weights, and mass at either endpoint gap. The executed
+source and operation counts are recorded in
+\texttt{aggregate\_core\_audit.json}. These dense verification operations
+are separate from the sparse construction's theoretical work bound.
+
 Reproduction code and source-hashed records are available in the
 \href{https://github.com/falseywinchnet/papers_please/tree/codex/obst-research/obst}{accompanying repository}.
 The filenames below identify those records; they are not definitions needed
