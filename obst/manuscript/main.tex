@@ -45,6 +45,13 @@ a protected-only height bound and an $O(n\log n)$ threshold sweep.
 Crediting a residual lower bound strengthens this to an excluded-class
 certificate; two gaps of weight $4n$ against unit mixed background admit
 an $O(n\log n)$ exact construction even when the height test fails.
+A coupled two-gap certificate retains the first violating path skeleton
+and bounds its payloads by mixed forests. It certifies a family with
+arbitrarily positioned nonuniform key weights and two gaps of weight $3n$,
+giving exact $O(n^\alpha)$ construction for
+$\alpha=1+\log_{2\varphi}2<1.59024$ through the existing local frontier.
+The same exponent already applies globally to this linear-total-mass
+family; the advance is the stronger certificate and measured work reduction.
 
 Exact enumeration, independent cubic recurrences, adversarial inputs, and
 operation counts accompany all implementations. We preserve a failed
@@ -1800,6 +1807,293 @@ single-threshold experiment was superseded after it missed several useful
 cores; the published selector and every final result use the bounded
 portfolio. The general subquadratic objective remains unresolved.
 
+\section{Coupled two-gap skeleton certificates}\label{sec:pair-skeleton}
+The preceding certificate adds independent protected and residual minima.
+We now retain enough geometry to couple these costs at the first possible
+violation. Select internal gaps $a<b$, with weights $M_1,M_2$, and let
+$A=\{a-1,a,b-1,b\}$, $m=|A|\in\{3,4\}$, and
+$\theta=\min(M_1,M_2)$. A tree is $A$-closed when no outside key is an
+ancestor of an $A$-key. All weights below may be zero.
+
+\begin{lemma}[First violating skeleton]\label{lem:pair-skeleton}
+In a nonclosed tree the selected gap depth sum $D$ is at least $m+2$.
+If $D=m+2$, the union of the two search paths has exactly $m+1$ keys:
+the keys in $A$ and one outside key. The paths share only the root.
+\end{lemma}
+\begin{proof}
+Each key neighboring a gap is an ancestor of that gap. Thus the path
+union contains $A$. Nonclosure puts an outside ancestor of an $A$-key
+in the same union. If $L\ge1$ keys are shared, its size is $D-L$, so
+$D\ge m+1+L\ge m+2$. Equality forces $L=1$ and union size $m+1$.
+\end{proof}
+
+The one outside key is called the bridge. Its inorder position is in
+one of the light intervals between keys of $A$. Enumerating binary-tree
+shapes on $A$ and the bridge takes at most $C_5=42$ shapes per interval.
+Only nonclosed shapes with selected depth sum $m+2$ are retained.
+
+\begin{lemma}[Unordered mixed forests]\label{lem:mixed-forest}
+Let $F_k(P,Q)$ be the minimum mixed cost of a $k$-root binary forest
+with roots at depth zero, internal-weight multiset $P$, and leaf-weight
+multiset $Q$, where $|Q|=|P|+k$. Weights may be permuted within each
+type and empty trees are allowed. Sort $P$ ascending. For each weight
+in that order, merge the two smallest current leaf weights with it,
+add the resulting weight to the cost, and reinsert it as a leaf.
+After all merges the accumulated cost is $F_k(P,Q)$.
+\end{lemma}
+\begin{proof}
+Choose a deepest internal node in an optimal forest; it is a cherry.
+Exchange weights to put a smallest internal weight there and the two
+smallest leaf weights at its children, without increasing cost. Contract
+the cherry to a leaf of their total weight. Its removed cost is exactly
+that total. Conversely, expanding this leaf in any feasible contracted
+forest has that added cost. Induction proves the recurrence, including
+forests consisting only of leaves. Nonnegative weights ensure the generated
+merge weights are nondecreasing. Two queues therefore take linear work
+after sorting, for total $O(n\log n)$ work.
+\end{proof}
+
+Delete $A$ from inorder to obtain $m+1$ intervals. Two are the selected
+singleton gaps. For every other region $s$, write its weights as
+$(P_s,Q_s)$ and mass as $W_s$. In a retained skeleton, let $h_s$ be
+its hole depth. An ordinary region contributes the lower bound
+\[
+ h_sW_s+F_1(P_s,Q_s).
+\]
+If the bridge is in region $t$, there are two holes. Lower their depths
+to their minimum $h$. If the bridge comparison length is $\ell$, then
+$h\ge\ell$, since both holes descend from it. All other internal
+slots in this relaxed region have comparison length at least $h+1$.
+Exchanging internal weights therefore places a largest regional weight
+$x$ at the bridge. The relaxed contribution is
+\begin{equation}\label{eq:bridge-forest}
+ \ell x+h(W_t-x)+F_2(P_t\setminus\{x\},Q_t).
+\end{equation}
+This exchange applies after lowering the two hole depths; it does not
+identify the bridge key in the original ordered tree. Keep the exact
+costs of all $A$-keys and both selected gaps. Minimizing the sum of
+these costs and the regional bounds over retained skeletons gives
+$B_{\rm first}$, a valid lower bound for $D=m+2$.
+
+Let $B_0$ be the unordered mixed-tree optimum after zeroing the two
+selected gap weights, retaining all other weights. Each internal gap
+has depth at least two, so define
+\begin{align*}
+ B_{\rm basic}&=2(M_1+M_2)+(m-2)\theta+B_0,\\
+ B_{\rm tail}&=2(M_1+M_2)+(m-1)\theta+B_0.
+\end{align*}
+The first bounds every nonclosed tree; the second bounds those with
+$D\ge m+3$.
+
+\begin{theorem}[Coupled exclusion certificate]\label{thm:pair-certificate}
+Every nonclosed tree has cost at least
+\[
+ B=\max\{B_{\rm basic},\min(B_{\rm first},B_{\rm tail})\}.
+\]
+If the first class is empty, replace the inner minimum by $B_{\rm tail}$.
+An $A$-closed witness of cost $U\le B$ certifies that some unrestricted
+optimum is $A$-closed. Its exact construction then requires independent
+exact solutions of the intervening intervals and a constant-size core.
+The screening work is $O(n\log n)$.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:pair-skeleton} partitions excluded trees into the first
+and tail classes. Each has its stated lower bound, and both have
+$B_{\rm basic}$. The witness is no more costly than any excluded tree.
+An optimum of the closed class is consequently globally optimal.
+There are constantly many regions, forest computations, and skeletons;
+Lemma~\ref{lem:mixed-forest} gives the screening bound.
+\end{proof}
+
+The implementation first uses midpoint payloads and an exact full-weight
+core as the witness. Optional refinement computes the exact closed
+candidate when this witness fails. An uncertified attempt falls back
+to the preceding exact method; the general worst case remains quadratic.
+
+\subsection{A family with arbitrary nonuniform key positions}
+Constant key weights require a scope qualification. For $p_i=c$, the
+internal/external path-length identity $E=I+2n$ gives
+\[
+ C(T;c,q)=\sum_g(q_g+c)d_T(g)-cn.
+\]
+Such inputs reduce to alphabetic leaf-weight problems. The next family
+instead has a linear number of nonconstant key weights.
+
+\begin{theorem}[Nonuniform-key family]\label{thm:nonuniform-pair}
+Let $n=2^h$, $h\ge5$, $r=n/16$, and $s=r-1$. All gaps have weight
+one except $q_1=q_{n-1}=M=3n$. All keys have weight one except any
+$s$ keys in positions $2,\ldots,n-3$, which have weight two. The
+midpoint witness passes Theorem~\ref{thm:pair-certificate} for every
+placement of these keys. Combining it with the existing mass-frontier
+construction takes $O(n^\alpha)$ arithmetic work, where
+$\alpha=1+\log_{2\varphi}2<1.59024$.
+For $h\ge6$, the earlier fixed-pair bound $B_{\rm basic}$ cannot
+certify even the exact closed optimum on this family.
+\end{theorem}
+\begin{proof}
+For unit keys write $U_0=(2h+3)n-6h-3$. The middle payload has $n-4$
+keys, mass $2n-7$, and optimal relative cost $(2h-1)n-6h-2$.
+The minimum four-key core has selected depth sum five, middle hole
+depth two, and other contribution thirteen, giving cost $5M+4n-1$.
+For completeness, the distinct other triples (selected depth sum,
+middle depth, other contribution) among its 14 shapes are
+$(5,3,12),(6,3,13),(6,3,15),(6,4,14),(7,4,13)$.
+None is cheaper. Thus the unit-key closed optimum is $5M+U_0$.
+A midpoint payload attains that baseline cost and has maximum relative
+key comparison length $h$, so the nonuniform witness satisfies
+\begin{equation}\label{eq:pair-witness}
+ U\le 5M+U_0+(h+2)s.
+\end{equation}
+
+Let $G_k(t)$ be the minimum sum of comparison lengths of $t$ marked
+internal nodes in a $k$-root forest. Filling the capacities
+$k2^{\ell-1}$ at comparison lengths $\ell=1,2,\ldots$ gives
+\[
+ G_1(s)=(h-5)r+1,\qquad G_2(s-1)=(h-6)r+2.
+\]
+In the unit first-violation relaxation the middle two-root forest has
+$n-5$ internal nodes. Its balanced profile has three leaves at depth
+$h-2$ and $n-6$ at depth $h-1$. The forest identity
+$E=I+2(n-5)$ yields
+\[
+ F_2=(2h-3)n-6h+5.
+\]
+There are ten admissible five-key skeleton profiles. Their distinct
+triples (minimum middle hole depth $d$, bridge length $\ell$, fixed
+core/endpoint contribution $c$) are
+\[
+ (2,2,16),\ (2,2,15),\ (3,3,13),\ (2,1,15),\ (3,1,14),\ (2,1,16).
+\]
+Their unit costs are $6M+2d(n-4)+\ell+c+F_2$; the minimum at
+$(2,1,15)$ is
+\[
+ B_{\rm first}^{\rm unit}=6M+(2h+1)n-6h+5.
+\]
+With nonuniform keys the bridge takes weight two in the relaxation.
+The remaining $s-1$ extra units receive hole shift at least two and
+forest comparison lengths summing to at least $G_2(s-1)$. The bridge
+adds at least one. Therefore
+\[
+ B_{\rm first}\ge B_{\rm first}^{\rm unit}+2s-1+G_2(s-1).
+\]
+
+The residual unordered optimum is exactly
+\[
+ B_0=2nh-n+2+G_1(s).
+\]
+For the unit baseline, absorbing the key weights leaves two leaf weights
+one and $n-1$ weights two. Their Huffman tree is a perfect $h$-level tree
+with one bottom leaf expanded into the two unit leaves; subtract $n$
+to recover mixed cost $2nh-n+2$. Every tree pays at least $G_1(s)$
+for the extra key units. The baseline optimal shape has its top $h-4$
+internal levels full, so these same slots attain $G_1(s)$ simultaneously
+in the unordered problem, establishing equality.
+
+Substitute $M=3n$ in these bounds and in~\eqref{eq:pair-witness}:
+\[
+ B_{\rm first}-U\ge5n/8+h+9>0,\qquad
+ B_{\rm tail}-U\ge25n/16+7h+8>0.
+\]
+The witness certifies every placement. The remaining middle interval
+has key weights in $[1,2]$ and unit gap weights. Its bounded-positive
+mass-frontier bound is $O(n^\alpha)$, and the $O(n\log n)$ screening
+and full reconstruction fit within this bound. This exponent is inherited
+from that architecture, not a new unrestricted exponent.
+
+Finally, every closed tree costs at least its unit-background closed
+optimum plus $G_1(s)$. Since $B_{\rm basic}=6M+B_0$, its deficit is
+at least $n-6h-5>0$ for $h\ge6$. This is a separation from the earlier
+certificate for this fixed pair, not a claim about every alternative
+core its selector could attempt.
+\end{proof}
+
+The family's total mass is $O(n)$ and all key weights are at least one.
+Consequently the earlier global mass frontier already has the same
+$O(n^\alpha)$ guarantee on the entire instance. Theorem~\ref{thm:nonuniform-pair}
+is a certificate separation with arbitrary nonuniform key placements,
+not an extension of the known subquadratic input regime. Its practical
+value must be judged by actual construction work and matched measurements.
+
+\subsection{Verification and measured limits}
+Independent forest enumeration passed 11,880 checks. Exhaustive small
+weight inputs numbered 24,188, with 51,654 pair-exclusion checks and
+separate checks for both first and tail lower bounds. Among these are
+3,288 exact closed candidates accepted by the coupled bound but rejected
+by $B_{\rm basic}$. Complete construction passed 6,560 comparisons with
+independent cubic DP, covering both payload kernels and refinement modes.
+Larger tests at $n=128,512,2048$ include random, near-uniform, geometric,
+single-spike, adjacent-pair, interior-pair, and varying-weight inputs.
+Neither favorable examples nor these exhaustive finite checks replace
+the preceding proofs. Raw counts and source hashes are stored in
+\texttt{pair\_skeleton*.json}.
+
+The nonuniform-family harness checks 31 placement/size combinations,
+including clustered, spread, and random placements; 28 are compared with
+Knuth and eight with cubic DP. All satisfy the exact residual formula
+and the proved certificate margins. Fourteen unit-background cases
+extend through $n=65,536$. At $n=2048$ with unit keys and selected gap
+weight $2n$, the earlier bound $67,586$ is replaced by $71,619$, which
+certifies the exact cost $71,611$. At gap weight $n$, the closed
+candidate remains suboptimal and is correctly rejected.
+
+At $n=16,384$ the seeded nonuniform instance has 1,023 doubled key
+weights. Full construction returns cost $767,240$, with witness
+$768,946$, first bound $780,208$, and tail bound $795,651$.
+Its 7,758,912 short states, 3,922,465 top states, and 20 total core
+states give 11,681,397 DP states versus 134,225,920 in a full Knuth
+table. Parameter-selection metadata is not counted a second time.
+There are also 42,351,013 top-matrix queries, 15,502,473 short-root
+candidates, 261,181 forest sorting comparisons, 49,143 forest merges,
+and 256,673 contour mass checks. The complete tree is reconstructed
+and its cost evaluated directly. This run took about 54.59 seconds
+once; the largest instance is certified by the theorem and construction,
+not compared with an independently executed quadratic table.
+
+Balanced matched measurements at $n=512$ use the four cyclic orders
+of Knuth, the previous residual constructor, and the new constructor
+with each of its two payload kernels, together with their reversals.
+All 224 timed complete constructions agree in cost within each trial
+and pass direct tree evaluation. The table reports median paired time
+ratios to Knuth; lower is faster. PF and PK denote the new frontier
+and Knuth payload kernels. The varying background uses independent
+weights in $[1,1000]$ and selected gaps $1000n$.
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+Input & Previous/Knuth & PF/Knuth & PK/Knuth\\
+\midrule
+Nonuniform family, spread & 3.13537 & 1.48227 & 0.93990\\
+Nonuniform family, random & 2.99217 & 1.39273 & 0.86098\\
+Unit background, gaps $2n$ & 2.77283 & 0.04285 & 0.03927\\
+Varying background & 2.86574 & 3.01630 & 1.30401\\
+Random control & 1.95412 & 2.01031 & 1.43424\\
+Near-uniform control & 1.77849 & 1.89871 & 1.28003\\
+Geometric control & 0.34365 & 0.30066 & 0.33002\\
+\bottomrule
+\end{tabular}
+\end{center}
+Only the first three families pass the new certificate in these timed
+trials. In particular, the new frontier route is still slower than
+plain Knuth on nonuniform $n=512$ inputs, despite taking about 48\%
+of the previous constructor's time. The Knuth payload kernel gives
+a modest improvement there but retains quadratic payload work.
+Ratios below one on failed-certificate controls reflect the fallback
+and measurement variation, not successes of the new certificate.
+
+A separate larger check uses four alternating execution orders per size
+and fresh random key placements in the nonuniform family. All 16 complete
+constructions agree with exact Knuth and direct tree evaluation. At
+$n=2048$ and $4096$, the median new/Knuth time ratios are respectively
+0.65948 and 0.56309, about $1.52\times$ and $1.78\times$ faster.
+These are instrumented Python measurements on the sponsor's M4, not
+comparisons against optimized compiled implementations. Raw trials and
+source hashes are in \texttt{pair\_skeleton\_crossover.json}.
+
+The chief unresolved issue is how to retain useful path-union information
+when no constant-size core can be certified. The present method does
+not bound the number of necessary boundary states for arbitrary mixed
+input. Its general worst-case construction remains quadratic.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
@@ -2113,7 +2407,7 @@ prefix verify the exact additive identity and preserved strict gap.
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
 interval frontiers, dominant-gap separators, joint heavy-outcome cores,
-residual exclusion certificates, global certificates,
+residual exclusion and coupled two-gap skeleton certificates, global certificates,
 and scoped obstructions to depth relaxations. Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.

@@ -8,12 +8,13 @@ Sydney, with sponsorship and problem selection by the repository owner.
 Find a substantively useful improvement for the full optimal binary search tree
 problem, or prove an appropriate barrier to subquadratic construction. The
 general exact subquadratic problem remains unresolved by this project.
-The current checkpoint gives exact sufficient contraction rules and an
-adaptive linear preprocessing pass. Its bound is O(n+m^2+sum k_t^2), where
-m is the surviving core size and k_t are independently solved block sizes.
-This improves state counts substantially on a seeded heavy-separator input,
-but little on ordinary random mixed weights. Novelty is unestablished;
-no general subquadratic bound or complexity lower bound is claimed.
+The current checkpoint combines exact contractions, variable mass frontiers,
+and excluded-class certificates. The latest bound retains the first violating
+two-gap path skeleton and its mixed-weight residual forests. It strengthens
+the earlier fixed-pair certificate on nonuniform-key families and reduces
+measured complete-construction work. Those families already fall within the
+global frontier's restricted subquadratic regime; no new general exponent
+or complexity lower bound is claimed. Novelty remains unestablished.
 
 Input: ordered keys 1..n, key weights p[1..n], gap weights q[0..n], all
 nonnegative. No normalization is required. Use comparison cost with root key
@@ -633,6 +634,90 @@ controls, operation-category distinctions, and a citation to Huffman's original
 paper. Credit remains OpenAI Codex Sydney; problem selection and sponsorship
 remain with the repository owner. Priority of the derived certificates remains
 unestablished. Final publication follows rendered-page and remote-blob checks.
+
+## Twelfth checkpoint: couple the first violating skeleton to its forests
+
+The recovered complete harness confirms a stronger two-gap exclusion bound.
+For A equal to the two gaps' neighboring keys, every nonclosed tree has
+selected gap depth sum at least |A|+2. At equality, the selected paths share
+only the root and their union has exactly A plus one outside bridge key.
+This permits a constant-size shape enumeration. Ordinary residual intervals
+receive unordered mixed-tree bounds; the bridge interval receives a two-root
+forest bound after lowering both attachment depths to their minimum. Only
+then is assigning a largest regional key weight to the bridge justified.
+Higher depth sums receive a separate tail bound. The final certificate takes
+the maximum of the earlier bound and the minimum of the two new classes.
+
+The mixed-forest greedy rule is proved by a deepest-cherry exchange and
+contraction, with empty trees allowed and equal-depth roots. It is checked
+independently by forest shape enumeration and rearrangement of weights.
+This is not a claim about arbitrary unequal-depth forest roots.
+
+The new family takes n=2^h, h>=5, s=n/16-1 arbitrary middle key positions
+of weight two, all other keys and ordinary gaps of weight one, and selected
+q_1=q_(n-1)=3n. For every placement, the first and tail bounds exceed the
+midpoint witness by at least 5n/8+h+9 and 25n/16+7h+8. For h>=6, even
+the exact closed optimum exceeds the old fixed-pair bound by at least
+n-6h-5. This is a strict certificate separation, without a claim about
+every other core the old selector could try.
+
+A scope correction matters: constant key weights absorb into gap weights
+via C(T;c,q)=sum(q_g+c)d_g-cn, so unit-background examples alone reduce
+to alphabetic trees. The new family has Theta(n) nonuniform keys in arbitrary
+positions. Nevertheless, its total mass is still O(n) with minimum key weight
+one. The established global frontier already has the same O(n^alpha),
+alpha=1+log_(2phi)(2)<1.59024, guarantee. The new certificate improves
+construction work inside that regime; it does not expand the asymptotic
+subquadratic regime. An initial interpretation suggesting otherwise was
+removed before publication.
+
+Validation: 11,880 forest checks; 24,188 exhaustive weight inputs; 51,654
+pair-exclusion checks with separate first and tail tests; 3,288 coupled-only
+exact-candidate certificates; 6,560 complete cubic-checked solves; 36 larger
+adversarial fixtures through n=2,048 in both kernels. All checks passed.
+The family harness has 31 nonuniform placement/size cases, 28 independently
+checked by Knuth and eight by cubic DP, plus 14 uniform formulas through
+n=65,536. Its initial run stopped on a test-harness tuple-unpacking mistake
+(cubic returns two values); that was fixed and the entire family run repeated.
+
+At n=2,048, unit background and selected weight 2n, the new bound 71,619
+certifies exact cost 71,611, resolving the previous 67,586 bound gap. At
+selected weight n, the proposed closed class is still suboptimal and rejected.
+At n=16,384 with 1,023 random doubled keys, full construction returns 767,240
+and uses 11,681,397 DP states, versus 134,225,920 for a full Knuth table.
+It also executes 42,351,013 top-matrix queries and 15,502,473 short-root
+candidates. Every output key is constructed and directly evaluated. The
+largest quadratic reference was not executed; exactness there uses the
+proved certificate and exact payload constructor, not an independent table.
+
+The 224 n=512 timed complete solves use balanced cyclic and reversed orders.
+Spread/random nonuniform PF/Knuth ratios are 1.48227/1.39273, whereas
+PF/previous ratios are 0.48126/0.47931. The Knuth payload kernel gives
+0.93990/0.86098 against plain Knuth. Unit 2n-gap PF/PK ratios are
+0.04285/0.03927. Random, near-uniform, geometric, and varying-background
+controls fail the new certificate; their timings remain in the report.
+Sixteen larger matched complete solves, alternating order on fresh random
+placements, give PF/Knuth medians 0.65948 at n=2,048 and 0.56309 at
+n=4,096. All costs match exact Knuth and direct evaluation. These are
+instrumented Python observations, not optimized implementation comparisons.
+
+The JesseSort discussion motivates keeping compact boundaries and postponing
+interior construction. For optimal BSTs, an intact subtree's interaction with
+its ancestors is C+dW; the difficult question is when that subtree can remain
+intact. This checkpoint supplies one exact constant-size certificate for that
+decision. It does not show that arbitrary input admits a small or cheaply
+maintained boundary representation. That remains the substantive next target:
+more general coupled path unions, or a rigorous obstruction to a proposed
+representation, while retaining the full mixed-weight objective.
+
+Code and raw source-hashed results are in `pair_skeleton*.py/json` and
+`check_pair_skeleton.py`; the detailed proof is in `PAIR_SKELETON.md` and
+the manuscript. Credit remains OpenAI Codex Sydney; sponsorship and problem
+selection remain with the repository owner. General completion is not claimed.
+The revised 37-page manuscript compiles without warnings. All pages were
+rendered and visually checked, with the new proof and measurement pages also
+inspected individually. Recorded test and implementation hashes match the
+published sources.
 
 ## Completion requirements
 

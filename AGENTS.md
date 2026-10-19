@@ -38,6 +38,9 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_core_exclusion.py --mixed-only
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_core_exclusion.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/core_exclusion_scale.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_pair_skeleton.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/pair_skeleton_family.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/pair_skeleton_crossover.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not

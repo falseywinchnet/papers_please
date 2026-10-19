@@ -1,0 +1,612 @@
+{
+  "seed": 3083864,
+  "sources": {
+    "pair_skeleton_crossover.py": "0728727e05bf567b272f02fd28b7858065fda84f36332baea28e44526d56b35a",
+    "pair_skeleton_family.py": "25e6565ab06ff3adeba709f9d128d530ec4d5b7425c0cd5835dbce37b7490242",
+    "pair_skeleton.py": "58a05021111273c3295366b07987330fc10d93ac97e62a5688779abfee9c587a",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "mass_frontier.py": "8065eb21d44aa03dabb444b2e31cf217faaeae4f894ce221524dd957b6c6dace",
+    "heavy_core.py": "dc36087ed5b779984863cf3249cf2c75bf5817e3d9f8f36e951728f5bb6d2a50",
+    "core_exclusion.py": "a8560983776d85407fe3688afb46d019e2115c4362724756085ee6b4454b744d"
+  },
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "python": "3.9.6",
+  "rows": [
+    {
+      "n": 2048,
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "pair"
+          ],
+          "runs": {
+            "knuth": {
+              "value": 83157,
+              "seconds": 2.0880055,
+              "counts": {
+                "short_states": 2098176,
+                "root_candidates": 6284294
+              }
+            },
+            "pair": {
+              "value": 83157,
+              "seconds": 1.6579800000000002,
+              "counts": {
+                "uniform_checks": 120,
+                "gap_selection_items": 2047,
+                "selected_gaps": [
+                  1,
+                  2047
+                ],
+                "core_keys": 4,
+                "forest_sort_comparisons": 31567,
+                "forest_input_items": 12276,
+                "forest_contractions": 6135,
+                "forest_queue_comparisons": 6133,
+                "bridge_maximum_items": 2044,
+                "skeleton_profiles_checked": 10,
+                "residual_lower_bound": 43779,
+                "tail_lower_bound": 86787,
+                "first_level_lower_bound": 84802,
+                "skeleton_regions": [
+                  {
+                    "block": 2,
+                    "profiles": 10
+                  }
+                ],
+                "basic_lower_bound": 80643,
+                "excluded_lower_bound": 84802,
+                "witness_payload_keys": 2044,
+                "payload_relabelled_keys": 4088,
+                "closed_core_states": 20,
+                "closed_core_root_candidates": 30,
+                "closed_core_reconstructed_keys": 8,
+                "witness_cost": 83372,
+                "payload_contour_mass_checks": 23956,
+                "payload_parameter_levels": 7,
+                "payload_selected_depth": 6,
+                "payload_selected_width": 159,
+                "payload_selected_short_states": 307327,
+                "payload_selected_work_proxy": 438143,
+                "payload_interval_bucket_entries": 307327,
+                "payload_short_root_candidates": 612749,
+                "payload_short_states": 307327,
+                "payload_band_boundary_scans": 2045,
+                "payload_top_row_scans": 130880,
+                "payload_top_states": 118495,
+                "payload_top_column_scans": 130880,
+                "payload_top_matrix_queries": 1245417,
+                "payload_coarse_gap_transitions": 107650,
+                "payload_top_padding_queries": 146823,
+                "payload_reconstructed_keys": 2044,
+                "payload_actual_height": 12,
+                "closed_candidate_cost": 83157,
+                "certified_core": 1,
+                "refinement_rescued": 0
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "pair",
+            "knuth"
+          ],
+          "runs": {
+            "pair": {
+              "value": 83168,
+              "seconds": 1.503757834,
+              "counts": {
+                "uniform_checks": 20,
+                "gap_selection_items": 2047,
+                "selected_gaps": [
+                  1,
+                  2047
+                ],
+                "core_keys": 4,
+                "forest_sort_comparisons": 32392,
+                "forest_input_items": 12276,
+                "forest_contractions": 6135,
+                "forest_queue_comparisons": 6133,
+                "bridge_maximum_items": 2044,
+                "skeleton_profiles_checked": 10,
+                "residual_lower_bound": 43779,
+                "tail_lower_bound": 86787,
+                "first_level_lower_bound": 84802,
+                "skeleton_regions": [
+                  {
+                    "block": 2,
+                    "profiles": 10
+                  }
+                ],
+                "basic_lower_bound": 80643,
+                "excluded_lower_bound": 84802,
+                "witness_payload_keys": 2044,
+                "payload_relabelled_keys": 4088,
+                "closed_core_states": 20,
+                "closed_core_root_candidates": 30,
+                "closed_core_reconstructed_keys": 8,
+                "witness_cost": 83387,
+                "payload_contour_mass_checks": 23948,
+                "payload_parameter_levels": 7,
+                "payload_selected_depth": 6,
+                "payload_selected_width": 159,
+                "payload_selected_short_states": 307595,
+                "payload_selected_work_proxy": 438411,
+                "payload_interval_bucket_entries": 307595,
+                "payload_short_root_candidates": 613132,
+                "payload_short_states": 307595,
+                "payload_band_boundary_scans": 2045,
+                "payload_top_row_scans": 130880,
+                "payload_top_states": 118468,
+                "payload_top_column_scans": 130880,
+                "payload_top_matrix_queries": 1244383,
+                "payload_coarse_gap_transitions": 107632,
+                "payload_top_padding_queries": 146705,
+                "payload_reconstructed_keys": 2044,
+                "payload_actual_height": 12,
+                "closed_candidate_cost": 83168,
+                "certified_core": 1,
+                "refinement_rescued": 0
+              }
+            },
+            "knuth": {
+              "value": 83168,
+              "seconds": 2.274680417000001,
+              "counts": {
+                "short_states": 2098176,
+                "root_candidates": 6284294
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "pair"
+          ],
+          "runs": {
+            "knuth": {
+              "value": 83173,
+              "seconds": 2.4865414589999997,
+              "counts": {
+                "short_states": 2098176,
+                "root_candidates": 6284294
+              }
+            },
+            "pair": {
+              "value": 83173,
+              "seconds": 1.6247734999999999,
+              "counts": {
+                "uniform_checks": 88,
+                "gap_selection_items": 2047,
+                "selected_gaps": [
+                  1,
+                  2047
+                ],
+                "core_keys": 4,
+                "forest_sort_comparisons": 31952,
+                "forest_input_items": 12276,
+                "forest_contractions": 6135,
+                "forest_queue_comparisons": 6133,
+                "bridge_maximum_items": 2044,
+                "skeleton_profiles_checked": 10,
+                "residual_lower_bound": 43779,
+                "tail_lower_bound": 86787,
+                "first_level_lower_bound": 84802,
+                "skeleton_regions": [
+                  {
+                    "block": 2,
+                    "profiles": 10
+                  }
+                ],
+                "basic_lower_bound": 80643,
+                "excluded_lower_bound": 84802,
+                "witness_payload_keys": 2044,
+                "payload_relabelled_keys": 4088,
+                "closed_core_states": 20,
+                "closed_core_root_candidates": 30,
+                "closed_core_reconstructed_keys": 8,
+                "witness_cost": 83391,
+                "payload_contour_mass_checks": 23955,
+                "payload_parameter_levels": 7,
+                "payload_selected_depth": 6,
+                "payload_selected_width": 159,
+                "payload_selected_short_states": 307163,
+                "payload_selected_work_proxy": 437979,
+                "payload_interval_bucket_entries": 307163,
+                "payload_short_root_candidates": 612450,
+                "payload_short_states": 307163,
+                "payload_band_boundary_scans": 2045,
+                "payload_top_row_scans": 130880,
+                "payload_top_states": 118499,
+                "payload_top_column_scans": 130880,
+                "payload_top_matrix_queries": 1244108,
+                "payload_coarse_gap_transitions": 107654,
+                "payload_top_padding_queries": 147386,
+                "payload_reconstructed_keys": 2044,
+                "payload_actual_height": 12,
+                "closed_candidate_cost": 83173,
+                "certified_core": 1,
+                "refinement_rescued": 0
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "pair",
+            "knuth"
+          ],
+          "runs": {
+            "pair": {
+              "value": 83180,
+              "seconds": 1.539178333999999,
+              "counts": {
+                "uniform_checks": 18,
+                "gap_selection_items": 2047,
+                "selected_gaps": [
+                  1,
+                  2047
+                ],
+                "core_keys": 4,
+                "forest_sort_comparisons": 31305,
+                "forest_input_items": 12276,
+                "forest_contractions": 6135,
+                "forest_queue_comparisons": 6133,
+                "bridge_maximum_items": 2044,
+                "skeleton_profiles_checked": 10,
+                "residual_lower_bound": 43779,
+                "tail_lower_bound": 86787,
+                "first_level_lower_bound": 84802,
+                "skeleton_regions": [
+                  {
+                    "block": 2,
+                    "profiles": 10
+                  }
+                ],
+                "basic_lower_bound": 80643,
+                "excluded_lower_bound": 84802,
+                "witness_payload_keys": 2044,
+                "payload_relabelled_keys": 4088,
+                "closed_core_states": 20,
+                "closed_core_root_candidates": 30,
+                "closed_core_reconstructed_keys": 8,
+                "witness_cost": 83370,
+                "payload_contour_mass_checks": 23963,
+                "payload_parameter_levels": 7,
+                "payload_selected_depth": 6,
+                "payload_selected_width": 160,
+                "payload_selected_short_states": 307690,
+                "payload_selected_work_proxy": 438506,
+                "payload_interval_bucket_entries": 307690,
+                "payload_short_root_candidates": 613726,
+                "payload_short_states": 307690,
+                "payload_band_boundary_scans": 2045,
+                "payload_top_row_scans": 130880,
+                "payload_top_states": 118506,
+                "payload_top_column_scans": 130880,
+                "payload_top_matrix_queries": 1246133,
+                "payload_coarse_gap_transitions": 107665,
+                "payload_top_padding_queries": 146213,
+                "payload_reconstructed_keys": 2044,
+                "payload_actual_height": 12,
+                "closed_candidate_cost": 83180,
+                "certified_core": 1,
+                "refinement_rescued": 0
+              }
+            },
+            "knuth": {
+              "value": 83180,
+              "seconds": 2.3396412079999998,
+              "counts": {
+                "short_states": 2098176,
+                "root_candidates": 6284294
+              }
+            }
+          }
+        }
+      ],
+      "median_pair_knuth": 0.6594773555084327
+    },
+    {
+      "n": 4096,
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "pair"
+          ],
+          "runs": {
+            "knuth": {
+              "value": 174874,
+              "seconds": 10.457870374999999,
+              "counts": {
+                "short_states": 8390656,
+                "root_candidates": 25151494
+              }
+            },
+            "pair": {
+              "value": 174874,
+              "seconds": 6.003139708999999,
+              "counts": {
+                "uniform_checks": 20,
+                "gap_selection_items": 4095,
+                "selected_gaps": [
+                  1,
+                  4095
+                ],
+                "core_keys": 4,
+                "forest_sort_comparisons": 64250,
+                "forest_input_items": 24564,
+                "forest_contractions": 12279,
+                "forest_queue_comparisons": 12277,
+                "bridge_maximum_items": 4092,
+                "skeleton_profiles_checked": 10,
+                "residual_lower_bound": 96003,
+                "tail_lower_bound": 182019,
+                "first_level_lower_bound": 178108,
+                "skeleton_regions": [
+                  {
+                    "block": 2,
+                    "profiles": 10
+                  }
+                ],
+                "basic_lower_bound": 169731,
+                "excluded_lower_bound": 178108,
+                "witness_payload_keys": 4092,
+                "payload_relabelled_keys": 8184,
+                "closed_core_states": 20,
+                "closed_core_root_candidates": 30,
+                "closed_core_reconstructed_keys": 8,
+                "witness_cost": 175244,
+                "payload_contour_mass_checks": 56018,
+                "payload_parameter_levels": 8,
+                "payload_selected_depth": 7,
+                "payload_selected_width": 197,
+                "payload_selected_short_states": 773716,
+                "payload_selected_work_proxy": 1297492,
+                "payload_interval_bucket_entries": 773716,
+                "payload_short_root_candidates": 1543889,
+                "payload_short_states": 773716,
+                "payload_band_boundary_scans": 4093,
+                "payload_top_row_scans": 523904,
+                "payload_top_states": 482663,
+                "payload_top_column_scans": 523904,
+                "payload_top_matrix_queries": 5123763,
+                "payload_coarse_gap_transitions": 458135,
+                "payload_top_padding_queries": 604308,
+                "payload_reconstructed_keys": 4092,
+                "payload_actual_height": 13,
+                "closed_candidate_cost": 174874,
+                "certified_core": 1,
+                "refinement_rescued": 0
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "pair",
+            "knuth"
+          ],
+          "runs": {
+            "pair": {
+              "value": 174877,
+              "seconds": 5.543444083000004,
+              "counts": {
+                "uniform_checks": 42,
+                "gap_selection_items": 4095,
+                "selected_gaps": [
+                  1,
+                  4095
+                ],
+                "core_keys": 4,
+                "forest_sort_comparisons": 64009,
+                "forest_input_items": 24564,
+                "forest_contractions": 12279,
+                "forest_queue_comparisons": 12277,
+                "bridge_maximum_items": 4092,
+                "skeleton_profiles_checked": 10,
+                "residual_lower_bound": 96003,
+                "tail_lower_bound": 182019,
+                "first_level_lower_bound": 178108,
+                "skeleton_regions": [
+                  {
+                    "block": 2,
+                    "profiles": 10
+                  }
+                ],
+                "basic_lower_bound": 169731,
+                "excluded_lower_bound": 178108,
+                "witness_payload_keys": 4092,
+                "payload_relabelled_keys": 8184,
+                "closed_core_states": 20,
+                "closed_core_root_candidates": 30,
+                "closed_core_reconstructed_keys": 8,
+                "witness_cost": 175257,
+                "payload_contour_mass_checks": 56024,
+                "payload_parameter_levels": 8,
+                "payload_selected_depth": 7,
+                "payload_selected_width": 198,
+                "payload_selected_short_states": 774231,
+                "payload_selected_work_proxy": 1298007,
+                "payload_interval_bucket_entries": 774231,
+                "payload_short_root_candidates": 1543909,
+                "payload_short_states": 774231,
+                "payload_band_boundary_scans": 4093,
+                "payload_top_row_scans": 523904,
+                "payload_top_states": 482621,
+                "payload_top_column_scans": 523904,
+                "payload_top_matrix_queries": 5123854,
+                "payload_coarse_gap_transitions": 458087,
+                "payload_top_padding_queries": 604195,
+                "payload_reconstructed_keys": 4092,
+                "payload_actual_height": 13,
+                "closed_candidate_cost": 174877,
+                "certified_core": 1,
+                "refinement_rescued": 0
+              }
+            },
+            "knuth": {
+              "value": 174877,
+              "seconds": 10.529760250000002,
+              "counts": {
+                "short_states": 8390656,
+                "root_candidates": 25151494
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "pair"
+          ],
+          "runs": {
+            "knuth": {
+              "value": 174857,
+              "seconds": 10.607965792000002,
+              "counts": {
+                "short_states": 8390656,
+                "root_candidates": 25151494
+              }
+            },
+            "pair": {
+              "value": 174857,
+              "seconds": 6.5392285419999965,
+              "counts": {
+                "uniform_checks": 16,
+                "gap_selection_items": 4095,
+                "selected_gaps": [
+                  1,
+                  4095
+                ],
+                "core_keys": 4,
+                "forest_sort_comparisons": 65388,
+                "forest_input_items": 24564,
+                "forest_contractions": 12279,
+                "forest_queue_comparisons": 12277,
+                "bridge_maximum_items": 4092,
+                "skeleton_profiles_checked": 10,
+                "residual_lower_bound": 96003,
+                "tail_lower_bound": 182019,
+                "first_level_lower_bound": 178108,
+                "skeleton_regions": [
+                  {
+                    "block": 2,
+                    "profiles": 10
+                  }
+                ],
+                "basic_lower_bound": 169731,
+                "excluded_lower_bound": 178108,
+                "witness_payload_keys": 4092,
+                "payload_relabelled_keys": 8184,
+                "closed_core_states": 20,
+                "closed_core_root_candidates": 30,
+                "closed_core_reconstructed_keys": 8,
+                "witness_cost": 175279,
+                "payload_contour_mass_checks": 56066,
+                "payload_parameter_levels": 8,
+                "payload_selected_depth": 7,
+                "payload_selected_width": 197,
+                "payload_selected_short_states": 774299,
+                "payload_selected_work_proxy": 1298075,
+                "payload_interval_bucket_entries": 774299,
+                "payload_short_root_candidates": 1544166,
+                "payload_short_states": 774299,
+                "payload_band_boundary_scans": 4093,
+                "payload_top_row_scans": 523904,
+                "payload_top_states": 482749,
+                "payload_top_column_scans": 523904,
+                "payload_top_matrix_queries": 5125694,
+                "payload_coarse_gap_transitions": 458203,
+                "payload_top_padding_queries": 604598,
+                "payload_reconstructed_keys": 4092,
+                "payload_actual_height": 13,
+                "closed_candidate_cost": 174857,
+                "certified_core": 1,
+                "refinement_rescued": 0
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "pair",
+            "knuth"
+          ],
+          "runs": {
+            "pair": {
+              "value": 174854,
+              "seconds": 5.714939958000002,
+              "counts": {
+                "uniform_checks": 6,
+                "gap_selection_items": 4095,
+                "selected_gaps": [
+                  1,
+                  4095
+                ],
+                "core_keys": 4,
+                "forest_sort_comparisons": 65428,
+                "forest_input_items": 24564,
+                "forest_contractions": 12279,
+                "forest_queue_comparisons": 12277,
+                "bridge_maximum_items": 4092,
+                "skeleton_profiles_checked": 10,
+                "residual_lower_bound": 96003,
+                "tail_lower_bound": 182019,
+                "first_level_lower_bound": 178108,
+                "skeleton_regions": [
+                  {
+                    "block": 2,
+                    "profiles": 10
+                  }
+                ],
+                "basic_lower_bound": 169731,
+                "excluded_lower_bound": 178108,
+                "witness_payload_keys": 4092,
+                "payload_relabelled_keys": 8184,
+                "closed_core_states": 20,
+                "closed_core_root_candidates": 30,
+                "closed_core_reconstructed_keys": 8,
+                "witness_cost": 175274,
+                "payload_contour_mass_checks": 56021,
+                "payload_parameter_levels": 8,
+                "payload_selected_depth": 7,
+                "payload_selected_width": 197,
+                "payload_selected_short_states": 774005,
+                "payload_selected_work_proxy": 1297781,
+                "payload_interval_bucket_entries": 774005,
+                "payload_short_root_candidates": 1544412,
+                "payload_short_states": 774005,
+                "payload_band_boundary_scans": 4093,
+                "payload_top_row_scans": 523904,
+                "payload_top_states": 482642,
+                "payload_top_column_scans": 523904,
+                "payload_top_matrix_queries": 5125021,
+                "payload_coarse_gap_transitions": 458109,
+                "payload_top_padding_queries": 603531,
+                "payload_reconstructed_keys": 4092,
+                "payload_actual_height": 13,
+                "closed_candidate_cost": 174854,
+                "certified_core": 1,
+                "refinement_rescued": 0
+              }
+            },
+            "knuth": {
+              "value": 174854,
+              "seconds": 10.350538541999995,
+              "counts": {
+                "short_states": 8390656,
+                "root_candidates": 25151494
+              }
+            }
+          }
+        }
+      ],
+      "median_pair_knuth": 0.5630850917380767
+    }
+  ]
+}

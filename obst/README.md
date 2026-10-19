@@ -15,13 +15,23 @@ selection by the repository owner. The general research objective is ongoing.
 - [Dominant-gap separators and local mass frontiers](GAP_SEPARATOR.md)
 - [Joint heavy-outcome cores and protected-height certificate](HEAVY_CORE.md)
 - [Residual-cost core exclusion and linear-weight family](CORE_EXCLUSION.md)
+- [Coupled two-gap skeletons and arbitrary nonuniform key placements](PAIR_SKELETON.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The input has weights on **both keys and gaps**. The latest constructor credits
-a residual search-cost lower bound when certifying a joint core for heavy outcomes,
-then solves the intervening intervals on local mass frontiers. Single-outcome
+The input has weights on **both keys and gaps**. The latest constructor retains
+the constant-size search-path skeleton of the first possible two-gap core
+violation, and bounds its remaining cost with mixed forests. It certifies a
+family with a linear number of nonuniform keys at arbitrary middle positions
+and two gaps of weight 3n; exact construction is O(n^alpha), alpha<1.59024,
+using the existing mass-frontier theorem on the remaining interval. The
+family's total weight O(n) also gives the global frontier this same exponent; the
+advance is a tighter certificate and measured work reduction within that
+regime, not a new subquadratic regime. Constant key-weight examples alone
+reduce to alphabetic trees and are not evidence of
+the full mixed-weight advance. The earlier residual certificate remains a
+fallback, solving intervening intervals on local mass frontiers. Single-outcome
 separators remain available as fallback. An interior-gap certificate retains both neighboring key
 weights and gives an exact two-orientation cost identity. Static range indexes
 avoid repeatedly scanning shrinking components. Earlier contraction and
@@ -70,6 +80,9 @@ python3 obst/code/check_core_exclusion.py
 python3 obst/code/check_core_exclusion.py --mixed-only
 python3 obst/code/benchmark_core_exclusion.py
 python3 obst/code/core_exclusion_scale.py
+python3 obst/code/check_pair_skeleton.py
+python3 obst/code/pair_skeleton_family.py
+python3 obst/code/pair_skeleton_crossover.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
