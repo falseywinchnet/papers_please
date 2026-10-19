@@ -16,6 +16,12 @@ in the operation count. Bit costs still depend on representation length.
 The compiled compact backend loses to Knuth in all 90 published scaling
 trials; representation bounds do not establish practical superiority. The
 unrestricted objective and mathematical priority remain unresolved.
+The latest audit proves that positive near-uniform ramp weights can have
+quadratic Monge and fourth-difference support while still admitting a compact
+exact interval formula and linear tree construction. An adjacent-exchange
+condition also removes wide last-level shape DPs on certified inputs. These
+are a representation barrier and a conditional exact shortcut, not a general
+lower bound or unrestricted subquadratic construction.
 
 Input: ordered keys 1..n, key weights p[1..n], gap weights q[0..n], all
 nonnegative. No normalization is required. Use comparison cost with root key
@@ -1011,3 +1017,81 @@ pages 47--50 were inspected individually. The normalized height, baseline
 formula, weighted packing proof, arithmetic-model qualification, and unchanged
 negative performance evidence are all explicit. New source hashes match the
 three result files. The full original research objective remains active.
+
+## Seventeenth checkpoint: ruler structure beyond sparse differences
+
+The latest JesseSort discussion did not change the OBST research state.
+This turn resumed from the clean published 8cf0273 checkpoint, tested the
+next representation, and produced three source-hashed exact harnesses plus
+a new full constructor. No earlier implementations or benchmark data changed.
+
+When a penalized h-level interval contains at least 2^h-1 keys, maximizing
+the exposed count forces a perfect skeleton. Its nonseparable cost is the
+negative of a maximum weighted subsequence with ruler coefficients v_2(t).
+All gap weights still contribute h times their mass. Independent subsequence,
+all-root, and all-shape checks verify the identity. A three-level example
+rejects greedy selection of the largest eligible root. Monotone key weights
+make the saturated score depend on one endpoint, and hence give zero core
+outside the short band even with arbitrary gap weights.
+
+A second identity computes an adjacent swap of optional bottom-level slots:
+(1+v_2(g+1))(p_i-p_(i+1))+q_i-q_(i+2). A sufficient linear-time inequality
+makes every leftward swap nonincreasing, so the left-filled minimum-IPL tree
+is class-optimal without a wide shape DP. Reflection handles the other side.
+The existing mixed residual-Huffman gate, not the exchange condition alone,
+certifies global optimality. ordered_complete.py implements this exact route
+and Knuth fallback. Accepted instances cost O(n log n), or O(n) for monotone
+weight lists whose bound requires no sorting. All reconstruction is included.
+
+The positive family p_r=q_r=B+r, B=4(n+1)^3, has R=n^2 and polynomial-size
+weights. The baseline forces minimum IPL, and the strict exchange inequality
+forces a left-filled last level in every interval. An explicit dyadic-sum
+formula answers interval values in O(log n); the full tree takes O(n).
+Within each length band, its core equals 3+v_2(s). The next mixed difference
+is v_2(s+1)+v_2(s-1)-2v_2(s), nonzero for every interior s. A band with
+Theta(n) lengths and Theta(n) placements proves Omega(n^2) support in both
+differences and rowwise changes. Explicit support enumeration is therefore
+quadratic even for this family with a compact exact formula. This is not a
+general computational lower bound, and it does not contradict the earlier
+R=o(n^2) core-size regimes.
+
+ruler_layers.py passed 921 layer solves, 70,100 ruler interval identities,
+22,437 range-max checks, 20,432 all-root checks, and 2,168 all-shape layers.
+It reports 5,708,220 dense layer states and 11,108,348 layer candidates;
+the separate full controls use 1,422,592 states and 2,692,718 candidates.
+ruler_barrier.py passed 221,284 formula checks across 68 sizes through 512,
+202,127 core identities, 179,486 fourth-difference identities, 2,974 shape
+enumerations, and 13 cubic checks. Formula/tree controls extend to 65,536.
+At 512 all 130,816 core cells and 129,795 valid fourth-difference cells are
+nonzero; the theorem only needs the explicitly proved quadratic subset.
+
+ordered_complete.py passed 1,210 complete solves with 826 cubic comparisons,
+658 shape-DP controls, and 386 independent minimum-IPL enumeration checks
+over 950 shapes. There are 349 certificates, 512 exchange rejections, and
+349 global-gate rejections. Sorted geometric controls correctly fall back.
+Positive ramps, reflected ramps, and compensated nonmonotone keys certify
+through 768 against Knuth. Full positive-ramp construction reaches 98,304
+keys, with 98,303 exchange checks, 98,304 constructed keys, 196,607 order-scan
+pairs, 98,304 residual contractions, and 121,509 queue comparisons. No
+interval table or comparison sort is used in that accepted construction.
+
+A targeted prior-work search did not establish priority. The existing
+minimum-IPL shape characterization, residual mixed-node bound, and published
+core-sparse product remain credited. Semi-local unit-Monge representations
+cannot be imported unchanged for arbitrary weighted subsequence scores.
+The new mathematical obstacle is product closure for symbolic dyadic baselines
+with arbitrary residual weights; subtracting the baseline need not preserve
+the Monge property. The general objective remains active, and the existing
+compiled compact backend's negative performance evidence is unchanged.
+
+## Publication audit of the seventeenth checkpoint
+
+The 54-page manuscript compiles with Tectonic without warnings, undefined
+references, or overfull/underfull boxes. Every page was rendered and reviewed
+in contact sheets. The revised abstract and new pages 50--54 were inspected
+individually; the exchange theorem was kept together across the page break.
+All three new result files match their recorded source hashes. The manuscript
+separates the conditional fast constructor from its exact fallback and the
+representation barrier from a general computational lower bound. Existing
+source-hashed implementations and measurements remain unchanged. The full
+research objective remains active.

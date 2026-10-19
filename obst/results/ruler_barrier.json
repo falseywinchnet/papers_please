@@ -1,0 +1,97 @@
+{
+  "checks": {
+    "formula_queries": 221284,
+    "interval_value_checks": 221284,
+    "cubic_checks": 13,
+    "solves": 68,
+    "dense_candidates": 433504,
+    "dense_states": 218240,
+    "constructed_keys": 2976,
+    "shape_checks": 2974,
+    "enumerated_optima": 36,
+    "dyadic_sum_terms": 989309,
+    "ruler_density_checks": 202127,
+    "fourth_ruler_checks": 179486
+  },
+  "rows": [
+    {
+      "n": 128,
+      "baseline": 8586756,
+      "cost": 14443030601,
+      "core": 8128,
+      "core_cells": 8128,
+      "ruler_density_cells": 7479,
+      "fourth_nonzero": 7875,
+      "fourth_cells": 7875,
+      "fourth_ruler_cells": 6326,
+      "proved_quadratic_lower_bound": 1914
+    },
+    {
+      "n": 256,
+      "baseline": 67898372,
+      "cost": 262088208593,
+      "core": 32640,
+      "core_cells": 32640,
+      "ruler_density_cells": 31094,
+      "fourth_nonzero": 32131,
+      "fourth_cells": 32131,
+      "fourth_ruler_cells": 28278,
+      "proved_quadratic_lower_bound": 7930
+    },
+    {
+      "n": 512,
+      "baseline": 540022788,
+      "cost": 4712241078873,
+      "core": 130816,
+      "core_cells": 130816,
+      "ruler_density_cells": 127221,
+      "fourth_nonzero": 129795,
+      "fourth_cells": 129795,
+      "fourth_ruler_cells": 120566,
+      "proved_quadratic_lower_bound": 32250
+    }
+  ],
+  "constructor_scaling": [
+    {
+      "n": 1024,
+      "cost": 83911327467105,
+      "operations": {
+        "formula_queries": 1,
+        "dyadic_sum_terms": 9,
+        "constructed_keys": 1024
+      }
+    },
+    {
+      "n": 4096,
+      "cost": 25922371476727921,
+      "operations": {
+        "formula_queries": 1,
+        "dyadic_sum_terms": 11,
+        "constructed_keys": 4096
+      }
+    },
+    {
+      "n": 16384,
+      "cost": 7784208266803601537,
+      "operations": {
+        "formula_queries": 1,
+        "dyadic_sum_terms": 13,
+        "constructed_keys": 16384
+      }
+    },
+    {
+      "n": 65536,
+      "cost": 2287541509747729793169,
+      "operations": {
+        "formula_queries": 1,
+        "dyadic_sum_terms": 15,
+        "constructed_keys": 65536
+      }
+    }
+  ],
+  "implementation": "specialized exact formula and constructor; separately counted dense audit",
+  "source_sha256": {
+    "ruler_barrier.py": "b88469830473a035edcc5c5bf9775a56a6664ac705dd89012735b2d6ca73b320",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

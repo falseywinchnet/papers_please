@@ -90,3 +90,11 @@ Weight-independent baseline-diagonal packing audit:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/centered_geometry.py
 ```
+
+Ruler-pattern identities, dense-difference barrier, and exchange constructor:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ruler_layers.py --max-n 512
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ruler_barrier.py --max-n 512
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ordered_complete.py --max-n 768
+```

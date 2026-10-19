@@ -47,7 +47,11 @@ where $S_d$ counts admitted intervals. On the specified positive linear-mass
 families this yields exponent below $1.59024$; the core-sparse reduction
 improves that exponent, up to logarithmic factors, in the integer-mass regime.
 
-We distinguish compression from information loss. Two positive mixed
+We distinguish representation size from computational hardness. A positive
+mixed family has quadratic Monge and fourth-difference support, but admits
+logarithmic-time interval queries and linear exact tree construction.
+An adjacent-exchange condition also removes wide last-level shape DPs when
+the existing global certificate succeeds. Two positive mixed
 intervals have identical responses to all nonnegative endpoint-gap weight
 additions but different optima in the same surrounding context. A separate
 example has quadratically many affine response regions yet a linear-size
@@ -3238,6 +3242,232 @@ claim rests on the proof above. All three new result files include source
 hashes. No new timing advantage is claimed. The previous compiled backend's
 severe regressions remain relevant, and unrestricted weights are still open.
 
+\section{Ruler patterns and a dense-core representation barrier}
+\label{sec:ruler}
+The geometric-weight control has a dense core whose entries are constant
+along each row. This motivates asking whether another finite difference
+could restore sparse support. The answer is negative even for a smooth,
+positive, polynomial-weight family that has an exact compact formula.
+Before proving that barrier, we isolate the ruler pattern underlying both
+the penalty layers and a new sufficient exchange condition. Priority of
+these identities and conditions is unestablished.
+
+\subsection{Saturated layers as weighted subsequences}
+Write $c_h=2^h-1$ and let $\nu_2(t)$ be the exponent of two dividing
+the positive integer $t$. Use the penalty recurrence above with $M>HW$.
+For any interval of length $k=j-i\ge c_h$,
+\begin{equation}\label{eq:ruler-layer}
+ A_h(i,j)=M(k-c_h)+hW(i,j)
+ -\max_{i\le s_1<\cdots<s_{c_h}<j}
+       \sum_{t=1}^{c_h}\nu_2(t)p_{s_t}.
+\end{equation}
+Indeed, the penalty forces exactly $c_h$ exposed keys: losing one exposure
+costs more than any possible reduction in the ordinary weighted cost.
+Every position in the first $h$ levels is occupied. The exposed skeleton is
+perfect, all gaps and unexposed keys pay $h$ comparisons, and its $t$th
+inorder key has comparison length $h-\nu_2(t)$. This proves the identity.
+The coefficient sequence is $0,1,0,2,0,1,0,3,\ldots$.
+
+At $h=2$ the maximum is simply $\max_{i+1\le r\le j-2}p_r$.
+At $h=3$, greedy selection of the largest eligible root fails: for
+$p=(0,9,0,9,10,9,0,0)$ and all nine gap weights equal to one, root~3
+permits score~36, while the larger key at root~4 permits only~29.
+Adding one to all key weights adds four to every feasible score, giving
+the same failure with strictly positive weights. For nondecreasing $p$,
+the rightmost $c_h$ keys maximize the score coordinatewise; for
+nonincreasing $p$, the leftmost keys do. Thus their saturated-layer density
+vanishes whenever $j-i\ge c_h+1$, independently of the gap weights.
+This does not discard the gaps or solve the full problem: shorter intervals
+have nonuniform gap depths, and their band becomes quadratic at large $h$.
+The weighted-subsequence reformulation by itself supplies no new efficient
+min-plus product.
+
+\subsection{A sufficient exchange condition for a wide last level}
+Let $h=\lfloor\log_2(n+1)\rfloor$, $c=2^h-1$, and $s=n-c$.
+As proved earlier, minimum internal-path-length shapes expand $s$ of the
+$2^h$ external slots of a perfect $c$-key skeleton. Consider adjacent
+skeleton slots $g,g+1$ containing one expansion. If their first input
+index is $i$, moving the expansion from the second slot to the first
+changes the weighted cost by exactly
+\begin{equation}\label{eq:ruler-exchange}
+ (1+\nu_2(g+1))(p_i-p_{i+1})+q_i-q_{i+2}.
+\end{equation}
+Only the intervening skeleton key, added key, and three gaps change their
+comparison lengths; all later positions are unchanged. The coefficient
+$1+\nu_2(g+1)$ lies between one and $h$.
+
+\begin{samepage}
+\begin{theorem}[Exchange-certified minimum-path-length shape]
+If
+\begin{equation}\label{eq:ruler-condition}
+ \max\{p_i-p_{i+1},\ h(p_i-p_{i+1})\}\le q_{i+2}-q_i
+ \quad(0\le i<n-1),
+\end{equation}
+then filling the last level from the left minimizes weighted cost among
+all minimum internal-path-length shapes. The reflected condition gives
+the corresponding right-filled shape. For $s=0$ the shape is unique
+without any condition.
+\end{theorem}
+\end{samepage}
+\begin{proof}
+The maximum in~\eqref{eq:ruler-condition} bounds the key term
+in~\eqref{eq:ruler-exchange}, whether its difference is positive or
+negative. Every adjacent swap of expansion pattern $01$ to $10$ is
+therefore nonincreasing in cost. Repeated swaps move every expansion
+leftward, yielding the claimed shape. Reflection proves the other case.
+\end{proof}
+
+In particular, nondecreasing key and gap weights satisfy the condition;
+both lists nonincreasing satisfy its reflection. Nonmonotone keys are also
+permitted when the gap increments compensate for their decreases.
+This proves optimality \emph{within the shape class}. Global optimality
+still requires the earlier residual-Huffman gate. For candidate value $V$,
+minimum weights $a,b$, and residual mixed-node lower bound $H_{\rm res}$,
+the sufficient condition is
+\[
+ V\le(a+b)(I_{\min}(n)+1)+(a+2b)n+H_{\rm res}.
+\]
+The implementation \texttt{ordered\_complete.py} constructs the candidate,
+checks this gate, and otherwise falls back to Knuth. Accepted instances
+take $O(n\log n)$ time and $O(n)$ auxiliary space, including sorting for
+the bound. If both weight lists are monotone, scans/reversal and the
+existing two queues make the whole accepted route $O(n)$. No optional-slot
+width appears. Sorted geometric controls pass the shape condition but fail
+the global gate, preventing an incorrect general claim about balanced trees.
+
+\subsection{A positive family with dense differences and compact costs}
+Set
+\begin{equation}\label{eq:ruler-family}
+ B=4(n+1)^3,\qquad p_r=B+r\ (0\le r<n),\qquad
+ q_r=B+r\ (0\le r\le n).
+\end{equation}
+All weights use $O(\log n)$ bits and the deviation above their minimum
+baselines is exactly $R=n^2$.
+
+\begin{theorem}[Dense support does not force expensive construction]
+For the family~\eqref{eq:ruler-family}, the optimal interval-cost matrix
+has $\Omega(n^2)$ nonzero Monge densities and $\Omega(n^2)$ nonzero mixed
+fourth differences. It also has quadratically many rowwise density changes.
+Nevertheless, its exact tree is constructible in $O(n)$ time, and any
+interval value can be queried using $O(\log n)$ arithmetic operations
+after linear recognition of the family.
+\end{theorem}
+\begin{proof}
+First force the shape class. An interval of $k$ keys starting at $i$ has
+constant baseline $B+i$. A tree of internal path length $I$ has total key
+and gap comparison length $D=2I+3k\le k^2+2k$. All relative weights lie
+between zero and $k$, so their total contribution is at most
+$n(n^2+2n)$. Increasing $I$ by one adds at least $2B$, which exceeds this
+entire bound. Hence every optimum has minimum $I$. Its adjacent exchange
+cost~\eqref{eq:ruler-exchange} is $-3-\nu_2(g+1)<0$, so its last level
+is filled from the left.
+
+Here is an exact value formula. For $k=j-i>0$ put
+$h=\lfloor\log_2(k+1)\rfloor$, $c=2^h-1$, $s=k-c$, and define
+\begin{align*}
+ I(k)&=(h-2)2^h+2+hs, & D(k)&=2I(k)+3k,\\
+ J(c)&=\sum_{t=1}^c(t-1)\nu_2(t), &
+ T(c,s)&=\sum_{t=1}^c\min\{s,t\}\nu_2(t),\\
+ E(k)&=hc^2-J(c)+s(2hc+h+1)\\
+     &\hspace{1em}+(h+3)s(s-1)-T(c,s).
+\end{align*}
+Then
+\begin{equation}\label{eq:ruler-formula}
+ C(i,j)=(B+i)D(k)+E(k),\qquad C(i,i)=0.
+\end{equation}
+To verify $E$, the perfect skeleton has linear-weight cost $hc^2-J(c)$.
+For an arbitrary set $S$ of expanded slots, each skeleton key at $r$
+shifts by the number of selected slots at most $r$, and each skeleton gap
+at $g$ shifts by the number strictly below $g$. Summing these index changes
+and the new key/gap contributions gives
+\begin{align*}
+ E(S)={}&hc^2-J(c)+\frac{(2h+3)|S|(|S|-1)}2\\
+ &+\sum_{g\in S}\left(2hc+3g+h+1-
+                        \sum_{t=g+1}^c\nu_2(t)\right).
+\end{align*}
+Taking $S=\{0,\ldots,s-1\}$ gives~\eqref{eq:ruler-formula}.
+For each $\ell=1,\ldots,h-1$, let $d=2^\ell$,
+$m=\lfloor c/d\rfloor$, and $u=\min\{m,\lfloor s/d\rfloor\}$.
+The contributions to $J$ and $T$ are, respectively,
+\[
+ \frac{dm(m+1)}2-m,\qquad
+ \frac{du(u+1)}2+(m-u)s.
+\]
+This evaluates the formula in $O(\log n)$ steps, using
+$\nu_2(t)=\sum_{\ell\ge1}[2^\ell\mid t]$. The tree itself needs one
+recursive visit per key: its left subtree has
+$2^{h-1}-1+\min\{s,2^{h-1}\}$ keys. Recognition scans the given input;
+the interval oracle then retains only $n$ and $B$.
+
+Now examine support. Write
+\[
+ d(i,j)=C(i,j+1)+C(i+1,j)-C(i,j)-C(i+1,j+1).
+\]
+Inside a fixed $h$ band, for $1\le s<2^h$,
+\begin{equation}\label{eq:ruler-density}
+ d(i,j)=3+\nu_2(s),\qquad s=(j-i)-(2^h-1).
+\end{equation}
+Indeed, $D$ has slope $2h+3$, while $E$ has second difference
+$2h+6+\nu_2(s)$. The endpoint at $s=2^h$ is the next perfect tree, so
+the calculation remains valid for $s=2^h-1$.
+For $2\le s\le2^h-2$ the mixed fourth difference is therefore
+\begin{align}
+ &d(i,j+1)+d(i+1,j)-d(i,j)-d(i+1,j+1)\notag\\
+ &\hspace{3em}=\nu_2(s+1)+\nu_2(s-1)-2\nu_2(s).\label{eq:ruler-fourth}
+\end{align}
+It is strictly positive for odd $s$ and strictly negative for even $s$.
+For $n=2^m\ge32$, choose $h=m-2$ and $2\le s\le n/4-2$.
+There are $n/4-3$ lengths and at least $n/2+2$ valid placements per length,
+giving at least $(n/4-3)(n/2+2)=\Omega(n^2)$ nonzeros. For arbitrary
+sufficiently large $n$, use $h=\lfloor\log_2 n\rfloor-2$; both the band
+width and number of placements remain $\Theta(n)$. The same bands prove
+quadratic second-difference support and rowwise density changes.
+\end{proof}
+
+Consequently any method explicitly listing either support has quadratic
+output work on this family. This is a representation lower bound; the
+linear constructor rules out interpreting it as a computational lower bound
+for the family. The example also reaches the $R=\Theta(n^2)$ boundary of
+the centered analysis with smooth, very nearly equal relative weights.
+Symbolically representing the dyadic baseline avoids the dense list, but
+subtracting it need not leave a Monge residual. Efficient product closure
+with arbitrary residuals is still missing.
+
+\subsection{Exact checks, counts, and controls}
+The dense \texttt{ruler\_layers.py} diagnostic checked 921 layer solves,
+70,100 weighted-subsequence interval identities, 22,437 range maxima,
+20,432 all-root cells, and 2,168 all-shape layers. It explicitly computed
+5,708,220 layer states and 11,108,348 candidates. Its separate full-table
+controls used 1,422,592 states and 2,692,718 candidates, with 96 cubic
+comparisons. These are diagnostic costs, not an implementation of a new
+fast layer constructor.
+
+The family audit checked 68 sizes through 512, 221,284 interval/formula
+equalities, 202,127 instances of~\eqref{eq:ruler-density}, 179,486
+instances of~\eqref{eq:ruler-fourth}, 2,974 enumerated shapes, and 13
+cubic controls. At $n=512$, all 130,816 ordinary core cells and all
+129,795 valid fourth-difference cells were nonzero. The theorem uses only
+its explicitly proved quadratic subset. Formula and direct tree-cost
+checks continue through 65,536 keys without dense interval tables.
+
+The full exchange/gate/fallback constructor passed 1,210 solves, 826 cubic
+comparisons, 658 checks against the prior minimum-path-length shape DP,
+and 386 independent enumeration checks over 950 minimum-path-length
+shapes. It certified 349 inputs; 512 failed the exchange condition and
+349 passed that condition but failed the global gate. All fallback costs
+were checked. Both orientations and nonmonotone compensated key fixtures
+are included, alongside ordinary random and geometric failures.
+
+For $n=98{,}304$ on~\eqref{eq:ruler-family}, full certified construction
+used 98,303 exchange checks, 98,304 constructed keys, 196,607 order-scan
+pairs, 98,304 residual contractions, and 121,509 queue comparisons. There
+was no interval DP or comparison sort. This size has a wide, roughly half-filled
+last level, so the gain does not depend on a narrow optional-slot DP.
+These are separate operation categories, not machine instructions or
+runtime ratios. All three result files retain source hashes. The existing
+compact backend's measured regressions remain unchanged, and the general
+mixed-weight objective remains unresolved.
+
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
@@ -3248,6 +3478,10 @@ a core-sparse product reduction for integer-mass inputs with verified
 condensed constructors and measured implementation regressions, and a
 centered core bound independent of large baseline magnitudes in the
 arithmetic operation count.
+An exchange certificate now avoids wide last-level shape DPs on accepted
+inputs. A positive ramp family proves a quadratic support barrier for
+explicit Monge cores and their fourth differences, while admitting exact
+logarithmic-time interval queries and linear construction.
 Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.

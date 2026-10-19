@@ -18,6 +18,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Coupled two-gap skeletons and arbitrary nonuniform key placements](PAIR_SKELETON.md)
 - [Terminal-penalty layers and core-sparse Monge reduction](MONGE_PENALTY.md)
 - [Centered core bounds for large integer baselines](CENTERED_MONGE.md)
+- [Ruler-pattern identities, dense-core barrier, and exchange shortcut](RULER_REPRESENTATION.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
@@ -67,6 +68,32 @@ function alone is not an exact composition interface. A separate construction
 requires quadratically many explicit affine pieces but has a linear-size
 factorization; polynomial endpoint mass ratios give only O(log^2 n) pieces.
 These are scoped representation results, not a general complexity lower bound.
+
+A further positive mixed family, p_r=q_r=4(n+1)^3+r, has quadratically many
+nonzero Monge densities and mixed fourth differences, yet admits O(log n)
+exact interval queries and O(n) exact tree construction. Its core follows a
+dyadic ruler pattern. Thus listing either difference support is a quadratic
+representation choice even on this easy family. The centered deviation is
+R=n^2; the result does not contradict the earlier subquadratic deviation bounds.
+The new exchange certificate also optimizes a wide last level directly when
+its checkable local condition holds. The existing residual-Huffman gate then
+certifies full optimality or triggers Knuth fallback. Accepted inputs take
+O(n log n) time, or O(n) when both weight lists are monotone, including full
+reconstruction and the bound. The general worst case remains quadratic.
+
+The exact saturated-layer identity expresses its nonseparable part as a
+weighted subsequence with coefficients 0,1,0,2,0,1,0,... . It passed 70,100
+interval checks. The ramp formula passed 221,284 interval checks; the full
+exchange/gate/fallback solver passed 1,210 solves and 826 cubic controls.
+At 98,304 keys a certified ramp solve uses linear scans, construction, and
+residual-bound work without an interval table. See RULER_REPRESENTATION.md for
+the complete proofs, rejection controls, operation categories, and limitations.
+
+```sh
+python3 obst/code/ruler_layers.py --max-n 512
+python3 obst/code/ruler_barrier.py --max-n 512
+python3 obst/code/ordered_complete.py --max-n 768
+```
 
 At 512 keys, a positive-weight instance with 22 randomly located heavy keys
 needed 10,344 total DP states rather than 131,328. This includes the tables
