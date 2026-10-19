@@ -345,6 +345,97 @@ clarify the constant-factor question, but a faster language alone would not
 remove the worst-case quadratic state count. The unrestricted mixed-weight
 objective remains active and unresolved.
 
+## Ninth checkpoint: dominant-gap separators and local frontiers
+
+The preceding JesseSort discussion did not advance this active research goal.
+On resumption, the pending correctness session handle was no longer present;
+read-only Mini inspection found no running separator process and a completed
+result file. The final endpoint-first results were copied before the next
+mirror/build operation. All recorded checks had passed.
+
+The new constructor separates at certified dominant endpoints, keys, and
+interior gaps before running the mass frontier on each terminal component's
+local mass. For an internal gap q with adjacent key weights p_a,p_b and
+outside interval masses W_L,W_R, q+min(p_a,p_b)>=W_L+W_R guarantees an optimum
+with that gap at depth two. Restriction/exchange arguments give the exact
+identity OPT=C_L+C_R+W+q+min(p_a+W_L,p_b+W_R). Both orientations use the same
+two outside solves, so they do not duplicate recursion. All key/gap weights
+and offsets remain in the formula. Replacing min by max is false: the positive
+p=[100, 1, 50],q=[1, 1, 1, 1] witness has optimum 212 but depth-two restricted cost 261.
+
+The gap score 2q+p_a+p_b+min(p_a,p_b) is static on original intervals. Two
+range-maximum indexes plus prefix sums find certificates without repeatedly
+scanning long components. Endpoint tests run first; indexes are constructed
+only when needed. Total arithmetic work is
+O(n log(n+1)+sum_t min_d[S_(t,d)+m_t*2^d]), including local parameter selection.
+If all terminal sizes are at most b, it is O(n log(n+1)+nb). The full mixed
+geometric family p_i=q_i=2^i,q_n=2^n is exhausted by endpoint certificates in
+O(n) arithmetic operations, with no index or terminal DP; this is not linear
+bit complexity. Hierarchically dominant gaps with bounded terminal sizes give
+an O(n log n) mixed-weight family. These are structured regimes, not a general
+subquadratic theorem. Priority of the separator conditions remains unestablished.
+
+The harness passed 22,140 exhaustive assignments through four keys, checking
+3,211 qualifying gap certificates, 2,036 endpoint certificates and 380 key
+certificates against all tree shapes. Both terminal strategies passed 3,280
+full solves on 1,640 inputs through 40 keys against independent cubic DP and
+direct tree evaluation. Both also matched Knuth and the direct frontier on
+40 larger fixtures through 2,048 keys. At n=2048 the heavy-gap fixture uses
+153,582 terminal cells versus 1,047,552 direct-frontier cells; hierarchical
+gaps use 22,333 versus 522,242. The latter also uses 42,885 root candidates,
+39,284 genuine top queries, 6,261 padding queries, 6,142 index-build comparisons,
+1,476 range-query comparisons and 254 endpoint tests. Full counter categories
+are retained. Terminal metadata sums are explicitly distinguished from the
+global reconstructed tree's height.
+
+A new positive obstruction makes the remaining failure concrete. Set all
+weights to one except q_1=q_(n-1)=n^3 for n>=5. No separator can fire. Exact
+contour counting proves every positive-depth work proxy exceeds the depth-zero
+Knuth table, so this implementation stores all n(n+1)/2 cells on the family.
+An independent contour check corrected an initial depth-two counting error:
+intervals containing one heavy gap also face a length cutoff. The corrected
+four sets of floor((n-1)/2) intervals are included in the proof and harness.
+This is an obstruction to the present architecture, not an OBST lower bound.
+
+### Matched timings
+
+Ten balanced orders per fixture compare five solvers: five cyclic rotations
+and their reversals, not all 120 permutations. The 70 trials contain 350
+full timed solves, including preprocessing and reconstruction. Every tree's
+cost is independently evaluated and all five answers agree. The platform is
+Apple M4, Python 3.9.6. Inputs vary between trials except deterministic spike
+and geometric families. Each entry is a median paired runtime ratio to Knuth;
+smaller is better. SF uses frontier terminals, SK uses Knuth terminals, and
+RC is the earlier recursive contraction solver.
+
+| n / Fixture | Direct frontier | SF | SK | RC |
+|---|---:|---:|---:|---:|
+| 2,048 / Random | 0.87985 | 0.87172 | 1.03209 | 1.00381 |
+| 2,048 / Near-uniform | 0.87747 | 0.90863 | 1.06833 | 1.06450 |
+| 2,048 / Heavy key | 0.99362 | 0.74038 | 0.52307 | 0.01605 |
+| 2,048 / Heavy gap | 0.99617 | 0.77197 | 0.51357 | 1.03871 |
+| 2,048 / Random background, heavy gap | 0.90780 | 0.75211 | 0.49766 | 0.97692 |
+| 2,048 / Hierarchical gaps | 1.06953 | 0.04608 | 0.01843 | 0.99421 |
+| 1,024 / Geometric | 1.05318 | 0.00781 | 0.00548 | 0.04206 |
+
+The gap certificate adds substantial coverage where RC does little, especially
+hierarchical gaps. RC remains much faster on the heavy-key fixture. The local
+frontier terminal implementation is slower than plain Knuth on these smaller
+components despite reduced cell counts. SF and SK follow the same endpoint
+path on geometric inputs, so their timing difference is not algorithmic.
+Random and near-uniform controls do not split. These instrumented Python
+measurements do not establish broad or production-language superiority.
+Raw per-trial values and counters are in `results/gap_separator_matched.json`.
+
+The obstruction harness passed eight full checks through 256 keys and four
+plan-only checks through 65,536 keys. The largest plan selects 2,147,516,416
+cells; this is not a completed large solve.
+
+The next substantive target is joint treatment of several comparable heavy
+outcomes, where no one outcome is dominant but its presence still inflates a
+global frontier. The positive two-gap family gives a specific regression
+control for that work. The unrestricted mixed-weight objective remains active.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

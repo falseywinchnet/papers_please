@@ -12,16 +12,20 @@ selection by the repository owner. The general research objective is ongoing.
 - [Bounded-excess dyadic construction](EXCESS.md)
 - [Split-height construction and taller-tree certificate](SPLIT_HEIGHT.md)
 - [Exact variable mass frontier and uniform-width comparison](MASS_FRONTIER.md)
+- [Dominant-gap separators and local mass frontiers](GAP_SEPARATOR.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The input has weights on **both keys and gaps**. The checkpoint gives exact
-sufficient conditions for collapsing keys or blocks, plus a linear pass that
-chooses a block-size threshold minimizing subsequent interval-DP states.
-The resulting bound is O(n + m² + sum k_t²). It remains quadratic in the
-worst case; no general subquadratic solution or impossibility proof is claimed.
-Novelty of the sufficient conditions has not been established.
+The input has weights on **both keys and gaps**. The latest constructor splits
+at certified dominant outcomes and solves the remaining intervals on local
+mass frontiers. An interior-gap certificate retains both neighboring key
+weights and gives an exact two-orientation cost identity. Static range indexes
+avoid repeatedly scanning shrinking components. Earlier contraction and
+bounded-shape methods remain available as controlled comparisons. The general
+worst case remains quadratic; no unrestricted subquadratic solution or
+impossibility proof is claimed. Priority of the sufficient conditions has
+not been established.
 
 At 512 keys, a positive-weight instance with 22 randomly located heavy keys
 needed 10,344 total DP states rather than 131,328. This includes the tables
@@ -53,6 +57,9 @@ python3 obst/code/benchmark_split_height.py
 python3 obst/code/mass_frontier.py
 python3 obst/code/benchmark_mass_frontier.py
 python3 obst/code/frontier_separation.py
+python3 obst/code/gap_separator.py
+python3 obst/code/benchmark_gap_separator.py
+python3 obst/code/separator_obstruction.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -129,3 +136,27 @@ The variable contour has a proved exponent advantage on a positive light-block
 family relative to this uniform envelope, not relative to all earlier methods.
 See MASS_FRONTIER.md for proofs, exact counts, matched timings, and the
 counterexample that invalidated the initially imported mass-bound constant.
+
+`gap_separator.solve(p,q)` combines certified endpoint, key, and interior-gap
+splits with the local variable frontier. Its work is
+O(n log(n+1) + sum_t min_d [S_(t,d)+m_t*2^d]), with local masses and contour
+counts in the disjoint terminal components. If each terminal has at most b
+keys, the bound is O(n log(n+1)+nb). An entirely endpoint-certified chain
+takes O(n) arithmetic work; this includes the full mixed geometric family
+p_i=q_i=2^i with q_n=2^n. The large weights preclude a linear bit-cost claim.
+At n=2048, the heavy-gap fixture stores 153,582 terminal intervals versus
+1,047,552 for the direct global frontier; hierarchical gaps store 22,333 versus
+522,242. These are DP cells, not total operations or runtime ratios.
+The `terminal='knuth'` variant isolates the effect of separator decomposition.
+See GAP_SEPARATOR.md for the proof, counterexample, complete counters,
+matched comparisons, and unchanged worst-case limitation.
+
+In ten matched trials per fixture at n=2048, separator+frontier and
+separator+Knuth runtime ratios to Knuth were 0.04608/0.01843 on hierarchical
+gaps and 0.75211/0.49766 on a heavy gap in random background. The earlier
+contraction solver remains much faster on a heavy-key fixture. Plain Knuth
+terminals beat the local frontier on the tested smaller components. These
+are scoped Python results; all 70 trials and competing baselines are retained.
+A positive family with two equally heavy interior gaps proves that the current
+combined constructor still selects the entire quadratic table. See the
+obstruction proof and `separator_obstruction.py`; large rows count plans only.

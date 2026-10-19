@@ -13,7 +13,7 @@
 \large Research checkpoint: exact shortcuts and barriers to relaxations}
 \author{OpenAI Codex Sydney\\
 \small Problem selection and sponsorship: the repository owner}
-\date{October 18, 2026}
+\date{October 19, 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -36,7 +36,10 @@ parameter selection. A cancellation argument bounds all short-table root
 searches by $3S_d$. On a positive family with a localized light block, the
 variable contour gives $O(n^{1.59024})$ work while the specified uniform
 width envelope requires $\Omega(n^{1.75})$ work. This is a comparison
-within one architecture, not a new general subquadratic bound.
+within one architecture, not a new general subquadratic bound. Dominant-key
+and dominant-gap certificates split the instance into independent components
+with local frontiers. Endpoint-certified chains take linear arithmetic work;
+bounded terminal components give $O(n\log n)$ work.
 
 Exact enumeration, independent cubic recurrences, adversarial inputs, and
 operation counts accompany all implementations. We preserve a failed
@@ -1039,6 +1042,247 @@ same Knuth kernel after selection, so the sub-unit ratio there is noise.
 These instrumented Python measurements do not establish production-language
 or broad practical superiority. Every raw observation is retained.
 
+\section{Dominant-gap separators and local mass frontiers}
+The global mass bound can admit many unnecessary intervals when a single
+heavy outcome dominates otherwise ordinary regions. We first split at
+certified outcomes, then apply the frontier constructor with each terminal
+component's own total mass. The following exchanges retain all key and gap
+weights. Their priority is not established.
+
+\begin{lemma}[Restriction to an ordered interval]\label{lem:restriction}
+A BST restricted to a contiguous key interval and its endpoint gaps has
+no greater depth for any retained outcome. If the old root is outside the
+retained key interval, every retained outcome loses at least one comparison.
+\end{lemma}
+\begin{proof}
+Delete each comparison at an outside key and follow the branch containing
+all retained outcomes. Comparisons at retained keys remain. This gives the
+required BST, with each retained search path a subsequence of its old path.
+The argument also applies to an empty key interval containing one gap.
+\end{proof}
+
+Fix an interior gap $g$ in a current component. Its adjacent keys are
+$a=g-1$ and $b=g$. Let $L$ contain the keys strictly left of $a$, with
+its endpoint gaps, and let $R$ contain those strictly right of $b$ with
+its endpoint gaps. Their masses are $W_L,W_R$, and the component mass is
+\[
+ W=W_L+p_a+q_g+p_b+W_R.
+\]
+\begin{theorem}[Interior-gap separator]\label{thm:gap-separator}
+If
+\begin{equation}\label{eq:gap-separator}
+ q_g+\min(p_a,p_b)\ \ge\ W_L+W_R,
+\end{equation}
+there exists an optimal tree with gap $g$ at depth two. Its top two keys
+are $a,b$, in either orientation, and its remaining subtrees are $L,R$.
+Writing $C_L,C_R$ for their unrestricted optimal relative costs gives
+\begin{equation}\label{eq:gap-cost}
+ \OPT=C_L+C_R+W+q_g+\min(p_a+W_L,\ p_b+W_R).
+\end{equation}
+At equality, other optimal trees need not have this shape.
+\end{theorem}
+\begin{proof}
+Take any tree in which $g$ has depth at least three. Restrict it to $L,R$
+using Lemma~\ref{lem:restriction}. If its root lies in $L$, make $a$ the
+new root, attach restricted $L$ on its left, and make $b$ its right child,
+with $g$ on $b$'s left and restricted $R$ on its right. Every $L$ outcome
+deepens by at most one. Every $R$ outcome lost the old root comparison,
+then gains two, so also deepens by at most one. Key $a$ saves at least one
+comparison, key $b$ does not deepen, and gap $g$ saves at least one.
+The cost change is at most $W_L+W_R-p_a-q_g$. For an old root in $R$,
+the mirror exchange costs at most $W_L+W_R-p_b-q_g$.
+
+If the old root is $a$, keep it and promote $b$ to its right child.
+The $L$ depths do not increase and $R$ depths increase by at most one.
+As $a,b$ are adjacent and $g$ was deeper than two, $b$ had depth at least
+two and saves at least one comparison. The change is at most
+$W_R-p_b-q_g$. The case with old root $b$ is symmetric. Condition
+\eqref{eq:gap-separator} makes each bound nonpositive, so the exchange can
+be applied to an optimum. An interior gap cannot have depth below two;
+at depth two its bounding ancestor keys must be exactly $a,b$.
+
+Both orientations leave the same two independent optimization problems.
+With root $a$, the cost is $C_L+C_R+W+q_g+p_b+W_R$; with root $b$ it is
+$C_L+C_R+W+q_g+p_a+W_L$. Minimize these two values after solving each
+outside interval once. This proves~\eqref{eq:gap-cost} without duplicated
+recursive branches.
+\end{proof}
+
+Replacing the smaller neighboring weight in~\eqref{eq:gap-separator} by
+the larger one is false. For $p=(100,1,50)$ and $q=(1,1,1,1)$, the
+weakened test accepts $g=1$ since $101\ge53$. Yet the full optimum is
+212 and forcing this gap to depth two costs 261. The valid test rejects
+it since $2<53$. This strictly positive counterexample is retained.
+
+\paragraph{Endpoint and key certificates.}
+For a component's first key and left endpoint gap, $2(p_i+q_i)\ge W$
+suffices to put that key at the root in some optimum; the right endpoint
+is symmetric. If its original depth is $h\ge1$, its endpoint gap has
+depth $h+1$. Promotion saves $h(p_i+q_i)$ while restricting and reattaching
+the other interval increases cost by at most $W-p_i-q_i$. Likewise,
+$2p_r\ge W$ certifies an arbitrary key $r$ as root: promote it and attach
+the two restrictions, increasing every other depth by at most one while
+saving at least one comparison on $r$. These are sufficient conditions,
+not a general largest-weight root rule.
+
+\paragraph{Avoiding quadratic separator scans.}
+Components remain contiguous intervals of the original input, with no
+weight aggregation. Store the static scores
+\[
+ G_j=2q_j+p_{j-1}+p_j+\min(p_{j-1},p_j),\qquad K_j=2p_j.
+\]
+An interior gap in component $[i,k)$ satisfies~\eqref{eq:gap-separator}
+exactly when $G_j\ge W(i,k)$, for $i<j<k$. Two range-maximum segment
+trees find qualifying gaps and keys in $O(\log(n+1))$ work per query,
+after $O(n)$ construction. Prefix sums give component masses in constant
+work. Each separator removes one or two keys, and terminal intervals are
+disjoint. Only terminal slices are copied, so a long chain does not cause
+quadratic copying or rescanning. The implementation tests endpoints first
+and builds the indexes only when an endpoint test fails on both sides.
+All-zero components are returned as balanced trees directly.
+
+\begin{theorem}[Local-frontier composition]\label{thm:local-frontier}
+For terminal components $t$ with $m_t$ keys and local admissible-interval
+counts $S_{t,d}$, the constructor is exact and uses
+\[
+ O\!\left(n\log(n+1)+\sum_t\min_d\{S_{t,d}+m_t2^d\}\right)
+\]
+arithmetic work. If $m_t\le b$ for every terminal, the bound is
+$O(n\log(n+1)+nb)$. Sequential reuse of terminal scratch storage gives
+$O(n+\max_t\{S_{t,d_t}+m_t2^{d_t}\})$ space at selected depths $d_t$.
+The unrestricted worst case remains quadratic.
+\end{theorem}
+\begin{proof}
+The separator identities reduce the optimum to disjoint exact subproblems.
+There are $O(n)$ separator calls and $\sum_t m_t\le n$. The local frontier
+bounds apply separately, including parameter selection since
+$\sum_t m_t\log(m_t+1)\le n\log(n+1)$. Each terminal may select depth
+zero and use its full Knuth table, so $\sum_t m_t^2\le nb$ when all sizes
+are at most $b$. Include the reconstructed output and separator stack in
+$O(n)$ space; completed terminal scratch arrays need not remain allocated.
+\end{proof}
+
+\paragraph{Two exact structured regimes.}
+For $p_i=q_i=2^i$ and $q_n=2^n$, the total mass is $3\cdot2^n-2$ and
+the rightmost key/gap pair has mass $3\cdot2^{n-1}$. The right endpoint
+certificate passes, and the remaining prefix has the same form. The
+optimal chain is constructed with $n$ endpoint decisions, no range index,
+and no terminal DP: $O(n)$ arithmetic work. At the final single key the
+implementation selects the equivalent left endpoint rule. Weights have
+$O(n)$ bits, so this is not a linear bit-complexity assertion.
+
+For a different positive mixed family, recursively plant a heavy central
+gap separating two outside intervals, stopping below 32 keys. Set each
+planted weight to four times its component mass after its children have
+been planted. Each planted gap satisfies the theorem, and all terminal
+sizes are below 32. This gives $O(n\log n)$ arithmetic work on the family,
+including varying positive background weights on both keys and gaps.
+Neither regime is an unrestricted subquadratic result.
+
+\paragraph{Verification and complete work accounting.}
+The harness exhaustively checks 22,140 weight assignments in $\{0,1,2\}$
+through four keys against every tree shape. It checks 3,211 qualifying gap
+certificates and their cost identities, 2,036 endpoint certificates, and
+380 key certificates. A further 3,280 full solves, using both frontier and
+Knuth terminal strategies on 1,640 inputs through 40 keys, match independent
+cubic costs and direct tree evaluation. Inputs include empty, zero, tied,
+geometric, spike, key-only and gap-only controls. Both strategies and the
+direct global frontier also match Knuth on 40 fixtures through 2,048 keys.
+
+At $n=2048$, the direct and local frontier interval counts are:
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+Fixture & direct frontier & local frontier & terminal components\\
+\midrule
+Random & 308,115 & 308,115 & 1\\
+Near-uniform & 309,290 & 309,290 & 1\\
+Geometric & 2,098,176 & 0 & 0\\
+Heavy key & 1,048,576 & 153,660 & 2\\
+Heavy gap & 1,047,552 & 153,582 & 2\\
+Random background, heavy gap & 1,047,552 & 153,362 & 2\\
+Hierarchical gaps & 522,242 & 22,333 & 64\\
+\bottomrule
+\end{tabular}
+\end{center}
+Cell counts do not include all work. On hierarchical gaps, 63 gap separators
+require 254 endpoint checks, 6,142 index-build comparisons and 1,476 range
+query comparisons. Terminal solves use 42,885 root candidates, 39,284 genuine
+top-matrix queries, 6,261 padding queries, 8,122 contour mass checks, 6,952
+scans of each row/column type, and 1,792 coarse transitions. Their 1,922 keys
+are reconstructed and relabeled. On the heavy-gap fixture, 305,118 terminal
+root candidates and 1,214,092 genuine top queries accompany the reduced
+interval table. All counter categories are retained; metadata such as local
+selected depths and actual heights are summed over terminals, not reported
+as a global tree height. Geometric input uses 2,048 endpoint separators and
+4,095 endpoint checks, with no index or terminal work.
+
+\paragraph{Matched timings and competing shortcuts.}
+Ten balanced execution orders compare five constructors per fixture: Knuth,
+direct frontier, separator with frontier terminals (SF), separator with Knuth
+terminals (SK), and the earlier recursive contraction solver (RC). These are
+the five cyclic rotations and their reversals, not all 120 permutations.
+The 70 trials include 350 timed solves, preprocessing and reconstruction.
+Every reconstructed cost is checked and all five answers agree. Inputs vary
+between trials except deterministic spike and geometric families.
+M4/Python~3.9.6 median paired runtime ratios to Knuth are:
+\begin{center}\small
+\begin{tabular}{lrrrr}
+\toprule
+Fixture & frontier & SF & SK & RC\\
+\midrule
+2,048, random & 0.87985 & 0.87172 & 1.03209 & 1.00381\\
+2,048, near-uniform & 0.87747 & 0.90863 & 1.06833 & 1.06450\\
+2,048, heavy key & 0.99362 & 0.74038 & 0.52307 & 0.01605\\
+2,048, heavy gap & 0.99617 & 0.77197 & 0.51357 & 1.03871\\
+2,048, random heavy gap & 0.90780 & 0.75211 & 0.49766 & 0.97692\\
+2,048, hierarchical gaps & 1.06953 & 0.04608 & 0.01843 & 0.99421\\
+1,024, geometric & 1.05318 & 0.00781 & 0.00548 & 0.04206\\
+\bottomrule
+\end{tabular}
+\end{center}
+The new gap certificates improve regimes where the earlier contraction
+solver does little. They do not replace that solver: RC is much faster on
+the heavy-key fixture. Local frontier construction also costs more than
+plain Knuth on these smaller terminal components despite storing fewer cells;
+SK is faster than SF on every separator-active fixture. The geometric SF/SK
+paths execute the same endpoint logic with no terminal solve, so their timing
+difference does not reflect an algorithmic distinction. Random and near-uniform
+fixtures have no separator and expose screening overhead. All raw observations
+are retained. These instrumented Python results establish scoped empirical
+benefits, not broad production-language superiority or an asymptotic speedup
+inferred from timing.
+
+\paragraph{A positive obstruction to the combined constructor.}
+For $n\ge5$, set every key and gap weight to one except
+$q_1=q_{n-1}=M=n^3$. Then $W=2M+2n-1$. The largest gap score is
+$2M+3<W$, endpoint scores are four, and key scores are two, so no separator
+fires. Indeed the frontier planner selects depth zero and the full table.
+To see this, write $\tau(k)=k(k+1)/2$ and $h=\lfloor(n-1)/2\rfloor$.
+Depth one admits all $\tau(n)$ cells. At depth two, an interval containing
+one heavy gap has mass $M+2\ell$, so the cutoff $W/2=M+n-1/2$ admits it
+exactly for length $\ell\le h$. There are four disjoint sets of $h$ such
+intervals, and $\tau(n-4)$ intervals avoiding both heavy gaps. Thus
+\[
+ S_2+4n=\tau(n-4)+4h+4n=\tau(n)+6+4h>\tau(n).
+\]
+For $d\ge3$ with $2^d\le n$, we have $3\le F_{d+1}\le2^d\le n$.
+The cutoff is below $M$ but above every all-unit interval mass, so
+$S_d=\tau(n-4)$ and
+\[
+ S_d+n2^d\ge\tau(n-4)+8n=\tau(n)+4n+6>\tau(n).
+\]
+If $2^d>n$, the top term alone exceeds $n^2\ge\tau(n)$. Every positive
+depth is therefore worse than the direct Knuth plan. This is a quadratic
+obstruction to the specified constructor, not a general OBST lower bound.
+An independent contour check rejected the initial assumption that all
+one-heavy-gap intervals were admitted at depth two; the correct length
+cutoff above is retained in the test. The family motivates joint treatment
+of several comparable heavy outcomes. Eight full instances through 256 keys
+match Knuth and reconstructed costs, with cubic checks through 32 keys.
+Four larger instances through 65,536 keys check plans only; at that size
+the selected table has 2,147,516,416 cells, not a completed full solve.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
@@ -1351,7 +1595,7 @@ prefix verify the exact additive identity and preserved strict gap.
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
-interval frontiers, global certificates,
+interval frontiers, dominant-gap separators with local frontiers, global certificates,
 and scoped obstructions to depth relaxations. Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
