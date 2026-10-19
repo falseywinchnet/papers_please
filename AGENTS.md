@@ -297,3 +297,21 @@ Exact rank-repair barriers and canonical-witness audit:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/rank_repair_barrier.py
 ```
+
+True upper-tail input-key sensitivity diagnostic:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/key_tail_sensitivity.py
+```
+
+Fixed-mass exact input-key sensitivity search:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/key_sensitivity_search.cpp -o /tmp/obst-key-sensitivity-search && python3 obst/code/key_sensitivity_search.py /tmp/obst-key-sensitivity-search'
+```
+
+Weighted alternating-cluster formula and sensitivity audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/weighted_cluster_tail.py
+```

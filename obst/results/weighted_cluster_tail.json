@@ -1,0 +1,1209 @@
+{
+  "scope": "Closed-form weighted alternating-cluster tails and exact coordinate/joint derivatives. The pointwise sensitivity obstruction concerns the alternating template; it does not refute the full-ruler sensitivity target or the aggregate tail bound.",
+  "checks": {
+    "matching_candidates": 44724022,
+    "score_entries": 308926,
+    "rank_matching_transitions": 28460181,
+    "matching_scores": 187123,
+    "independent_vectors": 81,
+    "upper_densities": 282792,
+    "weighted_tail_formulas": 81,
+    "endpoint_formulas": 3652,
+    "terminal_formulas": 162,
+    "directional_vectors": 169,
+    "coordinate_derivative_formulas": 169,
+    "joint_increment_formulas": 47
+  },
+  "rows": [
+    {
+      "h": 4,
+      "C": 16,
+      "K": 3,
+      "n": 32,
+      "x": 10,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "tail": 4,
+      "tail_coefficient": 4,
+      "P": 3
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 3,
+      "n": 32,
+      "x": 10,
+      "weights": [
+        1,
+        2,
+        2
+      ],
+      "tail": 4,
+      "tail_coefficient": 4,
+      "P": 5
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 3,
+      "n": 32,
+      "x": 10,
+      "weights": [
+        1,
+        2,
+        3
+      ],
+      "tail": 4,
+      "tail_coefficient": 4,
+      "P": 6
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 3,
+      "n": 32,
+      "x": 10,
+      "weights": [
+        5,
+        3,
+        1
+      ],
+      "tail": 4,
+      "tail_coefficient": 4,
+      "P": 9
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 4,
+      "n": 32,
+      "x": 7,
+      "weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 3,
+      "tail_coefficient": 3,
+      "P": 4
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 4,
+      "n": 32,
+      "x": 7,
+      "weights": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "tail": 3,
+      "tail_coefficient": 3,
+      "P": 7
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 4,
+      "n": 32,
+      "x": 7,
+      "weights": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "tail": 3,
+      "tail_coefficient": 3,
+      "P": 10
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 4,
+      "n": 32,
+      "x": 7,
+      "weights": [
+        6,
+        5,
+        0,
+        9
+      ],
+      "tail": 0,
+      "tail_coefficient": 3,
+      "P": 20
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 3,
+      "n": 64,
+      "x": 26,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "tail": 12,
+      "tail_coefficient": 12,
+      "P": 3
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 3,
+      "n": 64,
+      "x": 26,
+      "weights": [
+        1,
+        2,
+        2
+      ],
+      "tail": 12,
+      "tail_coefficient": 12,
+      "P": 5
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 3,
+      "n": 64,
+      "x": 26,
+      "weights": [
+        1,
+        2,
+        3
+      ],
+      "tail": 12,
+      "tail_coefficient": 12,
+      "P": 6
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 3,
+      "n": 64,
+      "x": 26,
+      "weights": [
+        3,
+        2,
+        3
+      ],
+      "tail": 24,
+      "tail_coefficient": 12,
+      "P": 8
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 4,
+      "n": 64,
+      "x": 23,
+      "weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 11,
+      "tail_coefficient": 11,
+      "P": 4
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 4,
+      "n": 64,
+      "x": 23,
+      "weights": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "tail": 11,
+      "tail_coefficient": 11,
+      "P": 7
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 4,
+      "n": 64,
+      "x": 23,
+      "weights": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "tail": 11,
+      "tail_coefficient": 11,
+      "P": 10
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 4,
+      "n": 64,
+      "x": 23,
+      "weights": [
+        5,
+        0,
+        0,
+        9
+      ],
+      "tail": 0,
+      "tail_coefficient": 11,
+      "P": 14
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 8,
+      "n": 64,
+      "x": 11,
+      "weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 5,
+      "tail_coefficient": 5,
+      "P": 8
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 8,
+      "n": 64,
+      "x": 11,
+      "weights": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "tail": 5,
+      "tail_coefficient": 5,
+      "P": 15
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 8,
+      "n": 64,
+      "x": 11,
+      "weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "tail": 5,
+      "tail_coefficient": 5,
+      "P": 36
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "K": 8,
+      "n": 64,
+      "x": 11,
+      "weights": [
+        9,
+        0,
+        4,
+        1,
+        7,
+        9,
+        8,
+        4
+      ],
+      "tail": 0,
+      "tail_coefficient": 5,
+      "P": 42
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 3,
+      "n": 128,
+      "x": 58,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "tail": 28,
+      "tail_coefficient": 28,
+      "P": 3
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 3,
+      "n": 128,
+      "x": 58,
+      "weights": [
+        1,
+        2,
+        2
+      ],
+      "tail": 28,
+      "tail_coefficient": 28,
+      "P": 5
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 3,
+      "n": 128,
+      "x": 58,
+      "weights": [
+        1,
+        2,
+        3
+      ],
+      "tail": 28,
+      "tail_coefficient": 28,
+      "P": 6
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 3,
+      "n": 128,
+      "x": 58,
+      "weights": [
+        6,
+        5,
+        8
+      ],
+      "tail": 140,
+      "tail_coefficient": 28,
+      "P": 19
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 4,
+      "n": 128,
+      "x": 55,
+      "weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 27,
+      "tail_coefficient": 27,
+      "P": 4
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 4,
+      "n": 128,
+      "x": 55,
+      "weights": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "tail": 27,
+      "tail_coefficient": 27,
+      "P": 7
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 4,
+      "n": 128,
+      "x": 55,
+      "weights": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "tail": 27,
+      "tail_coefficient": 27,
+      "P": 10
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 4,
+      "n": 128,
+      "x": 55,
+      "weights": [
+        2,
+        5,
+        6,
+        4
+      ],
+      "tail": 54,
+      "tail_coefficient": 27,
+      "P": 17
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 8,
+      "n": 128,
+      "x": 43,
+      "weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 21,
+      "tail_coefficient": 21,
+      "P": 8
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 8,
+      "n": 128,
+      "x": 43,
+      "weights": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "tail": 21,
+      "tail_coefficient": 21,
+      "P": 15
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 8,
+      "n": 128,
+      "x": 43,
+      "weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "tail": 21,
+      "tail_coefficient": 21,
+      "P": 36
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 8,
+      "n": 128,
+      "x": 43,
+      "weights": [
+        2,
+        9,
+        8,
+        7,
+        5,
+        3,
+        2,
+        7
+      ],
+      "tail": 42,
+      "tail_coefficient": 21,
+      "P": 43
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 16,
+      "n": 128,
+      "x": 19,
+      "weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 9,
+      "tail_coefficient": 9,
+      "P": 16
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 16,
+      "n": 128,
+      "x": 19,
+      "weights": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "tail": 9,
+      "tail_coefficient": 9,
+      "P": 31
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 16,
+      "n": 128,
+      "x": 19,
+      "weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "tail": 9,
+      "tail_coefficient": 9,
+      "P": 136
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 16,
+      "n": 128,
+      "x": 19,
+      "weights": [
+        8,
+        0,
+        6,
+        8,
+        5,
+        5,
+        6,
+        8,
+        8,
+        2,
+        9,
+        4,
+        8,
+        0,
+        5,
+        2
+      ],
+      "tail": 0,
+      "tail_coefficient": 9,
+      "P": 84
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 3,
+      "n": 256,
+      "x": 122,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "tail": 60,
+      "tail_coefficient": 60,
+      "P": 3
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 3,
+      "n": 256,
+      "x": 122,
+      "weights": [
+        1,
+        2,
+        2
+      ],
+      "tail": 60,
+      "tail_coefficient": 60,
+      "P": 5
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 3,
+      "n": 256,
+      "x": 122,
+      "weights": [
+        1,
+        2,
+        3
+      ],
+      "tail": 60,
+      "tail_coefficient": 60,
+      "P": 6
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 3,
+      "n": 256,
+      "x": 122,
+      "weights": [
+        3,
+        6,
+        4
+      ],
+      "tail": 180,
+      "tail_coefficient": 60,
+      "P": 13
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 4,
+      "n": 256,
+      "x": 119,
+      "weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 59,
+      "tail_coefficient": 59,
+      "P": 4
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 4,
+      "n": 256,
+      "x": 119,
+      "weights": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "tail": 59,
+      "tail_coefficient": 59,
+      "P": 7
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 4,
+      "n": 256,
+      "x": 119,
+      "weights": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "tail": 59,
+      "tail_coefficient": 59,
+      "P": 10
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 4,
+      "n": 256,
+      "x": 119,
+      "weights": [
+        6,
+        8,
+        4,
+        6
+      ],
+      "tail": 236,
+      "tail_coefficient": 59,
+      "P": 24
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 16,
+      "n": 256,
+      "x": 83,
+      "weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 41,
+      "tail_coefficient": 41,
+      "P": 16
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 16,
+      "n": 256,
+      "x": 83,
+      "weights": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "tail": 41,
+      "tail_coefficient": 41,
+      "P": 31
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 16,
+      "n": 256,
+      "x": 83,
+      "weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "tail": 41,
+      "tail_coefficient": 41,
+      "P": 136
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 16,
+      "n": 256,
+      "x": 83,
+      "weights": [
+        2,
+        3,
+        1,
+        0,
+        0,
+        7,
+        7,
+        8,
+        8,
+        2,
+        6,
+        8,
+        6,
+        0,
+        6,
+        7
+      ],
+      "tail": 0,
+      "tail_coefficient": 41,
+      "P": 71
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 32,
+      "n": 256,
+      "x": 35,
+      "weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "tail": 17,
+      "tail_coefficient": 17,
+      "P": 32
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 32,
+      "n": 256,
+      "x": 35,
+      "weights": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "tail": 17,
+      "tail_coefficient": 17,
+      "P": 63
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 32,
+      "n": 256,
+      "x": 35,
+      "weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "tail": 17,
+      "tail_coefficient": 17,
+      "P": 528
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "K": 32,
+      "n": 256,
+      "x": 35,
+      "weights": [
+        1,
+        5,
+        0,
+        3,
+        0,
+        2,
+        4,
+        5,
+        8,
+        9,
+        3,
+        6,
+        7,
+        1,
+        5,
+        6,
+        5,
+        7,
+        5,
+        2,
+        5,
+        1,
+        3,
+        4,
+        8,
+        6,
+        9,
+        8,
+        2,
+        1,
+        8,
+        4
+      ],
+      "tail": 0,
+      "tail_coefficient": 17,
+      "P": 143
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "K": 4,
+      "n": 32,
+      "x": 7,
+      "weights": [
+        4,
+        12,
+        8,
+        8
+      ],
+      "tail": 12,
+      "tail_coefficient": 3,
+      "P": 32,
+      "verification": "generic and matching controls",
+      "input_mass": 32,
+      "unique_minimum": 4,
+      "derivative": 3,
+      "ratio_to_proposed_key_scale": [
+        12,
+        20
+      ]
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "K": 8,
+      "n": 128,
+      "x": 43,
+      "weights": [
+        8,
+        24,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "tail": 168,
+      "tail_coefficient": 21,
+      "P": 128,
+      "verification": "generic and matching controls",
+      "input_mass": 128,
+      "unique_minimum": 8,
+      "derivative": 21,
+      "ratio_to_proposed_key_scale": [
+        168,
+        72
+      ]
+    },
+    {
+      "h": 8,
+      "C": 256,
+      "K": 16,
+      "n": 512,
+      "tail": 1680,
+      "verification": "proved formula only",
+      "input_mass": 512,
+      "unique_minimum": 16,
+      "derivative": 105,
+      "ratio_to_proposed_key_scale": [
+        1680,
+        272
+      ]
+    },
+    {
+      "h": 16,
+      "C": 65536,
+      "K": 256,
+      "n": 131072,
+      "input_mass": 131072,
+      "unique_minimum": 256,
+      "tail": 8290560,
+      "derivative": 32385,
+      "ratio_to_proposed_key_scale": [
+        8290560,
+        65792
+      ],
+      "verification": "proved formula only"
+    },
+    {
+      "h": 32,
+      "C": 4294967296,
+      "K": 65536,
+      "n": 8589934592,
+      "input_mass": 8589934592,
+      "unique_minimum": 65536,
+      "tail": 140731045969920,
+      "derivative": 2147385345,
+      "ratio_to_proposed_key_scale": [
+        140731045969920,
+        4295032832
+      ],
+      "verification": "proved formula only"
+    },
+    {
+      "h": 64,
+      "C": 18446744073709551616,
+      "K": 4294967296,
+      "n": 36893488147419103232,
+      "input_mass": 36893488147419103232,
+      "unique_minimum": 4294967296,
+      "tail": 39614081229462052690502615040,
+      "derivative": 9223372030412324865,
+      "ratio_to_proposed_key_scale": [
+        39614081229462052690502615040,
+        18446744078004518912
+      ],
+      "verification": "proved formula only"
+    },
+    {
+      "h": 128,
+      "C": 340282366920938463463374607431768211456,
+      "K": 18446744073709551616,
+      "n": 680564733841876926926749214863536422912,
+      "input_mass": 680564733841876926926749214863536422912,
+      "unique_minimum": 18446744073709551616,
+      "tail": 3138550867693340381407471161222425512874562555158074490880,
+      "derivative": 170141183460469231704017187605319778305,
+      "ratio_to_proposed_key_scale": [
+        3138550867693340381407471161222425512874562555158074490880,
+        340282366920938463481821351505477763072
+      ],
+      "verification": "proved formula only"
+    }
+  ],
+  "source_sha256": {
+    "weighted_cluster_tail.py": "c08874d8df08bd22158e1cb510b79f24183265bedea1d8c5ed1c892cb88bf812",
+    "key_tail_sensitivity.py": "ec1b6a93093fb587039f58bb5e95669ebc66cf697482b2950dce85abcc915d40",
+    "rank_matching_repair.py": "6a7b0263629a2ea4b323350f3d8770e3695fa07ee080432729d5af2d41f0468f",
+    "rank_reward_tail.py": "497e654c8f0f241e5f3e4a9404cb30f72568cdfe5ea1a690b9ac17b10f13aca5",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

@@ -20,6 +20,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Coupled rank-reward stability and periodic clipping obstruction](RANK_REWARD_STABILITY.md)
 - [Alternating-tail matching bound and exact growing-width families](ALTERNATING_TAIL_BOUND.md)
 - [Rank-weighted repair certificates and tie-independent barriers](RANK_REPAIR_BARRIER.md)
+- [Exact weighted cluster tails and pointwise-sensitivity obstruction](WEIGHTED_CLUSTER_TAIL.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -97,6 +98,13 @@ certificate equals (h-2)(h-3)/2, against target scale h. At one endpoint,
 an optimum requires 2^(h-3) augmenting components and one fewer decreasing
 components. This route needs joint rank changes; the actual tail target
 remains open.
+
+The spacing-three family now has an exact formula for arbitrary nonnegative
+cluster weights: U_K=(ceil((C-3(K-1))/2)-1) min_r w_r. Equal weights maximize
+the tail at fixed cluster mass. A unique minimum can have an individual
+sensitivity far above h+C/d, even at W=n, while the aggregate bound remains
+valid. The next charge must accommodate groups of interacting weights.
+See [the weighted formula and exact sensitivity proof](WEIGHTED_CLUSTER_TAIL.md).
 
 The sharper time bound charges each individual outcome weight to covering
 tiles and sums their geometrically spaced layer boundaries. It proves total

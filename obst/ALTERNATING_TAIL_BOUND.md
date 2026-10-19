@@ -192,3 +192,9 @@ repairs, but an explicit one-key family defeats even the best certificate
 over all optimal starting witnesses. Its true tail is zero; the repair
 certificate is quadratic in height. An optimal endpoint repair can require
 linearly many alternating components in the capacity.
+
+The [weighted cluster theorem](WEIGHTED_CLUSTER_TAIL.md) extends the sharp
+spacing-three family to arbitrary nonnegative weights: its tail is
+(ceil(x/2)-1) times the minimum cluster weight. It determines the fixed-mass
+maximum and all directional responses, including a linear-mass obstruction
+to uniformly bounded individual-key sensitivity.

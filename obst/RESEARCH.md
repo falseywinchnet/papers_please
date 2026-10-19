@@ -2600,3 +2600,87 @@ received detailed visual review. All 57 legacy labels and all references
 resolve. The title asterisk, Joshuah Rainstar attribution, and verbatim final
 dedication are preserved. Stable TeX/PDF outputs and the complete source/font
 archive are refreshed for publication.
+
+## Checkpoint 37: exact weighted cluster tails and input sensitivities
+
+The preceding turn was progress: it proved that even the best local matching
+repair certificate can overcharge a zero true tail. This turn tested a route
+that measures the true tail directly, by charging its response to changes
+in individual input weights.
+
+A preliminary canonical-witness probe checks 5616 Euler identities on 608
+inputs and eleven exact directional controls. Its coefficients sum against
+the input weights to the true tail, but coefficients selected by canonical
+ties need not equal right directional derivatives. The subsequent compiled
+recurrence maximizes the pair (ordinary score, reward at the perturbed key)
+lexicographically. This gives the exact right derivative in each interval.
+An independent check scales integer input weights by t+1 and increments the
+chosen key by one, where t is the largest template reward. No primary-score
+gap can close under that perturbation, so the signed tail difference gives
+the derivative exactly without floating-point approximation.
+
+The full-ruler fixed-mass search evaluates 21020 inputs through 256 positions,
+with 3119522724 candidate transitions, 20512788 scores, and 19108544 density
+derivatives. All 29 independent scaled-perturbation controls agree. The
+largest observed derivative ratio to h-1+2^h/d is 416/129 at n=128. This
+finite value neither proves nor disproves an asymptotic full-ruler bound.
+The search retains exact weights and source hashes.
+
+The useful exact result comes from the alternating spacing-three family.
+For C=2^h, K>=3, C>=4K, n=2C, c=C-1, x=C-3(K-1), put arbitrary nonnegative
+real weights w_0,...,w_(K-1) at x,x+3,...,C. Then
+
+U_K = (ceil(x/2)-1) min_r w_r.
+
+The old boundary intervals reward every cluster key. At each interior bad
+parity endpoint, the shortened interval must leave one key unrewarded, but
+can choose any one. Its exact loss is the minimum weight. The final left
+endpoint loses w_0 specifically; later endpoint losses and the terminal
+score cancel that correction. Enumerating omission counts for first,
+interior, and last unrewarded keys proves every case, including K=3.
+This yields the fixed-mass maximum NP/K, attained exactly at equal weights,
+where N=ceil(x/2)-1. It extends the earlier unit family rather than adding
+a separate empirical scale claim.
+
+The exact formula gives directional derivative N min_(r in I) z_r, where
+I is the minimum-weight set. A unique minimum has individual derivative N.
+At a tied minimum every coordinate increase alone has derivative zero, while
+increasing all cluster weights together has derivative N. These responses
+show why an aggregate charge can be valid without uniformly small individual
+sensitivities.
+
+An explicit linear-mass family makes this obstruction asymptotic. Take
+K=2^r>=4, C=K^2, h=2r, n=2C, d=K, and cluster weights
+(K,3K,2K,...,2K). Their total is exactly n and their unique minimum is K.
+The true tail is NK and the first key's right derivative is
+N=(K^2-3K+2)/2. Its ratio to h+C/d=2 log2 K+K tends to infinity.
+This is an obstruction to pointwise sensitivity bounds for the alternating
+auxiliary template. It leaves the proved aggregate alternating bound intact
+and does not refute the corresponding full-ruler sensitivity question.
+A charging argument covering the periodic auxiliary problems must handle
+interacting groups of keys, as the exact minimum formula does.
+
+The weighted-family audit compares independent generic-subsequence and
+cardinality-matching tables on 81 inputs. These include all ternary weights
+on a three-key cluster, arbitrary unequal weights, tied minima, and zeros.
+It checks 3652 endpoint formulas, 162 terminal scores, 169 coordinate
+derivatives, and 47 joint increments. Generic controls use 44724022
+candidate transitions and 308926 scores; matching controls use 28460181
+transitions and 187123 scores. Larger formula-only rows are labeled.
+All executed-source manifests match the completed Mini results.
+
+The manuscript now gives the weighted theorem in Section 2.13 and obtains
+the earlier unit lower family as its corollary, replacing the duplicated
+unit proof. Section 5.14 contains the pointwise-sensitivity obstruction;
+Appendix M contains the finite diagnostics. The main construction bound,
+explicit core lower bound, and full mixed-weight objective are unchanged.
+The next theoretical work must retain joint weight effects; one concrete
+question is whether nested threshold sets can supply a valid aggregate
+charge, which has not yet been tested or proved.
+
+The 103-page manuscript compiles without warnings. All pages were inspected
+in rendered contact sheets; the weighted proof, sensitivity corollary,
+new appendix, and dedication received detailed visual review. All 57 legacy
+labels and references resolve, and the dedication is byte-identical to the
+previous checkpoint. Stable TeX/PDF outputs and the complete source/font
+archive are refreshed for publication.

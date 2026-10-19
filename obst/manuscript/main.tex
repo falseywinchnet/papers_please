@@ -1185,6 +1185,62 @@ rewards from zero to one and applying
 Theorem~\ref{thm:rank-tail-stability} gives $U_d(v)\le mP$.
 \end{proof}
 
+\begin{theorem}[Exact weighted cluster tail]\label{thm:weighted-cluster-tail}
+Let $C=2^h$, $K\ge3$, $C\ge4K$, $c=C-1$, $n=2C$, and
+$x=C-3(K-1)$. Place arbitrary nonnegative real weights
+$w_0,\ldots,w_{K-1}$ at $x,x+3,\ldots,C$, with other weights zero.
+For the alternating template, put $\mu=\min_r w_r$ and $P=\sum_r w_r$.
+Then
+\begin{equation}\label{eq:weighted-cluster-tail}
+ U_K=N\mu,\qquad N=\lceil x/2\rceil-1.
+\end{equation}
+At fixed cluster mass $P$, the maximum is $NP/K$, attained exactly by
+equal weights.
+\end{theorem}
+\begin{proof}
+Put $k=c+K$ and $b=n-k=C-K+1$. We compute each loss in
+\eqref{eq:rank-tail-telescope}. For $i<x$, the old interval $[i,i+k)$
+can reward all $K$ cluster keys. With first local index $R=x-i+1$,
+omit $u=0$ positions before it if $R$ is even, or $u=1$ if odd, and
+one in each spacing-three gap. This uses $K-1+u\le K$ omissions.
+The last rewarded rank is $C-K+2-i-u$, even and at most $C-2$.
+The apparent exception $K=3,i=0$ forces $u=1$ and also fits.
+Any remaining omission goes after the last cluster key. Thus the old
+score is $P$.
+
+The shortened interval has omission budget $K-1$ and first local index
+$r=x-i$. If $r$ is even, all cluster keys can again be rewarded. If
+$r\ge3$ is odd, rewarding all of them would require one initial omission
+and at least one in each of $K-1$ odd gaps: $K$ omissions, too many.
+The score is therefore at most $P-\mu$.
+
+Every choice of the unrewarded key is feasible. If it is the first,
+the next local index $r+3$ is even, and the $K-2$ remaining odd gaps
+use $K-2$ omissions. If it is an interior key, use one initial omission
+and one in each of $K-3$ ordinary odd gaps; the gap across the unrewarded
+key has length six and needs no omission. Again the total is $K-2$.
+In both cases the final rewarded rank is $C-K+2-i$, even and at most
+$C-2$; $K=3,i=0$ belongs to the even-$r$ case instead. If the last key
+is unrewarded, one initial omission and $K-2$ inter-key omissions give
+final rewarded rank $C-K-2-i$. The unrewarded key can occupy an odd
+rank, requiring no extra omission. The remaining omissions fit after
+the final rewarded key. Choosing a minimum weight therefore gives
+shortened score $P-\mu$.
+
+At $i=x-1$, the first cluster key is the shortened interval's left
+endpoint and can only occupy odd rank one. Its loss is $w_0$, and all
+remaining cluster keys can be rewarded. For $i\ge x$, each interval has
+at most $K-1$ eligible cluster keys. Their first local index is at most
+four; the initial parity correction and inter-key omissions fit the
+budget, and their final rewarded rank is at most $2K\le C-2$. Both
+intervals reward every eligible key, so their difference is $p_{i+1}$.
+
+Exactly $N$ starts $i<x-1$ have $x-i$ odd. The subsequent losses plus
+$S(b,n)$ equal $P-w_0$, while $S(0,n)=P$. The telescope gives
+$U_K=N\mu+w_0+(P-w_0)-P=N\mu$. Finally $\mu\le P/K$, with equality
+exactly at equal weights, proves the extremal statement.
+\end{proof}
+
 \begin{corollary}[Both alternating-tail scales are necessary]
 \label{cor:alternating-tail-scales}
 The additive $P$ term and the $Pc/d$ term in
@@ -1192,37 +1248,13 @@ The additive $P$ term and the $Pc/d$ term in
 The latter remains necessary when $d$ tends to infinity.
 \end{corollary}
 \begin{proof}
-For the capacity term, take $C=2^h$, $K\ge3$, $C\ge4K$,
-$c=C-1$, $n=2C$, and unit weights at
-$x,x+3,\ldots,x+3(K-1)=C$, where $x=C-3(K-1)$. We show
+For the capacity term, take the unit-weight instance of
+Theorem~\ref{thm:weighted-cluster-tail}. It gives
 \begin{equation}\label{eq:alternating-cluster-tail}
  U_K(v)=\lceil x/2\rceil-1
        =\left\lceil\frac{C-3K+1}{2}\right\rceil.
 \end{equation}
-Put $k=c+K$ and $b=n-k=C-K+1$. For $i<x$, the interval $[i,i+k)$
-rewards all $K$ positive keys. Their first local position is
-$r=x-i+1\ge2$. Omit $u=0$ positions before it if $r$ is even, or
-$u=1$ if odd, and one position between each successive pair of positive
-keys. This uses $K-1+u\le K$ omissions. The final rewarded rank is
-$C-K+2-i-u\le C-2$; when $K=3,i=0$, parity forces $u=1$ and the
-same inequality holds. Any remaining omission follows the last key.
-
-The shortened interval $[i+1,i+k)$ has only $K-1$ omissions. It rewards
-all $K$ keys exactly when $x-i$ is even: the odd spacing already needs
-one omission between every pair. When $x-i$ is odd, dropping the first
-positive key from the rewarded set permits $K-1$ rewards. Its new first
-local position $x-i+3$ is even and only $K-2$ inter-key omissions are
-needed. The final rank fits; the potential endpoint $K=3,i=0$ belongs
-to the even case. Consequently the endpoint loss is one precisely
-when $x-i$ is odd.
-
-For $i\ge x$, both intervals reward every positive key strictly after
-their left endpoints: at most $K-1$ positives remain eligible, and the
-parity corrections fit their omission budgets. The loss is therefore
-one exactly when $i+1$ is positive. On $[b,n)$ every positive key
-strictly after $b$ is rewarded, while the full score is $K$. The tail
-telescope cancels these positive-key boundary losses, leaving
-$\lceil x/2\rceil-1$, as claimed. Taking $K=2^{\lfloor h/2\rfloor}$
+Taking $K=2^{\lfloor h/2\rfloor}$
 gives $d=K\to\infty$, $P=K$, and $U_K/(Pc/K)\to1/2$.
 Scaling each unit by $n/K$ gives integer total mass $W=n$.
 
@@ -5439,6 +5471,46 @@ specified local repair certificate; its many zero-weight edge changes
 can potentially be represented together. Continuing the matching route
 requires joint rank changes rather than a bound on one augmentation.
 
+\subsection{Aggregate tail bounds do not imply uniform key sensitivities}
+\label{sec:key-sensitivity-barrier}
+The weighted formula in Theorem~\ref{thm:weighted-cluster-tail} determines
+all directional derivatives within its cluster. If
+$I=\{r:w_r=\min_s w_s\}$ and a direction $z$ preserves nonnegative
+weights for sufficiently small positive perturbations, then
+\[
+ D_zU_K=N\min_{r\in I}z_r.
+\]
+Weights outside $I$ remain above the minimum for a sufficiently small
+perturbation, which proves the formula. A unique minimum has individual
+right derivative $N$. At a tied minimum, every individual coordinate
+increase has derivative zero, while increasing all cluster weights by
+$\epsilon$ increases the tail by $N\epsilon$. Such directional
+responses need not be additive.
+
+\begin{corollary}[Unbounded pointwise sensitivity at linear mass]
+\label{cor:key-sensitivity-barrier}
+For the alternating template, no absolute constant bounds the right
+derivative of $U_d$ with respect to an individual key weight by
+$h+(c+1)/d$, even at nonnegative integer inputs of total mass $W=n$.
+\end{corollary}
+\begin{proof}
+Take $K=2^r\ge4$, $C=K^2$, $h=2r$, $c=C-1$, $n=2C$, $d=K$,
+and the spacing-three cluster of Theorem~\ref{thm:weighted-cluster-tail}
+with weights $(K,3K,2K,\ldots,2K)$. Their total is exactly $n$, and
+the first weight is the unique minimum. Therefore
+\[
+ N=\frac{K^2-3K+2}{2},\qquad U_K=NK,\qquad
+ \frac{\partial_+U_K}{\partial w_0}=N.
+\]
+The ratio $N/(h+(c+1)/d)=N/(2\log_2K+K)$ tends to infinity.
+\end{proof}
+The proved aggregate estimate $U_d=O(P(1+c/d))$ holds throughout this
+family. Its exact charge $N\min_r w_r$ is bounded using the mass of all
+$K$ interacting keys. Thus uniform pointwise sensitivity is a stronger
+requirement than the aggregate bound. The corollary concerns the auxiliary
+alternating template; the corresponding full-ruler sensitivity question
+remains open.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -6757,6 +6829,43 @@ controls use 225,793 candidate transitions and 6637 scores. Exact inputs,
 operation counts, and executed-source hashes are retained in
 \texttt{rank\_repair\_barrier.json}. The finite runs audit the proofs;
 the unbounded ratios follow from the displayed families.
+
+\section{Weighted cluster tails and input sensitivity diagnostics}
+\label{app:weighted-cluster-tail}
+For integer weights and an integer template in $[0,t]$, a right input-key
+derivative is computed exactly by maximizing the pair (ordinary score,
+reward at the perturbed key) lexicographically in each interval. An
+independent evaluation uses
+\[
+ D_xU_d(p)=U_d((t+1)p+e_x)-(t+1)U_d(p).
+\]
+A nonzero primary-score gap is at least one; scaling by $t+1$ prevents
+any slope reward, at most $t$, from closing it. Among primary maximizers,
+the perturbation selects the largest slope. Taking the signed tail sum
+preserves the identity. No finite-difference rounding is involved.
+
+The weighted-cluster audit compares generic subsequence and independent
+cardinality-matching tables on 81 inputs, including all ternary vectors
+on a three-key cluster, unequal weights, zero minima, and ties. It checks
+3652 endpoint formulas, 162 terminal scores, 169 coordinate derivatives,
+and 47 joint increments. The generic recurrence uses 44,724,022 candidate
+transitions and 308,926 scores; the matching recurrence uses 28,460,181
+transitions and 187,123 scores. Larger formula-only rows are explicitly
+labeled. The record is \texttt{weighted\_cluster\_tail.json}.
+
+A separate full-ruler diagnostic checks 21,020 fixed-mass inputs through
+256 positions and records 3,119,522,724 candidate transitions, 20,512,788
+scores, and 19,108,544 density derivatives. All 29 independent scaled
+perturbation controls agree with its lexicographic score/slope recurrence.
+The maximum derivative ratio to $h-1+2^h/d$ is $416/129$, on 128
+positions. This finite value implies no asymptotic bound or obstruction
+for the full ruler. A preliminary canonical-witness probe checks 5616
+Euler identities on 608 inputs and computes 11 exact directional controls.
+At ties its canonical coefficients can differ from right derivatives;
+these quantities remain distinct in the records
+\texttt{key\_sensitivity\_search.json} and
+\texttt{key\_tail\_sensitivity.json}. All records retain exact inputs,
+operation counts, seeds, and executed-source hashes.
 
 \clearpage
 \begingroup\small
