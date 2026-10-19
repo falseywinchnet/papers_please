@@ -42,6 +42,9 @@ with local frontiers. Endpoint-certified chains take linear arithmetic work;
 bounded terminal components give $O(n\log n)$ work. A joint heavy-outcome
 certificate further isolates several comparable heavy gaps or keys, using
 a protected-only height bound and an $O(n\log n)$ threshold sweep.
+Crediting a residual lower bound strengthens this to an excluded-class
+certificate; two gaps of weight $4n$ against unit mixed background admit
+an $O(n\log n)$ exact construction even when the height test fails.
 
 Exact enumeration, independent cubic recurrences, adversarial inputs, and
 operation counts accompany all implementations. We preserve a failed
@@ -1549,6 +1552,254 @@ the arithmetic complexity theorem are distinct evidence. Unbounded integer
 weights and Fibonacci values also preclude interpreting the arithmetic bound
 as an established bit-complexity bound.
 
+\section{Residual-cost certificates for heavy-outcome cores}\label{sec:core-exclusion}
+The preceding height certificate charges all light search cost against one
+saved heavy comparison. Every competing tree must itself pay for light
+searches. Crediting a valid lower bound for that unavoidable cost gives a
+stronger test for a fixed selected set. This is an additive exclusion
+certificate built on Lemma~\ref{lem:core-projection}; it does not assert a new
+Huffman algorithm or an established priority claim.
+
+Write the original nonnegative weight vector as $w=w_H+w_0$, where $w_H$
+retains selected positive outcomes and is zero elsewhere. Let $A$ be the
+necessary core keys from Section~\ref{sec:heavy-core}, let $P$ be the exact
+protected-only optimum on that core, and let $B_0$ be any valid lower bound
+on the full $n$-key problem with residual weights $w_0$. In particular, the
+order-free mixed-node relaxation of Section~\ref{sec:unordered} supplies
+$B_0$. Residual weights on both keys and gaps are retained.
+
+\begin{theorem}[Residual exclusion certificate]\label{thm:core-exclusion}
+Every tree that is not core-closed has full cost at least
+\[
+ P+\theta+B_0,
+ \qquad \theta=\min_{x\in\mathcal H}w_x.
+\]
+Consequently, if a core-closed witness has full cost $U\le P+\theta+B_0$,
+some global optimum is core-closed. More strongly, if the exact optimum
+$C_A$ within the core-closed class satisfies this inequality, then $C_A$
+is the unrestricted optimum.
+\end{theorem}
+\begin{proof}
+Project any non-core-closed tree $T$ onto $A$. Its selected weighted cost
+decreases by at least $\theta$, and the projected selected cost is at least
+$P$. Thus $C_{w_H}(T)\ge P+\theta$. Independently,
+$C_{w_0}(T)\ge B_0$. Add the inequalities, using linearity of tree cost
+in the weights. A witness at or below this excluded-class lower bound
+cannot be worse than every non-core-closed tree. Optimizing within the
+core-closed class therefore gives a global optimum. Equality allows both
+classes to contain optima.
+\end{proof}
+
+\paragraph{A test before solving the payloads.}
+Solve the protected core, retaining one optimal shape, and attach balanced
+payloads. This produces a full witness of cost $P+U_0$, where $U_0$ is its
+exact residual cost. The inexpensive sufficient condition becomes
+\begin{equation}\label{eq:residual-core}
+ U_0-B_0\le\theta.
+\end{equation}
+Only after it passes does the default constructor solve the full-weight
+core and all payloads exactly. Thus failed witnesses need no exact payload
+tables. For the same selected set, this test includes the preceding height
+certificate: $U_0\le(H+L)W_0$ and $B_0\ge0$. The implemented threshold
+selection is not exhaustive, so this logical implication is not a claim
+that the new selector always chooses the old selector's successful set.
+
+An optional refinement solves one core-closed candidate even after its
+witness fails and tests $C_A\le P+\theta+B_0$. For example,
+$p=(0,0,1)$, $q=(0,4,1,1)$, and $\theta=4$ give $P=8$, $B_0=4$, and
+excluded-class lower bound $16$. The first witness costs $17$, while the
+exact closed candidate costs $14$ and is globally optimal. A failed witness
+is not evidence that the core structure is invalid.
+
+\paragraph{Several candidates without quadratic screening.}
+A single minimum-proxy threshold can include ordinary outcomes whose
+weights are too small to pay for the exchange. The revised selector keeps
+two representatives in each dyadic core-size band: the least
+$\tau(m)+\sum_t\tau(k_t)$ proxy and the highest threshold. It considers
+only $m\le b=\lfloor\sqrt{n\lceil\log_2(n+1)\rceil}\rfloor$ and only
+strict proxy improvements over $\tau(n)$. The existing sorted activation
+sweep finds these representatives in $O(n\log(n+1))$ work. There are
+$O(\log(n+1))$ candidates, and their squared core sizes sum to $O(b^2)$,
+because at most two lie in each geometrically increasing band.
+
+Sort the original key and gap profiles once. For a threshold $\theta$,
+remove the profile entries at least $\theta$ and append the same number of
+zeros. The remaining profile is still sorted. The mixed-node two-queue
+bound then takes $O(n)$ work per candidate, without another sort. Building
+and evaluating each balanced witness also takes $O(n+m^2)$ work. All
+candidate screening therefore costs $O(n\log(n+1))$ arithmetic operations.
+Candidates are tried in increasing proxy order until a witness succeeds.
+If none succeeds, the optional mode refines only the first candidate;
+limiting refinement to one avoids an $O(\log n)$ factor on failed exact
+payload solves. Failure invokes the preceding exact constructor.
+
+A successful plan retains the bound
+\[
+ O\!\left(n\log(n+1)+K(m)+\sum_t K(k_t)\right).
+\]
+Both modes keep quadratic general worst-case work and storage. The witness
+screen can use $O(n\log n)$ storage for protected-core tables; the final
+kernel can still require quadratic space. Ordinary Huffman coding is
+classical~\cite{huffman}; the mixed-node relaxation and its limitations
+are already described in Section~\ref{sec:unordered}. The result here is
+the certified use of a residual lower bound against a specified excluded
+class, rather than a relaxation substituted for the full objective.
+
+\paragraph{A linear-weight separation from the height certificate.}
+Let $n=2^h\ge8$, put every original key and gap weight equal to one, and
+replace $q_1,q_{n-1}$ by an equal selected weight $\theta>1$. The necessary
+core has four keys. Its protected optimum is $P=5\theta$: each selected
+interior gap needs at least two comparisons, and both cannot have depth
+two because their adjacent-key pairs are disjoint. Depths two and three
+are attainable.
+
+Use the core whose root is original key $1$, left child is key $0$, right
+child is key $n-2$, and right-right child is key $n-1$. The sole nonempty
+payload contains $n-4$ keys and hangs at depth two. The residual cost of
+this balanced-payload witness is
+\[
+ U_0=(2h+3)n-6h-3.
+\]
+Indeed, the core's residual cost is $4n-1$, while
+$I_{\min}(n-4)=(h-2)n-3h+5$ gives payload cost
+$2I_{\min}(n-4)+3(n-4)=(2h-1)n-6h-2$.
+
+For the residual problem all key weights are one, all ordinary gap weights
+are one, and the two selected gaps have weight zero. The identity
+$E=I+2n$ rewrites any residual tree cost as
+$\sum_j(q_j+1)d_j-n$. The order-free leaf weights are therefore two ones
+and $n-1$ twos. Huffman first merges the two ones; the resulting $n=2^h$
+weights are all two and have a perfect code of height $h$. Hence the exact
+order-free residual lower bound is
+\[
+ B_0=2nh-n+2,
+ \qquad U_0-B_0=4n-6h-5.
+\]
+Thus $\theta\ge4n-6h-5$ suffices for core closure. In particular,
+$\theta=4n$ passes, while the preceding height condition requires
+$\theta\ge(h+4)(2n-1)$ and rejects it.
+
+At $\theta=4n$, the described core is also optimal with the full collapsed
+weights. The four protected-optimal shapes have residual core costs
+$4n-1$ or $6n-9$; every other core shape has selected cost at least
+$6\theta>5\theta+4n-1$. It follows that the full optimum is
+\begin{equation}\label{eq:linear-gap-optimum}
+ \OPT=(2h+23)n-6h-3.
+\end{equation}
+The new constructor uses a constant-size core and a uniform payload, for
+$O(n\log n)$ work and $O(n)$ space on this strictly positive mixed-weight
+family. These weights and the construction's intermediate values have
+$O(\log n)$ bits. This is a separation from the preceding height
+certificate, not a quadratic lower bound for its fallback frontier or
+for other algorithms.
+
+\paragraph{Independent exact checks.}
+On all 22,140 assignments in $\{0,1,4\}$ through four keys, every one of
+17,054 nontrivial threshold cases passed the excluded-class lower-bound
+check against all tree shapes. There were 13,669 passing witness tests
+and 15,181 passing exact-candidate tests, including 1,512 cases rescued
+by refinement. Another 14,912 excluded-tree checks used arbitrary selected
+subsets, weights in $\{1,3\}$, and up to three keys. These latter selections
+need not be weight thresholds.
+
+Both kernel choices and both refinement settings passed 6,560 full solves
+on 1,640 inputs through 40 keys against independent cubic DP and direct
+tree evaluation. All 1,640 candidate portfolios matched direct enumeration
+of the two representatives in each core-size band. Forty-eight larger
+fixtures and nine additional fixtures with independently varying positive
+key and gap weights matched Knuth through 2,048 keys. The varying backgrounds
+are integers in $[1,1000]$ and their selected outcomes have weight $4000n$;
+the unit-background success rows below use weight $4n$. These are finite tests,
+not an assertion that every such random instance passes certification.
+
+At $n=2048$, selected operation categories are:
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+Fixture & Previous intervals & New intervals & Protected proof cells\\
+\midrule
+Two linear-weight gaps, unit background & 568,350 & 10 & 10\\
+45 linear-weight gaps, unit background & 304,486 & 1,394 & 4,095\\
+45 mixed outcomes, unit background & 305,421 & 1,250 & 2,346\\
+Two gaps, varying background & 951,851 & 307,541 & 30,941\\
+45 gaps, varying background & 304,486 & 23,757 & 22,519\\
+45 mixed outcomes, varying background & 305,421 & 24,163 & 27,558\\
+Random control & 308,860 & 308,860 & 33,380\\
+\bottomrule
+\end{tabular}
+\end{center}
+New intervals count all executed full-weight kernel cells, including fallback,
+but exclude the separately displayed protected-core proof cells. The proof
+column sums all attempted cores. Selected-state metadata is not counted again
+as executed cells. Sorting, profile scans, lower-bound contractions, witness
+construction, kernel matrix work, and reconstruction have separate raw
+counters; this table is not a total instruction count. The random control
+fails all ten witnesses and pays additional proof work before fallback.
+
+\paragraph{Matched timings, including failures.}
+Eighty matched trials compare four complete constructors in eight balanced
+orders per fixture: four cyclic rotations and their reversals, not all
+24 permutations. All 320 solves include preprocessing and reconstruction;
+all output costs agree and are directly checked. The default witness mode
+is timed. On M4/Python~3.9.6, median paired runtime ratios to Knuth are:
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+$n$, fixture & Previous core/frontier & New/frontier & New/Knuth\\
+\midrule
+1,024, two gaps, $4n$ & 2.70316 & 0.01539 & 0.01965 \\
+1,024, two gaps, $2n$ & 2.14252 & 2.12346 & 1.08928 \\
+1,024, many gaps, unit background & 1.21361 & 0.03458 & 0.03469 \\
+1,024, mixed outcomes, unit background & 1.47715 & 0.03594 & 0.03472 \\
+1,024, random & 1.58933 & 1.66642 & 1.17777 \\
+1,024, near-uniform & 1.47283 & 1.51952 & 1.06257 \\
+512, geometric & 0.05133 & 0.24322 & 0.29896 \\
+1,024, two gaps, varying background & 3.16889 & 1.23537 & 0.87326 \\
+1,024, many gaps, varying background & 1.53202 & 0.15569 & 0.10279 \\
+1,024, mixed outcomes, varying background & 1.50427 & 0.14830 & 0.11509 \\
+\bottomrule
+\end{tabular}
+\end{center}
+The structured successes coexist with losses on ordinary random inputs.
+The geometric control is about 4.91 times slower than the previous
+core/frontier solver because many failed witnesses precede its inexpensive
+endpoint fallback. Near-uniform inputs have no candidate within the cap,
+but still pay for selection. Sub-unit changes on failed-certificate rows
+must not be interpreted as an algorithmic gain. These instrumented Python
+measurements do not establish production-language superiority.
+
+\paragraph{Full large constructions and a remaining certificate gap.}
+For every $n=2^h$, $3\le h\le16$, the full $\theta=4n$ construction matches
+Equation~\eqref{eq:linear-gap-optimum}, direct evaluation of the entire
+output tree, and an independent four-key cubic core plus the uniform
+payload formula. At $n=65,536$, the optimum is $3,604,381$. The proof core
+and full-weight core each use ten cells and fifteen root candidates. Other
+counts include 196,799 selection-sort comparisons, 131,204 bound-sort
+comparisons, 65,536 bound contractions, 65,535 two-queue comparisons,
+65,532 activations, 65,531 unions, and 65,529 find steps. All 65,536 witness
+keys are constructed and evaluated, then all output payload and core keys
+are constructed. The lower bound is $3,604,482$, giving a certificate margin
+of 101. The full solve took about 0.6574 seconds once, an exploratory timing.
+The previous method was only planned at this size: it rejects the core and
+selects 146,498,625 frontier cells at depth 11. No runtime ratio to that
+unexecuted full solve is claimed.
+
+Failure remains informative. At $n=2048$ and selected gap weight $2n$, the
+exact core-closed cost $71,611$ equals the unrestricted optimum, but the
+exclusion lower bound is only $67,586$; even refinement cannot certify it.
+At weight $n$, the closed candidate costs $61,371$ while the unrestricted
+optimum is $59,332$. Thus some failures reflect a weak certificate and
+others reflect a genuinely suboptimal proposed structure. Improving the
+bound must preserve this distinction.
+
+Raw results and source hashes are in \texttt{core\_exclusion*.json} under
+\texttt{obst/results}. An initial full-harness failure was a metadata bug:
+list-valued fallback fields were passed to arithmetic counter update. Direct
+assignment fixed it, and the final full harness was rerun. A completed
+single-threshold experiment was superseded after it missed several useful
+cores; the published selector and every final result use the bounded
+portfolio. The general subquadratic objective remains unresolved.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
@@ -1861,7 +2112,8 @@ prefix verify the exact additive identity and preserved strict gap.
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
-interval frontiers, dominant-gap separators, joint heavy-outcome cores, global certificates,
+interval frontiers, dominant-gap separators, joint heavy-outcome cores,
+residual exclusion certificates, global certificates,
 and scoped obstructions to depth relaxations. Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
@@ -1911,6 +2163,10 @@ D. C. McDonald. On-line vertex ranking of trees.
 P. Bose, V. Dujmovi\'{c}, M. Javarsineh, and P. Morin.
 Asymptotically optimal vertex ranking of planar graphs. 2022 version.
 \href{https://arxiv.org/abs/2007.06455}{arXiv:2007.06455}.
+\bibitem{huffman}
+D. A. Huffman. A method for the construction of minimum-redundancy codes.
+\emph{Proceedings of the IRE} 40(9), 1098--1101, 1952.
+\href{https://doi.org/10.1109/JRPROC.1952.273898}{doi:10.1109/JRPROC.1952.273898}.
 \end{thebibliography}
 \endgroup
 \end{document}

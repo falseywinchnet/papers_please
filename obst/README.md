@@ -14,11 +14,13 @@ selection by the repository owner. The general research objective is ongoing.
 - [Exact variable mass frontier and uniform-width comparison](MASS_FRONTIER.md)
 - [Dominant-gap separators and local mass frontiers](GAP_SEPARATOR.md)
 - [Joint heavy-outcome cores and protected-height certificate](HEAVY_CORE.md)
+- [Residual-cost core exclusion and linear-weight family](CORE_EXCLUSION.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The input has weights on **both keys and gaps**. The latest constructor certifies a joint core for several heavy outcomes,
+The input has weights on **both keys and gaps**. The latest constructor credits
+a residual search-cost lower bound when certifying a joint core for heavy outcomes,
 then solves the intervening intervals on local mass frontiers. Single-outcome
 separators remain available as fallback. An interior-gap certificate retains both neighboring key
 weights and gives an exact two-orientation cost identity. Static range indexes
@@ -64,6 +66,10 @@ python3 obst/code/separator_obstruction.py
 python3 obst/code/heavy_core.py
 python3 obst/code/benchmark_heavy_core.py
 python3 obst/code/heavy_core_scale.py
+python3 obst/code/check_core_exclusion.py
+python3 obst/code/check_core_exclusion.py --mixed-only
+python3 obst/code/benchmark_core_exclusion.py
+python3 obst/code/core_exclusion_scale.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -191,3 +197,21 @@ against an independent four-key cubic core plus the uniform closed form; its
 exact cost is 1,407,374,885,846,941. The previous 2,147,516,416-cell table was
 only planned, not executed. These scoped results do not complete the general
 subquadratic research objective.
+
+
+`core_exclusion.solve(p,q)` strengthens the fixed-core certificate with a
+lower bound on unavoidable residual search cost. A non-core-closed tree costs
+at least protected_OPT + theta + residual_LB. A protected-optimal core with
+balanced payloads can certify closure before any exact payload solve. The
+optional `refine=True` mode tries one exact closed candidate after all witnesses
+fail. A bounded portfolio of thresholds and reused sorted profiles keep witness
+screening at O(n log n); the general worst case remains quadratic.
+
+On n=2^h>=8, unit background and q_1=q_(n-1)=4n admit O(n log n) construction,
+although the previous height test fails. The exact cost is (2h+23)n-6h-3.
+The full 65,536-key tree costs 3,604,381 and uses ten protected proof cells plus
+ten full-weight core cells. The previous frontier's 146,498,625-cell plan was
+not executed at that size. Nonuniform positive mixed backgrounds are also
+checked, including selected keys as well as gaps. See CORE_EXCLUSION.md for
+proofs, 6,560 full correctness solves, 57 larger fixtures, all 320 matched
+measurements, and the explicit failure on an optimal-but-uncertified 2n-gap core.

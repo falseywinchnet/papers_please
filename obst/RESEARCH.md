@@ -541,6 +541,99 @@ verified byte-identical to the repository TeX and PDF. The checkpoint is being
 published without a claim of general subquadratic complexity or established
 priority; the broad research goal remains active.
 
+## Eleventh checkpoint: residual-cost core exclusion
+
+The preceding goal turn was progress: ab7187d uploaded the joint heavy-outcome
+core theorem, implementation, exact results, and reviewed 29-page TeX/PDF. This
+turn attacks the sufficient condition's excessive charge for light search cost.
+
+For selected weights w_H and residual weights w_0, let P be the protected core
+optimum and B_0 a valid lower bound for the full residual instance. The projection
+lemma gives C_H(T)>=P+theta for every non-core-closed T. Independently
+C_0(T)>=B_0. Thus every excluded tree costs at least P+theta+B_0. A closed witness
+below that bound certifies the existence of a closed global optimum; an exact
+closed candidate below it is globally optimal. This applies to arbitrary
+selected subsets, not only thresholds, and equality is safe.
+
+The default constructs a protected-optimal core with balanced payloads and tests
+its residual cost U_0-B_0<=theta before any exact payload solve. The existing
+mixed-node order-free relaxation supplies B_0; no new Huffman algorithm is
+claimed. For a fixed selected set it is at least as strong as the old height
+test, but candidate selection is not exhaustive. The optional refinement solves
+one exact closed candidate after all witnesses fail. The one-refinement limit
+prevents an extra logarithmic factor in failed exact solve work.
+
+The first prototype chose a single minimum-proxy threshold. Its completed test
+showed that smaller ordinary weights could enter the selected set and defeat
+the certificate even while a heavier threshold worked. The final selector keeps
+two representatives per dyadic core-size band: minimum triangular proxy and
+highest threshold, capped at floor(sqrt(n*ceil(log2(n+1)))) core keys. There are
+O(log n) representatives and the sum of their core-size squares is O(n log n).
+Sorting the original key/gap profiles once permits each residual lower bound in
+linear work by dropping selected entries and appending zeros. Total witness
+screening is O(n log n). A successful plan retains the earlier exact component
+bound. General worst-case work and storage remain quadratic.
+
+The first full harness failed on Counter.update with list-valued fallback
+metadata; direct field assignment fixed it. The entire final harness was rerun.
+Final exact checks: 22,140 exhaustive inputs in {0,1,4}; 17,054 nontrivial
+excluded-class inequalities; 13,669 witness certificates; 15,181 refined
+certificates, including 1,512 rescues. Arbitrary selected subsets with weights
+{1,3} through three keys yielded 14,912 excluded-tree checks. Both kernels and
+both refinement settings passed 6,560 full solves on 1,640 inputs through 40
+keys against independent cubic DP and direct tree costs. All 1,640 portfolios
+matched direct enumeration. There are 48 larger fixtures plus nine independently
+varying positive key/gap background fixtures through 2,048 keys. All final result
+files carry the same solver source hash.
+
+For n=2^h>=8, all original weights one except q_1=q_(n-1)=theta, the protected
+four-key optimum is 5*theta. A specified core and balanced payload have light
+cost U_0=(2h+3)n-6h-3. Using E=I+2n, the residual problem reduces, for its
+order-free lower bound only, to leaf weights two ones and n-1 twos. Huffman
+first merges the ones, then has n equal twos, giving B_0=2nh-n+2. Consequently
+U_0-B_0=4n-6h-5. Linear theta=4n certifies closure although the old height test
+requires (h+4)(2n-1). The full optimum at theta=4n is (2h+23)n-6h-3; the four
+protected-optimal shapes and the cost of every higher protected level justify
+the optimal full-weight core. The algorithm uses O(n log n) work and O(n) space
+on this positive mixed family, with O(log n)-bit intermediate values. This is
+not a lower bound on previous frontier methods, which can omit states here.
+
+Fourteen full constructions, every power of two from eight through 65,536,
+match the closed form, an independent four-key cubic oracle plus the uniform
+payload formula, and direct evaluation of the complete output tree. At 65,536,
+the exact cost is 3,604,381; the excluded-class lower bound is 3,604,482. The
+proof and full-weight cores each have ten cells and fifteen root candidates.
+The entire tree was constructed, in about 0.6574 seconds for one exploratory
+run. The preceding method's 146,498,625 frontier cells were planned only.
+
+The 80 matched trials (320 complete solves) use four cyclic orders and their
+reversals. At n=1024, the new frontier/Knuth-kernel ratios to Knuth are
+0.01539/0.01965 for two gaps of weight 4n, 0.03458/0.03469 for many unit-background
+gaps, and 0.03594/0.03472 for mixed unit-background heavy outcomes. With ordinary
+weights independently in [1,1000] and selected weights 4000n, ratios are
+1.23537/0.87326 for two gaps, 0.15569/0.10279 for many gaps, and 0.14830/0.11509
+for mixed selected outcomes. The random control remains slower than Knuth.
+Geometric screening is about 4.91 times slower than the previous core/frontier
+solver. Failed-certificate ratios below one are not algorithmic successes.
+These are instrumented Python results; practical claims remain scoped.
+
+A precise remaining gap is preserved. At n=2048, heavy gaps of weight 2n have
+closed candidate cost 71,611, exactly the global optimum, but the bound is only
+67,586. At weight n, the closed candidate is suboptimal: 61,371 versus 59,332.
+Independent minima for protected and residual costs can be too optimistic to
+certify a correct structure. A preliminary, unintegrated scalar-peeling probe
+raised the 2n-case bound to 69,612 at peeled weight 3,073, still below 71,611;
+it is not part of the final solver or a claimed resolution. The next research
+target is a tighter coupling of residual costs to the excluded structure,
+including multi-level concentration, not further reliance on overwhelming
+weights. The general subquadratic or impossibility objective remains active.
+
+The revised manuscript is 33 pages, with full proofs, scoped bounds, all timing
+controls, operation-category distinctions, and a citation to Huffman's original
+paper. Credit remains OpenAI Codex Sydney; problem selection and sponsorship
+remain with the repository owner. Priority of the derived certificates remains
+unestablished. Final publication follows rendered-page and remote-blob checks.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the
