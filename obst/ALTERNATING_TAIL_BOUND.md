@@ -185,3 +185,10 @@ full height-seven template with two unit keys. This refutes coefficient
 one for that displayed inequality, but gives no asymptotic upper bound.
 Source hashes and exact inputs are retained in `alternating_tail_bound.json`
 and `periodic_tail_probe.json`.
+
+The subsequent [rank-repair analysis](RANK_REPAIR_BARRIER.md) writes the
+retained-rank term exactly. Rightmost optima eliminate spurious zero-loss
+repairs, but an explicit one-key family defeats even the best certificate
+over all optimal starting witnesses. Its true tail is zero; the repair
+certificate is quadratic in height. An optimal endpoint repair can require
+linearly many alternating components in the capacity.

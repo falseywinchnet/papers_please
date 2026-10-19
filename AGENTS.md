@@ -279,3 +279,21 @@ Alternating-template matching, augmentation, and sharp-scale audit:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/alternating_tail_bound.py
 ```
+
+Retained-rank accounting for endpoint matching repairs:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/rank_matching_repair.py
+```
+
+Rightmost-optimum endpoint repair control:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/rank_matching_repair.py --rightmost
+```
+
+Exact rank-repair barriers and canonical-witness audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/rank_repair_barrier.py
+```

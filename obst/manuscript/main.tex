@@ -1239,7 +1239,9 @@ For higher clipped levels, a matching edge's reward depends on its rank
 among selected edges. Augmentation can change rewards on retained edges;
 Section~\ref{sec:periodic-tail-barrier} gives a small explicit failure of
 \eqref{eq:alternating-endpoint-loss} at level two. That additional rank
-accounting remains necessary for the full ruler tail.
+accounting is exact in Section~\ref{sec:rank-repair-barrier}, which proves
+that even the best single-augmentation certificate can exceed the desired
+tail scale by an unbounded factor. Joint rank changes remain necessary.
 
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
@@ -5275,6 +5277,168 @@ ranks are one through three, giving score one. Thus $\delta=1$ and
 $p_1=0$, but $d\delta=3>S_v(0,10)=2$. Counting only removed edge
 weights misses the changed reward on a retained key.
 
+\subsection{One-augmentation certificates can exceed the tail scale}
+\label{sec:rank-repair-barrier}
+The matching representation extends to any template with
+$v_{2r}=u_r\ge0$ and $v_{2r-1}=0$, where $c=2m+1$. Its score is
+\[
+ S(i,j)=\max\left\{\sum_{r=1}^m p_{a_r}u_r:
+ i+1\le a_1<\cdots<a_m\le j-2,\quad a_{r+1}-a_r\ge2\right\}.
+\]
+For the clipped ruler, $u_r=\min(1+\nu_2(r),t)$.
+Take an optimal matching $A$ on an interval of length $c+d$, $d\ge1$.
+If it avoids edge $i+1$, it remains feasible after shortening the interval
+on the left. Otherwise delete edge $i+1$ and vertex $i+1$. The remaining
+matching has $m-1$ edges and $d+1$ unmatched vertices. As in
+Theorem~\ref{thm:alternating-tail-bound}, each consecutive unmatched pair
+bounds an augmenting path; flipping it gives a feasible matching $B$ of
+size $m$. For removed, added, and retained edge sets $R,N,E$, respectively,
+the exact score loss is
+\begin{align*}
+ F(A)-F(B)={}&p_{i+1}u_1
+ +\sum_{x\in R}p_xu_{\operatorname{rank}_A(x)}
+ -\sum_{x\in N}p_xu_{\operatorname{rank}_B(x)}\\
+ &+\sum_{x\in E}p_x
+ \bigl(u_{\operatorname{rank}_A(x)}-u_{\operatorname{rank}_B(x)}\bigr).
+\end{align*}
+The signed retained-rank term survives even when removed-edge costs are
+disjoint across the candidate paths.
+
+Put $\delta(i,j)=S(i,j)-S(i+1,j)$. Let $\widehat\delta(i,j)$ be the
+smallest loss over all these single-path repairs and over all optimal
+starting matchings. An optimum avoiding $i+1$ is allowed unchanged.
+Then $\widehat\delta\ge\delta\ge0$. For $k=c+d<n$ and $b=n-k$, define
+\begin{equation}\label{eq:rank-repair-certificate}
+ \widehat U_d=\sum_{i=0}^{b-1}\widehat\delta(i,i+k)+S(b,n)-S(0,n)
+ \ \ge\ U_d.
+\end{equation}
+This is the strongest upper certificate obtained by choosing one such
+augmentation independently at each endpoint.
+
+\begin{lemma}[Rightmost witnesses recognize zero endpoint loss]
+\label{lem:rightmost-zero-loss}
+Optimal matching tuples are closed under componentwise minimum and maximum.
+Their unique componentwise-rightmost optimum $A^+$ satisfies
+\[
+ S(i,j)=S(i+1,j)\quad\Longleftrightarrow\quad a^+_1>i+1.
+\]
+\end{lemma}
+\begin{proof}
+Componentwise minimum and maximum preserve gaps of at least two. At each
+rank they merely exchange the two chosen positions, preserving the sum
+of the two objective values. If both original tuples are optimal, both
+new tuples must be optimal. Taking maxima over the finite set gives
+$A^+$, also its lexicographically largest member. When the two scores
+are equal, a shortened optimum is an old optimum avoiding $i+1$; $A^+$
+is at least that tuple coordinatewise. The converse follows by feasibility.
+\end{proof}
+
+\begin{lemma}[An unbounded local repair ratio with a unique optimum]
+\label{lem:unique-rank-repair}
+For every integer $B\ge1$, take $c=7$, $n=10$, $u=(1,2,1)$, and
+$p_2=p_3=2B$, $p_4=B$, $p_6=2B-1$, with other weights zero. Then
+\[
+ \delta(1,10)=1,\qquad \widehat\delta(1,10)=B+1.
+\]
+The old optimal matching is unique.
+\end{lemma}
+\begin{proof}
+Of the ten feasible old matchings, $(2,4,6)$ alone has score $6B-1$.
+All others have score among $4B,2B,6B-2,5B-2$, each at most $6B-2$.
+The four shortened matchings have scores $2B,2B,6B-2,5B-2$; $(3,6,8)$
+attains $6B-2$. After deleting edge two, the unmatched vertices are
+$3,8,9$. The two augmentations give $(3,5,7)$ and $(4,6,8)$, with
+scores $2B$ and $5B-2$. Their best score is $5B-2$, proving the claim.
+\end{proof}
+
+\begin{theorem}[A one-key obstruction to the repair certificate]
+\label{thm:rank-repair-barrier}
+Let $h\ge3$, $C=2^h$, $c=C-1$, $m=C/2-1$, $n=4C$, and $d=C$.
+Put one unit key at $x=C/2+1$ and use the full ruler
+$u_r=1+\nu_2(r)$, with maximum reward $t=h-1$. Then
+\begin{equation}\label{eq:rank-repair-barrier}
+ U_C=0,\qquad \widehat U_C=\frac{(h-2)(h-3)}2.
+\end{equation}
+Rightmost optimal starts attain this minimum certificate. Consequently
+no absolute constant bounds $\widehat U_d/[P(t+(c+1)/d)]$ over all inputs.
+\end{theorem}
+\begin{proof}
+Put $k=2C-1$ and $b=2C+1$. For $i<x$, the positive key's feasible
+matching ranks on $[i,i+k)$ are exactly $1,\ldots,R_i$, where
+\[
+ R_i=\min\left(m,\left\lfloor\frac{x-i+1}{2}\right\rfloor\right).
+\]
+The long suffix leaves room for every such rank. The unique rank with
+maximum ruler reward is $r=2^{\lfloor\log_2R_i\rfloor}$. A rightmost
+optimum is
+\[
+ a_s=\begin{cases}
+ x-2(r-s),&1\le s\le r,\\
+ i+k-2-2(m-s),&r<s\le m.
+ \end{cases}
+\]
+For $i\ge x$, pack all $m$ zero-weight edges against the right boundary.
+The first edge is used precisely at the thresholds
+\[
+ i=x-2r+1,\qquad r=1,2,4,\ldots,2^{h-2}.
+\]
+At every other start this witness survives, so both endpoint losses vanish.
+At a threshold, every optimum puts the positive key at rank $r$, and its
+prefix is forced: exactly enough vertices precede the key for that many
+matching edges. For $r=1$, deleting the first edge deletes the positive
+key, and both losses are one.
+
+For $r\ge2$, the shortened interval's largest feasible rank is $r-1$;
+its unique best ruler rank is $r/2$. The reward falls from
+$1+\nu_2(r)$ to $\nu_2(r)$, giving true loss one. In the old remaining
+matching, only its leftmost vertex is unmatched before the positive key.
+No augmenting path can therefore lie entirely before that key. A path
+crossing the key removes it, giving score zero; every other path lies
+after it and retains it at odd rank $r-1$, giving score one. There is an
+after-key path because only one of the $d+1$ unmatched vertices lies
+before the key, while $d=C\ge8$. Thus every optimal starting matching,
+regardless of its suffix, has best repair loss $\nu_2(r)$.
+
+The full score is $h-1$ and $S(b,n)=0$. The true endpoint losses sum to
+$h-1$, proving $U_C=0$. The best repair losses sum to
+\[
+ 1+\sum_{a=1}^{h-2}a=1+\frac{(h-2)(h-1)}2.
+\]
+Subtracting $h-1$ gives \eqref{eq:rank-repair-barrier}. Since $P=1$ and
+$t+(c+1)/d=h$, the ratio tends to infinity. Multiplying the key weight by
+$n$ gives integer total mass $W=n$ with the same ratio.
+\end{proof}
+
+\begin{corollary}[An optimum can require many alternating components]
+\label{cor:rank-repair-components}
+In Theorem~\ref{thm:rank-repair-barrier}, use the threshold $i=2$, where
+the old positive key has rank $r=C/4$, and delete the first matched edge.
+Relative to the remaining matching, every shortened optimum has at least
+$C/8-1$ cardinality-decreasing alternating components and at least $C/8$
+cardinality-increasing components. Both bounds are attained for the
+rightmost old optimum.
+\end{corollary}
+\begin{proof}
+The positive edge is common to the remaining matching $M$ and every new
+optimum $B$. Its new rank must be $r/2$. Before that common edge, $M$ has
+$r-2$ edges and $B$ has $r/2-1$. Their symmetric-difference components
+cannot cross the common edge; each changes cardinality by at most one.
+At least $r/2-1$ components must decrease cardinality before the key.
+Total cardinality rises by one, requiring at least $r/2$ increasing
+components overall.
+
+For attainment, keep edges $a_{r/2+1},\ldots,a_m$ of the rightmost old
+optimum and insert $x+2,x+4,\ldots,x+r$. These fit between the old prefix
+and suffix. The resulting matching has $m$ edges with the key at rank
+$r/2$, hence is optimal. Relative to $M$, its removed edges
+$a_2,\ldots,a_{r/2}$ and added edges are pairwise nonadjacent. They are
+exactly the claimed decreasing and increasing single-edge components.
+\end{proof}
+The true tail in this family is zero. The obstruction concerns the
+specified local repair certificate; its many zero-weight edge changes
+can potentially be represented together. Continuing the matching route
+requires joint rank changes rather than a bound on one augmentation.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -6556,6 +6720,43 @@ a height-seven template with two unit keys. This disproves coefficient
 one in that inequality but supplies no asymptotic upper estimate.
 The exact weights, seed, counts, and source hashes are retained in
 \texttt{periodic\_tail\_probe.json}.
+
+\section{Rank-weighted repair certificates and exact barriers}
+\label{app:rank-repair-barrier}
+The paired canonical diagnostics each evaluate 7225 inputs, including
+all ternary interior vectors on ten positions and structured, random,
+and sparse inputs through 64 positions. Each run has 6976 independent
+generic-subsequence controls, 224,622 endpoint checks, and 26,402 global
+certificate checks. The leftmost run explicitly constructs 1,385,304
+repair paths and finds 13,185 losses strictly above the true loss; the
+rightmost run constructs 546,117 paths and finds 7087 strict losses.
+Every path is checked for feasibility, cardinality, and its full signed
+retained-rank accounting. The records are
+\texttt{rank\_matching\_repair.json} and
+\texttt{rightmost\_rank\_repair.json}.
+
+The separate exact-family audit checks 3786 zero-loss equivalences on
+306 inputs, and 16 instances of Lemma~\ref{lem:unique-rank-repair},
+including weights above $2^{64}$, against 160 literally enumerated old
+matchings and independent shortened scores. For
+Theorem~\ref{thm:rank-repair-barrier}, heights three through ten give
+4088 explicit rightmost boundary witnesses and repair-loss formulas,
+225 independent scalar-DP witness controls, and eight complete certificate
+formulas. Every optimal starting matching is enumerated at both
+height-three thresholds and the largest height-four threshold, giving
+1023 checks of tie-independent loss; the two height-three optimum sets
+are also checked by literal enumeration without a forced-prefix assumption.
+There are 32,352 explicitly checked repair paths in this family audit.
+
+Full generic subsequence tables independently give zero true tails
+through height five. Eight explicit constructions check the exact
+component counts of Corollary~\ref{cor:rank-repair-components}. Larger
+rows at heights 16, 32, 64, and 128 evaluate only the proved formulas.
+The independent scalar controls use 41,799,787 transitions; the generic
+controls use 225,793 candidate transitions and 6637 scores. Exact inputs,
+operation counts, and executed-source hashes are retained in
+\texttt{rank\_repair\_barrier.json}. The finite runs audit the proofs;
+the unbounded ratios follow from the displayed families.
 
 \clearpage
 \begingroup\small

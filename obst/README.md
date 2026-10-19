@@ -19,6 +19,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Explicit two-key disproof of logarithmic interaction allowances](SPARSE_INTERACTION_BARRIER.md)
 - [Coupled rank-reward stability and periodic clipping obstruction](RANK_REWARD_STABILITY.md)
 - [Alternating-tail matching bound and exact growing-width families](ALTERNATING_TAIL_BOUND.md)
+- [Rank-weighted repair certificates and tie-independent barriers](RANK_REPAIR_BARRIER.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -89,8 +90,13 @@ their disjoint matched-edge costs give the 1/d factor. Both P and Pc/d
 are necessary. K unit keys at spacing three have an exact tail near c/2
 at d=K, including K near sqrt(c). See
 [the matching proof and sharp scales](ALTERNATING_TAIL_BOUND.md).
-Higher clipped levels change rewards on retained matching edges and still
-need a separate argument.
+Higher clipped levels change rewards on retained matching edges. The exact
+accounting now gives a [tie-independent repair barrier](RANK_REPAIR_BARRIER.md):
+with one unit key, the true tail is zero but even the best one-augmentation
+certificate equals (h-2)(h-3)/2, against target scale h. At one endpoint,
+an optimum requires 2^(h-3) augmenting components and one fewer decreasing
+components. This route needs joint rank changes; the actual tail target
+remains open.
 
 The sharper time bound charges each individual outcome weight to covering
 tiles and sums their geometrically spaced layer boundaries. It proves total

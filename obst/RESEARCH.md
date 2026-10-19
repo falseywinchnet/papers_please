@@ -2523,3 +2523,80 @@ audit, and dedication pages also received detailed visual inspection.
 All 57 legacy labels, references, the title asterisk, sponsor attribution,
 and verbatim final dedication are preserved. The stable TeX/PDF files and
 complete source/font archive are refreshed for publication.
+
+## Checkpoint 36: exact rank accounting and a tie-independent repair barrier
+
+The preceding turn was progress: an exact matching augmentation proof settled
+the alternating upper tail, including both sharp scales. This turn pursued
+higher ruler rewards by recording the signed reward change of every retained
+edge during an endpoint augmentation.
+
+The representation remains exact: the even-rank rewards of a length-2m+1
+subsequence are rank-dependent rewards on an m-edge path matching. The loss
+of an augmentation is the deleted first-edge reward, plus removed-edge
+rewards, minus added-edge rewards, plus the signed changes on retained edges.
+The new diagnostic checks that identity literally for every candidate repair.
+Each canonical run evaluates 7225 inputs, with 6976 generic-subsequence
+controls, 224622 endpoint checks, and 26402 global repair certificates.
+Leftmost starts yield 1385304 paths and 13185 strictly excessive local losses;
+rightmost starts yield 546117 paths and 7087 strictly excessive losses.
+
+There is a useful positive canonical lemma: optimal matching tuples form a
+lattice under componentwise min/max, and their rightmost member avoids the
+first edge exactly when the true endpoint loss is zero. Thus rightmost
+choices eliminate spurious repair charges at zero-loss endpoints. This
+explains why the canonical runs differ without treating a measured difference
+as a theorem about the nonzero losses.
+
+A unique-optimum local family settles the latter issue. With u=(1,2,1),
+p_2=p_3=2B, p_4=B, p_6=2B-1, and old interval [1,10), its unique optimum
+is (2,4,6), score 6B-1. The shortened optimum (3,6,8) has score 6B-2.
+The two available augmentations score 2B and 5B-2. Actual endpoint loss
+is one while the best single augmentation loses B+1 for every B>=1.
+
+The stronger global family uses C=2^h, c=C-1, n=4C, d=C, and one unit key
+at x=C/2+1. Its true upper tail is zero, but the smallest endpoint-repair
+certificate over all optimal old matchings and single augmentations is
+(h-2)(h-3)/2. Rightmost optima attain this minimum. The unique optimal key
+rank changes at i=x-2r+1 for powers r=1,2,...,2^(h-2). Each true loss is
+one. At r>=2 the forced dense prefix permits no augmenting path before the
+key: crossing it removes it, and repairing after it leaves odd rank r-1.
+Every optimal starting matching therefore has best repair loss nu_2(r).
+Summing these losses and subtracting the full score h-1 proves the formula.
+The target scale P(t+(c+1)/d) is h, so the certificate ratio diverges.
+Multiplying the unit weight by n gives W=n and the same ratio.
+
+At the largest threshold, r=C/4, an optimal shortened matching places the
+positive key at rank r/2. Its symmetric difference from the old remaining
+matching must contain at least C/8-1 decreasing and C/8 increasing
+alternating components. Counting edges before the shared positive edge
+proves the lower bound. Explicitly removing the first C/8-1 remaining
+zero-weight edges and inserting C/8 zero-weight edges after the key attains
+it for a rightmost old witness. These component counts do not imply a
+running-time lower bound; a compressed operation might shift many zero
+edges at once. They rule out a bounded-component local repair continuation.
+
+The independent exact-family audit checks 3786 canonical zero-loss statements
+on 306 inputs, 16 unique-optimum parameter instances with 160 literal old
+matchings, 4088 boundary witnesses and loss formulas through height ten,
+and 225 independent scalar-DP witnesses. It enumerates all optimal old
+matchings at both height-three thresholds and the largest height-four
+threshold, giving 1023 tie-independent repair checks; the two smallest
+optimum sets also agree with unrestricted literal enumeration. The audit
+constructs 32352 repair paths and eight exact many-component optima. Full
+generic subsequence tables verify the zero true tails through height five;
+larger rows through height 128 are explicitly formula-only. Source hashes
+match the completed Mini runs. No timing or fitted exponent is used.
+
+The manuscript groups the new results in Section 5.13 and puts finite
+counts in Appendix L. The main Monge construction and core-size bounds are
+unchanged. The wider clipped tail and below-capacity mixed tail remain open;
+the next matching route must allow joint or compressed rank shifts rather
+than bounding this single-augmentation certificate.
+
+The 102-page manuscript compiles without warnings. All pages were rendered
+for contact-sheet inspection; the new section, appendix, and final dedication
+received detailed visual review. All 57 legacy labels and all references
+resolve. The title asterisk, Joshuah Rainstar attribution, and verbatim final
+dedication are preserved. Stable TeX/PDF outputs and the complete source/font
+archive are refreshed for publication.
