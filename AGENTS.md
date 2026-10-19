@@ -440,3 +440,14 @@ This audit distinguishes finite-completion controls, independent subsequence
 DP, original mixed BST layers, and larger formula/product checks. Its dense
 rank-transfer family is not a counterexample to the original interval-core
 hypothesis. Copy its JSON result back before the next mirror operation.
+
+Unimodal-key domination, all above-capacity cores, and symbolic window queries:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/unimodal_above_audit.py
+```
+
+The exhaustive majorization controls use arbitrary nonnegative reward templates,
+separately from the original mixed all-root recurrence. Larger rows construct
+all sparse above-capacity cores and have sampled literal window controls; they
+do not claim large all-root references. Copy the JSON before another mirror.

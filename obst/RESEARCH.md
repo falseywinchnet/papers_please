@@ -3356,3 +3356,97 @@ references resolve. The dedication source is byte-identical. The final audit
 manifest matches every executed source. Stable TeX and PDF copies match the
 manuscript byte for byte, and the five-member source archive includes the
 matching TeX, build instructions, Hebrew font, license, and font README.
+
+
+## Checkpoint 45: a near-linear unimodal construction and exact certified spans
+
+Checkpoint44 was progress: it extended finite rank transfers to arbitrary
+key weights and proved two dense-transfer barriers. This turn returned to
+original interval coordinates and sought a structured representation of
+cores rather than listing dense rank-transfer supports.
+
+The key new lemma is elementary and stronger than binary saturation. Every
+subsequence of a unimodal weight word is componentwise dominated by a
+contiguous word of the same length. With b selected positions at or before
+a peak z, compress those to end at z and the rest to start at z+1. Every
+coordinate moves toward the peak inside a monotone side. This holds for
+arbitrary nonnegative reward templates, not only ruler rewards.
+
+Consequently, on any unimodal key interval above capacity, the optimal
+c-subsequence ruler score is the maximum of contiguous window values B_h.
+The window envelope has exactly the strict nonadjacent visibility core,
+with pair (a,b) mapping to original cell (a,c+b-1). Thus globally unimodal
+key inputs have at most max(0,n-c-1) above-capacity entries per layer and
+at most 2s-1 per above-capacity square. Key weights may be unequal real
+numbers; gap weights are arbitrary nonnegative reals and cancel from the
+ordinary densities. The existing isolated-unit-key family attains a ratio
+tending to one in the global bound.
+
+All window arrays are constructed jointly using
+
+    B_h(a)=B_(h-1)(a)+B_(h-1)(a+2^(h-1))+(h-1)p_(a+2^(h-1)-1).
+
+There are O(n) entries per layer and O(log(n+1)) layers. Visibility stacks
+construct all their cores in O(n log(n+1)) work and space. Maximum segment
+trees preserve that preprocessing bound and give O(log(n+1)) exact interval
+queries, including an implicit contiguous optimal selected-block witness.
+Emitting the c keys or perfect partial skeleton has O(c) output work.
+The component does not claim to solve the below-capacity mixed region.
+
+For arbitrary input weights, the same construction is an upper envelope
+for original layer costs. A one-scan index records the latest decrease
+followed by an increase and tests interval unimodality in O(1) time. Filter
+the envelope's O(n) core entries by unimodality of their outer interval.
+This recovers every positive original density with a certified outer span,
+not merely a sufficient subset of those positive densities. It also gives
+the 2s-1 local tile charge whenever the tile's full key span is unimodal.
+The unhandled above-capacity cells necessarily span a weight valley.
+
+The correction E=S-S_hat is nonnegative in value but has both density signs.
+At capacity seven, binary words (0,0,0,1,0,0,0,1,0) and
+(0,0,0,1,0,0,1,0,0,0) give correction corners (0,1,0,0) and (1,1,0,1),
+respectively. Their densities are +1 and -1. The score tables have direct
+proofs from selected ranks in (0,1,0,2,0,1,0). Concatenating the two words
+gives both signs in one binary input by interval locality. This preserves
+the exact remaining obligation instead of assuming a Monge residual.
+
+The harness first exhausted the domination lemma and checked all original
+above-capacity values and support sets on mixed unimodal inputs. It then
+added arbitrary-input certificate/envelope controls and found the two signs.
+The first negative-density witness used general integer weights; a final
+expanded binary search replaced it by the ten-key binary word above. All
+final audits were rerun against the final source, with exact arithmetic.
+
+Final verification exhausts 920 unimodal ternary words through eight keys,
+136802 subsequences, and 1589 arbitrary reward-template controls. Original
+recurrences on 236 mixed inputs through 32 keys check 31438 interval values
+and witnesses, 560 complete support sets, 24032 densities, and 99398 squares.
+Those recurrences use 565705 root candidates and 65081 states. The separate
+arbitrary-input audit has 1636 inputs, 101300 independent span decisions,
+200892 upper-cost inequalities, 91143 exact certified intervals, 130408
+envelope densities, 38221 certified original densities, and 4988 support sets.
+It uses 2345440 original candidates and 435040 states. Eight literal score
+controls from 253 subsequences verify both signed-correction tables.
+
+Fourteen larger sparse constructions reach 65536 keys. Their 1168 sampled
+literal windows and 2780 local square counts are separately labeled; they
+do not have large all-root references. Five isolated-key cases also match
+the sharp exact formula. At 65536 keys both fixtures construct 917538 ruler
+windows and perform 983026 range-tree build-node operations. The isolated
+peak outputs 65294 entries across all layers; the irregular rational mountain
+outputs 1201. No timing or fitted exponent supports the bounds.
+
+The new positive construction is in Section 2.16, its signed-correction
+barrier in Section 5.21, and verification in Appendix U. The complete
+standalone argument is UNIMODAL_ENVELOPE.md. The main full mixed-weight
+bound is unchanged. Further progress must address the below-capacity mixed
+region or the signed interactions across nonunimodal spans.
+
+Publication validation: the final manuscript compiles cleanly to 128 pages.
+All 342 previous labels remain among 352 unique labels, and every reference
+resolves. All pages were rendered and inspected in contact sheets; the new
+proof on pages 26--27, signed-correction argument on page 96, audit on page
+126, and unchanged final dedication on page 128 received detailed review.
+The final audit's four source hashes match the committed source candidates.
+The stable PDF and TeX exports are byte-identical to the manuscript, and
+the five-member source archive was rebuilt and checked member by member.

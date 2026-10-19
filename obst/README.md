@@ -28,6 +28,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact binary-block dilation and the replication barrier](BINARY_DILATION.md)
 - [Linear one-block core construction and local boundary charge](PLATEAU_CORE.md)
 - [Complete two-block above-capacity cores and a finite band factorization](TWO_BLOCK_CORES.md)
+- [Unimodal above-capacity cores and certified spans in arbitrary inputs](UNIMODAL_ENVELOPE.md)
 - [Arbitrary-key rank transfers and exact dense-core barriers](RANK_TRANSFER_BARRIER.md)
 - [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
@@ -58,6 +59,23 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+All above-capacity cores for **arbitrary unimodal key weights** now have an
+[O(n log(n+1)) total constructor](UNIMODAL_ENVELOPE.md), including unequal
+real weights, arbitrary nonnegative gaps and every endpoint cut. Each layer
+has at most max(0,n-c-1) entries, and every above-capacity side-s square has
+at most 2s-1. Every subsequence of a unimodal weight sequence is componentwise
+dominated by a contiguous block. The original scores therefore become range
+maxima of ruler-weighted windows, constructed for every layer by a dyadic
+recurrence. The leading global support coefficient one is sharp.
+
+The same window envelope is useful on arbitrary key inputs. A linear scan
+supports constant-time interval-unimodality tests, and filtering its sparse
+cores recovers every original density with a unimodal outer span. It also
+certifies the 2s-1 local bound for those tiles. The remaining nonnegative
+value correction has both density signs, already on two small binary words;
+concatenating them gives one input with both signs. The below-capacity mixed
+region and interactions across uncertified spans remain open.
 
 The finite-product method now has an [exact arbitrary-key rank-transfer
 representation](RANK_TRANSFER_BARRIER.md). A constant-weight run is a band

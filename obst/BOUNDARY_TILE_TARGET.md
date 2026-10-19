@@ -59,6 +59,16 @@ proving a uniform boundary charge from the band factorization alone. They
 do not disprove (1): the first family has quadratic total integer mass and
 uses transfer coordinates; the second lacks the specific ruler rewards.
 
+A [unimodal-span certificate](UNIMODAL_ENVELOPE.md) now proves the stronger
+bound K(T)<=2s-1 whenever an above-capacity tile's outer key span is unimodal,
+with arbitrary real weight magnitudes and arbitrary nonnegative gap weights.
+An O(n) index tests any span in O(1) time. A global contiguous-window envelope
+has O(n) core entries per layer and recovers every original positive density
+whose outer span passes the test, in O(n log(n+1)) total work. For globally
+unimodal keys this is the entire above-capacity core. The remaining value
+correction is nonnegative but has both density signs on explicit binary
+inputs, so it does not directly inherit the Monge product interface.
+
 ## A proved logarithmic-side bound for one key
 
 **Lemma.** If exactly one key has positive weight and all gaps have weight

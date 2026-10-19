@@ -1746,6 +1746,137 @@ the whole above-capacity side. Unequal positive block weights, additional
 blocks, and the below-capacity mixed core remain open cases of the general
 size problem.
 
+\subsection{Unimodal key weights and a sparse window envelope}
+\label{sec:unimodal-envelope}
+A single peak admits a stronger reduction than the constant-block argument.
+Here unimodality is in the original key order: weights are nondecreasing up
+to a peak and nonincreasing afterward. No keys are reordered.
+
+\begin{lemma}[Contiguous domination]
+\label{lem:unimodal-domination}
+Every $t$-element subsequence of a unimodal sequence is componentwise
+dominated by a contiguous $t$-element block. Consequently, for every
+nonnegative reward vector $v_1,\ldots,v_t$ and unimodal $x_0,\ldots,x_{k-1}$,
+\[
+ \max_{i_1<\cdots<i_t}\sum_{r=1}^t v_rx_{i_r}
+ =\max_{0\le a\le k-t}\sum_{r=1}^t v_rx_{a+r-1}.
+\]
+\end{lemma}
+\begin{proof}
+Choose a peak $z$ and let $b$ selected indices lie at or before $z$.
+Move those indices to $z-b+1,\ldots,z$, and the remaining indices to
+$z+1,\ldots,z+t-b$. There are enough positions on each side because the
+original subsequence already used that many. Each left index moves right
+inside the nondecreasing part; each right index moves left inside the
+nonincreasing part. Every selected value weakly increases, in the same
+order. The new positions are contiguous, including the cases $b=0$ and
+$b=t$. The empty subsequence is immediate.
+\end{proof}
+
+For arbitrary key weights and capacity $c=2^h-1\le n$, define
+\begin{align}
+ B_h(a)&=\sum_{r=1}^c p_{a+r-1}\nu_2(r),\qquad 0\le a\le n-c,
+ \label{eq:unimodal-windows}\\
+ \widehat S_h(i,j)&=\max_{i\le a\le j-c}B_h(a),\qquad j-i\ge c,
+ \nonumber\\
+ \widehat A_h(i,j)&=M(j-i-c)+hW(i,j)-\widehat S_h(i,j).
+ \label{eq:unimodal-envelope}
+\end{align}
+A contiguous selected block is feasible, so $\widehat A_h\ge A_h$.
+Whenever $p[i:j]$ is unimodal, Lemma~\ref{lem:unimodal-domination} gives
+equality. This identity includes arbitrary nonnegative gap weights through
+$W(i,j)$.
+
+\begin{theorem}[All above-capacity cores for unimodal keys]
+\label{thm:unimodal-above}
+With a valid terminal penalty, for arbitrary nonnegative unimodal key weights
+and arbitrary nonnegative gap weights, a layer's entire ordinary core strictly above capacity has at
+most $\max(0,n-c-1)$ entries. Every $s\times s$ square wholly above
+capacity has at most $2s-1$ entries. The global leading coefficient one is
+asymptotically sharp. All above-capacity cores over every layer with $c\le n$,
+including their values, can be constructed in $O(n\log(n+1))$ arithmetic
+work and space. The same preprocessing supports an exact layer-value query
+and identifies an optimal contiguous selected block for any interval of
+length at least $c$, in $O(\log(n+1))$ time.
+\end{theorem}
+\begin{proof}
+For $j-i>c$, put $a=i$, $b=j-c+1$, and
+$Q=\max_{a<t<b}B_h(t)$. The affine terms in
+\eqref{eq:unimodal-envelope}, including every gap contribution, cancel.
+Four range maxima give
+\begin{equation}\label{eq:unimodal-visibility}
+ D_{\widehat A_h}(i,j)
+ =\max\{0,\min(B_h(a),B_h(b))-Q\}.
+\end{equation}
+These are exactly the nonadjacent strict visibility pairs of the
+$N=n-c+1$ window values, with mapping
+\[
+ (a,b)\longmapsto(i,j)=(a,c+b-1).
+\]
+Every such pair maps to a valid above-capacity cell. The noncrossing count
+in Lemma~\ref{lem:range-max-visibility} gives at most $\max(0,N-2)$ entries.
+A side-$s$ square maps to two ordered disjoint endpoint ranges, each with
+at most $s$ indices. The neighbor-span argument of
+Corollary~\ref{cor:plateau-square} gives $2s-1$ entries there.
+Global unimodality makes $A_h=\widehat A_h$ on all four corners, proving
+both original-core bounds.
+For sharpness, let $C=2^h$, $n=2C$, and put a unit key at zero-based
+position $C+1$. The one-key count in
+Theorem~\ref{thm:plateau-above-core} is $C-2h$, whereas $n-c-1=C$.
+Their ratio tends to one.
+
+For construction initialize $B_0(a)=0$, $0\le a\le n$.
+Writing $d=2^{h-1}$, the two copies of the preceding ruler word give
+\begin{equation}\label{eq:unimodal-window-recurrence}
+ B_h(a)=B_{h-1}(a)+B_{h-1}(a+d)+(h-1)p_{a+d-1}.
+\end{equation}
+There are $O(n)$ entries at each of $O(\log(n+1))$ relevant layers.
+The visibility stack constructs every layer's coordinates and densities
+in $O(n)$ work. It pushes each index once and pops it at most once.
+Thus all cores take $O(n\log(n+1))$ work, without an interval-pair scan.
+For each $B_h$, a maximum segment tree retains the earliest maximizing
+window start. Its linear preprocessing preserves the construction bound;
+a range query costs $O(\log(n+1))$. Prefix sums give $W(i,j)$ in constant
+time. The returned start identifies a contiguous optimal selected block;
+emitting its $c$ keys or perfect partial skeleton takes $O(c)$ additional
+output work. Keeping all arrays, query trees and cores uses
+$O(n\log(n+1))$ space.
+\end{proof}
+
+\begin{corollary}[Certified exact spans in arbitrary inputs]
+\label{cor:unimodal-certified}
+For arbitrary nonnegative key and gap weights, all positive above-capacity
+original densities whose outer key interval is unimodal can be listed in
+$O(n\log(n+1))$ work and space over all layers. After $O(n)$ preprocessing,
+unimodality of an interval can be tested in $O(1)$ time. In particular,
+an above-capacity tile $[a,a+s)\times[b,b+s)$ whose key span $[a,b+s)$
+is unimodal has at most $2s-1$ original positive densities.
+\end{corollary}
+\begin{proof}
+Put $\Delta_t=p_{t+1}-p_t$ and let
+\[
+ V_t=\max\{u:u<v\le t,\ \Delta_u<0,\ \Delta_v>0\},
+\]
+using $-1$ for an empty set. Maintain the last negative-difference index
+and update $V$ whenever a positive difference occurs. This computes all
+$V_t$ in one scan. An interval $[i,j)$ is unimodal exactly when
+$j-i\le1$ or $V_{j-2}<i$: a decrease followed by a later increase is
+precisely a violation, including intervening flat positions.
+
+Construct the global envelope \eqref{eq:unimodal-envelope} for the arbitrary
+input. Equation~\eqref{eq:unimodal-visibility} still gives at most $O(n)$
+entries per layer. Filter its cell $(i,j)$ by the unimodality of $[i,j+1)$.
+On every retained outer span, all four corner intervals have exact envelope
+values. Conversely, any positive original density with such an outer span
+must occur in the envelope core. Thus filtering gives the complete claimed
+set. If a tile's whole key span is unimodal, the same equality holds at
+every corner in it, and the local visibility count applies.
+\end{proof}
+This supplies the boundary charge on certified spans even when the full
+input has many peaks. Positive cells outside this certified part require a
+nonunimodal outer span. The remaining interactions and the below-capacity
+mixed region still require separate size bounds.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -6484,6 +6615,43 @@ special ruler block rewards. Therefore a boundary charge uniform in the
 number of binary blocks must use further ruler structure; narrow bands and
 finite Monge factors alone do not establish it.
 
+\subsection{The window-envelope correction has both density signs}
+\label{sec:window-envelope-correction}
+The envelope in Corollary~\ref{cor:unimodal-certified} has linear core
+size per layer, but its remaining correction does not inherit a Monge sign.
+Let $E_h=S_h-\widehat S_h=\widehat A_h-A_h\ge0$.
+At $h=3$, $c=7$, consider the binary key words
+\[
+ p^+=(0,0,0,1,0,0,0,1,0),\qquad
+ p^-=(0,0,0,1,0,0,1,0,0,0).
+\]
+Use cell $(0,8)$ for $p^+$ and $(0,9)$ for $p^-$.
+In corner order $(i,j),(i,j+1),(i+1,j),(i+1,j+1)$, their exact scores are
+\[
+\begin{array}{c|c|c|c|r}
+ &S_h&\widehat S_h&E_h&D_{E_h}\\\hline
+ p^+&(2,3,0,2)&(2,2,0,2)&(0,1,0,0)&1\\
+ p^-&(3,3,1,3)&(2,2,1,2)&(1,1,0,1)&-1
+\end{array}
+\]
+To verify the table directly, the reward word is $(0,1,0,2,0,1,0)$,
+so two unit keys score at most three. For $p^+$ the full interval attains
+three at selected ranks $(4,6)$; its seven-key middle interval forces
+$(3,7)$ and scores zero. Its two eight-key intervals attain two, and
+neither can give a reward-two rank to one key while also rewarding the
+other. For $p^-$, the two left intervals attain three at $(4,6)$, and
+the right nine-key interval attains three at $(2,4)$. In its right
+eight-key interval, deleting one key leaves positive ranks only in
+$(2,5)$, $(3,5)$, $(3,6)$, or deletes a positive key, so the maximum
+is one. Direct contiguous-window evaluation gives $\widehat S_h$.
+
+Concatenating the two words gives a single binary input with both signs,
+at cells $(0,8)$ and $(9,18)$, by interval locality. Arbitrary gap weights
+cancel from the correction. Thus the remaining correction can be neither
+Monge nor anti-Monge, despite its nonnegative values. A general construction
+must control these signed interactions rather than apply the published
+Monge product to the correction without an additional argument.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -8292,6 +8460,48 @@ The record is \texttt{rank\_transfer\_audit.json}. It preserves exact
 operation counts and executed-source SHA-256 manifests. These finite
 checks verify the implementations and identities at the recorded sizes;
 the dense families and construction bounds follow from the proofs.
+
+
+\clearpage
+\section{Unimodal domination and certified-envelope audit}
+\label{app:unimodal-envelope}
+The audit exhausts 920 unimodal words over $\{0,1,2\}$ through eight keys
+and checks all 136,802 nonempty subsequences for componentwise domination
+by the constructed contiguous block. Its independent definition rejects
+8920 nonunimodal words. Another 1589 nonnegative reward-template controls,
+from 12,864 literal subsequences, check the optimization identity without
+assuming ruler rewards.
+
+On 236 mixed inputs through 32 keys, including monotone, constant, isolated
+peak, geometric, irregular unimodal and rational weights, the original
+all-root recurrence checks 31,438 interval values and contiguous witnesses,
+560 complete above-capacity support sets, and 24,032 densities. All 99,398
+eligible small square controls satisfy $2s-1$. The original recurrence
+uses 565,705 root candidates and 65,081 states.
+
+The arbitrary-input audit includes every binary word at nine and ten keys,
+plus 100 random mixed inputs through 32 keys, totaling 1636 inputs.
+It independently checks 101,300 interval-unimodality decisions, 200,892
+upper-cost inequalities, 91,143 certified exact interval values, and
+130,408 envelope densities. The original recurrence checks 38,221 exact
+certified densities and 4988 certified support sets, using 2,345,440 root
+candidates and 435,040 states. The two signed-correction examples have eight
+literal score controls from 253 subsequences, separate from those recurrence
+checks.
+
+Fourteen larger sparse constructions reach 65,536 keys. They have 1168
+sampled literal ruler-window controls and 2780 constructed local-square
+controls; five single-key rows also match the sharp closed-form count.
+They do not have original all-root layer references at those sizes.
+At $n=65,536$ both fixtures perform 917,538 ruler-window updates and
+983,026 range-tree build-node operations. The isolated-peak input outputs
+65,294 core entries across all layers, and the irregular rational mountain
+outputs 1201. All entries are constructed without scanning interval pairs.
+
+The record is \texttt{unimodal\_above\_audit.json}. It retains exact operation
+counts, both signed-correction witnesses, verification scopes, and the final
+executed-source SHA-256 manifest. The support and work bounds follow from
+contiguous domination, the ruler recurrence and visibility geometry.
 
 \clearpage
 \begingroup\small
