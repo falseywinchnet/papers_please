@@ -18,14 +18,15 @@
 \maketitle
 \begin{abstract}
 We investigate exact optimal binary search trees with ordered weights on
-both keys and gaps. All additive weight transfers preserving relative tree
-costs reduce to one interior shift and two endpoint prices. Exact bounded
-pricing strengthens an alphabetic certificate in $O(n\log^2 n)$ arithmetic
-work; a positive family with almost all keys and all gaps distinct certifies
-in one $O(n\log n)$ call. A four-key instance proves that optimizing every
-such transfer still cannot make this separable bound universally exact.
-Earlier shifted certificates handle positive trees with linear original
-key-capacity deficit, and threshold-gap/Cartesian certificates give linear
+both keys and gaps. A root/nonroot case partition couples a heavy key's
+position to alphabetic gap costs. Three alphabetic constructions give an
+$O(n\log n)$ full certificate, including a positive family with almost all
+keys and all gaps distinct that defeats every bound in the preceding additive
+separable class. All additive transfers preserving relative tree costs reduce
+to one interior shift and two endpoint prices; exact bounded pricing gives an
+$O(n\log^2 n)$ certificate, but a four-key instance proves a strict gap even
+after maximizing over that entire class. Root/nonroot coupling closes that
+gap. Earlier shifted and threshold-gap/Cartesian certificates give fast full
 construction on other multilevel families. All original mixed weights remain
 in the objective; rejection uses exact fallback. These are exact shortcuts
 and scoped representation barriers, not general computational lower bounds.
@@ -5039,6 +5040,201 @@ under load are not precise isolated-machine measurements. The proofs
 and counters establish scaling; the raw timings include full pricing,
 rejection, fallback, and reconstruction.
 
+\section{Root/nonroot coupling beyond the transfer barrier}
+The four-key obstruction in Theorem~54 loses the coupling between one residual
+interior key and the surrounding gap tree. A partition by the identity of the
+root retains part of that coupling at the cost of two additional alphabetic
+constructions. It applies to arbitrary mixed input weights; successful
+certification, rather than the validity of the bound, is conditional.
+
+\begin{theorem}
+Let $n\ge2$, let $r$ index a largest key weight $w=p_r$, and put
+$v=\max_{i\ne r}p_i$, $P=\sum_i p_i$, and $Q=\sum_j q_j$. Define
+\begin{align*}
+N_r&=K(p)+A(q)+w-v,\\
+R_r&=P+Q+K(p_{[0,r)})+K(p_{(r,n)})
+              +A(q_{[0,r]})+A(q_{[r+1,n]}).
+\end{align*}
+Then
+\[
+ K(p)+A(q)\ \le\ \min(N_r,R_r)\ \le\ \OPT(p,q).
+\]
+Here $K$ is the free key-capacity bound and $A$ the exact alphabetic gap optimum;
+empty key subvectors have bound zero.
+\end{theorem}
+\begin{proof}
+If the root is not $r$, let its weight be $u\le v$, and let the comparison
+length of $r$ be $\ell\ge2$. Exchanging those two weights reduces the key
+cost by $(w-u)(\ell-1)\ge w-v$. The exchanged cost is at least $K(p)$,
+so the original key cost is at least $K(p)+w-v$. Adding $A(q)$ proves $N_r$.
+The exchange is solely a lower-bound argument; it does not change the ordered
+input or construct a different search tree.
+
+If the root is $r$, the recurrence pays $P+Q$ and the two ordered subproblem
+costs. Bounding their keys and gaps separately gives $R_r$. These cases
+partition all trees. Moreover, the root-constrained free key placement costs
+at least $K(p)$, and the root-constrained alphabetic tree costs at least
+$A(q)$. Hence each case bound dominates the original separable bound.
+\end{proof}
+
+The implementation first applies Theorem~52 with
+$a=\min_{1\le i<n-1}p_i$ and endpoint residuals
+$x=\max(0,p_0-a)$, $y=\max(0,p_{n-1}-a)$. It subtracts $an$ from transformed
+bounds and evaluates every candidate using the original mixed weights.
+One alphabetic call constructs the global gap optimum. A single decreasing
+key sort supplies $K$ and, by scanning its left and right subsequences,
+both conditional capacity sums. If the global candidate already meets
+$K+A$, the attempt ends. Otherwise two alphabetic calls construct the gap
+optima on either side of $r$, and a second candidate joins them at root $r$.
+The smaller original candidate cost is compared with $\min(N_r,R_r)-an$.
+Equality certifies full optimality.
+
+At most three alphabetic calls process a total of $2(n+1)$ leaves. Sorting,
+normalization, rebasing, reconstruction, and cost evaluation give
+$O(n\log(n+1))$ arithmetic work and $O(n)$ space for the complete attempt.
+The constant-size $n<3$ case is solved directly. Rejection uses Knuth and
+retains the unrestricted quadratic worst case. The fixed endpoint choice
+need not preserve certificates found at another price; the preceding solvers
+remain separate and unchanged.
+
+For Theorem~54, normalization gives $p'=(0,0,1,0)$ and
+$q'=(2,3,2,2,2)$ with additive constant four. Here $K=1$, $A=26$,
+$r=2$, and both $N_r$ and $R_r$ equal 28. The new original bound is therefore
+24, exactly the full optimum, while the maximum over the entire preceding
+transfer class is 23.
+
+\subsection{A positive family outside every separable additive transfer}
+\begin{theorem}
+Let $h\ge3$, $N=2^h$, $n=N-1$, and let
+$\ell_i=h-\nu_2(i+1)$ be the perfect tree's key comparison lengths. Put
+\[
+ r=N/4-1,\qquad s=N/2-1,\qquad C=4hN,\qquad w=hN^2/2.
+\]
+Initially set $p_i=1+(h-\ell_i)N+i+1$, then replace
+\[
+ p_0=p_2=p_{n-1}=1,\qquad p_r=w+1.
+\]
+Set $q_j=C+j-1$ for $0\le j<N$. The root/nonroot certificate constructs a
+full optimum in $O(n\log n)$ arithmetic work and $O(n)$ space. Its exact cost is
+\[
+ \OPT=\frac{(8h^2+6h-7)N^2+(12-5h)N}{2}+1-3h.
+\]
+Every weight is positive and has $O(\log n)$ bits. There are $n-2$ distinct
+key weights and $n+1$ distinct gap weights. Nevertheless, the maximum
+$K+A$ bound over every admissible additive cost-preserving transfer falls
+short by exactly
+\[
+ D=\frac{hN^2-(2h-1)N}{2}>0.
+\]
+\end{theorem}
+\begin{proof}
+The maximal interior transfer is $a=1$. At endpoint prices zero, residual
+keys $\widehat p_i=p_i-1$ have largest value $w$ at $r$, next-largest value
+$v=(h-\tfrac12)N$ at the perfect root $s$, and three zero bottom keys.
+All other weights decrease strictly between perfect depth layers. The
+perfect tree attains the nonroot key bound $K(\widehat p)+w-v$: exchanging
+the weights at $r$ and $s$ attains the free capacity profile.
+
+Transformed gaps are $\widehat q_j=C+j$, with maximum less than twice the
+minimum. Since $N$ is a power of two, unrestricted Huffman merging pairs
+nodes level by level. Every gap has depth $h$, and the perfect alphabetic
+tree attains the unrestricted minimum. Consequently
+\[
+ A(\widehat q)=h\left(CN+\frac{N(N-1)}2\right).
+\]
+If $r$ is the root, its two sides contain $N/4$ and $3N/4$ gaps. The minimum
+unit-weight total depth, including that root, is $Nh+N/4$. All transformed
+gap weights are at least $C$, so the root-$r$ alphabetic cost exceeds
+$A(\widehat q)$ by at least
+\[
+ \frac{CN}{4}-\frac{hN(N-1)}2=w+\frac{hN}{2}>w-v.
+\]
+Its conditional key bound is at least $K(\widehat p)$. Thus $R_r>N_r$,
+and the perfect candidate attains $N_r$, proving full optimality.
+
+For the cost formula, use
+$\sum_i\ell_i=(h-1)N+1$,
+$\sum_i\ell_i^2=N(h^2-2h+3)-3$, and
+$\sum_i(i+1)\ell_i=(N/2)\sum_i\ell_i$.
+After the three zero-key corrections and the replacement at $r$, the perfect
+residual key cost is
+$(5h-7)N^2/2+(7-2h)N-3h$.
+Adding $A(\widehat q)$ and subtracting $n$ yields the displayed full cost.
+
+Finally, Theorem~53 reduces all admissible transfers to $a=1$ and two
+endpoint prices. At $x=y=0$, both zero endpoint keys occupy capacity slots
+of length $h$, and both endpoint gaps also have depth $h$. The supporting
+plane from Section~28.1 therefore has both slopes zero and value
+$K(\widehat p)+A(\widehat q)$. This bounds the entire price objective from
+above and is attained at zero. The best original separable bound is exactly
+$K(\widehat p)+A(\widehat q)-n=\OPT-(w-v)$, giving the stated deficit.
+\end{proof}
+
+Twelve full constructions reach $n=262143$, with 262141 distinct key weights,
+262144 distinct gap weights, and cost 92530765201355. The best preceding
+transfer bound is 91912294498251, a deficit of 618470703104. The largest run
+uses three alphabetic calls, 524285 compatible merges, 13894100 priority
+comparisons, 17365446 heap-item comparisons, and 1482337 key-sort comparisons.
+All scans, heap events, rebasing, and output visits are recorded; there are
+no interval-DP cells. Seven sizes through 511 keys match Knuth and three
+match cubic. Larger sizes match a separately constructed perfect tree and
+the closed form. Six smaller sizes additionally complete the exact endpoint
+price search and verify the full-class deficit independently.
+
+\subsection{Independent controls, regressions, and a retained conjecture}
+The independent case-partition harness precedes the optimized constructor.
+Across 840 mixed instances through eight keys, it checks 246480 literal
+conditioned inequalities. The bound strictly improves $K+A$ on 373 cases
+and is exact on 324. Random, near-uniform, geometric, and zero/binary inputs
+are included.
+
+The normalized full implementation matches cubic, Knuth, and reconstructed
+original cost on 1040 instances through 64 keys; 720 also match literal tree
+enumeration. There are 800 independent bound controls and six additional
+family checks. The route certifies 505, including all 240 constant-size base
+cases, and falls back on 535. It exceeds the completed maximum transfer bound
+in 84 cases and rescues 11 price rejections, but loses 47 price certificates.
+These finite counts are not distributional guarantees, and the fixed endpoint
+choice is not universally superior to price optimization.
+
+The matched run has 88 trials and 352 full constructions in four cyclic
+orders over eleven families and two sizes. At 511 keys, median paired
+new/Knuth ratios are 0.25899 on the new family, 0.12370 on the preceding
+endpoint family, 1.21721 random, 1.31079 near-uniform, and 1.18771 geometric.
+Old profile, four-signature, and affine cases cost 15.47, 51.74, and 43.04
+times the previous portfolio; the 319-key multilevel case costs 8.35 times it.
+All regressions remain. The host is Apple M4, Python 3.9.6, macOS 26.5 arm64;
+load averages began at 12.42,11.62,11.38 and ended at 12.53,11.69,11.41.
+Four observations per case, same-process cycling, and visible variability
+limit timing precision. Proofs and counters establish arithmetic scaling;
+bit costs are additional.
+
+A separate diagnostic retains an unproved marked-boundary event family.
+It inserts a barrier at one weighted interior key, permits ordinary
+compatible merges on either side, and charges the key weight when a pair
+first consumes that barrier. Greedily taking the cheapest event fails:
+for $p=(0,4,0)$, $q=(8,10,2,18)$, it returns 82 instead of 80, with strict
+primary choices. Inverting a unit uniform transfer gives the positive
+instance $p=(1,5,1)$, $q=(7,9,1,17)$, with costs 79 and 77 respectively.
+
+The alternative probe tries the cheapest crossing pair after every prefix
+of ordinary merges, completes compatible merging, and evaluates reconstructed
+trees with the original positional key cost. It matches all 17769 checked
+instances, including 15769 literal-tree controls; 4134 controls also enumerate
+every crossing choice without changing the best result. This is a conjectural
+candidate family, not an exact solver theorem. There are 20800 invalid depth
+reconstructions across the attempts, which are rejected. Merge charges are
+not assumed to equal positional costs.
+
+Its candidate costs are not unimodal in the activation prefix. With gaps
+$(17,83,93,11)$ and weight 92 on key 1, the ordinary merges cost 100 and 104;
+activation before, between, or after them gives costs 500,681,500. Thus a
+single-valley search is unjustified even with positive gaps and strict
+ordinary priorities. The full probe records 6759 nonunimodal sequences,
+116 greedy failures, and 65 charge/cost disagreements. No subquadratic
+complexity is claimed for the probe. The proved root/nonroot certificate
+does not depend on this conjecture.
+
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
 exact contraction, bounded-excess and split-height constructions, variable
@@ -5073,7 +5269,7 @@ All cost-preserving additive weight transfers now reduce to an exact
 two-endpoint-price search. It certifies a positive family with distinct
 gaps and light endpoint keys; a four-key instance proves a strict gap
 even after optimizing the entire transfer class.
-Mathematical novelty, broad
+Root/nonroot coupling now crosses that transfer barrier in $O(n\log n)$ work on a positive family with almost all weights distinct. Mathematical novelty, broad
 practical benefit, and comparisons against other optimized prior implementations
 remain to be assessed.
 

@@ -160,3 +160,23 @@ Exact endpoint pricing, all-transfer obstruction, and full mixed scaling:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/endpoint_price_family.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_endpoint_prices.py
 ```
+
+Single interior-key marked-boundary event probe (unproved candidate family):
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_marked_event.py
+```
+
+Root/nonroot coupling harness, before the optimized constructor:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/root_partition_probe.py
+```
+
+Full root/nonroot constructor, independent oracles, scaling, and matched runs:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_root_partition.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/root_partition_family.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_root_partition.py
+```

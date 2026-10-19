@@ -1,0 +1,53 @@
+{
+  "seed": 317218,
+  "checks": {
+    "literal_conditioned_inequalities": 246480,
+    "cases": 840,
+    "strict_improvements": 373,
+    "exact_bounds": 324
+  },
+  "fixture": {
+    "p": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "q": [
+      2,
+      3,
+      2,
+      2,
+      2
+    ],
+    "lower": 28
+  },
+  "examples": {
+    "improved": {
+      "p": [
+        100,
+        101
+      ],
+      "q": [
+        101,
+        100,
+        100
+      ],
+      "optimum": 803,
+      "lower": 803,
+      "metadata": {
+        "r": 1,
+        "key": 301,
+        "gap": 501,
+        "nonroot": 803,
+        "fixed": 803
+      }
+    }
+  },
+  "source_sha256": {
+    "root_partition_probe.py": "0f7cae2e13555fddf8e5aab07457a464e103aa9dbbd63194dc362d18fe8a400c",
+    "joint_merge_probe.py": "fb77a589ccfc179c2b2c1fd7db662139179f8923d08f51aeddbc7fdd36109db3",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "threshold_probe.py": "35a858a92224189d5bc3e7526c6a73090749330129a12212f19ce9fcc3072d28"
+  }
+}

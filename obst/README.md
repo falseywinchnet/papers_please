@@ -26,13 +26,48 @@ selection by the repository owner. The general research objective is ongoing.
 - [Arbitrary-gap threshold bound and linear Cartesian certificate](THRESHOLD_CERTIFICATE.md)
 - [Shifted alphabetic certificate beyond key-capacity equality](SHIFTED_ALPHABETIC.md)
 - [Exact endpoint prices and the complete additive-transfer obstruction](ENDPOINT_PRICES.md)
+- [Root/nonroot coupling beyond the entire transfer class](ROOT_PARTITION.md)
 - [Joint-profile coupling and strict compatible-merge obstruction](JOINT_MERGE_OBSTRUCTION.md)
 - [Endpoint-response insufficiency, facet bounds, and exact factorization](BOUNDARY_RESPONSE.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-The latest standalone certificate optimizes two endpoint prices after a
+The latest certificate partitions trees according to whether the largest
+residual key is the root. The root case forces an alphabetic split at that
+key's position; the nonroot case pays the extra capacity cost of putting a
+lighter key at the root. At most three alphabetic constructions, one key sort,
+and linear scans give a complete O(n log n)-work, O(n)-space certificate.
+Original mixed weights remain the objective and rejection uses Knuth.
+See [the case-partition proof and separation family](ROOT_PARTITION.md).
+
+It closes the preceding four-key transfer obstruction and certifies an infinite
+positive family that defeats **every** admissible additive reweighting of the
+old separable K+A bound. At 262,143 keys, the family has 262,141 distinct key
+weights and 262,144 distinct gap weights. Its full optimum is 92,530,765,201,355;
+the preceding class's maximum is 91,912,294,498,251, a gap of 618,470,703,104.
+The new construction uses three alphabetic calls and no interval-DP cells.
+
+The independent harness checks 246,480 literal conditioned inequalities on
+840 mixed instances. All 1,040 full solves match cubic/Knuth/direct costs,
+including 720 literal controls. The route certifies 505 (240 are tiny base
+cases) and falls back on 535. It exceeds the completed transfer maximum on
+84 cases and rescues 11 price rejections, while losing 47 price certificates.
+The fixed endpoint choice does not replace full price optimization.
+
+The 88-trial benchmark retains 352 complete constructions. At 511 keys,
+median paired new/Knuth ratios are 0.25899 on the new family, 1.21721 random,
+1.31079 near-uniform, and 1.18771 geometric. Old specialized routes can be
+much faster: profile, four-signature, and affine cases cost 15.47, 51.74,
+and 43.04 times the previous portfolio. The M4 load and four same-process
+observations per case limit timing precision. All regressions remain.
+
+A separate one-key marked-merge probe matches 17,769 finite controls but
+remains an unproved candidate family, with invalid reconstructions rejected.
+Greedy activation fails on a strict positive example, and the activation
+objective is not unimodal. The proved certificate does not rely on this probe.
+
+The preceding endpoint-price certificate optimizes two endpoint prices after a
 maximal interior shift. A rotation argument proves that these three
 parameters exhaust all additive outcome-weight changes preserving relative
 tree costs; a monotonicity argument removes the interior parameter from
@@ -523,3 +558,18 @@ completed core is much smaller than the interval table, but 55.7--306.9 million
 core visits and retained witness maps dominate these implementations. The
 note and manuscript report these negative results, full counter categories,
 and the distinction between instrumented work and machine instructions.
+
+
+Root/nonroot coupling and retained marked-boundary diagnostics:
+
+```sh
+python3 obst/code/root_partition_probe.py
+python3 obst/code/check_root_partition.py
+python3 obst/code/root_partition_family.py
+python3 obst/code/benchmark_root_partition.py
+python3 obst/code/check_marked_event.py
+```
+
+Use the M4 wrappers in the root AGENTS.md for substantial runs. The standalone
+root certificate and its fallback are in `code/root_partition.py`; the event
+probe is explicitly experimental and is not called by that solver.

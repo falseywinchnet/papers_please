@@ -1751,3 +1751,95 @@ footer separation additionally checked from PDF text coordinates. The proof,
 full original-weight construction, negative controls, and regressions remain
 explicit. Publication is a research checkpoint, not completion of the
 unrestricted objective.
+
+
+## Twenty-fourth checkpoint: a root partition crosses the transfer barrier
+
+The previous goal turn was progress: checkpoint 23 was published and every
+changed remote blob was verified. This turn pursued the remaining positional
+coupling, starting with the one-positive-interior-key obstruction. It did not
+replace the unrestricted full mixed-weight objective with the one-key problem.
+
+A literal marked-boundary compatible-merge probe rejects greedy activation on
+three keys. The residual input p=(0,4,0), q=(8,10,2,18) has optimum 80 but
+strict greedy choices return 82. A unit inverse transfer yields all-positive
+p=(1,5,1), q=(7,9,1,17), with optimum 77 versus 79. Delaying activation and
+trying the cheapest crossing pair at each ordinary-merge prefix matched
+17769 cases, including 15769 literal controls; 4134 controls also enumerated
+all crossing choices. This remains a conjectural family, not an exact solver.
+There were 20800 invalid reconstructed depth sequences across the attempts,
+116 greedy failures, 65 merge-charge/positional-cost disagreements, and 6759
+nonunimodal sequences. Positive gaps (17,83,93,11) with weight 92 on key 1
+produce the exact activation costs 500,681,500. No single-valley search or
+subquadratic complexity is claimed for the probe.
+
+The usable advance is a rigorous root/nonroot dichotomy. For a maximum key
+weight w at r and second-largest weight v, every tree not rooted at r has
+key cost at least K+w-v, by exchanging r's weight with its root's weight.
+A tree rooted at r pays the total mass plus independent key-capacity and
+alphabetic bounds on its two ordered sides. The minimum of these two cases
+is valid for every full mixed tree and dominates K+A at the chosen weights.
+It closes checkpoint 23's four-key gap exactly. The implementation applies
+the exact maximal interior shift and clamped endpoint residuals, evaluates
+original costs, and uses at most three alphabetic calls over 2(n+1) leaves,
+one sort, and linear scans. It takes O(n log n) arithmetic work and O(n)
+space per attempt; exact Knuth fallback retains the quadratic general bound.
+
+An infinite positive family has N=2^h gaps and n=N-1 keys. Its residual keys
+follow perfect-tree capacity order except that the largest weight sits at
+the left quarter separator, at comparison length two, and the second-largest
+sits at the root. All transformed gaps lie in [C,C+N-1], C=4hN, so the perfect
+alphabetic tree is optimal. Forcing the marked key to the root incurs an
+alphabetic penalty greater than the capacity cost of leaving it at length two.
+The nonroot case certifies the perfect full tree. A constant supporting plane
+proves that the entire preceding additive-transfer class is lower by w-v.
+
+The exact full cost is [(8h^2+6h-7)N^2+(12-5h)N]/2+1-3h; the full-class
+deficit is [hN^2-(2h-1)N]/2. Every original weight is positive and has O(log n)
+bits. There are n-2 distinct key weights and n+1 distinct gap weights.
+Twelve full constructions reach 262143 keys, 262141 distinct keys, 262144
+distinct gaps, and cost 92530765201355. The preceding maximum is 91912294498251,
+a gap of 618470703104. The largest run records three alphabetic calls,
+524285 compatible merges, 13894100 priority comparisons, 17365446 heap-item
+comparisons, and 1482337 key-sort comparisons, plus all scans and output work.
+There are no interval-DP cells. Seven sizes match Knuth, three match cubic,
+and six independently complete the old two-price maximum. All larger sizes
+match an independent explicit tree and the proved closed form.
+
+The harness preceded the constructor. It checks 246480 literal conditioned
+inequalities on 840 mixed instances; the bound improves K+A on 373 and is
+exact on 324. The full constructor matches cubic/Knuth/direct cost on 1040
+inputs, with 720 literal controls and 800 independent bound controls. It
+certifies 505 including 240 tiny cases, falls back on 535, exceeds the completed
+price maximum on 84, and rescues 11 price rejections. It loses 47 other price
+certificates; the endpoint choice is fixed and the old portfolio is unchanged.
+
+The 88-trial matched benchmark retains 352 complete constructions in four
+cyclic orders across eleven families and two sizes. At 511 keys, median paired
+new/Knuth ratios are 0.25899 new family, 0.12370 previous endpoint family,
+1.21721 random, 1.31079 near-uniform, and 1.18771 geometric. Relative to the
+previous portfolio, old profile/four-signature/affine cost 15.47/51.74/43.04
+times as much; old multilevel costs 8.35 times as much at 319 keys. These
+regressions remain explicit. Apple M4 / Python 3.9.6 / macOS 26.5 arm64 had
+load averages 12.42/11.62/11.38 initially and 12.53/11.69/11.41 finally.
+Four observations and same-process cycling limit timing precision. Arithmetic
+proofs and logical counters establish scaling; bit costs are additional.
+
+A targeted literature check found no basis for claiming priority for this
+case-partition construction. Related alphabetic update work includes Belal,
+Selim, and Arafat, [Towards a Dynamic Optimal Alphabetic Tree](https://citeseerx.ist.psu.edu/document?doi=a996f60380602c883bbb5a800a425878edbe62f7&repid=rep1&type=pdf), which describes
+linear insertion/deletion under a neighboring-weight condition; it does not
+supply the marked internal-key event theorem sought here. The new proof uses
+standard capacity/exchange arguments and established Hu--Tucker machinery.
+The full unrestricted subquadratic or impossibility objective remains open.
+
+
+Checkpoint 24 publication audit: all five new manifests match their current
+source hashes (5, 4, 9, 5, and 19 entries). All 88 matched rows and 22 aggregate
+rows were inspected, with medians and paired ratios recomputed independently.
+The 82-page manuscript compiled without warnings, layout-box diagnostics, or
+undefined references. Every page was rendered; pages 2--77 are pixel-identical
+to checkpoint 23. Page 1 and pages 78--82 were visually reviewed, and footer
+separation was checked from PDF coordinates. The original unrestricted goal
+remains active. The event conjecture is explicitly separated from the proved
+root/nonroot certificate and is not used by the full solver.
