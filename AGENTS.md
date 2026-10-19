@@ -23,6 +23,8 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ordered_obstruction.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/excess.py --max-n 1024
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_excess.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/split_height.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_split_height.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not

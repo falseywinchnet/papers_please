@@ -243,6 +243,51 @@ sharing the dyadic transition geometry across levels, and combining the
 expanded certificate with the baseline-price search. These are next actions,
 not established results. The general objective remains active and unresolved.
 
+## Seventh checkpoint: split-height class without the width skip
+
+The previous substantive research turn made progress by implementing and
+checking split-height construction; its matched timing job was still live
+when the conversation turned to JesseSort. That discussion did not advance
+the OBST objective. This continuation inspected the actual checkout and
+confirmed the benchmark process on the Mini before waiting for its result;
+it was not restarted. Its output was copied before any later remote build.
+
+SPLIT_HEIGHT.md gives the full dyadic construction, including boundary key
+costs, exact lower-tree tables, SMAWK's finite band padding, reconstruction,
+and operation accounting. The split-height/Monge mechanism is explicitly
+prior Karpinski--Larmore--Rytter work in Section5 of their longer preprint,
+not an invention of this project. For a fixed extra height the attempt is
+O(n^(3/2)) at every input size, removing the old bottom-band width skip.
+An exact greedy computation of minimum IPL among taller trees supplies a
+separate sufficient certificate for unrestricted optimality. Failure invokes
+Knuth, so the general worst case remains quadratic.
+
+The final harness passed 450 exhaustive weighted height optima,44 exact
+tall-tree minima,2,000 cubic-checked full inputs (917 certificates),520
+independent height-DP/SMAWK/divide-search checks,261,482 short-table entries,
+and104 adversarial-family inputs. A larger36-fixture sweep at three budgets
+certified every near-uniform fixture, including384/768/1000/1536 keys.
+Random,geometric,gap-spike controls failed certification. The initial large
+geometric run exceeded Python's reconstruction recursion limit; the corrected
+harness raises that limit and completed without changing algorithmic results.
+
+The48 matched timing trials show a qualified practical gain. Minimum height
+at n=1000/1536 near-uniform cost0.71530/0.65826 times Knuth. At n=3072 it
+failed the certificate despite optimal candidates, while one extra level
+certified all six trials at0.70837 times Knuth. One extra level also certifies
+all n=1536 amplitude4 and n=1023 periodic16 fixtures, but costs1.18924 and
+1.06171 times Knuth. Ordinary random inputs still fail and cost1.55378 or
+1.93841 times Knuth. The two budgets certify small near-uniform inputs but
+can be slower there. Exact counts, failures, and all timing data are retained.
+
+The next step toward the full objective is to implement a proper width-limited
+Larmore/KLR comparator using the same matrix infrastructure, with its proven
+subtree-mass guarantees, then determine what additional order-sensitive
+certificate could reduce its cost. Another cheap extension is to generalize
+the already-tested baseline-price search from a minimum-IPL cutoff to the
+exact taller-tree IPL cutoff. Neither extension is presently implemented.
+The mixed-weight problem remains the objective; this is not completion.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

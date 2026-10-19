@@ -10,6 +10,7 @@ selection by the repository owner. The general research objective is ongoing.
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
 - [Bounded-excess dyadic construction](EXCESS.md)
+- [Split-height construction and taller-tree certificate](SPLIT_HEIGHT.md)
 - [Relaxation, counterexamples, and failed sparse search](RELAXATION.md)
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
@@ -46,6 +47,8 @@ python3 obst/code/ordered_certificate.py --max-n 512 --iterations 32
 python3 obst/code/ordered_obstruction.py
 python3 obst/code/excess.py --max-n 1024
 python3 obst/code/benchmark_excess.py
+python3 obst/code/split_height.py
+python3 obst/code/benchmark_split_height.py
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300
 python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
 python3 obst/code/depth_order.py
@@ -100,3 +103,12 @@ minimum unweighted internal path length, using aligned dyadic gap intervals
 and retaining every key cost. It attempts this only when the bottom-level
 shape width is logarithmic, certifies against all excluded trees, and falls
 back to Knuth on failure. See EXCESS.md for the state-band proof and limits.
+
+`split_height.solve(p,q,extra_height=1)` removes the shape-width restriction:
+it optimizes all trees of external height at most ceil(log2(n+1))+1, then
+certifies the result against all taller trees using their exact minimum
+unweighted internal path length. It uses the known Karpinski--Larmore--Rytter
+split-height/Monge mechanism, implemented with aligned dyadic tilings and
+SMAWK. For any fixed extra height, attempted work is O(n^(3/2)) at every n;
+fallback still makes the worst case quadratic. See SPLIT_HEIGHT.md for the
+prior-art distinction, padding argument, verification, and failure controls.

@@ -34,6 +34,10 @@ A dyadic extension also optimizes trees with bounded excess unweighted
 path length and certifies them against all remaining shapes. The shortcuts
 provide an $O(n\log n)$ exact route when their explicit tests pass,
 including tested near-uniform instances left unresolved by contraction.
+For sizes with a wide shape band, we implement the known split-height
+Monge construction and certify its output against all taller trees. At any
+size its attempted work is $O(n^{3/2})$ for a fixed excess height; failed
+certificates still require quadratic fallback.
 We also document an order-free Huffman relaxation, its failed sparse-DP
 implementation, and exact counterexamples to proposed local certificates.
 A second relaxation prices depth-count constraints along the ordered key
@@ -642,6 +646,180 @@ uses excess \emph{total unweighted path length}, a different restriction;
 it does not improve Becker's stated problem. Priority of this particular
 potential, band bound, and exclusion combination remains unestablished.
 
+\section{A split-height construction covering every input size}
+The preceding shape band can be wide even at zero excess. We therefore
+implement the split-height/Monge mechanism already sketched by Karpinski,
+Larmore, and Rytter in Section~5 of their longer preprint~\cite{klrheight}.
+That section explicitly supplies the fixed-height Monge property and the
+two-part construction. It is different from Section~5 of the six-page
+conference version~\cite{klr}. No priority claim is made for this mechanism.
+The present experiment makes the tiling, matrix padding, reconstruction,
+and separate unrestricted certificate explicit.
+
+\paragraph{Two scales of dyadic intervals.}
+Fix an external height limit $H=L+U$ and write $K=2^L$, $B=2^U$.
+Precompute all relative costs $C_h(i,j)$ for $0\le h\le L$ and
+$0\le j-i\le2^h-1$, using
+\[
+ C_h(i,j)=W(i,j)+\min_r\{C_{h-1}(i,r)+C_{h-1}(r+1,j)\}.
+\]
+Empty intervals have zero cost; the root range enforces both child height
+capacities. Monge inequalities at fixed height give monotone minimizing
+roots as the endpoints move. Choose leftmost ties and bound each root by
+the adjacent shorter intervals. Search ranges telescope to $O(n)$ for
+each interval length. Summing over lengths and heights costs $O(n2^L)$.
+
+Divide the unit dyadic interval into $B$ top-grid blocks. Every tree of
+height at most $H$ consists of lower subtrees contained in individual
+blocks, together with shallower gaps occupying aligned groups of blocks.
+Let $D_b(i)$ be the minimum partial cost after consuming $i$ gaps and
+reaching grid boundary $b$. Keys through $i-2$ have already been charged.
+For $b>0$, put
+\[
+ R_b(i)=D_b(i)+p_{i-1}(U-v_2(b));\qquad R_0(0)=0.
+\]
+The boundary key has exactly this comparison length. There are two types
+of transition:
+\begin{align*}
+ D_{b+1}(j)&\gets\min\{D_{b+1}(j),
+ R_b(i)+C_L(i,j-1)+U W(i,j-1)\}, && i<j\le i+K,\\
+ D_{b+w}(i+1)&\gets\min\{D_{b+w}(i+1),
+ R_b(i)+q_i(U-\log_2 w)\}. &&
+\end{align*}
+The second transition requires a power of two $w\ge2$, $w\mid b$, and
+$b+w\le B$. Width-one gaps are zero-key lower subtrees in the first
+transition. Start at $D_0(0)=0$ and finish at $D_B(n+1)$. Dyadic alignment
+proves that these paths represent every height-feasible tree and only
+such trees. Backpointers recover every lower tree and every boundary key.
+
+\paragraph{Linear matrix searches with feasible padding.}
+At fixed $b$, the first transition is a banded Monge matrix in $i,j$;
+row additions and the separable interval mass preserve the inequality.
+Reachable counts $i$ are contiguous: the coarsest tiling of the prefix
+has $\operatorname{popcount}(b)$ leaves, and successive refinement gives
+every count through $bK$, truncated to $n$ before another transition.
+Search output columns from $i_{\min}+1$ through
+$\min(n+1,i_{\max}+K)$, each of which has a feasible input row.
+
+SMAWK requires care outside the band. Let
+$S=(H+1)(\sum p+\sum q)+1$, larger than every feasible prefix cost.
+In the transposed matrix with row $j$ and candidate column $i$, use
+\[
+ A(j,i)=\begin{cases}
+ S+j-K-i,&i<j-K,\\
+ R_b(i)+C_L(i,j-1)+UW(i,j-1),&j-K\le i<j,\\
+ S+i-j+1,&i\ge j.
+ \end{cases}
+\]
+This padding preserves total monotonicity. For $i_1<i_2$, once $i_2$
+is preferred at a row, it remains preferred as $j$ increases: within the
+feasible band this is Monge; outside it, distances decrease toward the
+band and increase away from it, and finite entries beat all padding.
+When the candidates straddle opposite invalid sides, their cost difference
+is $i_1+i_2+K+1-2j$, also decreasing. Ties preserve the same non-strict
+implication. Thus SMAWK finds leftmost minima in $O(n)$ queries per grid
+boundary. Padding by tied infinities does not supply this argument.
+
+Across all boundaries there are $B-1$ aligned choices of coarse width,
+so the second transitions and scans also cost $O(nB)$. Choosing
+$L=\min(H,\lfloor H/2\rfloor+1)$ gives
+\[
+ O\bigl(n(2^L+2^U)\bigr)=O(n2^{H/2})
+\]
+work and storage including backpointers. Consequently a fixed extra height
+$H=\lceil\log_2(n+1)\rceil+c$ gives $O(n^{3/2})$ attempted work at
+\emph{every} size. The prototype uses sparse dictionaries; the bounded
+integer state coordinates also admit direct array indexing.
+
+\begin{lemma}[Minimum path length with a tall path]
+For $1\le R\le n$, the minimum internal path length $J(n,R)$ among
+$n$-key trees of external height at least $R$ is obtained by forcing a
+path of $R$ internal nodes and filling the remaining available positions
+in increasing order of depth. The excluded class is empty if $R>n$.
+\end{lemma}
+\begin{proof}
+Every tree in the class contains such a path, contributing $R(R-1)/2$.
+The remaining nodes form an ancestor-closed subset of its free forest:
+one side root at each depth $1,\ldots,R-1$, and two roots at depth $R$.
+The $n-R$ shallowest positions in this forest are ancestor-closed and
+minimize the depth sum among all subsets of that size. Their addition
+constructs a feasible tree attaining the bound. Directions of the forced
+path do not change the forest's depth counts.
+\end{proof}
+A level-count implementation computes $J$ in $O(R+\log(n+1))$ work.
+
+\begin{theorem}[Certificate against taller trees]
+Let $C_H$ be the exact height-restricted optimum above, and let $Q$ be
+the order-free mixed-node Huffman lower bound for residual weights
+$p-a,q-b$, where $a=\min p$, $b=\min q$. If $H<n$ and
+\[
+ C_H\le(a+b)J(n,H+1)+(a+2b)n+Q,
+\]
+the constructed tree is globally optimal. If $H\ge n$, there is no
+height restriction and certification is automatic.
+\end{theorem}
+\begin{proof}
+Every excluded tree has internal path length at least $J(n,H+1)$.
+Its baseline contribution is $(a+b)I+(a+2b)n$ and its residual cost
+is at least $Q$. Within the height class, $C_H$ is optimal.
+\end{proof}
+Sorting and the residual oracle add $O(n\log n)$ work. Failed tests invoke
+Knuth, so the full constructor remains quadratic in the worst case.
+The certificate never assumes success from near-uniform weights.
+
+\paragraph{Exact verification and operation evidence.}
+The harness passed 450 exhaustive weighted height-class checks through
+eight keys, 44 exhaustive tall-path minima, 2,000 cubic-checked mixed inputs
+with complete fallback (917 successful certificates), and 104 additional
+adversarial-family inputs. An independent all-root height recurrence checked
+520 candidates and 261,482 stored short-table entries; the same 520 cases
+also compared SMAWK with a retained divide-and-conquer matrix search.
+The larger sweep has 36 fixtures at three height budgets each. Every
+near-uniform fixture certified, including previously skipped sizes
+384, 768, 1,000, and 1,536. All random, geometric, and gap-spike fixtures
+failed the certificate, sometimes despite an optimal restricted candidate.
+
+At $n=1{,}000$, the minimum-height candidate and full optimum are both
+$18{,}973{,}413$, below the exclusion bound $18{,}974{,}193$. The optimizer
+uses 117,453 short states, 220,483 short root candidates, 84,937 genuine
+matrix queries, 10,268 padding queries, 16,016 prefix scans, and 5,630 coarse
+transitions. The bound adds 10,648 sorting and 1,335 merge comparisons,
+plus 1,000 contractions; all keys are reconstructed. Knuth uses 500,500
+states and 1,002,162 root candidates. These distinct operation types are
+reported separately, without treating them as equal-cost instructions.
+
+\paragraph{Matched timing and failure controls.}
+Six trials per fixture use every ordering of Knuth, the minimum-height
+constructor ($c=0$), and one extra level ($c=1$). Preprocessing and
+reconstruction are included; every result is checked against Knuth.
+Inputs vary between trials except the repeated periodic fixture. On the
+sponsor's M4 with Python~3.9.6, median per-trial runtime ratios were:
+\begin{center}\small
+\begin{tabular}{lrrrr}
+\toprule
+Fixture & $c=0$ ratio & certified & $c=1$ ratio & certified\\
+\midrule
+384, near-uniform & 1.22484 & 6/6 & 2.29965 & 6/6\\
+768, near-uniform & 0.94444 & 6/6 & 1.40863 & 6/6\\
+1,000, near-uniform & 0.71530 & 6/6 & 1.03015 & 6/6\\
+1,536, near-uniform & 0.65826 & 6/6 & 1.03916 & 6/6\\
+3,072, near-uniform & 1.46288 & 0/6 & 0.70837 & 6/6\\
+1,536, amplitude four & 1.67333 & 0/6 & 1.18924 & 6/6\\
+1,536, ordinary random & 1.55378 & 0/6 & 1.93841 & 0/6\\
+1,023, periodic $A=16$ & 1.69541 & 0/6 & 1.06171 & 6/6\\
+\bottomrule
+\end{tabular}
+\end{center}
+All 48 observations and operation counters are retained. These are mixed
+practical results: small successful cases can be slower, and random cases
+pay substantial overhead before quadratic fallback. At 3,072 near-uniform
+keys, the minimum-height candidates are optimal but fail certification;
+one extra level strengthens the exclusion bound sufficiently. For the
+periodic fixture, minimum height actually excludes the true optimum.
+The earlier bounded-excess solver is more efficient on that narrow class.
+No broad practical superiority or improvement over the known width-limited
+Larmore/KLR constructor is established by this experiment.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
@@ -951,9 +1129,10 @@ Another 120 cases combine $2\le w\le16$ with forced prefix depths
 $1\le D\le8$. Cubic DP, Knuth, direct costs, and inspection of the optimal
 prefix verify the exact additive identity and preserved strict gap.
 
+\clearpage
 \section{Status and reproducibility}
 The general subquadratic question remains open. This checkpoint provides
-exact contraction and bounded-excess constructions, global certificates,
+exact contraction, bounded-excess and split-height constructions, global certificates,
 and scoped obstructions to depth relaxations. Mathematical novelty, broad
 practical benefit, and comparisons against Larmore-style implementations
 remain to be assessed.
@@ -982,6 +1161,10 @@ Sequential and parallel subquadratic work algorithms for constructing
 approximately optimal binary search trees. \emph{Proceedings of SODA},
 36--41, 1996.
 \href{https://theory.cs.uni-bonn.de/marek/publications/seq_and_par_subquadr.pdf}{Author-hosted manuscript}.
+\bibitem{klrheight}
+M. Karpinski, L. L. Larmore, and W. Rytter. Same title as~\cite{klr},
+longer preprint version, Section~5: Short height limited trees.
+\href{https://www.researchgate.net/publication/2710579_Sequential_and_Parallel_Subquadratic_Work_Algorithms_for_Constructing_Approximately_Optimal_Binary_Search_Trees}{Archived preprint text}.
 \bibitem{becker}
 P. Becker. Optimal binary search trees with near minimal height. 2010.
 \href{https://arxiv.org/abs/1011.1337}{arXiv:1011.1337}.
