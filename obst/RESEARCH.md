@@ -3150,3 +3150,118 @@ All 317 prior labels and the exact dedication source are preserved. The
 three new audit manifests match their executed sources. Stable TeX/PDF
 outputs and the self-contained source archive, including the Hebrew font
 and license, were refreshed and checked against the final build.
+
+
+## Checkpoint 43: complete two-block cores and finite band dominance
+
+The previous turn was progress: checkpoint 42 published a linear one-block
+core and an exact rank-threshold incompatibility. This turn attacked the
+interaction of positive blocks. It first obtained a whole-block product
+identity, then expanded the endpoint analysis to cover the entire ordinary
+above-capacity core for two equal positive key blocks. Arbitrary nonnegative
+gap weights remain in the objective and cancel only on this side. The full
+mixed-weight research goal and main complexity theorem remain unchanged.
+
+The core algebraic component is a finite representation of
+
+    H(A,B)=max {f_1(u)+f_2(v):u<=A, v>=B, 0<=v-u<=d}.
+
+For sequences of length N, set K=1+range(f_1)+range(f_2). Prefix and suffix
+penalties are K max(u-A,0) and K max(B-v,0). The middle matrix is
+K[max(u-v,0)+max(v-u-d,0)]-f_1(u)-f_2(v). Its two hinge diagonals are
+its whole core; all operands are finite. Any inadmissible pair pays at
+least K and loses to every feasible pair's worst possible score. Thus the
+product equals -H on B<=A+d. The published core-product inequality gives
+at most 14(N-1) core entries and O(N log(N+1)) construction work.
+
+A local bound is stronger than merely restricting this global count.
+For an s-by-s output square, aggregate all earlier input rows into the
+first row and all later columns into the last column, leaving the middle
+indices as singletons. Blockwise minima preserve Monge. The grouped
+kernel has at most 4s core entries: two interior hinge diagonals and one
+boundary row and column. Its two selectors have at most s entries each.
+Two uses of the product inequality give 22s output entries. The proof
+specifies the finite penalties and admissible groups, rather than assuming
+that an infinite-entry band satisfies the published interface.
+
+For blocks [z,z+m) and [z+m+g,z+m+g+k), binary saturation retains all
+m+k positives whenever m+k<=c. With N=c-m-k+1, feasible offsets satisfy
+0<=v-u<=g, u<=z-i, and v>=c+z+g-j. Rewards are R_m(u)+R_k(m+v).
+This gives the finite band model and the density map
+
+    i=z-a-1, j=c+z+g-b-1.
+
+For m+k>c every whole-block interval saturates, so its ordinary densities
+vanish. This initially established only the interaction of complete blocks.
+
+The endpoint cases extend it to the whole above-capacity region. A left
+cut leaves a=z+m-i positive keys in the first block, all at the first a
+selected ranks. With B=c+z+m+g-j, its exact unsaturated score is
+
+    F(a)+max_(max(a,B)<=t<=min(a+g,c-k)) R_k(t).
+
+Outside the two diagonals j-i=c+g-1,c+g, either it is independent of the
+right endpoint or it is a single range maximum and has visibility support.
+Reflection handles right cuts. When both endpoints cut positives, the score
+is F(c) if their combined count reaches c, otherwise F(a)+F(b). Its density
+vanishes except on the same two diagonals. Eight block-boundary row/column
+lines cover changes between endpoint pieces. One-block regions use the
+previous theorem.
+
+Adding these disjoint cases gives at most 28n above-capacity entries and
+40s entries in every side-s square, independently of the common positive
+weight. These constants are conservative. This is a proved local boundary
+charge for the interaction, including all positive cuts. It leaves unequal
+block weights, additional blocks, and the below-capacity mixed region open.
+
+The implemented constructor enumerates the O(n) proof candidates. Scalar
+and range-maximum formulas evaluate all endpoint cases. Complete-block
+scores query the condensed product via an offline sweep of weighted core
+prefix sums, using a Fenwick tree. Thus both construction and exact values
+cost O(n log(n+1)) work. The reused multiplication builds ordinary witness
+arrays, so the conservative implemented space bound is also O(n log(n+1));
+no linear-space claim is made for those arrays. The output itself is linear.
+
+Verification was staged before the theorem was added to the manuscript.
+The generic band audit checks 1332 inputs, 28024 finite product entries,
+2098072 literal pair candidates, and 23821 feasible scores, including signed
+arrays and infeasible completion entries. The first run checked grouped
+core sizes; a second audit added 11808 exact grouped-product entries, on
+3996 groupings, to test the local representation rather than only its loose
+support bound. The constructor was then expanded to all endpoint cases,
+and both final audits were rerun against the final source.
+
+The interior control has 576 support sets on 168 mixed inputs through 32
+keys, 5690 densities, and 672 literal subsequence intervals from 20517 choices.
+It uses 1345248 all-root candidates and 146592 states. Twenty-four larger
+condensed constructions reach 16384 keys and supply 661 square controls;
+those are constructor checks, not original all-root references.
+
+The complete audit checks 952 mixed inputs through 64 keys: all 792 binary
+words with exactly two positive runs through ten keys, plus 160 seeded
+larger patterns with common positive key weight three. Gap weights are
+nonzero. All 2953 above-capacity support sets, including values, and 334032
+density cells agree with the original recurrence. It uses 12507215 root
+candidates and 784506 states. Fourteen larger full constructions reach
+8192 keys, with 864 local square checks at sides at least 64, where the
+40s bound is smaller than the square's area. The largest two-unit-key row
+considers 31017 distinct density candidates and outputs 3219 entries, with
+26527 range queries and 15631 condensed value queries. All sparse-product
+operations are recorded separately. The bounds rely on the proofs, not on
+these counts or a fitted exponent.
+
+The new constructive section is 2.15 and the verification appendix is S.
+TWO_BLOCK_CORES.md supplies the complete standalone argument. The one-block
+and two-block results now give exact control of two successive levels of
+interaction. The next general obligation is to control additional interacting
+blocks or unequal weights while preserving their joint rank optimization.
+
+Publication validation: the 121-page manuscript compiled cleanly with Tectonic.
+All pages were rendered and inspected in contact sheets; the new proof pages
+23--26, verification appendix on page 119, and final dedication on page 121
+were also inspected at reading scale. All 326 prior labels remain, all 333
+current labels are unique, and references resolve. The dedication source is
+byte-identical to the previous checkpoint. Both final audit source manifests
+match the committed sources. The stable TeX and PDF were refreshed byte for
+byte, and the five-member source archive includes the matching source and
+bundled Hebrew font with its license.

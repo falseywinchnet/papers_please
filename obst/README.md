@@ -27,6 +27,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Unit-outcome support envelope and the surviving two-key interaction](UNIT_SUPPORT_ENVELOPE.md)
 - [Exact binary-block dilation and the replication barrier](BINARY_DILATION.md)
 - [Linear one-block core construction and local boundary charge](PLATEAU_CORE.md)
+- [Complete two-block above-capacity cores and a finite band factorization](TWO_BLOCK_CORES.md)
 - [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
@@ -56,6 +57,17 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The complete above-capacity core for **two equal positive key blocks** now
+has a [linear support bound and an O(n log(n+1)) constructor](TWO_BLOCK_CORES.md),
+including every positive-endpoint cut and arbitrary nonnegative gap weights.
+The global bound is 28n; every side-s square strictly above capacity has at
+most 40s entries, independently of the common positive weight. Whole-block
+interactions factor through three explicit finite Monge matrices. Grouping
+only the boundary rows and columns gives a local side charge; single cuts
+reduce to visibility pairs, and double cuts contribute on two diagonals.
+The conservative constants come from the proof. The general mixed-weight
+core bound remains unchanged.
 
 One constant positive key block now has a [linear above-capacity core
 constructor](PLATEAU_CORE.md), with arbitrary nonnegative gap weights.

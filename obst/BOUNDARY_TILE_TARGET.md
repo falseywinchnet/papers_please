@@ -40,6 +40,16 @@ carry rewards. This settles the boundary charge for one plateau above
 capacity, without proving (1) for multiple unequal blocks or the mixed
 below-capacity region.
 
+The extension to [two equal positive blocks](TWO_BLOCK_CORES.md) now covers
+all above-capacity endpoint cuts: K(T)<=40s, and the entire above-capacity
+core has at most 28n entries with an O(n log(n+1)) constructor. The interaction
+of two complete blocks is a band-dominance optimum with an explicit finite
+Monge factorization; its local charge follows by aggregating the outside
+row and column groups. The remaining endpoint cases reduce to one sequence
+or to two exceptional diagonals. Thus equal-weight two-block interaction
+also satisfies (1) on this side. Unequal weights, additional blocks, and the
+below-capacity mixed region remain open.
+
 ## A proved logarithmic-side bound for one key
 
 **Lemma.** If exactly one key has positive weight and all gaps have weight

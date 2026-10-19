@@ -1560,6 +1560,192 @@ The theorem constructs this part of a layer's core, including its values.
 The below-capacity mixed core and the general local hypothesis in
 \eqref{eq:boundary-tile-hypothesis} require further arguments.
 
+
+\subsection{Two positive blocks: the whole above-capacity core}
+\label{sec:two-block-core}
+The one-block representation extends to two equal positive blocks, including
+all positive-endpoint cuts. The complete-block interaction is a finite
+Monge product; the cut regions reduce to visibility pairs and two diagonals.
+
+\begin{lemma}[Finite band dominance and a local boundary charge]
+\label{lem:band-dominance}
+For real sequences $f_1,f_2$ of length $N\ge1$ and an integer $d\ge0$,
+define, for $0\le A,B<N$,
+\[
+ H(A,B)=\max\{f_1(u)+f_2(v):u\le A,\ v\ge B,\ 0\le v-u\le d\},
+ \qquad 0\le u,v<N.
+\]
+On its feasible domain $B\le A+d$, $-H$ has a finite Monge completion
+with core size at most $14(N-1)$, constructible in $O(N\log(N+1))$ work.
+Any $s\times s$ square of density cells with feasible corners has at most
+$22s$ positive densities.
+\end{lemma}
+\begin{proof}
+Set $K=1+\max f_1-\min f_1+\max f_2-\min f_2$ and define
+\begin{align*}
+ L(A,u)&=K\max(u-A,0),\\
+ Q(u,v)&=K[\max(u-v,0)+\max(v-u-d,0)]-f_1(u)-f_2(v),\\
+ R(v,B)&=K\max(B-v,0).
+\end{align*}
+All entries are finite. The only densities of $L$ and $R$ are $K$ on
+the main diagonal. Matrix $Q$ has density $K$ on each of $v-u=0$ and
+$v-u=d$, adding the two contributions when $d=0$. Its row and column
+terms do not affect densities. Therefore all three matrices are Monge,
+with $\delta(L),\delta(R)\le N-1$ and $\delta(Q)\le2(N-1)$.
+Every inadmissible pair in $T=L\otimes Q\otimes R$ incurs at least
+$K$ penalty, so its cost exceeds $-\min f_1-\min f_2$. A feasible pair
+has cost at most that quantity. Thus $T=-H$ on the feasible domain.
+The published inequality $\delta(X\otimes Y)\le2(\delta(X)+\delta(Y))$
+and condensed-product algorithm~\cite{coremonge} give
+\[
+ \delta(T)\le2[2((N-1)+2(N-1))+(N-1)]=14(N-1)
+\]
+and the construction bound. The operand cores and boundaries are directly
+available in $O(N)$ work; no dense conversion is required.
+
+For the local bound let $A\in[a,a']$, $B\in[b,b']$, with at most
+$s+1$ indices in each range. Discard $u>a'$ and $v<b$. Aggregate
+$u=0,\ldots,a$ into the first row and keep $a+1,\ldots,a'$ as singleton
+rows. Keep $b,\ldots,b'-1$ as singleton columns and aggregate
+$v=b',\ldots,N-1$ into the last column. Let each entry of $Q'$ be the
+minimum of $Q$ on its row-group/column-group rectangle.
+Blockwise minima on ordered disjoint groups preserve Monge: take minimizers
+in two off-diagonal groups and uncross their coordinates using the Monge
+inequality for $Q$. Away from the first row and last column, $Q'$ is a
+consecutive submatrix of $Q$ with at most two density diagonals. These
+interior diagonals contribute at most $2s$ entries; the first row and last
+column contribute at most $s$ each. Hence $\delta(Q')\le4s$.
+Finite prefix and suffix selectors on the group indices each have at most
+$s$ core entries. They describe exactly the requested prefixes and suffixes;
+the same $K$ excludes invalid choices on every feasible entry. Their product
+therefore equals $-H$ on the rectangle. Applying the core inequality twice
+gives $2[2(s+4s)+s]=22s$. A single-row or single-column case has no density.
+\end{proof}
+
+\begin{theorem}[Complete above-capacity core for two blocks]
+\label{thm:two-block-above-core}
+Suppose the two blocks $[z,z+m)$ and $[z+m+g,z+m+g+k)$, with
+$m,k\ge1$ and $g\ge0$, have common positive key weight $\alpha$,
+and every other key has weight zero. Gap weights may be arbitrary
+nonnegative reals. At capacity $c=2^h-1$ with a valid terminal penalty,
+the entire ordinary core strictly above capacity has at most $28n$
+entries. Any $s\times s$ square strictly above capacity has at most
+$40s$ entries. All these entries and their values can be constructed in
+$O(n\log(n+1))$ arithmetic work and space.
+\end{theorem}
+\begin{proof}
+If $c\ge n$ the region is empty. Normalize $\alpha$ to one and put
+\[
+ F(t)=\sum_{r=1}^t\nu_2(r),\qquad R_\ell(r)=F(r+\ell)-F(r).
+\]
+Above capacity all gap terms cancel from ordinary densities. By binary
+saturation, an interval with $P\ge c$ positive keys has score $F(c)$;
+otherwise an optimum retains every positive key.
+
+\emph{Both blocks complete.}
+If $m+k>c$, the score is constant. Otherwise let $N=c-m-k+1$.
+Let $u$ count selected zeros before the first block and $v$ selected zeros
+before the second block, excluding the first block's positive keys.
+For an interval $[i,j)$ containing both whole blocks, feasibility is exactly
+\[
+ 0\le u,v<N,\quad 0\le v-u\le g,\quad
+ u\le A=z-i,\quad v\ge B=c+z+g-j.
+\]
+Its reward is $R_m(u)+R_k(m+v)$, so Lemma~\ref{lem:band-dominance}
+applies with $f_1(u)=R_m(u)$, $f_2(v)=R_k(m+v)$, and $d=g$.
+Clip $A$ from above at $N-1$ and $B$ from below at zero; a frozen
+endpoint gives zero density. A product-core cell $(a,b)$ maps to
+\begin{equation}\label{eq:two-block-core-map}
+ i=z-a-1,\qquad j=c+z+g-b-1.
+\end{equation}
+This region contributes at most $14(N-1)\le14c$ entries globally and
+$22s$ in a side-$s$ square.
+
+\emph{Separating the endpoint cases.}
+Reserve the at most eight grid lines $i=t-1$ or $j=t-1$ for
+$t\in\{z,z+m,z+m+g,z+m+g+k\}$, together with
+\begin{equation}\label{eq:two-block-exceptional-diagonals}
+ j-i=c+g-1\quad\hbox{or}\quad j-i=c+g.
+\end{equation}
+They contribute at most $10n$ cells globally and $10s$ locally.
+Off these lines, the four-corner endpoints lie within fixed pieces of the
+five-piece input: zero, positive, zero, positive, zero. Cells encountering
+at most one positive block agree with that one-block input. By
+Theorem~\ref{thm:plateau-above-core} and Corollary~\ref{cor:plateau-square},
+the two such cores contribute at most $2c$ entries globally and $4s$ locally.
+
+\emph{Exactly one positive endpoint cut.}
+Suppose the left endpoint cuts the first block and the right endpoint
+lies after the second. Set $a=z+m-i$ and $B=c+z+m+g-j$.
+For $a+k\le c$, the first $a$ selected ranks are positive. The rank
+offset $t$ before the second block satisfies precisely
+\[
+ \max(a,B)\le t\le\min(a+g,c-k),
+\]
+so the score is
+\begin{equation}\label{eq:two-block-cut-score}
+ F(a)+\max_{\max(a,B)\le t\le\min(a+g,c-k)}R_k(t).
+\end{equation}
+At $a+k=c$ this is the saturated score $F(c)$.
+If $a+k>c$, both left-endpoint choices are saturated, including the
+case $a-1+k=c$, and their density is zero.
+For the remaining cells, $B-a=c+g-(j-i)$. Away from
+\eqref{eq:two-block-exceptional-diagonals}, either $B\le a$ in all four
+corners, making the score independent of $j$, or $B>a$ in all four.
+In the latter case remove the row term $F(a)$ from
+\eqref{eq:two-block-cut-score}. The remaining range maximum has endpoints
+$B$ and $\min(a+g,c-k)$. Frozen upper endpoints give zero; all other
+positive densities are nonadjacent visibility pairs of $R_k$.
+There are at most $c$ globally. In a side-$s$ square their two index
+intervals have at most $s$ positions each and are ordered and disjoint,
+since their endpoint difference is $j-i-c+1\ge2$. The noncrossing
+neighbor-set count in Corollary~\ref{cor:plateau-square} gives at most
+$2s$ locally. Reflection, using $\nu_2(2^h-r)=\nu_2(r)$, gives the
+same bounds for a right endpoint cutting the second block.
+
+\emph{Both positive endpoints cut.}
+Let $a,b$ be the remaining positive lengths. For $a+b\ge c$ the score
+is $F(c)$. Otherwise the interval length supplies enough zeros between
+them, and the first $a$ and last $b$ selected ranks are positive. Its
+score is $F(a)+F(b)$. The four scores separate unless $a+b=c-1$ or
+$c$, precisely the two diagonals already reserved in
+\eqref{eq:two-block-exceptional-diagonals}. All other densities vanish.
+Summing the cases proves
+\[
+ K_{\rm above}\le14c+2c+2c+10n\le28n,\qquad
+ K_{\rm square}\le22s+4s+4s+10s=40s.
+\]
+Multiplication by $\alpha$ preserves support and scales every density.
+
+\emph{Construction, including the reserved cells.}
+The proof enumerates $O(n)$ candidates: the complete-block product core,
+two one-block visibility cores, two one-cut visibility cores, and the
+reserved lines and diagonals. Filter to valid cells strictly above capacity
+and evaluate their four scores. Precompute $F,R_m,R_k$ in $O(c)$ work
+with the ruler's even/odd recurrence. Segment trees answer range maxima
+in $O(\log(n+1))$ time. Saturated and partial one-block intervals use
+$F(c)$ or $F(P)$; two-cut intervals use $F(a)+F(b)$; one-cut intervals
+use \eqref{eq:two-block-cut-score} or its reflection. Complete one-block
+intervals use \eqref{eq:plateau-reward}, and complete two-block intervals
+query the product $T$ above.
+For these $O(n)$ product queries use its condensed identity
+\[
+ T(A,B)=T(A,0)+T(0,B)-T(0,0)
+       -\sum_{x<A,\,y<B}D_T(x,y).
+\]
+Sort queries by $A$, sweep the $O(c)$ core entries in row order, and
+maintain column prefix sums in a Fenwick tree. Total query work is
+$O(n\log(n+1))$, with $O(n)$ additional space. The sparse products have
+the same work bound. The implementation retains ordinary witness maps
+inside multiplication, so the conservative implemented space bound is
+$O(n\log(n+1))$; no succinct-array assumption is made. Retain exactly
+the positive four-corner differences at the enumerated candidates.
+\end{proof}
+This establishes a boundary charge for interacting equal-weight blocks on
+the whole above-capacity side. Unequal positive block weights, additional
+blocks, and the below-capacity mixed core remain open cases of the general
+size problem.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -7871,6 +8057,43 @@ original all-root runs. The record is
 search artifact. All three audit records retain executed-source
 SHA-256 manifests. The theorems follow from their proofs independently
 of these finite checks.
+
+
+\clearpage
+\section{Finite band products and complete two-block cores}
+\label{app:two-block-core}
+The generic band audit checks 1332 inputs, including exhaustive binary
+sequences through $N=4$ and signed integer sequences through $N=16$.
+It compares 28,024 finite product entries against 2,098,072 literal pair
+choices, including infeasible completion entries, and checks 23,821
+feasible rewards. A further 3996 coarsened-core and 11,808 coarsened-product
+entry controls test the local aggregation in Lemma~\ref{lem:band-dominance}.
+These checks test exact values and the finite penalties, not only the
+support constants.
+
+The interior audit checks 576 support sets on 168 mixed inputs through
+32 keys against original all-root layers, with 5690 densities and 672
+literal subsequence intervals from 20,517 choices. Its original recurrence
+uses 1,345,248 root candidates and 146,592 states. Twenty-four larger
+condensed constructions reach 16,384 keys, with 661 additional square
+controls. Those rows are constructor checks rather than original all-root
+runs. The record is \texttt{band\_dominance\_audit.json}.
+
+The complete audit checks 952 mixed inputs through 64 keys, including
+all 792 binary words with exactly two positive runs through ten keys and
+160 seeded larger inputs with common positive key weight three. Nonzero
+gap weights are included. All 2953 complete above-capacity support sets
+and 334,032 densities agree with the independent all-root recurrence,
+which uses 12,507,215 root candidates and 784,506 states.
+Fourteen larger full constructions reach 8192 keys and include 864 local
+square controls. For two unit keys at that size, the constructor evaluates
+31,017 distinct density candidates and outputs 3219 positive densities.
+It performs 26,527 range queries and 15,631 condensed-matrix value queries;
+the record separately counts the reused sparse-product operations. These
+larger rows do not have original all-root references. The record is
+\texttt{two\_block\_core\_audit.json}. Both records retain executed-source
+SHA-256 manifests. The bounds follow from the finite product, visibility,
+and endpoint-case proofs, independently of the finite audits.
 
 \clearpage
 \begingroup\small

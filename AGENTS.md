@@ -417,3 +417,15 @@ Rank-threshold compatibility probe and exact one-deletion obstruction:
 The larger plateau rows use the linear constructor. Larger rank-threshold
 rows enumerate every single deletion. Original all-root controls have their
 own explicit size limits; neither audit infers an asymptotic result from timing.
+
+Finite band-dominance products and the entire two-block above-capacity core:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'python3 obst/code/band_dominance_audit.py && python3 obst/code/two_block_core_audit.py'
+```
+
+The generic audit checks all finite product entries, including infeasible
+completions, and tests the grouped local products. The full audit compares
+every above-capacity density against original all-root layers through 64
+keys. Larger rows use the sparse constructor and are labeled separately.
+Copy both remote JSON records back before another mirror operation.
