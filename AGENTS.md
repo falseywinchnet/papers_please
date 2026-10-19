@@ -383,3 +383,15 @@ Explicit two-key off-envelope interaction witnesses:
 Copy each remote result back before the next mirror operation. The witness
 audit uses independent feasible-rank enumeration through 8192 keys; original
 all-root and generic subsequence controls are restricted to n<=128.
+
+Fixed-tile interaction amplification and large binary-dilation controls:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/pair_amplification_probe.cpp -o /tmp/obst-pair-amplification && python3 obst/code/pair_amplification_probe.py /tmp/obst-pair-amplification && python3 obst/code/binary_dilation_family.py /tmp/obst-pair-amplification'
+```
+
+Independent binary saturation, block dilation, and mixed-layer controls:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/binary_dilation_audit.py
+```

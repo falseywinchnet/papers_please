@@ -5773,6 +5773,152 @@ The theorem rules out a mass-only charge after removing the entire
 unit-outcome envelope. It is compatible with the boundary-plus-mass
 hypothesis below, whose side term also covers these interaction cells.
 
+\subsection{Dyadic block replication preserves interior support}
+\label{sec:binary-dilation}
+A natural amplification attempt replaces each positive key by a block
+of unit keys and scales all positions. For binary key weights this has
+an exact coarse representation on intervals retaining complete positive
+blocks. It preserves interior core size instead of multiplying it.
+Keys in this subsection are numbered $1,\ldots,n$.
+
+\begin{lemma}[Binary saturation]\label{lem:binary-saturation}
+For a binary input word with $P$ ones and arbitrary nonnegative rank
+rewards $v_1,\ldots,v_c$, some maximizing $c$-subsequence contains
+$\min(P,c)$ ones.
+\end{lemma}
+\begin{proof}
+If $P\ge c$, selecting $c$ ones attains the upper bound $\sum_r v_r$.
+Otherwise, if a selected subsequence omits a one, it selects a zero.
+Choose a selected zero nearest to the omitted one in physical order;
+all selected entries between them are ones. Insert the omitted one
+and remove that zero. Shifting the intervening ones changes the selected
+binary word only by replacing one zero with one, so its reward cannot
+decrease. Repeat until every positive key is retained.
+\end{proof}
+
+\begin{theorem}[Exact binary-block dilation]\label{thm:binary-dilation}
+Let $p_1,\ldots,p_n\in\{0,1\}$, $C=2^h$, $c=C-1$, and $h\ge1$.
+Write $S_h(A,B)$ for the maximum ruler reward of a $c$-subsequence
+on keys $A+1,\ldots,B$, whenever $B-A\ge c$.
+Replace each input key by $d=2^\ell$ identical consecutive copies.
+The fine height is $h+\ell$, its capacity is $c_d=dC-1$, and its
+ruler score is $S_d$. Consider a fine interval $[a,b)$ with
+$b-a\ge c_d$ that cuts no positive block: each replicated positive
+block is wholly contained or wholly excluded. Put
+\[
+ A=\lceil a/d\rceil,\qquad B=\lfloor b/d\rfloor,
+ \qquad m=\sum_{k=A+1}^B p_k.
+\]
+If $m\le c$, then $B-A\ge c$ and
+\begin{equation}\label{eq:binary-dilation-score}
+ S_d(a,b)=m(d-1)+S_h(A,B).
+\end{equation}
+Endpoints may lie inside zero blocks.
+\end{theorem}
+\begin{proof}
+The length bound gives $B-A\ge C-1=c$ by integer rounding.
+A block of $d$ consecutive selected ones starting after rank $r$ has
+reward
+\begin{equation}\label{eq:binary-block-reward}
+ \sum_{t=r+1}^{r+d}\nu_2(t)
+ =d-1+\nu_2(\lfloor r/d\rfloor+1).
+\end{equation}
+Every residue modulo $d$ occurs once. The valuations capped at $\ell$
+sum to $\sum_{j=1}^{\ell}d/2^j=d-1$; the unique multiple of $d$
+contributes the remaining coarse valuation. A legal start
+$0\le r\le c_d-d$ gives coarse rank $1\le\lfloor r/d\rfloor+1\le c$.
+
+For $m=0$ both scores vanish, so assume $m\ge1$.
+Let $X_1<\cdots<X_m$ be the positive coarse positions in the interval.
+By Lemma~\ref{lem:binary-saturation}, all $md\le dc\le c_d$ positive
+fine keys can be retained in an optimum. Their block starts $r_j$
+satisfy exactly
+\begin{align*}
+ r_1&\le R=d(X_1-1)-a,\\
+ r_m&\ge Q=d(X_m+C-1)-b-1,\\
+ d&\le r_{j+1}-r_j\le d(X_{j+1}-X_j),\qquad
+ 0\le r_j\le c_d-d.
+\end{align*}
+These inequalities count the available zeros before, between, and after
+the complete positive blocks. Write
+$r_j=d(u_j-1)+\rho_j$, where $0\le\rho_j<d$.
+Taking floors gives
+\begin{equation}\label{eq:binary-dilation-ranks}
+\begin{gathered}
+ 1\le u_1<\cdots<u_m\le c,\qquad
+ u_1\le X_1-A,\qquad u_m\ge X_m+c-B,\\
+ u_{j+1}-u_j\le X_{j+1}-X_j.
+\end{gathered}
+\end{equation}
+These are precisely the coarse feasibility conditions when all $m$
+positive keys are retained.
+
+Conversely, fix any coarse ranks satisfying
+\eqref{eq:binary-dilation-ranks}. A tight first bound imposes
+$\rho_1\le R\bmod d$; otherwise its upper phase bound is $d-1$.
+A tight last bound imposes $\rho_m\ge Q\bmod d$; otherwise its lower
+phase bound is zero. If these endpoint ranges intersect, a common phase
+satisfies every fine inequality.
+If they do not, the last phase must exceed the first. Put
+$D_j=X_{j+1}-X_j$ and $e_j=u_{j+1}-u_j$.
+If some $e_j<D_j$, increase the phase once across that edge and keep
+it constant elsewhere. Its upper gap bound has at least $d$ units of
+slack, whereas the increase is at most $d-1$; its lower gap bound
+remains valid even when $e_j=1$.
+If every $e_j=D_j$, both endpoint bounds must be tight and
+\[
+ (Q\bmod d)-(R\bmod d)
+ =Q-R-d(u_m-u_1)=c_d-(b-a)\le0,
+\]
+contradicting the required increase. Thus every coarse choice lifts.
+The same endpoint equation covers $m=1$ directly.
+Summing \eqref{eq:binary-block-reward} and applying
+coarse binary saturation proves \eqref{eq:binary-dilation-score}.
+\end{proof}
+
+\begin{corollary}[Exact transport of interior densities]
+\label{cor:binary-dilation-core}
+Let $T=[a_0,a_0+s)\times[b_0,b_0+s)$ have zero key weights in its
+two endpoint fringes, so all four-corner intervals contain the same
+$m\le c$ positive keys. Assume $b_0-a_0-s\ge C$.
+Then $T$ and its dilated square $dT$ lie strictly above their respective
+capacity lines, and
+\begin{equation}\label{eq:binary-dilation-density}
+ D_{\rm fine}(di,d(j+1)-1)=D_{\rm coarse}(i,j)
+ \qquad ((i,j)\in T).
+\end{equation}
+Every other density in $dT$ vanishes. Thus core cardinality and density
+mass on these squares are invariant under dilation. Arbitrary nonnegative
+gap weights are allowed on both inputs. For zero gap weights, the ratio
+$K(T)/(s+W(J_T))$ decreases by the factor $d$.
+\end{corollary}
+\begin{proof}
+All relevant fine intervals retain the same complete positive blocks.
+Above capacity, cost is an affine terminal penalty plus height times
+interval weight minus ruler score. The first two terms have zero ordinary
+density, including arbitrary gap weights. In
+\eqref{eq:binary-dilation-score}, $m(d-1)$ is constant on the rectangle.
+The rounded left coordinate changes from $i$ to $i+1$ only when
+$d\mid i$; the rounded right coordinate changes from $j$ to $j+1$
+only when $j\equiv d-1\pmod d$. At these intersections the four
+coarse scores give exactly \eqref{eq:binary-dilation-density}.
+For zero gaps, local mass and tile side both multiply by $d$.
+\end{proof}
+If $d\ge2$, every transported positive cell lies outside the unit-outcome
+envelope of Lemma~\ref{lem:unit-support-envelope}: its capacity distance
+is $d(j-i-c)>0$, so adding one gives an odd integer greater than one.
+For the two-key family of Theorem~\ref{thm:off-envelope-interaction},
+the dilated tile stays maximal because its parent meets capacity.
+Replicating the two keys creates no additional core cell there, although
+every positive fine density becomes an off-envelope interaction.
+
+The restrictions in Theorem~\ref{thm:binary-dilation} are necessary.
+For coarse input $(1,0,0)$, $h=1$, and $d=4$, the fine interval $[1,9)$
+cuts a positive block and has score one. Its rounded coarse interval
+$[1,2)$ has no positive key, so the proposed expression would be zero.
+For coarse input $(1,1)$, $h=1$, $d=2$, and fine interval $[0,4)$,
+the fine score is one but $m(d-1)+S_h(0,2)=2$, with $m=2>c=1$.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -7427,6 +7573,39 @@ rather than a dense all-root computation. The record is
 \texttt{unit\_envelope\_obstruction.json}. All three records retain
 executed-source SHA-256 manifests. Verification counts do not enter
 the proofs of the gap formula, geometric envelope, or interaction family.
+
+\section{Pair amplification and exact binary dilation}
+\label{app:binary-dilation}
+The fixed-tile amplification search evaluates 2470 inputs through 1024
+keys, including translated pairs, shared endpoints, unequal weights,
+and local integer-weight mutations. It records 1,858,339,360 states,
+3,315,818,765 root candidates, and 6,790,720 density evaluations.
+Six retained tiles have independent all-root controls using 7,126,080
+candidates and 179,808 states. The largest observed ratio
+$K(T)/(s+W(J_T))$ is $12/25$; no upper bound follows from this finite
+maximum. The record is \texttt{pair\_amplification\_probe.json}.
+
+The independent binary-dilation audit checks saturation on 1536 cases
+using 21,588 literal subsequences, with arbitrary nonnegative rank rewards.
+The two scope counterexamples use twelve additional literal subsequences.
+Forty dilation instances give 6142 score controls and 4392 density controls
+from separate generic subsequence recurrences, using 416,654 transitions
+and 8958 score entries. Original all-root layers with arbitrary nonzero
+gap weights check 2286 entries and 1434 densities, using 398,656 root
+candidates and 38,304 states. All 42 positive controlled fine densities
+are outside the unit-outcome envelope. Rounded endpoints inside zero
+blocks are included. The record is \texttt{binary\_dilation\_audit.json}.
+
+A larger original-layer audit checks 27 replicated pair, alternating,
+and three-block patterns through 1024 keys. Every instance preserves
+the coarse tile's core cardinality and density mass; for $d>1$, every
+positive fine density is off-envelope. This run uses 22,874,208 states,
+40,616,815 root candidates, and 84,672 density evaluations. It uses
+monotone roots; the preceding audit supplies independent all-root controls
+at smaller sizes. The record is \texttt{binary\_dilation\_family.json}.
+All three records retain executed-source SHA-256 manifests. The exact
+identity and support transport follow from Section~\ref{sec:binary-dilation},
+independently of these finite checks.
 
 \clearpage
 \begingroup\small

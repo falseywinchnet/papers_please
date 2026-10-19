@@ -25,6 +25,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Nested threshold-tail obstruction](NESTED_TAIL_OBSTRUCTION.md)
 - [Single-key square bound and the open boundary-plus-mass target](BOUNDARY_TILE_TARGET.md)
 - [Unit-outcome support envelope and the surviving two-key interaction](UNIT_SUPPORT_ENVELOPE.md)
+- [Exact binary-block dilation and the replication barrier](BINARY_DILATION.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -53,6 +54,16 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+Aligned replication has an exact [binary-block reduction](BINARY_DILATION.md).
+For complete positive blocks of length d=2^ell above capacity, the ruler
+score is the rounded-endpoint coarse score plus m(d-1), provided the
+number m of positive blocks does not exceed coarse capacity. On rectangles
+with a fixed set of positive blocks, every coarse density moves to exactly
+one fine cell. Core cardinality and density mass stay unchanged; arbitrary
+gap weights cancel there. Thus this replication cannot amplify the local
+support ratio. The proof includes compatible phase choices and explicit
+counterexamples to dropping either restriction.
 
 An exact single-gap density classification now complements the single-key
 classification. Together they put every possible unit-outcome support inside

@@ -23,6 +23,14 @@ two unit keys create at least log2(s)-2 positive cells in one maximal tile.
 Thus a constant-per-weight charge fails for the remaining interaction
 support as well; the side term in (1) still accommodates this obstruction.
 
+Aligned binary replication also has an exact [dilation identity](BINARY_DILATION.md).
+On a rectangle retaining a fixed set of complete positive blocks, subject
+to the stated capacity and separation conditions, each coarse density moves
+to exactly one fine cell. With zero gaps, copying each key d times preserves
+K while multiplying both s and local mass by d. This natural amplification
+therefore decreases the ratio in (1), even though every positive fine cell
+for d>=2 lies outside the unit-outcome envelope.
+
 ## A proved logarithmic-side bound for one key
 
 **Lemma.** If exactly one key has positive weight and all gaps have weight

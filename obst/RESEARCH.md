@@ -2940,3 +2940,94 @@ final dedication were additionally inspected at reading resolution. All
 73 existing sec:legacy labels and the exact dedication source are preserved.
 Stable TeX, PDF, and the self-contained source ZIP with its Hebrew font and
 license were refreshed from this build.
+
+## Checkpoint 41: exact binary dilation and a replication barrier
+
+The preceding goal turn was progress: checkpoint 40 published the unit-support
+envelope and explicit off-envelope interaction witnesses. This turn attacked
+their amplification inside one maximal tile. The general mixed-weight goal
+and its main complexity bound remain unchanged.
+
+A directed fixed-tile search evaluates 2470 inputs through 1024 keys. It
+replicates and translates the original pair, shares endpoints, varies the
+two sides' integer weights, and mutates keys in the two-cluster region. The
+largest observed K/(s+W(J_T)) is 12/25. The compiled recurrence uses
+1858339360 states, 3315818765 root candidates, and 6790720 density
+evaluations. Six retained tiles agree with independent all-root layers,
+using 7126080 candidates and 179808 states. These finite maxima establish
+no support bound; they redirected attention to exactly aligned replication.
+
+There is an exact reduction for arbitrary binary key patterns. Fix coarse
+capacity c=2^h-1 and replicate every key into d=2^ell identical copies,
+with fine capacity d(c+1)-1. On a fine interval [a,b) that is at or above
+fine capacity, cuts no positive block, and contains m<=c positive blocks,
+
+    S_fine(a,b)=m(d-1)+S_coarse(ceil(a/d),floor(b/d)).
+
+The proof first establishes binary saturation for arbitrary nonnegative
+rank rewards: an optimum retains min(P,c) ones. A missing one can replace
+the nearest selected zero across selected ones, increasing the selected
+binary word componentwise. A block of d consecutive ones then has ruler
+reward d-1+nu_2(floor(r/d)+1), where r is its starting rank offset.
+
+Fine feasible ranks map to coarse ranks by floors. The converse needs
+compatible phases, rather than independent rounding. If the endpoint
+phase ranges intersect, one common phase works. Otherwise the phase must
+increase once. An edge whose coarse rank gap is smaller than its input
+gap permits that increase. If no such edge exists, the endpoint phase
+difference equals fine capacity minus interval length and is nonpositive,
+a contradiction. This proves that every coarse choice lifts. Empty-positive
+and single-positive cases are included explicitly.
+
+On rectangles with a fixed positive set and the stated capacity separation,
+the exact density transport is
+
+    D_fine(di,d(j+1)-1)=D_coarse(i,j),
+
+with all other fine densities zero. Core cardinality and density mass are
+preserved. Arbitrary nonnegative gap weights cancel above capacity on both
+grids. With zero gaps, side and local input mass both multiply by d, so the
+local support ratio decreases by exactly d. For d>=2 every transported
+positive density lies outside the fine unit-outcome envelope. Thus removing
+that envelope can leave the entire transported core, while replication
+still supplies no amplification in these interior rectangles.
+
+The two hypotheses are necessary. Cutting a positive block in the replicated
+(1,0,0) input gives fine score one but rounded prediction zero. Taking more
+positive coarse blocks than capacity in the replicated (1,1) input gives
+fine score one but prediction two. Both are checked by literal subsequences.
+The identity does not assert control of densities whose endpoints cut
+positive blocks, or of unequal positive weights. These are possible places
+for a different amplification to arise; the O(s+W(J_T)) target remains open.
+
+Independent verification includes 1536 binary-saturation cases with 21588
+literal subsequences and twelve literal choices for the two scope examples.
+Forty dilation instances give 6142 score controls and 4392 density controls,
+using 416654 generic subsequence transitions and 8958 score entries.
+Original all-root layers with arbitrary nonzero gap weights check 2286
+entries and 1434 densities (398656 root candidates, 38304 states).
+All 42 positive controlled fine densities lie outside the unit envelope.
+The tests include unaligned endpoints inside zero blocks.
+
+Twenty-seven larger pair, alternating, and three-block controls through
+1024 keys preserve core cardinality and density mass exactly. They use
+22874208 states, 40616815 root candidates, and 84672 density evaluations.
+This larger audit uses monotone roots, independently controlled at smaller
+sizes by the preceding all-root recurrence. All three result records have
+matching executed-source SHA-256 manifests. The final C++ source compiles
+without warnings; its initial unused-variable warnings were removed before
+the final recorded search was rerun.
+
+The theorem and support-transport corollary are in Section 5.18, with
+verification counts in Appendix Q. BINARY_DILATION.md contains the expanded
+proof. This checkpoint preserves the full research objective and identifies
+an exact obstruction to amplifying the known pair by aligned binary blocks.
+
+Publication validation: Tectonic compiled the 113-page manuscript without
+warnings, unresolved references, or overfull/underfull boxes. Every page was
+rendered and inspected in contact sheets. The new proof and corollary on
+pages 85--86, Appendix Q, and the final dedication were additionally inspected
+at reading resolution. All prior labels and the exact dedication source are
+preserved. The three new executed-source manifests match their source files.
+Stable TeX, PDF, and the complete source ZIP with its Hebrew font and license
+were refreshed and checked against this build.
