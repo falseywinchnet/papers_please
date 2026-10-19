@@ -6324,6 +6324,166 @@ deleting thirteen or fourteen gives reward two from key twelve;
 deleting fifteen or sixteen gives rewards two and one from keys twelve
 and fourteen. These cases directly prove the four optima.
 
+\subsection{Arbitrary-key rank transfers and dense local cores}
+\label{sec:rank-transfer-barrier}
+The finite-product representation extends to arbitrary key weights by
+retaining both the starting and ending selected ranks. This preserves the
+coupled optimization, but its transfer coordinates can have dense cores.
+They are different coordinates from the original interval endpoints.
+
+\begin{lemma}[Finite transfer through constant-weight runs]
+\label{lem:rank-transfer}
+Let $c\ge1$, and partition $n$ nonnegative key weights into $r$ constant
+runs $(w_\ell,m_\ell)$, with $m_\ell\ge1$. Put
+\[
+ F(t)=\sum_{j=1}^t\nu_2(j),\qquad
+ K=1+F(c)\sum_{\ell=1}^r w_\ell.
+\]
+For $0\le u,v\le c$ define the finite matrices
+\begin{equation}\label{eq:rank-transfer-factor}
+ Q_\ell(u,v)=K\bigl[\max(u-v,0)+\max(v-u-m_\ell,0)\bigr]
+                  +w_\ell F(u)-w_\ell F(v).
+\end{equation}
+Their product $T=Q_1\otimes\cdots\otimes Q_r$ equals the negative
+maximum reward of a $(v-u)$-key subsequence assigned consecutive ruler
+ranks $u+1,\ldots,v$, whenever $0\le v-u\le n$.
+It is Monge, has core size at most $2r2^{\lceil\log_2 r\rceil}c\le4r^2c$,
+and has a condensed construction using
+$O(n+r^2c\log(c+1))$ arithmetic work and
+$O(r^2c\log(c+1))$ auxiliary space.
+\end{lemma}
+\begin{proof}
+The row and column potentials in \eqref{eq:rank-transfer-factor} do not
+change densities. Each factor has density $K$ on $v-u=0$ and $v-u=m_\ell$,
+when the latter is in range, and no other density. Thus its core has at
+most $2c$ entries and is directly available with its boundaries in $O(c)$
+work.
+A feasible path chooses $t_\ell\in[0,m_\ell]$ keys from each run and
+advances its rank by $t_\ell$. Its cost is the negative sum of precisely
+those consecutive ruler rewards. Every subsequence has such a path, and
+any counts define a subsequence because keys in a run have equal weight.
+Every infeasible path incurs at least $K$ penalty. Even allowing arbitrary
+rank decreases, the negative part of its potentials has magnitude at most
+$F(c)\sum_\ell w_\ell$. Its cost is therefore at least one, whereas any
+feasible path has cost at most zero. The finite completion consequently
+preserves every feasible optimum.
+
+Multiply in a balanced tree. The published core-product bound~\cite{coremonge}
+charges each input core by at most $2^{\lceil\log_2 r\rceil}$, proving the
+stated final bound. The sum of core sizes throughout the tree is
+$O(r^2c)$. Each matrix has dimension $c+1$, so the logarithm in the
+published multiplication bound is $O(\log(c+1))$. Extracting the runs
+costs $O(n)$. The implementation retains ordinary witness arrays while
+multiplying; the stated auxiliary-space bound includes their possible
+logarithmic factor.
+\end{proof}
+For $c=2^h-1$ and $j-i\ge c$, this yields the original layer identity
+\begin{equation}\label{eq:rank-transfer-layer}
+ A_h(i,j)=M(j-i-c)+hW(i,j)+T_{p[i:j]}(0,c).
+\end{equation}
+All key weights may be arbitrary nonnegative reals, and gap weights enter
+through $W(i,j)$. The identity preserves their full above-capacity scores;
+it does not by itself construct all interval transfers efficiently.
+
+\begin{theorem}[Dense feasible rank-transfer squares]
+\label{thm:rank-transfer-dense}
+For $r$ keys with weights $p_j=j$, $1\le j\le r$, every completion
+agreeing with the exact feasible transfers has
+\[
+ D_T(u,v)=\nu_2(u+1)
+ \quad\text{when }0\le u,v<c,\quad 1\le v-u\le r-1.
+\]
+If $r=2s$ and $c\ge2s$, the square
+$0\le u<s$, $s\le v<2s$ has exactly $s\lfloor s/2\rfloor$ positive
+entries. If $c=2r-1$ and $r$ is even, the whole strict feasible strip has
+exactly $3r^2/4-3r/2+1$ positive entries.
+\end{theorem}
+\begin{proof}
+For $t=v-u$, the $k$th selected input index is at most $r-t+k$.
+Since ruler rewards are nonnegative, selecting the last $t$ keys maximizes
+every summand simultaneously. With
+$G(t)=\sum_{j=1}^t j\nu_2(j)$, the exact transfer is
+\begin{equation}\label{eq:rank-transfer-ramp}
+ T(u,v)=-\bigl[(r-v)(F(v)-F(u))+G(v)-G(u)\bigr].
+\end{equation}
+Its only term involving both variables is $(r-v)F(u)$.
+Four-corner differencing gives $F(u+1)-F(u)=\nu_2(u+1)$.
+The stated strict strip is precisely where these four corners are feasible.
+In the square, every odd row has $s$ positive entries and every even row
+has none. For the full strip the count is
+\[
+ \sum_{\substack{0\le u\le c-2\\u\text{ odd}}}
+       \min(r-1,c-1-u)
+ =\frac r2(r-1)+\left(\frac r2-1\right)^2
+ =\frac{3r^2}{4}-\frac{3r}{2}+1.
+\]
+All counted densities use only feasible entries, so the choice of
+completion cannot remove them.
+\end{proof}
+This rules out a uniform $O(s)$ local bound or an $O(c+r)$ total bound
+for these rank transfers. The family has integer weight
+$W=r(r+1)/2$, so its density count is consistent with a mass-dependent
+bound. It does not contradict the original interval-tile hypothesis
+\eqref{eq:boundary-tile-hypothesis}.
+
+\begin{lemma}[Balanced chains of finite bands]
+\label{lem:band-chain}
+For $N\ge1$ and $r\ge2$ real functions $f_\ell$ on $\{0,\ldots,N-1\}$ and integers
+$g_\ell\ge0$, let
+\[
+ H(A,B)=\max\left\{\sum_{\ell=1}^r f_\ell(u_\ell):
+ u_1\le A,\ u_r\ge B,\ 0\le u_{\ell+1}-u_\ell\le g_\ell\right\}.
+\]
+Here all states and endpoints lie in $\{0,\ldots,N-1\}$.
+On the feasible domain $B\le A+\sum_\ell g_\ell$, $-H$ has a finite
+Monge completion with at most
+$2r2^{\lceil\log_2(r+1)\rceil}(N-1)$ core entries, constructible in
+$O(r^2N\log(N+1))$ work.
+\end{lemma}
+\begin{proof}
+Set $K=1+\sum_\ell(\max f_\ell-\min f_\ell)$.
+Use the two selectors of Lemma~\ref{lem:band-dominance} and $r-1$ band
+factors. Charge $-f_\ell(u_\ell)$ in its outgoing band, and charge
+$-f_r(u_r)$ in the final band. Every unary term occurs exactly once.
+The sum of input core sizes is at most $2r(N-1)$.
+Every invalid path pays at least $K$, making it more expensive than
+any feasible optimum by the same range argument as in
+Lemma~\ref{lem:band-dominance}. A balanced product tree has height
+$\lceil\log_2(r+1)\rceil$; the core bound and construction follow as above.
+\end{proof}
+For unit-weight positive blocks of lengths $m_1,\ldots,m_r$ with total $P\le c$,
+put $N=c-P+1$, $P_\ell=\sum_{t<\ell}m_t$, and
+$f_\ell(u)=F(P_\ell+u+m_\ell)-F(P_\ell+u)$.
+This represents the complete-block interior, with $A=z-i$ and
+$B=c+z+G-j$ when the first block begins at $z$ and the total intervening
+zero length is $G$. Clipping frozen endpoints and mapping
+$i=z-a-1$, $j=c+z+G-b-1$ constructs that part of the original core.
+This extension does not include endpoints cutting a positive block.
+
+\begin{theorem}[Width-one chains with dense output squares]
+\label{thm:band-chain-dense}
+There are chains of $r=2s+1$ functions on $N=2s+1$ states, with every
+band width equal to one, whose output has density one in every cell of
+an $s\times s$ square.
+\end{theorem}
+\begin{proof}
+Take $f_1(u)=\cdots=f_{r-1}(u)=u$ and $f_r(u)=-(r-1)u$.
+For $e_\ell=u_{\ell+1}-u_\ell\in\{0,1\}$ the reward telescopes to
+$-\sum_{\ell=1}^{r-1}\ell e_\ell$.
+If $B>A$, at least $d=B-A$ increments are necessary. Choosing the first
+$d$ increments, starting at $A$, attains the optimum $-d(d+1)/2$.
+If $B\le A$, a constant path gives zero. Thus, with $d=\max(B-A,0)$,
+\[
+ -H(A,B)=d(d+1)/2.
+\]
+Every output is feasible because $N=r$. Its four-corner difference is
+one throughout $0\le A<s$, $s\le B<2s$.
+\end{proof}
+The functions in this last theorem are arbitrary unary rewards, not the
+special ruler block rewards. Therefore a boundary charge uniform in the
+number of binary blocks must use further ruler structure; narrow bands and
+finite Monge factors alone do not establish it.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -8094,6 +8254,44 @@ larger rows do not have original all-root references. The record is
 \texttt{two\_block\_core\_audit.json}. Both records retain executed-source
 SHA-256 manifests. The bounds follow from the finite product, visibility,
 and endpoint-case proofs, independently of the finite audits.
+
+
+\clearpage
+\section{Finite rank transfers and dense-core audit}
+\label{app:rank-transfer}
+The audit exhausts 363 inputs over key weights $\{0,1,3\}$ through five
+keys. It compares 23,232 finite transfer entries, including infeasible
+completion entries, with independent dense products using 459,456 candidate
+additions. All 11,385 feasible entries also agree with a separate subsequence
+DP and 52,245 literal subsequences. Thirty-two rational-weight inputs add
+1048 exact entry controls.
+
+For 70 mixed inputs through 32 keys, including geometric, increasing,
+near-uniform, constant, and random key weights with nonzero gap weights,
+1172 original all-root layer scores agree with
+\eqref{eq:rank-transfer-layer}. Separately, 32 many-block inputs with varied
+positive-block lengths have 128 original-layer support-set comparisons and
+3544 interior density controls. Together these original all-root controls
+use 987,840 root candidates and 104,460 states.
+
+One hundred chains of signed unary functions supply 3850 feasible-score
+controls against an independent state DP. The explicit width-one family
+in Theorem~\ref{thm:band-chain-dense} has 1493 formula entries checked
+against both that DP and condensed products, and 341 density-one square
+cells. Six weighted-ramp constructions through $c=255$ check 33,138
+transfer formula entries and 32,136 densities from
+Theorem~\ref{thm:rank-transfer-dense}. The four smaller rows, through
+$c=63$, also have 2130 independent subsequence-DP entry controls. The two
+larger rows use the condensed product and the closed form, without that
+additional DP control. At $c=255$, $r=128$, the strict feasible strip has
+12,097 positive entries and the side-64 square has 2048. The product
+has 127 chain multiplications, whose total input-core count is 206,530;
+its internal multiplication operations are recorded separately.
+
+The record is \texttt{rank\_transfer\_audit.json}. It preserves exact
+operation counts and executed-source SHA-256 manifests. These finite
+checks verify the implementations and identities at the recorded sizes;
+the dense families and construction bounds follow from the proofs.
 
 \clearpage
 \begingroup\small

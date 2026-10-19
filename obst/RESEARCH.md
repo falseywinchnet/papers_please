@@ -3265,3 +3265,94 @@ byte-identical to the previous checkpoint. Both final audit source manifests
 match the committed sources. The stable TeX and PDF were refreshed byte for
 byte, and the five-member source archive includes the matching source and
 bundled Hebrew font with its license.
+
+
+## Checkpoint 44: arbitrary-key rank transfers and two dense-core barriers
+
+The previous turn was progress: checkpoint43 published the complete two-block
+above-capacity theorem and constructor. This turn tested the next extension,
+namely whether finite band products alone could give a boundary charge that
+remains uniform as the number of interacting blocks grows.
+
+The exact representation now covers arbitrary nonnegative key weights.
+Partition them into r constant runs (w,m), and let F(t)=sum_{j<=t} nu_2(j).
+A run's finite transfer matrix is
+
+    Q(u,v)=K[max(u-v,0)+max(v-u-m,0)]+w F(u)-w F(v),
+    K=1+F(c) sum_runs w.
+
+Its only core entries are on the two band boundaries. Feasible paths select
+counts per run and preserve their original order and exact weighted ruler
+reward. Every invalid path costs at least one while a feasible path costs
+at most zero. This proves that the finite product preserves every feasible
+rank transfer, including the (0,c) entry determining an original interval's
+above-capacity layer value with arbitrary nonnegative gap weights.
+
+A balanced product tree avoids exponential repeated core doubling: its final
+core is at most 2r*2^ceil(log2 r)*c and its total construction work is
+O(n+r^2 c log(c+1)). Ordinary witness arrays justify the conservative
+O(r^2 c log(c+1)) auxiliary-space claim. This is a representation parameterized
+by runs, not a general subquadratic all-interval BST algorithm. The matrix
+multiplication inequality and algorithm remain credited to the published
+ESA 2025 primitive; its primary source was checked again this turn.
+
+The expected obstacle is exact. With r input keys weighted 1,...,r, the
+rightmost t keys maximize every nonnegative rank reward simultaneously.
+Writing G(t)=sum_{j<=t} j nu_2(j), the transfer equals
+
+    -[(r-v)(F(v)-F(u))+G(v)-G(u)].
+
+Every strictly feasible density is nu_2(u+1). Thus r=2s gives exactly
+s floor(s/2) entries in an s-square, and c=2r-1 gives exactly
+3r^2/4-3r/2+1 positive entries in the full strict feasible strip.
+All these entries use feasible corners, so no choice of finite completion
+removes the lower bound. The coordinates are ranks; the weight mass is
+r(r+1)/2. It is not an original interval-core counterexample.
+
+The binary-block interior also extends to a chain of arbitrary unary
+functions and bounded monotone state increments. Its balanced bound is
+O(r^2 N), with O(r^2 N log(N+1)) construction. However, even width-one
+bands admit a dense local square: use f_1=...=f_(r-1)=u and
+f_r=-(r-1)u. The optimum is -d(d+1)/2 for d=max(B-A,0).
+At r=N=2s+1 every cell of the indicated s-square has density one.
+This counterexample is not a ruler-block input. It identifies precisely
+why the factorization alone cannot prove a uniform boundary charge; the
+special carry rewards or original weight budget must enter a stronger proof.
+
+The audit first ran with integer finite products, literal subsequences,
+original mixed all-root layers, arbitrary unary chains, and both explicit
+dense families. Every control passed. It was then expanded to rational
+weights and varied many-block lengths and rerun against the final sources.
+No empirical maximum or timing is used as a bound.
+
+The final run exhausts 363 inputs over {0,1,3} through five keys, with 23232
+finite product controls against 459456 candidate additions. Its 11385 feasible
+entries also match an independent subsequence DP and 52245 literal choices.
+Thirty-two rational inputs add 1048 exact controls. Seventy mixed inputs
+through 32 keys have 1172 original all-root layer identities. Thirty-two
+many-block inputs have 128 original support sets and 3544 density controls;
+together the original recurrences use 987840 candidates and 104460 states.
+
+One hundred generic signed-function chains have 3850 independent feasible
+scores. The width-one family has 1493 entry controls against the DP and
+product, plus 341 density-one cells. Six weighted-ramp products through
+c=255 have 33138 formula entries and 32136 density checks. The four smaller
+rows through c=63 also have 2130 independent DP entries. The larger rows
+are explicitly formula/product controls. At c=255,r=128 the strict core
+has 12097 entries and its side-64 square has 2048.
+
+The next general obligation remains a proof using the ruler structure or
+original integer weight units to bound interval cores. Neither new transfer
+barrier changes the main aggregate bound or settles the open local hypothesis.
+The complete proof is RANK_TRANSFER_BARRIER.md; manuscript Section 5.20
+groups it with the representation barriers, with counts in Appendix T.
+
+Publication validation: the final 124-page manuscript compiles cleanly with
+Tectonic, without layout or reference warnings. All pages were rendered and
+reviewed in contact sheets; new proof pages 92--94, Appendix T on page 122,
+and the final dedication on page 124 were also inspected at reading scale.
+All 333 prior labels remain; the 342 current labels are unique and all
+references resolve. The dedication source is byte-identical. The final audit
+manifest matches every executed source. Stable TeX and PDF copies match the
+manuscript byte for byte, and the five-member source archive includes the
+matching TeX, build instructions, Hebrew font, license, and font README.

@@ -429,3 +429,14 @@ completions, and tests the grouped local products. The full audit compares
 every above-capacity density against original all-root layers through 64
 keys. Larger rows use the sparse constructor and are labeled separately.
 Copy both remote JSON records back before another mirror operation.
+
+Finite arbitrary-key rank transfers, balanced block chains, and dense-core families:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/rank_transfer_audit.py
+```
+
+This audit distinguishes finite-completion controls, independent subsequence
+DP, original mixed BST layers, and larger formula/product checks. Its dense
+rank-transfer family is not a counterexample to the original interval-core
+hypothesis. Copy its JSON result back before the next mirror operation.

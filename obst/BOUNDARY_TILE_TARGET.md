@@ -50,6 +50,15 @@ or to two exceptional diagonals. Thus equal-weight two-block interaction
 also satisfies (1) on this side. Unequal weights, additional blocks, and the
 below-capacity mixed region remain open.
 
+The [rank-transfer extension](RANK_TRANSFER_BARRIER.md) preserves arbitrary
+nonnegative key weights through finite band matrices, but its coordinates
+can have quadratic local support: weights 1,...,2s give s floor(s/2) entries
+in an s-square of starting/ending ranks. A separate width-one chain with
+arbitrary unary rewards gives s^2 entries. These are exact obstructions to
+proving a uniform boundary charge from the band factorization alone. They
+do not disprove (1): the first family has quadratic total integer mass and
+uses transfer coordinates; the second lacks the specific ruler rewards.
+
 ## A proved logarithmic-side bound for one key
 
 **Lemma.** If exactly one key has positive weight and all gaps have weight

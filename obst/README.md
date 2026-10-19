@@ -28,6 +28,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact binary-block dilation and the replication barrier](BINARY_DILATION.md)
 - [Linear one-block core construction and local boundary charge](PLATEAU_CORE.md)
 - [Complete two-block above-capacity cores and a finite band factorization](TWO_BLOCK_CORES.md)
+- [Arbitrary-key rank transfers and exact dense-core barriers](RANK_TRANSFER_BARRIER.md)
 - [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
@@ -57,6 +58,17 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The finite-product method now has an [exact arbitrary-key rank-transfer
+representation](RANK_TRANSFER_BARRIER.md). A constant-weight run is a band
+matrix with a ruler potential; a balanced product preserves every feasible
+weighted subsequence optimum with polynomial dependence on the run count.
+This extension also has a proved limitation: increasing weights 1,...,2s
+give s floor(s/2) positive densities in one side-s transfer square. A second
+family makes all s^2 cells positive using only width-one bands and arbitrary
+unary rewards. Both are explicit density formulas. These transfer-coordinate
+barriers leave the original interval-core bound and its open local target
+unchanged; they show where additional ruler and weight structure is needed.
 
 The complete above-capacity core for **two equal positive key blocks** now
 has a [linear support bound and an O(n log(n+1)) constructor](TWO_BLOCK_CORES.md),
