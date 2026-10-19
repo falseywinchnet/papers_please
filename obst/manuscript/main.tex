@@ -638,6 +638,130 @@ Theorem~\ref{thm:penalty-reduction}. The general maximum-core bound
 remains available whenever it is smaller.
 \end{proof}
 
+\subsection{A full mixed-weight slot representation}
+\label{sec:mixed-slots}
+The key-only ruler subsequence extends to weighted gaps by retaining a
+pair term. For this subsection, index keys by $1,\ldots,n$ and gaps by
+$0,\ldots,n$. Fix a height $h$ with $c=2^h-1\ge n$, put $r=c-n$, and
+write $v(t)=\nu_2(t)$ for $1\le t\le c$.
+
+\begin{theorem}[Mixed slot representation]\label{thm:mixed-slots}
+The minimum full mixed cost among BSTs of height at most $h$ equals
+$hW$ minus the maximum, over all $1\le t_1<\cdots<t_n\le c$, of
+\begin{equation}\label{eq:mixed-slot-score}
+ \sum_{i=1}^n p_i v(t_i)+q_0v(t_1)+q_nv(t_n)
+       +\sum_{i=1}^{n-1}q_i\min\{v(t_i),v(t_{i+1})\}.
+\end{equation}
+The selected slots need not be ancestor-closed. A minimizing slot
+selection can be converted to an optimal height-limited tree in $O(c+n)$
+operations. The weights may be arbitrary nonnegative reals in the exact
+arithmetic model.
+\end{theorem}
+\begin{proof}
+A slot $t$ of the perfect tree has comparison length $\ell(t)=h-v(t)$.
+A gap between adjacent keys has depth equal to the maximum of their
+comparison lengths; the endpoint gaps have lengths equal to their
+neighboring key. The internal-gap identity is Lemma~1 of Becker~\cite{becker}.
+Thus every actual height-at-most-$h$ tree embeds into the perfect tree
+and has cost exactly $hW$ minus~\eqref{eq:mixed-slot-score} for its slots.
+
+Conversely, select any $n$ slots and delete all unselected keys from the
+perfect BST. Ordinary BST deletion never increases a surviving key's
+depth: a successor copied into a deleted node moves upward, and any
+spliced child subtree also moves upward. Inorder order is preserved.
+The gap-depth identity then shows that every resulting gap depth is at
+most the maximum of its neighboring selected-slot comparison lengths.
+Nonnegative weights imply that the repaired tree's mixed cost is at most
+the slot expression. These two directions prove equality of the minima.
+
+For conversion, store parent and child pointers, inorder threads, and
+the current node location for every original slot label. Delete
+unselected labels in increasing order. A two-child
+deletion obtains its successor from a thread, copies its label, updates
+that label's location, and splices out the successor. Each deletion changes
+only constantly many pointers. Building the perfect tree, performing
+$c-n$ deletions, and writing the output take $O(c+n)$ operations.
+For an optimal slot sequence, a strict cost decrease during repair would
+contradict the equality of minima just proved.
+\end{proof}
+
+\begin{theorem}[Capacity-deficit construction]\label{thm:slot-deficit}
+With $r=2^h-1-n\ge0$, an optimal height-at-most-$h$ mixed-weight BST
+can be constructed in $O(n(r+1))$ arithmetic operations and words,
+including all preprocessing and full reconstruction.
+\end{theorem}
+\begin{proof}
+Write $t_i=i+y_i$. The exact feasible sequences are
+$0\le y_1\le\cdots\le y_n\le r$. Let $D_i(y)$ be the best prefix
+reward ending at $y_i=y$, including gaps $q_0,\ldots,q_{i-1}$. Then
+\begin{align*}
+ D_1(y)&=(p_1+q_0)v(1+y),\\
+ D_i(y)&=p_iv(i+y)+\max_{0\le z\le y}
+       \{D_{i-1}(z)+q_{i-1}\min(v(i-1+z),v(i+y))\}.
+\end{align*}
+Finish with $\max_y\{D_n(y)+q_nv(n+y)\}$. There are $n(r+1)$ states.
+
+Within row $i$, sweep $y$ increasingly and insert predecessor $z=y$.
+Maintain $B_d$, the largest inserted predecessor value of valuation $d$,
+and $S_e=\max_{d\ge e}B_d$, with attaining predecessors; unpopulated
+levels are omitted. For $e=v(i+y)$,
+the transition maximum is
+\[
+ \max\left\{\max_{d<e}(B_d+q_{i-1}d),\ S_e+q_{i-1}e\right\}.
+\]
+Inserting a value of valuation $d$ updates $B_d$ and $S_0,\ldots,S_d$.
+The query scans the $e$ lower levels and reads $S_e$ once. Generation
+tags reset these arrays logically between rows, so no length-$h$ clearing
+pass is required per row. The state costs
+$O(1+v(i-1+y)+v(i+y))$ operations.
+
+Across the entire table, a slot index occurs at most $\min(n,r+1)$
+times in either valuation sum. Since
+\[
+ \sum_{t=1}^{c}v(t)=c-h<c,\qquad
+ \min(n,r+1)c\le2n(r+1),
+\]
+all scans and updates take $O(n(r+1))$ operations. The second inequality
+follows by considering $r+1\le n$ and $r+1>n$. Tabulating valuations,
+initializing the arrays, and processing the first and last rows fit the
+same bound, since $c=n+r\le n(r+1)$.
+
+Store one predecessor per state and trace back the slots. Apply
+Theorem~\ref{thm:mixed-slots}'s $O(c+n)$ repair procedure. All arrays,
+traceback records, and the reconstructed tree fit in $O(n(r+1))$ words.
+\end{proof}
+
+Becker~\cite{becker} already gives a quadratic construction when the
+height limit is a fixed additive constant above the minimum. The bound
+here exposes the capacity deficit: constant $r$ gives linear work, while
+$r=\Theta(n)$ gives quadratic work. A prescribed height remains a
+constraint; unrestricted optimality requires a sufficient height bound
+or a separate certificate.
+For example, $p=(100,1,1,1)$ and $q=(1,1,1,1,1)$ have an unrestricted
+optimum of cost $121$: the first key must be the root, since placing it
+lower already costs at least $200$, and its uniform three-key right
+subtree is balanced. This tree has height three. Every minimum-internal-
+path-length four-key tree puts that first key below the root, so the
+height-limited class includes necessary shapes beyond that earlier
+certificate family.
+
+\paragraph{The complementary penalty regime.}
+For an interval with $n\ge c$, maximum exposure produces a perfect
+$c$-key skeleton, and every gap reaches depth $h$. Consequently, when
+$M>hW$, its terminal-penalty value is
+\begin{equation}\label{eq:mixed-slots-above}
+ A_h(0,n)=M(n-c)+hW-
+ \max_{1\le t_1<\cdots<t_c\le n}\sum_{j=1}^{c}p_{t_j}v(j).
+\end{equation}
+The feasibility of selecting the skeleton keys is exactly their increasing
+order; remaining keys lie in its terminal intervals. At $n=c$ this agrees
+with~\eqref{eq:mixed-slot-score}, since adjacent ruler valuations have
+minimum zero and both endpoint valuations are zero.
+In particular, ordinary density cells strictly above $j-i=c$ are
+independent of all gap weights: the gap contribution $hW(i,j)$ and the
+penalty's affine length term both have zero density there. Mixed gap/key
+interactions remain in the fully exposed region and on the boundary.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -5403,6 +5527,54 @@ The executed sources and exact operation records are retained in
 The proofs in Section~\ref{sec:local-tile-obstruction} establish the
 asymptotic local obstruction and global linear bound independently of
 these finite checks.
+
+\section{Independent mixed-slot construction audit}
+\label{app:mixed-slots}
+The reconstruction procedure is checked on all 32,902 nonempty slot subsets
+of perfect trees through height four. Every surviving key has comparison
+length no larger than its selected slot's length, and every gap satisfies
+the neighboring-key identity.
+
+The constructor has 717 independently checked complete solves, including
+473 literal slot-minimum and literal tree-minimum controls. Its independent
+height recurrence examines 558,638 interval states and 15,547,880 root
+candidates, including the smaller scale controls. The positive four-key
+example in Section~\ref{sec:mixed-slots} has full optimum $121$; literal
+minimum-internal-path-length enumeration gives $218$.
+The small constructor runs record 82,568 slot states, 145,171 suffix-level
+updates, and 69,863 lower-level scans. Preprocessing, traceback, array
+initialization, node deletion, and output have separate counters.
+
+The complementary above-capacity formula is checked on 23,920 intervals
+against full mixed penalty layers, and 18,000 ordinary densities agree
+with their zero-gap counterparts. Those independent layer computations
+examine 184,056 states and 1,300,792 root candidates.
+
+There are 53 scale rows through perfect capacity $4095$, using positive
+mixed weights with baselines $2^{60}$ on keys and $2^{61}$ on gaps.
+Twenty-three smaller rows also use the independent all-root recurrence;
+the larger rows check reconstructed height, direct original cost, and the
+slot objective, with their independent-reference flag set to false.
+At height twelve the operation counts are:
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & $r$ & Slot states & Suffix updates & Lower-level scans\\
+\midrule
+4095 & 0 & 4095 & 8177 & 4083\\
+4094 & 1 & 8188 & 16351 & 8165\\
+4093 & 2 & 12279 & 24522 & 12246\\
+4091 & 4 & 20455 & 40852 & 20402\\
+4087 & 8 & 36783 & 73468 & 36694\\
+4079 & 16 & 69343 & 138516 & 69190\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each row tabulates 4095 valuations, builds 4095 perfect-tree nodes,
+deletes exactly $r$ nodes, and outputs all $n$ original keys. The stated
+asymptotic bound follows from the valuation-sum proof, independently of
+these rows. The executed source hashes and operation records are in
+\texttt{mixed\_slots.json}.
 
 \begingroup\small
 \begin{thebibliography}{99}

@@ -37,7 +37,8 @@ successor, then splice out that successor from its old position; with at most
 one child splice out the node. Every remaining key keeps or decreases its
 depth, and inorder order is preserved. Nonnegative key weights therefore
 cannot increase cost. These two inequalities prove equality of the minima.
-Zero gap weights are essential for this particular deletion argument.
+For nonzero gap weights the slot objective must retain the adjacent-key
+pair terms; [MIXED_SLOTS.md](MIXED_SLOTS.md) proves that extension.
 
 Now consider an interval containing the whole positive ramp, with A leading
 zero keys and B trailing zero keys. Its length is k=A+m+B<=c. The positive

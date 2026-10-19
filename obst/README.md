@@ -10,6 +10,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Linear-mass odd-ramp core lower bound](RAMP_CORE_TIGHTNESS.md)
 - [Per-outcome charging and the aggregate core bound](AGGREGATE_CORES.md)
 - [Single-weight obstruction to constant tile charging](LOCAL_TILE_OBSTRUCTION.md)
+- [Full mixed ruler slots and capacity-deficit construction](MIXED_SLOTS.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -84,6 +85,17 @@ layer. Thus the height factor cannot simply be dropped from individual tile
 charges; a stronger global charging argument remains possible. The formula
 audit checks every interval and density through 1024 keys, with additional
 all-position one-key controls. See [the proof](LOCAL_TILE_OBSTRUCTION.md).
+
+The full mixed objective also has an exact ruler-slot representation, with
+adjacent-gap rewards given by minima of neighboring slot valuations. For a
+prescribed height h and capacity deficit r=2^h-1-n>=0, a new implementation
+constructs the exact height-limited optimum in O(n(r+1)) arithmetic operations,
+including conversion from arbitrary selected slots to a valid tree. The
+operation bound is independent of weight amplitudes. Above the terminal
+layer's capacity, gap weights contribute only an additive term, so ordinary
+densities there depend only on key weights. See [the representation and
+proof](MIXED_SLOTS.md). The unrestricted height choice remains part of the
+full problem; the existing Monge construction bound is unchanged.
 
 ## Earlier certificate results
 

@@ -1980,3 +1980,67 @@ labels remain, all labels are unique, and every reference resolves. The
 or layout-box diagnostics. All pages were rendered and reviewed in contact
 sheets; the new proof and audit were inspected at full resolution. Stable
 TeX/PDF copies and the complete source/font bundle are refreshed.
+
+
+## Checkpoint 28: full mixed slots and capacity-deficit construction
+
+The previous goal turn made progress by proving and publishing the local
+charging obstruction and exact one-key cores. The next step extends the
+slot representation to the full mixed objective. A gap's depth is the maximum
+of its neighboring key comparison lengths (Becker's Lemma 1); in ruler
+coordinates this gives a pair reward q_i min(v(t_i),v(t_(i+1))). Both endpoint
+gaps retain unary terms. Every height-limited tree embeds in the perfect
+tree. Conversely, arbitrary selected slots can be repaired by deleting
+unselected keys: surviving key depths do not increase, so the gap identity
+also bounds every gap depth. This proves equality of the two optima.
+
+Write t_i=i+y_i and r=2^h-1-n. The states are 0<=y_1<=...<=y_n<=r.
+A prefix-by-valuation maximum and suffix maxima evaluate the pair reward.
+Inserting valuation d updates d+1 suffix levels; querying valuation e scans
+e lower levels. Their total cost is linear in n(r+1), since every ruler
+position occurs at most min(n,r+1) times and sum_{t<=c} nu_2(t)=c-h.
+Generation tags avoid a hidden h-per-row reset. Threaded BST deletion and
+location arrays reconstruct in O(c+n), within the same bound. The concrete
+implementation uses arrays, including membership, with no hashing assumption.
+
+This gives exact O(n(r+1)) arithmetic work and words for the prescribed
+height, including all original key/gap weights and full reconstruction.
+Becker already gives O(n^2) for a near-minimum height; the capacity-deficit
+form exposes the linear regime for constant r. The full unrestricted
+objective is preserved: selecting a small height does not itself certify
+global optimality. The main Monge bound remains unchanged. The positive
+example p=(100,1,1,1), q=(1,1,1,1,1) has optimum 121 at height three and
+minimum-IPL optimum 218, confirming the class includes more than the earlier
+minimum-IPL construction family.
+
+The complementary regime also has an exact formula. Above capacity c, the
+exposed skeleton is perfect, all gaps reach depth h, and selecting c keys
+maximizes sum_j p_(t_j) nu_2(j). Thus ordinary density cells strictly above
+the capacity diagonal are independent of gap weights. The hard mixed
+interaction remains below the boundary and on it. Both formulas are proved
+in MIXED_SLOTS.md and the manuscript. Primary prior-work check: Becker,
+arXiv:1011.1337v1, Lemma 1 and Section 4; no priority claim is inferred from
+this targeted check.
+
+The final harness checks 32902 arbitrary subset repairs, 717 full solves,
+473 literal slot minima and literal tree minima, 23920 above-capacity
+interval formulas, and 18000 gap-independent densities. Height-reference
+work is 558638 states and 15547880 root candidates; the separate penalty
+controls use 184056 states and 1300792 candidates. Small constructor runs
+use 82568 slot states, 145171 suffix updates, and 69863 lower-level scans.
+There are 53 scale rows through capacity 4095; 23 have independent all-root
+controls. At n=4079, h=12, r=16, the constructor uses exactly 69343 states,
+138516 suffix updates, 69190 lower-level scans, builds 4095 perfect nodes,
+deletes 16, and outputs 4079. Large rows verify original cost, height, and
+slot score, with independent_reference=false; no dense optimum is claimed
+for those rows beyond the proved algorithm. Source hashes and operation
+counters are retained in mixed_slots.json.
+
+Checkpoint 28 publication validation: the executed source manifest matches
+all four current sources. All 57 legacy statement labels remain, labels are
+unique, and all references resolve. The dedication is byte-identical. The
+85-page PDF compiles without warnings, missing glyphs, undefined references,
+or box diagnostics. Every page was rendered and reviewed in contact sheets;
+the new representation, amortized proof, complementary regime, and audit
+were inspected at full resolution. Stable TeX/PDF copies and the source/font
+bundle are refreshed from the final compiled sources.

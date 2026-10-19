@@ -61,6 +61,7 @@ Fixed-mass adversarial core-size search and independent layer audit:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/aggregate_core_audit.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/dyadic_mass_probe.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/single_key_tile.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/check_mixed_slots.py
 ```
 
 The objective is the full static optimal binary search tree problem with
