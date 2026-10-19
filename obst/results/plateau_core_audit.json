@@ -1,0 +1,325 @@
+{
+  "scope": "Exact one-plateau above-capacity density support, including arbitrary nonnegative gap weights and positive endpoint cuts. No below-capacity support claim is made.",
+  "checks": {
+    "all_root_candidates": 33319148,
+    "dense_states": 2723869,
+    "block_reward_controls": 23375,
+    "stack_pushes": 79498,
+    "visibility_set_controls": 5561,
+    "ruler_values": 36588,
+    "initial_reward_additions": 15801,
+    "linear_constructor_controls": 5561,
+    "original_support_set_controls": 5561,
+    "positive_endpoint_zero_controls": 635883,
+    "original_density_controls": 1143360,
+    "local_square_support_controls": 50032,
+    "stack_pops": 68512,
+    "visibility_candidates": 119864,
+    "literal_visibility_pairs": 193533,
+    "sliding_reward_updates": 20787,
+    "visibility_output_pairs": 45554,
+    "coordinate_filters": 6499,
+    "core_outputs": 897
+  },
+  "rows": [
+    {
+      "n": 1,
+      "blocks": 1
+    },
+    {
+      "n": 2,
+      "blocks": 3
+    },
+    {
+      "n": 3,
+      "blocks": 6
+    },
+    {
+      "n": 4,
+      "blocks": 10
+    },
+    {
+      "n": 5,
+      "blocks": 15
+    },
+    {
+      "n": 6,
+      "blocks": 21
+    },
+    {
+      "n": 7,
+      "blocks": 28
+    },
+    {
+      "n": 8,
+      "blocks": 36
+    },
+    {
+      "n": 9,
+      "blocks": 45
+    },
+    {
+      "n": 10,
+      "blocks": 55
+    },
+    {
+      "n": 11,
+      "blocks": 66
+    },
+    {
+      "n": 12,
+      "blocks": 78
+    },
+    {
+      "n": 16,
+      "blocks": 136
+    },
+    {
+      "n": 24,
+      "blocks": 300
+    },
+    {
+      "n": 32,
+      "blocks": 528
+    },
+    {
+      "n": 64,
+      "blocks": 30
+    }
+  ],
+  "sharp_rows": [
+    {
+      "h": 3,
+      "n": 16,
+      "m": 1,
+      "above_core": 2,
+      "bound": 5,
+      "constructor_counts": {
+        "ruler_values": 7,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 6,
+        "stack_pushes": 7,
+        "stack_pops": 4,
+        "visibility_candidates": 8,
+        "visibility_output_pairs": 2,
+        "coordinate_filters": 2,
+        "core_outputs": 2
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 4,
+      "n": 32,
+      "m": 1,
+      "above_core": 8,
+      "bound": 13,
+      "constructor_counts": {
+        "ruler_values": 15,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 14,
+        "stack_pushes": 15,
+        "stack_pops": 11,
+        "visibility_candidates": 22,
+        "visibility_output_pairs": 8,
+        "coordinate_filters": 8,
+        "core_outputs": 8
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 5,
+      "n": 64,
+      "m": 1,
+      "above_core": 22,
+      "bound": 29,
+      "constructor_counts": {
+        "ruler_values": 31,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 30,
+        "stack_pushes": 31,
+        "stack_pops": 26,
+        "visibility_candidates": 52,
+        "visibility_output_pairs": 22,
+        "coordinate_filters": 22,
+        "core_outputs": 22
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 6,
+      "n": 128,
+      "m": 1,
+      "above_core": 52,
+      "bound": 61,
+      "constructor_counts": {
+        "ruler_values": 63,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 62,
+        "stack_pushes": 63,
+        "stack_pops": 57,
+        "visibility_candidates": 114,
+        "visibility_output_pairs": 52,
+        "coordinate_filters": 52,
+        "core_outputs": 52
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 7,
+      "n": 256,
+      "m": 1,
+      "above_core": 114,
+      "bound": 125,
+      "constructor_counts": {
+        "ruler_values": 127,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 126,
+        "stack_pushes": 127,
+        "stack_pops": 120,
+        "visibility_candidates": 240,
+        "visibility_output_pairs": 114,
+        "coordinate_filters": 114,
+        "core_outputs": 114
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 8,
+      "n": 512,
+      "m": 1,
+      "above_core": 240,
+      "bound": 253,
+      "constructor_counts": {
+        "ruler_values": 255,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 254,
+        "stack_pushes": 255,
+        "stack_pops": 247,
+        "visibility_candidates": 494,
+        "visibility_output_pairs": 240,
+        "coordinate_filters": 240,
+        "core_outputs": 240
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 9,
+      "n": 1024,
+      "m": 1,
+      "above_core": 494,
+      "bound": 509,
+      "constructor_counts": {
+        "ruler_values": 511,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 510,
+        "stack_pushes": 511,
+        "stack_pops": 502,
+        "visibility_candidates": 1004,
+        "visibility_output_pairs": 494,
+        "coordinate_filters": 494,
+        "core_outputs": 494
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 10,
+      "n": 2048,
+      "m": 1,
+      "above_core": 1004,
+      "bound": 1021,
+      "constructor_counts": {
+        "ruler_values": 1023,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 1022,
+        "stack_pushes": 1023,
+        "stack_pops": 1013,
+        "visibility_candidates": 2026,
+        "visibility_output_pairs": 1004,
+        "coordinate_filters": 1004,
+        "core_outputs": 1004
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 11,
+      "n": 4096,
+      "m": 1,
+      "above_core": 2026,
+      "bound": 2045,
+      "constructor_counts": {
+        "ruler_values": 2047,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 2046,
+        "stack_pushes": 2047,
+        "stack_pops": 2036,
+        "visibility_candidates": 4072,
+        "visibility_output_pairs": 2026,
+        "coordinate_filters": 2026,
+        "core_outputs": 2026
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 12,
+      "n": 8192,
+      "m": 1,
+      "above_core": 4072,
+      "bound": 4093,
+      "constructor_counts": {
+        "ruler_values": 4095,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 4094,
+        "stack_pushes": 4095,
+        "stack_pops": 4083,
+        "visibility_candidates": 8166,
+        "visibility_output_pairs": 4072,
+        "coordinate_filters": 4072,
+        "core_outputs": 4072
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 13,
+      "n": 16384,
+      "m": 1,
+      "above_core": 8166,
+      "bound": 8189,
+      "constructor_counts": {
+        "ruler_values": 8191,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 8190,
+        "stack_pushes": 8191,
+        "stack_pops": 8178,
+        "visibility_candidates": 16356,
+        "visibility_output_pairs": 8166,
+        "coordinate_filters": 8166,
+        "core_outputs": 8166
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    },
+    {
+      "h": 14,
+      "n": 32768,
+      "m": 1,
+      "above_core": 16356,
+      "bound": 16381,
+      "constructor_counts": {
+        "ruler_values": 16383,
+        "initial_reward_additions": 1,
+        "sliding_reward_updates": 16382,
+        "stack_pushes": 16383,
+        "stack_pops": 16369,
+        "visibility_candidates": 32738,
+        "visibility_output_pairs": 16356,
+        "coordinate_filters": 16356,
+        "core_outputs": 16356
+      },
+      "verification": "linear core constructor; original all-root controls are in the smaller mixed cases"
+    }
+  ],
+  "source_sha256": {
+    "plateau_core_audit.py": "980bd2e357a40a70e48879db55878a1d78a74681c0cef69e0186a76ebcf2d8da",
+    "plateau_core.py": "1262f754989fb9512fa18b11e72d538295f6ffd89b93d3b7a1f3a6e4d078e5aa",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

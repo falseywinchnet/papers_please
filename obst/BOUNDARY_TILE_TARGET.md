@@ -31,6 +31,15 @@ K while multiplying both s and local mass by d. This natural amplification
 therefore decreases the ratio in (1), even though every positive fine cell
 for d>=2 lies outside the unit-outcome envelope.
 
+A [single constant positive key block](PLATEAU_CORE.md) now satisfies the
+stronger above-capacity bound K(T)<=2s-1, with arbitrary nonnegative gaps.
+Its total above-capacity core has at most max(0,c-m-1) entries and admits
+an O(n) constructor. Partial-positive endpoints have zero density; the
+remaining cells are noncrossing visibility pairs of a sequence of binary
+carry rewards. This settles the boundary charge for one plateau above
+capacity, without proving (1) for multiple unequal blocks or the mixed
+below-capacity region.
+
 ## A proved logarithmic-side bound for one key
 
 **Lemma.** If exactly one key has positive weight and all gaps have weight
@@ -133,3 +142,9 @@ agree with independent all-root layers. The record is
 full-ruler tail in [RULER_CLIPPING_SHARPNESS.md](RULER_CLIPPING_SHARPNESS.md)
 shows why the capacity-over-width term is needed in the density-mass route;
 it does not convert that mass into a larger core-cardinality lower bound.
+
+An endpoint-cut and unequal-block search evaluates 1960 inputs through
+1024 keys, including positive endpoint fringes. The maximum observed
+ratio is 20/37, with fourteen independent all-root tile controls. Its
+record `endpoint_amplification_probe.json` gives exact counts and source
+hashes. This finite result supplies no general upper bound.

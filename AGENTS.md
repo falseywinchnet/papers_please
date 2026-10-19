@@ -395,3 +395,25 @@ Independent binary saturation, block dilation, and mixed-layer controls:
 ```
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/binary_dilation_audit.py
 ```
+
+Endpoint-cut and unequal-weight block amplification diagnostics:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/pair_amplification_probe.cpp -o /tmp/obst-pair-amplification && python3 obst/code/endpoint_amplification_probe.py /tmp/obst-pair-amplification'
+```
+
+Linear one-plateau core constructor, local square bound, and original-layer audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/plateau_core_audit.py
+```
+
+Rank-threshold compatibility probe and exact one-deletion obstruction:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- sh -c 'clang++ -std=c++20 -O3 -Wall -Wextra obst/code/rank_threshold_probe.cpp -o /tmp/obst-rank-threshold && /tmp/obst-rank-threshold > obst/results/rank_threshold_probe_raw.json && python3 obst/code/rank_threshold_obstruction.py'
+```
+
+The larger plateau rows use the linear constructor. Larger rank-threshold
+rows enumerate every single deletion. Original all-root controls have their
+own explicit size limits; neither audit infers an asymptotic result from timing.

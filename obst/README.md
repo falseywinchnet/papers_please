@@ -26,6 +26,8 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Single-key square bound and the open boundary-plus-mass target](BOUNDARY_TILE_TARGET.md)
 - [Unit-outcome support envelope and the surviving two-key interaction](UNIT_SUPPORT_ENVELOPE.md)
 - [Exact binary-block dilation and the replication barrier](BINARY_DILATION.md)
+- [Linear one-block core construction and local boundary charge](PLATEAU_CORE.md)
+- [Incompatible binary rank-threshold optimizers](RANK_THRESHOLD_OBSTRUCTION.md)
 - [Contraction argument](CONTRACTION.md)
 - [Minimum-path-length shape certificate](COMPLETE.md)
 - [Concave baseline-price extension](BASELINE_PRICES.md)
@@ -54,6 +56,23 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+One constant positive key block now has a [linear above-capacity core
+constructor](PLATEAU_CORE.md), with arbitrary nonnegative gap weights.
+At capacity c=2^h-1, a block of m keys has at most max(0,c-m-1) positive
+densities there, and any side-s square has at most 2s-1. Its ruler rewards
+are m+s_2(r)-s_2(r+m); range-max densities become noncrossing horizontal
+visibility pairs. A monotone stack constructs their coordinates and values
+in O(n) work and space. The global leading coefficient one is sharp.
+The paper credits the known visibility geometry and proves the exact
+OBST reduction, including partial-block endpoints.
+
+A separate [explicit binary family](RANK_THRESHOLD_OBSTRUCTION.md) shows
+why ruler levels cannot simply be optimized independently. At n=2^h and
+capacity n-1, its full ruler reward is h-1 while the sum of separately
+optimized rank thresholds is 2h-3. Their ratio tends to two. This is a
+reward-compatibility obstruction; it leaves the main construction bound
+and the general local support hypothesis unchanged.
 
 Aligned replication has an exact [binary-block reduction](BINARY_DILATION.md).
 For complete positive blocks of length d=2^ell above capacity, the ruler

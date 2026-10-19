@@ -1,0 +1,366 @@
+{
+  "scope": "Exact failure of equality between the full ruler optimum and the sum of separately optimized rank thresholds, already for binary keys. The explicit family gives a ratio tending to two; no universal factor-two upper bound is asserted.",
+  "checks": {
+    "literal_search_winner_subsequences": 170544,
+    "threshold_comparisons": 5176333,
+    "literal_deletions": 32752,
+    "positive_rank_evaluations": 425838,
+    "matching_candidates": 145386,
+    "score_entries": 66,
+    "generic_score_controls": 22,
+    "all_root_candidates": 2812064,
+    "dense_states": 73456,
+    "original_full_interval_controls": 4
+  },
+  "rows": [
+    {
+      "h": 4,
+      "n": 16,
+      "positive_positions": [
+        9,
+        12,
+        14
+      ],
+      "full_score": 3,
+      "threshold_optima": [
+        2,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 4,
+      "all_root": true
+    },
+    {
+      "h": 5,
+      "n": 32,
+      "positive_positions": [
+        17,
+        18,
+        22,
+        26,
+        30
+      ],
+      "full_score": 4,
+      "threshold_optima": [
+        4,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 7,
+      "all_root": true
+    },
+    {
+      "h": 6,
+      "n": 64,
+      "positive_positions": [
+        33,
+        34,
+        38,
+        42,
+        46,
+        50
+      ],
+      "full_score": 5,
+      "threshold_optima": [
+        5,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 9,
+      "all_root": true
+    },
+    {
+      "h": 7,
+      "n": 128,
+      "positive_positions": [
+        65,
+        66,
+        70,
+        74,
+        78,
+        82,
+        86
+      ],
+      "full_score": 6,
+      "threshold_optima": [
+        6,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 11,
+      "all_root": true
+    },
+    {
+      "h": 8,
+      "n": 256,
+      "positive_positions": [
+        129,
+        130,
+        134,
+        138,
+        142,
+        146,
+        150,
+        154
+      ],
+      "full_score": 7,
+      "threshold_optima": [
+        7,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 13,
+      "all_root": false
+    },
+    {
+      "h": 9,
+      "n": 512,
+      "positive_positions": [
+        257,
+        258,
+        262,
+        266,
+        270,
+        274,
+        278,
+        282,
+        286
+      ],
+      "full_score": 8,
+      "threshold_optima": [
+        8,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 15,
+      "all_root": false
+    },
+    {
+      "h": 10,
+      "n": 1024,
+      "positive_positions": [
+        513,
+        514,
+        518,
+        522,
+        526,
+        530,
+        534,
+        538,
+        542,
+        546
+      ],
+      "full_score": 9,
+      "threshold_optima": [
+        9,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 17,
+      "all_root": false
+    },
+    {
+      "h": 11,
+      "n": 2048,
+      "positive_positions": [
+        1025,
+        1026,
+        1030,
+        1034,
+        1038,
+        1042,
+        1046,
+        1050,
+        1054,
+        1058,
+        1062
+      ],
+      "full_score": 10,
+      "threshold_optima": [
+        10,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 19,
+      "all_root": false
+    },
+    {
+      "h": 12,
+      "n": 4096,
+      "positive_positions": [
+        2049,
+        2050,
+        2054,
+        2058,
+        2062,
+        2066,
+        2070,
+        2074,
+        2078,
+        2082,
+        2086,
+        2090
+      ],
+      "full_score": 11,
+      "threshold_optima": [
+        11,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 21,
+      "all_root": false
+    },
+    {
+      "h": 13,
+      "n": 8192,
+      "positive_positions": [
+        4097,
+        4098,
+        4102,
+        4106,
+        4110,
+        4114,
+        4118,
+        4122,
+        4126,
+        4130,
+        4134,
+        4138,
+        4142
+      ],
+      "full_score": 12,
+      "threshold_optima": [
+        12,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 23,
+      "all_root": false
+    },
+    {
+      "h": 14,
+      "n": 16384,
+      "positive_positions": [
+        8193,
+        8194,
+        8198,
+        8202,
+        8206,
+        8210,
+        8214,
+        8218,
+        8222,
+        8226,
+        8230,
+        8234,
+        8238,
+        8242
+      ],
+      "full_score": 13,
+      "threshold_optima": [
+        13,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum_threshold_optima": 25,
+      "all_root": false
+    }
+  ],
+  "search": {
+    "h": 4,
+    "p": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "full": 7,
+    "levels": [
+      5,
+      2,
+      1
+    ],
+    "inputs": 65454,
+    "transitions": 15176940
+  },
+  "search_artifact_sha256": "589a0797e2bd2ab6949d2412024c403165ccbd97910f99fbd3963097d99a01ff",
+  "source_sha256": {
+    "rank_threshold_obstruction.py": "cee1d06b3f2b91414e238cfb85f6f71a8d778e1c96794c580182d630fcf73b5b",
+    "rank_threshold_probe.cpp": "243f8145a6b676e8c5f9a37f31d8d11b560b837107a667a56c0500ed88118a34",
+    "rank_reward_tail.py": "497e654c8f0f241e5f3e4a9404cb30f72568cdfe5ea1a690b9ac17b10f13aca5",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

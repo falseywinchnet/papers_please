@@ -3031,3 +3031,122 @@ at reading resolution. All prior labels and the exact dedication source are
 preserved. The three new executed-source manifests match their source files.
 Stable TeX, PDF, and the complete source ZIP with its Hebrew font and license
 were refreshed and checked against this build.
+
+
+## Checkpoint 42: a linear plateau core and incompatible ruler levels
+
+This turn continued the size-bound objective from checkpoint 41. It targeted
+positive endpoint cuts and unequal blocks, then derived exact structure for
+one constant positive block. The full mixed objective, main complexity
+bound, and general local boundary-plus-mass hypothesis remain unchanged.
+
+The endpoint-cut probe evaluates 1960 inputs through 1024 keys, including
+replicated random coarse templates, positive endpoint fringes, unequal
+weights, and integer mutations. Its maximum observed K/(s+W(J_T)) is 20/37.
+The compiled run uses 1707458304 states, 3241769152 root candidates, and
+6204928 densities. Fourteen retained tiles agree with independent all-root
+layers, using 16627520 candidates and 419552 states. This finite result
+establishes no upper bound.
+
+For one contiguous block of m equal positive keys and arbitrary nonnegative
+gaps, the above-capacity core has at most max(0,c-m-1) entries, where
+c=2^h-1. A linear constructor returns their coordinates and values. The
+proof has three separate reductions:
+
+1. Binary saturation retains all available positive keys up to capacity.
+   If a density endpoint removes or adds a positive key inside the plateau,
+   all relevant scores either saturate or depend on only one endpoint.
+   Reflection uses nu_2(2^h-r)=nu_2(r). Thus these densities vanish.
+2. Whole-block intervals optimize a single sliding block reward
+   R_m(r)=m+s_2(r)-s_2(r+m), equivalently a constant plus the number of
+   binary carries in r+m. Feasibility is one interval of possible r.
+   The four-corner density is the positive part of the smaller endpoint
+   height minus the largest interior height.
+3. These strict horizontal visibility pairs cannot cross. The usual
+   polygon count gives at most N-2 nonadjacent pairs for N=c-m+1.
+   A decreasing stack enumerates them with their exact density values;
+   computing the ruler by its even/odd recurrence and sliding sums costs
+   O(c) arithmetic operations. Since nonempty above-capacity regions have
+   c<n, total construction is O(n). No population-count instruction is
+   assumed in the operation bound.
+
+The horizontal visibility geometry is established prior work, credited to
+Luque et al. (2009) and Gutin, Mansour, and Severini (2011). The manuscript
+supplies a self-contained count and stack proof and identifies the exact
+OBST block-reward reduction. It makes no novelty claim for the graph fact.
+The one-key family n=2C, z=C+1 has C-2h above-capacity entries against
+bound C-3, proving that the global leading coefficient one is sharp.
+
+The same representation yields a local corollary: every s-by-s square
+strictly above capacity has at most 2s-1 positive densities. The visibility
+endpoints lie in two ordered disjoint index intervals of size at most s.
+Neighbor sets in successive left rows have decreasing, internally disjoint
+spans and can share at most one endpoint; at most k+t-1 pairs occur for
+k left and t right endpoints. This proves the desired boundary charge for
+one plateau above capacity, independently of its amplitude. Multiple
+unequal blocks and the below-capacity mixed region remain unresolved.
+
+The plateau audit compares 5561 complete support sets, including values,
+with the original all-root recurrence through 64 keys and nonzero gaps.
+It checks 1143360 densities, 635883 positive-endpoint zeros, 193533 literal
+visibility pairs, and 23375 block-reward identities. It also checks 50032
+local square bounds, exhaustive through twelve keys and sampled at larger
+sizes. The original recurrence uses 33319148 candidates and 2723869 states.
+Twelve sharp-family constructor rows reach 32768 keys; these are explicitly
+not original-recurrence runs. The largest row computes 16383 ruler values,
+16382 sliding updates, 16383 pushes, 16369 pops, 32738 pair candidates,
+and 16356 output densities.
+
+A separate probe asked whether the full ruler optimum equals the sum of
+individually optimized binary rank thresholds. It does not. The search
+checks 65454 inputs using 15176940 transitions and finds a 22-key example
+with full reward seven against threshold optima (5,2,1). Literal enumeration
+checks all 170544 length-15 subsequences. A reduced 16-key example has
+unit keys at one-based positions 9,12,14, full score three, and separate
+threshold optima (2,1,1). No minimality claim is made.
+
+An explicit family turns that mismatch into a theorem. For h>=5, n=C=2^h,
+c=C-1, put unit keys at X=C/2+1 and Y_r=C/2+4r+2 for 0<=r<h-1.
+Every subsequence deletes one key. Deleting before X gives one rank reward
+h-1; deleting after X gives up to h-1 rank rewards of value one. Deleting
+X gives zero. Thus the full optimum is h-1, but the threshold optima are
+h-1,1,...,1, summing to 2h-3. Their ratio tends to two. This excludes
+independent exact level optimization and any universal comparison constant
+smaller than two for that upper estimate. It does not prove a universal
+factor-two upper bound, an OBST approximation barrier, or a core lower bound.
+The earlier nested input-threshold tail obstruction concerns a different
+operation; the new theorem holds with the input already binary.
+
+All 32752 single deletions in the small example and explicit family through
+16384 keys are enumerated, with 425838 retained rank evaluations and
+5176333 threshold comparisons. Smaller instances have 22 generic subsequence
+controls (145386 transitions, 66 score entries) and four original all-root
+controls with nonzero gaps (2812064 candidates, 73456 states). Larger rows
+are exhaustive deletion checks, not original all-root layers.
+
+The first plateau audit attempt used int.bit_count, unavailable in the
+Mini's Python, and stopped before emitting results. Its independent formula
+control was changed to bin(x).count('1'); the production constructor already
+used the linear even/odd recurrence. The final rank audit computes each
+retained valuation once and counts all threshold comparisons. Both final
+audits were run after these corrections, and the plateau audit was rerun
+after adding the local-square corollary. Their manifests identify the
+executed sources.
+
+The constructive theorem and local corollary are in Section 2.14, the
+rank-threshold obstruction in Section 5.19, and all new verification counts
+in Appendix R. PLATEAU_CORE.md and RANK_THRESHOLD_OBSTRUCTION.md give
+standalone arguments. The next general obstacle is a support charge for
+several interacting blocks, where a single range-maximum sequence no longer
+represents the full joint optimization.
+
+Publication validation: Tectonic compiled the 118-page manuscript without
+warnings, unresolved references, or overfull/underfull boxes. Every page was
+rendered and reviewed in contact sheets; the new proof pages 21--23,
+rank-threshold theorem on page 89, Appendix R, and final dedication were
+also inspected at reading resolution. The final sharpness proof explicitly
+starts at h>=3, and the shortened appendix heading avoids a split word.
+All 317 prior labels and the exact dedication source are preserved. The
+three new audit manifests match their executed sources. Stable TeX/PDF
+outputs and the self-contained source archive, including the Hebrew font
+and license, were refreshed and checked against the final build.

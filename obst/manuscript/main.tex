@@ -1383,6 +1383,183 @@ accounting is exact in Section~\ref{sec:rank-repair-barrier}, which proves
 that even the best single-augmentation certificate can exceed the desired
 tail scale by an unbounded factor. Joint rank changes remain necessary.
 
+
+\subsection{A linear above-capacity core for one constant key block}
+\label{sec:plateau-core}
+A constant positive key block admits an exact one-dimensional representation
+of its above-capacity densities, even with arbitrary nonnegative gap weights.
+The representation retains the joint optimization over ruler ranks.
+We first record an exchange fact also used in
+Section~\ref{sec:binary-dilation}.
+
+\begin{lemma}[Binary saturation]\label{lem:binary-saturation}
+For a binary input word with $P$ ones and arbitrary nonnegative rank
+rewards $v_1,\ldots,v_c$, some maximizing $c$-subsequence contains
+$\min(P,c)$ ones.
+\end{lemma}
+\begin{proof}
+If $P\ge c$, selecting $c$ ones attains the upper bound $\sum_r v_r$.
+Otherwise, if a selected subsequence omits a one, it selects a zero.
+Choose a selected zero nearest to the omitted one in physical order;
+all selected entries between them are ones. Insert the omitted one
+and remove that zero. Shifting the intervening ones changes the selected
+binary word only by replacing one zero with one, so its reward cannot
+decrease. Repeat until every positive key is retained.
+\end{proof}
+
+
+\begin{lemma}[Range maxima and nonadjacent visibility]
+\label{lem:range-max-visibility}
+For a sequence $R(0),\ldots,R(N-1)$, there are at most $\max(0,N-2)$
+pairs $a<b-1$ satisfying
+\[
+ \min\{R(a),R(b)\}>\max_{a<r<b}R(r).
+\]
+These pairs and their positive differences can be enumerated in $O(N)$
+arithmetic work and space.
+\end{lemma}
+\begin{proof}
+Pairs $(a,c)$ and $(b,d)$ with $a<b<c<d$ cannot both satisfy the
+inequality: they would require $R(c)>R(b)$ and $R(b)>R(c)$.
+Place the vertices on a polygon in index order. For $N\ge3$ the
+noncrossing proper diagonals number at most $N-3$; the closing edge
+$(0,N-1)$ adds at most one. For $N\le2$ there is no nonadjacent pair.
+This is the usual horizontal visibility geometry~\cite{hvg,hvgouter}.
+
+For enumeration, scan left to right with a stack whose heights strictly
+decrease. On reading a new height $x$, pop all smaller heights, pairing
+each popped index with the new index; also pair the remaining top, if
+any, with the new index. Replace an equal-height top by the new index:
+that equal intervening height blocks every future strict visibility of
+the old index. Discard adjacent pairs. The first popped index is the
+preceding position. For each later candidate the last popped height
+is exactly the maximum over its interior: previously removed indices
+are shielded by a retained index of at least their height. Thus each
+emitted pair satisfies the strict inequality, and the last popped height
+supplies its positive difference. Conversely, a visible earlier index
+cannot have been removed by an intervening height at least its own;
+it is either popped now or is the first remaining top. This enumerates
+every pair. Each index is pushed once and popped at most once, and
+there are at most $2N$ pair candidates.
+\end{proof}
+
+\begin{theorem}[One-block above-capacity core]
+\label{thm:plateau-above-core}
+Fix $h\ge1$, $c=2^h-1$, and a valid terminal penalty. Suppose keys
+$z,\ldots,z+m-1$ have common weight $\alpha>0$ and every other key
+has weight zero. Gap weights may be arbitrary nonnegative reals.
+The ordinary core strictly above capacity, $j-i>c$, has at most
+\[
+ \max\{0,c-m-1\}
+\]
+entries. Their coordinates and values can be constructed in $O(n)$
+arithmetic work and space. The leading coefficient one is
+asymptotically sharp.
+\end{theorem}
+\begin{proof}
+Above capacity, the layer cost is an affine terminal penalty plus
+$hW(i,j)$ minus the optimum ruler reward. The first two terms have zero
+ordinary density; arbitrary gap weights therefore cancel. Divide the
+reward by $\alpha$ to obtain a binary input.
+
+\emph{Partial-block endpoints.}
+All four intervals of a cell with $j-i>c$ have length at least $c$.
+If its removed left key $i$ is positive and its added right key $j$
+is inside the block, every interval consists of positive keys and its
+score saturates at $\sum_{r=1}^c\nu_2(r)$. If $j$ is outside the block,
+its positive keys form a prefix. By Lemma~\ref{lem:binary-saturation},
+the selected positive keys occupy the first $\min(P,c)$ ranks, where
+$P$ depends only on the left endpoint. Its score is independent of
+the right endpoint, so the density is zero again.
+Reflection proves the same statement when the added right key is
+positive: $\nu_2(2^h-r)=\nu_2(r)$ makes a positive suffix equivalent
+to a prefix. Thus every remaining positive cell has all four intervals
+containing the entire block. If $m>c$, these scores all saturate and
+the above-capacity core is empty.
+
+\emph{Exact range maxima.}
+Assume $m\le c$. On an interval $[i,j)$ containing the block, an optimum
+retains all $m$ positive keys. They occupy consecutive selected ranks
+$r+1,\ldots,r+m$. Counting available zeros before and after the block
+gives precisely
+\[
+ \max(0,c+z-j)\le r\le\min(c-m,z-i).
+\]
+The normalized score is therefore a range maximum of
+\begin{equation}\label{eq:plateau-reward}
+ R_m(r)=\sum_{t=r+1}^{r+m}\nu_2(t)
+       =m+s_2(r)-s_2(r+m),\qquad 0\le r\le c-m,
+\end{equation}
+where $s_2$ counts one bits. Indeed,
+$\sum_{t=1}^u\nu_2(t)=\sum_{a\ge1}\lfloor u/2^a\rfloor=u-s_2(u)$.
+Equivalently $R_m(r)=m-s_2(m)+\kappa(r,m)$, where $\kappa$ counts
+binary carries, one per column with an outgoing carry, in adding $r$
+and $m$.
+
+Put $l=c+z-j$ and $u=z-i$. If clipping freezes either endpoint of the
+range, the four-corner difference is zero. Otherwise set $a=l-1$ and
+$b=u$, with $0\le a<b\le c-m$. The interior is nonempty because
+$b-a=j-i-c+1\ge2$. Write $Q=\max_{a<r<b}R_m(r)$. The normalized
+density is exactly
+\begin{align*}
+ D_h(i,j)/\alpha
+ &=\max(Q,R_m(b))+\max(R_m(a),Q)
+     -\max(R_m(a),Q,R_m(b))-Q\\
+ &=\max\{0,\min(R_m(a),R_m(b))-Q\}.
+\end{align*}
+Thus each positive density is one nonadjacent visibility pair, mapped
+injectively by
+\begin{equation}\label{eq:plateau-density-map}
+ i=z-b,\qquad j=c+z-1-a.
+\end{equation}
+Conversely every such pair with $0\le i<j<n$ gives the indicated
+positive density. Apply Lemma~\ref{lem:range-max-visibility} to the
+$N=c-m+1$ values in \eqref{eq:plateau-reward} to obtain the bound.
+
+\emph{Construction.}
+If $c\ge n$ the region is empty. Otherwise compute the ruler values
+in $O(c)$ work using $\nu_2(2r)=\nu_2(r)+1$ and zero on odd arguments.
+Sliding length-$m$ sums produce $R_m$ in $O(c)$ further work, without
+assuming a unit-cost population-count primitive. The lemma enumerates
+all pairs and their density values in $O(c)$ work. Apply
+\eqref{eq:plateau-density-map}, discard cells outside the input, and
+multiply each remaining value by $\alpha$. Since $c<n$, the work and
+space are $O(n)$.
+
+\emph{Sharp leading coefficient.}
+Take $h\ge3$, $m=1$, $C=2^h$, $n=2C$, and $z=C+1$. Every nonadjacent
+visibility pair of $\nu_2(1),\ldots,\nu_2(C-1)$ maps inside the input.
+These pairs are exactly consecutive multiples of $2^r$, for
+$1\le r<h$: their interior valuations are smaller than $r$, whereas
+a nonconsecutive pair has an intervening multiple of the smaller
+endpoint's power. Their number is
+\[
+ \sum_{r=1}^{h-1}(2^{h-r}-2)=C-2h.
+\]
+The upper bound is $c-m-1=C-3$, and the ratio tends to one.
+\end{proof}
+\begin{corollary}[A boundary charge for one block]
+\label{cor:plateau-square}
+Under Theorem~\ref{thm:plateau-above-core}, any $s\times s$ square of
+ordinary density cells strictly above capacity has at most $2s-1$
+positive entries, independently of the block's length and weight.
+\end{corollary}
+\begin{proof}
+Equation~\eqref{eq:plateau-density-map} maps the square to visibility
+pairs between two ordered disjoint index intervals, each with at most
+$s$ positions. For distinct left endpoints $a<a'$, every neighbor $b$
+of $a$ must be at least every neighbor $b'$ of $a'$; otherwise
+$a<a'<b<b'$ would give crossing visibility pairs. Order the nonempty
+neighbor sets by increasing left endpoint. Their spans are decreasing
+and have disjoint interiors; two consecutive sets can share at most
+one endpoint. If $k$ left endpoints and $t$ right endpoints participate,
+the total number of pairs is at most $t+k-1\le2s-1$. An empty support
+satisfies the same bound.
+\end{proof}
+The theorem constructs this part of a layer's core, including its values.
+The below-capacity mixed core and the general local hypothesis in
+\eqref{eq:boundary-tile-hypothesis} require further arguments.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -5781,21 +5958,6 @@ an exact coarse representation on intervals retaining complete positive
 blocks. It preserves interior core size instead of multiplying it.
 Keys in this subsection are numbered $1,\ldots,n$.
 
-\begin{lemma}[Binary saturation]\label{lem:binary-saturation}
-For a binary input word with $P$ ones and arbitrary nonnegative rank
-rewards $v_1,\ldots,v_c$, some maximizing $c$-subsequence contains
-$\min(P,c)$ ones.
-\end{lemma}
-\begin{proof}
-If $P\ge c$, selecting $c$ ones attains the upper bound $\sum_r v_r$.
-Otherwise, if a selected subsequence omits a one, it selects a zero.
-Choose a selected zero nearest to the omitted one in physical order;
-all selected entries between them are ones. Insert the omitted one
-and remove that zero. Shifting the intervening ones changes the selected
-binary word only by replacing one zero with one, so its reward cannot
-decrease. Repeat until every positive key is retained.
-\end{proof}
-
 \begin{theorem}[Exact binary-block dilation]\label{thm:binary-dilation}
 Let $p_1,\ldots,p_n\in\{0,1\}$, $C=2^h$, $c=C-1$, and $h\ge1$.
 Write $S_h(A,B)$ for the maximum ruler reward of a $c$-subsequence
@@ -5918,6 +6080,63 @@ cuts a positive block and has score one. Its rounded coarse interval
 $[1,2)$ has no positive key, so the proposed expression would be zero.
 For coarse input $(1,1)$, $h=1$, $d=2$, and fine interval $[0,4)$,
 the fine score is one but $m(d-1)+S_h(0,2)=2$, with $m=2>c=1$.
+
+
+\subsection{Binary rank thresholds require incompatible subsequences}
+\label{sec:rank-threshold-obstruction}
+The identity $\nu_2(r)=\sum_{a=1}^{h-1}\mathbf1\{\nu_2(r)\ge a\}$
+does not permit separate optimization at each rank threshold. Here the
+input weights are already binary; the thresholds act on rank rewards.
+This differs from the input-weight threshold-tail obstruction in
+Lemma~\ref{lem:nested-tail-obstruction}.
+
+\begin{theorem}[An asymptotic factor-two incompatibility]
+\label{thm:rank-threshold-obstruction}
+Let $h\ge5$, $C=2^h$, $c=C-1$, $n=C$, and $m=h-1$. Put unit weight
+at one-based positions
+\[
+ X=C/2+1,\qquad Y_r=C/2+4r+2\quad(0\le r<m),
+\]
+and zero at every other key. Let $S$ be the optimum $c$-subsequence
+reward for $\nu_2(1),\ldots,\nu_2(c)$, and let $T_a$ be the optimum
+for binary rank rewards $\mathbf1\{\nu_2(r)\ge a\}$. Then
+\[
+ S=h-1,\qquad T_1=h-1,\qquad T_a=1\ (2\le a<h),
+ \qquad \sum_{a=1}^{h-1}T_a=2h-3.
+\]
+Consequently $(\sum_a T_a)/S=2-1/(h-1)$ tends to two.
+\end{theorem}
+\begin{proof}
+The positions fit strictly below $C$ for $h\ge5$.
+Every $c$-subsequence deletes exactly one key $t$.
+If $t<X$, key $X$ moves to selected rank $C/2$, of valuation $h-1$,
+and every $Y_r$ moves to an odd rank. The full reward is $h-1$ and
+every threshold reward is one.
+If $t=X$, that key disappears and every $Y_r$ moves to an odd rank,
+so all rewards are zero.
+If $t>X$, key $X$ stays odd. Each $Y_r<t$ retains its rank, congruent
+to two modulo four, contributing exactly one to the full reward and
+first threshold. A key $Y_r=t$ is deleted; every $Y_r>t$ moves to an
+odd rank and contributes zero. Thus the full and first-threshold
+rewards equal the number of $Y_r<t$, at most $m$, and all higher
+threshold rewards vanish. Deleting a key after the last $Y_r$ attains
+$m$. These cases exhaust the feasible subsequences and prove every
+claimed optimum.
+\end{proof}
+No universal constant less than two can bound this separate-level upper
+estimate by that constant times the full reward. The theorem does not
+supply a universal factor-two upper bound. It concerns reward optimization,
+not an approximation barrier for the full OBST cost or a core-size lower
+bound. Arbitrary gap weights leave the above-capacity reward optimization
+unchanged.
+
+A smaller example has $h=4$, $n=16$, and unit keys at positions
+$9,12,14$. Its full reward is three, while its threshold optima are
+$(2,1,1)$. Deleting before position nine gives the single positive rank
+reward three. Deleting positions nine through twelve gives zero;
+deleting thirteen or fourteen gives reward two from key twelve;
+deleting fifteen or sixteen gives rewards two and one from keys twelve
+and fourteen. These cases directly prove the four optima.
 
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
@@ -7607,6 +7826,52 @@ All three records retain executed-source SHA-256 manifests. The exact
 identity and support transport follow from Section~\ref{sec:binary-dilation},
 independently of these finite checks.
 
+
+\section{Plateau cores and rank-threshold compatibility}
+\label{app:plateau-core}
+The endpoint-cut search evaluates 1960 inputs through 1024 keys, including
+replicated coarse patterns, unequal blocks, positive endpoint fringes,
+and integer-weight mutations. It records 1,707,458,304 states,
+3,241,769,152 root candidates, and 6,204,928 density evaluations.
+Fourteen retained tiles have independent all-root controls using
+16,627,520 candidates and 419,552 states. The largest observed ratio
+$K(T)/(s+W(J_T))$ is $20/37$. This finite maximum proves no upper
+bound. The record is \texttt{endpoint\_amplification\_probe.json}.
+
+The one-block audit checks 5561 complete above-capacity support sets
+against the original all-root recurrence, including nonzero gap weights
+and positive endpoint cuts, through 64 keys. Its 1,143,360 density
+controls include 635,883 positive-endpoint zero identities. The original
+recurrence uses 33,319,148 root candidates and 2,723,869 states.
+Independent literal visibility enumeration checks 193,533 pairs;
+23,375 block rewards agree with both direct ruler sums and
+\eqref{eq:plateau-reward}. Constructed support sets include the exact
+values, not only cardinalities. The local square corollary has 50,032
+controls, exhaustive through twelve keys and sampled at larger sizes.
+Twelve larger sharp-family constructions
+reach 32,768 keys; these use the linear constructor rather than the
+original recurrence. At the largest size it computes 16,383 ruler values,
+performs 16,382 sliding updates, pushes 16,383 and pops 16,369 stack
+indices, considers 32,738 pairs, and outputs 16,356 densities.
+The record is \texttt{plateau\_core\_audit.json}.
+
+The rank-threshold discovery probe evaluates 65,454 inputs using
+15,176,940 subsequence transitions. Its first obstruction has 22 keys,
+full reward seven, and threshold optima $(5,2,1)$. Independent literal
+enumeration checks all 170,544 length-15 subsequences of that input.
+The explicit family in Theorem~\ref{thm:rank-threshold-obstruction} and
+the smaller example are checked by all 32,752 single deletions through
+16,384 keys, evaluating 425,838 retained positive ranks and 5,176,333
+threshold comparisons. For $n\le128$, 22 independent generic subsequence
+controls use 145,386 transitions and 66 score entries; four original
+all-root controls with nonzero gaps use 2,812,064 root candidates and
+73,456 states. The larger rows enumerate every deletion and are not
+original all-root runs. The record is
+\texttt{rank\_threshold\_obstruction.json}, which also hashes the raw
+search artifact. All three audit records retain executed-source
+SHA-256 manifests. The theorems follow from their proofs independently
+of these finite checks.
+
 \clearpage
 \begingroup\small
 \begin{thebibliography}{99}
@@ -7656,6 +7921,16 @@ Asymptotically optimal vertex ranking of planar graphs. 2022 version.
 D. A. Huffman. A method for the construction of minimum-redundancy codes.
 \emph{Proceedings of the IRE} 40(9), 1098--1101, 1952.
 \href{https://doi.org/10.1109/JRPROC.1952.273898}{doi:10.1109/JRPROC.1952.273898}.
+\bibitem{hvg}
+B. Luque, L. Lacasa, F. Ballesteros, and J. Luque.
+Horizontal visibility graphs: exact results for random time series.
+\emph{Physical Review E} 80, 046103, 2009.
+\href{https://arxiv.org/abs/1002.4526}{arXiv:1002.4526}.
+\bibitem{hvgouter}
+G. Gutin, T. Mansour, and S. Severini.
+A characterization of horizontal visibility graphs and combinatorics on words.
+\emph{Physica A} 390(12), 2421--2428, 2011.
+\href{https://arxiv.org/abs/1010.1850}{arXiv:1010.1850}.
 \bibitem{coremonge}
 P. Gawrychowski, E. Gorbachev, and T. Kociumaka.
 Core-sparse Monge matrix multiplication: improved algorithm and applications.
