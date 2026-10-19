@@ -68,6 +68,35 @@ An improvement must avoid most of the interval table in its claimed regime.
 4. Compressed interval DP and structural parameterization: identify which
    parameters actually bound work, and compare with Larmore's existing method.
 
+## Second checkpoint: depth prices and recursive decomposition
+
+The previous goal turn was progress: it produced a committed, pushed,
+compiled, visually checked manuscript and an exact contraction implementation.
+The full research objective is still unresolved.
+
+The new depth-chain relaxation retains fixed key and gap positions and prices
+the necessary level-flow equations. An affine-tail projection lemma makes
+each full-problem bound evaluation O(n log n), without assuming a bound on
+the unknown optimal BST height. A unique-root version obtains all forced-root
+marginals in two passes. See DEPTH_DUAL.md for the proof and exact checks.
+
+Crucial negative evidence: a positive five-key input has an invalid depth
+sequence satisfying all these constraints with cost 470, versus true OPT 472.
+No multipliers can close this gap. At n=256 the root marginals also leave
+254 roots on the ordinary random mixed instance. This lower bound has not
+yet supplied an efficient exact construction method.
+
+`recursive_contract.py` combines the existing exact single-key reductions,
+whole-instance Huffman equality certificates, and block decomposition. A
+decomposition is accepted only when its table-state estimate drops by at
+least one quarter. This bounds recursion depth and avoids repeated scans
+after tiny reductions. It passed 3,000 independent cubic checks and 20
+nested 383-key checks against Knuth, exercising two decomposition levels.
+Matched five-trial measurements at n=1024 gave median runtime ratio 0.134
+on positive heavy-separator inputs, but essentially no gain on random or
+near-uniform mixed weights. Several n=512 controls were slower. No broad
+practical superiority is claimed.
+
 ## Completion requirements
 
 - A fully stated, proved result or substantively validated algorithm for the

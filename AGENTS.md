@@ -9,6 +9,11 @@ For CPU-heavy builds and experiments, from this repository run:
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/contract.py --max-n 512
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/block_check.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/block_contract.py --max-n 512
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/depth_dual.py --max-n 64 --iterations 300
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/depth_dual.py --max-n 256 --iterations 300
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/depth_dual.py --max-n 256 --iterations 300 --unique-root
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/recursive_contract.py --max-n 1024
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/benchmark_recursive.py
 ```
 
 Add specific compiled experiment commands here as they are introduced. Do not

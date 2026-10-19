@@ -128,3 +128,35 @@ heavy-separator input, requiring 10,344 DP states including its blocks, versus
 131,328 for the full table. Ordinary random mixed weights retained 511 keys.
 These preliminary results neither establish a general subquadratic bound nor
 a wall-clock speedup. See results/block_contraction_adaptive.json.
+
+## Recursive prototype and bounded overhead
+
+`recursive_contract.py` first performs the single-key pass. It then tries
+equality between a directly feasible bisection tree and the order-free
+Huffman lower bound. Only equality permits the shortcut. Otherwise it
+selects certified blocks and accepts recursive decomposition only if its
+total estimated state count is at most three quarters of the full table.
+Components with at most eight keys fall back to exact DP after the equality
+check. The depth-price relaxation is NOT used by this constructor.
+
+For m>8, an accepted child size s satisfies s(s+1)<=3m(m+1)/4, hence
+s<0.92m. The sum of child sizes is m. The recursion therefore has O(log n)
+depth and O(n) key occurrences per level. Linear scans and reconstruction
+cost O(n log n) in total; the heap-based equality checks cost O(n log^2 n).
+If terminal DP sizes are r_t, total work is O(n log^2 n + sum r_t^2),
+still O(n^2) in the worst case.
+
+Checks: 3,000 random instances through n=30 against independent cubic DP,
+plus 20 nested 383-key instances against Knuth and reconstructed-tree costs.
+The nested fixtures reached two decomposition levels. A smaller preliminary
+fixture reached only one because the selector flattened it immediately;
+the fixture was enlarged to test actual recursive composition.
+
+Matched five-trial Python timings alternate solver order and include complete
+construction. At n=1024 the median recursive/Knuth ratio was 0.134 on the
+positive heavy-separator family, with median 30,017 DP states versus 524,800.
+Random mixed and near-uniform ratios were 0.986 and 1.001, respectively.
+At n=512 their ratios were 1.131 and 1.093, showing preprocessing overhead.
+These exploratory single-host measurements do not establish superiority
+over compiled implementations or the existing Larmore algorithms. Full
+counters and timings are in results/recursive_matched.json.

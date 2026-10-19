@@ -9,7 +9,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\OPT}{\operatorname{OPT}}
 \newcommand{\tri}[1]{\tau(#1)}
-\title{Certified Contractions for Full Optimal Binary Search Trees\\
+\title{Certified Contractions and Depth Bounds\\for Full Optimal Binary Search Trees\\
 \large Research checkpoint: exact preprocessing and unsuccessful relaxations}
 \author{OpenAI Codex Sydney\\
 \small Problem selection and sponsorship: the repository owner}
@@ -30,6 +30,10 @@ instance with 512 keys and sparse heavy separators, it reduced the number of
 DP states from 131,328 to 10,344; ordinary random mixed weights benefited little.
 We also document an order-free Huffman relaxation, its failed sparse-DP
 implementation, and exact counterexamples to proposed local certificates.
+A second relaxation prices depth-count constraints along the ordered key
+sequence. An affine-tail lemma evaluates it in $O(n\log n)$ time without
+assuming the optimal tree is shallow, but a five-key counterexample proves
+that this relaxation is not universally exact.
 These are research results and reproducible observations, not a resolution
 of general subquadratic construction. Novelty of the contraction conditions
 has not been established.
@@ -258,6 +262,45 @@ $m=O(n^{2/3})$ surviving keys and every $k_t=O(n^{1/3})$ gives
 $O(n^{4/3})$ time, since $\sum k_t^2\le(\max k_t)n$.
 This is a conditional structural consequence, not an unrestricted bound.
 
+\section{Recursive construction with a bounded preprocessing depth}
+The implementation \texttt{recursive\_contract.py} combines the proved
+components. At each call it applies the single-key pass, compares the
+order-free lower bound of Section~\ref{sec:unordered} with a feasible
+bisection-tree cost, and returns immediately on equality. Otherwise it
+selects blocks as above. It recurses only if their combined table-state
+estimate is at most three quarters of the full estimate; small components
+and unsuccessful decompositions fall back to Knuth's method.
+
+Suppose a component has $m>8$ keys after the single-key pass and is
+successfully decomposed. Every child component of size $s$ satisfies
+$s(s+1)\le\tfrac34m(m+1)$, hence $s<0.92m$.
+Child sizes sum to $m$. Consequently the recursion has logarithmic depth,
+and the total number of keys processed on any recursion level is at most
+$n$. Linear selection and reconstruction cost $O(n\log n)$ in total.
+The heap-based equality checks cost $O(n\log^2 n)$ over all levels.
+If the terminal DP sizes are $r_t$, the construction therefore takes
+\[
+ O\!\left(n\log^2 n+\sum_t r_t^2\right)
+\]
+arithmetic operations. Its worst case is still quadratic. This threshold
+prevents repeated expensive scans after arbitrarily small reductions.
+Correctness follows by contraction, exact equality certificates, and induction
+on the strictly smaller recursive components; reconstruction restores the
+original key indices and gap subtrees.
+
+The recursive implementation passed 3,000 further random inputs through
+$n=30$ against the cubic oracle and direct tree evaluation. A separate nested
+fixture checks composition across multiple decomposition levels.
+Matched Python timings use five inputs per family, alternate which solver
+runs first, and include preprocessing and reconstruction for both solvers.
+At $n=1024$, the median runtime ratio (recursive divided by Knuth) was
+0.134 on the positive-weight heavy-separator family; its median terminal
+DP count was 30,017 versus 524,800. On random mixed weights the ratio was
+0.986 and on near-uniform weights 1.001, which support no meaningful gain.
+At $n=512$, the respective random and near-uniform ratios were 1.131 and
+1.093: preprocessing can make the method slower. These are exploratory
+measurements on one M4 host, not production-language or cross-machine claims.
+
 \section{Exact checks and preliminary measurements}
 The code uses nonnegative integer weights, an independent cubic recurrence,
 Knuth's recurrence, and direct evaluation of reconstructed trees.
@@ -308,7 +351,7 @@ $p_i=4^i,q_i=4^i$, but not for most of the ratio-two sequence.
 Geometric integer inputs also illustrate why bit complexity must be
 distinguished from arithmetic-operation complexity.
 
-\section{A useful relaxation that failed as a general solver}
+\section{A useful relaxation that failed as a general solver}\label{sec:unordered}
 Allow arbitrary assignment of key weights to internal positions and gap
 weights to external positions. In this relaxed problem, repeatedly take
 the two smallest current external weights $a,b$ and the smallest remaining
@@ -349,6 +392,106 @@ distinct tree obtained by promoting a descendant to the root of an existing
 subtree costs at least 169; the tree $0(\varnothing,2(1,\varnothing))$ costs 157.
 These are barriers to those local certificates, not complexity lower bounds.
 
+\section{An ordered depth-chain lower bound}
+Let $l_i$ be the comparison length of key $i$ and $g_i$ the depth of gap $i$.
+For every valid BST, adjacent keys have different lengths and
+\[
+ g_0=l_0,\quad g_n=l_{n-1},\quad
+ g_i=\max(l_{i-1},l_i)\quad(0<i<n).
+\]
+This identity is existing work; see Becker~\cite{becker}, Lemma~1.
+Let $K_d$ count keys of length $d$ and $G_d$ count gaps at depth $d$.
+The root and child-count identities are
+\[
+ K_1=1,\qquad G_d+K_{d+1}-2K_d=0\quad(1\le d\le n),
+ \qquad K_{n+1}=0.
+\]
+
+Permit any sequence in $\{1,\ldots,n\}^n$ with unequal adjacent entries.
+For arbitrary multipliers $\lambda_0,\ldots,\lambda_n$, minimize
+\begin{equation}\label{eq:dual}
+ \sum_i p_i l_i+\sum_i q_i g_i
+ +\lambda_0(K_1-1)
+ +\sum_{d=1}^n\lambda_d(G_d+K_{d+1}-2K_d).
+\end{equation}
+Call the minimum $L(\lambda)$. Every actual tree is permitted and has zero
+penalty, so $L(\lambda)\le\OPT$ for every multiplier vector.
+The expression is a chain with key energy
+$U_i(b)=p_i b+\lambda_{b-1}-2\lambda_b$, gap energy
+$V_i(b)=q_i b+\lambda_b$, and constant $-\lambda_0$.
+For an interior transition into length $b$, take the smaller of
+\[
+ \min_{a<b}F(a)+V_i(b),\qquad
+ \min_{a>b}\{F(a)+V_i(a)\}.
+\]
+Prefix and suffix minima give $O(H)$ work per key for a domain of $H$ lengths.
+Using $H=n$ would cost quadratic time even for one bound evaluation.
+
+\begin{theorem}[Exact affine-tail compression]
+Fix $h\ge1$, arbitrary $\lambda_0,\ldots,\lambda_h$, and a slope
+$0\le s\le\min_i p_i$. Extend
+$\lambda_d=\lambda_h+s(d-h)$ for $d>h$.
+The minimum in~\eqref{eq:dual} is unchanged if lengths are restricted to
+$1,\ldots,\min(n,h+3)$.
+\end{theorem}
+\begin{proof}
+For $b\ge h+1$, the unary key energy has slope $p_i-s\ge0$ and the gap
+energy has slope $q_i+s\ge0$. Both are nondecreasing in this tail.
+If some $l_i>h+3$, replace it by a member of
+$\{h+1,h+2,h+3\}$ unequal to its current neighbors. At most two values
+are forbidden. The key energy does not increase. Each adjacent maximum
+is either unchanged or decreases within the affine tail, so neither gap
+energy increases. Endpoint gaps obey the same argument. Repeat for all
+large lengths. The restricted domain is a subset of the original domain,
+and every original sequence has a no-more-expensive restricted sequence;
+therefore the minima are equal.
+\end{proof}
+
+Taking $h=\lceil\log_2(n+1)\rceil+2$ gives an $O(n\log n)$ oracle.
+This is a statement about minimization of the relaxed energy, with no height
+assumption on the unknown optimal BST. Optimizing only the head multipliers
+requires folding all tail constraint violations into the derivative for
+$\lambda_h$. The implementation uses exact integer multipliers and costs
+scaled by 1024. Its subgradient ascent is heuristic; the bound is valid
+at every iteration regardless of convergence.
+
+A stronger oracle requires exactly one length1 key. For each candidate
+root, the left and right chains then contain only lengths at least2.
+One forward and one reverse pass supply their closing costs for every
+root position, giving all forced-root bounds in $O(nH)$ total time.
+The projection above preserves the unique root, so tail compression remains
+valid for each marginal. Retaining the maximum bound seen for each root,
+then taking the minimum over roots, is also a valid lower bound.
+
+Both oracles passed 50 comparisons against exhaustive length-sequence
+minimization, 5,000 arbitrary-multiplier bound checks against cubic OBST,
+and 1,050 direct comparisons of the full and shortened oracles.
+Forced-root marginals were additionally checked against exact
+root-constrained costs.
+
+\paragraph{A structural gap.}
+The sequence $l=(3,1,2,3,2)$ has
+$g=(3,3,2,3,3,2)$, a unique root, and all the level-count equalities.
+It is not a valid BST depth sequence. For
+\[
+ p=(3,27,21,16,12),\qquad q=(18,22,27,22,12,22),
+\]
+it costs 470, while the true optimum is 472. Its penalty is zero for every
+multiplier vector. Hence neither oracle family can ever exceed 470 on
+this instance. More optimization iterations cannot remove this obstruction.
+
+\paragraph{Preliminary strength and cost.}
+At $n=256$, normalized gaps $(\OPT-\mathrm{LB})/W$ for the chain bound
+versus order-free Huffman were 0.15003 versus 0.22080 on a random mixed
+instance, and 0.00873 versus 0.49294 on an alternating instance.
+However, 300 ascent iterations used 1,082,368 key-depth cells including
+initialization, compared with 32,896 interval states for Knuth.
+The unique-root variant uses two passes and still leaves 254 of 256
+potentially improving roots on the random instance, and 255 on the
+alternating instance. Only two survive on the gap-spike instance.
+These results identify a lower-bound component and its limitations;
+they do not establish a faster general exact solver.
+
 \section{Status and reproducibility}
 This investigation has not proved that subquadratic full OBST construction
 is impossible, nor supplied a general subquadratic construction.
@@ -357,17 +500,10 @@ argument, an adaptive implementation, and reproducible evidence of its
 scope and limitations. Mathematical novelty, broad practical benefit,
 and comparison against Larmore-style implementations remain to be assessed.
 
-The repository directory \texttt{obst/code} contains:
-\begin{itemize}
-\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}
-\item \texttt{research.py}: independent oracles and relaxation;
-\item \texttt{sparse.py}: the failed bound-based solver;
-\item \texttt{contract.py}: single-key contraction;
-\item \texttt{block\_check.py}: block-identity checks;
-\item \texttt{block\_contract.py}: adaptive selection and exact construction.
-\end{itemize}
-Seeded JSON results are in \texttt{obst/results}.
-All programs use only the Python standard library.
+All programs use only the Python standard library. The code and seeded
+results are stored under \texttt{obst/code} and \texttt{obst/results}.
+The repository README provides commands for independent oracles, exact
+construction, matched timing, and both depth-price models.
 The active objective remains to avoid most of the quadratic table on a
 substantially broader class, or establish a rigorously scoped lower bound.
 
@@ -389,6 +525,9 @@ Sequential and parallel subquadratic work algorithms for constructing
 approximately optimal binary search trees. \emph{Proceedings of SODA},
 36--41, 1996.
 \href{https://theory.cs.uni-bonn.de/marek/publications/seq_and_par_subquadr.pdf}{Author-hosted manuscript}.
+\bibitem{becker}
+P. Becker. Optimal binary search trees with near minimal height. 2010.
+\href{https://arxiv.org/abs/1011.1337}{arXiv:1011.1337}.
 \end{thebibliography}
 \endgroup
 \end{document}
