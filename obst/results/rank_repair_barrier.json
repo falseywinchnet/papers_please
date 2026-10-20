@@ -1,0 +1,468 @@
+{
+  "scope": "Rightmost zero-loss equivalence, unique-optimum local repair gap, and a single-key quadratic-in-height best one-augmentation certificate despite zero true tail, attained by rightmost starts; an optimal root-threshold repair needs exactly C/8 augmenting and C/8-1 deaugmenting components. These obstruct the one-augmentation certificate, not the actual tail bound or general OBST algorithms.",
+  "seed": 36219,
+  "checks": {
+    "rank_matching_transitions": 34218,
+    "matching_scores": 5310,
+    "zero_loss_equivalences": 3786,
+    "scalar_transitions": 41799787,
+    "rank_repair_paths": 32352,
+    "matching_candidates": 225793,
+    "score_entries": 6637,
+    "unique_optimum_families": 16,
+    "literal_matchings": 160,
+    "formula_witnesses": 4088,
+    "scalar_witness_controls": 225,
+    "repair_loss_formulas": 4088,
+    "all_optimal_repair_checks": 1023,
+    "literal_optimal_matching_sets": 2,
+    "many_component_constructions": 8,
+    "global_certificate_formulas": 8,
+    "upper_densities": 6132,
+    "independent_zero_tails": 3
+  },
+  "one_key_family": [
+    {
+      "h": 3,
+      "C": 8,
+      "n": 32,
+      "x": 5,
+      "d": 8,
+      "P": 1,
+      "t": 2,
+      "repair_certificate": 0,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 1,
+      "minimum_deaugmenting_components": 0,
+      "active": [
+        {
+          "i": 2,
+          "rank": 2,
+          "score": 2,
+          "repair_loss": 1
+        },
+        {
+          "i": 4,
+          "rank": 1,
+          "score": 1,
+          "repair_loss": 1
+        }
+      ],
+      "verification": "explicit witnesses and repairs; scalar DP controls; full generic tail through h=5"
+    },
+    {
+      "h": 4,
+      "C": 16,
+      "n": 64,
+      "x": 9,
+      "d": 16,
+      "P": 1,
+      "t": 3,
+      "repair_certificate": 1,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 2,
+      "minimum_deaugmenting_components": 1,
+      "active": [
+        {
+          "i": 2,
+          "rank": 4,
+          "score": 3,
+          "repair_loss": 2
+        },
+        {
+          "i": 6,
+          "rank": 2,
+          "score": 2,
+          "repair_loss": 1
+        },
+        {
+          "i": 8,
+          "rank": 1,
+          "score": 1,
+          "repair_loss": 1
+        }
+      ],
+      "verification": "explicit witnesses and repairs; scalar DP controls; full generic tail through h=5"
+    },
+    {
+      "h": 5,
+      "C": 32,
+      "n": 128,
+      "x": 17,
+      "d": 32,
+      "P": 1,
+      "t": 4,
+      "repair_certificate": 3,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 4,
+      "minimum_deaugmenting_components": 3,
+      "active": [
+        {
+          "i": 2,
+          "rank": 8,
+          "score": 4,
+          "repair_loss": 3
+        },
+        {
+          "i": 10,
+          "rank": 4,
+          "score": 3,
+          "repair_loss": 2
+        },
+        {
+          "i": 14,
+          "rank": 2,
+          "score": 2,
+          "repair_loss": 1
+        },
+        {
+          "i": 16,
+          "rank": 1,
+          "score": 1,
+          "repair_loss": 1
+        }
+      ],
+      "verification": "explicit witnesses and repairs; scalar DP controls; full generic tail through h=5"
+    },
+    {
+      "h": 6,
+      "C": 64,
+      "n": 256,
+      "x": 33,
+      "d": 64,
+      "P": 1,
+      "t": 5,
+      "repair_certificate": 6,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 8,
+      "minimum_deaugmenting_components": 7,
+      "active": [
+        {
+          "i": 2,
+          "rank": 16,
+          "score": 5,
+          "repair_loss": 4
+        },
+        {
+          "i": 18,
+          "rank": 8,
+          "score": 4,
+          "repair_loss": 3
+        },
+        {
+          "i": 26,
+          "rank": 4,
+          "score": 3,
+          "repair_loss": 2
+        },
+        {
+          "i": 30,
+          "rank": 2,
+          "score": 2,
+          "repair_loss": 1
+        },
+        {
+          "i": 32,
+          "rank": 1,
+          "score": 1,
+          "repair_loss": 1
+        }
+      ],
+      "verification": "explicit witnesses and repairs; scalar DP controls; full generic tail through h=5"
+    },
+    {
+      "h": 7,
+      "C": 128,
+      "n": 512,
+      "x": 65,
+      "d": 128,
+      "P": 1,
+      "t": 6,
+      "repair_certificate": 10,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 16,
+      "minimum_deaugmenting_components": 15,
+      "active": [
+        {
+          "i": 2,
+          "rank": 32,
+          "score": 6,
+          "repair_loss": 5
+        },
+        {
+          "i": 34,
+          "rank": 16,
+          "score": 5,
+          "repair_loss": 4
+        },
+        {
+          "i": 50,
+          "rank": 8,
+          "score": 4,
+          "repair_loss": 3
+        },
+        {
+          "i": 58,
+          "rank": 4,
+          "score": 3,
+          "repair_loss": 2
+        },
+        {
+          "i": 62,
+          "rank": 2,
+          "score": 2,
+          "repair_loss": 1
+        },
+        {
+          "i": 64,
+          "rank": 1,
+          "score": 1,
+          "repair_loss": 1
+        }
+      ],
+      "verification": "explicit witnesses and repairs; scalar DP controls; full generic tail through h=5"
+    },
+    {
+      "h": 8,
+      "C": 256,
+      "n": 1024,
+      "x": 129,
+      "d": 256,
+      "P": 1,
+      "t": 7,
+      "repair_certificate": 15,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 32,
+      "minimum_deaugmenting_components": 31,
+      "active": [
+        {
+          "i": 2,
+          "rank": 64,
+          "score": 7,
+          "repair_loss": 6
+        },
+        {
+          "i": 66,
+          "rank": 32,
+          "score": 6,
+          "repair_loss": 5
+        },
+        {
+          "i": 98,
+          "rank": 16,
+          "score": 5,
+          "repair_loss": 4
+        },
+        {
+          "i": 114,
+          "rank": 8,
+          "score": 4,
+          "repair_loss": 3
+        },
+        {
+          "i": 122,
+          "rank": 4,
+          "score": 3,
+          "repair_loss": 2
+        },
+        {
+          "i": 126,
+          "rank": 2,
+          "score": 2,
+          "repair_loss": 1
+        },
+        {
+          "i": 128,
+          "rank": 1,
+          "score": 1,
+          "repair_loss": 1
+        }
+      ],
+      "verification": "explicit witnesses and repairs; scalar DP controls; full generic tail through h=5"
+    },
+    {
+      "h": 9,
+      "C": 512,
+      "n": 2048,
+      "x": 257,
+      "d": 512,
+      "P": 1,
+      "t": 8,
+      "repair_certificate": 21,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 64,
+      "minimum_deaugmenting_components": 63,
+      "active": [
+        {
+          "i": 2,
+          "rank": 128,
+          "score": 8,
+          "repair_loss": 7
+        },
+        {
+          "i": 130,
+          "rank": 64,
+          "score": 7,
+          "repair_loss": 6
+        },
+        {
+          "i": 194,
+          "rank": 32,
+          "score": 6,
+          "repair_loss": 5
+        },
+        {
+          "i": 226,
+          "rank": 16,
+          "score": 5,
+          "repair_loss": 4
+        },
+        {
+          "i": 242,
+          "rank": 8,
+          "score": 4,
+          "repair_loss": 3
+        },
+        {
+          "i": 250,
+          "rank": 4,
+          "score": 3,
+          "repair_loss": 2
+        },
+        {
+          "i": 254,
+          "rank": 2,
+          "score": 2,
+          "repair_loss": 1
+        },
+        {
+          "i": 256,
+          "rank": 1,
+          "score": 1,
+          "repair_loss": 1
+        }
+      ],
+      "verification": "explicit witnesses and repairs; scalar DP controls; full generic tail through h=5"
+    },
+    {
+      "h": 10,
+      "C": 1024,
+      "n": 4096,
+      "x": 513,
+      "d": 1024,
+      "P": 1,
+      "t": 9,
+      "repair_certificate": 28,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 128,
+      "minimum_deaugmenting_components": 127,
+      "active": [
+        {
+          "i": 2,
+          "rank": 256,
+          "score": 9,
+          "repair_loss": 8
+        },
+        {
+          "i": 258,
+          "rank": 128,
+          "score": 8,
+          "repair_loss": 7
+        },
+        {
+          "i": 386,
+          "rank": 64,
+          "score": 7,
+          "repair_loss": 6
+        },
+        {
+          "i": 450,
+          "rank": 32,
+          "score": 6,
+          "repair_loss": 5
+        },
+        {
+          "i": 482,
+          "rank": 16,
+          "score": 5,
+          "repair_loss": 4
+        },
+        {
+          "i": 498,
+          "rank": 8,
+          "score": 4,
+          "repair_loss": 3
+        },
+        {
+          "i": 506,
+          "rank": 4,
+          "score": 3,
+          "repair_loss": 2
+        },
+        {
+          "i": 510,
+          "rank": 2,
+          "score": 2,
+          "repair_loss": 1
+        },
+        {
+          "i": 512,
+          "rank": 1,
+          "score": 1,
+          "repair_loss": 1
+        }
+      ],
+      "verification": "explicit witnesses and repairs; scalar DP controls; full generic tail through h=5"
+    },
+    {
+      "h": 16,
+      "C": 65536,
+      "n": 262144,
+      "d": 65536,
+      "repair_certificate": 91,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 8192,
+      "minimum_deaugmenting_components": 8191,
+      "verification": "proved formula only"
+    },
+    {
+      "h": 32,
+      "C": 4294967296,
+      "n": 17179869184,
+      "d": 4294967296,
+      "repair_certificate": 435,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 536870912,
+      "minimum_deaugmenting_components": 536870911,
+      "verification": "proved formula only"
+    },
+    {
+      "h": 64,
+      "C": 18446744073709551616,
+      "n": 73786976294838206464,
+      "d": 18446744073709551616,
+      "repair_certificate": 1891,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 2305843009213693952,
+      "minimum_deaugmenting_components": 2305843009213693951,
+      "verification": "proved formula only"
+    },
+    {
+      "h": 128,
+      "C": 340282366920938463463374607431768211456,
+      "n": 1361129467683753853853498429727072845824,
+      "d": 340282366920938463463374607431768211456,
+      "repair_certificate": 7875,
+      "actual_tail": 0,
+      "minimum_augmenting_components": 42535295865117307932921825928971026432,
+      "minimum_deaugmenting_components": 42535295865117307932921825928971026431,
+      "verification": "proved formula only"
+    }
+  ],
+  "source_sha256": {
+    "rank_repair_barrier.py": "4044086546078e3bd914f6ded6aadb853fe2943b2e589b45aba3859c5a504d8a",
+    "rank_matching_repair.py": "6a7b0263629a2ea4b323350f3d8770e3695fa07ee080432729d5af2d41f0468f",
+    "rank_reward_tail.py": "497e654c8f0f241e5f3e4a9404cb30f72568cdfe5ea1a690b9ac17b10f13aca5",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

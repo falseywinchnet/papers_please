@@ -1,0 +1,137 @@
+{
+  "seed": 317211,
+  "checks": {
+    "literal_transfer_identities": 2052,
+    "independent_arrangement_maxima": 60,
+    "arrangement_points": 5111,
+    "independent_oracle_calls": 1712,
+    "uncapped_certified": 228,
+    "rescued_previous_rejection": 160,
+    "bounded_full_solves": 600,
+    "bounded_certified": 220,
+    "bounded_rescued_previous_rejection": 152,
+    "clamped_monotonicity_controls": 600,
+    "bounded_fallback": 380,
+    "strict_bound_gaps": 358
+  },
+  "ranks": [
+    {
+      "n": 3,
+      "trees": 5,
+      "rank": 4,
+      "nullity": 3
+    },
+    {
+      "n": 4,
+      "trees": 14,
+      "rank": 6,
+      "nullity": 3
+    },
+    {
+      "n": 5,
+      "trees": 42,
+      "rank": 8,
+      "nullity": 3
+    },
+    {
+      "n": 6,
+      "trees": 132,
+      "rank": 10,
+      "nullity": 3
+    },
+    {
+      "n": 7,
+      "trees": 429,
+      "rank": 12,
+      "nullity": 3
+    },
+    {
+      "n": 8,
+      "trees": 1430,
+      "rank": 14,
+      "nullity": 3
+    }
+  ],
+  "max_uncapped_oracle_calls": 10,
+  "examples": {
+    "rescued": {
+      "p": [
+        5,
+        3,
+        19
+      ],
+      "q": [
+        27,
+        24,
+        24,
+        8
+      ],
+      "optimum": 217,
+      "old_lower": 201,
+      "new_lower": "217",
+      "history": [
+        {
+          "x": "2",
+          "y": "16",
+          "lower": "201",
+          "plane": [
+            0,
+            -1,
+            217
+          ],
+          "candidate": 217
+        },
+        {
+          "x": "0",
+          "y": "0",
+          "lower": "217",
+          "plane": [
+            -1,
+            0,
+            217
+          ],
+          "candidate": 217
+        }
+      ]
+    },
+    "strict_gap": {
+      "p": [
+        2,
+        6,
+        21,
+        22
+      ],
+      "q": [
+        8,
+        9,
+        3,
+        5,
+        28
+      ],
+      "optimum": 204,
+      "lower": "191",
+      "history": [
+        {
+          "x": "0",
+          "y": "16",
+          "lower": "191",
+          "plane": [
+            -1,
+            0,
+            191
+          ],
+          "candidate": 206
+        }
+      ]
+    }
+  },
+  "source_sha256": {
+    "check_endpoint_prices.py": "5d274f4bcc5f5a4ede142f84d0d804edebffd308cfa86a21422be2d4d0358896",
+    "endpoint_price_probe.py": "2d692a6cd73255048598b2588dfee999f696e79766847995e5d41e07079f2417",
+    "endpoint_prices.py": "df9038837c49f6d9ee252043ff315ab65e59abcdb8a992a07666a43db9974fa0",
+    "shifted_alphabetic.py": "b3308112080f47d890c7b0b631cb5203adf6bcb9031cecd74011f4413cbce20c",
+    "joint_merge_probe.py": "fb77a589ccfc179c2b2c1fd7db662139179f8923d08f51aeddbc7fdd36109db3",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "threshold_probe.py": "35a858a92224189d5bc3e7526c6a73090749330129a12212f19ce9fcc3072d28"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "scope": "Exact checks of a separately proved Omega(n^(3/2)) lower bound with W=n; larger rows evaluate the proved formula, not an independent solve",
+  "checks": {
+    "literal_subsequence_checks": 445,
+    "layer_states": 4736120,
+    "root_candidates": 8852066,
+    "all_root_embedding_checks": 388,
+    "rightmost_zero_formula_checks": 42748,
+    "subsequence_density_checks": 17688,
+    "original_layer_density_checks": 1896
+  },
+  "rows": [
+    {
+      "n": 1024,
+      "m": 32,
+      "W": 1024,
+      "h": 9,
+      "explicit_core_cells": 1896,
+      "density_mass": 7530,
+      "independent_subsequence_dp": true,
+      "independent_original_layer": true
+    },
+    {
+      "n": 4096,
+      "m": 64,
+      "W": 4096,
+      "h": 11,
+      "explicit_core_cells": 15792,
+      "density_mass": 63026,
+      "independent_subsequence_dp": true,
+      "independent_original_layer": false
+    },
+    {
+      "n": 16384,
+      "m": 128,
+      "W": 16384,
+      "h": 13,
+      "explicit_core_cells": 128736,
+      "density_mass": 514594,
+      "independent_subsequence_dp": false,
+      "independent_original_layer": false
+    },
+    {
+      "n": 65536,
+      "m": 256,
+      "W": 65536,
+      "h": 15,
+      "explicit_core_cells": 1039296,
+      "density_mass": 4156354,
+      "independent_subsequence_dp": false,
+      "independent_original_layer": false
+    }
+  ],
+  "source_sha256": {
+    "ramp_core_tightness.py": "969528f748f8db98df468f2981e6a10f86612057f83bc431f19f07279ee075ef",
+    "penalty_layers.py": "52109c9aa922d67a12aecc9affff964017c26eeedf32b1b75c909fed35e7b621",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

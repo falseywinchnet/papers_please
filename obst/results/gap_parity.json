@@ -1,0 +1,154 @@
+{
+  "seed": 381027,
+  "checks": {
+    "parity_tree_inequalities": 13834,
+    "mixed_tree_inequalities": 69170
+  },
+  "rows": [
+    {
+      "n": 1,
+      "parity": 0,
+      "selected": 1,
+      "deleted": 1,
+      "lower": 1
+    },
+    {
+      "n": 1,
+      "parity": 1,
+      "selected": 1,
+      "deleted": 1,
+      "lower": 1
+    },
+    {
+      "n": 2,
+      "parity": 0,
+      "selected": 2,
+      "deleted": 1,
+      "lower": 3
+    },
+    {
+      "n": 2,
+      "parity": 1,
+      "selected": 1,
+      "deleted": 2,
+      "lower": 2
+    },
+    {
+      "n": 3,
+      "parity": 0,
+      "selected": 2,
+      "deleted": 2,
+      "lower": 4
+    },
+    {
+      "n": 3,
+      "parity": 1,
+      "selected": 2,
+      "deleted": 2,
+      "lower": 4
+    },
+    {
+      "n": 4,
+      "parity": 0,
+      "selected": 3,
+      "deleted": 2,
+      "lower": 7
+    },
+    {
+      "n": 4,
+      "parity": 1,
+      "selected": 2,
+      "deleted": 3,
+      "lower": 5
+    },
+    {
+      "n": 5,
+      "parity": 0,
+      "selected": 3,
+      "deleted": 3,
+      "lower": 8
+    },
+    {
+      "n": 5,
+      "parity": 1,
+      "selected": 3,
+      "deleted": 3,
+      "lower": 8
+    },
+    {
+      "n": 6,
+      "parity": 0,
+      "selected": 4,
+      "deleted": 3,
+      "lower": 11
+    },
+    {
+      "n": 6,
+      "parity": 1,
+      "selected": 3,
+      "deleted": 4,
+      "lower": 9
+    },
+    {
+      "n": 7,
+      "parity": 0,
+      "selected": 4,
+      "deleted": 4,
+      "lower": 12
+    },
+    {
+      "n": 7,
+      "parity": 1,
+      "selected": 4,
+      "deleted": 4,
+      "lower": 12
+    },
+    {
+      "n": 8,
+      "parity": 0,
+      "selected": 5,
+      "deleted": 4,
+      "lower": 16
+    },
+    {
+      "n": 8,
+      "parity": 1,
+      "selected": 4,
+      "deleted": 5,
+      "lower": 13
+    },
+    {
+      "n": 9,
+      "parity": 0,
+      "selected": 5,
+      "deleted": 5,
+      "lower": 17
+    },
+    {
+      "n": 9,
+      "parity": 1,
+      "selected": 5,
+      "deleted": 5,
+      "lower": 17
+    }
+  ],
+  "perfect_size_counterexample": {
+    "p": [
+      100,
+      1,
+      100
+    ],
+    "q": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "full": 303,
+    "balanced": 401
+  },
+  "source_sha256": {
+    "check_gap_parity.py": "76432203e289cc4c4937b8e710b607236099655d34e2bf9cbbf62442e94edee2",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

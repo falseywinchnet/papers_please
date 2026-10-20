@@ -1,0 +1,3124 @@
+{
+  "seed": 3939414956,
+  "python": "3.9.6",
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "rows": [
+    {
+      "n": 1023,
+      "family": "perturbation_4",
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "prior",
+            "excess2"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.493911666,
+              "value": 19455616,
+              "counts": {
+                "root_candidates": 1046451,
+                "states": 523776
+              }
+            },
+            "prior": {
+              "seconds": 0.763137333,
+              "value": 19455616,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 13603,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 19455616,
+                "profile_certificate_ceiling": 19454503,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 27087,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046451,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            },
+            "excess2": {
+              "seconds": 0.15781933400000003,
+              "value": 19455616,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 13603,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1270,
+                "candidate": 19455616,
+                "exclusion_bound": 19457312,
+                "certified": 1
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "excess2",
+            "prior"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.6723361669999999,
+              "value": 19456721,
+              "counts": {
+                "root_candidates": 1046060,
+                "states": 523776
+              }
+            },
+            "excess2": {
+              "seconds": 0.15986516600000034,
+              "value": 19456721,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 13590,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1250,
+                "candidate": 19456721,
+                "exclusion_bound": 19458885,
+                "certified": 1
+              }
+            },
+            "prior": {
+              "seconds": 0.7431203339999999,
+              "value": 19456721,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 13590,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 19456721,
+                "profile_certificate_ceiling": 19456074,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 27086,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046060,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "knuth",
+            "excess2"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.7379514170000001,
+              "value": 19457085,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 13625,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 19457085,
+                "profile_certificate_ceiling": 19456291,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 27069,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046732,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            },
+            "knuth": {
+              "seconds": 0.7308165,
+              "value": 19457085,
+              "counts": {
+                "root_candidates": 1046732,
+                "states": 523776
+              }
+            },
+            "excess2": {
+              "seconds": 0.20539691699999985,
+              "value": 19457085,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 13625,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1255,
+                "candidate": 19457085,
+                "exclusion_bound": 19459008,
+                "certified": 1
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "excess2",
+            "knuth"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.7306313330000007,
+              "value": 19458152,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 13624,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 19458152,
+                "profile_certificate_ceiling": 19457246,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 27038,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1047016,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            },
+            "excess2": {
+              "seconds": 0.171073625,
+              "value": 19458152,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 13624,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1249,
+                "candidate": 19458152,
+                "exclusion_bound": 19459987,
+                "certified": 1
+              }
+            },
+            "knuth": {
+              "seconds": 0.7976861249999994,
+              "value": 19458152,
+              "counts": {
+                "root_candidates": 1047016,
+                "states": 523776
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "knuth",
+            "prior"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.1674267079999998,
+              "value": 19455743,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 13663,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1268,
+                "candidate": 19455743,
+                "exclusion_bound": 19457355,
+                "certified": 1
+              }
+            },
+            "knuth": {
+              "seconds": 0.7148072910000005,
+              "value": 19455743,
+              "counts": {
+                "root_candidates": 1047072,
+                "states": 523776
+              }
+            },
+            "prior": {
+              "seconds": 0.7904705420000004,
+              "value": 19455743,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 13663,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 19455743,
+                "profile_certificate_ceiling": 19454657,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 27100,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1047072,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "prior",
+            "knuth"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.17476679199999978,
+              "value": 19455966,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 13627,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1249,
+                "candidate": 19455966,
+                "exclusion_bound": 19457924,
+                "certified": 1
+              }
+            },
+            "prior": {
+              "seconds": 0.7429087909999996,
+              "value": 19455966,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 13627,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 19455966,
+                "profile_certificate_ceiling": 19455152,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 27141,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1044315,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            },
+            "knuth": {
+              "seconds": 0.7872280410000005,
+              "value": 19455966,
+              "counts": {
+                "root_candidates": 1044315,
+                "states": 523776
+              }
+            }
+          }
+        }
+      ],
+      "median_excess_knuth": 0.23600100136485871,
+      "median_excess_prior": 0.22463591159834073,
+      "certified": 6
+    },
+    {
+      "n": 1024,
+      "family": "perturbation_4",
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "prior",
+            "excess2"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.7681397499999996,
+              "value": 19479176,
+              "counts": {
+                "root_candidates": 1046518,
+                "states": 524800
+              }
+            },
+            "prior": {
+              "seconds": 0.9050920420000015,
+              "value": 19479176,
+              "counts": {
+                "input_keys": 1024,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 1,
+                "rare_choices": 1,
+                "complete_states": 2048,
+                "complete_transitions": 3070,
+                "complete_reconstructed_keys": 1024,
+                "profile_sort_comparisons": 13676,
+                "profile_sorted_items": 2049,
+                "candidate_cost": 19479176,
+                "profile_certificate_ceiling": 19478560,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1024,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1024,
+                "recursive_single_queue_pops": 1024,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2049,
+                "recursive_bound_weight_comparisons": 27267,
+                "recursive_bound_contractions": 1024,
+                "recursive_upper_intervals": 1024,
+                "recursive_cartesian_nodes": 1024,
+                "recursive_block_predicate_checks": 1023,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 524800,
+                "recursive_root_candidates": 1046518,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1024
+              }
+            },
+            "excess2": {
+              "seconds": 0.30002916599999985,
+              "value": 19479176,
+              "counts": {
+                "excess_states": 48003,
+                "excess_max_width": 47,
+                "excess_transition_checks": 240000,
+                "excess_feasible_transitions": 75028,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1024,
+                "rare_choices": 1,
+                "bound_sort_comparisons": 13676,
+                "bound_sorted_items": 2049,
+                "bound_contractions": 1024,
+                "bound_merge_comparisons": 1258,
+                "candidate": 19479176,
+                "exclusion_bound": 19481293,
+                "certified": 1
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "excess2",
+            "prior"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.6363547080000007,
+              "value": 19478976,
+              "counts": {
+                "root_candidates": 1047270,
+                "states": 524800
+              }
+            },
+            "excess2": {
+              "seconds": 0.33057866700000105,
+              "value": 19478976,
+              "counts": {
+                "excess_states": 48003,
+                "excess_max_width": 47,
+                "excess_transition_checks": 240000,
+                "excess_feasible_transitions": 75028,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1024,
+                "rare_choices": 1,
+                "bound_sort_comparisons": 13737,
+                "bound_sorted_items": 2049,
+                "bound_contractions": 1024,
+                "bound_merge_comparisons": 1264,
+                "candidate": 19478976,
+                "exclusion_bound": 19480899,
+                "certified": 1
+              }
+            },
+            "prior": {
+              "seconds": 0.761464457999999,
+              "value": 19478976,
+              "counts": {
+                "input_keys": 1024,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 1,
+                "rare_choices": 1,
+                "complete_states": 2048,
+                "complete_transitions": 3070,
+                "complete_reconstructed_keys": 1024,
+                "profile_sort_comparisons": 13737,
+                "profile_sorted_items": 2049,
+                "candidate_cost": 19478976,
+                "profile_certificate_ceiling": 19478193,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1024,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1024,
+                "recursive_single_queue_pops": 1024,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2049,
+                "recursive_bound_weight_comparisons": 27224,
+                "recursive_bound_contractions": 1024,
+                "recursive_upper_intervals": 1024,
+                "recursive_cartesian_nodes": 1024,
+                "recursive_block_predicate_checks": 1023,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 524800,
+                "recursive_root_candidates": 1047270,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1024
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "knuth",
+            "excess2"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.7656383330000001,
+              "value": 19480596,
+              "counts": {
+                "input_keys": 1024,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 1,
+                "rare_choices": 1,
+                "complete_states": 2048,
+                "complete_transitions": 3070,
+                "complete_reconstructed_keys": 1024,
+                "profile_sort_comparisons": 13755,
+                "profile_sorted_items": 2049,
+                "candidate_cost": 19480596,
+                "profile_certificate_ceiling": 19479780,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1024,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1024,
+                "recursive_single_queue_pops": 1024,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2049,
+                "recursive_bound_weight_comparisons": 27248,
+                "recursive_bound_contractions": 1024,
+                "recursive_upper_intervals": 1024,
+                "recursive_cartesian_nodes": 1024,
+                "recursive_block_predicate_checks": 1023,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 524800,
+                "recursive_root_candidates": 1049582,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1024
+              }
+            },
+            "knuth": {
+              "seconds": 0.7940088750000012,
+              "value": 19480596,
+              "counts": {
+                "root_candidates": 1049582,
+                "states": 524800
+              }
+            },
+            "excess2": {
+              "seconds": 0.3642620830000016,
+              "value": 19480596,
+              "counts": {
+                "excess_states": 48003,
+                "excess_max_width": 47,
+                "excess_transition_checks": 240000,
+                "excess_feasible_transitions": 75028,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1024,
+                "rare_choices": 1,
+                "bound_sort_comparisons": 13755,
+                "bound_sorted_items": 2049,
+                "bound_contractions": 1024,
+                "bound_merge_comparisons": 1249,
+                "candidate": 19480596,
+                "exclusion_bound": 19482509,
+                "certified": 1
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "excess2",
+            "knuth"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.6936906249999986,
+              "value": 19479863,
+              "counts": {
+                "input_keys": 1024,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 1,
+                "rare_choices": 1,
+                "complete_states": 2048,
+                "complete_transitions": 3070,
+                "complete_reconstructed_keys": 1024,
+                "profile_sort_comparisons": 13771,
+                "profile_sorted_items": 2049,
+                "candidate_cost": 19479863,
+                "profile_certificate_ceiling": 19479238,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1024,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1024,
+                "recursive_single_queue_pops": 1024,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2049,
+                "recursive_bound_weight_comparisons": 27247,
+                "recursive_bound_contractions": 1024,
+                "recursive_upper_intervals": 1024,
+                "recursive_cartesian_nodes": 1024,
+                "recursive_block_predicate_checks": 1023,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 524800,
+                "recursive_root_candidates": 1050411,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1024
+              }
+            },
+            "excess2": {
+              "seconds": 0.30967591699999986,
+              "value": 19479863,
+              "counts": {
+                "excess_states": 48003,
+                "excess_max_width": 47,
+                "excess_transition_checks": 240000,
+                "excess_feasible_transitions": 75028,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1024,
+                "rare_choices": 1,
+                "bound_sort_comparisons": 13771,
+                "bound_sorted_items": 2049,
+                "bound_contractions": 1024,
+                "bound_merge_comparisons": 1253,
+                "candidate": 19479863,
+                "exclusion_bound": 19482008,
+                "certified": 1
+              }
+            },
+            "knuth": {
+              "seconds": 0.7151744170000001,
+              "value": 19479863,
+              "counts": {
+                "root_candidates": 1050411,
+                "states": 524800
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "knuth",
+            "prior"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.2979336250000024,
+              "value": 19481644,
+              "counts": {
+                "excess_states": 48003,
+                "excess_max_width": 47,
+                "excess_transition_checks": 240000,
+                "excess_feasible_transitions": 75028,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1024,
+                "rare_choices": 1,
+                "bound_sort_comparisons": 13764,
+                "bound_sorted_items": 2049,
+                "bound_contractions": 1024,
+                "bound_merge_comparisons": 1255,
+                "candidate": 19481644,
+                "exclusion_bound": 19483430,
+                "certified": 1
+              }
+            },
+            "knuth": {
+              "seconds": 0.6804476669999993,
+              "value": 19481644,
+              "counts": {
+                "root_candidates": 1048073,
+                "states": 524800
+              }
+            },
+            "prior": {
+              "seconds": 0.854203333000001,
+              "value": 19481644,
+              "counts": {
+                "input_keys": 1024,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 1,
+                "rare_choices": 1,
+                "complete_states": 2048,
+                "complete_transitions": 3070,
+                "complete_reconstructed_keys": 1024,
+                "profile_sort_comparisons": 13764,
+                "profile_sorted_items": 2049,
+                "candidate_cost": 19481644,
+                "profile_certificate_ceiling": 19480616,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1024,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1024,
+                "recursive_single_queue_pops": 1024,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2049,
+                "recursive_bound_weight_comparisons": 27215,
+                "recursive_bound_contractions": 1024,
+                "recursive_upper_intervals": 1024,
+                "recursive_cartesian_nodes": 1024,
+                "recursive_block_predicate_checks": 1023,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 524800,
+                "recursive_root_candidates": 1048073,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1024
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "prior",
+            "knuth"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.37795095799999956,
+              "value": 19478742,
+              "counts": {
+                "excess_states": 48003,
+                "excess_max_width": 47,
+                "excess_transition_checks": 240000,
+                "excess_feasible_transitions": 75028,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 1024,
+                "rare_choices": 1,
+                "bound_sort_comparisons": 13663,
+                "bound_sorted_items": 2049,
+                "bound_contractions": 1024,
+                "bound_merge_comparisons": 1265,
+                "candidate": 19478742,
+                "exclusion_bound": 19480731,
+                "certified": 1
+              }
+            },
+            "prior": {
+              "seconds": 0.7570447920000021,
+              "value": 19478742,
+              "counts": {
+                "input_keys": 1024,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 1,
+                "rare_choices": 1,
+                "complete_states": 2048,
+                "complete_transitions": 3070,
+                "complete_reconstructed_keys": 1024,
+                "profile_sort_comparisons": 13663,
+                "profile_sorted_items": 2049,
+                "candidate_cost": 19478742,
+                "profile_certificate_ceiling": 19477977,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1024,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1024,
+                "recursive_single_queue_pops": 1024,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2049,
+                "recursive_bound_weight_comparisons": 27182,
+                "recursive_bound_contractions": 1024,
+                "recursive_upper_intervals": 1024,
+                "recursive_cartesian_nodes": 1024,
+                "recursive_block_predicate_checks": 1023,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 524800,
+                "recursive_root_candidates": 1048737,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1024
+              }
+            },
+            "knuth": {
+              "seconds": 0.7627542500000004,
+              "value": 19478742,
+              "counts": {
+                "root_candidates": 1048737,
+                "states": 524800
+              }
+            }
+          }
+        }
+      ],
+      "median_excess_knuth": 0.44830633568371925,
+      "median_excess_prior": 0.4402766469536513,
+      "certified": 6
+    },
+    {
+      "n": 1023,
+      "family": "periodic_16",
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "prior",
+            "excess2"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.795889209000002,
+              "value": 312154,
+              "counts": {
+                "root_candidates": 1046532,
+                "states": 523776
+              }
+            },
+            "prior": {
+              "seconds": 0.847542041999997,
+              "value": 312154,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 6052,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 312464,
+                "profile_certificate_ceiling": 312121,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 25678,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046532,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            },
+            "excess2": {
+              "seconds": 0.1451634999999989,
+              "value": 312154,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 6052,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1022,
+                "candidate": 312154,
+                "exclusion_bound": 312185,
+                "certified": 1
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "excess2",
+            "prior"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.6732381670000009,
+              "value": 312154,
+              "counts": {
+                "root_candidates": 1046532,
+                "states": 523776
+              }
+            },
+            "excess2": {
+              "seconds": 0.1348893750000002,
+              "value": 312154,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 6052,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1022,
+                "candidate": 312154,
+                "exclusion_bound": 312185,
+                "certified": 1
+              }
+            },
+            "prior": {
+              "seconds": 0.680976041000001,
+              "value": 312154,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 6052,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 312464,
+                "profile_certificate_ceiling": 312121,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 25678,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046532,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "knuth",
+            "excess2"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.7590296670000001,
+              "value": 312154,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 6052,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 312464,
+                "profile_certificate_ceiling": 312121,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 25678,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046532,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            },
+            "knuth": {
+              "seconds": 0.7841193329999996,
+              "value": 312154,
+              "counts": {
+                "root_candidates": 1046532,
+                "states": 523776
+              }
+            },
+            "excess2": {
+              "seconds": 0.2061102080000019,
+              "value": 312154,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 6052,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1022,
+                "candidate": 312154,
+                "exclusion_bound": 312185,
+                "certified": 1
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "excess2",
+            "knuth"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.7693243330000001,
+              "value": 312154,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 6052,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 312464,
+                "profile_certificate_ceiling": 312121,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 25678,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046532,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            },
+            "excess2": {
+              "seconds": 0.16131358299999832,
+              "value": 312154,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 6052,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1022,
+                "candidate": 312154,
+                "exclusion_bound": 312185,
+                "certified": 1
+              }
+            },
+            "knuth": {
+              "seconds": 0.7487742910000001,
+              "value": 312154,
+              "counts": {
+                "root_candidates": 1046532,
+                "states": 523776
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "knuth",
+            "prior"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.1486958329999979,
+              "value": 312154,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 6052,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1022,
+                "candidate": 312154,
+                "exclusion_bound": 312185,
+                "certified": 1
+              }
+            },
+            "knuth": {
+              "seconds": 0.8523914579999996,
+              "value": 312154,
+              "counts": {
+                "root_candidates": 1046532,
+                "states": 523776
+              }
+            },
+            "prior": {
+              "seconds": 0.7289914999999993,
+              "value": 312154,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 6052,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 312464,
+                "profile_certificate_ceiling": 312121,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 25678,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046532,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "prior",
+            "knuth"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.1304186250000008,
+              "value": 312154,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 6052,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1022,
+                "candidate": 312154,
+                "exclusion_bound": 312185,
+                "certified": 1
+              }
+            },
+            "prior": {
+              "seconds": 0.543705708000001,
+              "value": 312154,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 6052,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 312464,
+                "profile_certificate_ceiling": 312121,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1023,
+                "recursive_single_queue_pops": 1023,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2047,
+                "recursive_bound_weight_comparisons": 25678,
+                "recursive_bound_contractions": 1023,
+                "recursive_upper_intervals": 1023,
+                "recursive_cartesian_nodes": 1023,
+                "recursive_block_predicate_checks": 1022,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 523776,
+                "recursive_root_candidates": 1046532,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1023
+              }
+            },
+            "knuth": {
+              "seconds": 0.3929951249999988,
+              "value": 312154,
+              "counts": {
+                "root_candidates": 1046532,
+                "states": 523776
+              }
+            }
+          }
+        }
+      ],
+      "median_excess_knuth": 0.20789796706390107,
+      "median_excess_prior": 0.20682843401719167,
+      "certified": 6
+    },
+    {
+      "n": 768,
+      "family": "near_uniform",
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "prior",
+            "excess2"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.1499577919999986,
+              "value": 14101442,
+              "counts": {
+                "root_candidates": 588447,
+                "states": 295296
+              }
+            },
+            "prior": {
+              "seconds": 0.1529550420000021,
+              "value": 14101442,
+              "counts": {
+                "input_keys": 768,
+                "bottom_optional_slots": 512,
+                "bottom_expansions": 257,
+                "rare_choices": 255,
+                "skipped_wide_shape_space": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 768,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 768,
+                "recursive_single_queue_pops": 768,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 1537,
+                "recursive_bound_weight_comparisons": 18546,
+                "recursive_bound_contractions": 768,
+                "recursive_upper_intervals": 768,
+                "recursive_cartesian_nodes": 768,
+                "recursive_block_predicate_checks": 767,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 295296,
+                "recursive_root_candidates": 588447,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 768
+              }
+            },
+            "excess2": {
+              "seconds": 0.25783858299999807,
+              "value": 14101442,
+              "counts": {
+                "skipped_wide_shape_space": 1,
+                "fallback_states": 295296,
+                "fallback_root_candidates": 588447
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "excess2",
+            "prior"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.2728373750000017,
+              "value": 14101194,
+              "counts": {
+                "root_candidates": 591364,
+                "states": 295296
+              }
+            },
+            "excess2": {
+              "seconds": 0.23457791700000286,
+              "value": 14101194,
+              "counts": {
+                "skipped_wide_shape_space": 1,
+                "fallback_states": 295296,
+                "fallback_root_candidates": 591364
+              }
+            },
+            "prior": {
+              "seconds": 0.2855098749999989,
+              "value": 14101194,
+              "counts": {
+                "input_keys": 768,
+                "bottom_optional_slots": 512,
+                "bottom_expansions": 257,
+                "rare_choices": 255,
+                "skipped_wide_shape_space": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 768,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 768,
+                "recursive_single_queue_pops": 768,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 1537,
+                "recursive_bound_weight_comparisons": 18518,
+                "recursive_bound_contractions": 768,
+                "recursive_upper_intervals": 768,
+                "recursive_cartesian_nodes": 768,
+                "recursive_block_predicate_checks": 767,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 295296,
+                "recursive_root_candidates": 591364,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 768
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "knuth",
+            "excess2"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.3015418330000017,
+              "value": 14101644,
+              "counts": {
+                "input_keys": 768,
+                "bottom_optional_slots": 512,
+                "bottom_expansions": 257,
+                "rare_choices": 255,
+                "skipped_wide_shape_space": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 768,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 768,
+                "recursive_single_queue_pops": 768,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 1537,
+                "recursive_bound_weight_comparisons": 18569,
+                "recursive_bound_contractions": 768,
+                "recursive_upper_intervals": 768,
+                "recursive_cartesian_nodes": 768,
+                "recursive_block_predicate_checks": 767,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 295296,
+                "recursive_root_candidates": 589632,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 768
+              }
+            },
+            "knuth": {
+              "seconds": 0.28770704200000097,
+              "value": 14101644,
+              "counts": {
+                "root_candidates": 589632,
+                "states": 295296
+              }
+            },
+            "excess2": {
+              "seconds": 0.2626680419999943,
+              "value": 14101644,
+              "counts": {
+                "skipped_wide_shape_space": 1,
+                "fallback_states": 295296,
+                "fallback_root_candidates": 589632
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "excess2",
+            "knuth"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.2570330420000033,
+              "value": 14101482,
+              "counts": {
+                "input_keys": 768,
+                "bottom_optional_slots": 512,
+                "bottom_expansions": 257,
+                "rare_choices": 255,
+                "skipped_wide_shape_space": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 768,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 768,
+                "recursive_single_queue_pops": 768,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 1537,
+                "recursive_bound_weight_comparisons": 18498,
+                "recursive_bound_contractions": 768,
+                "recursive_upper_intervals": 768,
+                "recursive_cartesian_nodes": 768,
+                "recursive_block_predicate_checks": 767,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 295296,
+                "recursive_root_candidates": 589073,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 768
+              }
+            },
+            "excess2": {
+              "seconds": 0.2767691250000013,
+              "value": 14101482,
+              "counts": {
+                "skipped_wide_shape_space": 1,
+                "fallback_states": 295296,
+                "fallback_root_candidates": 589073
+              }
+            },
+            "knuth": {
+              "seconds": 0.338514791999998,
+              "value": 14101482,
+              "counts": {
+                "root_candidates": 589073,
+                "states": 295296
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "knuth",
+            "prior"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.2886229579999977,
+              "value": 14101315,
+              "counts": {
+                "skipped_wide_shape_space": 1,
+                "fallback_states": 295296,
+                "fallback_root_candidates": 590746
+              }
+            },
+            "knuth": {
+              "seconds": 0.2668674580000001,
+              "value": 14101315,
+              "counts": {
+                "root_candidates": 590746,
+                "states": 295296
+              }
+            },
+            "prior": {
+              "seconds": 0.2681014590000004,
+              "value": 14101315,
+              "counts": {
+                "input_keys": 768,
+                "bottom_optional_slots": 512,
+                "bottom_expansions": 257,
+                "rare_choices": 255,
+                "skipped_wide_shape_space": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 768,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 768,
+                "recursive_single_queue_pops": 768,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 1537,
+                "recursive_bound_weight_comparisons": 18489,
+                "recursive_bound_contractions": 768,
+                "recursive_upper_intervals": 768,
+                "recursive_cartesian_nodes": 768,
+                "recursive_block_predicate_checks": 767,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 295296,
+                "recursive_root_candidates": 590746,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 768
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "prior",
+            "knuth"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.2501554999999982,
+              "value": 14101164,
+              "counts": {
+                "skipped_wide_shape_space": 1,
+                "fallback_states": 295296,
+                "fallback_root_candidates": 587371
+              }
+            },
+            "prior": {
+              "seconds": 0.32641616600000134,
+              "value": 14101164,
+              "counts": {
+                "input_keys": 768,
+                "bottom_optional_slots": 512,
+                "bottom_expansions": 257,
+                "rare_choices": 255,
+                "skipped_wide_shape_space": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 768,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 768,
+                "recursive_single_queue_pops": 768,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 1537,
+                "recursive_bound_weight_comparisons": 18505,
+                "recursive_bound_contractions": 768,
+                "recursive_upper_intervals": 768,
+                "recursive_cartesian_nodes": 768,
+                "recursive_block_predicate_checks": 767,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 295296,
+                "recursive_root_candidates": 587371,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 768
+              }
+            },
+            "knuth": {
+              "seconds": 0.26332195899999533,
+              "value": 14101164,
+              "counts": {
+                "root_candidates": 587371,
+                "states": 295296
+              }
+            }
+          }
+        }
+      ],
+      "median_excess_knuth": 0.9314845644528076,
+      "median_excess_prior": 0.9738135183032255,
+      "certified": 0
+    },
+    {
+      "n": 1023,
+      "family": "random",
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "prior",
+            "excess2"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.46662866700000194,
+              "value": 9340984,
+              "counts": {
+                "root_candidates": 1039711,
+                "states": 523776
+              }
+            },
+            "prior": {
+              "seconds": 0.5733075830000018,
+              "value": 9340984,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 17801,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 9587966,
+                "profile_certificate_ceiling": 9242031,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1045,
+                "recursive_single_queue_pops": 1046,
+                "recursive_single_contractions": 12,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2023,
+                "recursive_bound_weight_comparisons": 29147,
+                "recursive_bound_contractions": 1011,
+                "recursive_upper_intervals": 1011,
+                "recursive_cartesian_nodes": 1011,
+                "recursive_block_predicate_checks": 1010,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 511566,
+                "recursive_root_candidates": 1017373,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1011
+              }
+            },
+            "excess2": {
+              "seconds": 0.6154667500000031,
+              "value": 9340984,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 17801,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1268,
+                "candidate": 9538416,
+                "exclusion_bound": 9143013,
+                "certified": 0,
+                "fallback_states": 523776,
+                "fallback_root_candidates": 1039711
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "excess2",
+            "prior"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 0.43814199999999914,
+              "value": 9603054,
+              "counts": {
+                "root_candidates": 1049774,
+                "states": 523776
+              }
+            },
+            "excess2": {
+              "seconds": 0.6262690420000041,
+              "value": 9603054,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 17764,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1260,
+                "candidate": 9793231,
+                "exclusion_bound": 9399730,
+                "certified": 0,
+                "fallback_states": 523776,
+                "fallback_root_candidates": 1049774
+              }
+            },
+            "prior": {
+              "seconds": 0.5284410419999972,
+              "value": 9603054,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 17764,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 9847720,
+                "profile_certificate_ceiling": 9499521,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1045,
+                "recursive_single_queue_pops": 1045,
+                "recursive_single_contractions": 11,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2025,
+                "recursive_bound_weight_comparisons": 29205,
+                "recursive_bound_contractions": 1012,
+                "recursive_upper_intervals": 1012,
+                "recursive_cartesian_nodes": 1012,
+                "recursive_block_predicate_checks": 1011,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 512578,
+                "recursive_root_candidates": 1026948,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1012
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "knuth",
+            "excess2"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.5197477910000003,
+              "value": 9290817,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 17789,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 9540561,
+                "profile_certificate_ceiling": 9194260,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1040,
+                "recursive_single_queue_pops": 1040,
+                "recursive_single_contractions": 9,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2029,
+                "recursive_bound_weight_comparisons": 29297,
+                "recursive_bound_contractions": 1014,
+                "recursive_upper_intervals": 1014,
+                "recursive_cartesian_nodes": 1014,
+                "recursive_block_predicate_checks": 1013,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 514605,
+                "recursive_root_candidates": 1027054,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1014
+              }
+            },
+            "knuth": {
+              "seconds": 0.4554070419999974,
+              "value": 9290817,
+              "counts": {
+                "root_candidates": 1044954,
+                "states": 523776
+              }
+            },
+            "excess2": {
+              "seconds": 0.6204575840000004,
+              "value": 9290817,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 17789,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1272,
+                "candidate": 9483149,
+                "exclusion_bound": 9088543,
+                "certified": 0,
+                "fallback_states": 523776,
+                "fallback_root_candidates": 1044954
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "excess2",
+            "knuth"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 0.4990706660000015,
+              "value": 9428372,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 17773,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 9663116,
+                "profile_certificate_ceiling": 9332098,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1047,
+                "recursive_single_queue_pops": 1047,
+                "recursive_single_contractions": 12,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2023,
+                "recursive_bound_weight_comparisons": 29123,
+                "recursive_bound_contractions": 1011,
+                "recursive_upper_intervals": 1011,
+                "recursive_cartesian_nodes": 1011,
+                "recursive_block_predicate_checks": 1010,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 511566,
+                "recursive_root_candidates": 1023041,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1011
+              }
+            },
+            "excess2": {
+              "seconds": 0.5530163330000022,
+              "value": 9428372,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 17773,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1263,
+                "candidate": 9623295,
+                "exclusion_bound": 9232361,
+                "certified": 0,
+                "fallback_states": 523776,
+                "fallback_root_candidates": 1048378
+              }
+            },
+            "knuth": {
+              "seconds": 0.45944533400000154,
+              "value": 9428372,
+              "counts": {
+                "root_candidates": 1048378,
+                "states": 523776
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "knuth",
+            "prior"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.5631061249999973,
+              "value": 9346004,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 17744,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1264,
+                "candidate": 9528313,
+                "exclusion_bound": 9142195,
+                "certified": 0,
+                "fallback_states": 523776,
+                "fallback_root_candidates": 1046749
+              }
+            },
+            "knuth": {
+              "seconds": 0.4139461250000025,
+              "value": 9346004,
+              "counts": {
+                "root_candidates": 1046749,
+                "states": 523776
+              }
+            },
+            "prior": {
+              "seconds": 0.3361675419999983,
+              "value": 9346004,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 17744,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 9571888,
+                "profile_certificate_ceiling": 9234954,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1033,
+                "recursive_single_queue_pops": 1033,
+                "recursive_single_contractions": 5,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2037,
+                "recursive_bound_weight_comparisons": 29337,
+                "recursive_bound_contractions": 1018,
+                "recursive_upper_intervals": 1018,
+                "recursive_cartesian_nodes": 1018,
+                "recursive_block_predicate_checks": 1017,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 518671,
+                "recursive_root_candidates": 1035947,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1018
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "prior",
+            "knuth"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.35798570800000107,
+              "value": 9561184,
+              "counts": {
+                "excess_states": 27570,
+                "excess_max_width": 27,
+                "excess_transition_checks": 137835,
+                "excess_feasible_transitions": 40314,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 1023,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 17800,
+                "bound_sorted_items": 2047,
+                "bound_contractions": 1023,
+                "bound_merge_comparisons": 1265,
+                "candidate": 9755025,
+                "exclusion_bound": 9363937,
+                "certified": 0,
+                "fallback_states": 523776,
+                "fallback_root_candidates": 1042121
+              }
+            },
+            "prior": {
+              "seconds": 0.32334962499999875,
+              "value": 9561184,
+              "counts": {
+                "input_keys": 1023,
+                "bottom_optional_slots": 1024,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 1025,
+                "complete_transitions": 1024,
+                "complete_reconstructed_keys": 1023,
+                "profile_sort_comparisons": 17800,
+                "profile_sorted_items": 2047,
+                "candidate_cost": 9817086,
+                "profile_certificate_ceiling": 9462719,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 1023,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 1039,
+                "recursive_single_queue_pops": 1039,
+                "recursive_single_contractions": 8,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 2031,
+                "recursive_bound_weight_comparisons": 29218,
+                "recursive_bound_contractions": 1015,
+                "recursive_upper_intervals": 1015,
+                "recursive_cartesian_nodes": 1015,
+                "recursive_block_predicate_checks": 1014,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 515620,
+                "recursive_root_candidates": 1025565,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 1015
+              }
+            },
+            "knuth": {
+              "seconds": 0.26742562500000133,
+              "value": 9561184,
+              "counts": {
+                "root_candidates": 1042121,
+                "states": 523776
+              }
+            }
+          }
+        }
+      ],
+      "median_excess_knuth": 1.349486633343672,
+      "median_excess_prior": 1.1466089539447655,
+      "certified": 0
+    },
+    {
+      "n": 2047,
+      "family": "periodic_16",
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "prior",
+            "excess2"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 1.1451825000000042,
+              "value": 690011,
+              "counts": {
+                "root_candidates": 4190212,
+                "states": 2096128
+              }
+            },
+            "prior": {
+              "seconds": 1.187947459,
+              "value": 690011,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 12174,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 690704,
+                "profile_certificate_ceiling": 689978,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 55645,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4190212,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            },
+            "excess2": {
+              "seconds": 0.25198187499999847,
+              "value": 690011,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 12174,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2046,
+                "candidate": 690011,
+                "exclusion_bound": 690042,
+                "certified": 1
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "excess2",
+            "prior"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 1.0990672499999974,
+              "value": 690011,
+              "counts": {
+                "root_candidates": 4190212,
+                "states": 2096128
+              }
+            },
+            "excess2": {
+              "seconds": 0.1658790830000001,
+              "value": 690011,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 12174,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2046,
+                "candidate": 690011,
+                "exclusion_bound": 690042,
+                "certified": 1
+              }
+            },
+            "prior": {
+              "seconds": 1.1151962910000037,
+              "value": 690011,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 12174,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 690704,
+                "profile_certificate_ceiling": 689978,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 55645,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4190212,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "knuth",
+            "excess2"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 1.1686054159999983,
+              "value": 690011,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 12174,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 690704,
+                "profile_certificate_ceiling": 689978,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 55645,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4190212,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            },
+            "knuth": {
+              "seconds": 1.325284499999995,
+              "value": 690011,
+              "counts": {
+                "root_candidates": 4190212,
+                "states": 2096128
+              }
+            },
+            "excess2": {
+              "seconds": 0.2834100829999997,
+              "value": 690011,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 12174,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2046,
+                "candidate": 690011,
+                "exclusion_bound": 690042,
+                "certified": 1
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "excess2",
+            "knuth"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 1.908277584000004,
+              "value": 690011,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 12174,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 690704,
+                "profile_certificate_ceiling": 689978,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 55645,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4190212,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            },
+            "excess2": {
+              "seconds": 0.30445262500000325,
+              "value": 690011,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 12174,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2046,
+                "candidate": 690011,
+                "exclusion_bound": 690042,
+                "certified": 1
+              }
+            },
+            "knuth": {
+              "seconds": 1.9325061669999997,
+              "value": 690011,
+              "counts": {
+                "root_candidates": 4190212,
+                "states": 2096128
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "knuth",
+            "prior"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.28876283299999983,
+              "value": 690011,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 12174,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2046,
+                "candidate": 690011,
+                "exclusion_bound": 690042,
+                "certified": 1
+              }
+            },
+            "knuth": {
+              "seconds": 1.9822875410000051,
+              "value": 690011,
+              "counts": {
+                "root_candidates": 4190212,
+                "states": 2096128
+              }
+            },
+            "prior": {
+              "seconds": 2.1186198750000003,
+              "value": 690011,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 12174,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 690704,
+                "profile_certificate_ceiling": 689978,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 55645,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4190212,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "prior",
+            "knuth"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 0.3733618750000005,
+              "value": 690011,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 2,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 12174,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2046,
+                "candidate": 690011,
+                "exclusion_bound": 690042,
+                "certified": 1
+              }
+            },
+            "prior": {
+              "seconds": 2.0328530839999956,
+              "value": 690011,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 12174,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 690704,
+                "profile_certificate_ceiling": 689978,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 55645,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4190212,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            },
+            "knuth": {
+              "seconds": 2.0239451660000043,
+              "value": 690011,
+              "counts": {
+                "root_candidates": 4190212,
+                "states": 2096128
+              }
+            }
+          }
+        }
+      ],
+      "median_excess_knuth": 0.171007613413994,
+      "median_excess_prior": 0.17160356390429088,
+      "certified": 6
+    },
+    {
+      "n": 2047,
+      "family": "perturbation_16",
+      "trials": [
+        {
+          "order": [
+            "knuth",
+            "prior",
+            "excess2"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 2.086323499999992,
+              "value": 43008218,
+              "counts": {
+                "root_candidates": 4186031,
+                "states": 2096128
+              }
+            },
+            "prior": {
+              "seconds": 2.0532987919999925,
+              "value": 43008218,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 34930,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 43008218,
+                "profile_certificate_ceiling": 42987211,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 62379,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4186031,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            },
+            "excess2": {
+              "seconds": 2.2646719160000117,
+              "value": 43008218,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 34930,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2546,
+                "candidate": 43008218,
+                "exclusion_bound": 42984009,
+                "certified": 0,
+                "fallback_states": 2096128,
+                "fallback_root_candidates": 4186031
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "knuth",
+            "excess2",
+            "prior"
+          ],
+          "runs": {
+            "knuth": {
+              "seconds": 2.007456583000007,
+              "value": 43004035,
+              "counts": {
+                "root_candidates": 4189518,
+                "states": 2096128
+              }
+            },
+            "excess2": {
+              "seconds": 2.285468917000003,
+              "value": 43004035,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 34717,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2550,
+                "candidate": 43004035,
+                "exclusion_bound": 42980165,
+                "certified": 0,
+                "fallback_states": 2096128,
+                "fallback_root_candidates": 4189518
+              }
+            },
+            "prior": {
+              "seconds": 2.0756805000000043,
+              "value": 43004035,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 34717,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 43004035,
+                "profile_certificate_ceiling": 42983509,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 62355,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4189518,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "knuth",
+            "excess2"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 2.1539998330000003,
+              "value": 43009602,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 34572,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 43009835,
+                "profile_certificate_ceiling": 42989282,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 62247,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4193051,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            },
+            "knuth": {
+              "seconds": 2.0840709999999945,
+              "value": 43009602,
+              "counts": {
+                "root_candidates": 4193051,
+                "states": 2096128
+              }
+            },
+            "excess2": {
+              "seconds": 2.3683238339999946,
+              "value": 43009602,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 1,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 34572,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2548,
+                "candidate": 43009602,
+                "exclusion_bound": 42986285,
+                "certified": 0,
+                "fallback_states": 2096128,
+                "fallback_root_candidates": 4193051
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "prior",
+            "excess2",
+            "knuth"
+          ],
+          "runs": {
+            "prior": {
+              "seconds": 2.049156959000001,
+              "value": 43020534,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 34637,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 43020534,
+                "profile_certificate_ceiling": 42999624,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 62410,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4192900,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            },
+            "excess2": {
+              "seconds": 2.34780087499999,
+              "value": 43020534,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 34637,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2521,
+                "candidate": 43020534,
+                "exclusion_bound": 42996602,
+                "certified": 0,
+                "fallback_states": 2096128,
+                "fallback_root_candidates": 4192900
+              }
+            },
+            "knuth": {
+              "seconds": 2.06631316699999,
+              "value": 43020534,
+              "counts": {
+                "root_candidates": 4192900,
+                "states": 2096128
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "knuth",
+            "prior"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 2.3552124590000005,
+              "value": 43008003,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 34938,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2547,
+                "candidate": 43008003,
+                "exclusion_bound": 42984069,
+                "certified": 0,
+                "fallback_states": 2096128,
+                "fallback_root_candidates": 4189705
+              }
+            },
+            "knuth": {
+              "seconds": 1.9921790829999964,
+              "value": 43008003,
+              "counts": {
+                "root_candidates": 4189705,
+                "states": 2096128
+              }
+            },
+            "prior": {
+              "seconds": 2.1545984170000025,
+              "value": 43008003,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 34938,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 43008003,
+                "profile_certificate_ceiling": 42987252,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 62152,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4189705,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            }
+          }
+        },
+        {
+          "order": [
+            "excess2",
+            "prior",
+            "knuth"
+          ],
+          "runs": {
+            "excess2": {
+              "seconds": 2.318657041999998,
+              "value": 43007058,
+              "counts": {
+                "excess_states": 55218,
+                "excess_max_width": 27,
+                "excess_transition_checks": 276075,
+                "excess_feasible_transitions": 80762,
+                "excess_budget": 2,
+                "chosen_excess": 0,
+                "reconstructed_keys": 2047,
+                "rare_choices": 0,
+                "bound_sort_comparisons": 34920,
+                "bound_sorted_items": 4095,
+                "bound_contractions": 2047,
+                "bound_merge_comparisons": 2554,
+                "candidate": 43007058,
+                "exclusion_bound": 42983923,
+                "certified": 0,
+                "fallback_states": 2096128,
+                "fallback_root_candidates": 4195231
+              }
+            },
+            "prior": {
+              "seconds": 2.1302957079999914,
+              "value": 43007058,
+              "counts": {
+                "input_keys": 2047,
+                "bottom_optional_slots": 2048,
+                "bottom_expansions": 0,
+                "rare_choices": 0,
+                "complete_states": 2049,
+                "complete_transitions": 2048,
+                "complete_reconstructed_keys": 2047,
+                "profile_sort_comparisons": 34920,
+                "profile_sorted_items": 4095,
+                "candidate_cost": 43007058,
+                "profile_certificate_ceiling": 42987580,
+                "profile_rejected": 1,
+                "certificate_failed": 1,
+                "recursive_calls": 1,
+                "recursive_processed_keys": 2047,
+                "recursive_max_recursion_depth": 0,
+                "recursive_single_predicate_checks": 2047,
+                "recursive_single_queue_pops": 2047,
+                "recursive_single_contractions": 0,
+                "recursive_bound_intervals": 1,
+                "recursive_bound_input_items": 4095,
+                "recursive_bound_weight_comparisons": 62398,
+                "recursive_bound_contractions": 2047,
+                "recursive_upper_intervals": 2047,
+                "recursive_cartesian_nodes": 2047,
+                "recursive_block_predicate_checks": 2046,
+                "recursive_selection_events": 0,
+                "recursive_dp_states": 2096128,
+                "recursive_root_candidates": 4195231,
+                "recursive_dp_components": 1,
+                "recursive_reconstructed_nodes": 2047
+              }
+            },
+            "knuth": {
+              "seconds": 2.117821707999994,
+              "value": 43007058,
+              "counts": {
+                "root_candidates": 4195231,
+                "states": 2096128
+              }
+            }
+          }
+        }
+      ],
+      "median_excess_knuth": 1.1363100486662447,
+      "median_excess_prior": 1.1002850890023788,
+      "certified": 0
+    }
+  ]
+}

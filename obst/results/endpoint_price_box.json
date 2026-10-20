@@ -1,0 +1,41 @@
+{
+  "corners": 512,
+  "min_corner_gap": "94",
+  "max_calls": 4,
+  "distinct": {
+    "p": [
+      996,
+      997,
+      1998,
+      999
+    ],
+    "q": [
+      1000,
+      2001,
+      1002,
+      1003,
+      1004
+    ],
+    "optimum": 23999,
+    "lower": "23004",
+    "history": [
+      {
+        "x": "0",
+        "y": "2",
+        "lower": "23004",
+        "plane": [
+          0,
+          0,
+          23004
+        ],
+        "candidate": 25006
+      }
+    ]
+  },
+  "source_sha256": {
+    "endpoint_price_box.py": "5da296d144893bca9037bc943ca2cc6c29056d71fd355c4282fc00a58173d3c5",
+    "endpoint_prices.py": "df9038837c49f6d9ee252043ff315ab65e59abcdb8a992a07666a43db9974fa0",
+    "shifted_alphabetic.py": "b3308112080f47d890c7b0b631cb5203adf6bcb9031cecd74011f4413cbce20c",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

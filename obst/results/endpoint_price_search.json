@@ -1,0 +1,88 @@
+{
+  "seed": 317212,
+  "checks": {
+    "shrink_controls": 19,
+    "fractional_search_cases": 6000
+  },
+  "obstruction": {
+    "p": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "q": [
+      1,
+      2,
+      1,
+      1,
+      1
+    ],
+    "optimum": 24,
+    "tree": [
+      1,
+      [
+        0,
+        null,
+        null
+      ],
+      [
+        2,
+        null,
+        [
+          3,
+          null,
+          null
+        ]
+      ]
+    ],
+    "dual": {
+      "lower": "23",
+      "upper": "23",
+      "max_complete": true,
+      "history": [
+        {
+          "x": "0",
+          "y": "0",
+          "lower": "23",
+          "plane": [
+            0,
+            1,
+            23
+          ],
+          "candidate": 25
+        },
+        {
+          "x": "0",
+          "y": "2",
+          "lower": "20",
+          "plane": [
+            0,
+            -2,
+            24
+          ],
+          "candidate": 24
+        },
+        {
+          "x": "0",
+          "y": "1/3",
+          "lower": "68/3",
+          "plane": [
+            0,
+            -1,
+            23
+          ],
+          "candidate": 24
+        }
+      ]
+    }
+  },
+  "fractional": null,
+  "maxcalls": 11,
+  "source_sha256": {
+    "endpoint_price_search.py": "8eb7b21007b248832b3535be4e081c8802ac40163de988110dcb1dbf61e7a4e8",
+    "endpoint_prices.py": "df9038837c49f6d9ee252043ff315ab65e59abcdb8a992a07666a43db9974fa0",
+    "shifted_alphabetic.py": "b3308112080f47d890c7b0b631cb5203adf6bcb9031cecd74011f4413cbce20c",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

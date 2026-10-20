@@ -1,0 +1,308 @@
+{
+  "scope": "Entire below-capacity core for a single equal key block, zero gaps. Proofs supply asymptotic bounds; controls distinguish independent recurrences from formula checks.",
+  "seed": 522019,
+  "counts": {
+    "literal_top_sum_controls": 336,
+    "all_root_candidates": 18032986,
+    "dense_states": 1556996,
+    "below_total_outputs": 78019,
+    "complete_core_controls": 8812,
+    "window_value_controls": 88033,
+    "global_bound_controls": 8812,
+    "inputs": 1025,
+    "below_ruler_updates": 72978,
+    "original_density_controls": 1070212,
+    "local_tile_controls": 222434,
+    "below_uniform_scales": 12451,
+    "below_uniform_outputs": 68099,
+    "below_partial_candidates": 47697,
+    "below_left_outputs": 4366,
+    "below_full_scales": 10948,
+    "below_right_outputs": 4715,
+    "below_full_candidates": 839,
+    "below_full_outputs": 839
+  },
+  "large": [
+    {
+      "n": 1024,
+      "start": 256,
+      "length": 512,
+      "core_sum": 66645,
+      "counts": {
+        "below_ruler_updates": 8172,
+        "below_total_outputs": 66645,
+        "below_full_scales": 140,
+        "below_partial_candidates": 8072,
+        "below_left_outputs": 1223,
+        "below_right_outputs": 1223,
+        "below_uniform_scales": 153,
+        "below_uniform_outputs": 64199,
+        "large_identity_controls": 66645
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 1024,
+      "start": 512,
+      "length": 1,
+      "core_sum": 1013,
+      "counts": {
+        "below_ruler_updates": 15325,
+        "below_total_outputs": 1013,
+        "below_full_scales": 153,
+        "below_partial_candidates": 15105,
+        "below_left_outputs": 36,
+        "below_right_outputs": 37,
+        "large_identity_controls": 1013,
+        "below_full_candidates": 940,
+        "below_full_outputs": 940
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 1024,
+      "start": 341,
+      "length": 64,
+      "core_sum": 6878,
+      "counts": {
+        "below_ruler_updates": 14336,
+        "below_total_outputs": 6878,
+        "below_full_scales": 140,
+        "below_partial_candidates": 14107,
+        "below_left_outputs": 800,
+        "below_right_outputs": 575,
+        "below_uniform_scales": 111,
+        "below_uniform_outputs": 5085,
+        "large_identity_controls": 6878,
+        "below_full_candidates": 418,
+        "below_full_outputs": 418
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 1024,
+      "start": 0,
+      "length": 1024,
+      "core_sum": 142547,
+      "counts": {
+        "below_total_outputs": 142547,
+        "below_uniform_scales": 165,
+        "below_uniform_outputs": 142547,
+        "large_identity_controls": 142547
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 4096,
+      "start": 1024,
+      "length": 2048,
+      "core_sum": 395378,
+      "counts": {
+        "below_ruler_updates": 36840,
+        "below_total_outputs": 395378,
+        "below_full_scales": 205,
+        "below_partial_candidates": 36698,
+        "below_left_outputs": 5040,
+        "below_right_outputs": 5040,
+        "below_uniform_scales": 220,
+        "below_uniform_outputs": 385298,
+        "large_identity_controls": 395378
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 4096,
+      "start": 2048,
+      "length": 1,
+      "core_sum": 4083,
+      "counts": {
+        "below_ruler_updates": 69591,
+        "below_total_outputs": 4083,
+        "below_full_scales": 220,
+        "below_partial_candidates": 69279,
+        "below_left_outputs": 55,
+        "below_right_outputs": 56,
+        "large_identity_controls": 4083,
+        "below_full_candidates": 3972,
+        "below_full_outputs": 3972
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 4096,
+      "start": 1365,
+      "length": 256,
+      "core_sum": 42059,
+      "counts": {
+        "below_ruler_updates": 65084,
+        "below_total_outputs": 42059,
+        "below_full_scales": 205,
+        "below_partial_candidates": 64762,
+        "below_left_outputs": 3383,
+        "below_right_outputs": 2464,
+        "below_uniform_scales": 172,
+        "below_uniform_outputs": 34530,
+        "large_identity_controls": 42059,
+        "below_full_candidates": 1682,
+        "below_full_outputs": 1682
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 4096,
+      "start": 0,
+      "length": 4096,
+      "core_sum": 835872,
+      "counts": {
+        "below_total_outputs": 835872,
+        "below_uniform_scales": 234,
+        "below_uniform_outputs": 835872,
+        "large_identity_controls": 835872
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 16384,
+      "start": 4096,
+      "length": 8192,
+      "core_sum": 2195603,
+      "counts": {
+        "below_ruler_updates": 163812,
+        "below_total_outputs": 2195603,
+        "below_full_scales": 282,
+        "below_partial_candidates": 163620,
+        "below_left_outputs": 20373,
+        "below_right_outputs": 20373,
+        "below_uniform_scales": 299,
+        "below_uniform_outputs": 2154857,
+        "large_identity_controls": 2195603
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 16384,
+      "start": 8192,
+      "length": 1,
+      "core_sum": 16369,
+      "counts": {
+        "below_ruler_updates": 311249,
+        "below_total_outputs": 16369,
+        "below_full_scales": 299,
+        "below_partial_candidates": 310829,
+        "below_left_outputs": 78,
+        "below_right_outputs": 79,
+        "large_identity_controls": 16369,
+        "below_full_candidates": 16212,
+        "below_full_outputs": 16212
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 16384,
+      "start": 5461,
+      "length": 1024,
+      "core_sum": 238832,
+      "counts": {
+        "below_ruler_updates": 291128,
+        "below_total_outputs": 238832,
+        "below_full_scales": 282,
+        "below_partial_candidates": 290697,
+        "below_left_outputs": 13808,
+        "below_right_outputs": 10107,
+        "below_uniform_scales": 245,
+        "below_uniform_outputs": 208179,
+        "large_identity_controls": 238832,
+        "below_full_candidates": 6738,
+        "below_full_outputs": 6738
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 16384,
+      "start": 0,
+      "length": 16384,
+      "core_sum": 4604281,
+      "counts": {
+        "below_total_outputs": 4604281,
+        "below_uniform_scales": 315,
+        "below_uniform_outputs": 4604281,
+        "large_identity_controls": 4604281
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 65536,
+      "start": 16384,
+      "length": 32768,
+      "core_sum": 11632824,
+      "counts": {
+        "below_ruler_updates": 720864,
+        "below_total_outputs": 11632824,
+        "below_full_scales": 371,
+        "below_partial_candidates": 720614,
+        "below_left_outputs": 81782,
+        "below_right_outputs": 81782,
+        "below_uniform_scales": 390,
+        "below_uniform_outputs": 11469260,
+        "large_identity_controls": 11632824
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 65536,
+      "start": 32768,
+      "length": 1,
+      "core_sum": 65519,
+      "counts": {
+        "below_ruler_updates": 1376203,
+        "below_total_outputs": 65519,
+        "below_full_scales": 390,
+        "below_partial_candidates": 1375659,
+        "below_left_outputs": 105,
+        "below_right_outputs": 106,
+        "large_identity_controls": 65519,
+        "below_full_candidates": 65308,
+        "below_full_outputs": 65308
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 65536,
+      "start": 21845,
+      "length": 4096,
+      "core_sum": 1287029,
+      "counts": {
+        "below_ruler_updates": 1287476,
+        "below_total_outputs": 1287029,
+        "below_full_scales": 371,
+        "below_partial_candidates": 1286920,
+        "below_left_outputs": 55619,
+        "below_right_outputs": 40784,
+        "below_uniform_scales": 330,
+        "below_uniform_outputs": 1163664,
+        "large_identity_controls": 1287029,
+        "below_full_candidates": 26962,
+        "below_full_outputs": 26962
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    },
+    {
+      "n": 65536,
+      "start": 0,
+      "length": 65536,
+      "core_sum": 24248798,
+      "counts": {
+        "below_total_outputs": 24248798,
+        "below_uniform_scales": 408,
+        "below_uniform_outputs": 24248798,
+        "large_identity_controls": 24248798
+      },
+      "verification": "Sparse construction and explicit coordinate identities; no large original all-root reference"
+    }
+  ],
+  "source_sha256": {
+    "plateau_below.py": "67a6a4eca7b345cda36332d28d10613eb1ed03472dae7fe705ea613a794fa8a7",
+    "plateau_below_audit.py": "27ae6e21458a410b106ed161b1bc0081619bf5e98bb039db0b77174c736ce4d9",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

@@ -1,0 +1,1024 @@
+{
+  "scope": "Exact unrestricted-height mixed OBST for jointly periodic inputs; O(nb), quadratic when b is linear in n. Large checks do not replace the proof.",
+  "seed": 481901,
+  "checks": {
+    "periodic_mass_prefix_entries": 10884,
+    "periodic_stored_cost_entries": 42978,
+    "periodic_stored_root_entries": 42978,
+    "periodic_reconstructed_gaps": 7704,
+    "literal_minimum_period_controls": 1042,
+    "independent_gap_visits": 7704,
+    "original_interval_values": 62376,
+    "exhaustive_shapes": 7882,
+    "small_inputs": 1042,
+    "period_signature_entries": 6662,
+    "periodic_root_candidates": 73292,
+    "periodic_states": 38756,
+    "periodic_reconstructed_keys": 6662,
+    "independent_all_root_candidates": 1993994,
+    "independent_states": 154391,
+    "independent_key_visits": 6662,
+    "leftmost_root_controls": 54672,
+    "extended_phase_controls": 38756,
+    "period_signature_comparisons": 5975,
+    "matched_knuth_controls": 20,
+    "matched_knuth_candidates": 1744227
+  },
+  "rows": [
+    {
+      "n": 63,
+      "requested_period": 1,
+      "detected_period": 1,
+      "value": 310551,
+      "counts": {
+        "period_signature_comparisons": 62,
+        "period_signature_entries": 63,
+        "periodic_mass_prefix_entries": 64,
+        "periodic_root_candidates": 125,
+        "periodic_states": 63,
+        "periodic_stored_cost_entries": 64,
+        "periodic_stored_root_entries": 64,
+        "periodic_reconstructed_keys": 63,
+        "periodic_reconstructed_gaps": 64,
+        "independent_key_visits": 63,
+        "independent_gap_visits": 64
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 63,
+      "requested_period": 2,
+      "detected_period": 2,
+      "value": 258045,
+      "counts": {
+        "period_signature_comparisons": 62,
+        "period_signature_entries": 63,
+        "periodic_mass_prefix_entries": 65,
+        "periodic_root_candidates": 250,
+        "periodic_states": 126,
+        "periodic_stored_cost_entries": 128,
+        "periodic_stored_root_entries": 128,
+        "periodic_reconstructed_keys": 63,
+        "periodic_reconstructed_gaps": 64,
+        "independent_key_visits": 63,
+        "independent_gap_visits": 64
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 63,
+      "requested_period": 3,
+      "detected_period": 3,
+      "value": 311033,
+      "counts": {
+        "period_signature_comparisons": 62,
+        "period_signature_entries": 63,
+        "periodic_mass_prefix_entries": 66,
+        "periodic_root_candidates": 375,
+        "periodic_states": 189,
+        "periodic_stored_cost_entries": 192,
+        "periodic_stored_root_entries": 192,
+        "periodic_reconstructed_keys": 63,
+        "periodic_reconstructed_gaps": 64,
+        "independent_key_visits": 63,
+        "independent_gap_visits": 64
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 63,
+      "requested_period": 5,
+      "detected_period": 5,
+      "value": 245627,
+      "counts": {
+        "period_signature_comparisons": 62,
+        "period_signature_entries": 63,
+        "periodic_mass_prefix_entries": 68,
+        "periodic_root_candidates": 625,
+        "periodic_states": 315,
+        "periodic_stored_cost_entries": 320,
+        "periodic_stored_root_entries": 320,
+        "periodic_reconstructed_keys": 63,
+        "periodic_reconstructed_gaps": 64,
+        "independent_key_visits": 63,
+        "independent_gap_visits": 64
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 63,
+      "requested_period": 11,
+      "detected_period": 11,
+      "value": 361527,
+      "counts": {
+        "period_signature_comparisons": 62,
+        "period_signature_entries": 63,
+        "periodic_mass_prefix_entries": 74,
+        "periodic_root_candidates": 1375,
+        "periodic_states": 693,
+        "periodic_stored_cost_entries": 704,
+        "periodic_stored_root_entries": 704,
+        "periodic_reconstructed_keys": 63,
+        "periodic_reconstructed_gaps": 64,
+        "independent_key_visits": 63,
+        "independent_gap_visits": 64
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 128,
+      "requested_period": 1,
+      "detected_period": 1,
+      "value": 916346,
+      "counts": {
+        "period_signature_comparisons": 127,
+        "period_signature_entries": 128,
+        "periodic_mass_prefix_entries": 129,
+        "periodic_root_candidates": 255,
+        "periodic_states": 128,
+        "periodic_stored_cost_entries": 129,
+        "periodic_stored_root_entries": 129,
+        "periodic_reconstructed_keys": 128,
+        "periodic_reconstructed_gaps": 129,
+        "independent_key_visits": 128,
+        "independent_gap_visits": 129
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 128,
+      "requested_period": 2,
+      "detected_period": 2,
+      "value": 610372,
+      "counts": {
+        "period_signature_comparisons": 127,
+        "period_signature_entries": 128,
+        "periodic_mass_prefix_entries": 130,
+        "periodic_root_candidates": 510,
+        "periodic_states": 256,
+        "periodic_stored_cost_entries": 258,
+        "periodic_stored_root_entries": 258,
+        "periodic_reconstructed_keys": 128,
+        "periodic_reconstructed_gaps": 129,
+        "independent_key_visits": 128,
+        "independent_gap_visits": 129
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 128,
+      "requested_period": 3,
+      "detected_period": 3,
+      "value": 584615,
+      "counts": {
+        "period_signature_comparisons": 127,
+        "period_signature_entries": 128,
+        "periodic_mass_prefix_entries": 131,
+        "periodic_root_candidates": 765,
+        "periodic_states": 384,
+        "periodic_stored_cost_entries": 387,
+        "periodic_stored_root_entries": 387,
+        "periodic_reconstructed_keys": 128,
+        "periodic_reconstructed_gaps": 129,
+        "independent_key_visits": 128,
+        "independent_gap_visits": 129
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 128,
+      "requested_period": 5,
+      "detected_period": 5,
+      "value": 731306,
+      "counts": {
+        "period_signature_comparisons": 127,
+        "period_signature_entries": 128,
+        "periodic_mass_prefix_entries": 133,
+        "periodic_root_candidates": 1275,
+        "periodic_states": 640,
+        "periodic_stored_cost_entries": 645,
+        "periodic_stored_root_entries": 645,
+        "periodic_reconstructed_keys": 128,
+        "periodic_reconstructed_gaps": 129,
+        "independent_key_visits": 128,
+        "independent_gap_visits": 129
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 128,
+      "requested_period": 11,
+      "detected_period": 11,
+      "value": 898884,
+      "counts": {
+        "period_signature_comparisons": 127,
+        "period_signature_entries": 128,
+        "periodic_mass_prefix_entries": 139,
+        "periodic_root_candidates": 2805,
+        "periodic_states": 1408,
+        "periodic_stored_cost_entries": 1419,
+        "periodic_stored_root_entries": 1419,
+        "periodic_reconstructed_keys": 128,
+        "periodic_reconstructed_gaps": 129,
+        "independent_key_visits": 128,
+        "independent_gap_visits": 129
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 257,
+      "requested_period": 1,
+      "detected_period": 1,
+      "value": 2460590,
+      "counts": {
+        "period_signature_comparisons": 256,
+        "period_signature_entries": 257,
+        "periodic_mass_prefix_entries": 258,
+        "periodic_root_candidates": 513,
+        "periodic_states": 257,
+        "periodic_stored_cost_entries": 258,
+        "periodic_stored_root_entries": 258,
+        "periodic_reconstructed_keys": 257,
+        "periodic_reconstructed_gaps": 258,
+        "independent_key_visits": 257,
+        "independent_gap_visits": 258
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 257,
+      "requested_period": 2,
+      "detected_period": 2,
+      "value": 1412044,
+      "counts": {
+        "period_signature_comparisons": 256,
+        "period_signature_entries": 257,
+        "periodic_mass_prefix_entries": 259,
+        "periodic_root_candidates": 1026,
+        "periodic_states": 514,
+        "periodic_stored_cost_entries": 516,
+        "periodic_stored_root_entries": 516,
+        "periodic_reconstructed_keys": 257,
+        "periodic_reconstructed_gaps": 258,
+        "independent_key_visits": 257,
+        "independent_gap_visits": 258
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 257,
+      "requested_period": 3,
+      "detected_period": 3,
+      "value": 2150455,
+      "counts": {
+        "period_signature_comparisons": 256,
+        "period_signature_entries": 257,
+        "periodic_mass_prefix_entries": 260,
+        "periodic_root_candidates": 1539,
+        "periodic_states": 771,
+        "periodic_stored_cost_entries": 774,
+        "periodic_stored_root_entries": 774,
+        "periodic_reconstructed_keys": 257,
+        "periodic_reconstructed_gaps": 258,
+        "independent_key_visits": 257,
+        "independent_gap_visits": 258
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 257,
+      "requested_period": 5,
+      "detected_period": 5,
+      "value": 1785871,
+      "counts": {
+        "period_signature_comparisons": 256,
+        "period_signature_entries": 257,
+        "periodic_mass_prefix_entries": 262,
+        "periodic_root_candidates": 2565,
+        "periodic_states": 1285,
+        "periodic_stored_cost_entries": 1290,
+        "periodic_stored_root_entries": 1290,
+        "periodic_reconstructed_keys": 257,
+        "periodic_reconstructed_gaps": 258,
+        "independent_key_visits": 257,
+        "independent_gap_visits": 258
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 257,
+      "requested_period": 11,
+      "detected_period": 11,
+      "value": 1490668,
+      "counts": {
+        "period_signature_comparisons": 256,
+        "period_signature_entries": 257,
+        "periodic_mass_prefix_entries": 268,
+        "periodic_root_candidates": 5643,
+        "periodic_states": 2827,
+        "periodic_stored_cost_entries": 2838,
+        "periodic_stored_root_entries": 2838,
+        "periodic_reconstructed_keys": 257,
+        "periodic_reconstructed_gaps": 258,
+        "independent_key_visits": 257,
+        "independent_gap_visits": 258
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 512,
+      "requested_period": 1,
+      "detected_period": 1,
+      "value": 2322063,
+      "counts": {
+        "period_signature_comparisons": 511,
+        "period_signature_entries": 512,
+        "periodic_mass_prefix_entries": 513,
+        "periodic_root_candidates": 1023,
+        "periodic_states": 512,
+        "periodic_stored_cost_entries": 513,
+        "periodic_stored_root_entries": 513,
+        "periodic_reconstructed_keys": 512,
+        "periodic_reconstructed_gaps": 513,
+        "independent_key_visits": 512,
+        "independent_gap_visits": 513
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 512,
+      "requested_period": 2,
+      "detected_period": 2,
+      "value": 4055322,
+      "counts": {
+        "period_signature_comparisons": 511,
+        "period_signature_entries": 512,
+        "periodic_mass_prefix_entries": 514,
+        "periodic_root_candidates": 2046,
+        "periodic_states": 1024,
+        "periodic_stored_cost_entries": 1026,
+        "periodic_stored_root_entries": 1026,
+        "periodic_reconstructed_keys": 512,
+        "periodic_reconstructed_gaps": 513,
+        "independent_key_visits": 512,
+        "independent_gap_visits": 513
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 512,
+      "requested_period": 3,
+      "detected_period": 3,
+      "value": 4197724,
+      "counts": {
+        "period_signature_comparisons": 511,
+        "period_signature_entries": 512,
+        "periodic_mass_prefix_entries": 515,
+        "periodic_root_candidates": 3069,
+        "periodic_states": 1536,
+        "periodic_stored_cost_entries": 1539,
+        "periodic_stored_root_entries": 1539,
+        "periodic_reconstructed_keys": 512,
+        "periodic_reconstructed_gaps": 513,
+        "independent_key_visits": 512,
+        "independent_gap_visits": 513
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 512,
+      "requested_period": 5,
+      "detected_period": 5,
+      "value": 2654788,
+      "counts": {
+        "period_signature_comparisons": 511,
+        "period_signature_entries": 512,
+        "periodic_mass_prefix_entries": 517,
+        "periodic_root_candidates": 5115,
+        "periodic_states": 2560,
+        "periodic_stored_cost_entries": 2565,
+        "periodic_stored_root_entries": 2565,
+        "periodic_reconstructed_keys": 512,
+        "periodic_reconstructed_gaps": 513,
+        "independent_key_visits": 512,
+        "independent_gap_visits": 513
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 512,
+      "requested_period": 11,
+      "detected_period": 11,
+      "value": 4805652,
+      "counts": {
+        "period_signature_comparisons": 511,
+        "period_signature_entries": 512,
+        "periodic_mass_prefix_entries": 523,
+        "periodic_root_candidates": 11253,
+        "periodic_states": 5632,
+        "periodic_stored_cost_entries": 5643,
+        "periodic_stored_root_entries": 5643,
+        "periodic_reconstructed_keys": 512,
+        "periodic_reconstructed_gaps": 513,
+        "independent_key_visits": 512,
+        "independent_gap_visits": 513
+      },
+      "verification": "full independent ordinary Knuth recurrence and tree traversal"
+    },
+    {
+      "n": 4095,
+      "key_period": [
+        0,
+        0,
+        1
+      ],
+      "gap_period": [
+        1,
+        4,
+        2
+      ],
+      "detected_period": 3,
+      "value": 129357,
+      "counts": {
+        "period_signature_comparisons": 4094,
+        "period_signature_entries": 4095,
+        "periodic_mass_prefix_entries": 4098,
+        "periodic_root_candidates": 24567,
+        "periodic_states": 12285,
+        "periodic_stored_cost_entries": 12288,
+        "periodic_stored_root_entries": 12288,
+        "periodic_reconstructed_keys": 4095,
+        "periodic_reconstructed_gaps": 4096,
+        "independent_key_visits": 4095,
+        "independent_gap_visits": 4096
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 4095,
+      "key_period": [
+        3,
+        0,
+        11,
+        2,
+        7
+      ],
+      "gap_period": [
+        0,
+        13,
+        1,
+        8,
+        5
+      ],
+      "detected_period": 5,
+      "value": 459996,
+      "counts": {
+        "period_signature_comparisons": 4094,
+        "period_signature_entries": 4095,
+        "periodic_mass_prefix_entries": 4100,
+        "periodic_root_candidates": 40945,
+        "periodic_states": 20475,
+        "periodic_stored_cost_entries": 20480,
+        "periodic_stored_root_entries": 20480,
+        "periodic_reconstructed_keys": 4095,
+        "periodic_reconstructed_gaps": 4096,
+        "independent_key_visits": 4095,
+        "independent_gap_visits": 4096
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 4095,
+      "key_period": [
+        1
+      ],
+      "gap_period": [
+        1
+      ],
+      "detected_period": 1,
+      "value": 94209,
+      "counts": {
+        "period_signature_comparisons": 4094,
+        "period_signature_entries": 4095,
+        "periodic_mass_prefix_entries": 4096,
+        "periodic_root_candidates": 8189,
+        "periodic_states": 4095,
+        "periodic_stored_cost_entries": 4096,
+        "periodic_stored_root_entries": 4096,
+        "periodic_reconstructed_keys": 4095,
+        "periodic_reconstructed_gaps": 4096,
+        "independent_key_visits": 4095,
+        "independent_gap_visits": 4096
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 4095,
+      "key_period": [
+        0
+      ],
+      "gap_period": [
+        0
+      ],
+      "detected_period": 1,
+      "value": 0,
+      "counts": {
+        "period_signature_comparisons": 4094,
+        "period_signature_entries": 4095,
+        "periodic_mass_prefix_entries": 4096,
+        "periodic_root_candidates": 8189,
+        "periodic_states": 4095,
+        "periodic_stored_cost_entries": 4096,
+        "periodic_stored_root_entries": 4096,
+        "periodic_reconstructed_keys": 4095,
+        "periodic_reconstructed_gaps": 4096,
+        "independent_key_visits": 4095,
+        "independent_gap_visits": 4096
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 16384,
+      "key_period": [
+        0,
+        0,
+        1
+      ],
+      "gap_period": [
+        1,
+        4,
+        2
+      ],
+      "detected_period": 3,
+      "value": 604892,
+      "counts": {
+        "period_signature_comparisons": 16383,
+        "period_signature_entries": 16384,
+        "periodic_mass_prefix_entries": 16387,
+        "periodic_root_candidates": 98301,
+        "periodic_states": 49152,
+        "periodic_stored_cost_entries": 49155,
+        "periodic_stored_root_entries": 49155,
+        "periodic_reconstructed_keys": 16384,
+        "periodic_reconstructed_gaps": 16385,
+        "independent_key_visits": 16384,
+        "independent_gap_visits": 16385
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 16384,
+      "key_period": [
+        3,
+        0,
+        11,
+        2,
+        7
+      ],
+      "gap_period": [
+        0,
+        13,
+        1,
+        8,
+        5
+      ],
+      "detected_period": 5,
+      "value": 2167807,
+      "counts": {
+        "period_signature_comparisons": 16383,
+        "period_signature_entries": 16384,
+        "periodic_mass_prefix_entries": 16389,
+        "periodic_root_candidates": 163835,
+        "periodic_states": 81920,
+        "periodic_stored_cost_entries": 81925,
+        "periodic_stored_root_entries": 81925,
+        "periodic_reconstructed_keys": 16384,
+        "periodic_reconstructed_gaps": 16385,
+        "independent_key_visits": 16384,
+        "independent_gap_visits": 16385
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 16384,
+      "key_period": [
+        1
+      ],
+      "gap_period": [
+        1
+      ],
+      "detected_period": 1,
+      "value": 442400,
+      "counts": {
+        "period_signature_comparisons": 16383,
+        "period_signature_entries": 16384,
+        "periodic_mass_prefix_entries": 16385,
+        "periodic_root_candidates": 32767,
+        "periodic_states": 16384,
+        "periodic_stored_cost_entries": 16385,
+        "periodic_stored_root_entries": 16385,
+        "periodic_reconstructed_keys": 16384,
+        "periodic_reconstructed_gaps": 16385,
+        "independent_key_visits": 16384,
+        "independent_gap_visits": 16385
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 16384,
+      "key_period": [
+        0
+      ],
+      "gap_period": [
+        0
+      ],
+      "detected_period": 1,
+      "value": 0,
+      "counts": {
+        "period_signature_comparisons": 16383,
+        "period_signature_entries": 16384,
+        "periodic_mass_prefix_entries": 16385,
+        "periodic_root_candidates": 32767,
+        "periodic_states": 16384,
+        "periodic_stored_cost_entries": 16385,
+        "periodic_stored_root_entries": 16385,
+        "periodic_reconstructed_keys": 16384,
+        "periodic_reconstructed_gaps": 16385,
+        "independent_key_visits": 16384,
+        "independent_gap_visits": 16385
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 65537,
+      "key_period": [
+        0,
+        0,
+        1
+      ],
+      "gap_period": [
+        1,
+        4,
+        2
+      ],
+      "detected_period": 3,
+      "value": 2768989,
+      "counts": {
+        "period_signature_comparisons": 65536,
+        "period_signature_entries": 65537,
+        "periodic_mass_prefix_entries": 65540,
+        "periodic_root_candidates": 393219,
+        "periodic_states": 196611,
+        "periodic_stored_cost_entries": 196614,
+        "periodic_stored_root_entries": 196614,
+        "periodic_reconstructed_keys": 65537,
+        "periodic_reconstructed_gaps": 65538,
+        "independent_key_visits": 65537,
+        "independent_gap_visits": 65538
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 65537,
+      "key_period": [
+        3,
+        0,
+        11,
+        2,
+        7
+      ],
+      "gap_period": [
+        0,
+        13,
+        1,
+        8,
+        5
+      ],
+      "detected_period": 5,
+      "value": 9981441,
+      "counts": {
+        "period_signature_comparisons": 65536,
+        "period_signature_entries": 65537,
+        "periodic_mass_prefix_entries": 65542,
+        "periodic_root_candidates": 655365,
+        "periodic_states": 327685,
+        "periodic_stored_cost_entries": 327690,
+        "periodic_stored_root_entries": 327690,
+        "periodic_reconstructed_keys": 65537,
+        "periodic_reconstructed_gaps": 65538,
+        "independent_key_visits": 65537,
+        "independent_gap_visits": 65538
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 65537,
+      "key_period": [
+        1
+      ],
+      "gap_period": [
+        1
+      ],
+      "detected_period": 1,
+      "value": 2031687,
+      "counts": {
+        "period_signature_comparisons": 65536,
+        "period_signature_entries": 65537,
+        "periodic_mass_prefix_entries": 65538,
+        "periodic_root_candidates": 131073,
+        "periodic_states": 65537,
+        "periodic_stored_cost_entries": 65538,
+        "periodic_stored_root_entries": 65538,
+        "periodic_reconstructed_keys": 65537,
+        "periodic_reconstructed_gaps": 65538,
+        "independent_key_visits": 65537,
+        "independent_gap_visits": 65538
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 65537,
+      "key_period": [
+        0
+      ],
+      "gap_period": [
+        0
+      ],
+      "detected_period": 1,
+      "value": 0,
+      "counts": {
+        "period_signature_comparisons": 65536,
+        "period_signature_entries": 65537,
+        "periodic_mass_prefix_entries": 65538,
+        "periodic_root_candidates": 131073,
+        "periodic_states": 65537,
+        "periodic_stored_cost_entries": 65538,
+        "periodic_stored_root_entries": 65538,
+        "periodic_reconstructed_keys": 65537,
+        "periodic_reconstructed_gaps": 65538,
+        "independent_key_visits": 65537,
+        "independent_gap_visits": 65538
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 262144,
+      "key_period": [
+        0,
+        0,
+        1
+      ],
+      "gap_period": [
+        1,
+        4,
+        2
+      ],
+      "detected_period": 3,
+      "value": 12473748,
+      "counts": {
+        "period_signature_comparisons": 262143,
+        "period_signature_entries": 262144,
+        "periodic_mass_prefix_entries": 262147,
+        "periodic_root_candidates": 1572861,
+        "periodic_states": 786432,
+        "periodic_stored_cost_entries": 786435,
+        "periodic_stored_root_entries": 786435,
+        "periodic_reconstructed_keys": 262144,
+        "periodic_reconstructed_gaps": 262145,
+        "independent_key_visits": 262144,
+        "independent_gap_visits": 262145
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 262144,
+      "key_period": [
+        3,
+        0,
+        11,
+        2,
+        7
+      ],
+      "gap_period": [
+        0,
+        13,
+        1,
+        8,
+        5
+      ],
+      "detected_period": 5,
+      "value": 45167671,
+      "counts": {
+        "period_signature_comparisons": 262143,
+        "period_signature_entries": 262144,
+        "periodic_mass_prefix_entries": 262149,
+        "periodic_root_candidates": 2621435,
+        "periodic_states": 1310720,
+        "periodic_stored_cost_entries": 1310725,
+        "periodic_stored_root_entries": 1310725,
+        "periodic_reconstructed_keys": 262144,
+        "periodic_reconstructed_gaps": 262145,
+        "independent_key_visits": 262144,
+        "independent_gap_visits": 262145
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 262144,
+      "key_period": [
+        1
+      ],
+      "gap_period": [
+        1
+      ],
+      "detected_period": 1,
+      "value": 9175080,
+      "counts": {
+        "period_signature_comparisons": 262143,
+        "period_signature_entries": 262144,
+        "periodic_mass_prefix_entries": 262145,
+        "periodic_root_candidates": 524287,
+        "periodic_states": 262144,
+        "periodic_stored_cost_entries": 262145,
+        "periodic_stored_root_entries": 262145,
+        "periodic_reconstructed_keys": 262144,
+        "periodic_reconstructed_gaps": 262145,
+        "independent_key_visits": 262144,
+        "independent_gap_visits": 262145
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    },
+    {
+      "n": 262144,
+      "key_period": [
+        0
+      ],
+      "gap_period": [
+        0
+      ],
+      "detected_period": 1,
+      "value": 0,
+      "counts": {
+        "period_signature_comparisons": 262143,
+        "period_signature_entries": 262144,
+        "periodic_mass_prefix_entries": 262145,
+        "periodic_root_candidates": 524287,
+        "periodic_states": 262144,
+        "periodic_stored_cost_entries": 262145,
+        "periodic_stored_root_entries": 262145,
+        "periodic_reconstructed_keys": 262144,
+        "periodic_reconstructed_gaps": 262145,
+        "independent_key_visits": 262144,
+        "independent_gap_visits": 262145
+      },
+      "verification": "complete phase-DP construction and independent tree traversal; no large independent optimality reference"
+    }
+  ],
+  "above_counterexample": {
+    "keys": [
+      1,
+      2,
+      0,
+      2,
+      3,
+      0,
+      0,
+      0,
+      4,
+      0,
+      2,
+      0,
+      0,
+      3,
+      0,
+      0,
+      1,
+      0,
+      0,
+      3,
+      0,
+      0,
+      3,
+      0,
+      3,
+      0,
+      2,
+      1,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      1,
+      3,
+      0,
+      0,
+      3,
+      1,
+      0,
+      2,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      3,
+      0,
+      2,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      3,
+      0,
+      0,
+      1,
+      2,
+      1,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      2,
+      0,
+      4,
+      1,
+      0,
+      1,
+      2,
+      2,
+      0,
+      1,
+      4,
+      0,
+      3,
+      1,
+      4,
+      0,
+      2,
+      0,
+      4,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      2,
+      0,
+      3,
+      1,
+      3,
+      0,
+      0,
+      2,
+      0,
+      3,
+      2
+    ],
+    "n": 128,
+    "mass": 128,
+    "h": 5,
+    "above_core": 270,
+    "checks": {
+      "all_root_candidates": 1788800,
+      "dense_states": 41280
+    },
+    "scope": "Finite counterexample to coefficient one in K_above<=n+P; no asymptotic lower bound."
+  },
+  "source_sha256": {
+    "periodic_obst.py": "d8c72b924555d79abbb3970ed0765cc2bab4aed02197d40a75a7cc455a022d4d",
+    "periodic_obst_audit.py": "a16b57ce2822b75529b9f011f1856f9ebf4e4ed9288e49d4b83c2896cc505d10",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

@@ -1,0 +1,1113 @@
+{
+  "seed": 28019,
+  "scope": "Exact height-limited mixed-weight constructor; unrestricted optimality is not inferred from a height restriction",
+  "checks": {
+    "arbitrary_subset_repairs": 32902,
+    "reference_root_candidates": 15547880,
+    "reference_states": 558638,
+    "literal_slot_minima": 473,
+    "literal_tree_minima": 473,
+    "full_constructions": 717,
+    "all_root_candidates": 1300792,
+    "dense_states": 184056,
+    "above_capacity_interval_checks": 23920,
+    "gap_independent_density_checks": 18000
+  },
+  "separation_example": {
+    "p": [
+      100,
+      1,
+      1,
+      1
+    ],
+    "q": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "h": 3,
+    "cost": 121,
+    "unrestricted_cost": 121,
+    "minimum_ipl_cost": 218
+  },
+  "small_constructor_operations": {
+    "valuation_entries": 11371,
+    "states": 82568,
+    "traceback_states": 4828,
+    "repair_array_entries": 96704,
+    "perfect_nodes": 11371,
+    "output_nodes": 4828,
+    "deleted_nodes": 6543,
+    "exact_level_updates": 75308,
+    "suffix_updates": 145171,
+    "lower_level_scans": 69863,
+    "suffix_queries": 75308
+  },
+  "repair_operations": {
+    "repair_array_entries": 4202544,
+    "perfect_nodes": 492416,
+    "output_nodes": 246221,
+    "deleted_nodes": 246195
+  },
+  "scale_rows": [
+    {
+      "n": 15,
+      "h": 4,
+      "slack": 0,
+      "cost": 204067106315411964032,
+      "counts": {
+        "valuation_entries": 15,
+        "states": 15,
+        "exact_level_updates": 14,
+        "suffix_updates": 25,
+        "lower_level_scans": 11,
+        "suffix_queries": 14,
+        "traceback_states": 15,
+        "repair_array_entries": 128,
+        "perfect_nodes": 15,
+        "output_nodes": 15
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 14,
+      "h": 4,
+      "slack": 1,
+      "cost": 187926205250916102164,
+      "counts": {
+        "valuation_entries": 15,
+        "states": 28,
+        "exact_level_updates": 26,
+        "suffix_updates": 47,
+        "lower_level_scans": 21,
+        "suffix_queries": 26,
+        "traceback_states": 14,
+        "repair_array_entries": 128,
+        "perfect_nodes": 15,
+        "deleted_nodes": 1,
+        "output_nodes": 14
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 13,
+      "h": 4,
+      "slack": 2,
+      "cost": 171785304186420242232,
+      "counts": {
+        "valuation_entries": 15,
+        "states": 39,
+        "exact_level_updates": 36,
+        "suffix_updates": 66,
+        "lower_level_scans": 30,
+        "suffix_queries": 36,
+        "traceback_states": 13,
+        "repair_array_entries": 128,
+        "perfect_nodes": 15,
+        "deleted_nodes": 2,
+        "output_nodes": 13
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 11,
+      "h": 4,
+      "slack": 4,
+      "cost": 139503502057428522494,
+      "counts": {
+        "valuation_entries": 15,
+        "states": 55,
+        "exact_level_updates": 50,
+        "suffix_updates": 92,
+        "lower_level_scans": 42,
+        "suffix_queries": 50,
+        "traceback_states": 11,
+        "repair_array_entries": 128,
+        "perfect_nodes": 15,
+        "deleted_nodes": 4,
+        "output_nodes": 11
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 7,
+      "h": 4,
+      "slack": 8,
+      "cost": 74939897799445071855,
+      "counts": {
+        "valuation_entries": 15,
+        "states": 63,
+        "exact_level_updates": 54,
+        "suffix_updates": 100,
+        "lower_level_scans": 46,
+        "suffix_queries": 54,
+        "traceback_states": 7,
+        "repair_array_entries": 128,
+        "perfect_nodes": 15,
+        "deleted_nodes": 8,
+        "output_nodes": 7
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 31,
+      "h": 5,
+      "slack": 0,
+      "cost": 517661755568474428937,
+      "counts": {
+        "valuation_entries": 31,
+        "states": 31,
+        "exact_level_updates": 30,
+        "suffix_updates": 56,
+        "lower_level_scans": 26,
+        "suffix_queries": 30,
+        "traceback_states": 31,
+        "repair_array_entries": 256,
+        "perfect_nodes": 31,
+        "output_nodes": 31
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 30,
+      "h": 5,
+      "slack": 1,
+      "cost": 498062089990158011523,
+      "counts": {
+        "valuation_entries": 31,
+        "states": 60,
+        "exact_level_updates": 58,
+        "suffix_updates": 109,
+        "lower_level_scans": 51,
+        "suffix_queries": 58,
+        "traceback_states": 30,
+        "repair_array_entries": 256,
+        "perfect_nodes": 31,
+        "deleted_nodes": 1,
+        "output_nodes": 30
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 29,
+      "h": 5,
+      "slack": 2,
+      "cost": 478462424411841615161,
+      "counts": {
+        "valuation_entries": 31,
+        "states": 87,
+        "exact_level_updates": 84,
+        "suffix_updates": 159,
+        "lower_level_scans": 75,
+        "suffix_queries": 84,
+        "traceback_states": 29,
+        "repair_array_entries": 256,
+        "perfect_nodes": 31,
+        "deleted_nodes": 2,
+        "output_nodes": 29
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 27,
+      "h": 5,
+      "slack": 4,
+      "cost": 439263093255208820945,
+      "counts": {
+        "valuation_entries": 31,
+        "states": 135,
+        "exact_level_updates": 130,
+        "suffix_updates": 247,
+        "lower_level_scans": 117,
+        "suffix_queries": 130,
+        "traceback_states": 27,
+        "repair_array_entries": 256,
+        "perfect_nodes": 31,
+        "deleted_nodes": 4,
+        "output_nodes": 27
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 23,
+      "h": 5,
+      "slack": 8,
+      "cost": 360864430941943193687,
+      "counts": {
+        "valuation_entries": 31,
+        "states": 207,
+        "exact_level_updates": 198,
+        "suffix_updates": 379,
+        "lower_level_scans": 181,
+        "suffix_queries": 198,
+        "traceback_states": 23,
+        "repair_array_entries": 256,
+        "perfect_nodes": 31,
+        "deleted_nodes": 8,
+        "output_nodes": 23
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 15,
+      "h": 5,
+      "slack": 16,
+      "cost": 204067106315411972985,
+      "counts": {
+        "valuation_entries": 31,
+        "states": 255,
+        "exact_level_updates": 238,
+        "suffix_updates": 459,
+        "lower_level_scans": 221,
+        "suffix_queries": 238,
+        "traceback_states": 15,
+        "repair_array_entries": 256,
+        "perfect_nodes": 31,
+        "deleted_nodes": 16,
+        "output_nodes": 15
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 63,
+      "h": 6,
+      "slack": 0,
+      "cost": 1255531518516856724218,
+      "counts": {
+        "valuation_entries": 63,
+        "states": 63,
+        "exact_level_updates": 62,
+        "suffix_updates": 119,
+        "lower_level_scans": 57,
+        "suffix_queries": 62,
+        "traceback_states": 63,
+        "repair_array_entries": 512,
+        "perfect_nodes": 63,
+        "output_nodes": 63
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 62,
+      "h": 6,
+      "slack": 1,
+      "cost": 1232473088424719768508,
+      "counts": {
+        "valuation_entries": 63,
+        "states": 124,
+        "exact_level_updates": 122,
+        "suffix_updates": 235,
+        "lower_level_scans": 113,
+        "suffix_queries": 122,
+        "traceback_states": 62,
+        "repair_array_entries": 512,
+        "perfect_nodes": 63,
+        "deleted_nodes": 1,
+        "output_nodes": 62
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 61,
+      "h": 6,
+      "slack": 2,
+      "cost": 1209414658332582783667,
+      "counts": {
+        "valuation_entries": 63,
+        "states": 183,
+        "exact_level_updates": 180,
+        "suffix_updates": 348,
+        "lower_level_scans": 168,
+        "suffix_queries": 180,
+        "traceback_states": 61,
+        "repair_array_entries": 512,
+        "perfect_nodes": 63,
+        "deleted_nodes": 2,
+        "output_nodes": 61
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 59,
+      "h": 6,
+      "slack": 4,
+      "cost": 1163297798148308915552,
+      "counts": {
+        "valuation_entries": 63,
+        "states": 295,
+        "exact_level_updates": 290,
+        "suffix_updates": 562,
+        "lower_level_scans": 272,
+        "suffix_queries": 290,
+        "traceback_states": 59,
+        "repair_array_entries": 512,
+        "perfect_nodes": 63,
+        "deleted_nodes": 4,
+        "output_nodes": 59
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 55,
+      "h": 6,
+      "slack": 8,
+      "cost": 1071064077779761120542,
+      "counts": {
+        "valuation_entries": 63,
+        "states": 495,
+        "exact_level_updates": 486,
+        "suffix_updates": 946,
+        "lower_level_scans": 460,
+        "suffix_queries": 486,
+        "traceback_states": 55,
+        "repair_array_entries": 512,
+        "perfect_nodes": 63,
+        "deleted_nodes": 8,
+        "output_nodes": 55
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 47,
+      "h": 6,
+      "slack": 16,
+      "cost": 886596637042665546051,
+      "counts": {
+        "valuation_entries": 63,
+        "states": 799,
+        "exact_level_updates": 782,
+        "suffix_updates": 1530,
+        "lower_level_scans": 748,
+        "suffix_queries": 782,
+        "traceback_states": 47,
+        "repair_array_entries": 512,
+        "perfect_nodes": 63,
+        "deleted_nodes": 16,
+        "output_nodes": 47
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 127,
+      "h": 7,
+      "slack": 0,
+      "cost": 2952631973298135992831,
+      "counts": {
+        "valuation_entries": 127,
+        "states": 127,
+        "exact_level_updates": 126,
+        "suffix_updates": 246,
+        "lower_level_scans": 120,
+        "suffix_queries": 126,
+        "traceback_states": 127,
+        "repair_array_entries": 1024,
+        "perfect_nodes": 127,
+        "output_nodes": 127
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 126,
+      "h": 7,
+      "slack": 1,
+      "cost": 2926114778692178407084,
+      "counts": {
+        "valuation_entries": 127,
+        "states": 252,
+        "exact_level_updates": 250,
+        "suffix_updates": 489,
+        "lower_level_scans": 239,
+        "suffix_queries": 250,
+        "traceback_states": 126,
+        "repair_array_entries": 1024,
+        "perfect_nodes": 127,
+        "deleted_nodes": 1,
+        "output_nodes": 126
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 125,
+      "h": 7,
+      "slack": 2,
+      "cost": 2899597584086220983176,
+      "counts": {
+        "valuation_entries": 127,
+        "states": 375,
+        "exact_level_updates": 372,
+        "suffix_updates": 729,
+        "lower_level_scans": 357,
+        "suffix_queries": 372,
+        "traceback_states": 125,
+        "repair_array_entries": 1024,
+        "perfect_nodes": 127,
+        "deleted_nodes": 2,
+        "output_nodes": 125
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 123,
+      "h": 7,
+      "slack": 4,
+      "cost": 2846563194874305984912,
+      "counts": {
+        "valuation_entries": 127,
+        "states": 615,
+        "exact_level_updates": 610,
+        "suffix_updates": 1197,
+        "lower_level_scans": 587,
+        "suffix_queries": 610,
+        "traceback_states": 123,
+        "repair_array_entries": 1024,
+        "perfect_nodes": 127,
+        "deleted_nodes": 4,
+        "output_nodes": 123
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 119,
+      "h": 7,
+      "slack": 8,
+      "cost": 2740494416450476057861,
+      "counts": {
+        "valuation_entries": 127,
+        "states": 1071,
+        "exact_level_updates": 1062,
+        "suffix_updates": 2089,
+        "lower_level_scans": 1027,
+        "suffix_queries": 1062,
+        "traceback_states": 119,
+        "repair_array_entries": 1024,
+        "perfect_nodes": 127,
+        "deleted_nodes": 8,
+        "output_nodes": 119
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 111,
+      "h": 7,
+      "slack": 16,
+      "cost": 2528356859602816108652,
+      "counts": {
+        "valuation_entries": 127,
+        "states": 1887,
+        "exact_level_updates": 1870,
+        "suffix_updates": 3689,
+        "lower_level_scans": 1819,
+        "suffix_queries": 1870,
+        "traceback_states": 111,
+        "repair_array_entries": 1024,
+        "perfect_nodes": 127,
+        "deleted_nodes": 16,
+        "output_nodes": 111
+      },
+      "independent_reference": true
+    },
+    {
+      "n": 255,
+      "h": 8,
+      "slack": 0,
+      "cost": 6789554740629723778102,
+      "counts": {
+        "valuation_entries": 255,
+        "states": 255,
+        "exact_level_updates": 254,
+        "suffix_updates": 501,
+        "lower_level_scans": 247,
+        "suffix_queries": 254,
+        "traceback_states": 255,
+        "repair_array_entries": 2048,
+        "perfect_nodes": 255,
+        "output_nodes": 255
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 254,
+      "h": 8,
+      "slack": 1,
+      "cost": 6759578781509945679874,
+      "counts": {
+        "valuation_entries": 255,
+        "states": 508,
+        "exact_level_updates": 506,
+        "suffix_updates": 999,
+        "lower_level_scans": 493,
+        "suffix_queries": 506,
+        "traceback_states": 254,
+        "repair_array_entries": 2048,
+        "perfect_nodes": 255,
+        "deleted_nodes": 1,
+        "output_nodes": 254
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 253,
+      "h": 8,
+      "slack": 2,
+      "cost": 6729602822390167720648,
+      "counts": {
+        "valuation_entries": 255,
+        "states": 759,
+        "exact_level_updates": 756,
+        "suffix_updates": 1494,
+        "lower_level_scans": 738,
+        "suffix_queries": 756,
+        "traceback_states": 253,
+        "repair_array_entries": 2048,
+        "perfect_nodes": 255,
+        "deleted_nodes": 2,
+        "output_nodes": 253
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 251,
+      "h": 8,
+      "slack": 4,
+      "cost": 6669650904150611663431,
+      "counts": {
+        "valuation_entries": 255,
+        "states": 1255,
+        "exact_level_updates": 1250,
+        "suffix_updates": 2472,
+        "lower_level_scans": 1222,
+        "suffix_queries": 1250,
+        "traceback_states": 251,
+        "repair_array_entries": 2048,
+        "perfect_nodes": 255,
+        "deleted_nodes": 4,
+        "output_nodes": 251
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 247,
+      "h": 8,
+      "slack": 8,
+      "cost": 6549747067671499500068,
+      "counts": {
+        "valuation_entries": 255,
+        "states": 2223,
+        "exact_level_updates": 2214,
+        "suffix_updates": 4384,
+        "lower_level_scans": 2170,
+        "suffix_queries": 2214,
+        "traceback_states": 247,
+        "repair_array_entries": 2048,
+        "perfect_nodes": 255,
+        "deleted_nodes": 8,
+        "output_nodes": 247
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 239,
+      "h": 8,
+      "slack": 16,
+      "cost": 6309939394713275205862,
+      "counts": {
+        "valuation_entries": 255,
+        "states": 4063,
+        "exact_level_updates": 4046,
+        "suffix_updates": 8024,
+        "lower_level_scans": 3978,
+        "suffix_queries": 4046,
+        "traceback_states": 239,
+        "repair_array_entries": 2048,
+        "perfect_nodes": 255,
+        "deleted_nodes": 16,
+        "output_nodes": 239
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 511,
+      "h": 9,
+      "slack": 0,
+      "cost": 15348843990830958193647,
+      "counts": {
+        "valuation_entries": 511,
+        "states": 511,
+        "exact_level_updates": 510,
+        "suffix_updates": 1012,
+        "lower_level_scans": 502,
+        "suffix_queries": 510,
+        "traceback_states": 511,
+        "repair_array_entries": 4096,
+        "perfect_nodes": 511,
+        "output_nodes": 511
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 510,
+      "h": 9,
+      "slack": 1,
+      "cost": 15315409267197359477391,
+      "counts": {
+        "valuation_entries": 511,
+        "states": 1020,
+        "exact_level_updates": 1018,
+        "suffix_updates": 2021,
+        "lower_level_scans": 1003,
+        "suffix_queries": 1018,
+        "traceback_states": 510,
+        "repair_array_entries": 4096,
+        "perfect_nodes": 511,
+        "deleted_nodes": 1,
+        "output_nodes": 510
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 509,
+      "h": 9,
+      "slack": 2,
+      "cost": 15281974543563761065412,
+      "counts": {
+        "valuation_entries": 511,
+        "states": 1527,
+        "exact_level_updates": 1524,
+        "suffix_updates": 3027,
+        "lower_level_scans": 1503,
+        "suffix_queries": 1524,
+        "traceback_states": 509,
+        "repair_array_entries": 4096,
+        "perfect_nodes": 511,
+        "deleted_nodes": 2,
+        "output_nodes": 509
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 507,
+      "h": 9,
+      "slack": 4,
+      "cost": 15215105096296563848132,
+      "counts": {
+        "valuation_entries": 511,
+        "states": 2535,
+        "exact_level_updates": 2530,
+        "suffix_updates": 5027,
+        "lower_level_scans": 2497,
+        "suffix_queries": 2530,
+        "traceback_states": 507,
+        "repair_array_entries": 4096,
+        "perfect_nodes": 511,
+        "deleted_nodes": 4,
+        "output_nodes": 507
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 503,
+      "h": 9,
+      "slack": 8,
+      "cost": 15081366201762169669465,
+      "counts": {
+        "valuation_entries": 511,
+        "states": 4527,
+        "exact_level_updates": 4518,
+        "suffix_updates": 8983,
+        "lower_level_scans": 4465,
+        "suffix_queries": 4518,
+        "traceback_states": 503,
+        "repair_array_entries": 4096,
+        "perfect_nodes": 511,
+        "deleted_nodes": 8,
+        "output_nodes": 503
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 495,
+      "h": 9,
+      "slack": 16,
+      "cost": 14813888412693380919030,
+      "counts": {
+        "valuation_entries": 511,
+        "states": 8415,
+        "exact_level_updates": 8398,
+        "suffix_updates": 16711,
+        "lower_level_scans": 8313,
+        "suffix_queries": 8398,
+        "traceback_states": 495,
+        "repair_array_entries": 4096,
+        "perfect_nodes": 511,
+        "deleted_nodes": 16,
+        "output_nodes": 495
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1023,
+      "h": 10,
+      "slack": 0,
+      "cost": 34238309922309544374839,
+      "counts": {
+        "valuation_entries": 1023,
+        "states": 1023,
+        "exact_level_updates": 1022,
+        "suffix_updates": 2035,
+        "lower_level_scans": 1013,
+        "suffix_queries": 1022,
+        "traceback_states": 1023,
+        "repair_array_entries": 8192,
+        "perfect_nodes": 1023,
+        "output_nodes": 1023
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1022,
+      "h": 10,
+      "slack": 1,
+      "cost": 34201416434162125391639,
+      "counts": {
+        "valuation_entries": 1023,
+        "states": 2044,
+        "exact_level_updates": 2042,
+        "suffix_updates": 4067,
+        "lower_level_scans": 2025,
+        "suffix_queries": 2042,
+        "traceback_states": 1022,
+        "repair_array_entries": 8192,
+        "perfect_nodes": 1023,
+        "deleted_nodes": 1,
+        "output_nodes": 1022
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1021,
+      "h": 10,
+      "slack": 2,
+      "cost": 34164522946014706119519,
+      "counts": {
+        "valuation_entries": 1023,
+        "states": 3063,
+        "exact_level_updates": 3060,
+        "suffix_updates": 6096,
+        "lower_level_scans": 3036,
+        "suffix_queries": 3060,
+        "traceback_states": 1021,
+        "repair_array_entries": 8192,
+        "perfect_nodes": 1023,
+        "deleted_nodes": 2,
+        "output_nodes": 1021
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1019,
+      "h": 10,
+      "slack": 4,
+      "cost": 34090735969719867804226,
+      "counts": {
+        "valuation_entries": 1023,
+        "states": 5095,
+        "exact_level_updates": 5090,
+        "suffix_updates": 10142,
+        "lower_level_scans": 5052,
+        "suffix_queries": 5090,
+        "traceback_states": 1019,
+        "repair_array_entries": 8192,
+        "perfect_nodes": 1023,
+        "deleted_nodes": 4,
+        "output_nodes": 1019
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1015,
+      "h": 10,
+      "slack": 8,
+      "cost": 33943162017130191353116,
+      "counts": {
+        "valuation_entries": 1023,
+        "states": 9135,
+        "exact_level_updates": 9126,
+        "suffix_updates": 18190,
+        "lower_level_scans": 9064,
+        "suffix_queries": 9126,
+        "traceback_states": 1015,
+        "repair_array_entries": 8192,
+        "perfect_nodes": 1023,
+        "deleted_nodes": 8,
+        "output_nodes": 1015
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1007,
+      "h": 10,
+      "slack": 16,
+      "cost": 33648014111950838476814,
+      "counts": {
+        "valuation_entries": 1023,
+        "states": 17119,
+        "exact_level_updates": 17102,
+        "suffix_updates": 34102,
+        "lower_level_scans": 17000,
+        "suffix_queries": 17102,
+        "traceback_states": 1007,
+        "repair_array_entries": 8192,
+        "perfect_nodes": 1023,
+        "deleted_nodes": 16,
+        "output_nodes": 1007
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 2047,
+      "h": 11,
+      "slack": 0,
+      "cost": 75559016647418951757508,
+      "counts": {
+        "valuation_entries": 2047,
+        "states": 2047,
+        "exact_level_updates": 2046,
+        "suffix_updates": 4082,
+        "lower_level_scans": 2036,
+        "suffix_queries": 2046,
+        "traceback_states": 2047,
+        "repair_array_entries": 16384,
+        "perfect_nodes": 2047,
+        "output_nodes": 2047
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 2046,
+      "h": 11,
+      "slack": 1,
+      "cost": 75518664394757712288803,
+      "counts": {
+        "valuation_entries": 2047,
+        "states": 4092,
+        "exact_level_updates": 4090,
+        "suffix_updates": 8161,
+        "lower_level_scans": 4071,
+        "suffix_queries": 4090,
+        "traceback_states": 2046,
+        "repair_array_entries": 16384,
+        "perfect_nodes": 2047,
+        "deleted_nodes": 1,
+        "output_nodes": 2046
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 2045,
+      "h": 11,
+      "slack": 2,
+      "cost": 75478312142096472684867,
+      "counts": {
+        "valuation_entries": 2047,
+        "states": 6135,
+        "exact_level_updates": 6132,
+        "suffix_updates": 12237,
+        "lower_level_scans": 6105,
+        "suffix_queries": 6132,
+        "traceback_states": 2045,
+        "repair_array_entries": 16384,
+        "perfect_nodes": 2047,
+        "deleted_nodes": 2,
+        "output_nodes": 2045
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 2043,
+      "h": 11,
+      "slack": 4,
+      "cost": 75397607636773992959178,
+      "counts": {
+        "valuation_entries": 2047,
+        "states": 10215,
+        "exact_level_updates": 10210,
+        "suffix_updates": 20377,
+        "lower_level_scans": 10167,
+        "suffix_queries": 10210,
+        "traceback_states": 2043,
+        "repair_array_entries": 16384,
+        "perfect_nodes": 2047,
+        "deleted_nodes": 4,
+        "output_nodes": 2043
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 2039,
+      "h": 11,
+      "slack": 8,
+      "cost": 75236198626129034216477,
+      "counts": {
+        "valuation_entries": 2047,
+        "states": 18351,
+        "exact_level_updates": 18342,
+        "suffix_updates": 36613,
+        "lower_level_scans": 18271,
+        "suffix_queries": 18342,
+        "traceback_states": 2039,
+        "repair_array_entries": 16384,
+        "perfect_nodes": 2047,
+        "deleted_nodes": 8,
+        "output_nodes": 2039
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 2031,
+      "h": 11,
+      "slack": 16,
+      "cost": 74913380604839117064628,
+      "counts": {
+        "valuation_entries": 2047,
+        "states": 34527,
+        "exact_level_updates": 34510,
+        "suffix_updates": 68901,
+        "lower_level_scans": 34391,
+        "suffix_queries": 34510,
+        "traceback_states": 2031,
+        "repair_array_entries": 16384,
+        "perfect_nodes": 2047,
+        "deleted_nodes": 16,
+        "output_nodes": 2031
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4095,
+      "h": 12,
+      "slack": 0,
+      "cost": 165283979821942236337759,
+      "counts": {
+        "valuation_entries": 4095,
+        "states": 4095,
+        "exact_level_updates": 4094,
+        "suffix_updates": 8177,
+        "lower_level_scans": 4083,
+        "suffix_queries": 4094,
+        "traceback_states": 4095,
+        "repair_array_entries": 32768,
+        "perfect_nodes": 4095,
+        "output_nodes": 4095
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4094,
+      "h": 12,
+      "slack": 1,
+      "cost": 165240168804767176365329,
+      "counts": {
+        "valuation_entries": 4095,
+        "states": 8188,
+        "exact_level_updates": 8186,
+        "suffix_updates": 16351,
+        "lower_level_scans": 8165,
+        "suffix_queries": 8186,
+        "traceback_states": 4094,
+        "repair_array_entries": 32768,
+        "perfect_nodes": 4095,
+        "deleted_nodes": 1,
+        "output_nodes": 4094
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4093,
+      "h": 12,
+      "slack": 2,
+      "cost": 165196357787592116419186,
+      "counts": {
+        "valuation_entries": 4095,
+        "states": 12279,
+        "exact_level_updates": 12276,
+        "suffix_updates": 24522,
+        "lower_level_scans": 12246,
+        "suffix_queries": 12276,
+        "traceback_states": 4093,
+        "repair_array_entries": 32768,
+        "perfect_nodes": 4095,
+        "deleted_nodes": 2,
+        "output_nodes": 4093
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4091,
+      "h": 12,
+      "slack": 4,
+      "cost": 165108735753241995167885,
+      "counts": {
+        "valuation_entries": 4095,
+        "states": 20455,
+        "exact_level_updates": 20450,
+        "suffix_updates": 40852,
+        "lower_level_scans": 20402,
+        "suffix_queries": 20450,
+        "traceback_states": 4091,
+        "repair_array_entries": 32768,
+        "perfect_nodes": 4095,
+        "deleted_nodes": 4,
+        "output_nodes": 4091
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4087,
+      "h": 12,
+      "slack": 8,
+      "cost": 164933491684541755414379,
+      "counts": {
+        "valuation_entries": 4095,
+        "states": 36783,
+        "exact_level_updates": 36774,
+        "suffix_updates": 73468,
+        "lower_level_scans": 36694,
+        "suffix_queries": 36774,
+        "traceback_states": 4087,
+        "repair_array_entries": 32768,
+        "perfect_nodes": 4095,
+        "deleted_nodes": 8,
+        "output_nodes": 4087
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4079,
+      "h": 12,
+      "slack": 16,
+      "cost": 164583003547141273155913,
+      "counts": {
+        "valuation_entries": 4095,
+        "states": 69343,
+        "exact_level_updates": 69326,
+        "suffix_updates": 138516,
+        "lower_level_scans": 69190,
+        "suffix_queries": 69326,
+        "traceback_states": 4079,
+        "repair_array_entries": 32768,
+        "perfect_nodes": 4095,
+        "deleted_nodes": 16,
+        "output_nodes": 4079
+      },
+      "independent_reference": false
+    }
+  ],
+  "source_sha256": {
+    "mixed_slots.py": "bee76b974ba8ceb03848466f5056e87b8577fac03a932e6a4c18fd329c57fbb9",
+    "check_mixed_slots.py": "86a8b73a2b42058e56851bfde2e130aab3f580e62fa700ea264815eee6917f30",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

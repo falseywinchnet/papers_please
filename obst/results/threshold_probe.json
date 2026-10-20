@@ -1,0 +1,33 @@
+{
+  "seed": 317204,
+  "checks": {
+    "indicator_patterns": 1022,
+    "indicator_tree_inequalities": 862118,
+    "indicator_tight": 1022,
+    "weighted_tree_inequalities": 20560,
+    "key_profile_characterizations": 20560,
+    "mixed_cubic_bounds": 1200
+  },
+  "indicator_strict_examples": [],
+  "strict_mixed_example": {
+    "p": [
+      2,
+      1,
+      1
+    ],
+    "q": [
+      100,
+      10,
+      1,
+      10
+    ],
+    "lower": 158,
+    "optimum": 160,
+    "gap_lower": 152,
+    "gap_optimum": 153
+  },
+  "source_sha256": {
+    "threshold_probe.py": "35a858a92224189d5bc3e7526c6a73090749330129a12212f19ce9fcc3072d28",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

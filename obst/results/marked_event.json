@@ -1,0 +1,136 @@
+{
+  "seed": 317217,
+  "checks": {
+    "literal_oracles": 15769,
+    "cases": 17769,
+    "all_crossing_controls": 4134,
+    "nonunimodal": 6759,
+    "greedy_failures": 116,
+    "charge_mismatches": 65
+  },
+  "totals": {
+    "input_gaps": 135646,
+    "pair_outer_items": 6284459,
+    "pair_scan_items": 11812596,
+    "pair_candidates": 11646796,
+    "event_order_comparisons": 10799116,
+    "copied_state_items": 7214478,
+    "marker_scan_items": 543543,
+    "merges": 847680,
+    "merge_tree_visits": 2872411,
+    "reconstruction_leaf_items": 1495144,
+    "full_cost_outcomes": 2119381,
+    "completed_candidates": 117877,
+    "invalid_reconstructions": 20800
+  },
+  "examples": {
+    "nonunimodal": {
+      "q": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "r": 1,
+      "weight": 1,
+      "expected": 1,
+      "cost_sequence": [
+        1,
+        2,
+        1
+      ]
+    },
+    "greedy_failure": {
+      "q": [
+        2,
+        1,
+        0,
+        2
+      ],
+      "r": 1,
+      "weight": 1,
+      "expected": 11,
+      "greedy": {
+        "cost": 12,
+        "charge": 12,
+        "tree": [
+          2,
+          [
+            0,
+            null,
+            [
+              1,
+              null,
+              null
+            ]
+          ],
+          null
+        ],
+        "stats": {
+          "pair_outer_items": 10,
+          "pair_scan_items": 8,
+          "pair_candidates": 7,
+          "event_order_comparisons": 4,
+          "copied_state_items": 10,
+          "marker_scan_items": 3,
+          "merges": 3,
+          "merge_tree_visits": 7,
+          "reconstruction_leaf_items": 4,
+          "full_cost_outcomes": 7
+        }
+      }
+    },
+    "charge_mismatch": {
+      "q": [
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "r": 2,
+      "weight": 1,
+      "expected": 18,
+      "greedy": {
+        "cost": 18,
+        "charge": 19,
+        "tree": [
+          2,
+          [
+            1,
+            [
+              0,
+              null,
+              null
+            ],
+            null
+          ],
+          [
+            3,
+            null,
+            null
+          ]
+        ],
+        "stats": {
+          "pair_outer_items": 16,
+          "pair_scan_items": 13,
+          "pair_candidates": 11,
+          "event_order_comparisons": 7,
+          "copied_state_items": 16,
+          "merges": 4,
+          "marker_scan_items": 3,
+          "merge_tree_visits": 9,
+          "reconstruction_leaf_items": 5,
+          "full_cost_outcomes": 9
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "check_marked_event.py": "3eaaa08544ab12182768e19763852cc9cdde57851e10b4d1af8a38b43fc26772",
+    "marked_event_probe.py": "8d9d7d47849f6a9c2c71e189432551aa128c1d846bb63099ba97b16def7cd8be",
+    "joint_merge_probe.py": "fb77a589ccfc179c2b2c1fd7db662139179f8923d08f51aeddbc7fdd36109db3",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "threshold_probe.py": "35a858a92224189d5bc3e7526c6a73090749330129a12212f19ce9fcc3072d28"
+  }
+}

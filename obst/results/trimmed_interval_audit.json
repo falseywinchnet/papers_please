@@ -1,0 +1,14 @@
+{
+  "seed": 551020,
+  "counts": {
+    "interval_height_controls": 145424,
+    "interval_all_root_candidates": 2551952,
+    "interval_inputs": 1552
+  },
+  "scope": "Every original and globally normalized interval has an optimum within the single globally selected height; independent all-root recurrence minimizes height among tied optimal costs.",
+  "source_sha256": {
+    "trimmed_interval_audit.py": "ba394581c5ccabbab376da338387f41bf27a8cac1dee0242c2c8f5b77db5ced3",
+    "trimmed_height.py": "19efde94ff7985b656372d1faedf299d64bd2ae23dfa4df530f5a76cf2f86f6f",
+    "slot_vector.py": "f234a4954d70b485ef1fa108e669bcfadeeeaf81a0c8948be96201cc986cbee2"
+  }
+}

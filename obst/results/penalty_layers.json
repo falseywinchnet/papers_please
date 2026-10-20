@@ -1,0 +1,6730 @@
+{
+  "seed": 380713,
+  "counts": {
+    "dense_root_candidates": 12381033,
+    "dense_states": 6318862,
+    "all_root_cell_checks": 8048,
+    "padded_products_checked": 792,
+    "all_shape_layer_checks": 792,
+    "constructed_keys": 11912,
+    "cubic_interval_checks": 7972,
+    "complete_solves": 1092,
+    "verified_dyadic_tiles": 139992
+  },
+  "rows": [
+    {
+      "n": 32,
+      "mass": 65,
+      "height_budget": 11,
+      "penalty": 781,
+      "first_global_exact_layer": 6,
+      "cost": 302,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 31,
+          "density_mass": 24180,
+          "full_value": 24276,
+          "tiling": {
+            "exceptional_core": 31,
+            "tiles": 78,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 60,
+          "density_mass": 22682,
+          "full_value": 22778,
+          "tiling": {
+            "tiles": 122,
+            "tile_count_bound": 31,
+            "ordinary_core": 31,
+            "exceptional_core": 29
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 85,
+          "density_mass": 19620,
+          "full_value": 19716,
+          "tiling": {
+            "tiles": 132,
+            "tile_count_bound": 104,
+            "ordinary_core": 60,
+            "exceptional_core": 25
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 102,
+          "density_mass": 13430,
+          "full_value": 13526,
+          "tiling": {
+            "tiles": 110,
+            "tile_count_bound": 154,
+            "ordinary_core": 85,
+            "exceptional_core": 17
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 103,
+          "density_mass": 984,
+          "full_value": 1080,
+          "tiling": {
+            "tiles": 42,
+            "tile_count_bound": 188,
+            "ordinary_core": 102,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 103,
+          "density_mass": 206,
+          "full_value": 302,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 190,
+            "ordinary_core": 103
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 103,
+          "density_mass": 206,
+          "full_value": 302,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 190,
+            "ordinary_core": 103
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 103,
+          "density_mass": 206,
+          "full_value": 302,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 190,
+            "ordinary_core": 103
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 103,
+          "density_mass": 206,
+          "full_value": 302,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 190,
+            "ordinary_core": 103
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 103,
+          "density_mass": 206,
+          "full_value": 302,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 190,
+            "ordinary_core": 103
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 103,
+          "density_mass": 206,
+          "full_value": 302,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 190,
+            "ordinary_core": 103
+          }
+        }
+      ],
+      "family": "uniform"
+    },
+    {
+      "n": 32,
+      "mass": 89,
+      "height_budget": 12,
+      "penalty": 1158,
+      "first_global_exact_layer": 6,
+      "cost": 407,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 31,
+          "density_mass": 35855,
+          "full_value": 35987,
+          "tiling": {
+            "exceptional_core": 31,
+            "tiles": 78,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 81,
+          "density_mass": 33626,
+          "full_value": 33758,
+          "tiling": {
+            "tiles": 122,
+            "tile_count_bound": 52,
+            "ordinary_core": 52,
+            "exceptional_core": 29
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 144,
+          "density_mass": 29077,
+          "full_value": 29209,
+          "tiling": {
+            "tiles": 132,
+            "tile_count_bound": 145,
+            "ordinary_core": 119,
+            "exceptional_core": 25
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 193,
+          "density_mass": 19888,
+          "full_value": 20020,
+          "tiling": {
+            "tiles": 110,
+            "tile_count_bound": 235,
+            "ordinary_core": 176,
+            "exceptional_core": 17
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 186,
+          "density_mass": 1431,
+          "full_value": 1563,
+          "tiling": {
+            "tiles": 42,
+            "tile_count_bound": 250,
+            "ordinary_core": 185,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 183,
+          "density_mass": 275,
+          "full_value": 407,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 244,
+            "ordinary_core": 183
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 183,
+          "density_mass": 275,
+          "full_value": 407,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 244,
+            "ordinary_core": 183
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 183,
+          "density_mass": 275,
+          "full_value": 407,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 244,
+            "ordinary_core": 183
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 183,
+          "density_mass": 275,
+          "full_value": 407,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 244,
+            "ordinary_core": 183
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 183,
+          "density_mass": 275,
+          "full_value": 407,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 244,
+            "ordinary_core": 183
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 183,
+          "density_mass": 275,
+          "full_value": 407,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 244,
+            "ordinary_core": 183
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 183,
+          "density_mass": 275,
+          "full_value": 407,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 244,
+            "ordinary_core": 183
+          }
+        }
+      ],
+      "family": "mixed_binary"
+    },
+    {
+      "n": 32,
+      "mass": 6561,
+      "height_budget": 20,
+      "penalty": 137782,
+      "first_global_exact_layer": 6,
+      "cost": 30473,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 31,
+          "density_mass": 4268113,
+          "full_value": 4277803,
+          "tiling": {
+            "exceptional_core": 31,
+            "tiles": 78,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 85,
+          "density_mass": 3999008,
+          "full_value": 4008698,
+          "tiling": {
+            "tiles": 122,
+            "tile_count_bound": 57,
+            "ordinary_core": 56,
+            "exceptional_core": 29
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 153,
+          "density_mass": 3454135,
+          "full_value": 3463825,
+          "tiling": {
+            "tiles": 132,
+            "tile_count_bound": 175,
+            "ordinary_core": 128,
+            "exceptional_core": 25
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 220,
+          "density_mass": 2357726,
+          "full_value": 2367416,
+          "tiling": {
+            "tiles": 110,
+            "tile_count_bound": 325,
+            "ordinary_core": 203,
+            "exceptional_core": 17
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 234,
+          "density_mass": 158265,
+          "full_value": 167955,
+          "tiling": {
+            "tiles": 42,
+            "tile_count_bound": 451,
+            "ordinary_core": 233,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 234,
+          "density_mass": 20783,
+          "full_value": 30473,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 234
+          }
+        }
+      ],
+      "family": "near_uniform"
+    },
+    {
+      "n": 32,
+      "mass": 554,
+      "height_budget": 15,
+      "penalty": 8865,
+      "first_global_exact_layer": 6,
+      "cost": 2463,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 31,
+          "density_mass": 274576,
+          "full_value": 275369,
+          "tiling": {
+            "exceptional_core": 31,
+            "tiles": 78,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 100,
+          "density_mass": 257384,
+          "full_value": 258177,
+          "tiling": {
+            "tiles": 122,
+            "tile_count_bound": 82,
+            "ordinary_core": 71,
+            "exceptional_core": 29
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 181,
+          "density_mass": 222430,
+          "full_value": 223223,
+          "tiling": {
+            "tiles": 132,
+            "tile_count_bound": 212,
+            "ordinary_core": 156,
+            "exceptional_core": 25
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 247,
+          "density_mass": 151960,
+          "full_value": 152753,
+          "tiling": {
+            "tiles": 110,
+            "tile_count_bound": 395,
+            "ordinary_core": 230,
+            "exceptional_core": 17
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 239,
+          "density_mass": 10538,
+          "full_value": 11331,
+          "tiling": {
+            "tiles": 42,
+            "tile_count_bound": 480,
+            "ordinary_core": 238,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 231,
+          "density_mass": 1670,
+          "full_value": 2463,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 231
+          }
+        }
+      ],
+      "family": "random_16"
+    },
+    {
+      "n": 32,
+      "mass": 98,
+      "height_budget": 12,
+      "penalty": 1275,
+      "first_global_exact_layer": 6,
+      "cost": 442,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 31,
+          "density_mass": 39479,
+          "full_value": 39623,
+          "tiling": {
+            "exceptional_core": 31,
+            "tiles": 78,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 89,
+          "density_mass": 37025,
+          "full_value": 37169,
+          "tiling": {
+            "tiles": 122,
+            "tile_count_bound": 60,
+            "ordinary_core": 60,
+            "exceptional_core": 29
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 139,
+          "density_mass": 32017,
+          "full_value": 32161,
+          "tiling": {
+            "tiles": 132,
+            "tile_count_bound": 129,
+            "ordinary_core": 114,
+            "exceptional_core": 25
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 161,
+          "density_mass": 21901,
+          "full_value": 22045,
+          "tiling": {
+            "tiles": 110,
+            "tile_count_bound": 211,
+            "ordinary_core": 144,
+            "exceptional_core": 17
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 155,
+          "density_mass": 1569,
+          "full_value": 1713,
+          "tiling": {
+            "tiles": 42,
+            "tile_count_bound": 247,
+            "ordinary_core": 154,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 155,
+          "density_mass": 298,
+          "full_value": 442,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 250,
+            "ordinary_core": 155
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 155,
+          "density_mass": 298,
+          "full_value": 442,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 250,
+            "ordinary_core": 155
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 155,
+          "density_mass": 298,
+          "full_value": 442,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 250,
+            "ordinary_core": 155
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 155,
+          "density_mass": 298,
+          "full_value": 442,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 250,
+            "ordinary_core": 155
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 155,
+          "density_mass": 298,
+          "full_value": 442,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 250,
+            "ordinary_core": 155
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 155,
+          "density_mass": 298,
+          "full_value": 442,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 250,
+            "ordinary_core": 155
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 155,
+          "density_mass": 298,
+          "full_value": 442,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 250,
+            "ordinary_core": 155
+          }
+        }
+      ],
+      "family": "alternating"
+    },
+    {
+      "n": 32,
+      "mass": 9,
+      "height_budget": 13,
+      "penalty": 127,
+      "first_global_exact_layer": 8,
+      "cost": 28,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 31,
+          "density_mass": 3932,
+          "full_value": 3946,
+          "tiling": {
+            "exceptional_core": 31,
+            "tiles": 78,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 42,
+          "density_mass": 3686,
+          "full_value": 3700,
+          "tiling": {
+            "tiles": 122,
+            "tile_count_bound": 13,
+            "ordinary_core": 13,
+            "exceptional_core": 29
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 54,
+          "density_mass": 3185,
+          "full_value": 3199,
+          "tiling": {
+            "tiles": 132,
+            "tile_count_bound": 30,
+            "ordinary_core": 29,
+            "exceptional_core": 25
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 64,
+          "density_mass": 2177,
+          "full_value": 2191,
+          "tiling": {
+            "tiles": 110,
+            "tile_count_bound": 51,
+            "ordinary_core": 47,
+            "exceptional_core": 17
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 30,
+          "density_mass": 156,
+          "full_value": 170,
+          "tiling": {
+            "tiles": 42,
+            "tile_count_bound": 31,
+            "ordinary_core": 29,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 17,
+          "density_mass": 17,
+          "full_value": 31,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 17,
+            "ordinary_core": 17
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 15,
+          "density_mass": 15,
+          "full_value": 29,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 15,
+            "ordinary_core": 15
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 14,
+          "density_mass": 14,
+          "full_value": 28,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 14,
+            "ordinary_core": 14
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 14,
+          "density_mass": 14,
+          "full_value": 28,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 14,
+            "ordinary_core": 14
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 14,
+          "density_mass": 14,
+          "full_value": 28,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 14,
+            "ordinary_core": 14
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 14,
+          "density_mass": 14,
+          "full_value": 28,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 14,
+            "ordinary_core": 14
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 14,
+          "density_mass": 14,
+          "full_value": 28,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 14,
+            "ordinary_core": 14
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 14,
+          "density_mass": 14,
+          "full_value": 28,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 14,
+            "ordinary_core": 14
+          }
+        }
+      ],
+      "family": "sparse_positive"
+    },
+    {
+      "n": 32,
+      "mass": 12884901886,
+      "height_budget": 32,
+      "penalty": 425201762239,
+      "first_global_exact_layer": 32,
+      "cost": 25769803706,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 31,
+          "density_mass": 13176959662115,
+          "full_value": 13194139531295,
+          "tiling": {
+            "exceptional_core": 31,
+            "tiles": 78,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 90,
+          "density_mass": 12338367297699,
+          "full_value": 12355547166879,
+          "tiling": {
+            "tiles": 122,
+            "tile_count_bound": 61,
+            "ordinary_core": 61,
+            "exceptional_core": 29
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 196,
+          "density_mass": 10649841170853,
+          "full_value": 10667021040033,
+          "tiling": {
+            "tiles": 132,
+            "tile_count_bound": 171,
+            "ordinary_core": 171,
+            "exceptional_core": 25
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 335,
+          "density_mass": 7261055089579,
+          "full_value": 7278234958759,
+          "tiling": {
+            "tiles": 110,
+            "tile_count_bound": 343,
+            "ordinary_core": 318,
+            "exceptional_core": 17
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 442,
+          "density_mass": 470711507029,
+          "full_value": 487891376209,
+          "tiling": {
+            "tiles": 42,
+            "tile_count_bound": 495,
+            "ordinary_core": 441,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 432,
+          "density_mass": 17386163270,
+          "full_value": 34566032450,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 432
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 435,
+          "density_mass": 12755651652,
+          "full_value": 29935520832,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 435
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 440,
+          "density_mass": 10608168002,
+          "full_value": 27788037182,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 440
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 444,
+          "density_mass": 9534426176,
+          "full_value": 26714295356,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 444
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 448,
+          "density_mass": 9031109694,
+          "full_value": 26210978874,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 448
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 452,
+          "density_mass": 8796228668,
+          "full_value": 25976097848,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 452
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 456,
+          "density_mass": 8687176762,
+          "full_value": 25867045942,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 456
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 460,
+          "density_mass": 8636845112,
+          "full_value": 25816714292,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 460
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 463,
+          "density_mass": 8611679286,
+          "full_value": 25791548466,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 463
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 466,
+          "density_mass": 8600144948,
+          "full_value": 25780014128,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 466
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 469,
+          "density_mass": 8594639922,
+          "full_value": 25774509102,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 469
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 472,
+          "density_mass": 8592149552,
+          "full_value": 25772018732,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 472
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 475,
+          "density_mass": 8590969902,
+          "full_value": 25770839082,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 475
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 478,
+          "density_mass": 8590429228,
+          "full_value": 25770298408,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 478
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 481,
+          "density_mass": 8590167082,
+          "full_value": 25770036262,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 481
+          }
+        },
+        {
+          "h": 21,
+          "nonzero_core": 483,
+          "density_mass": 8590036008,
+          "full_value": 25769905188,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 483
+          }
+        },
+        {
+          "h": 22,
+          "nonzero_core": 485,
+          "density_mass": 8589978662,
+          "full_value": 25769847842,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 485
+          }
+        },
+        {
+          "h": 23,
+          "nonzero_core": 487,
+          "density_mass": 8589954084,
+          "full_value": 25769823264,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 487
+          }
+        },
+        {
+          "h": 24,
+          "nonzero_core": 489,
+          "density_mass": 8589942818,
+          "full_value": 25769811998,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 489
+          }
+        },
+        {
+          "h": 25,
+          "nonzero_core": 491,
+          "density_mass": 8589938208,
+          "full_value": 25769807388,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 491
+          }
+        },
+        {
+          "h": 26,
+          "nonzero_core": 493,
+          "density_mass": 8589936158,
+          "full_value": 25769805338,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 493
+          }
+        },
+        {
+          "h": 27,
+          "nonzero_core": 494,
+          "density_mass": 8589935132,
+          "full_value": 25769804312,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 494
+          }
+        },
+        {
+          "h": 28,
+          "nonzero_core": 495,
+          "density_mass": 8589934746,
+          "full_value": 25769803926,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 495
+          }
+        },
+        {
+          "h": 29,
+          "nonzero_core": 496,
+          "density_mass": 8589934616,
+          "full_value": 25769803796,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 496
+          }
+        },
+        {
+          "h": 30,
+          "nonzero_core": 496,
+          "density_mass": 8589934550,
+          "full_value": 25769803730,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 496
+          }
+        },
+        {
+          "h": 31,
+          "nonzero_core": 496,
+          "density_mass": 8589934532,
+          "full_value": 25769803712,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 496
+          }
+        },
+        {
+          "h": 32,
+          "nonzero_core": 496,
+          "density_mass": 8589934526,
+          "full_value": 25769803706,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 496
+          }
+        }
+      ],
+      "family": "geometric"
+    },
+    {
+      "n": 32,
+      "mass": 327676,
+      "height_budget": 29,
+      "penalty": 9830281,
+      "first_global_exact_layer": 17,
+      "cost": 917426,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 31,
+          "density_mass": 304542107,
+          "full_value": 305066387,
+          "tiling": {
+            "exceptional_core": 31,
+            "tiles": 78,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 88,
+          "density_mass": 285176453,
+          "full_value": 285700733,
+          "tiling": {
+            "tiles": 122,
+            "tile_count_bound": 59,
+            "ordinary_core": 59,
+            "exceptional_core": 29
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 180,
+          "density_mass": 246125661,
+          "full_value": 246649941,
+          "tiling": {
+            "tiles": 132,
+            "tile_count_bound": 157,
+            "ordinary_core": 155,
+            "exceptional_core": 25
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 258,
+          "density_mass": 167764497,
+          "full_value": 168288777,
+          "tiling": {
+            "tiles": 110,
+            "tile_count_bound": 307,
+            "ordinary_core": 241,
+            "exceptional_core": 17
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 241,
+          "density_mass": 10773607,
+          "full_value": 11297887,
+          "tiling": {
+            "tiles": 42,
+            "tile_count_bound": 453,
+            "ordinary_core": 240,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 232,
+          "density_mass": 538764,
+          "full_value": 1063044,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 232
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 236,
+          "density_mass": 456840,
+          "full_value": 981120,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 236
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 240,
+          "density_mass": 420996,
+          "full_value": 945276,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 240
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 244,
+          "density_mass": 405120,
+          "full_value": 929400,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 244
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 248,
+          "density_mass": 398460,
+          "full_value": 922740,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 248
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 251,
+          "density_mass": 395384,
+          "full_value": 919664,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 251
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 253,
+          "density_mass": 393972,
+          "full_value": 918252,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 253
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 255,
+          "density_mass": 393456,
+          "full_value": 917736,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 255
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 256,
+          "density_mass": 393260,
+          "full_value": 917540,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 256,
+          "density_mass": 393176,
+          "full_value": 917456,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 256,
+          "density_mass": 393152,
+          "full_value": 917432,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 21,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 22,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 23,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 24,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 25,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 26,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 27,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 28,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        },
+        {
+          "h": 29,
+          "nonzero_core": 256,
+          "density_mass": 393146,
+          "full_value": 917426,
+          "tiling": {
+            "tiles": 31,
+            "tile_count_bound": 496,
+            "ordinary_core": 256
+          }
+        }
+      ],
+      "family": "folded"
+    },
+    {
+      "n": 64,
+      "mass": 129,
+      "height_budget": 12,
+      "penalty": 1678,
+      "first_global_exact_layer": 7,
+      "cost": 720,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 63,
+          "density_mass": 105651,
+          "full_value": 105843,
+          "tiling": {
+            "exceptional_core": 63,
+            "tiles": 171,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 124,
+          "density_mass": 102423,
+          "full_value": 102615,
+          "tiling": {
+            "tiles": 263,
+            "tile_count_bound": 63,
+            "ordinary_core": 63,
+            "exceptional_core": 61
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 181,
+          "density_mass": 95837,
+          "full_value": 96029,
+          "tiling": {
+            "tiles": 297,
+            "tile_count_bound": 216,
+            "ordinary_core": 124,
+            "exceptional_core": 57
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 230,
+          "density_mass": 82535,
+          "full_value": 82727,
+          "tiling": {
+            "tiles": 287,
+            "tile_count_bound": 330,
+            "ordinary_core": 181,
+            "exceptional_core": 49
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 263,
+          "density_mass": 55801,
+          "full_value": 55993,
+          "tiling": {
+            "tiles": 225,
+            "tile_count_bound": 428,
+            "ordinary_core": 230,
+            "exceptional_core": 33
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 264,
+          "density_mass": 2203,
+          "full_value": 2395,
+          "tiling": {
+            "tiles": 77,
+            "tile_count_bound": 494,
+            "ordinary_core": 263,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 264,
+          "density_mass": 528,
+          "full_value": 720,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 496,
+            "ordinary_core": 264
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 264,
+          "density_mass": 528,
+          "full_value": 720,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 496,
+            "ordinary_core": 264
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 264,
+          "density_mass": 528,
+          "full_value": 720,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 496,
+            "ordinary_core": 264
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 264,
+          "density_mass": 528,
+          "full_value": 720,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 496,
+            "ordinary_core": 264
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 264,
+          "density_mass": 528,
+          "full_value": 720,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 496,
+            "ordinary_core": 264
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 264,
+          "density_mass": 528,
+          "full_value": 720,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 496,
+            "ordinary_core": 264
+          }
+        }
+      ],
+      "family": "uniform"
+    },
+    {
+      "n": 64,
+      "mass": 199,
+      "height_budget": 13,
+      "penalty": 2787,
+      "first_global_exact_layer": 7,
+      "cost": 1103,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 63,
+          "density_mass": 175479,
+          "full_value": 175780,
+          "tiling": {
+            "exceptional_core": 63,
+            "tiles": 171,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 171,
+          "density_mass": 170102,
+          "full_value": 170403,
+          "tiling": {
+            "tiles": 263,
+            "tile_count_bound": 110,
+            "ordinary_core": 110,
+            "exceptional_core": 61
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 324,
+          "density_mass": 159147,
+          "full_value": 159448,
+          "tiling": {
+            "tiles": 297,
+            "tile_count_bound": 330,
+            "ordinary_core": 267,
+            "exceptional_core": 57
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 467,
+          "density_mass": 137036,
+          "full_value": 137337,
+          "tiling": {
+            "tiles": 287,
+            "tile_count_bound": 569,
+            "ordinary_core": 418,
+            "exceptional_core": 49
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 559,
+          "density_mass": 92613,
+          "full_value": 92914,
+          "tiling": {
+            "tiles": 225,
+            "tile_count_bound": 740,
+            "ordinary_core": 526,
+            "exceptional_core": 33
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 514,
+          "density_mass": 3588,
+          "full_value": 3889,
+          "tiling": {
+            "tiles": 77,
+            "tile_count_bound": 717,
+            "ordinary_core": 513,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 510,
+          "density_mass": 802,
+          "full_value": 1103,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 710,
+            "ordinary_core": 510
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 510,
+          "density_mass": 802,
+          "full_value": 1103,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 710,
+            "ordinary_core": 510
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 510,
+          "density_mass": 802,
+          "full_value": 1103,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 710,
+            "ordinary_core": 510
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 510,
+          "density_mass": 802,
+          "full_value": 1103,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 710,
+            "ordinary_core": 510
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 510,
+          "density_mass": 802,
+          "full_value": 1103,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 710,
+            "ordinary_core": 510
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 510,
+          "density_mass": 802,
+          "full_value": 1103,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 710,
+            "ordinary_core": 510
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 510,
+          "density_mass": 802,
+          "full_value": 1103,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 710,
+            "ordinary_core": 510
+          }
+        }
+      ],
+      "family": "mixed_binary"
+    },
+    {
+      "n": 64,
+      "mass": 13036,
+      "height_budget": 22,
+      "penalty": 299829,
+      "first_global_exact_layer": 7,
+      "cost": 72747,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 63,
+          "density_mass": 18882865,
+          "full_value": 18902263,
+          "tiling": {
+            "exceptional_core": 63,
+            "tiles": 171,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 184,
+          "density_mass": 18296141,
+          "full_value": 18315539,
+          "tiling": {
+            "tiles": 263,
+            "tile_count_bound": 124,
+            "ordinary_core": 123,
+            "exceptional_core": 61
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 355,
+          "density_mass": 17109555,
+          "full_value": 17128953,
+          "tiling": {
+            "tiles": 297,
+            "tile_count_bound": 375,
+            "ordinary_core": 298,
+            "exceptional_core": 57
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 566,
+          "density_mass": 14723245,
+          "full_value": 14742643,
+          "tiling": {
+            "tiles": 287,
+            "tile_count_bound": 759,
+            "ordinary_core": 517,
+            "exceptional_core": 49
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 763,
+          "density_mass": 9937487,
+          "full_value": 9956885,
+          "tiling": {
+            "tiles": 225,
+            "tile_count_bound": 1320,
+            "ordinary_core": 730,
+            "exceptional_core": 33
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 795,
+          "density_mass": 352877,
+          "full_value": 372275,
+          "tiling": {
+            "tiles": 77,
+            "tile_count_bound": 1819,
+            "ordinary_core": 794,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 21,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        },
+        {
+          "h": 22,
+          "nonzero_core": 795,
+          "density_mass": 53349,
+          "full_value": 72747,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 795
+          }
+        }
+      ],
+      "family": "near_uniform"
+    },
+    {
+      "n": 64,
+      "mass": 1068,
+      "height_budget": 17,
+      "penalty": 19225,
+      "first_global_exact_layer": 7,
+      "cost": 5724,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 63,
+          "density_mass": 1210667,
+          "full_value": 1212243,
+          "tiling": {
+            "exceptional_core": 63,
+            "tiles": 171,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 207,
+          "density_mass": 1173269,
+          "full_value": 1174845,
+          "tiling": {
+            "tiles": 263,
+            "tile_count_bound": 161,
+            "ordinary_core": 146,
+            "exceptional_core": 61
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 389,
+          "density_mass": 1097390,
+          "full_value": 1098966,
+          "tiling": {
+            "tiles": 297,
+            "tile_count_bound": 504,
+            "ordinary_core": 332,
+            "exceptional_core": 57
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 569,
+          "density_mass": 944552,
+          "full_value": 946128,
+          "tiling": {
+            "tiles": 287,
+            "tile_count_bound": 1044,
+            "ordinary_core": 520,
+            "exceptional_core": 49
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 677,
+          "density_mass": 637825,
+          "full_value": 639401,
+          "tiling": {
+            "tiles": 225,
+            "tile_count_bound": 1640,
+            "ordinary_core": 644,
+            "exceptional_core": 33
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 628,
+          "density_mass": 23556,
+          "full_value": 25132,
+          "tiling": {
+            "tiles": 77,
+            "tile_count_bound": 1837,
+            "ordinary_core": 627,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 615,
+          "density_mass": 4148,
+          "full_value": 5724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 1959,
+            "ordinary_core": 615
+          }
+        }
+      ],
+      "family": "random_16"
+    },
+    {
+      "n": 64,
+      "mass": 194,
+      "height_budget": 13,
+      "penalty": 2717,
+      "first_global_exact_layer": 7,
+      "cost": 1054,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 63,
+          "density_mass": 171077,
+          "full_value": 171365,
+          "tiling": {
+            "exceptional_core": 63,
+            "tiles": 171,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 185,
+          "density_mass": 165835,
+          "full_value": 166123,
+          "tiling": {
+            "tiles": 263,
+            "tile_count_bound": 124,
+            "ordinary_core": 124,
+            "exceptional_core": 61
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 299,
+          "density_mass": 155155,
+          "full_value": 155443,
+          "tiling": {
+            "tiles": 297,
+            "tile_count_bound": 273,
+            "ordinary_core": 242,
+            "exceptional_core": 57
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 369,
+          "density_mass": 133599,
+          "full_value": 133887,
+          "tiling": {
+            "tiles": 287,
+            "tile_count_bound": 467,
+            "ordinary_core": 320,
+            "exceptional_core": 49
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 411,
+          "density_mass": 90291,
+          "full_value": 90579,
+          "tiling": {
+            "tiles": 225,
+            "tile_count_bound": 599,
+            "ordinary_core": 378,
+            "exceptional_core": 33
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 397,
+          "density_mass": 3479,
+          "full_value": 3767,
+          "tiling": {
+            "tiles": 77,
+            "tile_count_bound": 667,
+            "ordinary_core": 396,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 397,
+          "density_mass": 766,
+          "full_value": 1054,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 670,
+            "ordinary_core": 397
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 397,
+          "density_mass": 766,
+          "full_value": 1054,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 670,
+            "ordinary_core": 397
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 397,
+          "density_mass": 766,
+          "full_value": 1054,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 670,
+            "ordinary_core": 397
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 397,
+          "density_mass": 766,
+          "full_value": 1054,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 670,
+            "ordinary_core": 397
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 397,
+          "density_mass": 766,
+          "full_value": 1054,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 670,
+            "ordinary_core": 397
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 397,
+          "density_mass": 766,
+          "full_value": 1054,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 670,
+            "ordinary_core": 397
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 397,
+          "density_mass": 766,
+          "full_value": 1054,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 670,
+            "ordinary_core": 397
+          }
+        }
+      ],
+      "family": "alternating"
+    },
+    {
+      "n": 64,
+      "mass": 15,
+      "height_budget": 15,
+      "penalty": 241,
+      "first_global_exact_layer": 9,
+      "cost": 56,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 63,
+          "density_mass": 15176,
+          "full_value": 15198,
+          "tiling": {
+            "exceptional_core": 63,
+            "tiles": 171,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 90,
+          "density_mass": 14708,
+          "full_value": 14730,
+          "tiling": {
+            "tiles": 263,
+            "tile_count_bound": 29,
+            "ordinary_core": 29,
+            "exceptional_core": 61
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 122,
+          "density_mass": 13756,
+          "full_value": 13778,
+          "tiling": {
+            "tiles": 297,
+            "tile_count_bound": 70,
+            "ordinary_core": 65,
+            "exceptional_core": 57
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 156,
+          "density_mass": 11837,
+          "full_value": 11859,
+          "tiling": {
+            "tiles": 287,
+            "tile_count_bound": 113,
+            "ordinary_core": 107,
+            "exceptional_core": 49
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 156,
+          "density_mass": 7991,
+          "full_value": 8013,
+          "tiling": {
+            "tiles": 225,
+            "tile_count_bound": 138,
+            "ordinary_core": 123,
+            "exceptional_core": 33
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 61,
+          "density_mass": 301,
+          "full_value": 323,
+          "tiling": {
+            "tiles": 77,
+            "tile_count_bound": 64,
+            "ordinary_core": 60,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 36,
+          "density_mass": 36,
+          "full_value": 58,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 36,
+            "ordinary_core": 36
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 35,
+          "density_mass": 35,
+          "full_value": 57,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 35,
+            "ordinary_core": 35
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 34,
+          "density_mass": 34,
+          "full_value": 56,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 34,
+            "ordinary_core": 34
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 34,
+          "density_mass": 34,
+          "full_value": 56,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 34,
+            "ordinary_core": 34
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 34,
+          "density_mass": 34,
+          "full_value": 56,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 34,
+            "ordinary_core": 34
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 34,
+          "density_mass": 34,
+          "full_value": 56,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 34,
+            "ordinary_core": 34
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 34,
+          "density_mass": 34,
+          "full_value": 56,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 34,
+            "ordinary_core": 34
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 34,
+          "density_mass": 34,
+          "full_value": 56,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 34,
+            "ordinary_core": 34
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 34,
+          "density_mass": 34,
+          "full_value": 56,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 34,
+            "ordinary_core": 34
+          }
+        }
+      ],
+      "family": "sparse_positive"
+    },
+    {
+      "n": 64,
+      "mass": 55340232221128654846,
+      "height_budget": 64,
+      "penalty": 3597115094373362564991,
+      "first_global_exact_layer": 64,
+      "cost": 110680464442257309562,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 63,
+          "density_mass": 226599804201448132042819,
+          "full_value": 226673591177742970249279,
+          "tiling": {
+            "exceptional_core": 63,
+            "tiles": 171,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 186,
+          "density_mass": 219456302558904108179779,
+          "full_value": 219530089535198946386239,
+          "tiling": {
+            "tiles": 263,
+            "tile_count_bound": 125,
+            "ordinary_core": 125,
+            "exceptional_core": 61
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 420,
+          "density_mass": 205120588340246421168965,
+          "full_value": 205194375316541259375425,
+          "tiling": {
+            "tiles": 297,
+            "tile_count_bound": 363,
+            "ordinary_core": 363,
+            "exceptional_core": 57
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 783,
+          "density_mass": 176398763497200864454475,
+          "full_value": 176472550473495702660935,
+          "tiling": {
+            "tiles": 287,
+            "tile_count_bound": 791,
+            "ordinary_core": 734,
+            "exceptional_core": 49
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 1338,
+          "density_mass": 118900260979869090836313,
+          "full_value": 118974047956163929042773,
+          "tiling": {
+            "tiles": 225,
+            "tile_count_bound": 1455,
+            "ordinary_core": 1305,
+            "exceptional_core": 33
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 1740,
+          "density_mass": 3847918192119407679507,
+          "full_value": 3921705168414245885967,
+          "tiling": {
+            "tiles": 77,
+            "tile_count_bound": 2015,
+            "ordinary_core": 1739,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 1720,
+          "density_mass": 81590531697962372164,
+          "full_value": 155377507992800578624,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1720
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 1722,
+          "density_mass": 56514488972763450434,
+          "full_value": 130301465267601656894,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1722
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 1732,
+          "density_mass": 46570540995529395264,
+          "full_value": 120357517290367601724,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1732
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 1742,
+          "density_mass": 41670624600950295614,
+          "full_value": 115457600895788502074,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1742
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 1752,
+          "density_mass": 39256695200679709756,
+          "full_value": 113043671495517916216,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1752
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 1762,
+          "density_mass": 38067744899053898810,
+          "full_value": 111854721193892105270,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1762
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 1771,
+          "density_mass": 37473269748240993336,
+          "full_value": 111260246043079199796,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1771
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 1780,
+          "density_mass": 37180535772461911094,
+          "full_value": 110967512067300117554,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1780
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 1789,
+          "density_mass": 37035294684479212596,
+          "full_value": 110822270979317419056,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 1798,
+          "density_mass": 36963237090441284658,
+          "full_value": 110750213385279491118,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1798
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 1806,
+          "density_mass": 36927208293422320688,
+          "full_value": 110714184588260527148,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1806
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 1814,
+          "density_mass": 36909756844866260014,
+          "full_value": 110696733139704466474,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1814
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 1822,
+          "density_mass": 36901312595564940332,
+          "full_value": 110688288890403146792,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1822
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 1830,
+          "density_mass": 36897301577146813482,
+          "full_value": 110684277871985019942,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1830
+          }
+        },
+        {
+          "h": 21,
+          "nonzero_core": 1838,
+          "density_mass": 36895331252309838888,
+          "full_value": 110682307547148045348,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1838
+          }
+        },
+        {
+          "h": 22,
+          "nonzero_core": 1846,
+          "density_mass": 36894381274263440422,
+          "full_value": 110681357569101646882,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1846
+          }
+        },
+        {
+          "h": 23,
+          "nonzero_core": 1854,
+          "density_mass": 36893923877426285604,
+          "full_value": 110680900172264492064,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1854
+          }
+        },
+        {
+          "h": 24,
+          "nonzero_core": 1862,
+          "density_mass": 36893699577054219298,
+          "full_value": 110680675871892425758,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1862
+          }
+        },
+        {
+          "h": 25,
+          "nonzero_core": 1870,
+          "density_mass": 36893591824914697248,
+          "full_value": 110680568119752903708,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1870
+          }
+        },
+        {
+          "h": 26,
+          "nonzero_core": 1878,
+          "density_mass": 36893539048356563998,
+          "full_value": 110680515343194770458,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1878
+          }
+        },
+        {
+          "h": 27,
+          "nonzero_core": 1885,
+          "density_mass": 36893512660077497372,
+          "full_value": 110680488954915703832,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1885
+          }
+        },
+        {
+          "h": 28,
+          "nonzero_core": 1892,
+          "density_mass": 36893500015693777946,
+          "full_value": 110680476310531984406,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1892
+          }
+        },
+        {
+          "h": 29,
+          "nonzero_core": 1899,
+          "density_mass": 36893493968379825176,
+          "full_value": 110680470263218031636,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1899
+          }
+        },
+        {
+          "h": 30,
+          "nonzero_core": 1905,
+          "density_mass": 36893490944722848790,
+          "full_value": 110680467239561055250,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1905
+          }
+        },
+        {
+          "h": 31,
+          "nonzero_core": 1911,
+          "density_mass": 36893489501613837332,
+          "full_value": 110680465796452043792,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1911
+          }
+        },
+        {
+          "h": 32,
+          "nonzero_core": 1917,
+          "density_mass": 36893488797239200786,
+          "full_value": 110680465092077407246,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1917
+          }
+        },
+        {
+          "h": 33,
+          "nonzero_core": 1923,
+          "density_mass": 36893488462231751696,
+          "full_value": 110680464757069958156,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1923
+          }
+        },
+        {
+          "h": 34,
+          "nonzero_core": 1929,
+          "density_mass": 36893488299022994446,
+          "full_value": 110680464593861200906,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1929
+          }
+        },
+        {
+          "h": 35,
+          "nonzero_core": 1935,
+          "density_mass": 36893488221713583116,
+          "full_value": 110680464516551789576,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1935
+          }
+        },
+        {
+          "h": 36,
+          "nonzero_core": 1940,
+          "density_mass": 36893488183058877450,
+          "full_value": 110680464477897083910,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1940
+          }
+        },
+        {
+          "h": 37,
+          "nonzero_core": 1945,
+          "density_mass": 36893488164805266440,
+          "full_value": 110680464459643472900,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1945
+          }
+        },
+        {
+          "h": 38,
+          "nonzero_core": 1950,
+          "density_mass": 36893488155946896390,
+          "full_value": 110680464450785102850,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1950
+          }
+        },
+        {
+          "h": 39,
+          "nonzero_core": 1955,
+          "density_mass": 36893488151584820228,
+          "full_value": 110680464446423026688,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1955
+          }
+        },
+        {
+          "h": 40,
+          "nonzero_core": 1960,
+          "density_mass": 36893488149437336578,
+          "full_value": 110680464444275543038,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1960
+          }
+        },
+        {
+          "h": 41,
+          "nonzero_core": 1964,
+          "density_mass": 36893488148363594752,
+          "full_value": 110680464443201801212,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1964
+          }
+        },
+        {
+          "h": 42,
+          "nonzero_core": 1968,
+          "density_mass": 36893488147860278270,
+          "full_value": 110680464442698484730,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1968
+          }
+        },
+        {
+          "h": 43,
+          "nonzero_core": 1972,
+          "density_mass": 36893488147625397244,
+          "full_value": 110680464442463603704,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1972
+          }
+        },
+        {
+          "h": 44,
+          "nonzero_core": 1976,
+          "density_mass": 36893488147516345338,
+          "full_value": 110680464442354551798,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1976
+          }
+        },
+        {
+          "h": 45,
+          "nonzero_core": 1980,
+          "density_mass": 36893488147466013688,
+          "full_value": 110680464442304220148,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1980
+          }
+        },
+        {
+          "h": 46,
+          "nonzero_core": 1983,
+          "density_mass": 36893488147440847862,
+          "full_value": 110680464442279054322,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1983
+          }
+        },
+        {
+          "h": 47,
+          "nonzero_core": 1986,
+          "density_mass": 36893488147429313524,
+          "full_value": 110680464442267519984,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1986
+          }
+        },
+        {
+          "h": 48,
+          "nonzero_core": 1989,
+          "density_mass": 36893488147423808498,
+          "full_value": 110680464442262014958,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1989
+          }
+        },
+        {
+          "h": 49,
+          "nonzero_core": 1992,
+          "density_mass": 36893488147421318128,
+          "full_value": 110680464442259524588,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1992
+          }
+        },
+        {
+          "h": 50,
+          "nonzero_core": 1995,
+          "density_mass": 36893488147420138478,
+          "full_value": 110680464442258344938,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1995
+          }
+        },
+        {
+          "h": 51,
+          "nonzero_core": 1998,
+          "density_mass": 36893488147419597804,
+          "full_value": 110680464442257804264,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1998
+          }
+        },
+        {
+          "h": 52,
+          "nonzero_core": 2001,
+          "density_mass": 36893488147419335658,
+          "full_value": 110680464442257542118,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2001
+          }
+        },
+        {
+          "h": 53,
+          "nonzero_core": 2003,
+          "density_mass": 36893488147419204584,
+          "full_value": 110680464442257411044,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2003
+          }
+        },
+        {
+          "h": 54,
+          "nonzero_core": 2005,
+          "density_mass": 36893488147419147238,
+          "full_value": 110680464442257353698,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2005
+          }
+        },
+        {
+          "h": 55,
+          "nonzero_core": 2007,
+          "density_mass": 36893488147419122660,
+          "full_value": 110680464442257329120,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2007
+          }
+        },
+        {
+          "h": 56,
+          "nonzero_core": 2009,
+          "density_mass": 36893488147419111394,
+          "full_value": 110680464442257317854,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2009
+          }
+        },
+        {
+          "h": 57,
+          "nonzero_core": 2011,
+          "density_mass": 36893488147419106784,
+          "full_value": 110680464442257313244,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2011
+          }
+        },
+        {
+          "h": 58,
+          "nonzero_core": 2013,
+          "density_mass": 36893488147419104734,
+          "full_value": 110680464442257311194,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2013
+          }
+        },
+        {
+          "h": 59,
+          "nonzero_core": 2014,
+          "density_mass": 36893488147419103708,
+          "full_value": 110680464442257310168,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2014
+          }
+        },
+        {
+          "h": 60,
+          "nonzero_core": 2015,
+          "density_mass": 36893488147419103322,
+          "full_value": 110680464442257309782,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2015
+          }
+        },
+        {
+          "h": 61,
+          "nonzero_core": 2016,
+          "density_mass": 36893488147419103192,
+          "full_value": 110680464442257309652,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2016
+          }
+        },
+        {
+          "h": 62,
+          "nonzero_core": 2016,
+          "density_mass": 36893488147419103126,
+          "full_value": 110680464442257309586,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2016
+          }
+        },
+        {
+          "h": 63,
+          "nonzero_core": 2016,
+          "density_mass": 36893488147419103108,
+          "full_value": 110680464442257309568,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2016
+          }
+        },
+        {
+          "h": 64,
+          "nonzero_core": 2016,
+          "density_mass": 36893488147419103102,
+          "full_value": 110680464442257309562,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 2016
+          }
+        }
+      ],
+      "family": "geometric"
+    },
+    {
+      "n": 64,
+      "mass": 21474836476,
+      "height_budget": 52,
+      "penalty": 1138166333229,
+      "first_global_exact_layer": 33,
+      "cost": 60129542002,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 63,
+          "density_mass": 71691594091543,
+          "full_value": 71725953829903,
+          "tiling": {
+            "exceptional_core": 63,
+            "tiles": 171,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 184,
+          "density_mass": 69434588777913,
+          "full_value": 69468948516273,
+          "tiling": {
+            "tiles": 263,
+            "tile_count_bound": 123,
+            "ordinary_core": 123,
+            "exceptional_core": 61
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 404,
+          "density_mass": 64899640185089,
+          "full_value": 64933999923449,
+          "tiling": {
+            "tiles": 297,
+            "tile_count_bound": 349,
+            "ordinary_core": 347,
+            "exceptional_core": 57
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 706,
+          "density_mass": 55812730902421,
+          "full_value": 55847090640781,
+          "tiling": {
+            "tiles": 287,
+            "tile_count_bound": 755,
+            "ordinary_core": 657,
+            "exceptional_core": 49
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 993,
+          "density_mass": 37621311595713,
+          "full_value": 37655671334073,
+          "tiling": {
+            "tiles": 225,
+            "tile_count_bound": 1383,
+            "ordinary_core": 960,
+            "exceptional_core": 33
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 931,
+          "density_mass": 1219315852295,
+          "full_value": 1253675590655,
+          "tiling": {
+            "tiles": 77,
+            "tile_count_bound": 1845,
+            "ordinary_core": 930,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 900,
+          "density_mass": 38798858376,
+          "full_value": 73158596736,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 900
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 907,
+          "density_mass": 31953754244,
+          "full_value": 66313492604,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 907
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 916,
+          "density_mass": 28732528768,
+          "full_value": 63092267128,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 916
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 924,
+          "density_mass": 27155470460,
+          "full_value": 61515208820,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 924
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 932,
+          "density_mass": 26417272952,
+          "full_value": 60777011312,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 932
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 940,
+          "density_mass": 26073340020,
+          "full_value": 60433078380,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 940
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 948,
+          "density_mass": 25913956464,
+          "full_value": 60273694824,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 948
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 955,
+          "density_mass": 25838458988,
+          "full_value": 60198197348,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 955
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 961,
+          "density_mass": 25801758824,
+          "full_value": 60161497184,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 961
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 967,
+          "density_mass": 25784719460,
+          "full_value": 60144457820,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 967
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 973,
+          "density_mass": 25776724064,
+          "full_value": 60136462424,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 973
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 979,
+          "density_mass": 25773054044,
+          "full_value": 60132792404,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 979
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 985,
+          "density_mass": 25771333720,
+          "full_value": 60131072080,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 985
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 991,
+          "density_mass": 25770530900,
+          "full_value": 60130269260,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 991
+          }
+        },
+        {
+          "h": 21,
+          "nonzero_core": 996,
+          "density_mass": 25770137680,
+          "full_value": 60129876040,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 996
+          }
+        },
+        {
+          "h": 22,
+          "nonzero_core": 1000,
+          "density_mass": 25769949260,
+          "full_value": 60129687620,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1000
+          }
+        },
+        {
+          "h": 23,
+          "nonzero_core": 1004,
+          "density_mass": 25769867336,
+          "full_value": 60129605696,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1004
+          }
+        },
+        {
+          "h": 24,
+          "nonzero_core": 1008,
+          "density_mass": 25769831492,
+          "full_value": 60129569852,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1008
+          }
+        },
+        {
+          "h": 25,
+          "nonzero_core": 1012,
+          "density_mass": 25769815616,
+          "full_value": 60129553976,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1012
+          }
+        },
+        {
+          "h": 26,
+          "nonzero_core": 1016,
+          "density_mass": 25769808956,
+          "full_value": 60129547316,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1016
+          }
+        },
+        {
+          "h": 27,
+          "nonzero_core": 1019,
+          "density_mass": 25769805880,
+          "full_value": 60129544240,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1019
+          }
+        },
+        {
+          "h": 28,
+          "nonzero_core": 1021,
+          "density_mass": 25769804468,
+          "full_value": 60129542828,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1021
+          }
+        },
+        {
+          "h": 29,
+          "nonzero_core": 1023,
+          "density_mass": 25769803952,
+          "full_value": 60129542312,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1023
+          }
+        },
+        {
+          "h": 30,
+          "nonzero_core": 1024,
+          "density_mass": 25769803756,
+          "full_value": 60129542116,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 31,
+          "nonzero_core": 1024,
+          "density_mass": 25769803672,
+          "full_value": 60129542032,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 32,
+          "nonzero_core": 1024,
+          "density_mass": 25769803648,
+          "full_value": 60129542008,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 33,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 34,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 35,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 36,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 37,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 38,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 39,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 40,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 41,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 42,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 43,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 44,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 45,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 46,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 47,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 48,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 49,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 50,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 51,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        },
+        {
+          "h": 52,
+          "nonzero_core": 1024,
+          "density_mass": 25769803642,
+          "full_value": 60129542002,
+          "tiling": {
+            "tiles": 63,
+            "tile_count_bound": 2016,
+            "ordinary_core": 1024
+          }
+        }
+      ],
+      "family": "folded"
+    },
+    {
+      "n": 128,
+      "mass": 257,
+      "height_budget": 14,
+      "penalty": 3856,
+      "first_global_exact_layer": 8,
+      "cost": 1682,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 127,
+          "density_mass": 489585,
+          "full_value": 489969,
+          "tiling": {
+            "exceptional_core": 127,
+            "tiles": 360,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 252,
+          "density_mass": 482129,
+          "full_value": 482513,
+          "tiling": {
+            "tiles": 548,
+            "tile_count_bound": 127,
+            "ordinary_core": 127,
+            "exceptional_core": 125
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 373,
+          "density_mass": 466959,
+          "full_value": 467343,
+          "tiling": {
+            "tiles": 630,
+            "tile_count_bound": 440,
+            "ordinary_core": 252,
+            "exceptional_core": 121
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 486,
+          "density_mass": 436361,
+          "full_value": 436745,
+          "tiling": {
+            "tiles": 644,
+            "tile_count_bound": 682,
+            "ordinary_core": 373,
+            "exceptional_core": 113
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 583,
+          "density_mass": 374907,
+          "full_value": 375291,
+          "tiling": {
+            "tiles": 594,
+            "tile_count_bound": 908,
+            "ordinary_core": 486,
+            "exceptional_core": 97
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 648,
+          "density_mass": 251741,
+          "full_value": 252125,
+          "tiling": {
+            "tiles": 452,
+            "tile_count_bound": 1102,
+            "ordinary_core": 583,
+            "exceptional_core": 65
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 649,
+          "density_mass": 5151,
+          "full_value": 5535,
+          "tiling": {
+            "tiles": 144,
+            "tile_count_bound": 1232,
+            "ordinary_core": 648,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 649,
+          "density_mass": 1298,
+          "full_value": 1682,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1234,
+            "ordinary_core": 649
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 649,
+          "density_mass": 1298,
+          "full_value": 1682,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1234,
+            "ordinary_core": 649
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 649,
+          "density_mass": 1298,
+          "full_value": 1682,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1234,
+            "ordinary_core": 649
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 649,
+          "density_mass": 1298,
+          "full_value": 1682,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1234,
+            "ordinary_core": 649
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 649,
+          "density_mass": 1298,
+          "full_value": 1682,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1234,
+            "ordinary_core": 649
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 649,
+          "density_mass": 1298,
+          "full_value": 1682,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1234,
+            "ordinary_core": 649
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 649,
+          "density_mass": 1298,
+          "full_value": 1682,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1234,
+            "ordinary_core": 649
+          }
+        }
+      ],
+      "family": "uniform"
+    },
+    {
+      "n": 128,
+      "mass": 378,
+      "height_budget": 15,
+      "penalty": 6049,
+      "first_global_exact_layer": 8,
+      "cost": 2443,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 127,
+          "density_mass": 768032,
+          "full_value": 768601,
+          "tiling": {
+            "exceptional_core": 127,
+            "tiles": 360,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 346,
+          "density_mass": 756310,
+          "full_value": 756879,
+          "tiling": {
+            "tiles": 548,
+            "tile_count_bound": 221,
+            "ordinary_core": 221,
+            "exceptional_core": 125
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 662,
+          "density_mass": 732486,
+          "full_value": 733055,
+          "tiling": {
+            "tiles": 630,
+            "tile_count_bound": 670,
+            "ordinary_core": 541,
+            "exceptional_core": 121
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 1021,
+          "density_mass": 684458,
+          "full_value": 685027,
+          "tiling": {
+            "tiles": 644,
+            "tile_count_bound": 1217,
+            "ordinary_core": 908,
+            "exceptional_core": 113
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 1335,
+          "density_mass": 588022,
+          "full_value": 588591,
+          "tiling": {
+            "tiles": 594,
+            "tile_count_bound": 1659,
+            "ordinary_core": 1238,
+            "exceptional_core": 97
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 1498,
+          "density_mass": 394770,
+          "full_value": 395339,
+          "tiling": {
+            "tiles": 452,
+            "tile_count_bound": 1927,
+            "ordinary_core": 1433,
+            "exceptional_core": 65
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 1342,
+          "density_mass": 7946,
+          "full_value": 8515,
+          "tiling": {
+            "tiles": 144,
+            "tile_count_bound": 1743,
+            "ordinary_core": 1341,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 1325,
+          "density_mass": 1874,
+          "full_value": 2443,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1715,
+            "ordinary_core": 1325
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 1325,
+          "density_mass": 1874,
+          "full_value": 2443,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1715,
+            "ordinary_core": 1325
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 1325,
+          "density_mass": 1874,
+          "full_value": 2443,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1715,
+            "ordinary_core": 1325
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 1325,
+          "density_mass": 1874,
+          "full_value": 2443,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1715,
+            "ordinary_core": 1325
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 1325,
+          "density_mass": 1874,
+          "full_value": 2443,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1715,
+            "ordinary_core": 1325
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 1325,
+          "density_mass": 1874,
+          "full_value": 2443,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1715,
+            "ordinary_core": 1325
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 1325,
+          "density_mass": 1874,
+          "full_value": 2443,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1715,
+            "ordinary_core": 1325
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 1325,
+          "density_mass": 1874,
+          "full_value": 2443,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1715,
+            "ordinary_core": 1325
+          }
+        }
+      ],
+      "family": "mixed_binary"
+    },
+    {
+      "n": 128,
+      "mass": 25973,
+      "height_budget": 23,
+      "penalty": 623353,
+      "first_global_exact_layer": 8,
+      "cost": 169964,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 127,
+          "density_mass": 79153007,
+          "full_value": 79191804,
+          "tiling": {
+            "exceptional_core": 127,
+            "tiles": 360,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 376,
+          "density_mass": 77932172,
+          "full_value": 77970969,
+          "tiling": {
+            "tiles": 548,
+            "tile_count_bound": 252,
+            "ordinary_core": 251,
+            "exceptional_core": 125
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 733,
+          "density_mass": 75464427,
+          "full_value": 75503224,
+          "tiling": {
+            "tiles": 630,
+            "tile_count_bound": 762,
+            "ordinary_core": 612,
+            "exceptional_core": 121
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 1209,
+          "density_mass": 70502862,
+          "full_value": 70541659,
+          "tiling": {
+            "tiles": 644,
+            "tile_count_bound": 1640,
+            "ordinary_core": 1096,
+            "exceptional_core": 113
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 1764,
+          "density_mass": 60553657,
+          "full_value": 60592454,
+          "tiling": {
+            "tiles": 594,
+            "tile_count_bound": 3056,
+            "ordinary_core": 1667,
+            "exceptional_core": 97
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 2242,
+          "density_mass": 40629172,
+          "full_value": 40667969,
+          "tiling": {
+            "tiles": 452,
+            "tile_count_bound": 5038,
+            "ordinary_core": 2177,
+            "exceptional_core": 65
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 2329,
+          "density_mass": 754220,
+          "full_value": 793017,
+          "tiling": {
+            "tiles": 144,
+            "tile_count_bound": 7241,
+            "ordinary_core": 2328,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 21,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 22,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        },
+        {
+          "h": 23,
+          "nonzero_core": 2329,
+          "density_mass": 131167,
+          "full_value": 169964,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 8128,
+            "ordinary_core": 2329
+          }
+        }
+      ],
+      "family": "near_uniform"
+    },
+    {
+      "n": 128,
+      "mass": 2105,
+      "height_budget": 18,
+      "penalty": 39996,
+      "first_global_exact_layer": 9,
+      "cost": 13389,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 127,
+          "density_mass": 5078446,
+          "full_value": 5081597,
+          "tiling": {
+            "exceptional_core": 127,
+            "tiles": 360,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 436,
+          "density_mass": 5000543,
+          "full_value": 5003694,
+          "tiling": {
+            "tiles": 548,
+            "tile_count_bound": 385,
+            "ordinary_core": 311,
+            "exceptional_core": 125
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 854,
+          "density_mass": 4842616,
+          "full_value": 4845767,
+          "tiling": {
+            "tiles": 630,
+            "tile_count_bound": 1083,
+            "ordinary_core": 733,
+            "exceptional_core": 121
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 1325,
+          "density_mass": 4524641,
+          "full_value": 4527792,
+          "tiling": {
+            "tiles": 644,
+            "tile_count_bound": 2202,
+            "ordinary_core": 1212,
+            "exceptional_core": 113
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 1775,
+          "density_mass": 3886589,
+          "full_value": 3889740,
+          "tiling": {
+            "tiles": 594,
+            "tile_count_bound": 3979,
+            "ordinary_core": 1678,
+            "exceptional_core": 97
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 1982,
+          "density_mass": 2608433,
+          "full_value": 2611584,
+          "tiling": {
+            "tiles": 452,
+            "tile_count_bound": 5886,
+            "ordinary_core": 1917,
+            "exceptional_core": 65
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 1814,
+          "density_mass": 50619,
+          "full_value": 53770,
+          "tiling": {
+            "tiles": 144,
+            "tile_count_bound": 6079,
+            "ordinary_core": 1813,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 1786,
+          "density_mass": 10239,
+          "full_value": 13390,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5828,
+            "ordinary_core": 1786
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 1789,
+          "density_mass": 10238,
+          "full_value": 13389,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 5827,
+            "ordinary_core": 1789
+          }
+        }
+      ],
+      "family": "random_16"
+    },
+    {
+      "n": 128,
+      "mass": 386,
+      "height_budget": 15,
+      "penalty": 6177,
+      "first_global_exact_layer": 8,
+      "cost": 2466,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 127,
+          "density_mass": 784289,
+          "full_value": 784865,
+          "tiling": {
+            "exceptional_core": 127,
+            "tiles": 360,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 377,
+          "density_mass": 772319,
+          "full_value": 772895,
+          "tiling": {
+            "tiles": 548,
+            "tile_count_bound": 252,
+            "ordinary_core": 252,
+            "exceptional_core": 125
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 619,
+          "density_mass": 747991,
+          "full_value": 748567,
+          "tiling": {
+            "tiles": 630,
+            "tile_count_bound": 561,
+            "ordinary_core": 498,
+            "exceptional_core": 121
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 785,
+          "density_mass": 698947,
+          "full_value": 699523,
+          "tiling": {
+            "tiles": 644,
+            "tile_count_bound": 979,
+            "ordinary_core": 672,
+            "exceptional_core": 113
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 923,
+          "density_mass": 600471,
+          "full_value": 601047,
+          "tiling": {
+            "tiles": 594,
+            "tile_count_bound": 1303,
+            "ordinary_core": 826,
+            "exceptional_core": 97
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 1005,
+          "density_mass": 403131,
+          "full_value": 403707,
+          "tiling": {
+            "tiles": 452,
+            "tile_count_bound": 1563,
+            "ordinary_core": 940,
+            "exceptional_core": 65
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 975,
+          "density_mass": 8063,
+          "full_value": 8639,
+          "tiling": {
+            "tiles": 144,
+            "tile_count_bound": 1695,
+            "ordinary_core": 974,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 975,
+          "density_mass": 1890,
+          "full_value": 2466,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1698,
+            "ordinary_core": 975
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 975,
+          "density_mass": 1890,
+          "full_value": 2466,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1698,
+            "ordinary_core": 975
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 975,
+          "density_mass": 1890,
+          "full_value": 2466,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1698,
+            "ordinary_core": 975
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 975,
+          "density_mass": 1890,
+          "full_value": 2466,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1698,
+            "ordinary_core": 975
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 975,
+          "density_mass": 1890,
+          "full_value": 2466,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1698,
+            "ordinary_core": 975
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 975,
+          "density_mass": 1890,
+          "full_value": 2466,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1698,
+            "ordinary_core": 975
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 975,
+          "density_mass": 1890,
+          "full_value": 2466,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1698,
+            "ordinary_core": 975
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 975,
+          "density_mass": 1890,
+          "full_value": 2466,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 1698,
+            "ordinary_core": 975
+          }
+        }
+      ],
+      "family": "alternating"
+    },
+    {
+      "n": 128,
+      "mass": 30,
+      "height_budget": 17,
+      "penalty": 541,
+      "first_global_exact_layer": 9,
+      "cost": 144,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 127,
+          "density_mass": 68689,
+          "full_value": 68737,
+          "tiling": {
+            "exceptional_core": 127,
+            "tiles": 360,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 181,
+          "density_mass": 67636,
+          "full_value": 67684,
+          "tiling": {
+            "tiles": 548,
+            "tile_count_bound": 56,
+            "ordinary_core": 56,
+            "exceptional_core": 125
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 259,
+          "density_mass": 65499,
+          "full_value": 65547,
+          "tiling": {
+            "tiles": 630,
+            "tile_count_bound": 147,
+            "ordinary_core": 138,
+            "exceptional_core": 121
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 355,
+          "density_mass": 61194,
+          "full_value": 61242,
+          "tiling": {
+            "tiles": 644,
+            "tile_count_bound": 260,
+            "ordinary_core": 242,
+            "exceptional_core": 113
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 416,
+          "density_mass": 52557,
+          "full_value": 52605,
+          "tiling": {
+            "tiles": 594,
+            "tile_count_bound": 369,
+            "ordinary_core": 319,
+            "exceptional_core": 97
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 393,
+          "density_mass": 35266,
+          "full_value": 35314,
+          "tiling": {
+            "tiles": 452,
+            "tile_count_bound": 429,
+            "ordinary_core": 328,
+            "exceptional_core": 65
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 142,
+          "density_mass": 687,
+          "full_value": 735,
+          "tiling": {
+            "tiles": 144,
+            "tile_count_bound": 157,
+            "ordinary_core": 141,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 102,
+          "density_mass": 102,
+          "full_value": 150,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 102,
+            "ordinary_core": 102
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 96,
+          "density_mass": 96,
+          "full_value": 144,
+          "tiling": {
+            "tiles": 127,
+            "tile_count_bound": 96,
+            "ordinary_core": 96
+          }
+        }
+      ],
+      "family": "sparse_positive"
+    },
+    {
+      "n": 256,
+      "mass": 513,
+      "height_budget": 15,
+      "penalty": 8209,
+      "first_global_exact_layer": 9,
+      "cost": 3860,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 255,
+          "density_mass": 2093040,
+          "full_value": 2093808,
+          "tiling": {
+            "exceptional_core": 255,
+            "tiles": 741,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 508,
+          "density_mass": 2077134,
+          "full_value": 2077902,
+          "tiling": {
+            "tiles": 1121,
+            "tile_count_bound": 255,
+            "ordinary_core": 255,
+            "exceptional_core": 253
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 757,
+          "density_mass": 2044808,
+          "full_value": 2045576,
+          "tiling": {
+            "tiles": 1299,
+            "tile_count_bound": 888,
+            "ordinary_core": 508,
+            "exceptional_core": 249
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 998,
+          "density_mass": 1979642,
+          "full_value": 1980410,
+          "tiling": {
+            "tiles": 1361,
+            "tile_count_bound": 1386,
+            "ordinary_core": 757,
+            "exceptional_core": 241
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 1223,
+          "density_mass": 1848796,
+          "full_value": 1849564,
+          "tiling": {
+            "tiles": 1335,
+            "tile_count_bound": 1868,
+            "ordinary_core": 998,
+            "exceptional_core": 225
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 1416,
+          "density_mass": 1586590,
+          "full_value": 1587358,
+          "tiling": {
+            "tiles": 1205,
+            "tile_count_bound": 2318,
+            "ordinary_core": 1223,
+            "exceptional_core": 193
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 1545,
+          "density_mass": 1061664,
+          "full_value": 1062432,
+          "tiling": {
+            "tiles": 903,
+            "tile_count_bound": 2704,
+            "ordinary_core": 1416,
+            "exceptional_core": 129
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 1546,
+          "density_mass": 11298,
+          "full_value": 12066,
+          "tiling": {
+            "tiles": 275,
+            "tile_count_bound": 2962,
+            "ordinary_core": 1545,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 1546,
+          "density_mass": 3092,
+          "full_value": 3860,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 2964,
+            "ordinary_core": 1546
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 1546,
+          "density_mass": 3092,
+          "full_value": 3860,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 2964,
+            "ordinary_core": 1546
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 1546,
+          "density_mass": 3092,
+          "full_value": 3860,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 2964,
+            "ordinary_core": 1546
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 1546,
+          "density_mass": 3092,
+          "full_value": 3860,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 2964,
+            "ordinary_core": 1546
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 1546,
+          "density_mass": 3092,
+          "full_value": 3860,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 2964,
+            "ordinary_core": 1546
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 1546,
+          "density_mass": 3092,
+          "full_value": 3860,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 2964,
+            "ordinary_core": 1546
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 1546,
+          "density_mass": 3092,
+          "full_value": 3860,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 2964,
+            "ordinary_core": 1546
+          }
+        }
+      ],
+      "family": "uniform"
+    },
+    {
+      "n": 256,
+      "mass": 771,
+      "height_budget": 16,
+      "penalty": 13108,
+      "first_global_exact_layer": 9,
+      "cost": 5732,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 255,
+          "density_mass": 3342161,
+          "full_value": 3343311,
+          "tiling": {
+            "exceptional_core": 255,
+            "tiles": 741,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 692,
+          "density_mass": 3316714,
+          "full_value": 3317864,
+          "tiling": {
+            "tiles": 1121,
+            "tile_count_bound": 439,
+            "ordinary_core": 439,
+            "exceptional_core": 253
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 1331,
+          "density_mass": 3265047,
+          "full_value": 3266197,
+          "tiling": {
+            "tiles": 1299,
+            "tile_count_bound": 1362,
+            "ordinary_core": 1082,
+            "exceptional_core": 249
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 2108,
+          "density_mass": 3160940,
+          "full_value": 3162090,
+          "tiling": {
+            "tiles": 1361,
+            "tile_count_bound": 2526,
+            "ordinary_core": 1867,
+            "exceptional_core": 241
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 2872,
+          "density_mass": 2951953,
+          "full_value": 2953103,
+          "tiling": {
+            "tiles": 1335,
+            "tile_count_bound": 3562,
+            "ordinary_core": 2647,
+            "exceptional_core": 225
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 3545,
+          "density_mass": 2533206,
+          "full_value": 2534356,
+          "tiling": {
+            "tiles": 1205,
+            "tile_count_bound": 4451,
+            "ordinary_core": 3352,
+            "exceptional_core": 193
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 3857,
+          "density_mass": 1694939,
+          "full_value": 1696089,
+          "tiling": {
+            "tiles": 903,
+            "tile_count_bound": 4957,
+            "ordinary_core": 3728,
+            "exceptional_core": 129
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 3397,
+          "density_mass": 17739,
+          "full_value": 18889,
+          "tiling": {
+            "tiles": 275,
+            "tile_count_bound": 4307,
+            "ordinary_core": 3396,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 3367,
+          "density_mass": 4582,
+          "full_value": 5732,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4243,
+            "ordinary_core": 3367
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 3367,
+          "density_mass": 4582,
+          "full_value": 5732,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4243,
+            "ordinary_core": 3367
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 3367,
+          "density_mass": 4582,
+          "full_value": 5732,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4243,
+            "ordinary_core": 3367
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 3367,
+          "density_mass": 4582,
+          "full_value": 5732,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4243,
+            "ordinary_core": 3367
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 3367,
+          "density_mass": 4582,
+          "full_value": 5732,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4243,
+            "ordinary_core": 3367
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 3367,
+          "density_mass": 4582,
+          "full_value": 5732,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4243,
+            "ordinary_core": 3367
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 3367,
+          "density_mass": 4582,
+          "full_value": 5732,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4243,
+            "ordinary_core": 3367
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 3367,
+          "density_mass": 4582,
+          "full_value": 5732,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4243,
+            "ordinary_core": 3367
+          }
+        }
+      ],
+      "family": "mixed_binary"
+    },
+    {
+      "n": 256,
+      "mass": 51795,
+      "height_budget": 25,
+      "penalty": 1346671,
+      "first_global_exact_layer": 9,
+      "cost": 389725,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 255,
+          "density_mass": 343375346,
+          "full_value": 343452900,
+          "tiling": {
+            "exceptional_core": 255,
+            "tiles": 741,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 754,
+          "density_mass": 340733697,
+          "full_value": 340811251,
+          "tiling": {
+            "tiles": 1121,
+            "tile_count_bound": 503,
+            "ordinary_core": 501,
+            "exceptional_core": 253
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 1480,
+          "density_mass": 335398502,
+          "full_value": 335476056,
+          "tiling": {
+            "tiles": 1299,
+            "tile_count_bound": 1564,
+            "ordinary_core": 1231,
+            "exceptional_core": 249
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 2499,
+          "density_mass": 324676215,
+          "full_value": 324753769,
+          "tiling": {
+            "tiles": 1361,
+            "tile_count_bound": 3353,
+            "ordinary_core": 2258,
+            "exceptional_core": 241
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 3733,
+          "density_mass": 303179744,
+          "full_value": 303257298,
+          "tiling": {
+            "tiles": 1335,
+            "tile_count_bound": 6449,
+            "ordinary_core": 3508,
+            "exceptional_core": 225
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 5038,
+          "density_mass": 260134905,
+          "full_value": 260212459,
+          "tiling": {
+            "tiles": 1205,
+            "tile_count_bound": 11553,
+            "ordinary_core": 4845,
+            "exceptional_core": 193
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 6032,
+          "density_mass": 173993331,
+          "full_value": 174070885,
+          "tiling": {
+            "tiles": 903,
+            "tile_count_bound": 19356,
+            "ordinary_core": 5903,
+            "exceptional_core": 129
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 6196,
+          "density_mass": 1658541,
+          "full_value": 1736095,
+          "tiling": {
+            "tiles": 275,
+            "tile_count_bound": 28822,
+            "ordinary_core": 6195,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 21,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 22,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 23,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 24,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        },
+        {
+          "h": 25,
+          "nonzero_core": 6196,
+          "density_mass": 312171,
+          "full_value": 389725,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 32640,
+            "ordinary_core": 6196
+          }
+        }
+      ],
+      "family": "near_uniform"
+    },
+    {
+      "n": 256,
+      "mass": 4265,
+      "height_budget": 20,
+      "penalty": 89566,
+      "first_global_exact_layer": 10,
+      "cost": 31126,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 255,
+          "density_mass": 22837243,
+          "full_value": 22843595,
+          "tiling": {
+            "exceptional_core": 255,
+            "tiles": 741,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 880,
+          "density_mass": 22662360,
+          "full_value": 22668712,
+          "tiling": {
+            "tiles": 1121,
+            "tile_count_bound": 777,
+            "ordinary_core": 627,
+            "exceptional_core": 253
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 1742,
+          "density_mass": 22308313,
+          "full_value": 22314665,
+          "tiling": {
+            "tiles": 1299,
+            "tile_count_bound": 2274,
+            "ordinary_core": 1493,
+            "exceptional_core": 249
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 2768,
+          "density_mass": 21595938,
+          "full_value": 21602290,
+          "tiling": {
+            "tiles": 1361,
+            "tile_count_bound": 4827,
+            "ordinary_core": 2527,
+            "exceptional_core": 241
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 3771,
+          "density_mass": 20166907,
+          "full_value": 20173259,
+          "tiling": {
+            "tiles": 1335,
+            "tile_count_bound": 9122,
+            "ordinary_core": 3546,
+            "exceptional_core": 225
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 4605,
+          "density_mass": 17304587,
+          "full_value": 17310939,
+          "tiling": {
+            "tiles": 1205,
+            "tile_count_bound": 15010,
+            "ordinary_core": 4412,
+            "exceptional_core": 193
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 5008,
+          "density_mass": 11575764,
+          "full_value": 11582116,
+          "tiling": {
+            "tiles": 903,
+            "tile_count_bound": 19310,
+            "ordinary_core": 4879,
+            "exceptional_core": 129
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 4540,
+          "density_mass": 115090,
+          "full_value": 121442,
+          "tiling": {
+            "tiles": 275,
+            "tile_count_bound": 16343,
+            "ordinary_core": 4539,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 4467,
+          "density_mass": 24779,
+          "full_value": 31131,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15711,
+            "ordinary_core": 4467
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 4470,
+          "density_mass": 24774,
+          "full_value": 31126,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 15706,
+            "ordinary_core": 4470
+          }
+        }
+      ],
+      "family": "random_16"
+    },
+    {
+      "n": 256,
+      "mass": 770,
+      "height_budget": 16,
+      "penalty": 13091,
+      "first_global_exact_layer": 9,
+      "cost": 5670,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 255,
+          "density_mass": 3337823,
+          "full_value": 3338975,
+          "tiling": {
+            "exceptional_core": 255,
+            "tiles": 741,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 761,
+          "density_mass": 3312409,
+          "full_value": 3313561,
+          "tiling": {
+            "tiles": 1121,
+            "tile_count_bound": 508,
+            "ordinary_core": 508,
+            "exceptional_core": 253
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 1259,
+          "density_mass": 3260809,
+          "full_value": 3261961,
+          "tiling": {
+            "tiles": 1299,
+            "tile_count_bound": 1137,
+            "ordinary_core": 1010,
+            "exceptional_core": 249
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 1617,
+          "density_mass": 3156837,
+          "full_value": 3157989,
+          "tiling": {
+            "tiles": 1361,
+            "tile_count_bound": 2003,
+            "ordinary_core": 1376,
+            "exceptional_core": 241
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 1947,
+          "density_mass": 2948121,
+          "full_value": 2949273,
+          "tiling": {
+            "tiles": 1335,
+            "tile_count_bound": 2711,
+            "ordinary_core": 1722,
+            "exceptional_core": 225
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 2221,
+          "density_mass": 2529917,
+          "full_value": 2531069,
+          "tiling": {
+            "tiles": 1205,
+            "tile_count_bound": 3355,
+            "ordinary_core": 2028,
+            "exceptional_core": 193
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 2383,
+          "density_mass": 1692737,
+          "full_value": 1693889,
+          "tiling": {
+            "tiles": 903,
+            "tile_count_bound": 3871,
+            "ordinary_core": 2254,
+            "exceptional_core": 129
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 2321,
+          "density_mass": 17605,
+          "full_value": 18757,
+          "tiling": {
+            "tiles": 275,
+            "tile_count_bound": 4131,
+            "ordinary_core": 2320,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 2321,
+          "density_mass": 4518,
+          "full_value": 5670,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4134,
+            "ordinary_core": 2321
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 2321,
+          "density_mass": 4518,
+          "full_value": 5670,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4134,
+            "ordinary_core": 2321
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 2321,
+          "density_mass": 4518,
+          "full_value": 5670,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4134,
+            "ordinary_core": 2321
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 2321,
+          "density_mass": 4518,
+          "full_value": 5670,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4134,
+            "ordinary_core": 2321
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 2321,
+          "density_mass": 4518,
+          "full_value": 5670,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4134,
+            "ordinary_core": 2321
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 2321,
+          "density_mass": 4518,
+          "full_value": 5670,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4134,
+            "ordinary_core": 2321
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 2321,
+          "density_mass": 4518,
+          "full_value": 5670,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4134,
+            "ordinary_core": 2321
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 2321,
+          "density_mass": 4518,
+          "full_value": 5670,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 4134,
+            "ordinary_core": 2321
+          }
+        }
+      ],
+      "family": "alternating"
+    },
+    {
+      "n": 256,
+      "mass": 68,
+      "height_budget": 20,
+      "penalty": 1429,
+      "first_global_exact_layer": 11,
+      "cost": 377,
+      "layers": [
+        {
+          "h": 1,
+          "nonzero_core": 255,
+          "density_mass": 364369,
+          "full_value": 364463,
+          "tiling": {
+            "exceptional_core": 255,
+            "tiles": 741,
+            "tile_count_bound": 0,
+            "ordinary_core": 0
+          }
+        },
+        {
+          "h": 2,
+          "nonzero_core": 389,
+          "density_mass": 361578,
+          "full_value": 361672,
+          "tiling": {
+            "tiles": 1121,
+            "tile_count_bound": 136,
+            "ordinary_core": 136,
+            "exceptional_core": 253
+          }
+        },
+        {
+          "h": 3,
+          "nonzero_core": 595,
+          "density_mass": 355927,
+          "full_value": 356021,
+          "tiling": {
+            "tiles": 1299,
+            "tile_count_bound": 365,
+            "ordinary_core": 346,
+            "exceptional_core": 249
+          }
+        },
+        {
+          "h": 4,
+          "nonzero_core": 842,
+          "density_mass": 344556,
+          "full_value": 344650,
+          "tiling": {
+            "tiles": 1361,
+            "tile_count_bound": 651,
+            "ordinary_core": 601,
+            "exceptional_core": 241
+          }
+        },
+        {
+          "h": 5,
+          "nonzero_core": 1086,
+          "density_mass": 321745,
+          "full_value": 321839,
+          "tiling": {
+            "tiles": 1335,
+            "tile_count_bound": 973,
+            "ordinary_core": 861,
+            "exceptional_core": 225
+          }
+        },
+        {
+          "h": 6,
+          "nonzero_core": 1225,
+          "density_mass": 276054,
+          "full_value": 276148,
+          "tiling": {
+            "tiles": 1205,
+            "tile_count_bound": 1292,
+            "ordinary_core": 1032,
+            "exceptional_core": 193
+          }
+        },
+        {
+          "h": 7,
+          "nonzero_core": 1107,
+          "density_mass": 184637,
+          "full_value": 184731,
+          "tiling": {
+            "tiles": 903,
+            "tile_count_bound": 1366,
+            "ordinary_core": 978,
+            "exceptional_core": 129
+          }
+        },
+        {
+          "h": 8,
+          "nonzero_core": 398,
+          "density_mass": 1835,
+          "full_value": 1929,
+          "tiling": {
+            "tiles": 275,
+            "tile_count_bound": 416,
+            "ordinary_core": 397,
+            "exceptional_core": 1
+          }
+        },
+        {
+          "h": 9,
+          "nonzero_core": 290,
+          "density_mass": 290,
+          "full_value": 384,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 290,
+            "ordinary_core": 290
+          }
+        },
+        {
+          "h": 10,
+          "nonzero_core": 284,
+          "density_mass": 284,
+          "full_value": 378,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 284,
+            "ordinary_core": 284
+          }
+        },
+        {
+          "h": 11,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 12,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 13,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 14,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 15,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 16,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 17,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 18,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 19,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        },
+        {
+          "h": 20,
+          "nonzero_core": 283,
+          "density_mass": 283,
+          "full_value": 377,
+          "tiling": {
+            "tiles": 255,
+            "tile_count_bound": 283,
+            "ordinary_core": 283
+          }
+        }
+      ],
+      "family": "sparse_positive"
+    }
+  ],
+  "implementation": "dense diagnostic; sparse multiplication not implemented",
+  "source_sha256": "52109c9aa922d67a12aecc9affff964017c26eeedf32b1b75c909fed35e7b621"
+}

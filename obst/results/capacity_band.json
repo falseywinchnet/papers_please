@@ -1,0 +1,263 @@
+{
+  "scope": "Exact band entries checked against independent all-root layers; large scale rows check reconstruction and operation counts only.",
+  "checks": {
+    "all_root_candidates": 924277,
+    "dense_states": 94179,
+    "prefix_steps": 11712,
+    "base_entries": 53676,
+    "root_candidates": 366637,
+    "band_states": 199627,
+    "layer_bound_checks": 4100,
+    "entry_checks": 253303,
+    "tree_checks": 1287,
+    "inputs": 272
+  },
+  "scales": [
+    {
+      "n": 63,
+      "h": 6,
+      "width": 0,
+      "cost": 71481,
+      "counts": {
+        "prefix_steps": 63,
+        "base_entries": 64,
+        "root_candidates": 264,
+        "band_states": 264,
+        "layer_bound_checks": 6,
+        "output_keys": 63
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 62,
+      "h": 6,
+      "width": 1,
+      "cost": 70250,
+      "counts": {
+        "prefix_steps": 62,
+        "base_entries": 125,
+        "root_candidates": 1166,
+        "band_states": 712,
+        "layer_bound_checks": 6,
+        "output_keys": 62
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 59,
+      "h": 6,
+      "width": 4,
+      "cost": 66187,
+      "counts": {
+        "prefix_steps": 59,
+        "base_entries": 290,
+        "root_candidates": 3559,
+        "band_states": 1821,
+        "layer_bound_checks": 6,
+        "output_keys": 59
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 47,
+      "h": 6,
+      "width": 16,
+      "cost": 50310,
+      "counts": {
+        "prefix_steps": 47,
+        "base_entries": 680,
+        "root_candidates": 7625,
+        "band_states": 3767,
+        "layer_bound_checks": 6,
+        "output_keys": 47
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 255,
+      "h": 8,
+      "width": 0,
+      "cost": 389678,
+      "counts": {
+        "prefix_steps": 255,
+        "base_entries": 256,
+        "root_candidates": 1546,
+        "band_states": 1546,
+        "layer_bound_checks": 8,
+        "output_keys": 255
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 254,
+      "h": 8,
+      "width": 1,
+      "cost": 387678,
+      "counts": {
+        "prefix_steps": 254,
+        "base_entries": 509,
+        "root_candidates": 7182,
+        "band_states": 4360,
+        "layer_bound_checks": 8,
+        "output_keys": 254
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 251,
+      "h": 8,
+      "width": 4,
+      "cost": 382932,
+      "counts": {
+        "prefix_steps": 251,
+        "base_entries": 1250,
+        "root_candidates": 24252,
+        "band_states": 12135,
+        "layer_bound_checks": 8,
+        "output_keys": 251
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 239,
+      "h": 8,
+      "width": 16,
+      "cost": 361923,
+      "counts": {
+        "prefix_steps": 239,
+        "base_entries": 3944,
+        "root_candidates": 78610,
+        "band_states": 36953,
+        "layer_bound_checks": 8,
+        "output_keys": 239
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1023,
+      "h": 10,
+      "width": 0,
+      "cost": 1974942,
+      "counts": {
+        "prefix_steps": 1023,
+        "base_entries": 1024,
+        "root_candidates": 8204,
+        "band_states": 8204,
+        "layer_bound_checks": 10,
+        "output_keys": 1023
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1022,
+      "h": 10,
+      "width": 1,
+      "cost": 1972227,
+      "counts": {
+        "prefix_steps": 1022,
+        "base_entries": 2045,
+        "root_candidates": 38926,
+        "band_states": 23560,
+        "layer_bound_checks": 10,
+        "output_keys": 1022
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1019,
+      "h": 10,
+      "width": 4,
+      "cost": 1966177,
+      "counts": {
+        "prefix_steps": 1019,
+        "base_entries": 5090,
+        "root_candidates": 136545,
+        "band_states": 67377,
+        "layer_bound_checks": 10,
+        "output_keys": 1019
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 1007,
+      "h": 10,
+      "width": 16,
+      "cost": 1939758,
+      "counts": {
+        "prefix_steps": 1007,
+        "base_entries": 17000,
+        "root_candidates": 489545,
+        "band_states": 223355,
+        "layer_bound_checks": 10,
+        "output_keys": 1007
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4095,
+      "h": 12,
+      "width": 0,
+      "cost": 9561100,
+      "counts": {
+        "prefix_steps": 4095,
+        "base_entries": 4096,
+        "root_candidates": 40974,
+        "band_states": 40974,
+        "layer_bound_checks": 12,
+        "output_keys": 4095
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4094,
+      "h": 12,
+      "width": 1,
+      "cost": 9557971,
+      "counts": {
+        "prefix_steps": 4094,
+        "base_entries": 8189,
+        "root_candidates": 196622,
+        "band_states": 118792,
+        "layer_bound_checks": 12,
+        "output_keys": 4094
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4091,
+      "h": 12,
+      "width": 4,
+      "cost": 9553279,
+      "counts": {
+        "prefix_steps": 4091,
+        "base_entries": 20450,
+        "root_candidates": 702361,
+        "band_states": 343803,
+        "layer_bound_checks": 12,
+        "output_keys": 4091
+      },
+      "independent_reference": false
+    },
+    {
+      "n": 4079,
+      "h": 12,
+      "width": 16,
+      "cost": 9519625,
+      "counts": {
+        "prefix_steps": 4079,
+        "base_entries": 69224,
+        "root_candidates": 2621548,
+        "band_states": 1174685,
+        "layer_bound_checks": 12,
+        "output_keys": 4079
+      },
+      "independent_reference": false
+    }
+  ],
+  "source_sha256": {
+    "capacity_band.py": "335ee32497c4722cba182b54a20ca5fa14ee41791a293074155e33f6eca0be97",
+    "check_capacity_band.py": "cf9628aacfedc12badff286535cdbcd85791ef026ce459b472d6a16fd37bfb95",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

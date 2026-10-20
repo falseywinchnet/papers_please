@@ -1,0 +1,62 @@
+{
+  "scope": "Falsification of above-tail interaction <= full skeleton reward loss; all-root recurrence only.",
+  "checks": {
+    "all_root_candidates": 28876151,
+    "dense_states": 1770275,
+    "densities": 1647198,
+    "vectors": 2956,
+    "inequalities": 91370
+  },
+  "first_counterexample": {
+    "n": 10,
+    "h": 3,
+    "d": 2,
+    "p": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "mass": 2,
+    "unit_mass": 0,
+    "reward_loss": 1
+  },
+  "maximum_ratio": [
+    1,
+    2
+  ],
+  "winner": {
+    "n": 10,
+    "h": 3,
+    "d": 2,
+    "p": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "mass": 2,
+    "unit_mass": 0,
+    "reward_loss": 1,
+    "ratio": [
+      1,
+      2
+    ]
+  },
+  "source_sha256": {
+    "one_sided_interaction.py": "7d456593363eab3940915a36b9b0c5d3280178e43e8d861b67b0b735e8e80156",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

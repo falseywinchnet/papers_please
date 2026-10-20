@@ -1,0 +1,598 @@
+{
+  "scope": "Distinct three-entry affine invariants in actual mixed prefixes; no full affine-diagram solver or OBST lower bound claimed",
+  "checks": {
+    "distinct_quadratic_monomials": 43941,
+    "barrier_dense_candidates": 18213,
+    "barrier_dense_record_scans": 18213,
+    "dense_greedy_entries": 18213,
+    "strict_suffix_certificates": 66
+  },
+  "rows": [
+    {
+      "n": 8,
+      "base": 1025,
+      "exponents": [
+        1032,
+        791,
+        582,
+        405,
+        260,
+        147,
+        66,
+        17
+      ],
+      "largest_weight_bits": 10322,
+      "total_weight_bits": 33010,
+      "final_lower": 4,
+      "history_lower": 19,
+      "stages": [
+        {
+          "k": 1,
+          "affine_lower": 0,
+          "additive_nodes": 8
+        },
+        {
+          "k": 2,
+          "affine_lower": 0,
+          "additive_nodes": 14
+        },
+        {
+          "k": 3,
+          "affine_lower": 0,
+          "additive_nodes": 34
+        },
+        {
+          "k": 4,
+          "affine_lower": 3,
+          "additive_nodes": 47
+        },
+        {
+          "k": 5,
+          "affine_lower": 4,
+          "additive_nodes": 56
+        },
+        {
+          "k": 6,
+          "affine_lower": 4,
+          "additive_nodes": 61
+        },
+        {
+          "k": 7,
+          "affine_lower": 4,
+          "additive_nodes": 67
+        },
+        {
+          "k": 8,
+          "affine_lower": 4,
+          "additive_nodes": 68
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 968,
+        "punctured_pruned_blocks": 72,
+        "punctured_template_calls": 100,
+        "punctured_make_calls": 516,
+        "punctured_created_nodes": 347,
+        "punctured_contexts": 480,
+        "punctured_summary_calls": 998,
+        "punctured_summary_expansions": 259,
+        "witness_entry_checks": 57,
+        "affine_invariance_checks": 38,
+        "distinct_affine_witnesses": 19,
+        "punctured_trace_steps": 64,
+        "punctured_trace_candidates": 57,
+        "record_ancestor_nodes": 8,
+        "punctured_ancestor_walk_visits": 16,
+        "record_output_nodes": 8,
+        "punctured_all_nodes": 347,
+        "punctured_history_nodes": 347,
+        "height_fallback_candidates": 64,
+        "height_fallback_states": 36,
+        "height_fallback_output_nodes": 8,
+        "record_verified_nodes": 8
+      }
+    },
+    {
+      "n": 12,
+      "base": 2305,
+      "exponents": [
+        3468,
+        2915,
+        2410,
+        1953,
+        1544,
+        1183,
+        870,
+        605,
+        388,
+        219,
+        98,
+        25
+      ],
+      "largest_weight_bits": 38740,
+      "total_weight_bits": 175140,
+      "final_lower": 56,
+      "history_lower": 434,
+      "stages": [
+        {
+          "k": 1,
+          "affine_lower": 0,
+          "additive_nodes": 12
+        },
+        {
+          "k": 2,
+          "affine_lower": 0,
+          "additive_nodes": 22
+        },
+        {
+          "k": 3,
+          "affine_lower": 0,
+          "additive_nodes": 76
+        },
+        {
+          "k": 4,
+          "affine_lower": 21,
+          "additive_nodes": 119
+        },
+        {
+          "k": 5,
+          "affine_lower": 36,
+          "additive_nodes": 154
+        },
+        {
+          "k": 6,
+          "affine_lower": 46,
+          "additive_nodes": 181
+        },
+        {
+          "k": 7,
+          "affine_lower": 52,
+          "additive_nodes": 209
+        },
+        {
+          "k": 8,
+          "affine_lower": 55,
+          "additive_nodes": 228
+        },
+        {
+          "k": 9,
+          "affine_lower": 56,
+          "additive_nodes": 243
+        },
+        {
+          "k": 10,
+          "affine_lower": 56,
+          "additive_nodes": 253
+        },
+        {
+          "k": 11,
+          "affine_lower": 56,
+          "additive_nodes": 273
+        },
+        {
+          "k": 12,
+          "affine_lower": 56,
+          "additive_nodes": 287
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 5746,
+        "punctured_pruned_blocks": 246,
+        "punctured_template_calls": 310,
+        "punctured_make_calls": 2945,
+        "punctured_created_nodes": 2044,
+        "punctured_contexts": 2867,
+        "punctured_summary_calls": 6275,
+        "punctured_summary_expansions": 1704,
+        "witness_entry_checks": 1302,
+        "affine_invariance_checks": 868,
+        "distinct_affine_witnesses": 434,
+        "punctured_trace_steps": 144,
+        "punctured_trace_candidates": 133,
+        "record_ancestor_nodes": 12,
+        "punctured_ancestor_walk_visits": 24,
+        "record_output_nodes": 12,
+        "punctured_all_nodes": 2044,
+        "punctured_history_nodes": 2044,
+        "height_fallback_candidates": 144,
+        "height_fallback_states": 78,
+        "height_fallback_output_nodes": 12,
+        "record_verified_nodes": 12
+      }
+    },
+    {
+      "n": 13,
+      "base": 2705,
+      "exponents": [
+        4407,
+        3756,
+        3157,
+        2610,
+        2115,
+        1672,
+        1281,
+        942,
+        655,
+        420,
+        237,
+        106,
+        27
+      ],
+      "largest_weight_bits": 50247,
+      "total_weight_bits": 243826,
+      "final_lower": 84,
+      "history_lower": 714,
+      "stages": [
+        {
+          "k": 1,
+          "affine_lower": 0,
+          "additive_nodes": 13
+        },
+        {
+          "k": 2,
+          "affine_lower": 0,
+          "additive_nodes": 24
+        },
+        {
+          "k": 3,
+          "affine_lower": 0,
+          "additive_nodes": 89
+        },
+        {
+          "k": 4,
+          "affine_lower": 28,
+          "additive_nodes": 142
+        },
+        {
+          "k": 5,
+          "affine_lower": 49,
+          "additive_nodes": 186
+        },
+        {
+          "k": 6,
+          "affine_lower": 64,
+          "additive_nodes": 221
+        },
+        {
+          "k": 7,
+          "affine_lower": 74,
+          "additive_nodes": 257
+        },
+        {
+          "k": 8,
+          "affine_lower": 80,
+          "additive_nodes": 283
+        },
+        {
+          "k": 9,
+          "affine_lower": 83,
+          "additive_nodes": 304
+        },
+        {
+          "k": 10,
+          "affine_lower": 84,
+          "additive_nodes": 319
+        },
+        {
+          "k": 11,
+          "affine_lower": 84,
+          "additive_nodes": 345
+        },
+        {
+          "k": 12,
+          "affine_lower": 84,
+          "additive_nodes": 364
+        },
+        {
+          "k": 13,
+          "affine_lower": 84,
+          "additive_nodes": 379
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 8173,
+        "punctured_pruned_blocks": 315,
+        "punctured_template_calls": 390,
+        "punctured_make_calls": 4171,
+        "punctured_created_nodes": 2912,
+        "punctured_contexts": 4080,
+        "punctured_summary_calls": 9018,
+        "punctured_summary_expansions": 2469,
+        "witness_entry_checks": 2142,
+        "affine_invariance_checks": 1428,
+        "distinct_affine_witnesses": 714,
+        "punctured_trace_steps": 169,
+        "punctured_trace_candidates": 157,
+        "record_ancestor_nodes": 13,
+        "punctured_ancestor_walk_visits": 26,
+        "record_output_nodes": 13,
+        "punctured_all_nodes": 2912,
+        "punctured_history_nodes": 2912,
+        "height_fallback_candidates": 169,
+        "height_fallback_states": 91,
+        "height_fallback_output_nodes": 13,
+        "record_verified_nodes": 13
+      }
+    },
+    {
+      "n": 16,
+      "base": 4097,
+      "exponents": [
+        8208,
+        7215,
+        6286,
+        5421,
+        4620,
+        3883,
+        3210,
+        2601,
+        2056,
+        1575,
+        1158,
+        805,
+        516,
+        291,
+        130,
+        33
+      ],
+      "largest_weight_bits": 98499,
+      "total_weight_bits": 576122,
+      "final_lower": 165,
+      "history_lower": 1815,
+      "stages": [
+        {
+          "k": 1,
+          "affine_lower": 0,
+          "additive_nodes": 16
+        },
+        {
+          "k": 2,
+          "affine_lower": 0,
+          "additive_nodes": 30
+        },
+        {
+          "k": 3,
+          "affine_lower": 0,
+          "additive_nodes": 134
+        },
+        {
+          "k": 4,
+          "affine_lower": 45,
+          "additive_nodes": 223
+        },
+        {
+          "k": 5,
+          "affine_lower": 81,
+          "additive_nodes": 300
+        },
+        {
+          "k": 6,
+          "affine_lower": 109,
+          "additive_nodes": 365
+        },
+        {
+          "k": 7,
+          "affine_lower": 130,
+          "additive_nodes": 431
+        },
+        {
+          "k": 8,
+          "affine_lower": 145,
+          "additive_nodes": 484
+        },
+        {
+          "k": 9,
+          "affine_lower": 155,
+          "additive_nodes": 529
+        },
+        {
+          "k": 10,
+          "affine_lower": 161,
+          "additive_nodes": 565
+        },
+        {
+          "k": 11,
+          "affine_lower": 164,
+          "additive_nodes": 615
+        },
+        {
+          "k": 12,
+          "affine_lower": 165,
+          "additive_nodes": 655
+        },
+        {
+          "k": 13,
+          "affine_lower": 165,
+          "additive_nodes": 688
+        },
+        {
+          "k": 14,
+          "affine_lower": 165,
+          "additive_nodes": 714
+        },
+        {
+          "k": 15,
+          "affine_lower": 165,
+          "additive_nodes": 745
+        },
+        {
+          "k": 16,
+          "affine_lower": 165,
+          "additive_nodes": 767
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 20236,
+        "punctured_pruned_blocks": 600,
+        "punctured_template_calls": 712,
+        "punctured_make_calls": 10246,
+        "punctured_created_nodes": 7242,
+        "punctured_contexts": 10110,
+        "punctured_summary_calls": 22858,
+        "punctured_summary_expansions": 6374,
+        "witness_entry_checks": 5445,
+        "affine_invariance_checks": 3630,
+        "distinct_affine_witnesses": 1815,
+        "punctured_trace_steps": 256,
+        "punctured_trace_candidates": 241,
+        "record_ancestor_nodes": 16,
+        "punctured_ancestor_walk_visits": 32,
+        "record_output_nodes": 16,
+        "punctured_all_nodes": 7242,
+        "punctured_history_nodes": 7242,
+        "height_fallback_candidates": 256,
+        "height_fallback_states": 136,
+        "height_fallback_output_nodes": 16,
+        "record_verified_nodes": 16
+      }
+    },
+    {
+      "n": 17,
+      "base": 4625,
+      "exponents": [
+        9843,
+        8720,
+        7665,
+        6678,
+        5759,
+        4908,
+        4125,
+        3410,
+        2763,
+        2184,
+        1673,
+        1230,
+        855,
+        548,
+        309,
+        138,
+        35
+      ],
+      "largest_weight_bits": 119841,
+      "total_weight_bits": 740789,
+      "final_lower": 220,
+      "history_lower": 2585,
+      "stages": [
+        {
+          "k": 1,
+          "affine_lower": 0,
+          "additive_nodes": 17
+        },
+        {
+          "k": 2,
+          "affine_lower": 0,
+          "additive_nodes": 32
+        },
+        {
+          "k": 3,
+          "affine_lower": 0,
+          "additive_nodes": 151
+        },
+        {
+          "k": 4,
+          "affine_lower": 55,
+          "additive_nodes": 254
+        },
+        {
+          "k": 5,
+          "affine_lower": 100,
+          "additive_nodes": 344
+        },
+        {
+          "k": 6,
+          "affine_lower": 136,
+          "additive_nodes": 421
+        },
+        {
+          "k": 7,
+          "affine_lower": 164,
+          "additive_nodes": 499
+        },
+        {
+          "k": 8,
+          "affine_lower": 185,
+          "additive_nodes": 563
+        },
+        {
+          "k": 9,
+          "affine_lower": 200,
+          "additive_nodes": 618
+        },
+        {
+          "k": 10,
+          "affine_lower": 210,
+          "additive_nodes": 663
+        },
+        {
+          "k": 11,
+          "affine_lower": 216,
+          "additive_nodes": 723
+        },
+        {
+          "k": 12,
+          "affine_lower": 219,
+          "additive_nodes": 772
+        },
+        {
+          "k": 13,
+          "affine_lower": 220,
+          "additive_nodes": 813
+        },
+        {
+          "k": 14,
+          "affine_lower": 220,
+          "additive_nodes": 846
+        },
+        {
+          "k": 15,
+          "affine_lower": 220,
+          "additive_nodes": 884
+        },
+        {
+          "k": 16,
+          "affine_lower": 220,
+          "additive_nodes": 912
+        },
+        {
+          "k": 17,
+          "affine_lower": 220,
+          "additive_nodes": 937
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 26313,
+        "punctured_pruned_blocks": 722,
+        "punctured_template_calls": 850,
+        "punctured_make_calls": 13301,
+        "punctured_created_nodes": 9429,
+        "punctured_contexts": 13148,
+        "punctured_summary_calls": 29900,
+        "punctured_summary_expansions": 8376,
+        "witness_entry_checks": 7755,
+        "affine_invariance_checks": 5170,
+        "distinct_affine_witnesses": 2585,
+        "punctured_trace_steps": 289,
+        "punctured_trace_candidates": 273,
+        "record_ancestor_nodes": 17,
+        "punctured_ancestor_walk_visits": 34,
+        "record_output_nodes": 17,
+        "punctured_all_nodes": 9429,
+        "punctured_history_nodes": 9429,
+        "height_fallback_candidates": 289,
+        "height_fallback_states": 153,
+        "height_fallback_output_nodes": 17,
+        "record_verified_nodes": 17
+      }
+    }
+  ],
+  "source_sha256": {
+    "slot_affine_barrier.py": "f4a3f8dbe4b327b4d15a4365a29994676fffcf2e0af1f3db4eae6ff96732a95c",
+    "slot_punctured_barrier.py": "b5406b55cf9a1a2e1eab3d4d8d2138f190f3716348ebc604a18dd9299a69b603",
+    "slot_punctured.py": "f0db0df83ef5de1615619480896912c90e8f4faa5c769afed0425d338039d6be",
+    "slot_record_barrier.py": "d71bbfd9694d12bfb689de1060fe0e17a721c517de007a930e2a980e667fb855",
+    "slot_records.py": "8f8d222c1eae0bae0004927e1e92d9551ed66b3c2d99df401c02ef05157b5e27",
+    "slot_records_audit.py": "77be385cfef7ab60d15a72d8b7a59c224f21be240e3eb1d677e53388ddc70f2c",
+    "slot_vector.py": "f234a4954d70b485ef1fa108e669bcfadeeeaf81a0c8948be96201cc986cbee2",
+    "trimmed_height.py": "19efde94ff7985b656372d1faedf299d64bd2ae23dfa4df530f5a76cf2f86f6f"
+  }
+}

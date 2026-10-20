@@ -1,0 +1,22 @@
+{
+  "scope": "Exact relaxation, literal queried-state, prescribed-height optimum, budget fallback and complete original-weight controls",
+  "seed": 652019,
+  "checks": {
+    "bound_entries": 55744,
+    "literal_visited_states": 14245,
+    "height_optimum_controls": 1456,
+    "full_tree_controls": 2184,
+    "full_knuth": 2174,
+    "full_lazy": 10
+  },
+  "source_sha256": {
+    "slot_lazy_audit.py": "c87cd962f01ea6b5be0ca522dde91342cf42f75a571fbb1e185b32d216cf4dc8",
+    "slot_lazy.py": "99d057276d320fb8b58c7062a856e9521b286fc313778becae24373b5615af1a",
+    "slot_vector.py": "f234a4954d70b485ef1fa108e669bcfadeeeaf81a0c8948be96201cc986cbee2",
+    "slot_punctured.py": "f0db0df83ef5de1615619480896912c90e8f4faa5c769afed0425d338039d6be",
+    "slot_records.py": "8f8d222c1eae0bae0004927e1e92d9551ed66b3c2d99df401c02ef05157b5e27",
+    "slot_records_audit.py": "77be385cfef7ab60d15a72d8b7a59c224f21be240e3eb1d677e53388ddc70f2c",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66",
+    "trimmed_height.py": "19efde94ff7985b656372d1faedf299d64bd2ae23dfa4df530f5a76cf2f86f6f"
+  }
+}

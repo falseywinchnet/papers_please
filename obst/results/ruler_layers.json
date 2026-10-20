@@ -1,0 +1,4278 @@
+{
+  "seed": 157011,
+  "max_n": 512,
+  "checks": {
+    "dense_layer_states": 5708220,
+    "dense_layer_candidates": 11108348,
+    "all_root_checks": 20432,
+    "subsequence_transitions": 2061458,
+    "ruler_interval_checks": 70100,
+    "all_shape_checks": 2168,
+    "layer_solves": 921,
+    "range_max_checks": 22437,
+    "full_dense_states": 1422592,
+    "full_dense_candidates": 2692718,
+    "cubic_checks": 96,
+    "knuth_checks": 240
+  },
+  "rows": [
+    {
+      "n": 16,
+      "family": "uniform",
+      "full": {
+        "cost": 124,
+        "density": {
+          "cells": 120,
+          "core": 38,
+          "row_changes": 57,
+          "fourth_cells": 91,
+          "fourth_nonzero": 61
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 2523,
+          "density": {
+            "cells": 120,
+            "core": 15,
+            "row_changes": 14,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          },
+          "saturated_density": {
+            "cells": 105,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          }
+        },
+        {
+          "h": 2,
+          "value": 2223,
+          "density": {
+            "cells": 120,
+            "core": 28,
+            "row_changes": 39,
+            "fourth_cells": 91,
+            "fourth_nonzero": 36
+          },
+          "saturated_density": {
+            "cells": 78,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 66,
+            "fourth_nonzero": 11
+          }
+        },
+        {
+          "h": 3,
+          "value": 1589,
+          "density": {
+            "cells": 120,
+            "core": 37,
+            "row_changes": 56,
+            "fourth_cells": 91,
+            "fourth_nonzero": 60
+          },
+          "saturated_density": {
+            "cells": 36,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 28,
+            "fourth_nonzero": 7
+          }
+        },
+        {
+          "h": 4,
+          "value": 287,
+          "density": {
+            "cells": 120,
+            "core": 38,
+            "row_changes": 57,
+            "fourth_cells": 91,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 0,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 0,
+            "fourth_nonzero": 0
+          }
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "family": "near_uniform",
+      "full": {
+        "cost": 149906801632214017663565939,
+        "density": {
+          "cells": 120,
+          "core": 67,
+          "row_changes": 82,
+          "fourth_cells": 91,
+          "fourth_nonzero": 79
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 3031985955593489970163091931,
+          "density": {
+            "cells": 120,
+            "core": 15,
+            "row_changes": 14,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          },
+          "saturated_density": {
+            "cells": 105,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          }
+        },
+        {
+          "h": 2,
+          "value": 2671726061348330476100651182,
+          "density": {
+            "cells": 120,
+            "core": 39,
+            "row_changes": 42,
+            "fourth_cells": 91,
+            "fourth_nonzero": 40
+          },
+          "saturated_density": {
+            "cells": 78,
+            "core": 4,
+            "row_changes": 3,
+            "fourth_cells": 66,
+            "fourth_nonzero": 15
+          }
+        },
+        {
+          "h": 3,
+          "value": 1910102794991114096035759665,
+          "density": {
+            "cells": 120,
+            "core": 62,
+            "row_changes": 74,
+            "fourth_cells": 91,
+            "fourth_nonzero": 71
+          },
+          "saturated_density": {
+            "cells": 36,
+            "core": 6,
+            "row_changes": 5,
+            "fourth_cells": 28,
+            "fourth_nonzero": 12
+          }
+        },
+        {
+          "h": 4,
+          "value": 345752784409783943965966616,
+          "density": {
+            "cells": 120,
+            "core": 67,
+            "row_changes": 82,
+            "fourth_cells": 91,
+            "fourth_nonzero": 79
+          },
+          "saturated_density": {
+            "cells": 0,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 0,
+            "fourth_nonzero": 0
+          }
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "family": "random_64",
+      "full": {
+        "cost": 1083951492187340246636,
+        "density": {
+          "cells": 120,
+          "core": 70,
+          "row_changes": 77,
+          "fourth_cells": 91,
+          "fourth_nonzero": 83
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 22940900876410456807791,
+          "density": {
+            "cells": 120,
+            "core": 15,
+            "row_changes": 14,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          },
+          "saturated_density": {
+            "cells": 105,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          }
+        },
+        {
+          "h": 2,
+          "value": 20206190469193924215449,
+          "density": {
+            "cells": 120,
+            "core": 48,
+            "row_changes": 51,
+            "fourth_cells": 91,
+            "fourth_nonzero": 54
+          },
+          "saturated_density": {
+            "cells": 78,
+            "core": 10,
+            "row_changes": 12,
+            "fourth_cells": 66,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 3,
+          "value": 14424681735668809114368,
+          "density": {
+            "cells": 120,
+            "core": 70,
+            "row_changes": 79,
+            "fourth_cells": 91,
+            "fourth_nonzero": 83
+          },
+          "saturated_density": {
+            "cells": 36,
+            "core": 8,
+            "row_changes": 10,
+            "fourth_cells": 28,
+            "fourth_nonzero": 21
+          }
+        },
+        {
+          "h": 4,
+          "value": 2581419774535984279670,
+          "density": {
+            "cells": 120,
+            "core": 69,
+            "row_changes": 78,
+            "fourth_cells": 91,
+            "fourth_nonzero": 84
+          },
+          "saturated_density": {
+            "cells": 0,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 0,
+            "fourth_nonzero": 0
+          }
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "family": "small_random",
+      "full": {
+        "cost": 866,
+        "density": {
+          "cells": 120,
+          "core": 66,
+          "row_changes": 75,
+          "fourth_cells": 91,
+          "fourth_nonzero": 72
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 18711,
+          "density": {
+            "cells": 120,
+            "core": 15,
+            "row_changes": 14,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          },
+          "saturated_density": {
+            "cells": 105,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          }
+        },
+        {
+          "h": 2,
+          "value": 16480,
+          "density": {
+            "cells": 120,
+            "core": 45,
+            "row_changes": 47,
+            "fourth_cells": 91,
+            "fourth_nonzero": 46
+          },
+          "saturated_density": {
+            "cells": 78,
+            "core": 7,
+            "row_changes": 8,
+            "fourth_cells": 66,
+            "fourth_nonzero": 21
+          }
+        },
+        {
+          "h": 3,
+          "value": 11761,
+          "density": {
+            "cells": 120,
+            "core": 70,
+            "row_changes": 77,
+            "fourth_cells": 91,
+            "fourth_nonzero": 76
+          },
+          "saturated_density": {
+            "cells": 36,
+            "core": 7,
+            "row_changes": 6,
+            "fourth_cells": 28,
+            "fourth_nonzero": 14
+          }
+        },
+        {
+          "h": 4,
+          "value": 2109,
+          "density": {
+            "cells": 120,
+            "core": 70,
+            "row_changes": 78,
+            "fourth_cells": 91,
+            "fourth_nonzero": 76
+          },
+          "saturated_density": {
+            "cells": 0,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 0,
+            "fourth_nonzero": 0
+          }
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "family": "linear",
+      "full": {
+        "cost": 1025,
+        "density": {
+          "cells": 120,
+          "core": 102,
+          "row_changes": 95,
+          "fourth_cells": 91,
+          "fourth_nonzero": 83
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 21979,
+          "density": {
+            "cells": 120,
+            "core": 15,
+            "row_changes": 14,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          },
+          "saturated_density": {
+            "cells": 105,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          }
+        },
+        {
+          "h": 2,
+          "value": 19361,
+          "density": {
+            "cells": 120,
+            "core": 42,
+            "row_changes": 39,
+            "fourth_cells": 91,
+            "fourth_nonzero": 36
+          },
+          "saturated_density": {
+            "cells": 78,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 66,
+            "fourth_nonzero": 11
+          }
+        },
+        {
+          "h": 3,
+          "value": 13829,
+          "density": {
+            "cells": 120,
+            "core": 83,
+            "row_changes": 74,
+            "fourth_cells": 91,
+            "fourth_nonzero": 70
+          },
+          "saturated_density": {
+            "cells": 36,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 28,
+            "fourth_nonzero": 7
+          }
+        },
+        {
+          "h": 4,
+          "value": 2503,
+          "density": {
+            "cells": 120,
+            "core": 113,
+            "row_changes": 99,
+            "fourth_cells": 91,
+            "fourth_nonzero": 83
+          },
+          "saturated_density": {
+            "cells": 0,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 0,
+            "fourth_nonzero": 0
+          }
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "family": "geometric",
+      "full": {
+        "cost": 393178,
+        "density": {
+          "cells": 120,
+          "core": 120,
+          "row_changes": 0,
+          "fourth_cells": 91,
+          "fourth_nonzero": 0
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 14942071,
+          "density": {
+            "cells": 120,
+            "core": 15,
+            "row_changes": 14,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          },
+          "saturated_density": {
+            "cells": 105,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          }
+        },
+        {
+          "h": 2,
+          "value": 13156231,
+          "density": {
+            "cells": 120,
+            "core": 42,
+            "row_changes": 39,
+            "fourth_cells": 91,
+            "fourth_nonzero": 36
+          },
+          "saturated_density": {
+            "cells": 78,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 66,
+            "fourth_nonzero": 11
+          }
+        },
+        {
+          "h": 3,
+          "value": 9411497,
+          "density": {
+            "cells": 120,
+            "core": 84,
+            "row_changes": 51,
+            "fourth_cells": 91,
+            "fourth_nonzero": 70
+          },
+          "saturated_density": {
+            "cells": 36,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 28,
+            "fourth_nonzero": 7
+          }
+        },
+        {
+          "h": 4,
+          "value": 1742987,
+          "density": {
+            "cells": 120,
+            "core": 111,
+            "row_changes": 63,
+            "fourth_cells": 91,
+            "fourth_nonzero": 72
+          },
+          "saturated_density": {
+            "cells": 0,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 0,
+            "fourth_nonzero": 0
+          }
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "family": "folded_geometric",
+      "full": {
+        "cost": 3538,
+        "density": {
+          "cells": 120,
+          "core": 64,
+          "row_changes": 42,
+          "fourth_cells": 91,
+          "fourth_nonzero": 31
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 96991,
+          "density": {
+            "cells": 120,
+            "core": 15,
+            "row_changes": 14,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          },
+          "saturated_density": {
+            "cells": 105,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          }
+        },
+        {
+          "h": 2,
+          "value": 85377,
+          "density": {
+            "cells": 120,
+            "core": 40,
+            "row_changes": 39,
+            "fourth_cells": 91,
+            "fourth_nonzero": 36
+          },
+          "saturated_density": {
+            "cells": 78,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 66,
+            "fourth_nonzero": 11
+          }
+        },
+        {
+          "h": 3,
+          "value": 60905,
+          "density": {
+            "cells": 120,
+            "core": 68,
+            "row_changes": 60,
+            "fourth_cells": 91,
+            "fourth_nonzero": 68
+          },
+          "saturated_density": {
+            "cells": 36,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 28,
+            "fourth_nonzero": 7
+          }
+        },
+        {
+          "h": 4,
+          "value": 10951,
+          "density": {
+            "cells": 120,
+            "core": 64,
+            "row_changes": 51,
+            "fourth_cells": 91,
+            "fourth_nonzero": 53
+          },
+          "saturated_density": {
+            "cells": 0,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 0,
+            "fourth_nonzero": 0
+          }
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "family": "log_uniform",
+      "full": {
+        "cost": 309252,
+        "density": {
+          "cells": 120,
+          "core": 58,
+          "row_changes": 65,
+          "fourth_cells": 91,
+          "fourth_nonzero": 66
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 8320799,
+          "density": {
+            "cells": 120,
+            "core": 15,
+            "row_changes": 14,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          },
+          "saturated_density": {
+            "cells": 105,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 91,
+            "fourth_nonzero": 13
+          }
+        },
+        {
+          "h": 2,
+          "value": 7319057,
+          "density": {
+            "cells": 120,
+            "core": 46,
+            "row_changes": 48,
+            "fourth_cells": 91,
+            "fourth_nonzero": 47
+          },
+          "saturated_density": {
+            "cells": 78,
+            "core": 8,
+            "row_changes": 10,
+            "fourth_cells": 66,
+            "fourth_nonzero": 22
+          }
+        },
+        {
+          "h": 3,
+          "value": 5214281,
+          "density": {
+            "cells": 120,
+            "core": 66,
+            "row_changes": 77,
+            "fourth_cells": 91,
+            "fourth_nonzero": 76
+          },
+          "saturated_density": {
+            "cells": 36,
+            "core": 7,
+            "row_changes": 12,
+            "fourth_cells": 28,
+            "fourth_nonzero": 15
+          }
+        },
+        {
+          "h": 4,
+          "value": 961229,
+          "density": {
+            "cells": 120,
+            "core": 64,
+            "row_changes": 72,
+            "fourth_cells": 91,
+            "fourth_nonzero": 73
+          },
+          "saturated_density": {
+            "cells": 0,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 0,
+            "fourth_nonzero": 0
+          }
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "family": "uniform",
+      "full": {
+        "cost": 302,
+        "density": {
+          "cells": 496,
+          "core": 103,
+          "row_changes": 170,
+          "fourth_cells": 435,
+          "fourth_nonzero": 205
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 10171,
+          "density": {
+            "cells": 496,
+            "core": 31,
+            "row_changes": 30,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          },
+          "saturated_density": {
+            "cells": 465,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 2,
+          "value": 9583,
+          "density": {
+            "cells": 496,
+            "core": 60,
+            "row_changes": 87,
+            "fourth_cells": 435,
+            "fourth_nonzero": 84
+          },
+          "saturated_density": {
+            "cells": 406,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 378,
+            "fourth_nonzero": 27
+          }
+        },
+        {
+          "h": 3,
+          "value": 8341,
+          "density": {
+            "cells": 496,
+            "core": 85,
+            "row_changes": 136,
+            "fourth_cells": 435,
+            "fourth_nonzero": 156
+          },
+          "saturated_density": {
+            "cells": 300,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 276,
+            "fourth_nonzero": 23
+          }
+        },
+        {
+          "h": 4,
+          "value": 5791,
+          "density": {
+            "cells": 496,
+            "core": 102,
+            "row_changes": 169,
+            "fourth_cells": 435,
+            "fourth_nonzero": 204
+          },
+          "saturated_density": {
+            "cells": 136,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 120,
+            "fourth_nonzero": 15
+          }
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "family": "near_uniform",
+      "full": {
+        "cost": 365095597523618010761265448,
+        "density": {
+          "cells": 496,
+          "core": 253,
+          "row_changes": 321,
+          "fourth_cells": 435,
+          "fourth_nonzero": 350
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 12258507810892339831520634811,
+          "density": {
+            "cells": 496,
+            "core": 31,
+            "row_changes": 30,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          },
+          "saturated_density": {
+            "cells": 465,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 2,
+          "value": 11550077280598167135142815086,
+          "density": {
+            "cells": 496,
+            "core": 88,
+            "row_changes": 101,
+            "fourth_cells": 435,
+            "fourth_nonzero": 98
+          },
+          "saturated_density": {
+            "cells": 406,
+            "core": 12,
+            "row_changes": 14,
+            "fourth_cells": 378,
+            "fourth_nonzero": 41
+          }
+        },
+        {
+          "h": 3,
+          "value": 10053427115915256216856567953,
+          "density": {
+            "cells": 496,
+            "core": 159,
+            "row_changes": 198,
+            "fourth_cells": 435,
+            "fourth_nonzero": 211
+          },
+          "saturated_density": {
+            "cells": 300,
+            "core": 19,
+            "row_changes": 25,
+            "fourth_cells": 276,
+            "fourth_nonzero": 54
+          }
+        },
+        {
+          "h": 4,
+          "value": 6980337682454868854753466004,
+          "density": {
+            "cells": 496,
+            "core": 236,
+            "row_changes": 299,
+            "fourth_cells": 435,
+            "fourth_nonzero": 332
+          },
+          "saturated_density": {
+            "cells": 136,
+            "core": 20,
+            "row_changes": 28,
+            "fourth_cells": 120,
+            "fourth_nonzero": 52
+          }
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "family": "random_64",
+      "full": {
+        "cost": 2684881228456547303596,
+        "density": {
+          "cells": 496,
+          "core": 213,
+          "row_changes": 274,
+          "fourth_cells": 435,
+          "fourth_nonzero": 331
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 94511518725301202984347,
+          "density": {
+            "cells": 496,
+            "core": 31,
+            "row_changes": 30,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          },
+          "saturated_density": {
+            "cells": 465,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 2,
+          "value": 89040635937850122184788,
+          "density": {
+            "cells": 496,
+            "core": 103,
+            "row_changes": 121,
+            "fourth_cells": 435,
+            "fourth_nonzero": 136
+          },
+          "saturated_density": {
+            "cells": 406,
+            "core": 24,
+            "row_changes": 34,
+            "fourth_cells": 378,
+            "fourth_nonzero": 79
+          }
+        },
+        {
+          "h": 3,
+          "value": 77480803521732863640014,
+          "density": {
+            "cells": 496,
+            "core": 182,
+            "row_changes": 228,
+            "fourth_cells": 435,
+            "fourth_nonzero": 273
+          },
+          "saturated_density": {
+            "cells": 300,
+            "core": 38,
+            "row_changes": 57,
+            "fourth_cells": 276,
+            "fourth_nonzero": 117
+          }
+        },
+        {
+          "h": 4,
+          "value": 53746850852146592998844,
+          "density": {
+            "cells": 496,
+            "core": 234,
+            "row_changes": 298,
+            "fourth_cells": 435,
+            "fourth_nonzero": 358
+          },
+          "saturated_density": {
+            "cells": 136,
+            "core": 29,
+            "row_changes": 39,
+            "fourth_cells": 120,
+            "fourth_nonzero": 76
+          }
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "family": "small_random",
+      "full": {
+        "cost": 2363,
+        "density": {
+          "cells": 496,
+          "core": 236,
+          "row_changes": 285,
+          "fourth_cells": 435,
+          "fourth_nonzero": 341
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 81151,
+          "density": {
+            "cells": 496,
+            "core": 31,
+            "row_changes": 30,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          },
+          "saturated_density": {
+            "cells": 465,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 2,
+          "value": 76454,
+          "density": {
+            "cells": 496,
+            "core": 103,
+            "row_changes": 116,
+            "fourth_cells": 435,
+            "fourth_nonzero": 128
+          },
+          "saturated_density": {
+            "cells": 406,
+            "core": 22,
+            "row_changes": 29,
+            "fourth_cells": 378,
+            "fourth_nonzero": 71
+          }
+        },
+        {
+          "h": 3,
+          "value": 66533,
+          "density": {
+            "cells": 496,
+            "core": 184,
+            "row_changes": 218,
+            "fourth_cells": 435,
+            "fourth_nonzero": 248
+          },
+          "saturated_density": {
+            "cells": 300,
+            "core": 36,
+            "row_changes": 50,
+            "fourth_cells": 276,
+            "fourth_nonzero": 96
+          }
+        },
+        {
+          "h": 4,
+          "value": 46168,
+          "density": {
+            "cells": 496,
+            "core": 247,
+            "row_changes": 302,
+            "fourth_cells": 435,
+            "fourth_nonzero": 347
+          },
+          "saturated_density": {
+            "cells": 136,
+            "core": 29,
+            "row_changes": 39,
+            "fourth_cells": 120,
+            "fourth_nonzero": 65
+          }
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "family": "linear",
+      "full": {
+        "cost": 4811,
+        "density": {
+          "cells": 496,
+          "core": 411,
+          "row_changes": 424,
+          "fourth_cells": 435,
+          "fourth_nonzero": 408
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 169915,
+          "density": {
+            "cells": 496,
+            "core": 31,
+            "row_changes": 30,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          },
+          "saturated_density": {
+            "cells": 465,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 2,
+          "value": 160081,
+          "density": {
+            "cells": 496,
+            "core": 90,
+            "row_changes": 87,
+            "fourth_cells": 435,
+            "fourth_nonzero": 84
+          },
+          "saturated_density": {
+            "cells": 406,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 378,
+            "fourth_nonzero": 27
+          }
+        },
+        {
+          "h": 3,
+          "value": 139301,
+          "density": {
+            "cells": 496,
+            "core": 195,
+            "row_changes": 186,
+            "fourth_cells": 435,
+            "fourth_nonzero": 182
+          },
+          "saturated_density": {
+            "cells": 300,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 276,
+            "fourth_nonzero": 23
+          }
+        },
+        {
+          "h": 4,
+          "value": 96663,
+          "density": {
+            "cells": 496,
+            "core": 353,
+            "row_changes": 339,
+            "fourth_cells": 435,
+            "fourth_nonzero": 322
+          },
+          "saturated_density": {
+            "cells": 136,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 120,
+            "fourth_nonzero": 15
+          }
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "family": "geometric",
+      "full": {
+        "cost": 25769803706,
+        "density": {
+          "cells": 496,
+          "core": 496,
+          "row_changes": 0,
+          "fourth_cells": 435,
+          "fourth_nonzero": 0
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 2010044694247,
+          "density": {
+            "cells": 496,
+            "core": 31,
+            "row_changes": 30,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          },
+          "saturated_density": {
+            "cells": 465,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 2,
+          "value": 1893006835447,
+          "density": {
+            "cells": 496,
+            "core": 90,
+            "row_changes": 87,
+            "fourth_cells": 435,
+            "fourth_nonzero": 84
+          },
+          "saturated_density": {
+            "cells": 406,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 378,
+            "fourth_nonzero": 27
+          }
+        },
+        {
+          "h": 3,
+          "value": 1647589719833,
+          "density": {
+            "cells": 496,
+            "core": 196,
+            "row_changes": 131,
+            "fourth_cells": 435,
+            "fourth_nonzero": 182
+          },
+          "saturated_density": {
+            "cells": 300,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 276,
+            "fourth_nonzero": 23
+          }
+        },
+        {
+          "h": 4,
+          "value": 1145021661023,
+          "density": {
+            "cells": 496,
+            "core": 335,
+            "row_changes": 239,
+            "fourth_cells": 435,
+            "fourth_nonzero": 279
+          },
+          "saturated_density": {
+            "cells": 136,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 120,
+            "fourth_nonzero": 15
+          }
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "family": "folded_geometric",
+      "full": {
+        "cost": 917426,
+        "density": {
+          "cells": 496,
+          "core": 256,
+          "row_changes": 150,
+          "fourth_cells": 435,
+          "fourth_nonzero": 71
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 51117487,
+          "density": {
+            "cells": 496,
+            "core": 31,
+            "row_changes": 30,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          },
+          "saturated_density": {
+            "cells": 465,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 2,
+          "value": 48135633,
+          "density": {
+            "cells": 496,
+            "core": 88,
+            "row_changes": 87,
+            "fourth_cells": 435,
+            "fourth_nonzero": 84
+          },
+          "saturated_density": {
+            "cells": 406,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 378,
+            "fourth_nonzero": 27
+          }
+        },
+        {
+          "h": 3,
+          "value": 41852441,
+          "density": {
+            "cells": 496,
+            "core": 180,
+            "row_changes": 156,
+            "fourth_cells": 435,
+            "fourth_nonzero": 180
+          },
+          "saturated_density": {
+            "cells": 300,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 276,
+            "fourth_nonzero": 23
+          }
+        },
+        {
+          "h": 4,
+          "value": 29026477,
+          "density": {
+            "cells": 496,
+            "core": 258,
+            "row_changes": 233,
+            "fourth_cells": 435,
+            "fourth_nonzero": 254
+          },
+          "saturated_density": {
+            "cells": 136,
+            "core": 2,
+            "row_changes": 2,
+            "fourth_cells": 120,
+            "fourth_nonzero": 17
+          }
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "family": "log_uniform",
+      "full": {
+        "cost": 40162066601,
+        "density": {
+          "cells": 496,
+          "core": 175,
+          "row_changes": 210,
+          "fourth_cells": 435,
+          "fourth_nonzero": 227
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 1912211653123,
+          "density": {
+            "cells": 496,
+            "core": 31,
+            "row_changes": 30,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          },
+          "saturated_density": {
+            "cells": 465,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 435,
+            "fourth_nonzero": 29
+          }
+        },
+        {
+          "h": 2,
+          "value": 1800818008234,
+          "density": {
+            "cells": 496,
+            "core": 104,
+            "row_changes": 120,
+            "fourth_cells": 435,
+            "fourth_nonzero": 129
+          },
+          "saturated_density": {
+            "cells": 406,
+            "core": 23,
+            "row_changes": 33,
+            "fourth_cells": 378,
+            "fourth_nonzero": 72
+          }
+        },
+        {
+          "h": 3,
+          "value": 1565236080537,
+          "density": {
+            "cells": 496,
+            "core": 179,
+            "row_changes": 219,
+            "fourth_cells": 435,
+            "fourth_nonzero": 259
+          },
+          "saturated_density": {
+            "cells": 300,
+            "core": 37,
+            "row_changes": 56,
+            "fourth_cells": 276,
+            "fourth_nonzero": 108
+          }
+        },
+        {
+          "h": 4,
+          "value": 1083960893208,
+          "density": {
+            "cells": 496,
+            "core": 217,
+            "row_changes": 269,
+            "fourth_cells": 435,
+            "fourth_nonzero": 309
+          },
+          "saturated_density": {
+            "cells": 136,
+            "core": 23,
+            "row_changes": 31,
+            "fourth_cells": 120,
+            "fourth_nonzero": 60
+          }
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "family": "uniform",
+      "full": {
+        "cost": 720,
+        "density": {
+          "cells": 2016,
+          "core": 264,
+          "row_changes": 459,
+          "fourth_cells": 1891,
+          "fourth_nonzero": 589
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 40827,
+          "density": {
+            "cells": 2016,
+            "core": 63,
+            "row_changes": 62,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 1953,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          }
+        },
+        {
+          "h": 2,
+          "value": 39663,
+          "density": {
+            "cells": 2016,
+            "core": 124,
+            "row_changes": 183,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 180
+          },
+          "saturated_density": {
+            "cells": 1830,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1770,
+            "fourth_nonzero": 59
+          }
+        },
+        {
+          "h": 3,
+          "value": 37205,
+          "density": {
+            "cells": 2016,
+            "core": 181,
+            "row_changes": 296,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 348
+          },
+          "saturated_density": {
+            "cells": 1596,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1540,
+            "fourth_nonzero": 55
+          }
+        },
+        {
+          "h": 4,
+          "value": 32159,
+          "density": {
+            "cells": 2016,
+            "core": 230,
+            "row_changes": 393,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 492
+          },
+          "saturated_density": {
+            "cells": 1176,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1128,
+            "fourth_nonzero": 47
+          }
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "family": "near_uniform",
+      "full": {
+        "cost": 870426590122533005788447482,
+        "density": {
+          "cells": 2016,
+          "core": 790,
+          "row_changes": 1025,
+          "fourth_cells": 1891,
+          "fourth_nonzero": 1247
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 49280652110770743677722602451,
+          "density": {
+            "cells": 2016,
+            "core": 63,
+            "row_changes": 62,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 1953,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          }
+        },
+        {
+          "h": 2,
+          "value": 47875880308378544576714024684,
+          "density": {
+            "cells": 2016,
+            "core": 179,
+            "row_changes": 209,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 218
+          },
+          "saturated_density": {
+            "cells": 1830,
+            "core": 19,
+            "row_changes": 26,
+            "fourth_cells": 1770,
+            "fourth_nonzero": 97
+          }
+        },
+        {
+          "h": 3,
+          "value": 44909176347044244581985066129,
+          "density": {
+            "cells": 2016,
+            "core": 347,
+            "row_changes": 433,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 497
+          },
+          "saturated_density": {
+            "cells": 1596,
+            "core": 38,
+            "row_changes": 60,
+            "fourth_cells": 1540,
+            "fourth_nonzero": 153
+          }
+        },
+        {
+          "h": 4,
+          "value": 38818608067825742799815345998,
+          "density": {
+            "cells": 2016,
+            "core": 561,
+            "row_changes": 715,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 837
+          },
+          "saturated_density": {
+            "cells": 1176,
+            "core": 54,
+            "row_changes": 82,
+            "fourth_cells": 1128,
+            "fourth_nonzero": 169
+          }
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "family": "random_64",
+      "full": {
+        "cost": 6283644630372468146231,
+        "density": {
+          "cells": 2016,
+          "core": 645,
+          "row_changes": 884,
+          "fourth_cells": 1891,
+          "fourth_nonzero": 1128
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 370170280337144923005495,
+          "density": {
+            "cells": 2016,
+            "core": 63,
+            "row_changes": 62,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 1953,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          }
+        },
+        {
+          "h": 2,
+          "value": 359609626733404572527720,
+          "density": {
+            "cells": 2016,
+            "core": 222,
+            "row_changes": 253,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 285
+          },
+          "saturated_density": {
+            "cells": 1830,
+            "core": 53,
+            "row_changes": 70,
+            "fourth_cells": 1770,
+            "fourth_nonzero": 164
+          }
+        },
+        {
+          "h": 3,
+          "value": 337299879712110330077146,
+          "density": {
+            "cells": 2016,
+            "core": 412,
+            "row_changes": 528,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 631
+          },
+          "saturated_density": {
+            "cells": 1596,
+            "core": 94,
+            "row_changes": 142,
+            "fourth_cells": 1540,
+            "fourth_nonzero": 284
+          }
+        },
+        {
+          "h": 4,
+          "value": 291494585153272928835792,
+          "density": {
+            "cells": 2016,
+            "core": 580,
+            "row_changes": 780,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 976
+          },
+          "saturated_density": {
+            "cells": 1176,
+            "core": 103,
+            "row_changes": 156,
+            "fourth_cells": 1128,
+            "fourth_nonzero": 302
+          }
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "family": "small_random",
+      "full": {
+        "cost": 4799,
+        "density": {
+          "cells": 2016,
+          "core": 584,
+          "row_changes": 790,
+          "fourth_cells": 1891,
+          "fourth_nonzero": 1026
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 286991,
+          "density": {
+            "cells": 2016,
+            "core": 63,
+            "row_changes": 62,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 1953,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          }
+        },
+        {
+          "h": 2,
+          "value": 278802,
+          "density": {
+            "cells": 2016,
+            "core": 212,
+            "row_changes": 249,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 276
+          },
+          "saturated_density": {
+            "cells": 1830,
+            "core": 47,
+            "row_changes": 68,
+            "fourth_cells": 1770,
+            "fourth_nonzero": 155
+          }
+        },
+        {
+          "h": 3,
+          "value": 261502,
+          "density": {
+            "cells": 2016,
+            "core": 399,
+            "row_changes": 501,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 604
+          },
+          "saturated_density": {
+            "cells": 1596,
+            "core": 91,
+            "row_changes": 138,
+            "fourth_cells": 1540,
+            "fourth_nonzero": 270
+          }
+        },
+        {
+          "h": 4,
+          "value": 225985,
+          "density": {
+            "cells": 2016,
+            "core": 575,
+            "row_changes": 765,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 974
+          },
+          "saturated_density": {
+            "cells": 1176,
+            "core": 106,
+            "row_changes": 164,
+            "fourth_cells": 1128,
+            "fourth_nonzero": 315
+          }
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "family": "linear",
+      "full": {
+        "cost": 22573,
+        "density": {
+          "cells": 2016,
+          "core": 1651,
+          "row_changes": 1761,
+          "fourth_cells": 1891,
+          "fourth_nonzero": 1771
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 1335163,
+          "density": {
+            "cells": 2016,
+            "core": 63,
+            "row_changes": 62,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 1953,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          }
+        },
+        {
+          "h": 2,
+          "value": 1297073,
+          "density": {
+            "cells": 2016,
+            "core": 186,
+            "row_changes": 183,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 180
+          },
+          "saturated_density": {
+            "cells": 1830,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1770,
+            "fourth_nonzero": 59
+          }
+        },
+        {
+          "h": 3,
+          "value": 1216613,
+          "density": {
+            "cells": 2016,
+            "core": 419,
+            "row_changes": 410,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 406
+          },
+          "saturated_density": {
+            "cells": 1596,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1540,
+            "fourth_nonzero": 55
+          }
+        },
+        {
+          "h": 4,
+          "value": 1051447,
+          "density": {
+            "cells": 2016,
+            "core": 833,
+            "row_changes": 819,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 802
+          },
+          "saturated_density": {
+            "cells": 1176,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1128,
+            "fourth_nonzero": 47
+          }
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "family": "geometric",
+      "full": {
+        "cost": 110680464442257309562,
+        "density": {
+          "cells": 2016,
+          "core": 2016,
+          "row_changes": 0,
+          "fourth_cells": 1891,
+          "fourth_nonzero": 0
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 17487513381876654931399,
+          "density": {
+            "cells": 2016,
+            "core": 63,
+            "row_changes": 62,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 1953,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          }
+        },
+        {
+          "h": 2,
+          "value": 16984839605868069649879,
+          "density": {
+            "cells": 2016,
+            "core": 186,
+            "row_changes": 183,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 180
+          },
+          "saturated_density": {
+            "cells": 1830,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1770,
+            "fourth_nonzero": 59
+          }
+        },
+        {
+          "h": 3,
+          "value": 15930781120281259802105,
+          "density": {
+            "cells": 2016,
+            "core": 420,
+            "row_changes": 291,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 406
+          },
+          "saturated_density": {
+            "cells": 1596,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1540,
+            "fourth_nonzero": 55
+          }
+        },
+        {
+          "h": 4,
+          "value": 13772267743377457413695,
+          "density": {
+            "cells": 2016,
+            "core": 783,
+            "row_changes": 591,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 695
+          },
+          "saturated_density": {
+            "cells": 1176,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1128,
+            "fourth_nonzero": 47
+          }
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "family": "folded_geometric",
+      "full": {
+        "cost": 60129542002,
+        "density": {
+          "cells": 2016,
+          "core": 1024,
+          "row_changes": 558,
+          "fourth_cells": 1891,
+          "fourth_nonzero": 151
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 6786048326479,
+          "density": {
+            "cells": 2016,
+            "core": 63,
+            "row_changes": 62,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 1953,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          }
+        },
+        {
+          "h": 2,
+          "value": 6590627314545,
+          "density": {
+            "cells": 2016,
+            "core": 184,
+            "row_changes": 183,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 180
+          },
+          "saturated_density": {
+            "cells": 1830,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1770,
+            "fourth_nonzero": 59
+          }
+        },
+        {
+          "h": 3,
+          "value": 6178847325113,
+          "density": {
+            "cells": 2016,
+            "core": 404,
+            "row_changes": 348,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 404
+          },
+          "saturated_density": {
+            "cells": 1596,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1540,
+            "fourth_nonzero": 55
+          }
+        },
+        {
+          "h": 4,
+          "value": 5338275249229,
+          "density": {
+            "cells": 2016,
+            "core": 706,
+            "row_changes": 617,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 670
+          },
+          "saturated_density": {
+            "cells": 1176,
+            "core": 2,
+            "row_changes": 2,
+            "fourth_cells": 1128,
+            "fourth_nonzero": 49
+          }
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "family": "log_uniform",
+      "full": {
+        "cost": 63208007065948227549,
+        "density": {
+          "cells": 2016,
+          "core": 416,
+          "row_changes": 439,
+          "fourth_cells": 1891,
+          "fourth_nonzero": 502
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 7543909970651719524539,
+          "density": {
+            "cells": 2016,
+            "core": 63,
+            "row_changes": 62,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          },
+          "saturated_density": {
+            "cells": 1953,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 61
+          }
+        },
+        {
+          "h": 2,
+          "value": 7324440089266629238784,
+          "density": {
+            "cells": 2016,
+            "core": 222,
+            "row_changes": 260,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 300
+          },
+          "saturated_density": {
+            "cells": 1830,
+            "core": 54,
+            "row_changes": 77,
+            "fourth_cells": 1770,
+            "fourth_nonzero": 179
+          }
+        },
+        {
+          "h": 3,
+          "value": 6859321350668716873561,
+          "density": {
+            "cells": 2016,
+            "core": 403,
+            "row_changes": 499,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 641
+          },
+          "saturated_density": {
+            "cells": 1596,
+            "core": 100,
+            "row_changes": 156,
+            "fourth_cells": 1540,
+            "fourth_nonzero": 321
+          }
+        },
+        {
+          "h": 4,
+          "value": 5914988055445395390170,
+          "density": {
+            "cells": 2016,
+            "core": 489,
+            "row_changes": 613,
+            "fourth_cells": 1891,
+            "fourth_nonzero": 728
+          },
+          "saturated_density": {
+            "cells": 1176,
+            "core": 77,
+            "row_changes": 120,
+            "fourth_cells": 1128,
+            "fourth_nonzero": 217
+          }
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "family": "uniform",
+      "full": {
+        "cost": 1682,
+        "density": {
+          "cells": 8128,
+          "core": 649,
+          "row_changes": 1164,
+          "fourth_cells": 7875,
+          "fourth_nonzero": 1549
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 163579,
+          "density": {
+            "cells": 8128,
+            "core": 127,
+            "row_changes": 126,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          },
+          "saturated_density": {
+            "cells": 8001,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          }
+        },
+        {
+          "h": 2,
+          "value": 161263,
+          "density": {
+            "cells": 8128,
+            "core": 252,
+            "row_changes": 375,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 372
+          },
+          "saturated_density": {
+            "cells": 7750,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7626,
+            "fourth_nonzero": 123
+          }
+        },
+        {
+          "h": 3,
+          "value": 156373,
+          "density": {
+            "cells": 8128,
+            "core": 373,
+            "row_changes": 616,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 732
+          },
+          "saturated_density": {
+            "cells": 7260,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7140,
+            "fourth_nonzero": 119
+          }
+        },
+        {
+          "h": 4,
+          "value": 146335,
+          "density": {
+            "cells": 8128,
+            "core": 486,
+            "row_changes": 841,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1068
+          },
+          "saturated_density": {
+            "cells": 6328,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 6216,
+            "fourth_nonzero": 111
+          }
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "family": "near_uniform",
+      "full": {
+        "cost": 2033413228591806271855789740,
+        "density": {
+          "cells": 8128,
+          "core": 2174,
+          "row_changes": 3082,
+          "fourth_cells": 7875,
+          "fourth_nonzero": 4043
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 197601343067650367864074047583,
+          "density": {
+            "cells": 8128,
+            "core": 127,
+            "row_changes": 126,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          },
+          "saturated_density": {
+            "cells": 8001,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          }
+        },
+        {
+          "h": 2,
+          "value": 194803888721062115953803953939,
+          "density": {
+            "cells": 8128,
+            "core": 366,
+            "row_changes": 439,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 466
+          },
+          "saturated_density": {
+            "cells": 7750,
+            "core": 45,
+            "row_changes": 64,
+            "fourth_cells": 7626,
+            "fourth_nonzero": 217
+          }
+        },
+        {
+          "h": 3,
+          "value": 188897077166425037806189572977,
+          "density": {
+            "cells": 8128,
+            "core": 715,
+            "row_changes": 923,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1045
+          },
+          "saturated_density": {
+            "cells": 7260,
+            "core": 93,
+            "row_changes": 138,
+            "fourth_cells": 7140,
+            "fourth_nonzero": 330
+          }
+        },
+        {
+          "h": 4,
+          "value": 176771551195690307183886617379,
+          "density": {
+            "cells": 8128,
+            "core": 1171,
+            "row_changes": 1564,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1897
+          },
+          "saturated_density": {
+            "cells": 6328,
+            "core": 137,
+            "row_changes": 204,
+            "fourth_cells": 6216,
+            "fourth_nonzero": 450
+          }
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "family": "random_64",
+      "full": {
+        "cost": 16219755036188436795753,
+        "density": {
+          "cells": 8128,
+          "core": 1984,
+          "row_changes": 2858,
+          "fourth_cells": 7875,
+          "fourth_nonzero": 3934
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 1624177798118997578683507,
+          "density": {
+            "cells": 8128,
+            "core": 127,
+            "row_changes": 126,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          },
+          "saturated_density": {
+            "cells": 8001,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          }
+        },
+        {
+          "h": 2,
+          "value": 1601175860134960157498889,
+          "density": {
+            "cells": 8128,
+            "core": 458,
+            "row_changes": 550,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 636
+          },
+          "saturated_density": {
+            "cells": 7750,
+            "core": 117,
+            "row_changes": 175,
+            "fourth_cells": 7626,
+            "fourth_nonzero": 387
+          }
+        },
+        {
+          "h": 3,
+          "value": 1552600162489060872394691,
+          "density": {
+            "cells": 8128,
+            "core": 922,
+            "row_changes": 1213,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1499
+          },
+          "saturated_density": {
+            "cells": 7260,
+            "core": 245,
+            "row_changes": 402,
+            "fourth_cells": 7140,
+            "fourth_nonzero": 767
+          }
+        },
+        {
+          "h": 4,
+          "value": 1452879561493153884131636,
+          "density": {
+            "cells": 8128,
+            "core": 1419,
+            "row_changes": 1957,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 2518
+          },
+          "saturated_density": {
+            "cells": 6328,
+            "core": 322,
+            "row_changes": 531,
+            "fourth_cells": 6216,
+            "fourth_nonzero": 976
+          }
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "family": "small_random",
+      "full": {
+        "cost": 12478,
+        "density": {
+          "cells": 8128,
+          "core": 1728,
+          "row_changes": 2459,
+          "fourth_cells": 7875,
+          "fourth_nonzero": 3290
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 1248595,
+          "density": {
+            "cells": 8128,
+            "core": 127,
+            "row_changes": 126,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          },
+          "saturated_density": {
+            "cells": 8001,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          }
+        },
+        {
+          "h": 2,
+          "value": 1230911,
+          "density": {
+            "cells": 8128,
+            "core": 431,
+            "row_changes": 493,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 557
+          },
+          "saturated_density": {
+            "cells": 7750,
+            "core": 91,
+            "row_changes": 121,
+            "fourth_cells": 7626,
+            "fourth_nonzero": 308
+          }
+        },
+        {
+          "h": 3,
+          "value": 1193565,
+          "density": {
+            "cells": 8128,
+            "core": 838,
+            "row_changes": 1058,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1273
+          },
+          "saturated_density": {
+            "cells": 7260,
+            "core": 178,
+            "row_changes": 271,
+            "fourth_cells": 7140,
+            "fourth_nonzero": 554
+          }
+        },
+        {
+          "h": 4,
+          "value": 1116896,
+          "density": {
+            "cells": 8128,
+            "core": 1306,
+            "row_changes": 1764,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 2255
+          },
+          "saturated_density": {
+            "cells": 6328,
+            "core": 258,
+            "row_changes": 407,
+            "fourth_cells": 6216,
+            "fourth_nonzero": 774
+          }
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "family": "linear",
+      "full": {
+        "cost": 104847,
+        "density": {
+          "cells": 8128,
+          "core": 6605,
+          "row_changes": 7169,
+          "fourth_cells": 7875,
+          "fourth_nonzero": 7357
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 10583803,
+          "density": {
+            "cells": 8128,
+            "core": 127,
+            "row_changes": 126,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          },
+          "saturated_density": {
+            "cells": 8001,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          }
+        },
+        {
+          "h": 2,
+          "value": 10433905,
+          "density": {
+            "cells": 8128,
+            "core": 378,
+            "row_changes": 375,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 372
+          },
+          "saturated_density": {
+            "cells": 7750,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7626,
+            "fourth_nonzero": 123
+          }
+        },
+        {
+          "h": 3,
+          "value": 10117349,
+          "density": {
+            "cells": 8128,
+            "core": 867,
+            "row_changes": 858,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 854
+          },
+          "saturated_density": {
+            "cells": 7260,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7140,
+            "fourth_nonzero": 119
+          }
+        },
+        {
+          "h": 4,
+          "value": 9467511,
+          "density": {
+            "cells": 8128,
+            "core": 1793,
+            "row_changes": 1779,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1762
+          },
+          "saturated_density": {
+            "cells": 6328,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 6216,
+            "fourth_nonzero": 111
+          }
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "family": "geometric",
+      "full": {
+        "cost": 2041694201525630780780247644590609268474,
+        "density": {
+          "cells": 8128,
+          "core": 8128,
+          "row_changes": 0,
+          "fourth_cells": 7875,
+          "fourth_nonzero": 0
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 649258756085150588288118750979813747456903,
+          "density": {
+            "cells": 8128,
+            "core": 127,
+            "row_changes": 126,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          },
+          "saturated_density": {
+            "cells": 8001,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          }
+        },
+        {
+          "h": 2,
+          "value": 639986061586555015158741792927298063694743,
+          "density": {
+            "cells": 8128,
+            "core": 378,
+            "row_changes": 375,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 372
+          },
+          "saturated_density": {
+            "cells": 7750,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7626,
+            "fourth_nonzero": 123
+          }
+        },
+        {
+          "h": 3,
+          "value": 620542114464213265769904903249517183237049,
+          "density": {
+            "cells": 8128,
+            "core": 868,
+            "row_changes": 611,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 854
+          },
+          "saturated_density": {
+            "cells": 7260,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7140,
+            "fourth_nonzero": 119
+          }
+        },
+        {
+          "h": 4,
+          "value": 580724570620790257314308509709186539453439,
+          "density": {
+            "cells": 8128,
+            "core": 1679,
+            "row_changes": 1295,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1527
+          },
+          "saturated_density": {
+            "cells": 6328,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 6216,
+            "fourth_nonzero": 111
+          }
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "family": "folded_geometric",
+      "full": {
+        "cost": 258254417031933722354,
+        "density": {
+          "cells": 8128,
+          "core": 4096,
+          "row_changes": 2142,
+          "fourth_cells": 7875,
+          "fourth_nonzero": 311
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 58660646154396374136463,
+          "density": {
+            "cells": 8128,
+            "core": 127,
+            "row_changes": 126,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          },
+          "saturated_density": {
+            "cells": 8001,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          }
+        },
+        {
+          "h": 2,
+          "value": 57821319299042589537969,
+          "density": {
+            "cells": 8128,
+            "core": 376,
+            "row_changes": 375,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 372
+          },
+          "saturated_density": {
+            "cells": 7750,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7626,
+            "fourth_nonzero": 123
+          }
+        },
+        {
+          "h": 3,
+          "value": 56052737710975686276857,
+          "density": {
+            "cells": 8128,
+            "core": 852,
+            "row_changes": 732,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 852
+          },
+          "saturated_density": {
+            "cells": 7260,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7140,
+            "fourth_nonzero": 119
+          }
+        },
+        {
+          "h": 4,
+          "value": 52442508134487420827533,
+          "density": {
+            "cells": 8128,
+            "core": 1602,
+            "row_changes": 1385,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1502
+          },
+          "saturated_density": {
+            "cells": 6328,
+            "core": 2,
+            "row_changes": 2,
+            "fourth_cells": 6216,
+            "fourth_nonzero": 113
+          }
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "family": "log_uniform",
+      "full": {
+        "cost": 1089905184966487336713679555680760962298,
+        "density": {
+          "cells": 8128,
+          "core": 904,
+          "row_changes": 1045,
+          "fourth_cells": 7875,
+          "fourth_nonzero": 1280
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 299601979459487980872125686467125933890687,
+          "density": {
+            "cells": 8128,
+            "core": 127,
+            "row_changes": 126,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          },
+          "saturated_density": {
+            "cells": 8001,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 125
+          }
+        },
+        {
+          "h": 2,
+          "value": 295192187623298908137486560203969588456317,
+          "density": {
+            "cells": 8128,
+            "core": 456,
+            "row_changes": 540,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 627
+          },
+          "saturated_density": {
+            "cells": 7750,
+            "core": 114,
+            "row_changes": 165,
+            "fourth_cells": 7626,
+            "fourth_nonzero": 378
+          }
+        },
+        {
+          "h": 3,
+          "value": 285975968423937095345656760988650323402873,
+          "density": {
+            "cells": 8128,
+            "core": 839,
+            "row_changes": 1070,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1375
+          },
+          "saturated_density": {
+            "cells": 7260,
+            "core": 221,
+            "row_changes": 350,
+            "fourth_cells": 7140,
+            "fourth_nonzero": 696
+          }
+        },
+        {
+          "h": 4,
+          "value": 267285133560754326373374158236962333794673,
+          "density": {
+            "cells": 8128,
+            "core": 1142,
+            "row_changes": 1469,
+            "fourth_cells": 7875,
+            "fourth_nonzero": 1878
+          },
+          "saturated_density": {
+            "cells": 6328,
+            "core": 238,
+            "row_changes": 351,
+            "fourth_cells": 6216,
+            "fourth_nonzero": 674
+          }
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "family": "uniform",
+      "full": {
+        "cost": 3860,
+        "density": {
+          "cells": 32640,
+          "core": 1546,
+          "row_changes": 2829,
+          "fourth_cells": 32131,
+          "fourth_nonzero": 3853
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 654843,
+          "density": {
+            "cells": 32640,
+            "core": 255,
+            "row_changes": 254,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          },
+          "saturated_density": {
+            "cells": 32385,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          }
+        },
+        {
+          "h": 2,
+          "value": 650223,
+          "density": {
+            "cells": 32640,
+            "core": 508,
+            "row_changes": 759,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 756
+          },
+          "saturated_density": {
+            "cells": 31878,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 31626,
+            "fourth_nonzero": 251
+          }
+        },
+        {
+          "h": 3,
+          "value": 640469,
+          "density": {
+            "cells": 32640,
+            "core": 757,
+            "row_changes": 1256,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 1500
+          },
+          "saturated_density": {
+            "cells": 30876,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 30628,
+            "fourth_nonzero": 247
+          }
+        },
+        {
+          "h": 4,
+          "value": 620447,
+          "density": {
+            "cells": 32640,
+            "core": 998,
+            "row_changes": 1737,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 2220
+          },
+          "saturated_density": {
+            "cells": 28920,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 28680,
+            "fourth_nonzero": 239
+          }
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "family": "near_uniform",
+      "full": {
+        "cost": 4666453663712468614365843213,
+        "density": {
+          "cells": 32640,
+          "core": 6229,
+          "row_changes": 9323,
+          "fourth_cells": 32131,
+          "fourth_nonzero": 12787
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 791348334409900882212566995435,
+          "density": {
+            "cells": 32640,
+            "core": 255,
+            "row_changes": 254,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          },
+          "saturated_density": {
+            "cells": 32385,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          }
+        },
+        {
+          "h": 2,
+          "value": 785765514974920524683773870010,
+          "density": {
+            "cells": 32640,
+            "core": 740,
+            "row_changes": 896,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 955
+          },
+          "saturated_density": {
+            "cells": 31878,
+            "core": 97,
+            "row_changes": 137,
+            "fourth_cells": 31626,
+            "fourth_nonzero": 450
+          }
+        },
+        {
+          "h": 3,
+          "value": 773978488233677890230388644177,
+          "density": {
+            "cells": 32640,
+            "core": 1474,
+            "row_changes": 1916,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 2194
+          },
+          "saturated_density": {
+            "cells": 30876,
+            "core": 220,
+            "row_changes": 331,
+            "fourth_cells": 30628,
+            "fourth_nonzero": 739
+          }
+        },
+        {
+          "h": 4,
+          "value": 749783046879910701927819217528,
+          "density": {
+            "cells": 32640,
+            "core": 2471,
+            "row_changes": 3360,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 4124
+          },
+          "saturated_density": {
+            "cells": 28920,
+            "core": 352,
+            "row_changes": 559,
+            "fourth_cells": 28680,
+            "fourth_nonzero": 1123
+          }
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "family": "random_64",
+      "full": {
+        "cost": 34168460188950995938577,
+        "density": {
+          "cells": 32640,
+          "core": 4922,
+          "row_changes": 7359,
+          "fourth_cells": 32131,
+          "fourth_nonzero": 10594
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 5958405450102992339010571,
+          "density": {
+            "cells": 32640,
+            "core": 255,
+            "row_changes": 254,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          },
+          "saturated_density": {
+            "cells": 32385,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          }
+        },
+        {
+          "h": 2,
+          "value": 5916360677454693565766851,
+          "density": {
+            "cells": 32640,
+            "core": 928,
+            "row_changes": 1112,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 1303
+          },
+          "saturated_density": {
+            "cells": 31878,
+            "core": 240,
+            "row_changes": 353,
+            "fourth_cells": 31626,
+            "fourth_nonzero": 798
+          }
+        },
+        {
+          "h": 3,
+          "value": 5827583902860786385551130,
+          "density": {
+            "cells": 32640,
+            "core": 1876,
+            "row_changes": 2474,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 3155
+          },
+          "saturated_density": {
+            "cells": 30876,
+            "core": 522,
+            "row_changes": 841,
+            "fourth_cells": 30628,
+            "fourth_nonzero": 1665
+          }
+        },
+        {
+          "h": 4,
+          "value": 5645343679855319989527610,
+          "density": {
+            "cells": 32640,
+            "core": 2997,
+            "row_changes": 4197,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 5607
+          },
+          "saturated_density": {
+            "cells": 28920,
+            "core": 774,
+            "row_changes": 1282,
+            "fourth_cells": 28680,
+            "fourth_nonzero": 2421
+          }
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "family": "small_random",
+      "full": {
+        "cost": 29111,
+        "density": {
+          "cells": 32640,
+          "core": 4393,
+          "row_changes": 6431,
+          "fourth_cells": 32131,
+          "fourth_nonzero": 9228
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 5082563,
+          "density": {
+            "cells": 32640,
+            "core": 255,
+            "row_changes": 254,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          },
+          "saturated_density": {
+            "cells": 32385,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          }
+        },
+        {
+          "h": 2,
+          "value": 5046699,
+          "density": {
+            "cells": 32640,
+            "core": 877,
+            "row_changes": 1016,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 1141
+          },
+          "saturated_density": {
+            "cells": 31878,
+            "core": 190,
+            "row_changes": 265,
+            "fourth_cells": 31626,
+            "fourth_nonzero": 636
+          }
+        },
+        {
+          "h": 3,
+          "value": 4970973,
+          "density": {
+            "cells": 32640,
+            "core": 1746,
+            "row_changes": 2208,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 2678
+          },
+          "saturated_density": {
+            "cells": 30876,
+            "core": 405,
+            "row_changes": 623,
+            "fourth_cells": 30628,
+            "fourth_nonzero": 1222
+          }
+        },
+        {
+          "h": 4,
+          "value": 4815523,
+          "density": {
+            "cells": 32640,
+            "core": 2789,
+            "row_changes": 3761,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 4901
+          },
+          "saturated_density": {
+            "cells": 28920,
+            "core": 631,
+            "row_changes": 1016,
+            "fourth_cells": 28680,
+            "fourth_nonzero": 1888
+          }
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "family": "linear",
+      "full": {
+        "cost": 480657,
+        "density": {
+          "cells": 32640,
+          "core": 26426,
+          "row_changes": 28917,
+          "fourth_cells": 32131,
+          "fourth_nonzero": 29882
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 84278779,
+          "density": {
+            "cells": 32640,
+            "core": 255,
+            "row_changes": 254,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          },
+          "saturated_density": {
+            "cells": 32385,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          }
+        },
+        {
+          "h": 2,
+          "value": 83684081,
+          "density": {
+            "cells": 32640,
+            "core": 762,
+            "row_changes": 759,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 756
+          },
+          "saturated_density": {
+            "cells": 31878,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 31626,
+            "fourth_nonzero": 251
+          }
+        },
+        {
+          "h": 3,
+          "value": 82428389,
+          "density": {
+            "cells": 32640,
+            "core": 1763,
+            "row_changes": 1754,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 1750
+          },
+          "saturated_density": {
+            "cells": 30876,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 30628,
+            "fourth_nonzero": 247
+          }
+        },
+        {
+          "h": 4,
+          "value": 79850743,
+          "density": {
+            "cells": 32640,
+            "core": 3713,
+            "row_changes": 3699,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 3682
+          },
+          "saturated_density": {
+            "cells": 28920,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 28680,
+            "fourth_nonzero": 239
+          }
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "family": "geometric",
+      "full": {
+        "cost": 694752535423897172541425910052127447119619907993843384236745504047478777839098,
+        "density": {
+          "cells": 32640,
+          "core": 32640,
+          "row_changes": 0,
+          "fourth_cells": 32131,
+          "fourth_nonzero": 0
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 443252117600446396081429730613257311262317501300072079143043631582291460261672711,
+          "density": {
+            "cells": 32640,
+            "core": 255,
+            "row_changes": 254,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          },
+          "saturated_density": {
+            "cells": 32385,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          }
+        },
+        {
+          "h": 2,
+          "value": 440096783168729529756137421271770565773315894217933373772968412418075827478984471,
+          "density": {
+            "cells": 32640,
+            "core": 762,
+            "row_changes": 759,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 756
+          },
+          "saturated_density": {
+            "cells": 31878,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 31626,
+            "fourth_nonzero": 251
+          }
+        },
+        {
+          "h": 3,
+          "value": 433480350819653509027012435456508508288637639000398255918401281406873666305652537,
+          "density": {
+            "cells": 32640,
+            "core": 1764,
+            "row_changes": 1251,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 1750
+          },
+          "saturated_density": {
+            "cells": 30876,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 30628,
+            "fourth_nonzero": 247
+          }
+        },
+        {
+          "h": 4,
+          "value": 419931142755635286524856551908261378216533312538495821888529094523765108143814527,
+          "density": {
+            "cells": 32640,
+            "core": 3471,
+            "row_changes": 2703,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 3191
+          },
+          "saturated_density": {
+            "cells": 28920,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 28680,
+            "fourth_nonzero": 239
+          }
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "family": "folded_geometric",
+      "full": {
+        "cost": 4763953136893138488487244504044754959858,
+        "density": {
+          "cells": 32640,
+          "core": 16384,
+          "row_changes": 8382,
+          "fourth_cells": 32131,
+          "fourth_nonzero": 631
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 2171001500955587396896329995414681189084431,
+          "density": {
+            "cells": 32640,
+            "core": 255,
+            "row_changes": 254,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          },
+          "saturated_density": {
+            "cells": 32385,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          }
+        },
+        {
+          "h": 2,
+          "value": 2155518653260684696808746450776535735463217,
+          "density": {
+            "cells": 32640,
+            "core": 760,
+            "row_changes": 759,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 756
+          },
+          "saturated_density": {
+            "cells": 31878,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 31626,
+            "fourth_nonzero": 251
+          }
+        },
+        {
+          "h": 3,
+          "value": 2122894081332139721624195410289014958189945,
+          "density": {
+            "cells": 32640,
+            "core": 1748,
+            "row_changes": 1500,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 1748
+          },
+          "saturated_density": {
+            "cells": 30876,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 30628,
+            "fourth_nonzero": 247
+          }
+        },
+        {
+          "h": 4,
+          "value": 2056297100287323866559968868954849134243341,
+          "density": {
+            "cells": 32640,
+            "core": 3394,
+            "row_changes": 2921,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 3166
+          },
+          "saturated_density": {
+            "cells": 28920,
+            "core": 2,
+            "row_changes": 2,
+            "fourth_cells": 28680,
+            "fourth_nonzero": 241
+          }
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "family": "log_uniform",
+      "full": {
+        "cost": 1182592113042789724309625072803954721872986411005961123959729220998487065036587,
+        "density": {
+          "cells": 32640,
+          "core": 2462,
+          "row_changes": 3191,
+          "fourth_cells": 32131,
+          "fourth_nonzero": 3860
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 462984518814082502291131407706186412216725409782152975910270005607162388441726439,
+          "density": {
+            "cells": 32640,
+            "core": 255,
+            "row_changes": 254,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          },
+          "saturated_density": {
+            "cells": 32385,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 253
+          }
+        },
+        {
+          "h": 2,
+          "value": 459661057981590221528356783131114922722085194313300267867127682731722333525828463,
+          "density": {
+            "cells": 32640,
+            "core": 926,
+            "row_changes": 1110,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 1285
+          },
+          "saturated_density": {
+            "cells": 31878,
+            "core": 238,
+            "row_changes": 351,
+            "fourth_cells": 31626,
+            "fourth_nonzero": 780
+          }
+        },
+        {
+          "h": 3,
+          "value": 452651295784619701928911662971797816450503254433759308696273859860460434988357177,
+          "density": {
+            "cells": 32640,
+            "core": 1738,
+            "row_changes": 2277,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 2976
+          },
+          "saturated_density": {
+            "cells": 30876,
+            "core": 500,
+            "row_changes": 810,
+            "fourth_cells": 30628,
+            "fourth_nonzero": 1590
+          }
+        },
+        {
+          "h": 4,
+          "value": 438312349358462568672640731596772733104645810322123668730273917348345414046114695,
+          "density": {
+            "cells": 32640,
+            "core": 2443,
+            "row_changes": 3274,
+            "fourth_cells": 32131,
+            "fourth_nonzero": 4330
+          },
+          "saturated_density": {
+            "cells": 28920,
+            "core": 613,
+            "row_changes": 974,
+            "fourth_cells": 28680,
+            "fourth_nonzero": 1840
+          }
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "family": "uniform",
+      "full": {
+        "cost": 8726,
+        "density": {
+          "cells": 130816,
+          "core": 3595,
+          "row_changes": 6670,
+          "fourth_cells": 129795,
+          "fourth_nonzero": 9229
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 2620411,
+          "density": {
+            "cells": 130816,
+            "core": 511,
+            "row_changes": 510,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          },
+          "saturated_density": {
+            "cells": 130305,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          }
+        },
+        {
+          "h": 2,
+          "value": 2611183,
+          "density": {
+            "cells": 130816,
+            "core": 1020,
+            "row_changes": 1527,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 1524
+          },
+          "saturated_density": {
+            "cells": 129286,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 128778,
+            "fourth_nonzero": 507
+          }
+        },
+        {
+          "h": 3,
+          "value": 2591701,
+          "density": {
+            "cells": 130816,
+            "core": 1525,
+            "row_changes": 2536,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 3036
+          },
+          "saturated_density": {
+            "cells": 127260,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 126756,
+            "fourth_nonzero": 503
+          }
+        },
+        {
+          "h": 4,
+          "value": 2551711,
+          "density": {
+            "cells": 130816,
+            "core": 2022,
+            "row_changes": 3529,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 4524
+          },
+          "saturated_density": {
+            "cells": 123256,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 122760,
+            "fourth_nonzero": 495
+          }
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "family": "near_uniform",
+      "full": {
+        "cost": 10549086701957254178486100560,
+        "density": {
+          "cells": 130816,
+          "core": 16910,
+          "row_changes": 25579,
+          "fourth_cells": 129795,
+          "fourth_nonzero": 36057
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 3167264754808366974812713150927,
+          "density": {
+            "cells": 130816,
+            "core": 511,
+            "row_changes": 510,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          },
+          "saturated_density": {
+            "cells": 130305,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          }
+        },
+        {
+          "h": 2,
+          "value": 3156111205196602406046873961823,
+          "density": {
+            "cells": 130816,
+            "core": 1513,
+            "row_changes": 1807,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 1934
+          },
+          "saturated_density": {
+            "cells": 129286,
+            "core": 191,
+            "row_changes": 280,
+            "fourth_cells": 128778,
+            "fourth_nonzero": 917
+          }
+        },
+        {
+          "h": 3,
+          "value": 3132563748082148658981947046001,
+          "density": {
+            "cells": 130816,
+            "core": 3022,
+            "row_changes": 3886,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 4429
+          },
+          "saturated_density": {
+            "cells": 127260,
+            "core": 429,
+            "row_changes": 645,
+            "fourth_cells": 126756,
+            "fourth_nonzero": 1480
+          }
+        },
+        {
+          "h": 4,
+          "value": 3084228475962316555318844676743,
+          "density": {
+            "cells": 130816,
+            "core": 5089,
+            "row_changes": 6884,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 8348
+          },
+          "saturated_density": {
+            "cells": 123256,
+            "core": 698,
+            "row_changes": 1096,
+            "fourth_cells": 122760,
+            "fourth_nonzero": 2206
+          }
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "family": "random_64",
+      "full": {
+        "cost": 79177102711577063064319,
+        "density": {
+          "cells": 130816,
+          "core": 12080,
+          "row_changes": 18430,
+          "fourth_cells": 129795,
+          "fourth_nonzero": 27003
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 24385495314945797458279243,
+          "density": {
+            "cells": 130816,
+            "core": 511,
+            "row_changes": 510,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          },
+          "saturated_density": {
+            "cells": 130305,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          }
+        },
+        {
+          "h": 2,
+          "value": 24299612448595570027088638,
+          "density": {
+            "cells": 130816,
+            "core": 1880,
+            "row_changes": 2285,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 2691
+          },
+          "saturated_density": {
+            "cells": 129286,
+            "core": 503,
+            "row_changes": 758,
+            "fourth_cells": 128778,
+            "fourth_nonzero": 1674
+          }
+        },
+        {
+          "h": 3,
+          "value": 24118287815831675672400446,
+          "density": {
+            "cells": 130816,
+            "core": 3838,
+            "row_changes": 5130,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 6544
+          },
+          "saturated_density": {
+            "cells": 127260,
+            "core": 1103,
+            "row_changes": 1813,
+            "fourth_cells": 126756,
+            "fourth_nonzero": 3533
+          }
+        },
+        {
+          "h": 4,
+          "value": 23746080243510762116598631,
+          "density": {
+            "cells": 130816,
+            "core": 6180,
+            "row_changes": 8685,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 11604
+          },
+          "saturated_density": {
+            "cells": 123256,
+            "core": 1654,
+            "row_changes": 2758,
+            "fourth_cells": 122760,
+            "fourth_nonzero": 5165
+          }
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "family": "small_random",
+      "full": {
+        "cost": 63563,
+        "density": {
+          "cells": 130816,
+          "core": 10937,
+          "row_changes": 16642,
+          "fourth_cells": 129795,
+          "fourth_nonzero": 24507
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 19730275,
+          "density": {
+            "cells": 130816,
+            "core": 511,
+            "row_changes": 510,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          },
+          "saturated_density": {
+            "cells": 130305,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          }
+        },
+        {
+          "h": 2,
+          "value": 19660787,
+          "density": {
+            "cells": 130816,
+            "core": 1767,
+            "row_changes": 2076,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 2367
+          },
+          "saturated_density": {
+            "cells": 129286,
+            "core": 394,
+            "row_changes": 566,
+            "fourth_cells": 128778,
+            "fourth_nonzero": 1350
+          }
+        },
+        {
+          "h": 3,
+          "value": 19514077,
+          "density": {
+            "cells": 130816,
+            "core": 3472,
+            "row_changes": 4471,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 5540
+          },
+          "saturated_density": {
+            "cells": 127260,
+            "core": 823,
+            "row_changes": 1292,
+            "fourth_cells": 126756,
+            "fourth_nonzero": 2596
+          }
+        },
+        {
+          "h": 4,
+          "value": 19212923,
+          "density": {
+            "cells": 130816,
+            "core": 5555,
+            "row_changes": 7691,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 10150
+          },
+          "saturated_density": {
+            "cells": 123256,
+            "core": 1300,
+            "row_changes": 2124,
+            "fourth_cells": 122760,
+            "fourth_nonzero": 4020
+          }
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "family": "linear",
+      "full": {
+        "cost": 2174995,
+        "density": {
+          "cells": 130816,
+          "core": 105702,
+          "row_changes": 116182,
+          "fourth_cells": 129795,
+          "fourth_nonzero": 120560
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 672660475,
+          "density": {
+            "cells": 130816,
+            "core": 511,
+            "row_changes": 510,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          },
+          "saturated_density": {
+            "cells": 130305,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          }
+        },
+        {
+          "h": 2,
+          "value": 670291441,
+          "density": {
+            "cells": 130816,
+            "core": 1530,
+            "row_changes": 1527,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 1524
+          },
+          "saturated_density": {
+            "cells": 129286,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 128778,
+            "fourth_nonzero": 507
+          }
+        },
+        {
+          "h": 3,
+          "value": 665289701,
+          "density": {
+            "cells": 130816,
+            "core": 3555,
+            "row_changes": 3546,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 3542
+          },
+          "saturated_density": {
+            "cells": 127260,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 126756,
+            "fourth_nonzero": 503
+          }
+        },
+        {
+          "h": 4,
+          "value": 655022583,
+          "density": {
+            "cells": 130816,
+            "core": 7553,
+            "row_changes": 7539,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 7522
+          },
+          "saturated_density": {
+            "cells": 123256,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 122760,
+            "fourth_nonzero": 495
+          }
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "family": "geometric",
+      "full": {
+        "cost": 80446847579655582597444149989235076764876194923554360266341368662330584180441281860811245789001420566140191149118916305122523296871679419678601894036503546,
+        "density": {
+          "cells": 130816,
+          "core": 130816,
+          "row_changes": 0,
+          "fourth_cells": 129795,
+          "fourth_nonzero": 0
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 102811071206799834559533623686242428105511777112302472420384269150458486582603958218116772118343815483527164288573975037946584773402006298349253220578652843527,
+          "density": {
+            "cells": 130816,
+            "core": 511,
+            "row_changes": 510,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          },
+          "saturated_density": {
+            "cells": 130305,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          }
+        },
+        {
+          "h": 2,
+          "value": 102445708440708898788570231505041318798537964393691329700841302101117068512784454062998921043718767365122610920438393293060819980095380754318212903643237051927,
+          "density": {
+            "cells": 130816,
+            "core": 1530,
+            "row_changes": 1527,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 1524
+          },
+          "saturated_density": {
+            "cells": 129286,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 128778,
+            "fourth_nonzero": 507
+          }
+        },
+        {
+          "h": 3,
+          "value": 101679577915712022576177384482878212872159963756099042472992316722996904590003532792777601445150074148949760193791706113561254699635329369844867468417998777913,
+          "density": {
+            "cells": 130816,
+            "core": 3556,
+            "row_changes": 2531,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 3542
+          },
+          "saturated_density": {
+            "cells": 127260,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 126756,
+            "fourth_nonzero": 503
+          }
+        },
+        {
+          "h": 4,
+          "value": 100110686806468260349830775342547075977990870202258734611533830565524738983226472842897179734862037767609501030781273325477513245310164006878561588411665215103,
+          "density": {
+            "cells": 130816,
+            "core": 7055,
+            "row_changes": 5519,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 6519
+          },
+          "saturated_density": {
+            "cells": 123256,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 122760,
+            "fourth_nonzero": 495
+          }
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "family": "folded_geometric",
+      "full": {
+        "cost": 1621089249322426735929993790121630709945779785318967896552406176110783814958066,
+        "density": {
+          "cells": 130816,
+          "core": 65536,
+          "row_changes": 33150,
+          "fourth_cells": 129795,
+          "fourth_nonzero": 1271
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 1479822900452900977513237188411031462364790404026886408424267923621129796798372367,
+          "density": {
+            "cells": 130816,
+            "core": 511,
+            "row_changes": 510,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          },
+          "saturated_density": {
+            "cells": 130305,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          }
+        },
+        {
+          "h": 2,
+          "value": 1474554360392603090621464708593136162557466619724599762760472603548769749399755313,
+          "density": {
+            "cells": 130816,
+            "core": 1528,
+            "row_changes": 1527,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 1524
+          },
+          "saturated_density": {
+            "cells": 129286,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 128778,
+            "fourth_nonzero": 507
+          }
+        },
+        {
+          "h": 3,
+          "value": 1463452793836975400385229840405428209392034359944781473683189607682011078095526521,
+          "density": {
+            "cells": 130816,
+            "core": 3540,
+            "row_changes": 3036,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 3540
+          },
+          "saturated_density": {
+            "cells": 127260,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 126756,
+            "fourth_nonzero": 503
+          }
+        },
+        {
+          "h": 4,
+          "value": 1440791015497256587794949553331579453301157278805258334856998576924337392075135757,
+          "density": {
+            "cells": 130816,
+            "core": 6978,
+            "row_changes": 5993,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 6494
+          },
+          "saturated_density": {
+            "cells": 123256,
+            "core": 2,
+            "row_changes": 2,
+            "fourth_cells": 122760,
+            "fourth_nonzero": 497
+          }
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "family": "log_uniform",
+      "full": {
+        "cost": 122974988948619765557093134346646227662447166864853751838903559680589683130278905502802949024155687824974389594036085544547131949217621935546402221651923322,
+        "density": {
+          "cells": 130816,
+          "core": 6184,
+          "row_changes": 8141,
+          "fourth_cells": 129795,
+          "fourth_nonzero": 9946
+        }
+      },
+      "layers": [
+        {
+          "h": 1,
+          "value": 80790089365445696264587249679104392746809041796512216094699513550675472804656003709893071541702116081839354551795907967897355472114626678638680846117754573747,
+          "density": {
+            "cells": 130816,
+            "core": 511,
+            "row_changes": 510,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          },
+          "saturated_density": {
+            "cells": 130305,
+            "core": 0,
+            "row_changes": 0,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 509
+          }
+        },
+        {
+          "h": 2,
+          "value": 80503941243801475636201256272179953661300821517346218749419201226795446060192188165429798520296175796087515288828437798099106656146477204054625285411214184454,
+          "density": {
+            "cells": 130816,
+            "core": 1882,
+            "row_changes": 2278,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 2656
+          },
+          "saturated_density": {
+            "cells": 129286,
+            "core": 495,
+            "row_changes": 751,
+            "fourth_cells": 128778,
+            "fourth_nonzero": 1639
+          }
+        },
+        {
+          "h": 3,
+          "value": 79899198996333748766694040898013169474374492903268390001371569203256319791683782329695960939549696523917008579348450041008664876066636065863357816728357789081,
+          "density": {
+            "cells": 130816,
+            "core": 3647,
+            "row_changes": 4805,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 6346
+          },
+          "saturated_density": {
+            "cells": 127260,
+            "core": 1087,
+            "row_changes": 1797,
+            "fourth_cells": 126756,
+            "fourth_nonzero": 3499
+          }
+        },
+        {
+          "h": 4,
+          "value": 78662186562020460374595209531056822500613206110500950274943947082973848410106931659647546673231478179536276362155911010368024078615293259142892092372539444652,
+          "density": {
+            "cells": 130816,
+            "core": 5185,
+            "row_changes": 7043,
+            "fourth_cells": 129795,
+            "fourth_nonzero": 9380
+          },
+          "saturated_density": {
+            "cells": 123256,
+            "core": 1360,
+            "row_changes": 2233,
+            "fourth_cells": 122760,
+            "fourth_nonzero": 4167
+          }
+        }
+      ]
+    }
+  ],
+  "greedy_counterexample": {
+    "p": [
+      0,
+      9,
+      0,
+      9,
+      10,
+      9,
+      0,
+      0
+    ],
+    "q": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "scores_by_root": {
+      "3": 36,
+      "4": 29
+    },
+    "selected_root": 3,
+    "largest_eligible_key": 4
+  },
+  "implementation": "dense diagnostic; no subquadratic constructor or timings",
+  "source_sha256": {
+    "ruler_layers.py": "b44498784ed9c101dea668b1167f4247f266aa8f3368d228245e9f8c2fd00113",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

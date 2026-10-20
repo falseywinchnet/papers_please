@@ -1,0 +1,4731 @@
+{
+  "seed": 81739,
+  "checked_sizes": 163,
+  "checked_scales": 749,
+  "rows": [
+    {
+      "n": 1,
+      "exceptional_cells": 0,
+      "scales": []
+    },
+    {
+      "n": 2,
+      "exceptional_cells": 1,
+      "scales": []
+    },
+    {
+      "n": 3,
+      "exceptional_cells": 2,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "exceptional_cells": 4,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 2,
+          "maximum_gap_overlap": 2
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "exceptional_cells": 6,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 4,
+          "maximum_gap_overlap": 4
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "exceptional_cells": 8,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "exceptional_cells": 10,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 11,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "exceptional_cells": 13,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 15,
+          "maximum_gap_overlap": 13
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "exceptional_cells": 16,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 20,
+          "maximum_gap_overlap": 17
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "exceptional_cells": 19,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 26,
+          "maximum_gap_overlap": 22
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "exceptional_cells": 22,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 33,
+          "maximum_gap_overlap": 27
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "exceptional_cells": 25,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 37,
+          "maximum_gap_overlap": 29
+        },
+        {
+          "side": 2,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "exceptional_cells": 28,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 46,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 2,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "exceptional_cells": 31,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 48,
+          "maximum_gap_overlap": 34
+        },
+        {
+          "side": 2,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "exceptional_cells": 34,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 59,
+          "maximum_gap_overlap": 41
+        },
+        {
+          "side": 2,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "exceptional_cells": 38,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 62,
+          "maximum_gap_overlap": 40
+        },
+        {
+          "side": 2,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "exceptional_cells": 42,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 74,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 2,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "exceptional_cells": 46,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 79,
+          "maximum_gap_overlap": 49
+        },
+        {
+          "side": 2,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 19,
+      "exceptional_cells": 50,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 93,
+          "maximum_gap_overlap": 58
+        },
+        {
+          "side": 2,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 20,
+      "exceptional_cells": 54,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 96,
+          "maximum_gap_overlap": 56
+        },
+        {
+          "side": 2,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 21,
+      "exceptional_cells": 58,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 112,
+          "maximum_gap_overlap": 66
+        },
+        {
+          "side": 2,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 22,
+      "exceptional_cells": 62,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 113,
+          "maximum_gap_overlap": 62
+        },
+        {
+          "side": 2,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 23,
+      "exceptional_cells": 66,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 131,
+          "maximum_gap_overlap": 74
+        },
+        {
+          "side": 2,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 24,
+      "exceptional_cells": 70,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 130,
+          "maximum_gap_overlap": 68
+        },
+        {
+          "side": 2,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 4,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 25,
+      "exceptional_cells": 74,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 150,
+          "maximum_gap_overlap": 82
+        },
+        {
+          "side": 2,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 4,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 26,
+      "exceptional_cells": 78,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 147,
+          "maximum_gap_overlap": 74
+        },
+        {
+          "side": 2,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 4,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 27,
+      "exceptional_cells": 82,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 169,
+          "maximum_gap_overlap": 88
+        },
+        {
+          "side": 2,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 4,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 28,
+      "exceptional_cells": 86,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 164,
+          "maximum_gap_overlap": 80
+        },
+        {
+          "side": 2,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 4,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 29,
+      "exceptional_cells": 90,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 188,
+          "maximum_gap_overlap": 94
+        },
+        {
+          "side": 2,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 4,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 30,
+      "exceptional_cells": 94,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 181,
+          "maximum_gap_overlap": 85
+        },
+        {
+          "side": 2,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 4,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 31,
+      "exceptional_cells": 98,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 207,
+          "maximum_gap_overlap": 100
+        },
+        {
+          "side": 2,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 4,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 32,
+      "exceptional_cells": 103,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 201,
+          "maximum_gap_overlap": 91
+        },
+        {
+          "side": 2,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 4,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 33,
+      "exceptional_cells": 108,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 228,
+          "maximum_gap_overlap": 107
+        },
+        {
+          "side": 2,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 4,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 34,
+      "exceptional_cells": 113,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 224,
+          "maximum_gap_overlap": 100
+        },
+        {
+          "side": 2,
+          "tiles": 36,
+          "maximum_gap_overlap": 28
+        },
+        {
+          "side": 4,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 35,
+      "exceptional_cells": 118,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 253,
+          "maximum_gap_overlap": 117
+        },
+        {
+          "side": 2,
+          "tiles": 36,
+          "maximum_gap_overlap": 28
+        },
+        {
+          "side": 4,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 36,
+      "exceptional_cells": 123,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 247,
+          "maximum_gap_overlap": 107
+        },
+        {
+          "side": 2,
+          "tiles": 37,
+          "maximum_gap_overlap": 27
+        },
+        {
+          "side": 4,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 37,
+      "exceptional_cells": 128,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 278,
+          "maximum_gap_overlap": 125
+        },
+        {
+          "side": 2,
+          "tiles": 37,
+          "maximum_gap_overlap": 27
+        },
+        {
+          "side": 4,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 38,
+      "exceptional_cells": 133,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 270,
+          "maximum_gap_overlap": 113
+        },
+        {
+          "side": 2,
+          "tiles": 47,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 4,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 39,
+      "exceptional_cells": 138,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 303,
+          "maximum_gap_overlap": 133
+        },
+        {
+          "side": 2,
+          "tiles": 47,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 4,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 40,
+      "exceptional_cells": 143,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 293,
+          "maximum_gap_overlap": 119
+        },
+        {
+          "side": 2,
+          "tiles": 46,
+          "maximum_gap_overlap": 32
+        },
+        {
+          "side": 4,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 41,
+      "exceptional_cells": 148,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 328,
+          "maximum_gap_overlap": 141
+        },
+        {
+          "side": 2,
+          "tiles": 46,
+          "maximum_gap_overlap": 32
+        },
+        {
+          "side": 4,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 42,
+      "exceptional_cells": 153,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 316,
+          "maximum_gap_overlap": 125
+        },
+        {
+          "side": 2,
+          "tiles": 58,
+          "maximum_gap_overlap": 41
+        },
+        {
+          "side": 4,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 43,
+      "exceptional_cells": 158,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 353,
+          "maximum_gap_overlap": 149
+        },
+        {
+          "side": 2,
+          "tiles": 58,
+          "maximum_gap_overlap": 41
+        },
+        {
+          "side": 4,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 44,
+      "exceptional_cells": 163,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 339,
+          "maximum_gap_overlap": 131
+        },
+        {
+          "side": 2,
+          "tiles": 55,
+          "maximum_gap_overlap": 36
+        },
+        {
+          "side": 4,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 45,
+      "exceptional_cells": 168,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 378,
+          "maximum_gap_overlap": 157
+        },
+        {
+          "side": 2,
+          "tiles": 55,
+          "maximum_gap_overlap": 36
+        },
+        {
+          "side": 4,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 46,
+      "exceptional_cells": 173,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 362,
+          "maximum_gap_overlap": 137
+        },
+        {
+          "side": 2,
+          "tiles": 69,
+          "maximum_gap_overlap": 47
+        },
+        {
+          "side": 4,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 47,
+      "exceptional_cells": 178,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 403,
+          "maximum_gap_overlap": 165
+        },
+        {
+          "side": 2,
+          "tiles": 69,
+          "maximum_gap_overlap": 47
+        },
+        {
+          "side": 4,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 48,
+      "exceptional_cells": 183,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 385,
+          "maximum_gap_overlap": 143
+        },
+        {
+          "side": 2,
+          "tiles": 64,
+          "maximum_gap_overlap": 40
+        },
+        {
+          "side": 4,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 8,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 49,
+      "exceptional_cells": 188,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 428,
+          "maximum_gap_overlap": 173
+        },
+        {
+          "side": 2,
+          "tiles": 64,
+          "maximum_gap_overlap": 40
+        },
+        {
+          "side": 4,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 8,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 50,
+      "exceptional_cells": 193,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 408,
+          "maximum_gap_overlap": 149
+        },
+        {
+          "side": 2,
+          "tiles": 80,
+          "maximum_gap_overlap": 53
+        },
+        {
+          "side": 4,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 8,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 51,
+      "exceptional_cells": 198,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 453,
+          "maximum_gap_overlap": 179
+        },
+        {
+          "side": 2,
+          "tiles": 80,
+          "maximum_gap_overlap": 53
+        },
+        {
+          "side": 4,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 8,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 52,
+      "exceptional_cells": 203,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 431,
+          "maximum_gap_overlap": 155
+        },
+        {
+          "side": 2,
+          "tiles": 73,
+          "maximum_gap_overlap": 44
+        },
+        {
+          "side": 4,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 8,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 53,
+      "exceptional_cells": 208,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 478,
+          "maximum_gap_overlap": 185
+        },
+        {
+          "side": 2,
+          "tiles": 73,
+          "maximum_gap_overlap": 44
+        },
+        {
+          "side": 4,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 8,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 54,
+      "exceptional_cells": 213,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 454,
+          "maximum_gap_overlap": 161
+        },
+        {
+          "side": 2,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 4,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 8,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 55,
+      "exceptional_cells": 218,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 503,
+          "maximum_gap_overlap": 191
+        },
+        {
+          "side": 2,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 4,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 8,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 56,
+      "exceptional_cells": 223,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 477,
+          "maximum_gap_overlap": 167
+        },
+        {
+          "side": 2,
+          "tiles": 82,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 4,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 8,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 57,
+      "exceptional_cells": 228,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 528,
+          "maximum_gap_overlap": 197
+        },
+        {
+          "side": 2,
+          "tiles": 82,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 4,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 8,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 58,
+      "exceptional_cells": 233,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 500,
+          "maximum_gap_overlap": 173
+        },
+        {
+          "side": 2,
+          "tiles": 102,
+          "maximum_gap_overlap": 61
+        },
+        {
+          "side": 4,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 8,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 59,
+      "exceptional_cells": 238,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 553,
+          "maximum_gap_overlap": 203
+        },
+        {
+          "side": 2,
+          "tiles": 102,
+          "maximum_gap_overlap": 61
+        },
+        {
+          "side": 4,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 8,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 60,
+      "exceptional_cells": 243,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 523,
+          "maximum_gap_overlap": 179
+        },
+        {
+          "side": 2,
+          "tiles": 91,
+          "maximum_gap_overlap": 51
+        },
+        {
+          "side": 4,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 8,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 61,
+      "exceptional_cells": 248,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 578,
+          "maximum_gap_overlap": 209
+        },
+        {
+          "side": 2,
+          "tiles": 91,
+          "maximum_gap_overlap": 51
+        },
+        {
+          "side": 4,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 8,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 62,
+      "exceptional_cells": 253,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 546,
+          "maximum_gap_overlap": 184
+        },
+        {
+          "side": 2,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 4,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 8,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 63,
+      "exceptional_cells": 258,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 603,
+          "maximum_gap_overlap": 215
+        },
+        {
+          "side": 2,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 4,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 8,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "exceptional_cells": 264,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 572,
+          "maximum_gap_overlap": 190
+        },
+        {
+          "side": 2,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 4,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 8,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 65,
+      "exceptional_cells": 270,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 630,
+          "maximum_gap_overlap": 222
+        },
+        {
+          "side": 2,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 4,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 8,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 66,
+      "exceptional_cells": 276,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 601,
+          "maximum_gap_overlap": 199
+        },
+        {
+          "side": 2,
+          "tiles": 125,
+          "maximum_gap_overlap": 69
+        },
+        {
+          "side": 4,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 8,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 67,
+      "exceptional_cells": 282,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 661,
+          "maximum_gap_overlap": 232
+        },
+        {
+          "side": 2,
+          "tiles": 125,
+          "maximum_gap_overlap": 69
+        },
+        {
+          "side": 4,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 8,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 68,
+      "exceptional_cells": 288,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 630,
+          "maximum_gap_overlap": 206
+        },
+        {
+          "side": 2,
+          "tiles": 116,
+          "maximum_gap_overlap": 60
+        },
+        {
+          "side": 4,
+          "tiles": 36,
+          "maximum_gap_overlap": 28
+        },
+        {
+          "side": 8,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 69,
+      "exceptional_cells": 294,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 692,
+          "maximum_gap_overlap": 240
+        },
+        {
+          "side": 2,
+          "tiles": 116,
+          "maximum_gap_overlap": 60
+        },
+        {
+          "side": 4,
+          "tiles": 36,
+          "maximum_gap_overlap": 28
+        },
+        {
+          "side": 8,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 70,
+      "exceptional_cells": 300,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 659,
+          "maximum_gap_overlap": 212
+        },
+        {
+          "side": 2,
+          "tiles": 140,
+          "maximum_gap_overlap": 76
+        },
+        {
+          "side": 4,
+          "tiles": 36,
+          "maximum_gap_overlap": 28
+        },
+        {
+          "side": 8,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 71,
+      "exceptional_cells": 306,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 723,
+          "maximum_gap_overlap": 248
+        },
+        {
+          "side": 2,
+          "tiles": 140,
+          "maximum_gap_overlap": 76
+        },
+        {
+          "side": 4,
+          "tiles": 36,
+          "maximum_gap_overlap": 28
+        },
+        {
+          "side": 8,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 72,
+      "exceptional_cells": 312,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 688,
+          "maximum_gap_overlap": 218
+        },
+        {
+          "side": 2,
+          "tiles": 129,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 4,
+          "tiles": 37,
+          "maximum_gap_overlap": 27
+        },
+        {
+          "side": 8,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 73,
+      "exceptional_cells": 318,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 754,
+          "maximum_gap_overlap": 256
+        },
+        {
+          "side": 2,
+          "tiles": 129,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 4,
+          "tiles": 37,
+          "maximum_gap_overlap": 27
+        },
+        {
+          "side": 8,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 74,
+      "exceptional_cells": 324,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 717,
+          "maximum_gap_overlap": 224
+        },
+        {
+          "side": 2,
+          "tiles": 155,
+          "maximum_gap_overlap": 82
+        },
+        {
+          "side": 4,
+          "tiles": 37,
+          "maximum_gap_overlap": 27
+        },
+        {
+          "side": 8,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 75,
+      "exceptional_cells": 330,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 785,
+          "maximum_gap_overlap": 264
+        },
+        {
+          "side": 2,
+          "tiles": 155,
+          "maximum_gap_overlap": 82
+        },
+        {
+          "side": 4,
+          "tiles": 37,
+          "maximum_gap_overlap": 27
+        },
+        {
+          "side": 8,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 76,
+      "exceptional_cells": 336,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 746,
+          "maximum_gap_overlap": 230
+        },
+        {
+          "side": 2,
+          "tiles": 142,
+          "maximum_gap_overlap": 69
+        },
+        {
+          "side": 4,
+          "tiles": 47,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 8,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 77,
+      "exceptional_cells": 342,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 816,
+          "maximum_gap_overlap": 272
+        },
+        {
+          "side": 2,
+          "tiles": 142,
+          "maximum_gap_overlap": 69
+        },
+        {
+          "side": 4,
+          "tiles": 47,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 8,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 78,
+      "exceptional_cells": 348,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 775,
+          "maximum_gap_overlap": 236
+        },
+        {
+          "side": 2,
+          "tiles": 170,
+          "maximum_gap_overlap": 88
+        },
+        {
+          "side": 4,
+          "tiles": 47,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 8,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 79,
+      "exceptional_cells": 354,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 847,
+          "maximum_gap_overlap": 280
+        },
+        {
+          "side": 2,
+          "tiles": 170,
+          "maximum_gap_overlap": 88
+        },
+        {
+          "side": 4,
+          "tiles": 47,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 8,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 80,
+      "exceptional_cells": 360,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 804,
+          "maximum_gap_overlap": 242
+        },
+        {
+          "side": 2,
+          "tiles": 155,
+          "maximum_gap_overlap": 73
+        },
+        {
+          "side": 4,
+          "tiles": 46,
+          "maximum_gap_overlap": 32
+        },
+        {
+          "side": 8,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 81,
+      "exceptional_cells": 366,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 878,
+          "maximum_gap_overlap": 288
+        },
+        {
+          "side": 2,
+          "tiles": 155,
+          "maximum_gap_overlap": 73
+        },
+        {
+          "side": 4,
+          "tiles": 46,
+          "maximum_gap_overlap": 32
+        },
+        {
+          "side": 8,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 82,
+      "exceptional_cells": 372,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 833,
+          "maximum_gap_overlap": 248
+        },
+        {
+          "side": 2,
+          "tiles": 185,
+          "maximum_gap_overlap": 94
+        },
+        {
+          "side": 4,
+          "tiles": 46,
+          "maximum_gap_overlap": 32
+        },
+        {
+          "side": 8,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 83,
+      "exceptional_cells": 378,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 909,
+          "maximum_gap_overlap": 296
+        },
+        {
+          "side": 2,
+          "tiles": 185,
+          "maximum_gap_overlap": 94
+        },
+        {
+          "side": 4,
+          "tiles": 46,
+          "maximum_gap_overlap": 32
+        },
+        {
+          "side": 8,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 84,
+      "exceptional_cells": 384,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 862,
+          "maximum_gap_overlap": 254
+        },
+        {
+          "side": 2,
+          "tiles": 168,
+          "maximum_gap_overlap": 77
+        },
+        {
+          "side": 4,
+          "tiles": 58,
+          "maximum_gap_overlap": 41
+        },
+        {
+          "side": 8,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 85,
+      "exceptional_cells": 390,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 940,
+          "maximum_gap_overlap": 304
+        },
+        {
+          "side": 2,
+          "tiles": 168,
+          "maximum_gap_overlap": 77
+        },
+        {
+          "side": 4,
+          "tiles": 58,
+          "maximum_gap_overlap": 41
+        },
+        {
+          "side": 8,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 86,
+      "exceptional_cells": 396,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 891,
+          "maximum_gap_overlap": 260
+        },
+        {
+          "side": 2,
+          "tiles": 200,
+          "maximum_gap_overlap": 100
+        },
+        {
+          "side": 4,
+          "tiles": 58,
+          "maximum_gap_overlap": 41
+        },
+        {
+          "side": 8,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 87,
+      "exceptional_cells": 402,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 971,
+          "maximum_gap_overlap": 312
+        },
+        {
+          "side": 2,
+          "tiles": 200,
+          "maximum_gap_overlap": 100
+        },
+        {
+          "side": 4,
+          "tiles": 58,
+          "maximum_gap_overlap": 41
+        },
+        {
+          "side": 8,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 88,
+      "exceptional_cells": 408,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 920,
+          "maximum_gap_overlap": 266
+        },
+        {
+          "side": 2,
+          "tiles": 181,
+          "maximum_gap_overlap": 81
+        },
+        {
+          "side": 4,
+          "tiles": 55,
+          "maximum_gap_overlap": 36
+        },
+        {
+          "side": 8,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 89,
+      "exceptional_cells": 414,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1002,
+          "maximum_gap_overlap": 320
+        },
+        {
+          "side": 2,
+          "tiles": 181,
+          "maximum_gap_overlap": 81
+        },
+        {
+          "side": 4,
+          "tiles": 55,
+          "maximum_gap_overlap": 36
+        },
+        {
+          "side": 8,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 90,
+      "exceptional_cells": 420,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 949,
+          "maximum_gap_overlap": 272
+        },
+        {
+          "side": 2,
+          "tiles": 215,
+          "maximum_gap_overlap": 106
+        },
+        {
+          "side": 4,
+          "tiles": 55,
+          "maximum_gap_overlap": 36
+        },
+        {
+          "side": 8,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 91,
+      "exceptional_cells": 426,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1033,
+          "maximum_gap_overlap": 328
+        },
+        {
+          "side": 2,
+          "tiles": 215,
+          "maximum_gap_overlap": 106
+        },
+        {
+          "side": 4,
+          "tiles": 55,
+          "maximum_gap_overlap": 36
+        },
+        {
+          "side": 8,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 92,
+      "exceptional_cells": 432,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 978,
+          "maximum_gap_overlap": 278
+        },
+        {
+          "side": 2,
+          "tiles": 194,
+          "maximum_gap_overlap": 85
+        },
+        {
+          "side": 4,
+          "tiles": 69,
+          "maximum_gap_overlap": 47
+        },
+        {
+          "side": 8,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 93,
+      "exceptional_cells": 438,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1064,
+          "maximum_gap_overlap": 336
+        },
+        {
+          "side": 2,
+          "tiles": 194,
+          "maximum_gap_overlap": 85
+        },
+        {
+          "side": 4,
+          "tiles": 69,
+          "maximum_gap_overlap": 47
+        },
+        {
+          "side": 8,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 94,
+      "exceptional_cells": 444,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1007,
+          "maximum_gap_overlap": 284
+        },
+        {
+          "side": 2,
+          "tiles": 230,
+          "maximum_gap_overlap": 112
+        },
+        {
+          "side": 4,
+          "tiles": 69,
+          "maximum_gap_overlap": 47
+        },
+        {
+          "side": 8,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 95,
+      "exceptional_cells": 450,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1095,
+          "maximum_gap_overlap": 344
+        },
+        {
+          "side": 2,
+          "tiles": 230,
+          "maximum_gap_overlap": 112
+        },
+        {
+          "side": 4,
+          "tiles": 69,
+          "maximum_gap_overlap": 47
+        },
+        {
+          "side": 8,
+          "tiles": 14,
+          "maximum_gap_overlap": 14
+        }
+      ]
+    },
+    {
+      "n": 96,
+      "exceptional_cells": 456,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1036,
+          "maximum_gap_overlap": 290
+        },
+        {
+          "side": 2,
+          "tiles": 207,
+          "maximum_gap_overlap": 89
+        },
+        {
+          "side": 4,
+          "tiles": 64,
+          "maximum_gap_overlap": 40
+        },
+        {
+          "side": 8,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 97,
+      "exceptional_cells": 462,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1126,
+          "maximum_gap_overlap": 352
+        },
+        {
+          "side": 2,
+          "tiles": 207,
+          "maximum_gap_overlap": 89
+        },
+        {
+          "side": 4,
+          "tiles": 64,
+          "maximum_gap_overlap": 40
+        },
+        {
+          "side": 8,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 98,
+      "exceptional_cells": 468,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1065,
+          "maximum_gap_overlap": 296
+        },
+        {
+          "side": 2,
+          "tiles": 245,
+          "maximum_gap_overlap": 118
+        },
+        {
+          "side": 4,
+          "tiles": 64,
+          "maximum_gap_overlap": 40
+        },
+        {
+          "side": 8,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 99,
+      "exceptional_cells": 474,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1157,
+          "maximum_gap_overlap": 358
+        },
+        {
+          "side": 2,
+          "tiles": 245,
+          "maximum_gap_overlap": 118
+        },
+        {
+          "side": 4,
+          "tiles": 64,
+          "maximum_gap_overlap": 40
+        },
+        {
+          "side": 8,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 100,
+      "exceptional_cells": 480,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1094,
+          "maximum_gap_overlap": 302
+        },
+        {
+          "side": 2,
+          "tiles": 220,
+          "maximum_gap_overlap": 93
+        },
+        {
+          "side": 4,
+          "tiles": 80,
+          "maximum_gap_overlap": 53
+        },
+        {
+          "side": 8,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 101,
+      "exceptional_cells": 486,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1188,
+          "maximum_gap_overlap": 364
+        },
+        {
+          "side": 2,
+          "tiles": 220,
+          "maximum_gap_overlap": 93
+        },
+        {
+          "side": 4,
+          "tiles": 80,
+          "maximum_gap_overlap": 53
+        },
+        {
+          "side": 8,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 102,
+      "exceptional_cells": 492,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1123,
+          "maximum_gap_overlap": 308
+        },
+        {
+          "side": 2,
+          "tiles": 260,
+          "maximum_gap_overlap": 122
+        },
+        {
+          "side": 4,
+          "tiles": 80,
+          "maximum_gap_overlap": 53
+        },
+        {
+          "side": 8,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 103,
+      "exceptional_cells": 498,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1219,
+          "maximum_gap_overlap": 370
+        },
+        {
+          "side": 2,
+          "tiles": 260,
+          "maximum_gap_overlap": 122
+        },
+        {
+          "side": 4,
+          "tiles": 80,
+          "maximum_gap_overlap": 53
+        },
+        {
+          "side": 8,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 104,
+      "exceptional_cells": 504,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1152,
+          "maximum_gap_overlap": 314
+        },
+        {
+          "side": 2,
+          "tiles": 233,
+          "maximum_gap_overlap": 97
+        },
+        {
+          "side": 4,
+          "tiles": 73,
+          "maximum_gap_overlap": 44
+        },
+        {
+          "side": 8,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 105,
+      "exceptional_cells": 510,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1250,
+          "maximum_gap_overlap": 376
+        },
+        {
+          "side": 2,
+          "tiles": 233,
+          "maximum_gap_overlap": 97
+        },
+        {
+          "side": 4,
+          "tiles": 73,
+          "maximum_gap_overlap": 44
+        },
+        {
+          "side": 8,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 106,
+      "exceptional_cells": 516,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1181,
+          "maximum_gap_overlap": 320
+        },
+        {
+          "side": 2,
+          "tiles": 275,
+          "maximum_gap_overlap": 126
+        },
+        {
+          "side": 4,
+          "tiles": 73,
+          "maximum_gap_overlap": 44
+        },
+        {
+          "side": 8,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 107,
+      "exceptional_cells": 522,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1281,
+          "maximum_gap_overlap": 382
+        },
+        {
+          "side": 2,
+          "tiles": 275,
+          "maximum_gap_overlap": 126
+        },
+        {
+          "side": 4,
+          "tiles": 73,
+          "maximum_gap_overlap": 44
+        },
+        {
+          "side": 8,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 108,
+      "exceptional_cells": 528,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1210,
+          "maximum_gap_overlap": 326
+        },
+        {
+          "side": 2,
+          "tiles": 246,
+          "maximum_gap_overlap": 101
+        },
+        {
+          "side": 4,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 8,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 109,
+      "exceptional_cells": 534,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1312,
+          "maximum_gap_overlap": 388
+        },
+        {
+          "side": 2,
+          "tiles": 246,
+          "maximum_gap_overlap": 101
+        },
+        {
+          "side": 4,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 8,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 110,
+      "exceptional_cells": 540,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1239,
+          "maximum_gap_overlap": 332
+        },
+        {
+          "side": 2,
+          "tiles": 290,
+          "maximum_gap_overlap": 130
+        },
+        {
+          "side": 4,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 8,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 111,
+      "exceptional_cells": 546,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1343,
+          "maximum_gap_overlap": 394
+        },
+        {
+          "side": 2,
+          "tiles": 290,
+          "maximum_gap_overlap": 130
+        },
+        {
+          "side": 4,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 8,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 16,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 112,
+      "exceptional_cells": 552,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1268,
+          "maximum_gap_overlap": 338
+        },
+        {
+          "side": 2,
+          "tiles": 259,
+          "maximum_gap_overlap": 105
+        },
+        {
+          "side": 4,
+          "tiles": 82,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 8,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 113,
+      "exceptional_cells": 558,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1374,
+          "maximum_gap_overlap": 400
+        },
+        {
+          "side": 2,
+          "tiles": 259,
+          "maximum_gap_overlap": 105
+        },
+        {
+          "side": 4,
+          "tiles": 82,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 8,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 114,
+      "exceptional_cells": 564,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1297,
+          "maximum_gap_overlap": 344
+        },
+        {
+          "side": 2,
+          "tiles": 305,
+          "maximum_gap_overlap": 134
+        },
+        {
+          "side": 4,
+          "tiles": 82,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 8,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 115,
+      "exceptional_cells": 570,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1405,
+          "maximum_gap_overlap": 406
+        },
+        {
+          "side": 2,
+          "tiles": 305,
+          "maximum_gap_overlap": 134
+        },
+        {
+          "side": 4,
+          "tiles": 82,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 8,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 116,
+      "exceptional_cells": 576,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1326,
+          "maximum_gap_overlap": 350
+        },
+        {
+          "side": 2,
+          "tiles": 272,
+          "maximum_gap_overlap": 109
+        },
+        {
+          "side": 4,
+          "tiles": 102,
+          "maximum_gap_overlap": 61
+        },
+        {
+          "side": 8,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 117,
+      "exceptional_cells": 582,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1436,
+          "maximum_gap_overlap": 412
+        },
+        {
+          "side": 2,
+          "tiles": 272,
+          "maximum_gap_overlap": 109
+        },
+        {
+          "side": 4,
+          "tiles": 102,
+          "maximum_gap_overlap": 61
+        },
+        {
+          "side": 8,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 118,
+      "exceptional_cells": 588,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1355,
+          "maximum_gap_overlap": 356
+        },
+        {
+          "side": 2,
+          "tiles": 320,
+          "maximum_gap_overlap": 138
+        },
+        {
+          "side": 4,
+          "tiles": 102,
+          "maximum_gap_overlap": 61
+        },
+        {
+          "side": 8,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 119,
+      "exceptional_cells": 594,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1467,
+          "maximum_gap_overlap": 418
+        },
+        {
+          "side": 2,
+          "tiles": 320,
+          "maximum_gap_overlap": 138
+        },
+        {
+          "side": 4,
+          "tiles": 102,
+          "maximum_gap_overlap": 61
+        },
+        {
+          "side": 8,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 120,
+      "exceptional_cells": 600,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1384,
+          "maximum_gap_overlap": 362
+        },
+        {
+          "side": 2,
+          "tiles": 285,
+          "maximum_gap_overlap": 113
+        },
+        {
+          "side": 4,
+          "tiles": 91,
+          "maximum_gap_overlap": 51
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 121,
+      "exceptional_cells": 606,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1498,
+          "maximum_gap_overlap": 424
+        },
+        {
+          "side": 2,
+          "tiles": 285,
+          "maximum_gap_overlap": 113
+        },
+        {
+          "side": 4,
+          "tiles": 91,
+          "maximum_gap_overlap": 51
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 122,
+      "exceptional_cells": 612,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1413,
+          "maximum_gap_overlap": 368
+        },
+        {
+          "side": 2,
+          "tiles": 335,
+          "maximum_gap_overlap": 142
+        },
+        {
+          "side": 4,
+          "tiles": 91,
+          "maximum_gap_overlap": 51
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 123,
+      "exceptional_cells": 618,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1529,
+          "maximum_gap_overlap": 430
+        },
+        {
+          "side": 2,
+          "tiles": 335,
+          "maximum_gap_overlap": 142
+        },
+        {
+          "side": 4,
+          "tiles": 91,
+          "maximum_gap_overlap": 51
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 124,
+      "exceptional_cells": 624,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1442,
+          "maximum_gap_overlap": 374
+        },
+        {
+          "side": 2,
+          "tiles": 298,
+          "maximum_gap_overlap": 116
+        },
+        {
+          "side": 4,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 125,
+      "exceptional_cells": 630,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1560,
+          "maximum_gap_overlap": 436
+        },
+        {
+          "side": 2,
+          "tiles": 298,
+          "maximum_gap_overlap": 116
+        },
+        {
+          "side": 4,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 126,
+      "exceptional_cells": 636,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1471,
+          "maximum_gap_overlap": 379
+        },
+        {
+          "side": 2,
+          "tiles": 350,
+          "maximum_gap_overlap": 146
+        },
+        {
+          "side": 4,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 127,
+      "exceptional_cells": 642,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1591,
+          "maximum_gap_overlap": 442
+        },
+        {
+          "side": 2,
+          "tiles": 350,
+          "maximum_gap_overlap": 146
+        },
+        {
+          "side": 4,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 16,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 128,
+      "exceptional_cells": 649,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1503,
+          "maximum_gap_overlap": 385
+        },
+        {
+          "side": 2,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 4,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 16,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 129,
+      "exceptional_cells": 656,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 1624,
+          "maximum_gap_overlap": 449
+        },
+        {
+          "side": 2,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 4,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 8,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 16,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 250,
+      "exceptional_cells": 1503,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 3638,
+          "maximum_gap_overlap": 755
+        },
+        {
+          "side": 2,
+          "tiles": 936,
+          "maximum_gap_overlap": 303
+        },
+        {
+          "side": 4,
+          "tiles": 298,
+          "maximum_gap_overlap": 116
+        },
+        {
+          "side": 8,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 16,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 32,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 255,
+      "exceptional_cells": 1538,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 3955,
+          "maximum_gap_overlap": 893
+        },
+        {
+          "side": 2,
+          "tiles": 955,
+          "maximum_gap_overlap": 307
+        },
+        {
+          "side": 4,
+          "tiles": 350,
+          "maximum_gap_overlap": 146
+        },
+        {
+          "side": 8,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 16,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 32,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "exceptional_cells": 1546,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 3746,
+          "maximum_gap_overlap": 772
+        },
+        {
+          "side": 2,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 4,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 8,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 16,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 32,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 257,
+      "exceptional_cells": 1554,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 3994,
+          "maximum_gap_overlap": 900
+        },
+        {
+          "side": 2,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 4,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 8,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 16,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 32,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 318,
+      "exceptional_cells": 2042,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 5017,
+          "maximum_gap_overlap": 962
+        },
+        {
+          "side": 2,
+          "tiles": 1320,
+          "maximum_gap_overlap": 402
+        },
+        {
+          "side": 4,
+          "tiles": 499,
+          "maximum_gap_overlap": 193
+        },
+        {
+          "side": 8,
+          "tiles": 170,
+          "maximum_gap_overlap": 88
+        },
+        {
+          "side": 16,
+          "tiles": 47,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 32,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 438,
+      "exceptional_cells": 3002,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 7477,
+          "maximum_gap_overlap": 1322
+        },
+        {
+          "side": 2,
+          "tiles": 2010,
+          "maximum_gap_overlap": 556
+        },
+        {
+          "side": 4,
+          "tiles": 784,
+          "maximum_gap_overlap": 271
+        },
+        {
+          "side": 8,
+          "tiles": 246,
+          "maximum_gap_overlap": 101
+        },
+        {
+          "side": 16,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 32,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 64,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 511,
+      "exceptional_cells": 3586,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 9455,
+          "maximum_gap_overlap": 1792
+        },
+        {
+          "side": 2,
+          "tiles": 2424,
+          "maximum_gap_overlap": 628
+        },
+        {
+          "side": 4,
+          "tiles": 955,
+          "maximum_gap_overlap": 307
+        },
+        {
+          "side": 8,
+          "tiles": 350,
+          "maximum_gap_overlap": 146
+        },
+        {
+          "side": 16,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 32,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 64,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 512,
+      "exceptional_cells": 3595,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 8997,
+          "maximum_gap_overlap": 1543
+        },
+        {
+          "side": 2,
+          "tiles": 2208,
+          "maximum_gap_overlap": 506
+        },
+        {
+          "side": 4,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 8,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 16,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 32,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 64,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 513,
+      "exceptional_cells": 3604,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 9500,
+          "maximum_gap_overlap": 1799
+        },
+        {
+          "side": 2,
+          "tiles": 2208,
+          "maximum_gap_overlap": 506
+        },
+        {
+          "side": 4,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 8,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 16,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 32,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 64,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 543,
+      "exceptional_cells": 3874,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 10235,
+          "maximum_gap_overlap": 1921
+        },
+        {
+          "side": 2,
+          "tiles": 2637,
+          "maximum_gap_overlap": 675
+        },
+        {
+          "side": 4,
+          "tiles": 1044,
+          "maximum_gap_overlap": 330
+        },
+        {
+          "side": 8,
+          "tiles": 385,
+          "maximum_gap_overlap": 157
+        },
+        {
+          "side": 16,
+          "tiles": 125,
+          "maximum_gap_overlap": 69
+        },
+        {
+          "side": 32,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 64,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 594,
+      "exceptional_cells": 4333,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 10924,
+          "maximum_gap_overlap": 1793
+        },
+        {
+          "side": 2,
+          "tiles": 2988,
+          "maximum_gap_overlap": 753
+        },
+        {
+          "side": 4,
+          "tiles": 1071,
+          "maximum_gap_overlap": 291
+        },
+        {
+          "side": 8,
+          "tiles": 399,
+          "maximum_gap_overlap": 142
+        },
+        {
+          "side": 16,
+          "tiles": 155,
+          "maximum_gap_overlap": 82
+        },
+        {
+          "side": 32,
+          "tiles": 37,
+          "maximum_gap_overlap": 27
+        },
+        {
+          "side": 64,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 984,
+      "exceptional_cells": 7843,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 20089,
+          "maximum_gap_overlap": 2963
+        },
+        {
+          "side": 2,
+          "tiles": 5158,
+          "maximum_gap_overlap": 980
+        },
+        {
+          "side": 4,
+          "tiles": 2100,
+          "maximum_gap_overlap": 487
+        },
+        {
+          "side": 8,
+          "tiles": 917,
+          "maximum_gap_overlap": 299
+        },
+        {
+          "side": 16,
+          "tiles": 335,
+          "maximum_gap_overlap": 142
+        },
+        {
+          "side": 32,
+          "tiles": 91,
+          "maximum_gap_overlap": 51
+        },
+        {
+          "side": 64,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 128,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 1023,
+      "exceptional_cells": 8194,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 21995,
+          "maximum_gap_overlap": 3587
+        },
+        {
+          "side": 2,
+          "tiles": 5877,
+          "maximum_gap_overlap": 1269
+        },
+        {
+          "side": 4,
+          "tiles": 2424,
+          "maximum_gap_overlap": 628
+        },
+        {
+          "side": 8,
+          "tiles": 955,
+          "maximum_gap_overlap": 307
+        },
+        {
+          "side": 16,
+          "tiles": 350,
+          "maximum_gap_overlap": 146
+        },
+        {
+          "side": 32,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 64,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 128,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 1024,
+      "exceptional_cells": 8204,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 21032,
+          "maximum_gap_overlap": 3082
+        },
+        {
+          "side": 2,
+          "tiles": 5411,
+          "maximum_gap_overlap": 1019
+        },
+        {
+          "side": 4,
+          "tiles": 2208,
+          "maximum_gap_overlap": 506
+        },
+        {
+          "side": 8,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 16,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 32,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 64,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 128,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 1025,
+      "exceptional_cells": 8214,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 22046,
+          "maximum_gap_overlap": 3594
+        },
+        {
+          "side": 2,
+          "tiles": 5411,
+          "maximum_gap_overlap": 1019
+        },
+        {
+          "side": 4,
+          "tiles": 2208,
+          "maximum_gap_overlap": 506
+        },
+        {
+          "side": 8,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 16,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 32,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 64,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 128,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 1057,
+      "exceptional_cells": 8534,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 22926,
+          "maximum_gap_overlap": 3724
+        },
+        {
+          "side": 2,
+          "tiles": 5643,
+          "maximum_gap_overlap": 1053
+        },
+        {
+          "side": 4,
+          "tiles": 2308,
+          "maximum_gap_overlap": 524
+        },
+        {
+          "side": 8,
+          "tiles": 903,
+          "maximum_gap_overlap": 259
+        },
+        {
+          "side": 16,
+          "tiles": 331,
+          "maximum_gap_overlap": 125
+        },
+        {
+          "side": 32,
+          "tiles": 125,
+          "maximum_gap_overlap": 69
+        },
+        {
+          "side": 64,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 128,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 1277,
+      "exceptional_cells": 10734,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 28976,
+          "maximum_gap_overlap": 4604
+        },
+        {
+          "side": 2,
+          "tiles": 7238,
+          "maximum_gap_overlap": 1273
+        },
+        {
+          "side": 4,
+          "tiles": 3285,
+          "maximum_gap_overlap": 819
+        },
+        {
+          "side": 8,
+          "tiles": 1320,
+          "maximum_gap_overlap": 402
+        },
+        {
+          "side": 16,
+          "tiles": 499,
+          "maximum_gap_overlap": 193
+        },
+        {
+          "side": 32,
+          "tiles": 170,
+          "maximum_gap_overlap": 88
+        },
+        {
+          "side": 64,
+          "tiles": 47,
+          "maximum_gap_overlap": 35
+        },
+        {
+          "side": 128,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 1732,
+      "exceptional_cells": 15284,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 39794,
+          "maximum_gap_overlap": 5210
+        },
+        {
+          "side": 2,
+          "tiles": 10544,
+          "maximum_gap_overlap": 1729
+        },
+        {
+          "side": 4,
+          "tiles": 4824,
+          "maximum_gap_overlap": 1113
+        },
+        {
+          "side": 8,
+          "tiles": 1785,
+          "maximum_gap_overlap": 427
+        },
+        {
+          "side": 16,
+          "tiles": 688,
+          "maximum_gap_overlap": 210
+        },
+        {
+          "side": 32,
+          "tiles": 246,
+          "maximum_gap_overlap": 101
+        },
+        {
+          "side": 64,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 128,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 256,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 2047,
+      "exceptional_cells": 18434,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 50151,
+          "maximum_gap_overlap": 7174
+        },
+        {
+          "side": 2,
+          "tiles": 13810,
+          "maximum_gap_overlap": 2550
+        },
+        {
+          "side": 4,
+          "tiles": 5877,
+          "maximum_gap_overlap": 1269
+        },
+        {
+          "side": 8,
+          "tiles": 2424,
+          "maximum_gap_overlap": 628
+        },
+        {
+          "side": 16,
+          "tiles": 955,
+          "maximum_gap_overlap": 307
+        },
+        {
+          "side": 32,
+          "tiles": 350,
+          "maximum_gap_overlap": 146
+        },
+        {
+          "side": 64,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 128,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 256,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 2048,
+      "exceptional_cells": 18445,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 48171,
+          "maximum_gap_overlap": 6157
+        },
+        {
+          "side": 2,
+          "tiles": 12838,
+          "maximum_gap_overlap": 2044
+        },
+        {
+          "side": 4,
+          "tiles": 5411,
+          "maximum_gap_overlap": 1019
+        },
+        {
+          "side": 8,
+          "tiles": 2208,
+          "maximum_gap_overlap": 506
+        },
+        {
+          "side": 16,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 32,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 64,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 128,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 256,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 2049,
+      "exceptional_cells": 18456,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 50208,
+          "maximum_gap_overlap": 7181
+        },
+        {
+          "side": 2,
+          "tiles": 12838,
+          "maximum_gap_overlap": 2044
+        },
+        {
+          "side": 4,
+          "tiles": 5411,
+          "maximum_gap_overlap": 1019
+        },
+        {
+          "side": 8,
+          "tiles": 2208,
+          "maximum_gap_overlap": 506
+        },
+        {
+          "side": 16,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 32,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 64,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 128,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 256,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 2140,
+      "exceptional_cells": 19457,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 50885,
+          "maximum_gap_overlap": 6437
+        },
+        {
+          "side": 2,
+          "tiles": 13597,
+          "maximum_gap_overlap": 2138
+        },
+        {
+          "side": 4,
+          "tiles": 6246,
+          "maximum_gap_overlap": 1340
+        },
+        {
+          "side": 8,
+          "tiles": 2583,
+          "maximum_gap_overlap": 663
+        },
+        {
+          "side": 16,
+          "tiles": 1021,
+          "maximum_gap_overlap": 324
+        },
+        {
+          "side": 32,
+          "tiles": 331,
+          "maximum_gap_overlap": 125
+        },
+        {
+          "side": 64,
+          "tiles": 125,
+          "maximum_gap_overlap": 69
+        },
+        {
+          "side": 128,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 256,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 2236,
+      "exceptional_cells": 20513,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 53717,
+          "maximum_gap_overlap": 6725
+        },
+        {
+          "side": 2,
+          "tiles": 14389,
+          "maximum_gap_overlap": 2234
+        },
+        {
+          "side": 4,
+          "tiles": 6618,
+          "maximum_gap_overlap": 1412
+        },
+        {
+          "side": 8,
+          "tiles": 2745,
+          "maximum_gap_overlap": 699
+        },
+        {
+          "side": 16,
+          "tiles": 1090,
+          "maximum_gap_overlap": 342
+        },
+        {
+          "side": 32,
+          "tiles": 404,
+          "maximum_gap_overlap": 163
+        },
+        {
+          "side": 64,
+          "tiles": 116,
+          "maximum_gap_overlap": 60
+        },
+        {
+          "side": 128,
+          "tiles": 36,
+          "maximum_gap_overlap": 28
+        },
+        {
+          "side": 256,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    },
+    {
+      "n": 2411,
+      "exceptional_cells": 22438,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 61249,
+          "maximum_gap_overlap": 8631
+        },
+        {
+          "side": 2,
+          "tiles": 16992,
+          "maximum_gap_overlap": 3095
+        },
+        {
+          "side": 4,
+          "tiles": 6716,
+          "maximum_gap_overlap": 1201
+        },
+        {
+          "side": 8,
+          "tiles": 3042,
+          "maximum_gap_overlap": 765
+        },
+        {
+          "side": 16,
+          "tiles": 1092,
+          "maximum_gap_overlap": 295
+        },
+        {
+          "side": 32,
+          "tiles": 461,
+          "maximum_gap_overlap": 181
+        },
+        {
+          "side": 64,
+          "tiles": 155,
+          "maximum_gap_overlap": 82
+        },
+        {
+          "side": 128,
+          "tiles": 37,
+          "maximum_gap_overlap": 27
+        },
+        {
+          "side": 256,
+          "tiles": 7,
+          "maximum_gap_overlap": 7
+        }
+      ]
+    },
+    {
+      "n": 2803,
+      "exceptional_cells": 26750,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 73205,
+          "maximum_gap_overlap": 10199
+        },
+        {
+          "side": 2,
+          "tiles": 20422,
+          "maximum_gap_overlap": 3683
+        },
+        {
+          "side": 4,
+          "tiles": 8137,
+          "maximum_gap_overlap": 1397
+        },
+        {
+          "side": 8,
+          "tiles": 3383,
+          "maximum_gap_overlap": 696
+        },
+        {
+          "side": 16,
+          "tiles": 1504,
+          "maximum_gap_overlap": 450
+        },
+        {
+          "side": 32,
+          "tiles": 575,
+          "maximum_gap_overlap": 217
+        },
+        {
+          "side": 64,
+          "tiles": 200,
+          "maximum_gap_overlap": 100
+        },
+        {
+          "side": 128,
+          "tiles": 58,
+          "maximum_gap_overlap": 41
+        },
+        {
+          "side": 256,
+          "tiles": 10,
+          "maximum_gap_overlap": 10
+        }
+      ]
+    },
+    {
+      "n": 3284,
+      "exceptional_cells": 32041,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 84633,
+          "maximum_gap_overlap": 9869
+        },
+        {
+          "side": 2,
+          "tiles": 23035,
+          "maximum_gap_overlap": 3282
+        },
+        {
+          "side": 4,
+          "tiles": 10679,
+          "maximum_gap_overlap": 2146
+        },
+        {
+          "side": 8,
+          "tiles": 4133,
+          "maximum_gap_overlap": 816
+        },
+        {
+          "side": 16,
+          "tiles": 1849,
+          "maximum_gap_overlap": 528
+        },
+        {
+          "side": 32,
+          "tiles": 637,
+          "maximum_gap_overlap": 198
+        },
+        {
+          "side": 64,
+          "tiles": 260,
+          "maximum_gap_overlap": 122
+        },
+        {
+          "side": 128,
+          "tiles": 80,
+          "maximum_gap_overlap": 53
+        },
+        {
+          "side": 256,
+          "tiles": 15,
+          "maximum_gap_overlap": 15
+        },
+        {
+          "side": 512,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 3416,
+      "exceptional_cells": 33493,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 88527,
+          "maximum_gap_overlap": 10265
+        },
+        {
+          "side": 2,
+          "tiles": 24124,
+          "maximum_gap_overlap": 3414
+        },
+        {
+          "side": 4,
+          "tiles": 10370,
+          "maximum_gap_overlap": 1705
+        },
+        {
+          "side": 8,
+          "tiles": 4743,
+          "maximum_gap_overlap": 1101
+        },
+        {
+          "side": 16,
+          "tiles": 1941,
+          "maximum_gap_overlap": 544
+        },
+        {
+          "side": 32,
+          "tiles": 671,
+          "maximum_gap_overlap": 206
+        },
+        {
+          "side": 64,
+          "tiles": 275,
+          "maximum_gap_overlap": 126
+        },
+        {
+          "side": 128,
+          "tiles": 73,
+          "maximum_gap_overlap": 44
+        },
+        {
+          "side": 256,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 512,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 3581,
+      "exceptional_cells": 35308,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 96934,
+          "maximum_gap_overlap": 12803
+        },
+        {
+          "side": 2,
+          "tiles": 25477,
+          "maximum_gap_overlap": 3578
+        },
+        {
+          "side": 4,
+          "tiles": 11826,
+          "maximum_gap_overlap": 2294
+        },
+        {
+          "side": 8,
+          "tiles": 5013,
+          "maximum_gap_overlap": 1141
+        },
+        {
+          "side": 16,
+          "tiles": 2056,
+          "maximum_gap_overlap": 564
+        },
+        {
+          "side": 32,
+          "tiles": 803,
+          "maximum_gap_overlap": 275
+        },
+        {
+          "side": 64,
+          "tiles": 290,
+          "maximum_gap_overlap": 130
+        },
+        {
+          "side": 128,
+          "tiles": 91,
+          "maximum_gap_overlap": 57
+        },
+        {
+          "side": 256,
+          "tiles": 21,
+          "maximum_gap_overlap": 20
+        },
+        {
+          "side": 512,
+          "tiles": 1,
+          "maximum_gap_overlap": 1
+        }
+      ]
+    },
+    {
+      "n": 3615,
+      "exceptional_cells": 35682,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 97971,
+          "maximum_gap_overlap": 12905
+        },
+        {
+          "side": 2,
+          "tiles": 27527,
+          "maximum_gap_overlap": 4631
+        },
+        {
+          "side": 4,
+          "tiles": 11950,
+          "maximum_gap_overlap": 2310
+        },
+        {
+          "side": 8,
+          "tiles": 5067,
+          "maximum_gap_overlap": 1149
+        },
+        {
+          "side": 16,
+          "tiles": 2079,
+          "maximum_gap_overlap": 568
+        },
+        {
+          "side": 32,
+          "tiles": 722,
+          "maximum_gap_overlap": 218
+        },
+        {
+          "side": 64,
+          "tiles": 259,
+          "maximum_gap_overlap": 105
+        },
+        {
+          "side": 128,
+          "tiles": 82,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 256,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 512,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 3711,
+      "exceptional_cells": 36738,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 100899,
+          "maximum_gap_overlap": 13193
+        },
+        {
+          "side": 2,
+          "tiles": 28367,
+          "maximum_gap_overlap": 4727
+        },
+        {
+          "side": 4,
+          "tiles": 12322,
+          "maximum_gap_overlap": 2358
+        },
+        {
+          "side": 8,
+          "tiles": 5229,
+          "maximum_gap_overlap": 1173
+        },
+        {
+          "side": 16,
+          "tiles": 2148,
+          "maximum_gap_overlap": 580
+        },
+        {
+          "side": 32,
+          "tiles": 841,
+          "maximum_gap_overlap": 283
+        },
+        {
+          "side": 64,
+          "tiles": 305,
+          "maximum_gap_overlap": 134
+        },
+        {
+          "side": 128,
+          "tiles": 82,
+          "maximum_gap_overlap": 48
+        },
+        {
+          "side": 256,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 512,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 3780,
+      "exceptional_cells": 37497,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 99265,
+          "maximum_gap_overlap": 11357
+        },
+        {
+          "side": 2,
+          "tiles": 27127,
+          "maximum_gap_overlap": 3778
+        },
+        {
+          "side": 4,
+          "tiles": 12601,
+          "maximum_gap_overlap": 2394
+        },
+        {
+          "side": 8,
+          "tiles": 4908,
+          "maximum_gap_overlap": 940
+        },
+        {
+          "side": 16,
+          "tiles": 1995,
+          "maximum_gap_overlap": 467
+        },
+        {
+          "side": 32,
+          "tiles": 773,
+          "maximum_gap_overlap": 230
+        },
+        {
+          "side": 64,
+          "tiles": 320,
+          "maximum_gap_overlap": 138
+        },
+        {
+          "side": 128,
+          "tiles": 102,
+          "maximum_gap_overlap": 61
+        },
+        {
+          "side": 256,
+          "tiles": 20,
+          "maximum_gap_overlap": 18
+        },
+        {
+          "side": 512,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 3978,
+      "exceptional_cells": 39675,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 105106,
+          "maximum_gap_overlap": 11951
+        },
+        {
+          "side": 2,
+          "tiles": 30712,
+          "maximum_gap_overlap": 4995
+        },
+        {
+          "side": 4,
+          "tiles": 12400,
+          "maximum_gap_overlap": 1985
+        },
+        {
+          "side": 8,
+          "tiles": 5688,
+          "maximum_gap_overlap": 1241
+        },
+        {
+          "side": 16,
+          "tiles": 2121,
+          "maximum_gap_overlap": 491
+        },
+        {
+          "side": 32,
+          "tiles": 824,
+          "maximum_gap_overlap": 242
+        },
+        {
+          "side": 64,
+          "tiles": 298,
+          "maximum_gap_overlap": 116
+        },
+        {
+          "side": 128,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 256,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 512,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 4095,
+      "exceptional_cells": 40962,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 112611,
+          "maximum_gap_overlap": 14345
+        },
+        {
+          "side": 2,
+          "tiles": 31727,
+          "maximum_gap_overlap": 5111
+        },
+        {
+          "side": 4,
+          "tiles": 13810,
+          "maximum_gap_overlap": 2550
+        },
+        {
+          "side": 8,
+          "tiles": 5877,
+          "maximum_gap_overlap": 1269
+        },
+        {
+          "side": 16,
+          "tiles": 2424,
+          "maximum_gap_overlap": 628
+        },
+        {
+          "side": 32,
+          "tiles": 955,
+          "maximum_gap_overlap": 307
+        },
+        {
+          "side": 64,
+          "tiles": 350,
+          "maximum_gap_overlap": 146
+        },
+        {
+          "side": 128,
+          "tiles": 113,
+          "maximum_gap_overlap": 65
+        },
+        {
+          "side": 256,
+          "tiles": 28,
+          "maximum_gap_overlap": 24
+        },
+        {
+          "side": 512,
+          "tiles": 3,
+          "maximum_gap_overlap": 3
+        }
+      ]
+    },
+    {
+      "n": 4096,
+      "exceptional_cells": 40974,
+      "scales": [
+        {
+          "side": 1,
+          "tiles": 108590,
+          "maximum_gap_overlap": 12304
+        },
+        {
+          "side": 2,
+          "tiles": 29737,
+          "maximum_gap_overlap": 4093
+        },
+        {
+          "side": 4,
+          "tiles": 12838,
+          "maximum_gap_overlap": 2044
+        },
+        {
+          "side": 8,
+          "tiles": 5411,
+          "maximum_gap_overlap": 1019
+        },
+        {
+          "side": 16,
+          "tiles": 2208,
+          "maximum_gap_overlap": 506
+        },
+        {
+          "side": 32,
+          "tiles": 861,
+          "maximum_gap_overlap": 249
+        },
+        {
+          "side": 64,
+          "tiles": 314,
+          "maximum_gap_overlap": 120
+        },
+        {
+          "side": 128,
+          "tiles": 103,
+          "maximum_gap_overlap": 55
+        },
+        {
+          "side": 256,
+          "tiles": 28,
+          "maximum_gap_overlap": 22
+        },
+        {
+          "side": 512,
+          "tiles": 5,
+          "maximum_gap_overlap": 5
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "centered_geometry.py": "4cc679e5bdf88c6bc5f867c0e00a4006b515a9d583043ecda280e82a7acbcb76"
+  }
+}

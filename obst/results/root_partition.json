@@ -1,0 +1,45 @@
+{
+  "seed": 317219,
+  "checks": {
+    "full_solves": 1040,
+    "certified": 505,
+    "literal_controls": 720,
+    "fallback": 535,
+    "independent_bound_controls": 800,
+    "lost_price_certificate": 47,
+    "stronger_than_max_transfer": 84,
+    "rescued_price_rejection": 11,
+    "family_controls": 6
+  },
+  "examples": {
+    "stronger": {
+      "p": [
+        1024,
+        4096,
+        2,
+        2
+      ],
+      "q": [
+        1,
+        128,
+        1024,
+        4096,
+        4
+      ],
+      "optimum": 20760,
+      "lower": 19861,
+      "old_lower": "17811"
+    }
+  },
+  "source_sha256": {
+    "check_root_partition.py": "239a739ec39f24f76a92f58a4a2abb1cce403c06b72a58a27245e9db556888cd",
+    "root_partition.py": "4982cb3978e83c11e308ebbcfa8106160c30cd65b0e2eb2a4e081e704188846e",
+    "root_partition_probe.py": "0f7cae2e13555fddf8e5aab07457a464e103aa9dbbd63194dc362d18fe8a400c",
+    "root_partition_family.py": "1f15a7a1b116e82c70960261e41bdf80ec7ce0f5c4f7856c6a80d7b00e508087",
+    "endpoint_prices.py": "df9038837c49f6d9ee252043ff315ab65e59abcdb8a992a07666a43db9974fa0",
+    "shifted_alphabetic.py": "b3308112080f47d890c7b0b631cb5203adf6bcb9031cecd74011f4413cbce20c",
+    "joint_merge_probe.py": "fb77a589ccfc179c2b2c1fd7db662139179f8923d08f51aeddbc7fdd36109db3",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6",
+    "threshold_probe.py": "35a858a92224189d5bc3e7526c6a73090749330129a12212f19ce9fcc3072d28"
+  }
+}

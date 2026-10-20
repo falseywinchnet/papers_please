@@ -1,0 +1,94 @@
+{
+  "scope": "Exact family proof audit; periodic reward template is an auxiliary clipping template, not a claim about the original ruler layer.",
+  "checks": {
+    "matching_candidates": 2429031,
+    "score_entries": 11547,
+    "upper_densities": 11036,
+    "family_identities": 20,
+    "boundary_entries": 491,
+    "literal_subsets": 48620,
+    "literal_intervals": 55
+  },
+  "rows": [
+    {
+      "h": 3,
+      "n": 16,
+      "boundary_long": 10,
+      "boundary_short": 8,
+      "full_reward": 2,
+      "tail": 0,
+      "verification": "exact subsequence dynamic program"
+    },
+    {
+      "h": 4,
+      "n": 32,
+      "boundary_long": 26,
+      "boundary_short": 20,
+      "full_reward": 2,
+      "tail": 4,
+      "verification": "exact subsequence dynamic program"
+    },
+    {
+      "h": 5,
+      "n": 64,
+      "boundary_long": 58,
+      "boundary_short": 44,
+      "full_reward": 2,
+      "tail": 12,
+      "verification": "exact subsequence dynamic program"
+    },
+    {
+      "h": 6,
+      "n": 128,
+      "boundary_long": 122,
+      "boundary_short": 92,
+      "full_reward": 2,
+      "tail": 28,
+      "verification": "exact subsequence dynamic program"
+    },
+    {
+      "h": 7,
+      "n": 256,
+      "boundary_long": 250,
+      "boundary_short": 188,
+      "full_reward": 2,
+      "tail": 60,
+      "verification": "exact subsequence dynamic program"
+    },
+    {
+      "h": 8,
+      "n": 512,
+      "tail": 124,
+      "verification": "proved closed form only"
+    },
+    {
+      "h": 16,
+      "n": 131072,
+      "tail": 32764,
+      "verification": "proved closed form only"
+    },
+    {
+      "h": 32,
+      "n": 8589934592,
+      "tail": 2147483644,
+      "verification": "proved closed form only"
+    },
+    {
+      "h": 64,
+      "n": 36893488147419103232,
+      "tail": 9223372036854775804,
+      "verification": "proved closed form only"
+    },
+    {
+      "h": 128,
+      "n": 680564733841876926926749214863536422912,
+      "tail": 170141183460469231731687303715884105724,
+      "verification": "proved closed form only"
+    }
+  ],
+  "source_sha256": {
+    "periodic_tail_barrier.py": "e79506638f2eeba267cd17c4492ed3d970ee2a4edc49941218f15babaa9e93b0",
+    "rank_reward_tail.py": "497e654c8f0f241e5f3e4a9404cb30f72568cdfe5ea1a690b9ac17b10f13aca5",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66"
+  }
+}

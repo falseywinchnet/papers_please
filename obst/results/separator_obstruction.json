@@ -1,0 +1,845 @@
+{
+  "rows": [
+    {
+      "n": 5,
+      "mass": 259,
+      "selected": {
+        "contour_mass_checks": 5,
+        "parameter_levels": 1,
+        "selected_depth": 0,
+        "selected_width": 5,
+        "selected_short_states": 15,
+        "selected_work_proxy": 15
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 15,
+          "proxy": 25
+        },
+        {
+          "depth": 2,
+          "cells": 9,
+          "proxy": 29
+        }
+      ],
+      "full_solve": true,
+      "optimum": 647,
+      "counts": {
+        "prefix_items": 5,
+        "component_calls": 1,
+        "max_separator_depth": 0,
+        "endpoint_checks": 2,
+        "range_build_comparisons": 14,
+        "separator_score_items": 9,
+        "range_query_comparisons": 5,
+        "terminal_contour_mass_checks": 5,
+        "terminal_parameter_levels": 1,
+        "terminal_selected_depth": 0,
+        "terminal_selected_width": 5,
+        "terminal_selected_short_states": 15,
+        "terminal_selected_work_proxy": 15,
+        "terminal_short_states": 15,
+        "terminal_short_root_candidates": 26,
+        "terminal_direct_knuth": 1,
+        "terminal_reconstructed_keys": 5,
+        "terminal_components": 1,
+        "terminal_keys": 5,
+        "terminal_size_squares": 25,
+        "terminal_relabelled_keys": 5,
+        "terminal_sizes": [
+          5
+        ]
+      }
+    },
+    {
+      "n": 6,
+      "mass": 443,
+      "selected": {
+        "contour_mass_checks": 6,
+        "parameter_levels": 1,
+        "selected_depth": 0,
+        "selected_width": 6,
+        "selected_short_states": 21,
+        "selected_work_proxy": 21
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 21,
+          "proxy": 33
+        },
+        {
+          "depth": 2,
+          "cells": 11,
+          "proxy": 35
+        }
+      ],
+      "full_solve": true,
+      "optimum": 1111,
+      "counts": {
+        "prefix_items": 6,
+        "component_calls": 1,
+        "max_separator_depth": 0,
+        "endpoint_checks": 2,
+        "range_build_comparisons": 14,
+        "separator_score_items": 11,
+        "range_query_comparisons": 5,
+        "terminal_contour_mass_checks": 6,
+        "terminal_parameter_levels": 1,
+        "terminal_selected_depth": 0,
+        "terminal_selected_width": 6,
+        "terminal_selected_short_states": 21,
+        "terminal_selected_work_proxy": 21,
+        "terminal_short_states": 21,
+        "terminal_short_root_candidates": 39,
+        "terminal_direct_knuth": 1,
+        "terminal_reconstructed_keys": 6,
+        "terminal_components": 1,
+        "terminal_keys": 6,
+        "terminal_size_squares": 36,
+        "terminal_relabelled_keys": 6,
+        "terminal_sizes": [
+          6
+        ]
+      }
+    },
+    {
+      "n": 8,
+      "mass": 1039,
+      "selected": {
+        "contour_mass_checks": 21,
+        "parameter_levels": 2,
+        "selected_depth": 0,
+        "selected_width": 8,
+        "selected_short_states": 36,
+        "selected_work_proxy": 36
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 36,
+          "proxy": 52
+        },
+        {
+          "depth": 2,
+          "cells": 22,
+          "proxy": 54
+        },
+        {
+          "depth": 3,
+          "cells": 10,
+          "proxy": 74
+        }
+      ],
+      "full_solve": true,
+      "optimum": 2611,
+      "counts": {
+        "prefix_items": 8,
+        "component_calls": 1,
+        "max_separator_depth": 0,
+        "endpoint_checks": 2,
+        "range_build_comparisons": 22,
+        "separator_score_items": 15,
+        "range_query_comparisons": 4,
+        "terminal_contour_mass_checks": 21,
+        "terminal_parameter_levels": 2,
+        "terminal_selected_depth": 0,
+        "terminal_selected_width": 8,
+        "terminal_selected_short_states": 36,
+        "terminal_selected_work_proxy": 36,
+        "terminal_short_states": 36,
+        "terminal_short_root_candidates": 74,
+        "terminal_direct_knuth": 1,
+        "terminal_reconstructed_keys": 8,
+        "terminal_components": 1,
+        "terminal_keys": 8,
+        "terminal_size_squares": 64,
+        "terminal_relabelled_keys": 8,
+        "terminal_sizes": [
+          8
+        ]
+      }
+    },
+    {
+      "n": 16,
+      "mass": 8223,
+      "selected": {
+        "contour_mass_checks": 69,
+        "parameter_levels": 3,
+        "selected_depth": 0,
+        "selected_width": 16,
+        "selected_short_states": 136,
+        "selected_work_proxy": 136
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 136,
+          "proxy": 168
+        },
+        {
+          "depth": 2,
+          "cells": 106,
+          "proxy": 170
+        },
+        {
+          "depth": 3,
+          "cells": 78,
+          "proxy": 206
+        },
+        {
+          "depth": 4,
+          "cells": 78,
+          "proxy": 334
+        }
+      ],
+      "full_solve": true,
+      "optimum": 20629,
+      "counts": {
+        "prefix_items": 16,
+        "component_calls": 1,
+        "max_separator_depth": 0,
+        "endpoint_checks": 2,
+        "range_build_comparisons": 46,
+        "separator_score_items": 31,
+        "range_query_comparisons": 5,
+        "terminal_contour_mass_checks": 69,
+        "terminal_parameter_levels": 3,
+        "terminal_selected_depth": 0,
+        "terminal_selected_width": 16,
+        "terminal_selected_short_states": 136,
+        "terminal_selected_work_proxy": 136,
+        "terminal_short_states": 136,
+        "terminal_short_root_candidates": 334,
+        "terminal_direct_knuth": 1,
+        "terminal_reconstructed_keys": 16,
+        "terminal_components": 1,
+        "terminal_keys": 16,
+        "terminal_size_squares": 256,
+        "terminal_relabelled_keys": 16,
+        "terminal_sizes": [
+          16
+        ]
+      }
+    },
+    {
+      "n": 32,
+      "mass": 65599,
+      "selected": {
+        "contour_mass_checks": 201,
+        "parameter_levels": 4,
+        "selected_depth": 0,
+        "selected_width": 32,
+        "selected_short_states": 528,
+        "selected_work_proxy": 528
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 528,
+          "proxy": 592
+        },
+        {
+          "depth": 2,
+          "cells": 466,
+          "proxy": 594
+        },
+        {
+          "depth": 3,
+          "cells": 406,
+          "proxy": 662
+        },
+        {
+          "depth": 4,
+          "cells": 406,
+          "proxy": 918
+        },
+        {
+          "depth": 5,
+          "cells": 406,
+          "proxy": 1430
+        }
+      ],
+      "full_solve": true,
+      "optimum": 164223,
+      "counts": {
+        "prefix_items": 32,
+        "component_calls": 1,
+        "max_separator_depth": 0,
+        "endpoint_checks": 2,
+        "range_build_comparisons": 94,
+        "separator_score_items": 63,
+        "range_query_comparisons": 6,
+        "terminal_contour_mass_checks": 201,
+        "terminal_parameter_levels": 4,
+        "terminal_selected_depth": 0,
+        "terminal_selected_width": 32,
+        "terminal_selected_short_states": 528,
+        "terminal_selected_work_proxy": 528,
+        "terminal_short_states": 528,
+        "terminal_short_root_candidates": 1430,
+        "terminal_direct_knuth": 1,
+        "terminal_reconstructed_keys": 32,
+        "terminal_components": 1,
+        "terminal_keys": 32,
+        "terminal_size_squares": 1024,
+        "terminal_relabelled_keys": 32,
+        "terminal_sizes": [
+          32
+        ]
+      }
+    },
+    {
+      "n": 64,
+      "mass": 524415,
+      "selected": {
+        "contour_mass_checks": 533,
+        "parameter_levels": 5,
+        "selected_depth": 0,
+        "selected_width": 64,
+        "selected_short_states": 2080,
+        "selected_work_proxy": 2080
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 2080,
+          "proxy": 2208
+        },
+        {
+          "depth": 2,
+          "cells": 1954,
+          "proxy": 2210
+        },
+        {
+          "depth": 3,
+          "cells": 1830,
+          "proxy": 2342
+        },
+        {
+          "depth": 4,
+          "cells": 1830,
+          "proxy": 2854
+        },
+        {
+          "depth": 5,
+          "cells": 1830,
+          "proxy": 3878
+        },
+        {
+          "depth": 6,
+          "cells": 1830,
+          "proxy": 5926
+        }
+      ],
+      "full_solve": true,
+      "optimum": 1311641,
+      "counts": {
+        "prefix_items": 64,
+        "component_calls": 1,
+        "max_separator_depth": 0,
+        "endpoint_checks": 2,
+        "range_build_comparisons": 190,
+        "separator_score_items": 127,
+        "range_query_comparisons": 7,
+        "terminal_contour_mass_checks": 533,
+        "terminal_parameter_levels": 5,
+        "terminal_selected_depth": 0,
+        "terminal_selected_width": 64,
+        "terminal_selected_short_states": 2080,
+        "terminal_selected_work_proxy": 2080,
+        "terminal_short_states": 2080,
+        "terminal_short_root_candidates": 5926,
+        "terminal_direct_knuth": 1,
+        "terminal_reconstructed_keys": 64,
+        "terminal_components": 1,
+        "terminal_keys": 64,
+        "terminal_size_squares": 4096,
+        "terminal_relabelled_keys": 64,
+        "terminal_sizes": [
+          64
+        ]
+      }
+    },
+    {
+      "n": 128,
+      "mass": 4194559,
+      "selected": {
+        "contour_mass_checks": 1329,
+        "parameter_levels": 6,
+        "selected_depth": 0,
+        "selected_width": 128,
+        "selected_short_states": 8256,
+        "selected_work_proxy": 8256
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 8256,
+          "proxy": 8512
+        },
+        {
+          "depth": 2,
+          "cells": 8002,
+          "proxy": 8514
+        },
+        {
+          "depth": 3,
+          "cells": 7750,
+          "proxy": 8774
+        },
+        {
+          "depth": 4,
+          "cells": 7750,
+          "proxy": 9798
+        },
+        {
+          "depth": 5,
+          "cells": 7750,
+          "proxy": 11846
+        },
+        {
+          "depth": 6,
+          "cells": 7750,
+          "proxy": 15942
+        },
+        {
+          "depth": 7,
+          "cells": 7750,
+          "proxy": 24134
+        }
+      ],
+      "full_solve": true,
+      "optimum": 10487891,
+      "counts": {
+        "prefix_items": 128,
+        "component_calls": 1,
+        "max_separator_depth": 0,
+        "endpoint_checks": 2,
+        "range_build_comparisons": 382,
+        "separator_score_items": 255,
+        "range_query_comparisons": 8,
+        "terminal_contour_mass_checks": 1329,
+        "terminal_parameter_levels": 6,
+        "terminal_selected_depth": 0,
+        "terminal_selected_width": 128,
+        "terminal_selected_short_states": 8256,
+        "terminal_selected_work_proxy": 8256,
+        "terminal_short_states": 8256,
+        "terminal_short_root_candidates": 24134,
+        "terminal_direct_knuth": 1,
+        "terminal_reconstructed_keys": 128,
+        "terminal_components": 1,
+        "terminal_keys": 128,
+        "terminal_size_squares": 16384,
+        "terminal_relabelled_keys": 128,
+        "terminal_sizes": [
+          128
+        ]
+      }
+    },
+    {
+      "n": 256,
+      "mass": 33554943,
+      "selected": {
+        "contour_mass_checks": 3181,
+        "parameter_levels": 7,
+        "selected_depth": 0,
+        "selected_width": 256,
+        "selected_short_states": 32896,
+        "selected_work_proxy": 32896
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 32896,
+          "proxy": 33408
+        },
+        {
+          "depth": 2,
+          "cells": 32386,
+          "proxy": 33410
+        },
+        {
+          "depth": 3,
+          "cells": 31878,
+          "proxy": 33926
+        },
+        {
+          "depth": 4,
+          "cells": 31878,
+          "proxy": 35974
+        },
+        {
+          "depth": 5,
+          "cells": 31878,
+          "proxy": 40070
+        },
+        {
+          "depth": 6,
+          "cells": 31878,
+          "proxy": 48262
+        },
+        {
+          "depth": 7,
+          "cells": 31878,
+          "proxy": 64646
+        },
+        {
+          "depth": 8,
+          "cells": 31878,
+          "proxy": 97414
+        }
+      ],
+      "full_solve": true,
+      "optimum": 83890893,
+      "counts": {
+        "prefix_items": 256,
+        "component_calls": 1,
+        "max_separator_depth": 0,
+        "endpoint_checks": 2,
+        "range_build_comparisons": 766,
+        "separator_score_items": 511,
+        "range_query_comparisons": 9,
+        "terminal_contour_mass_checks": 3181,
+        "terminal_parameter_levels": 7,
+        "terminal_selected_depth": 0,
+        "terminal_selected_width": 256,
+        "terminal_selected_short_states": 32896,
+        "terminal_selected_work_proxy": 32896,
+        "terminal_short_states": 32896,
+        "terminal_short_root_candidates": 97414,
+        "terminal_direct_knuth": 1,
+        "terminal_reconstructed_keys": 256,
+        "terminal_components": 1,
+        "terminal_keys": 256,
+        "terminal_size_squares": 65536,
+        "terminal_relabelled_keys": 256,
+        "terminal_sizes": [
+          256
+        ]
+      }
+    },
+    {
+      "n": 1024,
+      "mass": 2147485695,
+      "selected": {
+        "contour_mass_checks": 16869,
+        "parameter_levels": 9,
+        "selected_depth": 0,
+        "selected_width": 1024,
+        "selected_short_states": 524800,
+        "selected_work_proxy": 524800
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 524800,
+          "proxy": 526848
+        },
+        {
+          "depth": 2,
+          "cells": 522754,
+          "proxy": 526850
+        },
+        {
+          "depth": 3,
+          "cells": 520710,
+          "proxy": 528902
+        },
+        {
+          "depth": 4,
+          "cells": 520710,
+          "proxy": 537094
+        },
+        {
+          "depth": 5,
+          "cells": 520710,
+          "proxy": 553478
+        },
+        {
+          "depth": 6,
+          "cells": 520710,
+          "proxy": 586246
+        },
+        {
+          "depth": 7,
+          "cells": 520710,
+          "proxy": 651782
+        },
+        {
+          "depth": 8,
+          "cells": 520710,
+          "proxy": 782854
+        },
+        {
+          "depth": 9,
+          "cells": 520710,
+          "proxy": 1044998
+        },
+        {
+          "depth": 10,
+          "cells": 520710,
+          "proxy": 1569286
+        }
+      ],
+      "full_solve": false
+    },
+    {
+      "n": 4096,
+      "mass": 137438961663,
+      "selected": {
+        "contour_mass_checks": 83933,
+        "parameter_levels": 11,
+        "selected_depth": 0,
+        "selected_width": 4096,
+        "selected_short_states": 8390656,
+        "selected_work_proxy": 8390656
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 8390656,
+          "proxy": 8398848
+        },
+        {
+          "depth": 2,
+          "cells": 8382466,
+          "proxy": 8398850
+        },
+        {
+          "depth": 3,
+          "cells": 8374278,
+          "proxy": 8407046
+        },
+        {
+          "depth": 4,
+          "cells": 8374278,
+          "proxy": 8439814
+        },
+        {
+          "depth": 5,
+          "cells": 8374278,
+          "proxy": 8505350
+        },
+        {
+          "depth": 6,
+          "cells": 8374278,
+          "proxy": 8636422
+        },
+        {
+          "depth": 7,
+          "cells": 8374278,
+          "proxy": 8898566
+        },
+        {
+          "depth": 8,
+          "cells": 8374278,
+          "proxy": 9422854
+        },
+        {
+          "depth": 9,
+          "cells": 8374278,
+          "proxy": 10471430
+        },
+        {
+          "depth": 10,
+          "cells": 8374278,
+          "proxy": 12568582
+        },
+        {
+          "depth": 11,
+          "cells": 8374278,
+          "proxy": 16762886
+        },
+        {
+          "depth": 12,
+          "cells": 8374278,
+          "proxy": 25151494
+        }
+      ],
+      "full_solve": false
+    },
+    {
+      "n": 16384,
+      "mass": 8796093054975,
+      "selected": {
+        "contour_mass_checks": 401365,
+        "parameter_levels": 13,
+        "selected_depth": 0,
+        "selected_width": 16384,
+        "selected_short_states": 134225920,
+        "selected_work_proxy": 134225920
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 134225920,
+          "proxy": 134258688
+        },
+        {
+          "depth": 2,
+          "cells": 134193154,
+          "proxy": 134258690
+        },
+        {
+          "depth": 3,
+          "cells": 134160390,
+          "proxy": 134291462
+        },
+        {
+          "depth": 4,
+          "cells": 134160390,
+          "proxy": 134422534
+        },
+        {
+          "depth": 5,
+          "cells": 134160390,
+          "proxy": 134684678
+        },
+        {
+          "depth": 6,
+          "cells": 134160390,
+          "proxy": 135208966
+        },
+        {
+          "depth": 7,
+          "cells": 134160390,
+          "proxy": 136257542
+        },
+        {
+          "depth": 8,
+          "cells": 134160390,
+          "proxy": 138354694
+        },
+        {
+          "depth": 9,
+          "cells": 134160390,
+          "proxy": 142548998
+        },
+        {
+          "depth": 10,
+          "cells": 134160390,
+          "proxy": 150937606
+        },
+        {
+          "depth": 11,
+          "cells": 134160390,
+          "proxy": 167714822
+        },
+        {
+          "depth": 12,
+          "cells": 134160390,
+          "proxy": 201269254
+        },
+        {
+          "depth": 13,
+          "cells": 134160390,
+          "proxy": 268378118
+        },
+        {
+          "depth": 14,
+          "cells": 134160390,
+          "proxy": 402595846
+        }
+      ],
+      "full_solve": false
+    },
+    {
+      "n": 65536,
+      "mass": 562949953552383,
+      "selected": {
+        "contour_mass_checks": 1867725,
+        "parameter_levels": 15,
+        "selected_depth": 0,
+        "selected_width": 65536,
+        "selected_short_states": 2147516416,
+        "selected_work_proxy": 2147516416
+      },
+      "levels": [
+        {
+          "depth": 1,
+          "cells": 2147516416,
+          "proxy": 2147647488
+        },
+        {
+          "depth": 2,
+          "cells": 2147385346,
+          "proxy": 2147647490
+        },
+        {
+          "depth": 3,
+          "cells": 2147254278,
+          "proxy": 2147778566
+        },
+        {
+          "depth": 4,
+          "cells": 2147254278,
+          "proxy": 2148302854
+        },
+        {
+          "depth": 5,
+          "cells": 2147254278,
+          "proxy": 2149351430
+        },
+        {
+          "depth": 6,
+          "cells": 2147254278,
+          "proxy": 2151448582
+        },
+        {
+          "depth": 7,
+          "cells": 2147254278,
+          "proxy": 2155642886
+        },
+        {
+          "depth": 8,
+          "cells": 2147254278,
+          "proxy": 2164031494
+        },
+        {
+          "depth": 9,
+          "cells": 2147254278,
+          "proxy": 2180808710
+        },
+        {
+          "depth": 10,
+          "cells": 2147254278,
+          "proxy": 2214363142
+        },
+        {
+          "depth": 11,
+          "cells": 2147254278,
+          "proxy": 2281472006
+        },
+        {
+          "depth": 12,
+          "cells": 2147254278,
+          "proxy": 2415689734
+        },
+        {
+          "depth": 13,
+          "cells": 2147254278,
+          "proxy": 2684125190
+        },
+        {
+          "depth": 14,
+          "cells": 2147254278,
+          "proxy": 3220996102
+        },
+        {
+          "depth": 15,
+          "cells": 2147254278,
+          "proxy": 4294737926
+        },
+        {
+          "depth": 16,
+          "cells": 2147254278,
+          "proxy": 6442221574
+        }
+      ],
+      "full_solve": false
+    }
+  ]
+}

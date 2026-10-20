@@ -1,0 +1,331 @@
+{
+  "scope": "Exact two-key full-ruler tail and zero clipped tail. Pair-rank enumeration, generic subsequence, literal subset, and original mixed-layer controls are separate from formula-only rows.",
+  "rows": [
+    {
+      "a": 0,
+      "b": 3,
+      "d": 1,
+      "Q": 8,
+      "h": 3,
+      "n": 16,
+      "key_positions_one_based": [
+        5,
+        8
+      ],
+      "full_tail": 3,
+      "clipped_tail": 0,
+      "removed_reward": 4,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 0,
+      "b": 4,
+      "d": 1,
+      "Q": 16,
+      "h": 4,
+      "n": 32,
+      "key_positions_one_based": [
+        13,
+        16
+      ],
+      "full_tail": 10,
+      "clipped_tail": 0,
+      "removed_reward": 11,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 0,
+      "b": 5,
+      "d": 1,
+      "Q": 32,
+      "h": 5,
+      "n": 64,
+      "key_positions_one_based": [
+        29,
+        32
+      ],
+      "full_tail": 27,
+      "clipped_tail": 0,
+      "removed_reward": 26,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 0,
+      "b": 6,
+      "d": 1,
+      "Q": 64,
+      "h": 6,
+      "n": 128,
+      "key_positions_one_based": [
+        61,
+        64
+      ],
+      "full_tail": 64,
+      "clipped_tail": 0,
+      "removed_reward": 57,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "d": 2,
+      "Q": 8,
+      "h": 4,
+      "n": 32,
+      "key_positions_one_based": [
+        10,
+        16
+      ],
+      "full_tail": 3,
+      "clipped_tail": 0,
+      "removed_reward": 4,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 1,
+      "b": 4,
+      "d": 2,
+      "Q": 16,
+      "h": 5,
+      "n": 64,
+      "key_positions_one_based": [
+        26,
+        32
+      ],
+      "full_tail": 10,
+      "clipped_tail": 0,
+      "removed_reward": 11,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 1,
+      "b": 5,
+      "d": 2,
+      "Q": 32,
+      "h": 6,
+      "n": 128,
+      "key_positions_one_based": [
+        58,
+        64
+      ],
+      "full_tail": 27,
+      "clipped_tail": 0,
+      "removed_reward": 26,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 1,
+      "b": 6,
+      "d": 2,
+      "Q": 64,
+      "h": 7,
+      "n": 256,
+      "key_positions_one_based": [
+        122,
+        128
+      ],
+      "full_tail": 64,
+      "clipped_tail": 0,
+      "removed_reward": 57,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "d": 4,
+      "Q": 8,
+      "h": 5,
+      "n": 64,
+      "key_positions_one_based": [
+        20,
+        32
+      ],
+      "full_tail": 3,
+      "clipped_tail": 0,
+      "removed_reward": 4,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "d": 4,
+      "Q": 16,
+      "h": 6,
+      "n": 128,
+      "key_positions_one_based": [
+        52,
+        64
+      ],
+      "full_tail": 10,
+      "clipped_tail": 0,
+      "removed_reward": 11,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 2,
+      "b": 5,
+      "d": 4,
+      "Q": 32,
+      "h": 7,
+      "n": 256,
+      "key_positions_one_based": [
+        116,
+        128
+      ],
+      "full_tail": 27,
+      "clipped_tail": 0,
+      "removed_reward": 26,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 2,
+      "b": 6,
+      "d": 4,
+      "Q": 64,
+      "h": 8,
+      "n": 512,
+      "key_positions_one_based": [
+        244,
+        256
+      ],
+      "full_tail": 64,
+      "clipped_tail": 0,
+      "removed_reward": 57,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "d": 8,
+      "Q": 8,
+      "h": 6,
+      "n": 128,
+      "key_positions_one_based": [
+        40,
+        64
+      ],
+      "full_tail": 3,
+      "clipped_tail": 0,
+      "removed_reward": 4,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 3,
+      "b": 4,
+      "d": 8,
+      "Q": 16,
+      "h": 7,
+      "n": 256,
+      "key_positions_one_based": [
+        104,
+        128
+      ],
+      "full_tail": 10,
+      "clipped_tail": 0,
+      "removed_reward": 11,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "d": 8,
+      "Q": 32,
+      "h": 8,
+      "n": 512,
+      "key_positions_one_based": [
+        232,
+        256
+      ],
+      "full_tail": 27,
+      "clipped_tail": 0,
+      "removed_reward": 26,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    },
+    {
+      "a": 3,
+      "b": 6,
+      "d": 8,
+      "Q": 64,
+      "h": 9,
+      "n": 1024,
+      "key_positions_one_based": [
+        488,
+        512
+      ],
+      "full_tail": 64,
+      "clipped_tail": 0,
+      "removed_reward": 57,
+      "verification": "two-key score enumeration; generic/all-root only where separately counted"
+    }
+  ],
+  "formula_only": [
+    {
+      "a": 8,
+      "b": 8,
+      "d": 256,
+      "Q": 256,
+      "n": 131072,
+      "full_tail": 298,
+      "removed_reward": 247,
+      "verification": "closed form only"
+    },
+    {
+      "a": 16,
+      "b": 16,
+      "d": 65536,
+      "Q": 65536,
+      "n": 8589934592,
+      "full_tail": 81874,
+      "removed_reward": 65519,
+      "verification": "closed form only"
+    },
+    {
+      "a": 32,
+      "b": 32,
+      "d": 4294967296,
+      "Q": 4294967296,
+      "n": 36893488147419103232,
+      "full_tail": 5368709026,
+      "removed_reward": 4294967263,
+      "verification": "closed form only"
+    },
+    {
+      "a": 64,
+      "b": 64,
+      "d": 18446744073709551616,
+      "Q": 18446744073709551616,
+      "n": 680564733841876926926749214863536422912,
+      "full_tail": 23058430092136939330,
+      "removed_reward": 18446744073709551551,
+      "verification": "closed form only"
+    }
+  ],
+  "checks": {
+    "one_rank_candidates": 174756,
+    "two_rank_candidates": 433864,
+    "two_key_scores": 14276,
+    "compatible_score_decompositions": 3544,
+    "coarse_score_controls": 3544,
+    "parity_sum_controls": 16,
+    "generic_tail_controls": 20,
+    "all_root_candidates": 1473440,
+    "dense_states": 71664,
+    "original_mixed_layer_controls": 12,
+    "literal_subsequences": 11520,
+    "literal_interval_controls": 18,
+    "spaced_boundary_sum_controls": 28,
+    "literal_spaced_subsequences": 840,
+    "literal_spaced_scores": 14
+  },
+  "compiled_counts": {
+    "inputs": 20,
+    "score_states": 2370068,
+    "densities": 20424
+  },
+  "source_sha256": {
+    "ruler_clipping_sharp.py": "08a732239ef7d0b830c6ce44f3186aa0b62de3f91f17f47b91e941afa474a312",
+    "template_tail_probe.cpp": "7f30aeeb3f6cdbd109fb1c07bb0240b5f6fcb66a81cb24de4c60f3888c6a5cb9",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66",
+    "../results/spaced_rank_tail.json": "f299d7387697798caf69816d2d9dcb5624c7a37ce804f0f78183ccebea89c4fe"
+  }
+}

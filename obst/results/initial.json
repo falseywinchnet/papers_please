@@ -1,0 +1,387 @@
+{
+  "host": "macOS-26.5-arm64-arm-64bit",
+  "python": "3.9.6",
+  "started_unix": 1792375035.606571,
+  "mode": "all",
+  "verify": {
+    "exhaustive_weight_instances": 22143,
+    "random_instances": 2700
+  },
+  "verify_seconds": 0.683622292,
+  "traps": {
+    "rotation": {
+      "n": 3,
+      "trial": 2,
+      "p": [
+        3,
+        5,
+        18
+      ],
+      "q": [
+        13,
+        14,
+        4,
+        8
+      ],
+      "tree": [
+        2,
+        [
+          0,
+          null,
+          [
+            1,
+            null,
+            null
+          ]
+        ],
+        null
+      ],
+      "cost": 127,
+      "optimal_cost": 125,
+      "optimum": [
+        1,
+        [
+          0,
+          null,
+          null
+        ],
+        [
+          2,
+          null,
+          null
+        ]
+      ],
+      "best_neighbor_cost": 134,
+      "neighbor_count": 2
+    },
+    "promotion": {
+      "n": 3,
+      "trial": 68,
+      "p": [
+        18,
+        8,
+        18
+      ],
+      "q": [
+        17,
+        11,
+        1,
+        13
+      ],
+      "tree": [
+        1,
+        [
+          0,
+          null,
+          null
+        ],
+        [
+          2,
+          null,
+          null
+        ]
+      ],
+      "cost": 164,
+      "optimal_cost": 157,
+      "optimum": [
+        0,
+        null,
+        [
+          2,
+          [
+            1,
+            null,
+            null
+          ],
+          null
+        ]
+      ],
+      "best_neighbor_cost": 169,
+      "neighbor_count": 2
+    }
+  },
+  "traps_seconds": 0.001561042000000068,
+  "bounds": [
+    {
+      "n": 16,
+      "family": "uniform",
+      "trials": 20,
+      "exact": 20,
+      "mean_additive_normalized_gap": 0.0,
+      "max_additive_normalized_gap": 0.0
+    },
+    {
+      "n": 16,
+      "family": "near_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.020520102967157793,
+      "max_additive_normalized_gap": 0.03323262839879154
+    },
+    {
+      "n": 16,
+      "family": "random",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.15760776373019753,
+      "max_additive_normalized_gap": 0.2510408252035046
+    },
+    {
+      "n": 16,
+      "family": "log_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.636192220329518,
+      "max_additive_normalized_gap": 0.9403196125013848
+    },
+    {
+      "n": 16,
+      "family": "spike",
+      "trials": 20,
+      "exact": 3,
+      "mean_additive_normalized_gap": 0.32499206895517063,
+      "max_additive_normalized_gap": 0.9999745003952438
+    },
+    {
+      "n": 16,
+      "family": "keys_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.13695432166039928,
+      "max_additive_normalized_gap": 0.2390068800478612
+    },
+    {
+      "n": 16,
+      "family": "gaps_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.0850112160845608,
+      "max_additive_normalized_gap": 0.1590633341421985
+    },
+    {
+      "n": 32,
+      "family": "uniform",
+      "trials": 20,
+      "exact": 20,
+      "mean_additive_normalized_gap": 0.0,
+      "max_additive_normalized_gap": 0.0
+    },
+    {
+      "n": 32,
+      "family": "near_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.02549066114990976,
+      "max_additive_normalized_gap": 0.040123456790123455
+    },
+    {
+      "n": 32,
+      "family": "random",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.18250323096853596,
+      "max_additive_normalized_gap": 0.2339467761154508
+    },
+    {
+      "n": 32,
+      "family": "log_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.7781054040867454,
+      "max_additive_normalized_gap": 1.1614090699933535
+    },
+    {
+      "n": 32,
+      "family": "spike",
+      "trials": 20,
+      "exact": 2,
+      "mean_additive_normalized_gap": 0.7082925204515631,
+      "max_additive_normalized_gap": 0.9999798335316369
+    },
+    {
+      "n": 32,
+      "family": "keys_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.14751635493227272,
+      "max_additive_normalized_gap": 0.22383038648098888
+    },
+    {
+      "n": 32,
+      "family": "gaps_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.0976999220982945,
+      "max_additive_normalized_gap": 0.1459664881672137
+    },
+    {
+      "n": 64,
+      "family": "uniform",
+      "trials": 20,
+      "exact": 20,
+      "mean_additive_normalized_gap": 0.0,
+      "max_additive_normalized_gap": 0.0
+    },
+    {
+      "n": 64,
+      "family": "near_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.03100479613450822,
+      "max_additive_normalized_gap": 0.03819173811379579
+    },
+    {
+      "n": 64,
+      "family": "random",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.20727048065153877,
+      "max_additive_normalized_gap": 0.25440738183838757
+    },
+    {
+      "n": 64,
+      "family": "log_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.725139703084477,
+      "max_additive_normalized_gap": 0.9916342332473933
+    },
+    {
+      "n": 64,
+      "family": "spike",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.8242494410571215,
+      "max_additive_normalized_gap": 1.333216004927793
+    },
+    {
+      "n": 64,
+      "family": "keys_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.15261276825527875,
+      "max_additive_normalized_gap": 0.19233412981571799
+    },
+    {
+      "n": 64,
+      "family": "gaps_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.09419723722429303,
+      "max_additive_normalized_gap": 0.1378619153674833
+    },
+    {
+      "n": 128,
+      "family": "uniform",
+      "trials": 20,
+      "exact": 20,
+      "mean_additive_normalized_gap": 0.0,
+      "max_additive_normalized_gap": 0.0
+    },
+    {
+      "n": 128,
+      "family": "near_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.032252082881873534,
+      "max_additive_normalized_gap": 0.04303599374021909
+    },
+    {
+      "n": 128,
+      "family": "random",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.197212378726968,
+      "max_additive_normalized_gap": 0.23506525715348606
+    },
+    {
+      "n": 128,
+      "family": "log_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.7871899555036971,
+      "max_additive_normalized_gap": 1.027061465708033
+    },
+    {
+      "n": 128,
+      "family": "spike",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.8620144522247422,
+      "max_additive_normalized_gap": 1.3332168937599445
+    },
+    {
+      "n": 128,
+      "family": "keys_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.15920730799112806,
+      "max_additive_normalized_gap": 0.19051704226746297
+    },
+    {
+      "n": 128,
+      "family": "gaps_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.09428913801007616,
+      "max_additive_normalized_gap": 0.11733294638322571
+    },
+    {
+      "n": 256,
+      "family": "uniform",
+      "trials": 20,
+      "exact": 20,
+      "mean_additive_normalized_gap": 0.0,
+      "max_additive_normalized_gap": 0.0
+    },
+    {
+      "n": 256,
+      "family": "near_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.032789308251045486,
+      "max_additive_normalized_gap": 0.03659723574070469
+    },
+    {
+      "n": 256,
+      "family": "random",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.19005962086497727,
+      "max_additive_normalized_gap": 0.22423225827619017
+    },
+    {
+      "n": 256,
+      "family": "log_uniform",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.7563936143929448,
+      "max_additive_normalized_gap": 0.878763344443226
+    },
+    {
+      "n": 256,
+      "family": "spike",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.9997931237213669,
+      "max_additive_normalized_gap": 1.266517484952833
+    },
+    {
+      "n": 256,
+      "family": "keys_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.15501601821263694,
+      "max_additive_normalized_gap": 0.1784672457325892
+    },
+    {
+      "n": 256,
+      "family": "gaps_only",
+      "trials": 20,
+      "exact": 0,
+      "mean_additive_normalized_gap": 0.09196148653108599,
+      "max_additive_normalized_gap": 0.12103454283406452
+    }
+  ],
+  "bounds_seconds": 2.6139434589999997
+}

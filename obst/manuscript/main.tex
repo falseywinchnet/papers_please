@@ -1,0 +1,1230 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\newfontfamily\hebrewfont{NotoSansHebrew-Regular.ttf}[Path=fonts/,Script=Hebrew]
+\newcommand{\hebrewname}{{\hebrewfont\beginR הַקָּדוֹשׁ בָּרוּךְ הוּא\endR}}
+\TeXXeTstate=1
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{microtype}
+\emergencystretch=1.5em
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\OPT}{\operatorname{OPT}}
+\newcommand{\tri}[1]{\tau(#1)}
+\title{Core-Sparse Monge Construction\\for Full Optimal Binary Search Trees\textsuperscript{*}}
+\author{OpenAI Codex Sydney\\\small Problem selection and sponsorship: Joshuah Rainstar}
+\date{October 20, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give an exact algorithm for full optimal binary search trees with arbitrary
+nonnegative integer weights attached to fixed key and gap positions. When the
+total weight is $W=O(n)$, it constructs the complete tree in
+$O(n^{3/2}\log^{3/2}(n+1))$ arithmetic operations. The bound includes
+reading the input and reconstructing every key of an optimal tree.
+This regime includes access
+counts from $O(n)$ sampled lookups, with zero counts permitted at any positions.
+Centering around separate constant key and gap baselines gives
+$O(n(1+\sqrt R)\log^3(n+1))$ operations when the total nonnegative integer
+deviation $R$ is polynomial in $n$, independently of the baseline magnitudes
+in the arithmetic-operation count. An explicit family with $W=n$ has
+$\Omega(n^{3/2})$ entries in one intermediate density core. The polynomial
+exponent in the explicit-core size analysis is therefore tight, with a
+remaining $\sqrt{\log n}$ gap. A second family has quadratic density support
+at $R=n^2$ and admits linear tree construction, separating representation
+size from construction complexity. The general arbitrary-weight
+subquadratic construction problem remains open.
+\end{abstract}
+
+\section{Model and prior work}
+\label{sec:model}
+
+Weights are attached to fixed positions in key order; they need not be sorted.
+Keys have fixed inorder positions $0,\ldots,n-1$ and nonnegative weights
+$p_0,\ldots,p_{n-1}$. The $n+1$ gaps have weights $q_0,\ldots,q_n$.
+A key at depth $d$ contributes $p(d+1)$; a gap at depth $d$ contributes $qd$.
+Charging an extra comparison at each gap adds the tree-independent constant
+$\sum q_i$.
+
+For a half-open key interval $[i,j)$, write
+\[
+ W(i,j)=\sum_{r=i}^{j-1}p_r+\sum_{r=i}^{j}q_r,\qquad C(i,i)=0.
+\]
+The exact recurrence is
+\[
+ C(i,j)=W(i,j)+\min_{i\le r<j}\{C(i,r)+C(r+1,j)\}.
+\]
+Knuth's monotone-root optimization computes the table in $O(n^2)$
+time~\cite{knuth}. The construction below reduces the number of represented interval states
+while retaining both key and gap weights.
+
+The regime $W=O(n)$ arises from access counts in $O(n)$ sampled lookups:
+each successful lookup increments one key count and each unsuccessful lookup
+increments one gap count, so the total count equals the sample size, with
+zeros at unobserved outcomes.
+
+For comparison with probability-based results, suppose $W>0$ and put
+$\widehat p_i=p_i/W$, $\widehat q_j=q_j/W$, and
+$\widehat W(i,j)=W(i,j)/W$. Let $\varphi=(1+\sqrt5)/2$ and
+$\rho=1/(1+\log_2\varphi)\simeq0.59023$.
+Larmore's exact theorem~\cite{larmore} (Theorem~1.1 of the author report
+linked in that reference) assumes an integer $\ell<n$ and $0<\lambda<1$
+such that $\widehat W(i,j)\ge\lambda$ whenever $j-i>\ell$.
+It constructs an optimum in
+\[
+ O\!\left(n\left[\ell+\lambda^{-\log_\varphi2}\log n\right]\right)
+\]
+time. Its Corollary~1.2 gives
+$O(n^{1+\rho}(\log n)^{1-\rho})$ time if
+$\widehat p_i+\widehat q_{i+1}\ge\varepsilon/n$ for every key position,
+where $\varepsilon>0$ is constant.
+
+Karpinski, Larmore, and Rytter~\cite{klr}, Lemma~3.2, give
+$O(n(\ell+2^d))$ sequential time when every segment of $\ell$ consecutive
+items contains a node at depth at most $d$ in an optimal tree.
+Their Theorem~4.1 assumes
+$\widehat q_i+\widehat p_i+\widehat q_{i+1}\ge\delta/n$ for every key,
+with constant $\delta>0$, and gives $O(n^{0.6})$ CREW PRAM time with
+$O(n)$ processors. Its proof chooses $\ell=\Theta(n^\rho)$ and $2^d=O(n^\rho)$;
+Lemma~3.2 then gives $O(n^{1+\rho})$ sequential time.
+The structural bound can apply beyond that specialization when a suitable
+$(\ell,d)$ decomposition is available.
+Their separate expected-subquadratic result assumes randomly permuted key
+weights and zero gap weights (Theorem~5.1).
+
+The integer linear-mass class overlaps these frequency-restricted classes
+but permits arbitrary long zero-mass intervals. For example, $p_0=n$ with
+all other weights zero has $W=n$: Larmore's interval-mass condition forces
+$\ell\ge n-1$, giving a quadratic stated bound, while the local-mass
+hypothesis of Karpinski--Larmore--Rytter's Theorem~4.1 fails.
+Thus the cited local-frequency guarantees do not cover the whole class
+considered here. Our guarantee uses total integer mass without a minimum
+local mass or a random ordering assumption; on their positive-frequency
+overlap it also improves the stated sequential exponent.
+
+All running-time bounds count arithmetic operations and comparisons;
+operand bit lengths are stated separately.
+
+
+For uniform key weights $a$ and uniform gap weights $b$, the external path
+length equals $I+2n$, where $I$ is the internal path length. Thus
+\[
+ C(T)=(a+b)I+(a+2b)n.
+\]
+Every minimum-internal-path-length tree is optimal. Such a tree fills every
+level above the last and is constructible in $O(n)$ time. When $a=b=0$,
+every tree is optimal. Later baseline arguments use this exact identity.
+
+\section{Terminal-penalty Monge construction}
+\label{sec:construction}
+
+The construction applies the published core-sparse Monge product and
+witness algorithms to a terminal-penalty iteration. A mixed-weight rotation
+bound limits the number of layers, and finite completions preserve Monge
+structure at the diagonal. Dyadic tiling bounds each intermediate core;
+charging individual outcomes across geometrically spaced layer boundaries
+bounds their aggregate size. The final witness structures return every key
+of the optimal tree.
+
+Let $n\ge1$, let all key and gap weights be nonnegative integers, and put
+$W=\sum p_i+\sum q_i$ and $L=\lceil\log_2(n+1)\rceil$. Write $f(W)$ for
+the first index with $F_{f(W)}>W$, where $F_0=0,F_1=1$. Set
+\[
+ H=\min\{n,f(W)+L\},\qquad M=(H+1)W+1.
+\]
+If every key weight is positive, $H=\min\{n,f(W)\}$ suffices.
+
+\begin{theorem}[Integer-mass sparse-product reduction]\label{thm:penalty-reduction}
+Using the core-sparse Monge multiplication and witness algorithms
+of~\cite{coremonge}, a full optimal BST can be constructed in
+\[
+ O\!\left(H\left[n+\min\{n^2,n\sqrt{WL}\}\right]\log(n+1)\right)
+\]
+arithmetic operations. Retaining the witness structures uses
+$O(H[n+\min\{n^2,n\sqrt{WL}\}])$ words. In particular, $W=O(n)$ gives
+$O(n^{3/2}\log^{3/2}(n+1))$ exact construction. Intermediate integers have
+$O(\log(n+1)+\log(W+1))$ bits.
+\end{theorem}
+The linear-mass case uses $O(\log n)$-bit operands. Taking the smaller
+of this construction bound and Knuth's $O(n^2)$ bound gives a general
+exact algorithm with the stated improvement at linear integer mass.
+
+\subsection{A full mixed-weight height bound}
+\begin{lemma}[A sufficient mixed-weight subtree bound]\label{lem:mass}
+If $S$ is an internal subtree at edge depth $d$ in an optimal full OBST
+of total outcome mass $W$, then
+\[
+ W(S)\le W/F_{d+1},\qquad F_1=F_2=1.
+\]
+\end{lemma}
+\begin{proof}
+For a subtree $Z$, $W(Z)$ includes every key and external gap in it;
+$Z$ may be a single gap. A one-level depth change changes cost by the
+outcome weight for both kinds of outcomes. Write $v(L,R)$ for a key and
+its two subtrees. Reflection reduces the straight and bent cases to the
+following two transformations.
+
+In the straight case, with internal grandchild $X$, rotate
+\[
+ v(y(X,B),D)\longrightarrow y(X,v(B,D)).
+\]
+Key $y$ and all outcomes of $X$ rise one level; key $v$ and all outcomes
+of $D$ fall one level. Every outcome of $B$ keeps its depth. If
+$O=p_v+W(D)$, the exact change is
+\[
+ O-p_y-W(X).
+\]
+Optimality implies $O\ge p_y+W(X)\ge W(X)$.
+
+For the bent case write $X=x(B,C)$ and perform the double rotation
+\[
+ v(y(A,x(B,C)),D)\longrightarrow x(y(A,B),v(C,D)).
+\]
+The changes of edge depth, and hence of comparison length, are:
+\begin{center}
+\begin{tabular}{c|rrrrrrr}
+Outcome or subtree & $x$ & $B$ & $C$ & $v$ & $D$ & $y$ & $A$\\
+\hline
+Depth change & $-2$ & $-1$ & $-1$ & $+1$ & $+1$ & $0$ & $0$
+\end{tabular}
+\end{center}
+Every outcome in a listed subtree has the indicated change. Therefore
+\[
+ C_{\rm new}-C_{\rm old}
+ =p_v+W(D)-2p_x-W(B)-W(C)
+ =O-p_x-W(X).
+\]
+Optimality again gives $O\ge W(X)$. Both transformations preserve inorder
+positions and every external gap; all other outcomes keep their depths.
+These are transformations of complete trees.
+
+Going upward from $S$, write $T_0=S,T_1,\ldots,T_d=T$. Nonnegativity
+gives $W(T_1)\ge W(T_0)$, and the grandchild inequality gives
+$W(T_i)\ge W(T_{i-1})+W(T_{i-2})$ for $i\ge2$.
+Induction gives $W(T_d)\ge F_{d+1}W(S)$. Weak inequalities include
+zero weights and ties.
+\end{proof}
+The lemma applies to internal subtrees, including those of zero mass.
+The Fibonacci approach follows earlier subtree-ratio work~\cite{hlm};
+the rotation calculation above supplies the mixed key/gap bound used here.
+
+
+\subsection{An upper iteration that finishes in a bounded number of levels}\label{sec:penalty-iteration}
+Initialize $A_0(i,j)=M(j-i)$ for $i\le j$, and iterate
+\begin{align*}
+ A_h(i,i)&=0,\\
+ A_h(i,j)&=W(i,j)+\min_{i\le r<j}
+       \{A_{h-1}(i,r)+A_{h-1}(r+1,j)\}\quad(i<j).
+\end{align*}
+This is an $h$-level partial search tree: explicit decisions incur the usual
+interval mass, while each key still in an unfinished terminal interval
+incurs penalty $M$. If $t$ keys are explicit, the cost is
+\[
+ M((j-i)-t)+D,\qquad 0\le D\le hW(i,j).
+\]
+At most $\min\{j-i,2^h-1\}$ keys can be explicit, and that number is
+attainable with inorder labels. Since $M>HW$, every minimizer for
+$h\le H$ uses that maximum number. Writing $c_h=2^h-1$ gives
+\begin{equation}\label{eq:penalty-residual}
+ A_h(i,j)=M\max\{0,j-i-c_h\}+R_h(i,j),\qquad
+ 0\le R_h(i,j)\le hW(i,j).
+\end{equation}
+The argument uses Monge densities of $A_h$; residuals enter only on tiles
+where the penalty has zero density.
+
+The initial bound dominates every interval optimum: any complete tree on
+$j-i$ keys costs at most $(j-i)W(i,j)\le M(j-i)$. The recurrence is
+monotone, and $A_1\le A_0$ because $W(i,j)\le M$. Thus the iterates
+decrease and remain at least $C$. Whenever an optimal full tree fits
+within $h$ levels, it is feasible without a terminal penalty, so $A_h=C$.
+
+The mixed Fibonacci mass lemma applies here to an \emph{actual optimal
+full tree}. Every positive-mass internal subtree at depth $d$ satisfies
+$F_{d+1}\le W$. Zero-mass subtrees can be replaced by balanced trees of
+height at most $L$ without changing cost. Therefore some optimum has
+height at most $f(W)+L$; the trivial bound $n$ also applies. When all keys
+have positive integer weight every internal subtree has mass at least one,
+so the extra $L$ is unnecessary. These arguments apply to every interval,
+proving $A_H=C$ throughout the upper triangle.
+
+\subsection{Finite Monge products, including the diagonal boundary}\label{sec:finite-completion}
+For a triangular matrix $A$ with zero diagonal, define its interior density by
+\[
+ \Delta_A(i,j)=A(i,j+1)+A(i+1,j)-A(i,j)-A(i+1,j+1)
+ \quad(0\le i<j<n).
+\]
+A \emph{core} lists nonzero densities. To use a finite matrix product, put
+$P=4nM+4W+1$ and complete each layer by
+\[
+ E_h(i,j)=\begin{cases}A_h(i,j),&i\le j,\\P(i-j),&i>j.\end{cases}
+\]
+We prove by induction that $E_h$ is Monge. This is immediate for $E_0$.
+Given the previous completion, multiply its first $n$ columns by its last
+$n$ rows in the min-plus sense:
+\[
+ B_h(i,j)=\min_{0\le r<n}
+       \{E_{h-1}(i,r)+E_{h-1}(r+1,j)\}.
+\]
+For $i<j$, every invalid root has a term at least $P$, whereas a valid
+pair costs at most $nM$. Thus the finite product gives the restricted root
+minimum exactly. The product is Monge. Adding $W(i,j)$, a row term plus
+a column term, leaves density unchanged in squares entirely above the
+diagonal. The only interior squares affected by resetting a diagonal entry
+to zero have $j=i+1$. Their new density is
+\[
+ \min\{A_{h-1}(i,i+1),A_{h-1}(i+1,i+2)\}-q_{i+1}\ge0.
+\]
+For the first step both old singleton entries are $M$; thereafter each is
+its singleton interval mass. The completion adds exactly the $n$ diagonal
+densities $P+A_h(i,i+1)$; all densities below them vanish. This proves
+Monge preservation, including the boundary cases. All entries are integers.
+
+\section{Bounds on intermediate and aggregate core size}
+\label{sec:core-bounds}
+\subsection{A bound on every intermediate core}\label{sec:layer-core}
+Let $K_h$ be the number of nonzero interior densities of $A_h$.
+A direct telescoping identity is
+\begin{equation}\label{eq:core-mass}
+ \sum_{i<j}\Delta_A(i,j)=A(0,n)-\sum_{i=0}^{n-1}A(i,i+1).
+\end{equation}
+For $h\ge L$, a balanced full tree is feasible, so $A_h(0,n)\le LW$.
+Nonnegative integrality then gives $K_h\le LW$. This final-stage argument
+alone would not bound the early layers, whose terminal penalties are large.
+
+We first make the geometric step explicit, including non-power-of-two sizes.
+\begin{lemma}[Dyadic boundary count]\label{lem:dyadic-boundary}
+In the integer density grid $[0,n)^2$, retain cells with $i<j$ except
+those on $m$ specified diagonals $j-i=d_t$. Embed the grid in
+$[0,N)^2$, where $N$ is the least power of two at least $n$. Subdivide
+aligned squares into four children, discard squares without retained
+cells, and accept a square as soon as all its cells are retained.
+At every dyadic side length $s$, the accepted squares number at most
+$8(m+2)n/s$.
+\end{lemma}
+\begin{proof}
+The enclosing square contains the main diagonal, so it is not accepted.
+Every accepted square has a parent of side $t=2s$ containing both a
+retained and a forbidden cell. That parent either crosses $i=n$ or $j=n$,
+contains a cell of $i=j$, or contains a cell of a removed diagonal.
+These exhaust the reasons for subdivision. In a fixed row of side-$t$
+parent squares, a diagonal's column indices form $t$ consecutive integers,
+so it meets at most two parents. Thus each of the $m+1$ diagonals meets
+at most $2N/t$ parents. Each outer boundary crosses at most $N/t$ parents;
+if it is grid-aligned it crosses none. Each charged parent has at most
+four accepted children. Their number is at most
+\[
+ 4\{2(m+1)+2\}N/(2s)\le8(m+2)n/s.
+\]
+The boundaries at $n$ account for the padding when $n$ is not a power
+of two. Forbidden unit cells are discarded. Every retained cell reaches
+an accepted ancestor or is itself accepted, proving that these squares
+partition the retained domain.
+\end{proof}
+
+For $1\le h<L$, the penalty term in~\eqref{eq:penalty-residual} has
+density only on $j-i=c_h$. Account for that line using at most $n$ cells,
+and apply Lemma~\ref{lem:dyadic-boundary} with $m=1$ to the remainder.
+There are at most $24n/s$ accepted tiles of side $s$.
+
+On a tile $[a,b)\times[c,d)$ the penalty density vanishes. Its density
+sum telescopes to
+\[
+ R_h(a,d)+R_h(b,c)-R_h(a,c)-R_h(b,d)\le2hW.
+\]
+All densities in this tile are nonnegative integers. Negative residual
+densities can occur on the removed line and are not used. The number
+of nonzero entries in the tile is at most $\min\{s^2,2hW\}$. Therefore
+\[
+ K_h=O\!\left(n+\sum_{s\text{ dyadic}}\frac ns
+                         \min\{s^2,2hW\}\right)
+     =O(n+n\sqrt{hW}),
+\]
+capped by $O(n^2)$. Splitting the geometric sum at $s\asymp\sqrt{hW}$
+introduces no extra logarithm. For $W=0$, only the removed-line entries
+can remain. Combining the early and late bounds, including the $n$
+completion entries, yields
+\begin{equation}\label{eq:penalty-core-bound}
+ \delta(E_h)=O\!\left(n+\min\{n^2,n\sqrt{WL}\}\right)
+ \qquad(0\le h\le H).
+\end{equation}
+For completeness, the early-layer argument gives the explicit bound
+\[
+ \delta(E_h)\le 2n+96n\sqrt{2hW}\qquad(1\le h<L,\ W>0),
+\]
+since $\sum_{s\text{ dyadic}}\min(s,t^2/s)\le4t$ for $t\ge1$.
+For $W=0$ only the exceptional and completion diagonals can contribute.
+Every layer also has at most $n(n+1)/2$ completed core entries.
+These bounds count density entries independently of the penalty magnitude.
+
+\subsection{Charging individual outcomes across all layers}
+\label{sec:aggregate-cores}
+The maximum core size need not be paid at every layer. The exceptional
+penalty diagonal has distance $c_h=2^h-1$ from the main diagonal. Its
+geometric growth allows a sharper sum of the representation sizes.
+
+\begin{lemma}[Per-outcome tile overlap]\label{lem:outcome-overlap}
+Let $N$ be a power of two and $0<c<N$. Partition the integer cells
+$0\le i<j<N$, except $j-i=c$, into maximal dyadic squares avoiding both
+$j-i=0$ and $j-i=c$. For a square
+$T=[a,a+s)\times[b,b+s)$, let $J_T=[a,b+s]$ be its inclusive span of
+outcome positions. At each side length $s$ there are at most $12N/s$
+squares. Each position belongs to at most $60(1+c/s)$ spans $J_T$.
+
+More generally, in $[0,n)^2$, remove the main diagonal and any subset of
+the diagonals $j-i=2^t-1$ with $t\ge1$ and $2^t-1<n$.
+Use the maximal aligned dyadic partition of Lemma~\ref{lem:dyadic-boundary},
+including its padding boundaries when $n$ is not a power of two.
+At every side length $s$, each position belongs to at most $120n/s$
+inclusive tile spans.
+\end{lemma}
+\begin{proof}
+The whole square meets the main diagonal. Thus every accepted square has
+a rejected parent of side $2s$, with lower-left coordinates $(A,B)$.
+The parent cannot lie outside the upper-triangular domain, since it
+contains the accepted child. Its rejection therefore implies that it
+meets a line $j-i=d$ for $d\in\{0,c\}$. In integer coordinates,
+\[
+ |B-A-d|<2s,\qquad |b-a-d|<3s,
+\]
+since each child coordinate differs from its parent's by either $0$ or
+$s$. For a fixed row coordinate $a$ and a fixed $d$, at most six
+multiples of $s$ can be the column coordinate $b$. There are $N/s$
+row coordinates and two lines, giving $12N/s$ squares.
+
+If $x\in J_T$, then $a\le x\le b+s<a+d+4s$. Hence $a$ is a multiple
+of $s$ in an interval of length $d+4s$, with at most $d/s+5$ choices.
+Multiplying by six column choices and summing over $d=0,c$ gives
+$60+6c/s\le60(1+c/s)$. Counting a square under both lines only enlarges
+the bound. Inclusive endpoints cover every gap weight, and also bound
+the incidences of key weights, whose right endpoint is excluded.
+
+For the extension, fix a position $x$ and a side length $s$ at which tiles
+exist. Charge each tile to one boundary met by its rejected parent.
+The same parent-coordinate calculation gives $|b-a-d|<3s$ for a tile
+charged to diagonal distance $d$.
+
+Treat all distances $0\le d<s$ together, including the main diagonal.
+They imply $-3s<b-a<4s$. Since $a,b$ are multiples of $s$, there are at
+most six choices of $b-a$. If $x\in[a,b+s]$, then
+$a\le x<a+5s$, giving at most six row starts $a$. Thus all short
+diagonals together contribute at most $36$ covering spans.
+
+For one distance $d\ge s$, the earlier calculation gives at most
+$6(d/s+5)\le36d/s$ covering spans. If $2^T-1$ is the largest removed
+distance, then
+\[
+ \sum_{t=1}^T(2^t-1)=2^{T+1}-2-T<2n.
+\]
+The long diagonals therefore contribute fewer than $72n/s$ spans.
+
+Finally let $N$ be the least power of two at least $n$. Each padding
+boundary $i=n$ or $j=n$ crosses at most $N/(2s)$ side-$2s$ parents,
+and each parent has at most four children. Both boundaries together
+account for at most $4N/s\le8n/s$ tiles. Since $s\le n$, adding the
+short-strip, long-diagonal and boundary contributions gives
+\[
+ 36+72n/s+8n/s\le116n/s\le120n/s.
+\]
+Counting all eligible parents and starts can only enlarge the count.
+Inclusive endpoints again include every gap position.
+\end{proof}
+
+\begin{theorem}[Aggregate core bound]\label{thm:aggregate-cores}
+For the layers of Theorem~\ref{thm:penalty-reduction},
+\begin{equation}\label{eq:aggregate-cores}
+ S:=\sum_{h=0}^H\delta(E_h)
+ =O\!\left(nH+n\sqrt{WL}+WL^3+HWL\right).
+\end{equation}
+The complete construction takes $O(S\log(n+1))$ arithmetic operations,
+and the retained succinct witness structures occupy $O(S)$ words.
+In particular, if $W=O(n)$, these bounds are respectively
+$O(n^{3/2}\log^{3/2}(n+1))$ and $O(n^{3/2}\sqrt{\log(n+1)})$.
+\end{theorem}
+\begin{proof}
+For the early layers $1\le h<L$, pad the input for analysis to
+$N=2^{\lceil\log_2 n\rceil}$ keys, where $n\le N<2n$. Append zero key
+and gap weights, retaining the original $q_n$ at position $n$.
+Keep the same penalty $M$ and the same layer index. Every interval
+contained in $[0,n]$ has exactly its original recurrence and value.
+No assertion about the optimal height of the padded full input is needed.
+The proof of~\eqref{eq:penalty-residual} applies on every padded interval:
+its mass is at most $W$ and $M>hW$. Thus its residual is between zero
+and $h$ times its own interval mass, and its layer is Monge.
+
+Apply Lemma~\ref{lem:outcome-overlap} to the padded grid with $c=c_h$.
+There is no outer cut through a tile at $n$: the entire padded tile is
+used for the bound, even if only part of it lies in the original grid.
+For a tile $T$ of side $s$, the two positive corners in the telescoping
+density sum are residuals on subintervals of $J_T$. Its density sum is
+therefore at most $2hW(J_T)$. Its number of positive integer densities
+is at most both this sum and $s^2$. Charging each key and gap weight
+separately to its covering spans gives
+\[
+ \sum_{T:\,\operatorname{side}(T)=s} W(J_T)
+ \le60W(1+c_h/s).
+\]
+Writing $K_{h,s}$ for the number of nonzero original densities covered
+by these tiles, we obtain
+\begin{equation}\label{eq:outcome-scale}
+ K_{h,s}\le\min\{24ns,120hW(1+c_h/s)\}.
+\end{equation}
+The original exceptional line and completion diagonal add at most $2n$
+entries. There are at most $L$ dyadic scales. Using
+$\min(x,y+z)\le\min(x,y)+\min(x,z)$ and summing geometrically yields
+\begin{align*}
+ \delta(E_h)
+ &\le 2n+120\sum_s\min\{ns,hW(1+c_h/s)\}\\
+ &=O\!\left(n+hWL+\sqrt{nhWc_h}\right).
+\end{align*}
+Indeed, the $hW$ term contributes at most $hWL$, while
+$\sum_s\min\{ns,hWc_h/s\}\le4\sqrt{nhWc_h}$.
+If $hWc_h<n$, the latter inequality follows directly from
+$\sum_s hWc_h/s\le2hWc_h$; otherwise split at
+$s=\sqrt{hWc_h/n}$. Zero mass makes both terms zero.
+
+Now $2^L\le2(n+1)\le4n$, and
+\[
+ \sum_{h=1}^{L-1}\sqrt{h\,c_h}
+ \le\sqrt L\sum_{h=1}^{L-1}2^{h/2}
+ =O(\sqrt{Ln}).
+\]
+The early layers consequently contribute
+$O(nL+WL^3+n\sqrt{WL})$. For $h\ge L$, the earlier balanced-tree
+argument bounds each completed core by $n+LW$; the initial core has
+$n$ entries. Since $H\ge L$, summing proves~\eqref{eq:aggregate-cores}.
+
+The product, representation conversion, and witness construction at
+layer $h$ cost $O((n+\delta(E_{h-1}))\log(n+1))$. The product core is
+bounded by its input cores. The $n$ root queries add $O(n\log(n+1))$,
+and each completed core already has $n$ completion entries. Hence the
+total time is $O(S\log(n+1))$. The per-product succinct witness space
+is $O(n+\delta(E_{h-1}))$, so retaining all such structures costs $O(S)$.
+The storage bound uses the published succinct witness structures.
+
+Finally $W=O(n)$ implies $H=O(L)$. Equation~\eqref{eq:aggregate-cores}
+then gives $S=O(n^{3/2}\sqrt L+nL^3)=O(n^{3/2}\sqrt L)$, using
+$L^{5/2}=O(\sqrt n)$. This proves the sharper linear-mass clause in
+Theorem~\ref{thm:penalty-reduction}. The general maximum-core bound
+remains available whenever it is smaller.
+\end{proof}
+
+\section{Condensed products and full reconstruction}\label{sec:products}
+The precise published interface is as follows. Theorem 1.2 of
+Gawrychowski, Gorbachev, and Kociumaka~\cite{coremonge}, p.~74:3, states:
+\begin{quote}
+There is a (deterministic) algorithm that, given the condensed
+representations of a $p\times q$ Monge matrix $A$ and a $q\times r$
+Monge matrix $B$, in time
+$O(p+q+r+(\delta(A)+\delta(B))\log(1+\delta(A)+\delta(B)))$
+computes the condensed representation of $A\otimes B$.
+\end{quote}
+This quotation is reproduced under the paper's CC BY 4.0 license.
+The following definitions and guarantees specify the interface used here.
+\begin{itemize}
+\item Definition 2.5 uses precisely our density sign and defines the core
+as triples $(i,j,\Delta_A(i,j))$ with nonzero density. Its size $\delta(A)$
+counts triples, regardless of their magnitudes.
+\item Definition 3.2 stores the topmost row, leftmost column, and core.
+This is exactly the representation used here.
+\item Theorem 1.1 bounds the product core by
+$2(\delta(A)+\delta(B))$.
+\item Theorem 4.7, p.~74:11, adds within the same construction time a
+witness structure occupying $O(p+q+r+\delta(A)+\delta(B))$ space, with
+$O(\log(2+\delta(A)+\delta(B)))$ query time. Definition 2.3 specifies
+the smallest minimizing index, so ties are covered.
+\item Fact 4.1 supplies logarithmic-time entry queries after preprocessing
+from the condensed representation.
+\end{itemize}
+Here the operands have dimensions $(n+1)\times n$ and $n\times(n+1)$.
+Every entry is a finite integer: the lower-triangle padding is $P(i-j)$,
+not infinity. Invalid roots have value at least $P>nM$, whereas a valid
+root pair costs at most $nM$. Thus the reduction uses neither extended-real
+entries nor an unstated triangular version of the published theorem.
+
+Use them on the two contiguous submatrices of $E_{h-1}$. To obtain the
+next completion, retain the product core strictly above the first
+superdiagonal, where adding interval mass has zero density. Recompute the
+$O(n)$ diagonal and first-superdiagonal core entries, discard lower entries,
+and recover the top row and left column. Filtering and $O(n)$ logarithmic
+entry queries take $O((n+\delta)\log(n+1))$ work, including coordinate
+sorting if needed. The product's temporary core is also bounded linearly
+by the two input cores, by Theorem~1.1 of~\cite{coremonge}. No step
+first enumerates a dense interval table.
+
+Retain the product witness oracle for every layer. Starting from $(0,n,H)$,
+retrieve a root and recurse on its two intervals at layer $H-1$.
+There are $n$ nonempty calls. An unfinished nonempty interval at layer zero
+would incur at least $M$, but the optimum is at most $LW<M$, since
+$H\ge L$. Thus none survives; when $H=n$, completeness also follows from
+depth alone. Witness recovery costs an additional $O(n\log(n+1))$.
+Equation~\eqref{eq:penalty-core-bound}, summed over $H$ layers, proves
+the general bound in Theorem~\ref{thm:penalty-reduction}, including
+dimensions, representation conversion, storage, and reconstruction.
+Section~\ref{sec:aggregate-cores} proves its sharper linear-mass clause. Since $H\le n$ and the penalties
+are polynomial in $n,W$, the stated bit-length bound follows as well.
+
+
+\section{Centering around large constant baselines}
+\label{sec:centering}
+
+The total-mass bound can be pessimistic when large constant key and gap
+weights dominate smaller variations. We retain the original weights in the
+solver and center only the analysis of its matrix representation. Let
+\[
+ a=\min_i p_i,\quad b=\min_j q_j,\quad
+ u_i=p_i-a,\quad v_j=q_j-b,\quad R=\sum_i u_i+\sum_j v_j.
+\]
+All quantities remain nonnegative integers. The two baselines may differ
+arbitrarily; the deviations may occur at arbitrary key and gap positions.
+Write $L=\lceil\log_2(n+1)\rceil$ as before.
+
+\begin{lemma}[Normalized height budget]\label{lem:normalized-height}
+For $W>0$, let $s$ be the smallest positive singleton mass
+$p_i+q_i+q_{i+1}$. Put $z=0$ if every singleton mass is positive and $z=L$
+otherwise. Every interval has an optimal tree with height at most
+\[
+ H=\min\{n,f(\lfloor W/s\rfloor)+z\}.
+\]
+For $W=0$, use $H=L$.
+\end{lemma}
+\begin{proof}
+Every positive-mass nonempty interval contains a positive-mass singleton:
+choose a positive key, or an adjacent key within the interval if a gap
+supplies its positive mass. Thus every positive internal subtree has mass
+at least $s$. Lemma~\ref{lem:mass} gives $W\ge F_{d+1}s$ for such a subtree at depth $d$
+in an optimal tree. The positive part has the resulting bounded depth;
+zero-mass subtrees can be balanced, adding at most $L$ levels without
+changing the cost. If all singleton masses are positive no nonempty zero
+subtree exists. The global $W,s,L$ bounds also apply to every subinterval.
+The trivial height $n$ and the all-zero balanced case complete the argument.
+\end{proof}
+
+Use this $H$, $M=(H+1)W+1$, and the same finite completion and penalty
+iteration. All previous preservation arguments apply. Reconstruction is
+complete because any unfinished nonempty terminal costs at least $M$,
+whereas an optimal tree of height at most $H$ costs at most $HW$.
+
+\subsection{The exact baseline layer and its exceptional diagonals}\label{sec:baseline-layer}
+Let $I(k)$ be the minimum unweighted internal path length for $k$ keys.
+For $k\ge1$, with $d=\lfloor\log_2 k\rfloor$,
+\[
+ I(k)=dk-2^{d+1}+d+2,\qquad I(0)=0.
+\]
+The familiar baseline identity is
+$(a+b)I(T)+(a+2b)k$ for a full $k$-key tree. The following formula extends it to every partial-tree layer.
+
+\begin{lemma}[Centered partial-tree formula]\label{lem:centered-layer}
+With $c_h=2^h-1$, define
+\[
+ F_h(k)=
+ \begin{cases}
+ (a+b)I(k)+(a+2b)k,&k\le c_h,\\
+ M(k-c_h)+(a+b)h(k+1)-ac_h,&k>c_h.
+ \end{cases}
+\]
+Then the full-weight layer admits
+\[
+ A_h(i,j)=F_h(j-i)+U_h(i,j),\qquad
+ 0\le U_h(i,j)\le hR(i,j),
+\]
+where $R(i,j)=\sum_{i\le r<j}u_r+\sum_{i\le r\le j}v_r$.
+The baseline's density at interval length $k\ge1$ is
+\[
+ F_h(k+1)+F_h(k-1)-2F_h(k)=
+ \begin{cases}
+ a+b,&k=2^t-1,\quad 1\le t<h,\\
+ M-b,&k=2^h-1,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+\end{lemma}
+\begin{proof}
+The penalty forces exactly $\min(k,c_h)$ explicit keys. If $k\le c_h$,
+a full minimum-path-length tree fits in $h$ levels. Otherwise a partial
+tree exposing $c_h$ keys must fill every position in the first $h$ levels.
+Its explicit keys have baseline cost
+$a\sum_{t=0}^{h-1}(t+1)2^t$; unfinished keys cost $ah(k-c_h)$, and all
+$k+1$ gaps cost $bh(k+1)$. This gives the second branch of $F_h$.
+Nonnegative deviations cannot reduce the baseline optimum. Conversely,
+a baseline-optimal partial tree charges every deviation at most $h$ times,
+proving the residual bounds. The displayed densities follow by taking
+second differences of the two branches. In particular, changes in the
+full-tree slope occur only at $k=2^t-1$.
+\end{proof}
+
+The residual $U_h$ need not be Monge. The actual layer is Monge, and on
+any square whose density cells avoid the exceptional diagonals, its density
+equals the residual density. Baseline magnitudes do not increase the number
+of exceptional diagonals.
+
+\subsection{A weighted packing argument}\label{sec:weighted-packing}
+Remove all density cells on $j-i=2^t-1$ within the domain, and the main
+diagonal, accounting for $O(nL)$ cells. Tile the remainder with maximal
+aligned dyadic squares that avoid those lines and the outer boundary.
+For a side-$s$ tile $T=[x,x+s)\times[y,y+s)$, let
+$J_T=[x,y+s]$ be its spanning input interval, including both gap endpoints.
+
+Lemma~\ref{lem:dyadic-boundary} gives $O(nL/s)$ tiles at scale $s$.
+The extended form of Lemma~\ref{lem:outcome-overlap} gives at most
+$120n/s$ spanning intervals through each input position. Charge every
+nonnegative deviation to the spans containing its position, including both
+gap endpoints. Then
+\begin{equation}\label{eq:centered-cover}
+ \sum_{T:\,\mathrm{side}(T)=s}R(J_T)\le\frac{120n}{s}R.
+\end{equation}
+This is the same overlap argument as in the aggregate bound; the geometric
+family of baseline diagonals replaces the single capacity diagonal.
+
+On an ordinary tile the density sum telescopes to
+\[
+ U_h(x,y+s)+U_h(x+s,y)-U_h(x,y)-U_h(x+s,y+s)
+ \le 2hR(J_T).
+\]
+The true densities are nonnegative integers. The number of nonzero entries
+on a tile is therefore bounded both by $s^2$ and by that density sum.
+Using the tile count and~\eqref{eq:centered-cover}, the number across all
+tiles of side $s$ is $O(\min\{nLs,hnR/s\})$. Splitting the dyadic geometric
+sum at $s\asymp\sqrt{hR/L}$ gives $O(n\sqrt{hRL})$; for $R=0$ every
+ordinary density vanishes. No cancellation of negative residual densities
+on the removed lines is assumed.
+
+\begin{theorem}[Centered core construction]\label{thm:centered-core}
+For arbitrary nonnegative integer mixed weights, the normalized-height
+penalty construction has completed layer cores bounded by
+\[
+ K_c=O\!\left(n+\min\{n^2,nL+n\sqrt{HRL}\}\right).
+\]
+Using the published compact product and witness algorithms, a complete
+optimum can be constructed in $O(HK_c\log(n+1))$ arithmetic operations.
+Retaining the published succinct witnesses uses $O(HK_c)$ words.
+\end{theorem}
+\begin{proof}
+Add the $O(nL)$ removed cells and $n$ completion densities to the ordinary
+tile bound, and use $h\le H$. The initial layer has only $O(n)$ core entries.
+The quadratic cap is immediate. All products, conversion steps, and root
+queries operate on the actual condensed matrices, so the already established
+product reduction applies. The previous $O(n+n\sqrt{WL})$ bound is also
+available; either bound may be used when smaller.
+\end{proof}
+
+\begin{samepage}
+\begin{corollary}[Arbitrarily large baselines with polynomial deviation]\label{cor:polynomial-deviation}
+If $R$ is polynomial in $n$, exact full construction takes
+\[
+ O\!\left(n(1+\sqrt R)\log^3(n+1)\right)
+\]
+arithmetic operations, independently of the magnitudes of $a,b$ in the
+operation count. In particular, $R=O(n)$ gives
+$O(n^{3/2}\log^3(n+1))$, and $R=O(n^{2-\varepsilon})$ gives
+$O(n^{2-\varepsilon/2}\log^3(n+1))$ for fixed $0<\varepsilon\le2$.
+\end{corollary}
+\end{samepage}
+\begin{proof}
+If $a+b=0$, then $W=R$, and $s\ge1$ whenever $W>0$. Otherwise every
+singleton has mass at least $a+2b\ge1$, and
+\[
+ W=na+(n+1)b+R\le n(a+2b)+R,\qquad W/s\le n+R.
+\]
+Thus $H=O(\log(n+R+1))=O(\log(n+1))$ for polynomial $R$, including the
+possible additional $L$ and the all-zero case. Substituting in the theorem
+gives the result.
+\end{proof}
+
+For example, $p_i=n^c+u_i$ and $q_j=n^d+v_j$, with fixed nonnegative
+integer $c,d$ and bounded nonnegative integer deviations, satisfy the
+linear-$R$ condition even when $W$ is superlinear. Intermediate integers
+then still use $O(\log n)$ bits. Arbitrary larger baselines retain a bit-cost
+dependence on their representation lengths. These families permit nonuniform
+weights on both keys and gaps.  The earlier total-mass result has a smaller
+logarithmic factor when $W=O(n)$.
+
+
+
+\section{Lower bounds for the density representation}
+\label{sec:lower-bounds}
+\subsection{A linear-mass family with \texorpdfstring{$\Omega(n^{3/2})$}{Omega(n to the power 3/2)} intermediate core}
+\label{sec:ramp-tightness}
+A contiguous ramp surrounded by zero-weight keys supplies a lower bound
+on the representation size. We first identify the exact optimization
+problem inside its height-limited intervals.
+
+\begin{lemma}[Perfect-slot representation for zero gap weights]
+\label{lem:perfect-slots}
+If every gap weight is zero and $k\le c=2^h-1$, the optimal height-at-most-$h$
+key cost equals the minimum over all ordered $k$-slot subsets of the perfect
+$c$-key tree, assigning the input keys to those slots in order. The comparison
+length of its slot $r$ is $h-\nu_2(r)$, $1\le r\le c$.
+\end{lemma}
+\begin{proof}
+Every tree of height at most $h$ occupies an ancestor-closed subset of the
+perfect tree's slots, proving one inequality. Conversely, start from any
+$k$ selected slots and delete all unselected keys by ordinary BST deletion.
+For a node with two children, move its inorder successor to that node and
+splice out the successor from its old position; otherwise splice out the
+node directly. Every remaining key keeps or decreases its depth. Inorder
+order is preserved. With nonnegative key weights and zero gap weights,
+the resulting feasible tree costs no more than the selected-slot assignment.
+This proves the opposite inequality. The ruler formula for a perfect tree's
+inorder depths follows by its recursive halving.
+\end{proof}
+
+Let $v_u=\nu_2(u+1)$ for zero-based ruler positions $u$, and let $D$ bound
+these coefficients. They alternate between zero and a positive integer.
+For any consecutive segment of length $\ell$,
+\begin{equation}\label{eq:ruler-segment-mass}
+ \sum v_u\le \ell+D,
+\end{equation}
+because there are at most $\ell/2^d+1$ multiples of $2^d$ in the segment,
+and $v_u=\sum_{d=1}^D[2^d\mid u+1]$.
+Define the odd-ramp subsequence score
+\[
+ f_m(a,b)=\max_{a\le t_1<\cdots<t_m<b}
+                    \sum_{r=1}^m(2r-1)v_{t_r}.
+\]
+
+\begin{lemma}[Rightmost-zero deletion]\label{lem:rightmost-zero}
+If $b-a=m+s$ and $m>2s+D$, an optimum for $f_m(a,b)$ deletes the
+rightmost $s$ zero coefficients and retains every other position.
+\end{lemma}
+\begin{proof}
+For $s=0$ every position is retained. For $s>0$, examine the right endpoint.
+If its coefficient is zero, some optimum omits it: replace a selected final
+zero by an earlier omitted position. The inserted coefficient is nonnegative,
+and the selected coefficients it passes receive larger odd multipliers.
+
+If the final coefficient is positive, every optimum selects it. Otherwise
+there is a selected zero, since the window has fewer than $m$ positive
+positions. Let $u$ be the last selected zero. Every zero after $u$ is
+omitted, and the final positive coefficient uses one more omission. As
+zeros alternate, the distance from $u$ to the final position is at most
+$2s-1$. By~\eqref{eq:ruler-segment-mass}, the selected coefficients after
+$u$ have sum at most $2s-1+D$. Replace that selected zero by the final
+positive coefficient. The latter receives multiplier $2m-1$; each selected
+coefficient after $u$ loses two in its multiplier. The gain is at least
+\[
+ (2m-1)-2(2s-1+D)>0,
+\]
+a contradiction. Thus retain the final positive coefficient and omit its
+preceding zero while omissions remain. Removing this pair changes $(m,s)$
+to $(m-1,s-1)$ and preserves the required inequality. An initial zero
+omission only strengthens it. Continue until $s=0$.
+\end{proof}
+
+The rule yields an exact density, rather than only a count. Suppose
+$b-a=m+s$, $s\ge1$, $b$ is odd, and $m>2(s+1)+D$, so it applies to all
+four windows below. Appending the positive coefficient $v_b$ deletes the
+additional zero at $b-2s-1$. The $s$ retained positive coefficients after
+that zero each lose two in their multiplier. Hence
+\[
+ f_m(a,b+1)-f_m(a,b)
+  =(2m-1)v_b-2\sum_{r=1}^s v_{b-2r}.
+\]
+After deleting the left endpoint, the same sum has $s-1$ terms. Subtracting
+these two increments gives
+\begin{equation}\label{eq:ramp-score-density}
+ f_m(a,b+1)+f_m(a+1,b)-f_m(a,b)-f_m(a+1,b+1)
+       =-2\nu_2(b-2s+1)<0.
+\end{equation}
+
+\begin{theorem}[Linear-mass intermediate-core lower bound]
+\label{thm:ramp-core-lower}
+Let $m=2^t$, $t\ge5$, $n=m^2$, $z=(n-m)/2$, and $h=2t-1$.
+Set every gap weight to zero, and set
+\[
+ p_{z+r-1}=2r-1\quad(1\le r\le m),\qquad p_i=0\text{ otherwise}.
+\]
+Then $W=n$, and the terminal-penalty layer $A_h$ has at least
+\[
+ \frac{nm}{16}-\frac{9n}{64}-\frac m4
+       \ \ge\ \frac{n^{3/2}}{32}
+\]
+strictly positive interior densities. Their values have the explicit formula
+in~\eqref{eq:ramp-cost-density} below.
+\end{theorem}
+\begin{proof}
+Put $c=2^h-1=n/2-1$. Every interval of at most $c$ keys is fully exposed
+in layer $h$, so Lemma~\ref{lem:perfect-slots} applies. An interval
+$[i,j)$ containing the entire ramp has $z-i$ leading zero keys and
+$j-z-m$ trailing zero keys. Its positive keys can occupy any $m$ slots in
+\[
+ [a,b)=[z-i,\ c-j+z+m).
+\]
+The preceding and following zero keys fit exactly when the positive slots
+lie in this window. Since the interval's mass is $W=n$,
+\[
+ A_h(i,j)=hn-f_m(a,b).
+\]
+Write $s=c-(j-i)$; then $b-a=m+s$.
+The four original intervals defining a density correspond to the four score
+windows based at $(a-1,b-1)$. Equation~\eqref{eq:ramp-score-density} gives,
+when $b$ is even,
+\begin{equation}\label{eq:ramp-cost-density}
+ \Delta_{A_h}(i,j)=2\nu_2(b-2s)\ge2.
+\end{equation}
+
+Specifically, take $s=1,\ldots,m/4$ and
+$a=1,\ldots,c-m-s-1$ with $b=a+m+s$ even; then set
+$i=z-a$ and $j=c-b+z+m$. These are valid, distinct density cells, and
+all four intervals contain the ramp and have at most $c$ keys. The ruler
+coefficients are bounded by $D=h-1=2t-2$. For $t\ge5$,
+\[
+ m>2(m/4+1)+D,
+\]
+so the deletion rule applies to all the windows used.
+At each $s$ there are exactly $\lfloor(c-m-s)/2\rfloor$ permitted values
+of $a$. With $u=m/4$ even, their sum is
+\[
+ \sum_{s=1}^{u}\left\lfloor\frac{c-m-s}{2}\right\rfloor
+ =\frac{u(c-m-1)}2-\frac{u^2}4
+ =\frac{nm}{16}-\frac{9n}{64}-\frac m4.
+\]
+For $m\ge32$ this is at least $nm/32$.
+\end{proof}
+
+All counted cells use fully exposed intervals and avoid the penalty diagonal.
+Their growth is independent of the numerical size of the terminal penalty.
+For $W=n$, the explicit-core size bounds are therefore
+$\Omega(n^{3/2})$ and $O(n^{3/2}\sqrt{\log(n+1)})$.
+The polynomial exponent in this core analysis is tight. The next family
+separates density-list size from the work of constructing an optimal tree.
+
+\subsection{Quadratic support with linear tree construction}
+\label{sec:ruler}
+Let $h=\lfloor\log_2(n+1)\rfloor$, $c=2^h-1$, and $s=n-c$.
+Minimum internal-path-length shapes expand $s$ of the
+$2^h$ external slots of a perfect $c$-key skeleton. Consider adjacent
+skeleton slots $g,g+1$ containing one expansion. If their first input
+index is $i$, moving the expansion from the second slot to the first
+changes the weighted cost by exactly
+\begin{equation}\label{eq:ruler-exchange}
+ (1+\nu_2(g+1))(p_i-p_{i+1})+q_i-q_{i+2}.
+\end{equation}
+Before the move, keys $i,i+1$ have comparison lengths
+$h-\nu_2(g+1),h+1$; afterwards these lengths are exchanged.
+The three gaps have depths $h,h+1,h+1$ before the move and
+$h+1,h+1,h$ afterwards. All other outcomes keep their depths,
+which proves the displayed difference. The coefficient
+$1+\nu_2(g+1)$ lies between one and $h$.
+
+
+Repeated swaps of adjacent expansion patterns $01$ to $10$ therefore
+minimize the cost within this shape class whenever both weight lists are
+nondecreasing. We use this fact in the following explicit family.
+
+Set
+\begin{equation}\label{eq:ruler-family}
+ B=4(n+1)^3,\qquad p_r=B+r\ (0\le r<n),\qquad
+ q_r=B+r\ (0\le r\le n).
+\end{equation}
+All weights use $O(\log n)$ bits and the deviation above their minimum
+baselines is exactly $R=n^2$.
+
+\begin{theorem}[Dense support does not force expensive construction]\label{thm:ruler-dense}
+For the family~\eqref{eq:ruler-family}, the optimal interval-cost matrix
+has $\Omega(n^2)$ nonzero Monge densities and $\Omega(n^2)$ nonzero mixed
+fourth differences. It also has quadratically many rowwise density changes.
+Nevertheless, its exact tree is constructible in $O(n)$ time, and any
+interval value can be queried using $O(\log n)$ arithmetic operations
+after linear recognition of the family.
+\end{theorem}
+\begin{proof}
+First force the shape class. An interval of $k$ keys starting at $i$ has
+constant baseline $B+i$. A tree of internal path length $I$ has total key
+and gap comparison length $D=2I+3k\le k^2+2k$. All relative weights lie
+between zero and $k$, so their total contribution is at most
+$n(n^2+2n)$. Increasing $I$ by one adds at least $2B$, which exceeds this
+entire bound. Hence every optimum has minimum $I$. Its adjacent exchange
+cost~\eqref{eq:ruler-exchange} is $-3-\nu_2(g+1)<0$, so its last level
+is filled from the left.
+
+Here is an exact value formula. For $k=j-i>0$ put
+$h=\lfloor\log_2(k+1)\rfloor$, $c=2^h-1$, $s=k-c$, and define
+\begin{align*}
+ I(k)&=(h-2)2^h+2+hs, & D(k)&=2I(k)+3k,\\
+ J(c)&=\sum_{t=1}^c(t-1)\nu_2(t), &
+ T(c,s)&=\sum_{t=1}^c\min\{s,t\}\nu_2(t),\\
+ E(k)&=hc^2-J(c)+s(2hc+h+1)\\
+     &\hspace{1em}+(h+3)s(s-1)-T(c,s).
+\end{align*}
+Then
+\begin{equation}\label{eq:ruler-formula}
+ C(i,j)=(B+i)D(k)+E(k),\qquad C(i,i)=0.
+\end{equation}
+To verify $E$, the perfect skeleton has linear-weight cost $hc^2-J(c)$.
+For an arbitrary set $S$ of expanded slots, each skeleton key at $r$
+shifts by the number of selected slots at most $r$, and each skeleton gap
+at $g$ shifts by the number strictly below $g$. Summing these index changes
+and the new key/gap contributions gives
+\begin{align*}
+ E(S)={}&hc^2-J(c)+\frac{(2h+3)|S|(|S|-1)}2\\
+ &+\sum_{g\in S}\left(2hc+3g+h+1-
+                        \sum_{t=g+1}^c\nu_2(t)\right).
+\end{align*}
+Taking $S=\{0,\ldots,s-1\}$ gives~\eqref{eq:ruler-formula}.
+For each $\ell=1,\ldots,h-1$, let $d=2^\ell$,
+$m=\lfloor c/d\rfloor$, and $u=\min\{m,\lfloor s/d\rfloor\}$.
+The contributions to $J$ and $T$ are, respectively,
+\[
+ \frac{dm(m+1)}2-m,\qquad
+ \frac{du(u+1)}2+(m-u)s.
+\]
+This evaluates the formula in $O(\log n)$ steps, using
+$\nu_2(t)=\sum_{\ell\ge1}[2^\ell\mid t]$. The tree itself needs one
+recursive visit per key: its left subtree has
+$2^{h-1}-1+\min\{s,2^{h-1}\}$ keys. Recognition scans the given input;
+the interval oracle then retains only $n$ and $B$.
+
+Now examine support. Write
+\[
+ d(i,j)=C(i,j+1)+C(i+1,j)-C(i,j)-C(i+1,j+1).
+\]
+Inside a fixed $h$ band, for $1\le s<2^h$,
+\begin{equation}\label{eq:ruler-density}
+ d(i,j)=3+\nu_2(s),\qquad s=(j-i)-(2^h-1).
+\end{equation}
+Indeed, $D$ has slope $2h+3$, while $E$ has second difference
+$2h+6+\nu_2(s)$. The endpoint at $s=2^h$ is the next perfect tree, so
+the calculation remains valid for $s=2^h-1$.
+For $2\le s\le2^h-2$ the mixed fourth difference is therefore
+\begin{align}
+ &d(i,j+1)+d(i+1,j)-d(i,j)-d(i+1,j+1)\notag\\
+ &\hspace{3em}=\nu_2(s+1)+\nu_2(s-1)-2\nu_2(s).\label{eq:ruler-fourth}
+\end{align}
+It is strictly positive for odd $s$ and strictly negative for even $s$.
+For $n=2^m\ge32$, choose $h=m-2$ and $2\le s\le n/4-2$.
+There are $n/4-3$ lengths and at least $n/2+2$ valid placements per length,
+giving at least $(n/4-3)(n/2+2)=\Omega(n^2)$ nonzeros. For arbitrary
+sufficiently large $n$, use $h=\lfloor\log_2 n\rfloor-2$; both the band
+width and number of placements remain $\Theta(n)$. The same bands prove
+quadratic second-difference support and rowwise density changes.
+\end{proof}
+
+Explicitly listing either support takes quadratic output work on this
+family, while the optimal tree has a linear construction. The example also reaches the $R=\Theta(n^2)$ boundary of
+the centered analysis with smooth, very nearly equal relative weights.
+Symbolically representing the dyadic baseline avoids the dense list, but
+subtracting it need not leave a Monge residual. Efficient product closure
+with arbitrary residuals is still missing.
+
+
+\subsection{A single weight unit obstructs constant per-tile charging}
+\label{sec:local-tile-obstruction}
+The aggregate argument charges each tile at most $2h$ times the mass of
+its span. Removing $h$ from this local inequality would strengthen the
+core bound. The following family rules out that local step for both
+density mass and support, while retaining a linear global core.
+
+\begin{theorem}[Local charging obstruction]\label{thm:local-tile-obstruction}
+Let $h\ge4$, $s=2^{h-2}$, $n=8s$, $c=2^h-1$, and $x=4s+1$.
+Set $p_x=1$ and every other key and gap weight to zero. At layer $h$,
+with terminal penalty $M>h$, the maximal dyadic tile
+\[
+ T=[2s,3s)\times[7s,8s)
+\]
+contains exactly $h-3$ nonzero densities, each equal to one. Its span
+has mass one. The completed layer core has exactly
+\[
+ \delta(E_h)=2n+2^h-2h-1
+\]
+entries. Thus no universal constant bounds either a tile's density mass
+or its support by that tile's span mass.
+\end{theorem}
+\begin{proof}
+Write $C=2^h=c+1$ and $v(r)=\nu_2(r)$ for $1\le r\le c$.
+For an interval $[i,j)$ containing $x$, put
+\[
+ k=j-i,\qquad U=x-i+1,\qquad V=c+x+1-j.
+\]
+Its exact cost is
+\begin{equation}\label{eq:one-key-window}
+ A_h(i,j)=M(k-c)_++h-
+ \max_{r\in[\min(U,V),\max(U,V)]\cap[1,c]}v(r).
+\end{equation}
+Intervals not containing $x$ have value $M(k-c)_+$.
+For $k\le c$, the perfect-slot representation permits the positive key
+in exactly the slots $U,\ldots,V$. For $k\ge c$, the $c$ exposed keys
+form a perfect height-$h$ skeleton. Exposing $x$ at slot $r$ requires
+$r-1$ preceding keys and $c-r$ following keys; these inequalities give
+$V\le r\le U$, clipped to $[1,c]$. Leaving $x$ unexposed contributes
+$h$, which cannot improve on a feasible slot with nonnegative valuation.
+The maximum-exposure argument uses $M>hW=h$.
+
+Extend the valuations to virtual endpoints by $v(0)=v(C)=h$.
+For two endpoints $a<b$, write $t$ for the maximum valuation strictly
+between them, taking $t=0$ for an empty interior. A four-window
+range-maximum difference has value
+\begin{equation}\label{eq:ruler-endpoint-density}
+ \max\{0,\min(v(a),v(b))-t\}.
+\end{equation}
+This is positive precisely for consecutive multiples of $2^d$,
+$1\le d<h$, and then equals one. To see this, let $d$ be the smaller
+endpoint valuation. A separation greater than $2^d$ contains an interior
+multiple of $2^d$; at separation $2^d$ the interior maximum is $d-1$.
+Valuation zero cannot give a positive difference. The pair $(0,C)$
+would instead map to $i=j$ and is excluded.
+
+Taking differences in~\eqref{eq:one-key-window}, the positive cells
+below and above the penalty line respectively have coordinates
+\begin{align*}
+ j-i<c:&\quad (i,j)=(x-a,\ c+x+1-b),
+                  &&0\le a<b\le C,\\
+ j-i>c:&\quad (i,j)=(x+1-b,\ c+x-a),
+                  &&1\le a<b\le c.
+\end{align*}
+In each line, $(a,b)$ ranges over the consecutive-multiple pairs just
+described. Below the line, a virtual endpoint handles the key entering
+or leaving a contributing interval: its valuation $h$ cancels the
+formal $h$ cost. Above the line, clipping that prevents an endpoint
+from moving gives zero density; at a key boundary its comparison
+length is $h$ in both relevant intervals. Cells whose intervals all
+miss the key have zero ordinary density.
+
+For the stated $n,x$, every listed pair lies inside the input grid.
+The counts below and above the line are
+\[
+ \sum_{d=1}^{h-1}2^{h-d}=2^h-2,\qquad
+ \sum_{d=1}^{h-1}(2^{h-d}-2)=2^h-2h.
+\]
+On the penalty line there are $n-c$ positive entries. Their residual
+density is either zero or minus the absolute difference of adjacent,
+possibly virtual, valuations, whose magnitude is at most $h$; adding
+$M>h$ makes them positive. Including the $n$ completion entries proves
+the asserted total.
+
+Every cell of $T$ lies above $j-i=c$, while its side-$2s$ parent at
+$(2s,6s)$ meets that line. Hence $T$ is a maximal accepted tile.
+Its four corner slot windows, in telescoping order, are
+\[
+ [1,2s+2],\quad[s+1,s+2],\quad[s+1,2s+2],\quad[1,s+2].
+\]
+Their maximum valuations are $h-1,1,h-1,h-2$, so their ordinary
+costs are $1,h-1,1,2$. The affine penalty cancels and the density mass
+is $h-3$. Explicitly, its positive cells are exactly
+\[
+ (i,j)=(3s+2-2^d,\ 7s),\qquad d=2,\ldots,h-2,
+\]
+corresponding to endpoint pairs $(s,s+2^d)$. Each has density one.
+\end{proof}
+
+\begin{corollary}[One-key global support]\label{cor:one-key-core}
+If a single key has positive weight and all other key and gap weights
+are zero, every completed terminal-penalty layer has at most $3n$
+core entries.
+\end{corollary}
+\begin{proof}
+Scaling the positive weight scales the ordinary densities without changing
+their support. Input boundaries can only remove pairs from the preceding
+classification. If $c<n$, the two ordinary regions have at most $c-1$
+and $c+1-2h$ entries. Add $n-c$ penalty-line entries and $n$ completion
+entries to obtain fewer than $3n$. If $n\le c<2n-1$, only the first
+region occurs, with at most $c-1$ entries, again giving fewer than $3n$.
+If $c\ge2n-1$, every interval can put the weighted key at the root and
+balance its zero-weight sides within height $h$. Its cost is the key's
+weight when it contains that key and zero otherwise, so all interior
+densities vanish. Layer zero has only $n$ completion entries.
+\end{proof}
+
+The local obstruction therefore coexists with a global linear bound.
+An improved general charging argument must account for how one outcome's
+contributions are distributed across tiles; it cannot give each tile an
+independent constant allowance per weight unit.
+
+\section{The remaining logarithmic gap}\label{sec:questions}
+The odd ramp fixes the polynomial scale of the explicit-core analysis at
+linear mass. The remaining question is whether its upper bound can lose
+$\sqrt{\log n}$, or whether another family forces that factor.
+The aggregate argument already avoids paying the maximum core size at
+every layer. Its early-layer charge still contains the height $h$.
+
+The local obstruction in Theorem~\ref{thm:local-tile-obstruction} rules out
+charging each tile only a constant times its span mass. A boundary term
+could permit a stronger charge. For an accepted early-layer tile $T$ of
+side $s$ and inclusive outcome span $J_T$, consider the hypothesis
+\begin{equation}\label{eq:boundary-tile-hypothesis}
+ K(T)\le A\bigl(s+W(J_T)\bigr),
+\end{equation}
+where $A$ is an absolute constant and $K(T)$ counts positive densities.
+This is an open hypothesis for nonnegative integer inputs. The distinction
+between support and density mass matters: integer normalization connects
+the two in the proved upper bounds, whereas rescaling alone preserves support.
+The following implication identifies the improvement that this hypothesis
+would yield.
+
+\begin{lemma}[Conditional improvement from a boundary charge]
+\label{lem:boundary-tile-conditional}
+If \eqref{eq:boundary-tile-hypothesis} holds uniformly, then the aggregate
+completed core size satisfies
+\[
+ S=O_A\bigl(nH+(n+W)L^2+n\sqrt W+HWL\bigr).
+\]
+At $W=O(n)$ this is $O(n^{3/2})$, and the existing Monge construction
+would take $O(n^{3/2}\log(n+1))$ arithmetic operations, including full
+reconstruction.
+\end{lemma}
+\begin{proof}
+At early layer $h<L$, put $c=2^h-1$. The established tile count and
+inclusive-position overlap bounds give at most $24n/s$ side-$s$ tiles
+and total span mass at most $60W(1+c/s)$. Combining the hypothesis with
+the area bound yields
+\[
+ K_{h,s}\le\min\{24ns,\ A[24n+60W(1+c/s)]\}.
+\]
+Separate the constant-per-scale term from $Wc/s$, and sum the geometric
+minimum over dyadic scales. Including the exceptional and completion
+diagonals gives
+\[
+ K_h=O_A\bigl((n+W)L+\sqrt{nWc}\bigr).
+\]
+Now $\sum_{h<L}\sqrt{c_h}=O(\sqrt n)$, so the early layers contribute
+$O_A((n+W)L^2+n\sqrt W)$. Late layers retain their proved bound $n+LW$,
+giving the claimed aggregate expression. At linear mass $H=O(L)$, and
+$nL^2=O(n^{3/2})$. Product, conversion, and succinct reconstruction costs
+are $O(S\log(n+1))$.
+\end{proof}
+This conditional core scale matches the odd-ramp lower bound. Establishing
+or refuting \eqref{eq:boundary-tile-hypothesis} is therefore a direct
+local route to deciding the remaining logarithmic gap; the main theorem
+continues to use the proved height-dependent charge.
+
+\clearpage
+\begingroup\small
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{knuth}
+D. E. Knuth. Optimum binary search trees.
+\emph{Acta Informatica} 1, 14--25, 1971.
+\href{https://doi.org/10.1007/BF00264289}{doi:10.1007/BF00264289}.
+\bibitem{larmore}
+L. L. Larmore. A subquadratic algorithm for constructing approximately
+optimal binary search trees. \emph{Journal of Algorithms} 8(4),
+579--591, 1987.
+\href{https://doi.org/10.1016/0196-6774(87)90052-6}{doi:10.1016/0196-6774(87)90052-6}.
+Author's Technical Report 86-03 (1986), Theorem~1.1 and Corollary~1.2:
+\href{https://escholarship.org/content/qt4v7249bv/qt4v7249bv.pdf}{UC Irvine report}.
+\bibitem{klr}
+M. Karpinski, L. L. Larmore, and W. Rytter.
+Sequential and parallel subquadratic work algorithms for constructing
+approximately optimal binary search trees. \emph{Proceedings of SODA},
+36--41, 1996.
+\href{https://theory.cs.uni-bonn.de/marek/publications/seq_and_par_subquadr.pdf}{Author-hosted manuscript}.
+\bibitem{hlm}
+D. S. Hirschberg, L. L. Larmore, and M. Molodowitch.
+Subtree weight ratios for optimal binary search trees. Technical Report
+86-02, University of California, Irvine, 1986.
+\href{https://ics.uci.edu/~dhirschb/pubs/TR86-02.pdf}{Author-hosted report}.
+\bibitem{coremonge}
+P. Gawrychowski, E. Gorbachev, and T. Kociumaka.
+Core-sparse Monge matrix multiplication: improved algorithm and applications.
+\emph{ESA 2025}, LIPIcs 351, 74:1--74:17.
+\href{https://doi.org/10.4230/LIPIcs.ESA.2025.74}{doi:10.4230/LIPIcs.ESA.2025.74}.
+\end{thebibliography}
+\endgroup
+
+\clearpage
+\section*{\textsuperscript{*}Dedication}
+Glory first be to The Holy One, Blessed be He (\hebrewname), from whom all good things come.  To Him we attribute the ability that has provided for all good to come and be demonstrated anywhere in our work,
+and declare ourselves unworthy servants. If in any way we have erred, or our work is unsatisfactory,
+we ask mercy and kindness, for our effort is good and earnest.
+\end{document}
