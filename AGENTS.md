@@ -799,3 +799,12 @@ direct threshold formulas. Retain exact full Knuth and literal controls,
 zero-budget failures, dense coarse faces, unrelated reused inputs and matched
 256-bit inputs at four precisions. Separate all preparation, screening and
 fallback counters. Copy each completed result before another mirror operation.
+
+Implicit ordered-reference queries, strict final-core densities, and nonlinear
+exchange corridors (copy each completed remote JSON before the next mirror):
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/final_core_probe.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ordered_range_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/exchange_corridor_audit.py
+```

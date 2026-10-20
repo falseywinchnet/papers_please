@@ -4223,6 +4223,285 @@ costs. Independent inclusion, range-product and full-construction checks
 are reported in Appendix~\ref{app:coarse-screen}.
 
 
+\subsection{Ordered references without explicit cores}
+\label{sec:ordered-reference}
+The root-range index in Section~\ref{sec:coarse-screen} can be replaced
+by an implicit cost oracle on a certified ordered class. A second use of
+the same exchange argument gives a corridor around nonlinear reference
+profiles. Both constructions retain the original key and gap costs.
+
+\begin{lemma}[A uniform baseline forces the shape class]
+\label{lem:baseline-shape}
+For nonnegative weights on $n\ge1$ keys, let
+\[
+ a=\min_i p_i,\qquad b=\min_j q_j,\qquad
+ E_0=\sum_i(p_i-a)+\sum_j(q_j-b).
+\]
+If
+\begin{equation}\label{eq:baseline-shape}
+ a+b>(n-1)E_0,
+\end{equation}
+every optimal tree on every interval has minimum internal path length.
+If $E_0=0$, such an optimum also exists, including when all weights vanish.
+For a fixed root, a best tree has minimum-IPL children. Moreover, whenever
+two fixed-root classes have different minimum internal path lengths, their
+best costs have the same strict ordering under \eqref{eq:baseline-shape}.
+\end{lemma}
+\begin{proof}
+On an $m$-key interval, the uniform part has cost
+$(a+b)I+(a+2b)m$. Every outcome has comparison length in $[1,m]$.
+The residual-cost difference between any two trees is at most
+$(m-1)E_0(I)\le(n-1)E_0$ in absolute value. An integer increase of at
+least one in $I$ therefore cannot improve the total cost. This also
+applies with a root fixed, and to comparisons between the least-IPL
+members of two fixed-root classes. For $E_0=0$, use the uniform identity
+directly. The all-zero case permits every tree.
+\end{proof}
+
+\begin{theorem}[Implicit interval and root-range costs]
+\label{thm:ordered-range-oracle}
+Suppose the weights satisfy Lemma~\ref{lem:baseline-shape} and the
+leftward exchange condition \eqref{eq:ruler-condition}, with
+$h=\lfloor\log_2(n+1)\rfloor$, or its reflection. Put
+$L=\lceil\log_2(n+1)\rceil$. In $O(nL)$ arithmetic work and space one
+can prepare an index with the following exact queries:
+\begin{enumerate}
+\item the unrestricted interval optimum $C(i,j)$ in $O(L)$ work;
+\item the minimum of $C(i,r)+C(r+1,j)$ over any nonempty contiguous
+      root range $J\subseteq[i,j)$ in $O(L)$ work;
+\item all $t$ roots in such a range whose cost is at most a given
+      threshold, in $O(L^2+t)$ work.
+\end{enumerate}
+The preparation stores dyadic-stride prefix sums, without constructing
+an interval table or listing any Monge densities.
+\end{theorem}
+\begin{proof}
+It suffices to treat the leftward condition. It holds on every subinterval:
+its skeleton height is at most $h$, and the maximum of $d$ and $hd$
+bounds $td$ for every integer $1\le t\le h$. The exchange theorem and
+Lemma~\ref{lem:baseline-shape} therefore make the left-filled shape
+optimal on every interval.
+
+Write $P(u,v)=\sum_{k=u}^{v-1}p_k$ and
+$Q(u,v)=\sum_{k=u}^{v-1}q_k$. For $m=j-i>0$ put
+$h_m=\lfloor\log_2(m+1)\rfloor$, $c=2^{h_m}-1$, and $s=m-c$.
+Define, for positive integer limits,
+\[
+ R(o,d;u,v)=\sum_{t=u}^{v}(1+\nu_2(t))p_{o+dt},
+\]
+with an empty sum equal to zero. The exact full interval cost is
+\begin{align}
+ C(i,j)={}&(h_m+1)P(i,j)+h_m Q(i,j+1)+Q(i,i+2s)\nonumber\\
+ &-R(i-1,2;1,\min\{s,c\})
+  -R(i+s-1,1;s+1,c).
+ \label{eq:ordered-interval-oracle}
+\end{align}
+Indeed, skeleton key $t$ occupies input position
+$i+t-1+\min\{s,t\}$ and has comparison length $h_m-\nu_2(t)$.
+The added keys have length $h_m+1$. The first $2s$ gaps have length
+$h_m+1$ and the other gaps length $h_m$. Subtracting the skeleton's
+savings from the common key length $h_m+1$ gives the formula.
+
+For each power-of-two stride $2^d\le n$, store
+\[
+ Z_d(k)=\sum_{\substack{t\ge0\\k-t2^d\ge0}}p_{k-t2^d}
+ \quad(0\le k<n).
+\]
+These arrays require $O(nL)$ additions. A sum over a contiguous part of
+one residue class is a difference of two entries. Expand
+$1+\nu_2(t)=\sum_{d\ge0}[2^d\mid t]$ in each $R$ query.
+There are $O(L)$ resulting stride sums, proving the interval-query bound.
+
+For root ranges, let $G(r)=C(i,r)+C(r+1,j)$ and put
+\begin{equation}\label{eq:ordered-root-pivot}
+ r_* = i+2^{h_m-1}-1+\min\{s,2^{h_m-1}\}.
+\end{equation}
+We claim that $G$ is nonincreasing up to $r_*$ and nondecreasing after it.
+The least IPL with left size $\ell=r-i$ is
+$m-1+I_{\min}(\ell)+I_{\min}(m-1-\ell)$.
+Since $I_{\min}(k)-I_{\min}(k-1)=\lfloor\log_2 k\rfloor$,
+this sequence is convex. Its minimum plateau consists precisely of
+\[
+ \ell=2^{h_m-1}-1+u,\qquad
+ \max\{0,s-2^{h_m-1}\}\le u\le\min\{s,2^{h_m-1}\}.
+\]
+Outside that plateau the strict cost ordering follows from
+Lemma~\ref{lem:baseline-shape}. Within it, the best tree with that root
+fills the first $u$ bottom slots on the left and the first $s-u$ on the
+right. Increasing $u$ by one moves one expansion from the right block
+to the next empty left slot. This transformation is a sequence of swaps
+$01\to10$; each is nonincreasing by \eqref{eq:ruler-exchange} and the
+assumed condition. Thus $G$ is nonincreasing along the plateau, proving
+the claim. The uniform zero-cost case is immediate.
+
+Clamp $r_*$ to the queried root range. Evaluating $G$ there gives its
+minimum using two interval queries. If the minimum passes the threshold,
+binary searches on the two monotone sides find the first and last
+qualifying roots. All intervening roots qualify. The searches use
+$O(L)$ interval-query pairs, followed by $O(t)$ enumeration. Reflection
+reverses the indices and preserves all bounds.
+\end{proof}
+
+\begin{corollary}[Screening through an implicit ordered reference]
+\label{cor:ordered-screen}
+Let coarse weights satisfy Theorem~\ref{thm:ordered-range-oracle}.
+For arbitrary nonnegative original weights and any scale $\delta>0$,
+use the allowance of Lemma~\ref{lem:coarse-regret}, with $H_c=L$.
+Preparation takes $O(nL)$ work and space. If screening reaches $V$
+nonempty intervals and retains $A$ root rules, complete exact original
+construction takes
+\[
+ O(nL+VL^2+AL)
+\]
+additional deterministic arithmetic and comparison operations, and
+$O(nL+V+A)$ space. The same preparation serves unrelated original inputs.
+\end{corollary}
+\begin{proof}
+Each interval threshold is formed from an exact coarse cost and error
+prefix sums. The oracle enumerates its retained rules in $O(L^2+t)$.
+Balanced endpoint dictionaries account for the $AL$ term during
+scheduling and evaluation; this term is not treated as constant-time
+hashing. The inclusion and full-tree correctness proof is exactly that
+of Theorem~\ref{thm:coarse-screen}. A $4nL$ state-and-rule budget bounds
+a successful or interrupted query by $O(nL^3)$; ordinary Knuth on budget
+exhaustion gives an exact quadratic worst-case constructor, including
+all failed work. Preparation is independent of coarse core size and
+weight magnitudes. Operand bit costs are additional.
+\end{proof}
+
+\subsection{A nonlinear exchange corridor with linear-time fitting}
+\label{sec:nonlinear-exchange-corridor}
+An exchange margin can also control the whole shape optimization, avoiding
+interval-graph expansion. This extends the affine corridor of
+Section~\ref{sec:legacy-22-1} to a reference profile that need not be affine.
+
+Let $h=\lfloor\log_2(n+1)\rfloor$, $S=2^h$, $s=n-S+1$, and $z=S-s$.
+A minimum-IPL shape is a length-$S$ binary expansion word with $s$ ones.
+Its inversion count is the number of pairs consisting of a zero followed
+by a one. Suppose every leftward adjacent exchange of a reference input
+reduces its cost by at least $\gamma>0$. Let original weights differ from
+that reference by total absolute key error $E_p$ and gap error $E_q$.
+
+\begin{lemma}[An inversion allowance from exchange margin]
+\label{lem:exchange-inversion-allowance}
+Put $V=hE_p+E_q$ and $D=\lfloor V/\gamma\rfloor$.
+Every original optimum within the minimum-IPL class has at most $D$
+inversions. In particular, every prefix with $a$ zeros already used and
+$b$ ones still required satisfies $ab\le D$.
+\end{lemma}
+\begin{proof}
+Sorting an expansion word leftward takes exactly its inversion count in
+adjacent swaps. Its reference cost therefore exceeds the left-filled
+reference cost by at least $\gamma$ times that count. Among minimum-IPL
+trees, each key length varies by at most $h$ and each gap length by at
+most one. Original errors can compensate for at most $hE_p+E_q$ of that
+reference excess. An original class optimum cannot cost more than the
+left-filled candidate, which proves the inversion bound. Every already
+used zero precedes every required future one, giving $ab$ inversions.
+\end{proof}
+
+\begin{theorem}[Nonlinear reference corridor construction]
+\label{thm:nonlinear-exchange-corridor}
+An original minimum-IPL optimum can be constructed using at most
+\begin{equation}\label{eq:nonlinear-corridor-states}
+ S+1+\min\{sz,D\lceil\log_2(z+1)\rceil\}
+\end{equation}
+states and constant work per state, in addition to fitting and linear
+input/output work. For arbitrary nonnegative original weights, a unit-margin
+reference can be fitted in $O(n)$ work: set all reference gaps to $\min q$,
+and recursively set
+\[
+ \bar p_0=p_0,\qquad \bar p_i=\max\{p_i,\bar p_{i-1}+1\}.
+\]
+Compute $E_p,E_q$ directly and use $\gamma=1$. One may also fit the
+reflected input and choose the smaller allowance. If the original input
+passes Lemma~\ref{lem:baseline-shape}, the resulting tree is a full
+unrestricted optimum. Otherwise ordinary Knuth gives an exact fallback.
+The complete constructor has $O(n^2)$ worst-case arithmetic work and space.
+\end{theorem}
+\begin{proof}
+The fitted key sequence increases by at least one and its gap sequence
+is constant. Formula~\eqref{eq:ruler-exchange} makes every leftward
+exchange improve reference cost by at least one. The fit and error scans
+are linear.
+
+Retain precisely the feasible expansion-grid states satisfying $ab\le D$.
+The axes contain $S+1$ states. For each $1\le a\le z$, at most
+$\min\{s,\lfloor D/a\rfloor\}$ positive $b$ survive. Dyadic grouping
+of $a$ bounds their sum by $D\lceil\log_2(z+1)\rceil$; the full
+rectangle has only $sz$ such states. This proves
+\eqref{eq:nonlinear-corridor-states}.
+
+On layer $g$, after $g$ slots and $e$ expansions, $a=g-e$ and $b=s-e$.
+Both factors decrease with $e$, so the retained expansion counts form a
+single integer interval. Its lower endpoint is nondecreasing with $g$;
+a pointer advances at most $s$ times over the whole computation.
+Every retained state is reachable by placing its used ones first,
+then its used zeros: all preceding products are at most $ab$. Completing
+with the required ones before the remaining zeros also stays in the corridor.
+Use compact arrays for each layer and one predecessor choice per retained
+state. There is no dictionary or full-width array per layer.
+
+For the next slot, put $i=g+e$ and $d=h-\nu_2(g+1)$.
+Choosing no expansion charges $h q_i$ and, if $g<S-1$, $d p_i$.
+Choosing an expansion charges
+$(h+1)(p_i+q_i+q_{i+1})$ and, if $g<S-1$, $d p_{i+1}$.
+These are the original weights. Each state has at most two outgoing
+transitions. Every original class optimum survives by
+Lemma~\ref{lem:exchange-inversion-allowance}; retained extra paths are
+feasible minimum-IPL trees and cannot invalidate the optimum. Traceback
+produces the expansion word, its key comparison lengths, and the full
+tree in linear output work. The baseline lemma supplies global
+optimality on acceptance. Uniform inputs have their direct linear
+construction. On rejection only linear checks precede Knuth, and the
+entire expansion grid itself has $O(n^2)$ states.
+\end{proof}
+
+\begin{corollary}[Bounded errors around arbitrary increasing profiles]
+\label{cor:nonlinear-bounded-errors}
+Let $f_0=0$, $f_{i+1}-f_i\ge1$, and $F=\sum_i f_i$. For arbitrary
+errors $|u_i|,|v_j|\le U$, let
+\[
+ p_i=B+f_i+u_i,\qquad q_j=B+v_j,
+\]
+with nonnegative resulting weights. If
+\begin{equation}\label{eq:nonlinear-baseline-family}
+ 2B-2U>(n-1)\bigl(F+2U(2n+1)\bigr),
+\end{equation}
+the automatic constructor of Theorem~\ref{thm:nonlinear-exchange-corridor}
+takes $O(n+Un\log^2(n+1))$ arithmetic work and space, including fitting,
+certification and full reconstruction. The same holds after reflection.
+For fixed $U$ this is $O(n\log^2(n+1))$. The profile $f$ is arbitrary
+subject to its increments; for example $f_i=i+\lfloor i^2/n\rfloor$
+is nonlinear. Original perturbations can occur independently on every
+key and every gap, and need not preserve their ordering.
+\end{corollary}
+\begin{proof}
+The prefix-envelope fit obeys
+\[
+ B+f_i-U\le\bar p_i
+   =\max_{0\le k\le i}(p_k+i-k)\le B+f_i+U,
+\]
+because $f_i-f_k\ge i-k$. Since $\bar p_i\ge p_i$, this gives
+$E_p\le2Un$. The constant gap fit gives $E_q\le2U(n+1)$.
+Hence $V\le2U(hn+n+1)$, and
+\eqref{eq:nonlinear-corridor-states} gives the work bound.
+The original minimum key and gap weights are at least $B-U$;
+their total residual mass is at most $F+2U(2n+1)$.
+Condition~\eqref{eq:nonlinear-baseline-family} therefore implies
+\eqref{eq:baseline-shape}, completing the unrestricted certificate.
+The implementation infers its reference from the given weights; it
+requires neither $f$, $B$, nor $U$ as an additional input.
+\end{proof}
+
+These two ordered-reference constructions address different costs: the
+interval oracle supports reusable arbitrary-weight screening, while the
+inversion corridor supplies a proved small state count for a nonlinear
+perturbation family. The unrestricted subquadratic objective still requires
+a representation or certificate covering arbitrary weight profiles.
+Verification appears in Appendix~\ref{app:ordered-reference}.
+
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -7805,6 +8084,63 @@ the centered analysis with smooth, very nearly equal relative weights.
 Symbolically representing the dyadic baseline avoids the dense list, but
 subtracting it need not leave a Monge residual. Efficient product closure
 with arbitrary residuals is still missing.
+
+
+\paragraph{A maximally dense core at minimum height.}
+The following variant makes every interior density positive, while remaining
+in the implicit-oracle class of Theorem~\ref{thm:ordered-range-oracle}.
+It sharpens the final-core diagnostic; the preceding ruler family already
+rules out a general sparse final core.
+
+\begin{corollary}[Strict density arbitrarily close to uniform weights]
+\label{cor:strict-shallow-core}
+For $n\ge1$, set $p_i=B+i$, $q_j=B$, where $B=n^3+1$ or any larger
+integer. Every interval has a minimum-IPL optimum, and its unrestricted
+cost table has a positive density at every cell $0\le i<j<n$.
+The finite completion therefore has exactly $n(n+1)/2$ core entries.
+Writing $m=j-i$, $h=\lfloor\log_2(m+1)\rfloor$, $c=2^h-1$, and $s=m-c$,
+the interior density is exactly
+\begin{equation}\label{eq:strict-shallow-density}
+ \Delta_C(i,j)=
+ \begin{cases}
+  2B+i-c+h,&s=0,\\
+  1+\nu_2(s),&s>0.
+ \end{cases}
+\end{equation}
+After dividing the weights by $B$, the same support occurs with every
+weight in $[1,1+\varepsilon]$, for any prescribed $\varepsilon>0$ and
+sufficiently large $B$. All interval optima have height at most
+$\lceil\log_2(n+1)\rceil$.
+\end{corollary}
+\begin{proof}
+The residual mass is $n(n-1)/2$, so the baseline lemma applies.
+The leftward exchange is strictly improving because the key difference
+is $-1$ and the gaps are constant. Let $A(m)=I_{\min}(m)+m$, and let
+$T(m)$ be the weighted key cost of the left-filled shape when its key
+weights are $0,1,\ldots,m-1$ and all gaps vanish. Then
+\[
+ C(i,i+m)=B(2A(m)+m)+iA(m)+T(m).
+\]
+For $m=c+s$ in a fixed $h$ band, the skeleton positions give
+\[
+ T(c+s)=T(c)+hsc+(h/2+1)s(s-1)
+              -\sum_{t=1}^{c}\min\{s,t\}\nu_2(t).
+\]
+For $1\le s<2^h$, its second difference is $h+2+\nu_2(s)$;
+the endpoint uses the next perfect tree. Also
+$A(m)-A(m-1)=\lfloor\log_2m\rfloor+1$.
+The density formula thus gives $1+\nu_2(s)$ away from perfect lengths.
+At $m=c$, use
+\[
+ A(c)=(h-1)2^h+1,\qquad
+ T(c+1)-T(c)=A(c),\qquad T(c)-T(c-1)=h(c-1).
+\]
+Substitution gives $2B+i-c+h$. Both cases are positive. There are
+$n(n-1)/2$ interior cells and $n$ completion diagonal entries.
+Scaling by a positive constant preserves support, and the shape
+characterization supplies the height bound. The exact interval and
+root-range queries remain available without listing this core.
+\end{proof}
 
 
 \subsection{Joint profile coupling and a strict merge obstruction}
@@ -11571,6 +11907,88 @@ regret proofs. All seventeen executed-source hash entries in the two
 records are checked against the retained sources. The records and
 reproduction commands accompany the manuscript; the theorem statements
 and proofs require no access to implementation files.
+
+
+\subsection{Implicit ordered references and nonlinear corridor audit}
+\label{app:ordered-reference}
+The interval-oracle harness establishes its claims with independent all-root
+tables before importing the optimized implementation. It checks 7,344 full
+root-cost sequences for the stated unimodality, 7,344 direct shape formulas,
+756 literal interval-tree costs and 680 instances of
+\eqref{eq:strict-shallow-density}. The optimized index then matches 17,424
+interval values, 44,064 root-range minima and 44,064 complete threshold sets,
+including both orientations and partial valid-root ranges. Each threshold
+query also satisfies its binary-search call bound.
+
+Full refinement checks 144 arbitrary original-weight queries, 54 literal
+full-tree controls and 144 zero-budget fallbacks. Two invalid coarse inputs
+are rejected, and three rational coarse inputs are reflected and reused for
+unrelated rational originals. Twenty-four larger full constructions at
+$n=23,47,95,191,383,767$ match independent Knuth. The six sparse-bump originals
+fail both ordered exchange conditions, yet complete exact screening.
+For example, at $n=767$ the coarse index stores 7,670 dyadic entries; the
+sparse-bump query reaches 959 intervals and 1,067 roots and makes 3,482
+root-cost calls. The ordinary and densely perturbed failure cases retain
+all interrupted work before exact fallback. Preparation uses neither a
+Monge product nor a core list.
+
+The nonlinear-corridor harness separately constructs literal expansion
+words before importing its solver. It verifies 1,638 exchange-regret
+inequalities and 530 optimal-prefix inclusions. The implemented class
+optimizer then matches 128 literal class optima and their state bounds.
+Full original construction passes 108 independent cubic controls, 84 literal
+full-tree controls, eighteen rational controls and twenty direct uniform
+controls. Forty-two scaling controls through $n=1{,}535$ match independent
+Knuth: twenty-eight curved, irregular and reflected bounded-error cases
+satisfy the nonlinear-family guarantee; ordinary random and geometric cases
+exercise the unrestricted fallback.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Case & $n$ & Retained states & Admitted transitions & Proved state cap\\
+\midrule
+Curved, unit error & 1535 & 26173 & 51320 & 53185\\
+Curved, error two & 1535 & 54437 & 107848 & 137205\\
+Irregular increments & 1535 & 17845 & 34664 & 33065\\
+Reflected curve & 1535 & 24384 & 47742 & 48635\\
+Large curved & 6143 & 183788 & 363478 & 372593\\
+Large curved & 24575 & 1007790 & 1999194 & 1965885\\
+Large curved & 98303 & 5295604 & 10525670 & 10026753\\
+\bottomrule
+\end{tabular}
+\caption{Complete nonlinear-corridor constructions. Rows through
+$n=1{,}535$ have independent Knuth controls. The three larger rows use the
+proved certificate and full original-cost traversal; no large Knuth run
+is asserted.}
+\label{tab:nonlinear-corridor-audit}
+\end{table}
+
+The larger curved instances use
+\[
+ f_i=i+\lfloor i^2/n\rfloor,\quad B=2n\sum_i f_i+20(n+1)^2,
+\]
+with key error $-1$ at $i\equiv0\pmod3$ and $+1$ elsewhere, and gap
+error $-1$ at odd positions and $+1$ at even positions.
+At $n=98{,}303$, the fitted errors are $E_p=32{,}767$ and $E_q=98{,}304$,
+so $D=622{,}576$. The forward affine fit from the earlier implementation
+has state upper bound $1{,}073{,}807{,}361$ on the same input; this is a
+preflight bound, not an executed state count. The nonlinear corridor
+actually retains $5{,}295{,}604$ states. The full Knuth table would contain
+$4{,}831{,}789{,}056$ nonempty intervals, a formula-only comparison.
+These measurements check the implementation; the asymptotic guarantee is
+proved in Corollary~\ref{cor:nonlinear-bounded-errors}.
+
+A separate dense diagnostic covers eight residual patterns at seventeen
+sizes through $n=512$, always with a baseline forcing minimum IPL on every
+interval. It rejects the proposed height-only final-core bound. The
+previous ruler theorem already gives the qualitative obstruction; the
+ramp observations motivate the exact maximum-support formula in
+Corollary~\ref{cor:strict-shallow-core}. Dense diagnostic work and every
+failed route remain in the records. All three records include executed-source
+hashes and exact counters. The constructor and oracle bounds include fitting,
+preprocessing and reconstruction and exclude operand bit costs.
 
 
 \section{Adversarial core search and the odd-ramp proof audit}

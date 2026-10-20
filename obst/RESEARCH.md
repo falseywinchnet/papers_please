@@ -5346,3 +5346,82 @@ Dedication bytes are unchanged. All seventeen executed-source hash entries
 and sixteen matched table rows agree with the completed Mini records.
 Output TeX/PDF copies are byte-identical and the five-file source bundle
 contains the exact TeX, build instructions and Hebrew font resources.
+
+## Checkpoint 70: implicit ordered references and nonlinear corridors
+
+Checkpoint 69 supplies exact screening for arbitrary original weights, but
+its general root-range preparation depends on core size. This checkpoint
+proves O(nL) preparation for a certified ordered reference, with O(L) interval
+and root-range queries and O(L^2+t) threshold enumeration. The full original
+query bound becomes O(nL+V L^2+A L), including deterministic endpoint lookup
+and reconstruction. Original weights need not satisfy the ordered condition.
+The baseline shape certificate is stated once and shared by both constructions.
+
+An initial attempt to bound final cores by n times optimal height fails.
+The existing ruler family already refutes the proposal; a new exact variant
+p_i=B+i, q_j=B has positive density at every interior cell for B>=n^3+1.
+The completed core has exactly n(n+1)/2 entries although every interval has
+minimum IPL. Its two closed-form density cases are 2B+i-c+h at perfect
+lengths and 1+v2(s) elsewhere. Scaling makes all weights arbitrarily close
+to uniform. The implicit query oracle handles this family without listing
+its dense core. The failed diagnostic is retained, not promoted to a new
+qualitative impossibility result.
+
+A linear prefix-envelope fit gives a nonlinear strictly increasing key
+reference with constant gaps and unit exchange margin. An original class
+optimum has at most D=floor(h Ep+Eq) inversions. Feasible prefix states obey
+ab<=D, where a is used zeros and b remaining ones. A harmonic count proves
+S+1+min(sz,D ceil(log2(z+1))) states; compact layer arrays and a monotone
+endpoint pointer give constant work per state. Full original costs and
+traceback are retained. The global baseline certificate supplies unrestricted
+optimality; rejected inputs take exact Knuth fallback after linear checks.
+
+For arbitrary increasing nonlinear f with increments at least one and
+independent perturbations bounded by U on every key and gap, the automatic
+fit satisfies Ep<=2Un, Eq<=2U(n+1). The explicit baseline condition in the
+paper therefore yields complete O(n+Un log^2(n+1)) arithmetic work and space.
+The algorithm does not receive f, B or U. This extends the earlier affine
+corridor; it does not resolve the unrestricted arbitrary-weight objective.
+
+The harnesses preceded the optimized implementations. The ordered audit
+checks 7,344 root-cost sequences, 7,344 shape formulas, 756 literal interval
+costs, 680 exact ramp densities, 17,424 indexed costs, 44,064 range minima and
+44,064 threshold sets. It checks 144 full original queries, 54 literal full
+controls, 144 zero-budget fallbacks, two rejected coarse inputs, three
+rational reflected bases and 24 independent larger Knuth controls through
+n=767. Six sparse-bump originals fail both ordered exchange conditions but
+complete screening. Dense perturbations and unrelated inputs retain all
+failed work before fallback.
+
+The nonlinear corridor checks 1,638 literal exchange-regret inequalities,
+530 optimal-prefix inclusions, 128 literal class optima and state bounds,
+108 full cubic controls, 84 literal full-tree controls, eighteen rational
+cases, twenty uniform controls and 42 independent Knuth comparisons through
+n=1,535. Twenty-eight curved, irregular and reflected cases satisfy the
+proved family guarantee; ordinary random and geometric cases use fallback.
+Three larger curved runs through n=98,303 use the proved certificate and
+full original-weight traversal, not an independent quadratic optimum table.
+The largest retains 5,295,604 states and admits 10,525,670 transitions under
+a 10,026,753-state cap. The earlier forward affine fit's 1,073,807,361 cap
+is a preflight bound only, and does not assert an executed old state count
+or failure of every old orientation. The quadratic table size comparison
+is also formula-only. All operation categories remain in the records.
+
+The final-core diagnostic covers eight patterns at seventeen sizes through
+512, with 2,187,600 reference interval states and 2,171,280 density checks.
+All three completed Mini records include 22 source-hash entries. The new
+notes and paper distinguish proved bounds, independent optimality controls,
+certificate-only large tests and failed proposals. The main Monge theorem,
+negative-results organization, appendix-only measurements, sponsorship and
+verbatim dedication are preserved. No Python timing or novelty claim is added.
+
+Final checkpoint-70 publication validation: the 201-page PDF compiles without
+warnings, unresolved references or overfull/underfull boxes. All pages were
+inspected in contact sheets, with the new proofs on pages 60--64, density
+formula on page 116, audits on pages 171--173, title and final dedication
+inspected at full detail. All 550 previous labels remain among 567 unique
+labels, and all 23 bibliography entries remain. Dedication bytes are
+unchanged. All 22 source-hash entries and seven new table rows match the
+completed Mini records. Output TeX/PDF copies are byte-identical and the
+five-file source bundle includes the exact TeX, build instructions and
+Hebrew font resources. The general research goal remains active.
