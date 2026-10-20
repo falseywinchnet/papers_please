@@ -634,3 +634,17 @@ first search's retained winners. Unrestricted search height n is only a
 sufficient height; the separate mixed chain search proves it necessary.
 Count every intermediate node and all forward operations. The O(nh) theorem
 is for selected-slot traceback, not the full forward construction.
+
+Scalar-carry mixed forward updates and necessary-height full constructions:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_forward_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_forward_scale.py
+```
+
+The audit consumes both retained size-search records, checks direct prefixes,
+all-root optima, full trees, and the injection of expanded carry contexts
+into input/inclusive-prefix node pairs. The scale audit proves necessary
+height through strict suffix dominance and checks closed chain costs plus
+Knuth. Copy each completed JSON before mirroring again. The polynomial
+per-update theorem does not establish all-stage diagram growth.

@@ -4600,3 +4600,84 @@ TeX, and five-file source/font bundle were copied to the user outputs and
 verified against the manuscript. A compiler invocation initially used the
 repository root; its newly generated untracked log was removed, and all
 publication validation uses the correct obst/manuscript build.
+
+## Checkpoint 60: polynomial scalar-carry forward updates
+
+The preceding goal turn was progress: checkpoint 59 published the actual
+prefix skyline theorem and O(nh) slot traceback as b75ccf4. The clean
+local branch and head were inspected before continuing. This turn uses
+endpoint dominance in forward construction, addressing the previously
+uncontrolled generic minimum parameter X. The full objective remains active.
+
+For a dyadic input block [B,B+2^d), the scalar carry p_B is the inclusive
+prefix minimum through B. For B>0, every earlier low-valuation candidate
+is dominated by B, so an attaining outside candidate has valuation at least
+d. At every interior target b, its gap-adjusted value is p_B-g v(b).
+For a nonempty prefix B=0 has infinite carry; the empty prefix is handled
+by the initial zero-gap transition. This distinction preserves the actual
+zero-slot valuation and avoids an invalid positive-gap empty-prefix rule.
+
+The block summary E_g(R)=min_(t>0)[R(t)-g v(t)] excludes the first address.
+For children L,U it is min(E_g(L),E_g(U),U(0)-g(d-1)), allowing O(D)
+summary work by normalized-node memoization. The new midpoint value is
+min(p_B-g(d-1),E_g(L))-w(d-1); the right carry is
+min(p_B,min L,U(0)). Recurse and set the right output's first address.
+If p_B<=min R, a shared valuation template emits the whole interior.
+No generic pointwise minimum, addition, or prefix diagram operation is used.
+
+The critical bound comes from the global inclusive prefix function Q of
+F, which has O(hD) nodes by the established monotone-cap proof. In every
+non-pruned block, p_B>m=min R, so Q has first value p_B and minimum m.
+The normalized Q node's first-address value is exactly p_B-m, including
+infinity. Thus the input-node/Q-node pair determines the normalized carry
+context. There are O(hD^2) expanded contexts, each requiring O(h) persistent
+first-address replacement work. Summaries and templates yield a proved
+O(h^2D^2) arithmetic/dictionary bound per arbitrary mixed update, replacing
+X with a polynomial parameter. Q is a proof object, not required by the
+constructor. A useful bound on D across all n stages is still missing.
+
+The first implementation passed every small prefix and retained winner.
+The final audit adds minimum-feasible-height controls to the larger-height
+binary controls, exercising infeasible states near capacity. It passes
+60,336 direct prefix-value comparisons and 1384 complete original all-root
+optimum/tree checks: all 680 binary inputs through four keys at two heights,
+plus 24 rational inputs through 12 keys. A separately constructed inclusive
+prefix graph checks all 15,993 expanded contexts against the claimed
+input/prefix-node injection, including infinite carries. All needed weighted
+summaries are bounded by the input reachable-node count in each control.
+
+Twelve full constructions reuse both sets of adversarial size-search winners.
+Every stage size matches the independent dense normalization, and every
+output matches Knuth and complete-tree checks. At 16 keys the unconstrained
+winner creates 14,124 total nodes instead of 144,500 for the same input in
+the earlier constructor, with 3829 expanded carries. The necessary-chain
+winner creates 19,090 versus 199,603 nodes, with 10,110 carries. These are
+matched node counts, not running-time or universal complexity claims.
+All twelve new runs make zero generic diagram min/add/prefix calls.
+
+The separate scale run completes full positive mixed, nonconstant-gap
+unique chains at necessary h=n for n=24,32,48,64. It checks the explicit
+strict suffix inequalities, closed chain costs, independent Knuth costs,
+and every output link/depth/gap. At 64 keys it has 111,668 final nodes,
+6,355,399 total nodes, 3,722,796 retained history nodes, and 3,567,441
+expanded carry contexts. It also records 38,536,277 first-address
+replacement visits. That substantial intermediate work remains visible.
+These inputs are distinct from the earlier interrupted 64-key run.
+
+All compute ran through m4build. The final primary audit was rerun after
+adding the tight-height controls; its prior output is superseded. Each
+completed remote JSON was copied back before another mirror operation.
+The scale process was observed live with its PID while computing 64 keys,
+and then its tool session reported normal completion. No process was
+restarted on an observation timeout. The new proof and appendix counts
+are incorporated in the manuscript, with prior solver sources unchanged.
+
+Final checkpoint-60 publication validation: both new result records match
+all 17 executed-source hashes and both consumed search-record hashes. The
+167-page manuscript compiles without warnings or unresolved references;
+all 463 previous labels survive among 468 unique labels, and all citations
+resolve to the 21 bibliography entries. Every page was rendered and
+reviewed in contact sheets, with pages 36--37, 158--159, and 167 reviewed
+at readable resolution. The dedication remains byte-for-byte unchanged.
+The TeX, PDF, and five-file source/font bundle in the user outputs match
+the final manuscript. The general arbitrary-weight objective remains open.

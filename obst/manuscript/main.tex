@@ -53,7 +53,11 @@ We give the certificate once and derive the family
 guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
 additive separable transfers. Explicit prefix records can be exponential
-even at the minimum optimal height. A contiguous odd ramp with total mass exactly $n$ has
+even at the minimum optimal height. Implicit prefix diagrams support an
+arbitrary mixed update in $O(h^2D^2)$ arithmetic and dictionary operations
+for height $h$ and input diagram size $D$, using a scalar prefix carry;
+bounds on their growth across all updates remain open.
+A contiguous odd ramp with total mass exactly $n$ has
 $\Omega(n^{3/2})$ intermediate core entries with explicitly computed densities.
 Thus the core exponent is necessary, up to a remaining logarithmic factor.
 A separate positive ruler family has quadratic support at deviation $R=n^2$.
@@ -2495,6 +2499,110 @@ The new bound concerns slot traceback. The forward construction still has
 the intermediate-size and minimum-context parameters of
 Theorem~\ref{thm:slot-dag}. In particular, endpoint dominance has not yet
 supplied a general subquadratic bound for constructing the prefix roots.
+
+\subsection{Scalar-carry forward construction}
+\label{sec:dag-forward}
+Endpoint dominance also controls forward construction. It permits a
+single scalar carry per dyadic block, and its distinct relative values
+can be bounded using an ordinary inclusive prefix-minimum diagram.
+
+\begin{theorem}[Polynomial mixed updates on implicit prefixes]
+\label{thm:dag-forward}
+Let $F=f_k$ be a feasible mixed prefix function on $2^h$ addresses, with
+$D$ reachable additive-diagram nodes. Appending a key of nonnegative
+normalized weight $w$ and preceding residual gap $g\ge0$ constructs the
+next prefix diagram in $O(h^2D^2)$ arithmetic and dictionary operations,
+without generic pointwise diagram minima. For the empty prefix, use its
+required initial gap $g=0$. With incoming diagram sizes
+$D_0,\ldots,D_{n-1}$, all forward updates take
+\[
+ O\!\left(h^2\sum_{k=0}^{n-1}D_k^2\right)
+\]
+such operations. The stored prefix roots support the complete optimal
+height-$h$ tree construction and the $O(nh)$ slot traceback of
+Theorem~\ref{thm:dag-skyline-query}.
+\end{theorem}
+\begin{proof}
+Consider a dyadic block $[B,B+2^d)$ and put
+$p_B=\min_{0\le a\le B}F(a)$. For $B>0$, $v(B)\ge d$.
+Every $a\le B$ with $v(a)<d$ and finite value is dominated by $B$,
+by Lemma~\ref{lem:dag-skyline}; slot zero is infinite for a nonempty
+prefix. Thus $p_B$ has an attainer of valuation at least $d$ whenever
+finite. For every interior destination $b$, $v(b)<d$, so all these
+outside predecessors contribute exactly $p_B-gv(b)$ after minimization.
+At $B=0$, $p_B=+\infty$ for a nonempty prefix. For the empty prefix,
+$p_B=0$ and the initial $g=0$ makes the same formula valid. This separate
+case is needed because the empty slot has valuation zero.
+
+For a local block function $R$ on $2^d$ positions define
+\[
+ E_g(R)=\min_{0<t<2^d}\{R(t)-g\nu_2(t)\}.
+\]
+Exclude the first local address: its global valuation can exceed $d$.
+A singleton has summary $+\infty$. If $R=L\mathbin\Vert U$ and
+$m_0=U(0)$, then
+\begin{equation}\label{eq:dag-forward-summary}
+ E_g(R)=\min\{E_g(L),E_g(U),m_0-g(d-1)\}.
+\end{equation}
+The summary commutes with additive offsets, so memoization by normalized
+input node computes all needed summaries in $O(D)$ work.
+
+The recursive output for a block temporarily has $+\infty$ at its first
+local address. The parent will supply that boundary's true value. At
+midpoint $M=B+2^{d-1}$, the new prefix value and right-child carry are
+\begin{align}
+ f_{k+1}(M)&=\min\{p_B-g(d-1),E_g(L)\}-w(d-1),
+ \label{eq:dag-forward-midpoint}\\
+ p_M&=\min\{p_B,\min L,F(M)\}.
+ \label{eq:dag-forward-carry}
+\end{align}
+Indeed, the internal predecessors in $(B,M)$ have valuation below
+$d-1$, and the outside contribution has already been established.
+The carry formula is the definition of the inclusive prefix minimum.
+Recurse on both children and replace the right output's first address
+with \eqref{eq:dag-forward-midpoint}. A persistent replacement follows
+only the leftmost path, taking $O(d)$ work. The root's first output
+address correctly remains infinite.
+
+There is a decisive pruning rule. If $p_B\le\min R$, no internal
+predecessor can improve the outside one. For every local $t>0$ the
+output is simply $p_B-(g+w)\nu_2(t)$, with infinity at $t=0$.
+These templates are shared by depth and require $O(h^2)$ total work;
+an all-infinite input block is handled by the same rule. Otherwise let
+$m=\min R$ and memoize the recursive state by the input-node identity
+and $p_B-m$, representing an infinite carry separately. Translation of
+both $R$ and its carry translates the result, proving this normalization.
+
+To bound the expanded states, define the inclusive prefix function
+$Q(b)=\min_{a\le b}F(a)$. It has a diagram with $O(hD)$ nodes: use
+\[
+ Q(L\mathbin\Vert U)=Q(L)\mathbin\Vert\min\{\min L,Q(U)\}
+\]
+and the same one-crossing monotone-cap argument as in
+Lemma~\ref{lem:dag-prefix}, with the singleton itself as base case.
+On every expanded block, $p_B>m$. Therefore the restriction of $Q$ to
+that block has first value $p_B$ and minimum $m$. Its normalized
+node's first-address value is exactly $p_B-m$, including infinity.
+Consequently the pair consisting of the normalized input node and the
+normalized $Q$ node determines the recursive state. Distinct states
+inject into at most $D\lvert Q\rvert=O(hD^2)$ such pairs. The algorithm
+does not need to construct $Q$; it is used only to prove the bound.
+
+Each expanded state makes two recursive calls and $O(h)$ further work
+for a first-address replacement and node assembly. Summaries, pruning,
+and shared templates give total work $O(h^2D^2)$ and at most that many
+new nodes. Induction over the updates proves the represented mixed
+prefix functions. The previously proved skyline traceback and sparse
+repair return their complete optimal tree. Dictionary costs and exact
+operand bit costs are interpreted as in Theorem~\ref{thm:slot-dag}.
+\end{proof}
+
+This removes the uncontrolled generic-minimum parameter $X$ from the
+per-update guarantee for actual OBST prefixes. A useful bound on the
+entire sequence $D_k$, needed for a general subquadratic construction,
+remains open. The exponential generic-minimum example in
+Theorem~\ref{thm:dag-minimum-barrier} does not contradict this result:
+this update uses endpoint dominance and the scalar carry recurrence.
 
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
@@ -10750,6 +10858,59 @@ $n^2$ path steps at $h=n$ and creates zero diagram nodes, as predicted
 by Theorem~\ref{thm:dag-skyline-query}. The record
 \texttt{slot\_dag\_skyline\_audit.json} retains operation counts, executed
 source hashes, and the hash of its consumed search record.
+
+\paragraph{Scalar-carry forward construction.}
+The independent forward audit checks every one of 60,336 prefix entries
+against direct predecessor minimization, including infeasible positions.
+All 680 binary mixed inputs through four keys are checked at both the
+minimum feasible height and one larger height; 24 rational inputs through
+12 keys add nonintegral controls. All 1384 complete trees agree with the
+original all-root height recurrence and have their links, order, depths,
+and original key/gap costs independently verified.
+
+The same harness separately constructs the inclusive prefix-minimum
+diagram and checks 15,993 expanded carry contexts. For each actual
+non-pruned dyadic block it verifies that the inclusive-prefix minimum
+is the input block minimum, and that the normalized first-address value
+is exactly the relative carry, including infinity. Every executed context
+is covered, and distinct contexts have distinct input/prefix node pairs.
+This directly checks the injection used in Theorem~\ref{thm:dag-forward};
+the asymptotic bound is supplied by its proof.
+
+Twelve further full constructions reuse the retained winners of both
+size searches. Every stage has exactly the independently counted diagram
+size, and every complete optimum agrees with Knuth and output-tree checks.
+On the 16-key unconstrained winner, the scalar-carry constructor creates
+14,124 nodes versus 144,500 in the previous construction of that same
+input; it expands 3829 carry contexts. On the 16-key necessary-chain
+winner, the respective counts are 19,090 and 199,603 nodes, with 10,110
+carry contexts. All twelve new constructions make zero calls to generic
+pointwise diagram minimum, addition, or prefix operations. The record
+\texttt{slot\_dag\_forward\_audit.json} retains exact counters, nine executed
+source hashes, and hashes of both consumed search records.
+
+A separate scale audit constructs positive mixed inputs from the
+strict-dominance chain family above, with random coefficients and necessary
+height $h=n$. Each full tree agrees with its closed unique-chain cost and
+ordinary Knuth; all links, depths, keys, and gaps are checked. Its exact
+counts are:
+\begin{center}
+\begin{tabular}{r|r r r r}
+$n$ & final nodes & all created nodes & history nodes & carry contexts\\
+\hline
+24 & 4928 & 106914 & 65358 & 58124\\
+32 & 12410 & 358192 & 215203 & 197331\\
+48 & 45391 & 1939134 & 1145477 & 1081655\\
+64 & 111668 & 6355399 & 3722796 & 3567441
+\end{tabular}
+\end{center}
+The all-created count includes the terminal; history counts nodes reachable
+from all retained prefix roots. At 64 keys there are also 38,536,277
+first-address replacement visits, retained rather than hidden by the
+smaller final diagram. No timing or measured exponent supports the bound.
+The record \texttt{slot\_dag\_forward\_scale.json} retains every original
+weight, eight source hashes, and all operation categories. These inputs
+are distinct from the earlier interrupted 64-key experiment.
 
 \clearpage
 \section{Unimodal domination and certified-envelope audit}

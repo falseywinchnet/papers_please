@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Scalar-carry forward updates with a proved polynomial per-update bound](SLOT_DAG_FORWARD.md)
 - [Implicit mixed prefix functions with additive decision diagrams](SLOT_DAG.md)
 - [Endpoint dominance, one-path mixed queries, and directed diagram-size searches](SLOT_DAG.md#endpoint-dominance-and-one-path-predecessor-queries)
 - [Exact exponential prefix-record support at necessary optimal height](SLOT_RECORD_BARRIER.md)
@@ -74,16 +75,22 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 
 ## Main result and the size bounds
 
-The [implicit mixed-prefix constructor](SLOT_DAG.md) now evaluates the full
-arbitrary-weight recurrence on additive decision diagrams and reconstructs
-the complete tree. Exclusive prefix minima of a D-node height-h function
-have a proved O(hD) operation bound. A general gap update isolates the
-remaining minimum-context count X in O(h^5 D + X) work. An explicit pair
-of strictly decreasing functions, each with 2m+1 nodes, has a pointwise
-minimum with exactly 3*2^m-2 nodes in the same binary address order.
-Thus monotonicity alone cannot bound this operation; the specific OBST
-transition structure remains the target. Exact checks include complete
-mixed trees and all intermediate-node counts.
+The [scalar-carry forward constructor](SLOT_DAG_FORWARD.md) evaluates the
+full arbitrary-weight mixed recurrence on additive decision diagrams and
+reconstructs the complete tree. On a D-node input of height h, each update
+has a proved O(h^2 D^2) arithmetic/dictionary bound. Endpoint dominance
+reduces a block's outside predecessors to one scalar carry. Every expanded
+relative carry is determined by an input-node/inclusive-prefix-node pair;
+the latter graph has O(hD) nodes. This removes the earlier uncontrolled
+generic-minimum parameter X. Stored first-address values also give O(nh)
+selected-slot traceback. The open issue is a useful bound on diagram sizes
+across all n updates. Exact audits retain all intermediate-node counts.
+
+The [earlier generic construction](SLOT_DAG.md) and its operation barrier
+remain documented separately. Two strictly decreasing functions with
+2m+1 nodes each have a minimum with exactly 3*2^m-2 nodes in the same
+address order. The scalar-carry update uses the specific structure of
+actual OBST prefixes to avoid that generic operation.
 
 The [exact record-support barrier](SLOT_RECORD_BARRIER.md) rules out a
 weight-independent polynomial bound for explicit prefix lists. A universal
