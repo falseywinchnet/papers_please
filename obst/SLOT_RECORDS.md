@@ -183,3 +183,16 @@ and geometric inputs are included. Larger rows use an independent ordinary
 Knuth optimum. The enormous-capacity rows construct full uniform trees and
 use the closed minimum-internal-path-length cost. The source-hashed JSON
 records exact operation types; it contains no timings.
+
+The general record-size question now has an explicit negative answer.
+SLOT_RECORD_BARRIER.md proves that strictly positive mixed weights can
+require height n and have exactly 2^n-n final records. Their support is a
+binary popcount threshold, while the existing affine solver handles the
+same family in linear arithmetic work. The bounded-mass guarantees above
+remain valid; arbitrary-weight progress requires more implicit structure.
+
+The same argument supplies a sharp universal envelope even with arbitrary
+nonnegative mixed weights: B_k<=sum_(j=0)^min(k,h) binomial(h,j)-k.
+Earliest embeddings preserve every key/gap reward while increasing binary
+popcount by at most one per key. This may be combined with either mass
+bound above; the geometric family attains the envelope.

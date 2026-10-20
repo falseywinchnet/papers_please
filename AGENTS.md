@@ -594,3 +594,16 @@ Finite marked-outcome reward spectra and unbounded-magnitude full controls:
 Small literal controls permit rational marked weights and integer unmarked
 weights. Larger rows construct full unrestricted mixed trees and compare to
 ordinary Knuth at two exceptional bit lengths. Copy the JSON before mirroring.
+
+Exact binary support of prefix records at necessary optimal height:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_record_barrier.py
+```
+
+The dense reference retains every slot and independently checks all prefix
+values, record sets, popcount membership and strict prefix-maximum jumps.
+Literal controls have separate bounds. Large binomial rows are formula-only;
+large full trees use the existing affine constructor, with Knuth references
+only through 256 keys. This is a representation barrier, not an OBST lower
+bound. Copy the source-hashed JSON back before another mirror operation.

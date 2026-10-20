@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Exact exponential prefix-record support at necessary optimal height](SLOT_RECORD_BARRIER.md)
 - [Prefix records and full construction without perfect-tree expansion](SLOT_RECORDS.md)
 - [Sufficient unrestricted height after setting aside exceptional outcomes](TRIMMED_HEIGHT.md)
 - [Linear run dependence with arbitrary mixed gaps at a prescribed height](SLOT_VECTOR_CONSTRUCTION.md)
@@ -70,6 +71,16 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The [exact record-support barrier](SLOT_RECORD_BARRIER.md) rules out a
+weight-independent polynomial bound for explicit prefix lists. A universal
+earliest-embedding argument gives B_k<=sum_(r=0)^min(k,h) binomial(h,r)-k
+for arbitrary mixed weights, and the bound is attained. On a strictly
+positive mixed geometric family, the unique optimum needs height n, and
+slot b is retained after k keys exactly when b>=k and popcount(b)<=k. Thus
+B_k=sum_(r=0)^k binomial(n,r)-k, with 2^n-n final records. The same family
+admits linear full construction through the existing affine phase quotient.
+The barrier concerns enumeration of this representation, not OBST hardness.
 
 The [valuation-class record construction](SLOT_RECORDS.md) compresses each
 prefix vector to its first value and strict decreases within each ruler

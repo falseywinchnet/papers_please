@@ -52,7 +52,8 @@ of $n$ times a fixed power of $\log(n+1)$ through their finite reward spectra.
 We give the certificate once and derive the family
 guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
-additive separable transfers. A contiguous odd ramp with total mass exactly $n$ has
+additive separable transfers. Explicit prefix records can be exponential
+even at the minimum optimal height. A contiguous odd ramp with total mass exactly $n$ has
 $\Omega(n^{3/2})$ intermediate core entries with explicitly computed densities.
 Thus the core exponent is necessary, up to a remaining logarithmic factor.
 A separate positive ruler family has quadratic support at deviation $R=n^2$.
@@ -2286,6 +2287,10 @@ its integer score-range specialization is a separate assumption.
 Choosing Knuth when the integer work proxy exceeds $n^2$ retains a
 quadratic worst-case bound. The general arbitrary-weight subquadratic
 objective and the original interval-core support question remain open.
+Lemma~\ref{lem:slot-record-envelope} also gives the sharp universal bound
+$B_k\le\sum_{r=0}^{\min(k,h)}\binom hr-k$.
+Theorem~\ref{thm:slot-record-barrier} gives exponential explicit record
+support at necessary optimal height for strictly positive mixed weights.
 Independent state and full-tree controls appear in
 Appendix~\ref{app:rank-transfer}.
 
@@ -8179,6 +8184,167 @@ exact interval queries for both versions. This separates explicit-core
 size from query complexity and gives no lower bound for computing a full
 optimal BST.
 
+\subsection{Exponential prefix records at necessary optimal height}
+\label{sec:slot-record-barrier}
+The prefix-record construction has an exact limitation on arbitrary
+magnitudes. Its record support can be exponential even when every original
+key and gap weight is positive and the prescribed height is the smallest
+height of any optimum. Write $\operatorname{pc}(u)$ for the number of one
+bits in the binary expansion of $u$.
+
+\begin{lemma}[Universal binary envelope]\label{lem:slot-record-envelope}
+For arbitrary nonnegative mixed weights, a record of the $k$-key prefix
+at height $h$ must end at a slot $b$ with $\operatorname{pc}(b)\le k$.
+Consequently, for $1\le k\le2^h-1$,
+\begin{equation}\label{eq:slot-record-envelope}
+ B_k\le E_h(k):=\sum_{r=0}^{\min(k,h)}\binom hr-k.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Given any selected slot sequence, replace each slot successively by the
+first position after its replaced predecessor having the same valuation.
+Every replaced position is at most its original position, by induction,
+and the whole valuation vector is unchanged. Hence all key rewards and
+all adjacent-gap rewards are unchanged.
+
+One replacement increases popcount by at most one. To see this, write the
+previous position as $a=Q2^{d+1}+r$, $0\le r<2^{d+1}$, where $d$ is
+the next required valuation. If $r<2^d$, the next position is
+$Q2^{d+1}+2^d$, with popcount at most $\operatorname{pc}(a)+1$.
+Otherwise it is $(Q+1)2^{d+1}+2^d$. In that case
+$\operatorname{pc}(Q+1)\le\operatorname{pc}(Q)+1$ and the old remainder
+already had its $d$th bit set, giving the same bound. Starting at zero,
+the earliest ending position after $k$ replacements has at most $k$ one bits.
+
+If an optimal prefix ended at $b$ with $\operatorname{pc}(b)>k$, this
+replacement would end strictly earlier in the same valuation class with
+the same reward. Lemma~\ref{lem:slot-records}'s monotonicity then gives
+equal prefix values, so $b$ cannot be a record. Count all positive $h$-bit
+integers with at most $k$ one bits and remove the $k-1$ positions below
+$k$; each of those also satisfies the popcount condition. This gives
+\eqref{eq:slot-record-envelope}.
+\end{proof}
+
+\begin{lemma}[Lexicographic ruler endpoints]\label{lem:lex-ruler-endpoints}
+Let $m\ge1$, and suppose positive weights satisfy
+$w_i>(h-1)\sum_{j>i}w_j$. For $m\le U<2^h$, let
+\[
+ G_m(U)=\max_{1\le t_1<\cdots<t_m\le U}
+                  \sum_{i=1}^m w_{i-1}\nu_2(t_i).
+\]
+The maximizing tuple is unique. Its last slot is $U$ exactly when
+$\operatorname{pc}(U)\le m$. Consequently, for $U>m$,
+\[
+ G_m(U)>G_m(U-1)\quad\Longleftrightarrow\quad
+ \operatorname{pc}(U)\le m.
+\]
+The first feasible window $U=m$ is an initial record.
+\end{lemma}
+\begin{proof}
+All valuations lie in $\{0,\ldots,h-1\}$. The first differing coordinate
+therefore determines the weighted comparison, so optimization is
+lexicographic in key order. With $r$ slots still required after the previous
+slot $a$, choose the largest valuation in $[a+1,U-r+1]$. That maximum is
+unique: two positions of equal maximal valuation would enclose a position
+of larger valuation. Repeating this feasible greedy choice gives the unique
+maximizing tuple.
+
+Write $U=P+s$, where $P$ is its largest power of two and $0\le s<P$.
+If $m\le s+1$, the first greedy choice is $P$. For $m=1$, it ends at $U$
+exactly when $s=0$, equivalently $\operatorname{pc}(U)=1$.
+For $m>1$, the suffix is the same problem on $[1,s]$ with $m-1$ slots,
+since $\nu_2(P+x)=\nu_2(x)$ for $1\le x\le s$. Induction and
+$\operatorname{pc}(U)=1+\operatorname{pc}(s)$ prove the claim.
+If $m>s+1$, every choice while $r>s+1$ lies below $P$, because its
+feasibility upper endpoint $U-r+1$ is below $P$. When $r=s+1$, the slot
+$P$ becomes feasible and is selected. All following slots through $U$
+are then required. Here $\operatorname{pc}(U)\le s+1<m$, proving the
+claim in this case as well.
+
+If the unique optimum ends at $U$, no equally good tuple was feasible
+at $U-1$, so the value rises strictly. Otherwise the same optimum was
+already feasible there. The initial window contains only one tuple.
+\end{proof}
+
+\begin{theorem}[Exact exponential record support]\label{thm:slot-record-barrier}
+For $n\ge2$, put $A=n+1$ and set
+\begin{equation}\label{eq:slot-record-barrier-family}
+ p_i=A^{n-i}-1\quad(0\le i<n),\qquad q_j=1\quad(0\le j\le n).
+\end{equation}
+All weights are positive integers. The unique optimal tree is the right
+chain, so its necessary height is $h=n$. At this height, the records of
+its normalized $k$-key prefix are exactly
+\begin{equation}\label{eq:slot-record-binary-support}
+ \{b:k\le b\le2^n-1,\ \operatorname{pc}(b)\le k\}.
+\end{equation}
+Their exact count and total across all prefixes are
+\begin{equation}\label{eq:slot-record-barrier-count}
+ B_k=\sum_{r=0}^k\binom nr-k,\qquad
+ B_n=2^n-n,\qquad
+ \sum_{k=1}^n B_k=(n+2)2^{n-1}-1-\frac{n(n+1)}2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Common-gap normalization gives $w_i=A^{n-i}$, zero residual gaps, and
+the additive cost $n$ for every tree. For every suffix,
+\[
+ n\sum_{j>i}w_j=w_i-A<w_i.
+\]
+A right chain on that suffix costs less than $2w_i$. Any tree with its
+first key below the root costs at least $2w_i$ from that key alone.
+The first key must therefore be the root; induction forces the unique
+right chain. Its original cost is $n+\sum_i(i+1)w_i$, and its height is $n$.
+
+The same weights satisfy the strict dominance assumption of
+Lemma~\ref{lem:lex-ruler-endpoints}. For $m=k-1$, a prefix forced to end
+at $b$ has negative reward
+\[
+ f_k(b)=-G_m(b-1)-w_m\nu_2(b),
+\]
+where $G_0$ is constantly zero. Fix valuation $d$ and write
+$b=(2j+1)2^d$. Between consecutive feasible slots of this valuation,
+the argument of $G_m$ passes through
+\[
+ [b-2^{d+1},\ b-1].
+\]
+The minimum popcount in this interval is $\operatorname{pc}(j)$.
+Indeed, its right half contains $j2^{d+1}$ and has that minimum; its
+left half has minimum $\operatorname{pc}(j-1)+1$, which is at least
+$\operatorname{pc}(j)$. Thus $f_k$ decreases strictly at $b$ exactly
+when $\operatorname{pc}(j)\le m$. As
+$\operatorname{pc}(b)=\operatorname{pc}(j)+1$, this is precisely
+$\operatorname{pc}(b)\le k$.
+
+The first feasible slot of each class obeys the same test. Its index is
+$j=\max\{0,\lceil(k-2^d)/2^{d+1}\rceil\}\le k-1$, so
+$\operatorname{pc}(b)=1+\operatorname{pc}(j)\le k$.
+For $k=1$, only the first slot of each valuation class is retained,
+consistent with $G_0=0$. This proves \eqref{eq:slot-record-binary-support}.
+There are $\sum_{r=0}^k\binom nr-1$ positive $n$-bit integers with at most
+$k$ one bits. Every positive integer below $k$ satisfies that test;
+removing those $k-1$ positions proves $B_k$. Summing the binomial
+coefficients over $k$ gives the last identity in
+\eqref{eq:slot-record-barrier-count}.
+\end{proof}
+
+The support calculation requires only lexicographic dominance. With any
+prescribed height $h$, base $A=h+1$, and at most $2^h-1$ keys, the same
+argument attains $E_h(k)$ at every prefix. Thus
+Lemma~\ref{lem:slot-record-envelope} is sharp.
+
+The largest input integer has $O(n\log(n+1))$ bits. Thus a polynomial-size
+input forces exponential explicit prefix lists, even at the minimum optimal
+height. Retaining every stage's predecessors requires $\Theta(n2^n)$
+records on this family. Its support nevertheless has the succinct binary
+description \eqref{eq:slot-record-binary-support}. Moreover, the original
+mixed weights satisfy period-one affine translation with
+$\lambda=1/A$ and $\alpha=1/A-1$. Theorem~\ref{thm:affine-period} therefore
+constructs their full optimum using exactly $2n-1$ root candidates.
+This is a barrier to enumerating prefix records; the general OBST problem
+and implicit representations remain separate. The integer-mass and
+fixed-exception guarantees of Section~\ref{sec:slot-records} are unaffected.
+Independent controls appear in Appendix~\ref{app:rank-transfer}.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -10182,6 +10348,47 @@ vertices. These equal counts are an observed control, while
 \eqref{eq:slot-record-marked-count} proves the magnitude-independent bound.
 The separate \texttt{slot\_marked\_records\_audit.json} retains six source hashes.
 
+
+\paragraph{Exact exponential prefix-record support.}
+The universal envelope in Lemma~\ref{lem:slot-record-envelope} has
+three independent controls. Earliest valuation-preserving embeddings are
+checked on all 32,902 nonempty slot subsets at heights one through four,
+covering 246,221 selected positions. Seventy-two arbitrary mixed rational
+inputs, including large exceptional keys, check 12,424 retained records
+against the envelope and compare 18,088 prefix values with the dense mixed
+recurrence; every complete output tree is independently checked. Finally,
+for each height $h=1,\ldots,6$ and every key count $1\le n\le2^h-1$,
+geometric weights of base $h+1$ attain the envelope at all prefixes:
+2,667 stage sets and 97,155 dense states are checked, including $k>h$.
+
+The positive mixed family in Theorem~\ref{thm:slot-record-barrier} is checked
+by a dense subsequence recurrence that retains every ending slot, independently
+of the compressed kernel. Across sizes 2 through 16, all 1,965,265 prefix
+values and attaining compressed predecessors agree. The same states check
+the popcount support test and the exact strict-increase locations of prefix
+maxima. All 135 complete record sets agree with the binomial formula.
+A separate enumeration checks 65,519 explicit subset-of-scales witnesses.
+Through five keys, 208,376 literal slot selections provide another reference;
+2055 literal BST shapes through eight keys verify the unique full optimum.
+Nine complete record-kernel trees through ten keys agree with that optimum.
+
+At 16 keys, the middle prefix with eight keys has exactly 39,195 records;
+the final prefix has 65,520. The 135 measured stage counts also satisfy
+the summed identity in \eqref{eq:slot-record-barrier-count}. Thirty further
+ascending, descending and shuffled magnitude-order diagnostics through 12
+keys retain their counts without implying a universal upper bound.
+Formula evaluations at sizes 32 through 1024 are labeled separately;
+no exponential prefix enumeration is run at those sizes.
+
+Six complete constructions of the same family by the existing affine solver
+reach 1024 keys. Every result matches its closed unique-chain cost and has
+all output links, order, depths and original mixed cost checked. Independent
+Knuth references are used only through 256 keys. At 1024 keys, the affine
+constructor uses exactly 2047 root candidates and returns the complete
+chain; the largest input weight has 10,242 bits. This checks the separation
+between explicit-record size and full-problem difficulty. The record
+\texttt{slot\_record\_barrier.json} retains exact counters, reference scopes,
+and eight executed-source hashes. No timing supports the theorem.
 
 \clearpage
 \section{Unimodal domination and certified-envelope audit}

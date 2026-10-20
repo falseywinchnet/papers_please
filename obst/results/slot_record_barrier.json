@@ -1,0 +1,1792 @@
+{
+  "scope": "Sharp universal binary envelope for arbitrary mixed prefix records, attained exponentially at necessary optimal height on strictly positive mixed weights; not an OBST lower bound",
+  "seed": 571019,
+  "magnitude_order_seed": 571020,
+  "counts": {
+    "barrier_earliest_embedding_slots": 246221,
+    "barrier_earliest_embedding_subsets": 32902,
+    "record_gap_candidates": 130646,
+    "record_singleton_passes": 602,
+    "barrier_mixed_envelope_records": 12424,
+    "barrier_mixed_prefix_controls": 18088,
+    "record_stored_states": 23456,
+    "record_ancestor_nodes": 607,
+    "record_output_nodes": 606,
+    "record_verified_nodes": 606,
+    "barrier_mixed_envelope_inputs": 72,
+    "record_deleted_ancestors": 1,
+    "record_search_batches": 7,
+    "record_queried_rows": 30,
+    "lws_smawk_index_visits": 191,
+    "record_run_entry_queries": 424,
+    "record_run_threshold_terms": 1672,
+    "record_active_intervals": 37,
+    "record_run_passes": 2,
+    "record_trace_thresholds": 7,
+    "record_trace_output_slots": 2,
+    "lws_smawk_comparisons": 194,
+    "barrier_dense_candidates": 97155,
+    "barrier_dense_record_scans": 97155,
+    "barrier_arbitrary_height_stage_controls": 2667,
+    "barrier_literal_shapes": 2055,
+    "barrier_unique_shape_inputs": 8,
+    "barrier_full_record_trees": 9
+  },
+  "exact_prefix_rows": [
+    {
+      "n": 2,
+      "height": 2,
+      "prefix": 1,
+      "binomial_lower": 1,
+      "stage_records": [
+        2,
+        2
+      ],
+      "odd_records": [
+        1,
+        1
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 2,
+        "barrier_dense_candidates": 5,
+        "barrier_dense_record_scans": 5,
+        "record_gap_candidates": 6,
+        "barrier_exact_stage_sets": 2,
+        "barrier_prefix_controls": 5,
+        "barrier_literal_selections": 6,
+        "barrier_popcount_support_controls": 5,
+        "barrier_prefix_max_jump_controls": 5,
+        "barrier_binomial_witnesses": 1
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 3,
+      "height": 3,
+      "prefix": 2,
+      "binomial_lower": 2,
+      "stage_records": [
+        3,
+        5,
+        5
+      ],
+      "odd_records": [
+        1,
+        2,
+        3
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 3,
+        "barrier_dense_candidates": 18,
+        "barrier_dense_record_scans": 18,
+        "record_gap_candidates": 25,
+        "barrier_exact_stage_sets": 3,
+        "barrier_prefix_controls": 18,
+        "barrier_literal_selections": 63,
+        "barrier_popcount_support_controls": 18,
+        "barrier_prefix_max_jump_controls": 18,
+        "barrier_binomial_witnesses": 3
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 4,
+      "height": 4,
+      "prefix": 2,
+      "binomial_lower": 3,
+      "stage_records": [
+        4,
+        9,
+        12,
+        12
+      ],
+      "odd_records": [
+        1,
+        3,
+        6,
+        6
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 4,
+        "barrier_dense_candidates": 54,
+        "barrier_dense_record_scans": 54,
+        "record_gap_candidates": 93,
+        "barrier_exact_stage_sets": 4,
+        "barrier_prefix_controls": 54,
+        "barrier_literal_selections": 1940,
+        "barrier_popcount_support_controls": 54,
+        "barrier_prefix_max_jump_controls": 54,
+        "barrier_binomial_witnesses": 7
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 5,
+      "height": 5,
+      "prefix": 3,
+      "binomial_lower": 6,
+      "stage_records": [
+        5,
+        14,
+        23,
+        27,
+        27
+      ],
+      "odd_records": [
+        1,
+        4,
+        10,
+        13,
+        14
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 5,
+        "barrier_dense_candidates": 145,
+        "barrier_dense_record_scans": 145,
+        "record_gap_candidates": 311,
+        "barrier_exact_stage_sets": 5,
+        "barrier_prefix_controls": 145,
+        "barrier_literal_selections": 206367,
+        "barrier_popcount_support_controls": 145,
+        "barrier_prefix_max_jump_controls": 145,
+        "barrier_binomial_witnesses": 15
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 6,
+      "height": 6,
+      "prefix": 3,
+      "binomial_lower": 10,
+      "stage_records": [
+        6,
+        20,
+        39,
+        53,
+        58,
+        58
+      ],
+      "odd_records": [
+        1,
+        5,
+        15,
+        24,
+        29,
+        29
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 6,
+        "barrier_dense_candidates": 363,
+        "barrier_dense_record_scans": 363,
+        "record_gap_candidates": 948,
+        "barrier_exact_stage_sets": 6,
+        "barrier_prefix_controls": 363,
+        "barrier_popcount_support_controls": 363,
+        "barrier_prefix_max_jump_controls": 363,
+        "barrier_binomial_witnesses": 31
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 7,
+      "height": 7,
+      "prefix": 4,
+      "binomial_lower": 20,
+      "stage_records": [
+        7,
+        27,
+        61,
+        95,
+        115,
+        121,
+        121
+      ],
+      "odd_records": [
+        1,
+        6,
+        21,
+        40,
+        55,
+        60,
+        61
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 7,
+        "barrier_dense_candidates": 868,
+        "barrier_dense_record_scans": 868,
+        "record_gap_candidates": 2689,
+        "barrier_exact_stage_sets": 7,
+        "barrier_prefix_controls": 868,
+        "barrier_popcount_support_controls": 868,
+        "barrier_prefix_max_jump_controls": 868,
+        "barrier_binomial_witnesses": 63
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 8,
+      "height": 8,
+      "prefix": 4,
+      "binomial_lower": 35,
+      "stage_records": [
+        8,
+        35,
+        90,
+        159,
+        214,
+        241,
+        248,
+        248
+      ],
+      "odd_records": [
+        1,
+        7,
+        28,
+        62,
+        97,
+        117,
+        124,
+        124
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 8,
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012,
+        "record_gap_candidates": 7227,
+        "barrier_exact_stage_sets": 8,
+        "barrier_prefix_controls": 2012,
+        "barrier_popcount_support_controls": 2012,
+        "barrier_prefix_max_jump_controls": 2012,
+        "barrier_binomial_witnesses": 127
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 9,
+      "height": 9,
+      "prefix": 5,
+      "binomial_lower": 70,
+      "stage_records": [
+        9,
+        44,
+        127,
+        252,
+        377,
+        460,
+        495,
+        503,
+        503
+      ],
+      "odd_records": [
+        1,
+        8,
+        36,
+        91,
+        161,
+        216,
+        244,
+        251,
+        252
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 9,
+        "barrier_dense_candidates": 4563,
+        "barrier_dense_record_scans": 4563,
+        "record_gap_candidates": 18655,
+        "barrier_exact_stage_sets": 9,
+        "barrier_prefix_controls": 4563,
+        "barrier_popcount_support_controls": 4563,
+        "barrier_prefix_max_jump_controls": 4563,
+        "barrier_binomial_witnesses": 255
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 10,
+      "height": 10,
+      "prefix": 5,
+      "binomial_lower": 126,
+      "stage_records": [
+        10,
+        54,
+        173,
+        382,
+        633,
+        842,
+        961,
+        1005,
+        1014,
+        1014
+      ],
+      "odd_records": [
+        1,
+        9,
+        45,
+        128,
+        254,
+        379,
+        463,
+        498,
+        507,
+        507
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 10,
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185,
+        "record_gap_candidates": 46698,
+        "barrier_exact_stage_sets": 10,
+        "barrier_prefix_controls": 10185,
+        "barrier_popcount_support_controls": 10185,
+        "barrier_prefix_max_jump_controls": 10185,
+        "barrier_binomial_witnesses": 511
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 11,
+      "height": 11,
+      "prefix": 6,
+      "binomial_lower": 252,
+      "stage_records": [
+        11,
+        65,
+        229,
+        558,
+        1019,
+        1480,
+        1809,
+        1973,
+        2027,
+        2037,
+        2037
+      ],
+      "odd_records": [
+        1,
+        10,
+        55,
+        174,
+        384,
+        635,
+        845,
+        964,
+        1009,
+        1018,
+        1019
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 11,
+        "barrier_dense_candidates": 22462,
+        "barrier_dense_record_scans": 22462,
+        "record_gap_candidates": 114137,
+        "barrier_exact_stage_sets": 11,
+        "barrier_prefix_controls": 22462,
+        "barrier_popcount_support_controls": 22462,
+        "barrier_prefix_max_jump_controls": 22462,
+        "barrier_binomial_witnesses": 1023
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 12,
+      "height": 12,
+      "prefix": 6,
+      "binomial_lower": 462,
+      "stage_records": [
+        12,
+        77,
+        296,
+        790,
+        1581,
+        2504,
+        3295,
+        3789,
+        4008,
+        4073,
+        4084,
+        4084
+      ],
+      "odd_records": [
+        1,
+        11,
+        66,
+        230,
+        560,
+        1021,
+        1483,
+        1812,
+        1977,
+        2031,
+        2042,
+        2042
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 12,
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074,
+        "record_gap_candidates": 273705,
+        "barrier_exact_stage_sets": 12,
+        "barrier_prefix_controls": 49074,
+        "barrier_popcount_support_controls": 49074,
+        "barrier_prefix_max_jump_controls": 49074,
+        "barrier_binomial_witnesses": 2047
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 13,
+      "height": 13,
+      "prefix": 7,
+      "binomial_lower": 924,
+      "stage_records": [
+        13,
+        90,
+        375,
+        1089,
+        2375,
+        4090,
+        5805,
+        7091,
+        7805,
+        8090,
+        8167,
+        8179,
+        8179
+      ],
+      "odd_records": [
+        1,
+        12,
+        78,
+        297,
+        792,
+        1583,
+        2507,
+        3298,
+        3793,
+        4012,
+        4078,
+        4089,
+        4090
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 13,
+        "barrier_dense_candidates": 106405,
+        "barrier_dense_record_scans": 106405,
+        "record_gap_candidates": 646231,
+        "barrier_exact_stage_sets": 13,
+        "barrier_prefix_controls": 106405,
+        "barrier_popcount_support_controls": 106405,
+        "barrier_prefix_max_jump_controls": 106405,
+        "barrier_binomial_witnesses": 4095
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 14,
+      "height": 14,
+      "prefix": 7,
+      "binomial_lower": 1716,
+      "stage_records": [
+        14,
+        104,
+        467,
+        1467,
+        3468,
+        6470,
+        9901,
+        12903,
+        14904,
+        15904,
+        16267,
+        16357,
+        16370,
+        16370
+      ],
+      "odd_records": [
+        1,
+        13,
+        91,
+        376,
+        1091,
+        2377,
+        4093,
+        5808,
+        7095,
+        7809,
+        8095,
+        8172,
+        8185,
+        8185
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 14,
+        "barrier_dense_candidates": 229271,
+        "barrier_dense_record_scans": 229271,
+        "record_gap_candidates": 1506144,
+        "barrier_exact_stage_sets": 14,
+        "barrier_prefix_controls": 229271,
+        "barrier_popcount_support_controls": 229271,
+        "barrier_prefix_max_jump_controls": 229271,
+        "barrier_binomial_witnesses": 8191
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 15,
+      "height": 15,
+      "prefix": 8,
+      "binomial_lower": 3432,
+      "stage_records": [
+        15,
+        119,
+        573,
+        1937,
+        4939,
+        9943,
+        16377,
+        22811,
+        27815,
+        30817,
+        32181,
+        32635,
+        32739,
+        32753,
+        32753
+      ],
+      "odd_records": [
+        1,
+        14,
+        105,
+        468,
+        1469,
+        3470,
+        6473,
+        9904,
+        12907,
+        14908,
+        15909,
+        16272,
+        16363,
+        16376,
+        16377
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 15,
+        "barrier_dense_candidates": 491400,
+        "barrier_dense_record_scans": 491400,
+        "record_gap_candidates": 3471937,
+        "barrier_exact_stage_sets": 15,
+        "barrier_prefix_controls": 491400,
+        "barrier_popcount_support_controls": 491400,
+        "barrier_prefix_max_jump_controls": 491400,
+        "barrier_binomial_witnesses": 16383
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    },
+    {
+      "n": 16,
+      "height": 16,
+      "prefix": 8,
+      "binomial_lower": 6435,
+      "stage_records": [
+        16,
+        135,
+        694,
+        2513,
+        6880,
+        14887,
+        26326,
+        39195,
+        50634,
+        58641,
+        63008,
+        64827,
+        65386,
+        65505,
+        65520,
+        65520
+      ],
+      "odd_records": [
+        1,
+        15,
+        120,
+        574,
+        1939,
+        4941,
+        9946,
+        16380,
+        22815,
+        27819,
+        30822,
+        32186,
+        32641,
+        32745,
+        32760,
+        32760
+      ],
+      "counts": {
+        "barrier_dominant_suffixes": 16,
+        "barrier_dense_candidates": 1048440,
+        "barrier_dense_record_scans": 1048440,
+        "record_gap_candidates": 7928055,
+        "barrier_exact_stage_sets": 16,
+        "barrier_prefix_controls": 1048440,
+        "barrier_popcount_support_controls": 1048440,
+        "barrier_prefix_max_jump_controls": 1048440,
+        "barrier_binomial_witnesses": 32767
+      },
+      "verification": "Every dense prefix value, every compressed record set and every subset witness; literal subsequences for n<=5"
+    }
+  ],
+  "magnitude_order_diagnostics": [
+    {
+      "n": 8,
+      "trial": 0,
+      "exponent_order": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "stage_records": [
+        8,
+        35,
+        34,
+        33,
+        32,
+        32,
+        31,
+        30
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 1,
+      "exponent_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "stage_records": [
+        8,
+        35,
+        90,
+        159,
+        214,
+        241,
+        248,
+        248
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 2,
+      "exponent_order": [
+        7,
+        1,
+        4,
+        3,
+        6,
+        5,
+        0,
+        2
+      ],
+      "stage_records": [
+        8,
+        35,
+        34,
+        89,
+        88,
+        157,
+        156,
+        30
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 3,
+      "exponent_order": [
+        5,
+        2,
+        6,
+        1,
+        3,
+        7,
+        0,
+        4
+      ],
+      "stage_records": [
+        8,
+        35,
+        34,
+        89,
+        32,
+        87,
+        156,
+        30
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 4,
+      "exponent_order": [
+        6,
+        5,
+        7,
+        2,
+        4,
+        3,
+        1,
+        0
+      ],
+      "stage_records": [
+        8,
+        35,
+        34,
+        89,
+        32,
+        87,
+        86,
+        30
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 5,
+      "exponent_order": [
+        4,
+        6,
+        7,
+        3,
+        1,
+        2,
+        5,
+        0
+      ],
+      "stage_records": [
+        8,
+        35,
+        90,
+        159,
+        32,
+        32,
+        86,
+        155
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 6,
+      "exponent_order": [
+        0,
+        6,
+        5,
+        1,
+        7,
+        2,
+        4,
+        3
+      ],
+      "stage_records": [
+        8,
+        35,
+        90,
+        89,
+        83,
+        157,
+        156,
+        211
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 7,
+      "exponent_order": [
+        3,
+        2,
+        1,
+        6,
+        5,
+        7,
+        0,
+        4
+      ],
+      "stage_records": [
+        8,
+        35,
+        34,
+        33,
+        88,
+        87,
+        156,
+        30
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 8,
+      "exponent_order": [
+        1,
+        3,
+        2,
+        6,
+        4,
+        5,
+        0,
+        7
+      ],
+      "stage_records": [
+        8,
+        35,
+        90,
+        89,
+        158,
+        157,
+        212,
+        30
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 8,
+      "trial": 9,
+      "exponent_order": [
+        0,
+        3,
+        2,
+        5,
+        7,
+        4,
+        1,
+        6
+      ],
+      "stage_records": [
+        8,
+        35,
+        90,
+        89,
+        158,
+        213,
+        142,
+        78
+      ],
+      "counts": {
+        "barrier_dense_candidates": 2012,
+        "barrier_dense_record_scans": 2012
+      }
+    },
+    {
+      "n": 10,
+      "trial": 0,
+      "exponent_order": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "stage_records": [
+        10,
+        54,
+        53,
+        52,
+        51,
+        51,
+        50,
+        49,
+        48,
+        50
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 1,
+      "exponent_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "stage_records": [
+        10,
+        54,
+        173,
+        382,
+        633,
+        842,
+        961,
+        1005,
+        1014,
+        1014
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 2,
+      "exponent_order": [
+        3,
+        6,
+        7,
+        2,
+        9,
+        0,
+        8,
+        1,
+        4,
+        5
+      ],
+      "stage_records": [
+        10,
+        54,
+        173,
+        382,
+        51,
+        170,
+        50,
+        168,
+        167,
+        376
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 3,
+      "exponent_order": [
+        2,
+        6,
+        7,
+        4,
+        3,
+        5,
+        0,
+        8,
+        9,
+        1
+      ],
+      "stage_records": [
+        10,
+        54,
+        173,
+        382,
+        164,
+        163,
+        379,
+        49,
+        167,
+        376
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 4,
+      "exponent_order": [
+        0,
+        1,
+        3,
+        7,
+        6,
+        2,
+        4,
+        9,
+        5,
+        8
+      ],
+      "stage_records": [
+        10,
+        54,
+        173,
+        382,
+        633,
+        632,
+        352,
+        630,
+        839,
+        838
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 5,
+      "exponent_order": [
+        6,
+        8,
+        3,
+        2,
+        9,
+        4,
+        0,
+        1,
+        5,
+        7
+      ],
+      "stage_records": [
+        10,
+        54,
+        173,
+        52,
+        51,
+        170,
+        169,
+        49,
+        167,
+        376
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 6,
+      "exponent_order": [
+        3,
+        5,
+        2,
+        7,
+        4,
+        1,
+        8,
+        0,
+        6,
+        9
+      ],
+      "stage_records": [
+        10,
+        54,
+        173,
+        52,
+        171,
+        170,
+        50,
+        168,
+        48,
+        166
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 7,
+      "exponent_order": [
+        3,
+        4,
+        1,
+        8,
+        5,
+        7,
+        2,
+        9,
+        6,
+        0
+      ],
+      "stage_records": [
+        10,
+        54,
+        173,
+        52,
+        171,
+        170,
+        379,
+        161,
+        377,
+        376
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 8,
+      "exponent_order": [
+        3,
+        1,
+        8,
+        9,
+        0,
+        6,
+        4,
+        7,
+        5,
+        2
+      ],
+      "stage_records": [
+        10,
+        54,
+        53,
+        172,
+        381,
+        51,
+        169,
+        168,
+        377,
+        376
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 10,
+      "trial": 9,
+      "exponent_order": [
+        7,
+        8,
+        1,
+        0,
+        4,
+        6,
+        5,
+        2,
+        3,
+        9
+      ],
+      "stage_records": [
+        10,
+        54,
+        173,
+        52,
+        51,
+        170,
+        379,
+        378,
+        160,
+        376
+      ],
+      "counts": {
+        "barrier_dense_candidates": 10185,
+        "barrier_dense_record_scans": 10185
+      }
+    },
+    {
+      "n": 12,
+      "trial": 0,
+      "exponent_order": [
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        75,
+        74,
+        74,
+        73,
+        72,
+        71,
+        73,
+        72,
+        71
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 1,
+      "exponent_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "stage_records": [
+        12,
+        77,
+        296,
+        790,
+        1581,
+        2504,
+        3295,
+        3789,
+        4008,
+        4073,
+        4084,
+        4084
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 2,
+      "exponent_order": [
+        1,
+        0,
+        11,
+        2,
+        5,
+        9,
+        7,
+        8,
+        6,
+        3,
+        4,
+        10
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        295,
+        294,
+        788,
+        1579,
+        1578,
+        2501,
+        1457,
+        714,
+        1539
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 3,
+      "exponent_order": [
+        6,
+        0,
+        8,
+        4,
+        10,
+        5,
+        9,
+        2,
+        1,
+        7,
+        11,
+        3
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        295,
+        294,
+        788,
+        787,
+        1578,
+        275,
+        265,
+        775,
+        1574
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 4,
+      "exponent_order": [
+        9,
+        5,
+        7,
+        1,
+        4,
+        3,
+        11,
+        6,
+        2,
+        0,
+        8,
+        10
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        295,
+        74,
+        293,
+        292,
+        786,
+        785,
+        282,
+        72,
+        288
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 5,
+      "exponent_order": [
+        11,
+        5,
+        9,
+        4,
+        6,
+        3,
+        2,
+        1,
+        7,
+        0,
+        8,
+        10
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        295,
+        74,
+        293,
+        73,
+        72,
+        71,
+        289,
+        72,
+        288
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 6,
+      "exponent_order": [
+        4,
+        0,
+        2,
+        7,
+        1,
+        11,
+        10,
+        5,
+        6,
+        9,
+        3,
+        8
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        295,
+        789,
+        284,
+        787,
+        786,
+        741,
+        1576,
+        2499,
+        713
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 7,
+      "exponent_order": [
+        7,
+        1,
+        9,
+        4,
+        8,
+        6,
+        2,
+        10,
+        5,
+        3,
+        11,
+        0
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        295,
+        294,
+        788,
+        787,
+        284,
+        785,
+        776,
+        740,
+        1574
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 8,
+      "exponent_order": [
+        7,
+        0,
+        10,
+        3,
+        4,
+        2,
+        9,
+        8,
+        1,
+        11,
+        6,
+        5
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        295,
+        294,
+        788,
+        283,
+        786,
+        785,
+        265,
+        775,
+        774
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    },
+    {
+      "n": 12,
+      "trial": 9,
+      "exponent_order": [
+        9,
+        1,
+        3,
+        11,
+        8,
+        4,
+        0,
+        6,
+        5,
+        7,
+        10,
+        2
+      ],
+      "stage_records": [
+        12,
+        77,
+        76,
+        295,
+        789,
+        788,
+        743,
+        72,
+        290,
+        289,
+        783,
+        1574
+      ],
+      "counts": {
+        "barrier_dense_candidates": 49074,
+        "barrier_dense_record_scans": 49074
+      }
+    }
+  ],
+  "full_affine_controls": [
+    {
+      "n": 16,
+      "cost": 54933923640889550744,
+      "max_weight_bits": 66,
+      "counts": {
+        "affine_recognition_pairs": 30,
+        "affine_recognition_weights": 31,
+        "affine_recognized_route": 1,
+        "affine_power_entries": 17,
+        "affine_phase_candidates": 31,
+        "affine_phase_states": 16,
+        "affine_transformed_queries": 45,
+        "affine_stored_entries": 34,
+        "affine_key_visits": 16,
+        "affine_gap_visits": 17,
+        "independent_key_visits": 16,
+        "independent_gap_visits": 17,
+        "height_fallback_candidates": 256,
+        "height_fallback_states": 136,
+        "height_fallback_output_nodes": 16
+      },
+      "verification": "Full prior affine constructor and closed unique-chain optimum; independent Knuth only for n<=256"
+    },
+    {
+      "n": 32,
+      "cost": 4160772776265736248737625964691337571091920948784,
+      "max_weight_bits": 162,
+      "counts": {
+        "affine_recognition_pairs": 62,
+        "affine_recognition_weights": 63,
+        "affine_recognized_route": 1,
+        "affine_power_entries": 33,
+        "affine_phase_candidates": 63,
+        "affine_phase_states": 32,
+        "affine_transformed_queries": 93,
+        "affine_stored_entries": 66,
+        "affine_key_visits": 32,
+        "affine_gap_visits": 33,
+        "independent_key_visits": 32,
+        "independent_gap_visits": 33,
+        "height_fallback_candidates": 1024,
+        "height_fallback_states": 528,
+        "height_fallback_output_nodes": 32
+      },
+      "verification": "Full prior affine constructor and closed unique-chain optimum; independent Knuth only for n<=256"
+    },
+    {
+      "n": 64,
+      "cost": 109628025075551722495449222446396141441644193622281377467966949304797159031205718268176842189465247656698920764029024,
+      "max_weight_bits": 386,
+      "counts": {
+        "affine_recognition_pairs": 126,
+        "affine_recognition_weights": 127,
+        "affine_recognized_route": 1,
+        "affine_power_entries": 65,
+        "affine_phase_candidates": 127,
+        "affine_phase_states": 64,
+        "affine_transformed_queries": 189,
+        "affine_stored_entries": 130,
+        "affine_key_visits": 64,
+        "affine_gap_visits": 65,
+        "independent_key_visits": 64,
+        "independent_gap_visits": 65,
+        "height_fallback_candidates": 4096,
+        "height_fallback_states": 2080,
+        "height_fallback_output_nodes": 64
+      },
+      "verification": "Full prior affine constructor and closed unique-chain optimum; independent Knuth only for n<=256"
+    },
+    {
+      "n": 128,
+      "cost": 1452922333700998064393350957086592345574978709111865290408835628791349357345278615417237507360172364104555669327239265274166792467292997889754814273990187570004466500792109692882008707835410856239388323119171352658241876073795236822919110330118496975950899121018116432064,
+      "max_weight_bits": 898,
+      "counts": {
+        "affine_recognition_pairs": 254,
+        "affine_recognition_weights": 255,
+        "affine_recognized_route": 1,
+        "affine_power_entries": 129,
+        "affine_phase_candidates": 255,
+        "affine_phase_states": 128,
+        "affine_transformed_queries": 381,
+        "affine_stored_entries": 258,
+        "affine_key_visits": 128,
+        "affine_gap_visits": 129,
+        "independent_key_visits": 128,
+        "independent_gap_visits": 129,
+        "height_fallback_candidates": 16384,
+        "height_fallback_states": 8256,
+        "height_fallback_output_nodes": 128
+      },
+      "verification": "Full prior affine constructor and closed unique-chain optimum; independent Knuth only for n<=256"
+    },
+    {
+      "n": 256,
+      "cost": 88362071546511262349923830005780790577178922508980288513762909599906211620868617221107343371523597800046458279780826149798285129680081904524357969223795981963400142028702816752571714345283049895851773678261389149741696715377134481868177385242246982014907510150561104193648792978439634979968381545380935474765913238994837434980284662851073632954227115922869986407543628353146739824480990960847219416942882788589412318103011131948483017977145387939957809235664983534655177872193559457011491822549221123010079879983156514080091757566966941132386332654585849675742421817975361036767172442532675927546578714948022070641024,
+      "max_weight_bits": 2050,
+      "counts": {
+        "affine_recognition_pairs": 510,
+        "affine_recognition_weights": 511,
+        "affine_recognized_route": 1,
+        "affine_power_entries": 257,
+        "affine_phase_candidates": 511,
+        "affine_phase_states": 256,
+        "affine_transformed_queries": 765,
+        "affine_stored_entries": 514,
+        "affine_key_visits": 256,
+        "affine_gap_visits": 257,
+        "independent_key_visits": 256,
+        "independent_gap_visits": 257,
+        "height_fallback_candidates": 65536,
+        "height_fallback_states": 32896,
+        "height_fallback_output_nodes": 256
+      },
+      "verification": "Full prior affine constructor and closed unique-chain optimum; independent Knuth only for n<=256"
+    },
+    {
+      "n": 1024,
+      "cost": 95959058595622859853115128805150403331346994573156058433784853506077544715542486833018450062132014623642598874205606261078270000674048420174742530533591793381987674615891131947143299439364535363740957496267367809403028333661140867253422910910484253928782864606764350622041540135350252344124309107411252303930168777390541526286082975835586168235809387489630420619422750036441875740705981647490396621072822932740001604573588355441880229217171651346453924192139456204964830094072227767338378477205710985953100007398444363065940236187922847646515492446013271490681136275680168216410548947422618589682704776318343844094945557338345761692590638437862497711552388950496800381822567899482958587761302278203634124854416170717579246865884781427133383726660562708177934974171290369762177012561930513926078550233995877152294393172574833052715334075487648714326306134644704273108467134496388222416816743485403010429989796692483378955776018665318369300636094767236331979983794411458790069487452665203903077422326196630195333560364394792936358973432647770054802694186738791364875080356698045485741073442122703306951871366169607164408324335565738738017591593966085525687877859164038638679946673318751051794736310824394543237237344403600828146866096696436927368295023240647062396056101097332859105951470256303198426910722771045988860669798073905361608248939809365312842912879467116598132572431939992874556945388918371086698766612482404353202404471889441796337293111303790671129687702912683006303929693830816541893025423279805614337150532849142226523325754908920510707102276510997486510874367971862774703093141874060227936398132614225967568393283148435540151212613088546178797656233313172083636356200816870085776649411997542299883110087446443739385858745948036085437660053893088236876345535404187046995070835438745096692288272669765998551002354644815631478835963346846845662650560758138282929176056320572227419809641189647458342247306997440744699209745731396156285523938857864631779898321233696723813452035798514350499997438883454871783043676652180568153360465526260085223683215487963121807175800349178656967783852467233120177095150095916072822373685701990699817677420507606065254346188440579519687822669681668626543774595757334737740589966367118903913923647151110367108991402349469970021607144224275142515005272958003129869538143614748552131485638224838474338764374554986310402523076620882303651786739587265684888575467054386942692453472362150942639180863390243137040366093317187804970599287367889708190454352682765031205533676428862954481514393018671583787568867185875935299589561564425927219430169241666117772290748190004919240906799614883826178839925424314516498056096573000376954539382098026639864869343841299050417496848525962249156093054616063037647050256973109670424432162584428872031027700847817609457084529363459039881498519153466252781835565185675669068873268397335089887645927942655297845514827465502290452424933537911138261357264953889535213236339043614639190261099640659228334458028301789842845340277420223309932702250442262754054401064786679468311485359931877191794549752934528896730624,
+      "max_weight_bits": 10242,
+      "counts": {
+        "affine_recognition_pairs": 2046,
+        "affine_recognition_weights": 2047,
+        "affine_recognized_route": 1,
+        "affine_power_entries": 1025,
+        "affine_phase_candidates": 2047,
+        "affine_phase_states": 1024,
+        "affine_transformed_queries": 3069,
+        "affine_stored_entries": 2050,
+        "affine_key_visits": 1024,
+        "affine_gap_visits": 1025,
+        "independent_key_visits": 1024,
+        "independent_gap_visits": 1025
+      },
+      "verification": "Full prior affine constructor and closed unique-chain optimum; independent Knuth only for n<=256"
+    }
+  ],
+  "binomial_formula_only": [
+    {
+      "n": 32,
+      "prefix": 16,
+      "record_lower_bound": 300540195,
+      "exact_middle_records": 2448023827,
+      "exact_final_records": 4294967264,
+      "verification": "Exact binomial formulas only; no prefix-vector enumeration"
+    },
+    {
+      "n": 64,
+      "prefix": 32,
+      "record_lower_bound": 916312070471295267,
+      "exact_middle_records": 10139684107326071043,
+      "exact_final_records": 18446744073709551552,
+      "verification": "Exact binomial formulas only; no prefix-vector enumeration"
+    },
+    {
+      "n": 128,
+      "prefix": 64,
+      "record_lower_bound": 11975573020964041433067793888190275875,
+      "exact_middle_records": 182116756481433273164755097604074381539,
+      "exact_final_records": 340282366920938463463374607431768211328,
+      "verification": "Exact binomial formulas only; no prefix-vector enumeration"
+    },
+    {
+      "n": 256,
+      "prefix": 128,
+      "record_lower_bound": 2884329411724603169044874178931143443870105850987581016304218283632259375395,
+      "exact_middle_records": 60780374030382700880830366683275097370505098183807863036033010287588824195235,
+      "exact_final_records": 115792089237316195423570985008687907853269984665640564039457584007913129639680,
+      "verification": "Exact binomial formulas only; no prefix-vector enumeration"
+    },
+    {
+      "n": 1024,
+      "prefix": 512,
+      "record_lower_bound": 2240627276049485405012082425240666590007653929533868497208043949702386853305719822395542070036457030173084717009309301401503750836188248429349936991813308031235837925752786051012579667700545279513914261052614880057450188523875050969255802466276823731258719222256824382666347250141664201106934381978286956835,
+      "exact_middle_records": 92125284019165280791477341964691903270906502876649197133923084528568724756056201388749780731240225040733141656945005980230898635243396559675773652311550370220119784638185528689163689468323592339240455737095117764476525529695106491706212357736690442312933974564549973502639970219381522353524612546790399024931,
+      "exact_final_records": 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224136192,
+      "verification": "Exact binomial formulas only; no prefix-vector enumeration"
+    }
+  ],
+  "source_sha256": {
+    "slot_record_barrier.py": "d71bbfd9694d12bfb689de1060fe0e17a721c517de007a930e2a980e667fb855",
+    "slot_records.py": "8f8d222c1eae0bae0004927e1e92d9551ed66b3c2d99df401c02ef05157b5e27",
+    "slot_vector.py": "f234a4954d70b485ef1fa108e669bcfadeeeaf81a0c8948be96201cc986cbee2",
+    "slot_records_audit.py": "77be385cfef7ab60d15a72d8b7a59c224f21be240e3eb1d677e53388ddc70f2c",
+    "trimmed_height.py": "19efde94ff7985b656372d1faedf299d64bd2ae23dfa4df530f5a76cf2f86f6f",
+    "affine_period_obst.py": "5f67390c2d4ec45c3d283968625b06d7a90ccdce1282878ef36d59dc4d52c44c",
+    "periodic_obst_audit.py": "a16b57ce2822b75529b9f011f1856f9ebf4e4ed9288e49d4b83c2896cc505d10",
+    "research.py": "2bbe1f2ea1de4db59046ae410377abd9201e65973f3a2b4a6bf2095d1a6335a6"
+  }
+}

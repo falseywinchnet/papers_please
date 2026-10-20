@@ -4330,3 +4330,94 @@ first compile attempt targeted the unrelated root TeX project and failed on
 its missing image; its generated log was removed, and all successful builds
 used the OBST manuscript directory. The final PDF, TeX and five-file source
 archive are byte-checked before publication. The full research goal stays active.
+
+## Checkpoint 57: exact exponential prefix-record support
+
+The preceding turn was progress: it published complete record compression,
+its integer and exceptional-magnitude bounds, sparse reconstruction, and
+independent audits. This turn attacks the missing universal record-size bound
+on unrestricted magnitudes. The current worktree and publication head were
+clean at 4e3601a. No subagents or delegation were used.
+
+An explicit family gives a stronger obstruction than an asymptotic search
+trend. For A=n+1 set p_i=A^(n-i)-1 and every q_j=1. All original outcomes
+have strictly positive integer weights. Normalization gives geometric keys
+w_i=A^(n-i), zero gaps, and constant n. Since n times every suffix tail
+mass is less than its first key, the unique optimum is the right chain;
+height n is necessary and cannot be improved by a sharper certificate.
+
+The weights dominate all later valuation rewards, so optimization is
+lexicographic in the ruler valuations. The unique greedy tuple with m keys
+in [1,U] ends at U exactly when popcount(U)<=m. To prove this, split
+U=P+s at its largest power of two. If m<=s+1, choose P and recurse on
+the translated suffix; if m>s+1, feasibility holds the early choices below
+P until exactly s+1 remain, after which P and the entire suffix are forced.
+Uniqueness identifies the strict prefix-maximum increments.
+
+Within a fixed ending valuation d, successive slots b=(2j+1)2^d advance
+the prefix window over a dyadic interval whose minimum popcount is popcount(j).
+Thus b is retained after k keys iff b>=k and popcount(b)<=k. Consequently
+B_k=sum_(r=0)^k binomial(n,r)-k, B_n=2^n-n, and the total stage count is
+(n+2)2^(n-1)-1-n(n+1)/2. The complete explicit predecessor representation
+can require Theta(n 2^n) states. Its support nevertheless has a short binary
+membership predicate. This rules out a weight-independent polynomial bound
+for explicit prefix records; it does not rule out implicit representations
+or any general subquadratic OBST algorithm.
+
+The first harness checked an independently derived binomial subfamily of
+strict records, every dense prefix value, exact record sets and full output
+trees. Its counts led to the stronger exact popcount characterization. The
+second run added a check of that characterization and every prefix-maximum
+jump, with no change to the constructor. Both runs passed. Subsequent extensions added the universal envelope
+controls described below, and also passed. The final source-hashed result
+supersedes the earlier runs and was copied back before further mirroring. The summed binomial identity was also checked from every retained
+stage count in the authoritative JSON.
+
+Across n=2,...,16 the final audit checks 1,965,265 prefix values and attaining
+compressed predecessors, the same number of binary support and prefix-jump
+assertions, and 135 exact record sets. There are 65,519 separate subset-of-
+scales witnesses, 208,376 literal slot selections through five keys, and
+2055 literal BST shapes through eight keys proving uniqueness in those
+controls. Nine complete record-kernel trees through ten keys match the
+closed unique-chain cost. At n=16, B_8=39,195 and B_16=65,520; formula-only
+rows extend the proved counts through n=1024 without enumerating them.
+Thirty additional magnitude-order diagnostics retain their exact counts
+without treating them as an upper-bound proof.
+
+The existing affine-period constructor solves the same original mixed family
+with lambda=1/A and alpha=1/A-1, using 2n-1 root candidates. Six full output
+controls through 1024 keys match the closed chain optimum and independent
+output checks; ordinary Knuth is additionally used through 256 keys. At
+1024 keys the largest integer has 10,242 bits, the complete tree is a chain,
+and the affine route uses 2047 root candidates. This is a control of an
+existing method, not a new solver claim. The eight executed-source hashes
+match the authoritative code. All validation uses exact arithmetic and
+operation counts, with no elapsed-time inference.
+
+The stronger positive result is the sharp universal binary envelope
+B_k <= E_h(k) = sum_(r=0)^min(k,h) binomial(h,r)-k, for arbitrary
+nonnegative mixed weights. Earliest embeddings preserve every valuation,
+and therefore every key and adjacent-gap reward. Each successor raises
+popcount by at most one. A forced endpoint with popcount above k thus has
+an earlier equivalent endpoint and cannot be a record. Geometric weights
+of base h+1 attain this envelope for every feasible prefix, even k>h.
+
+The structural audit covers all 32,902 nonempty slot subsets through height
+four, with 246,221 selected positions. Seventy-two mixed rational inputs
+check 12,424 records and 18,088 dense prefix values, plus complete output
+trees. A full grid of heights one through six and all feasible key counts
+checks exact sharpness on 2,667 stage sets and 97,155 dense states. All
+extensions passed on the selected M4 host; the final eight source hashes
+match the authoritative files. The envelope is proved independently of
+these finite checks.
+
+Publication validation: Tectonic compiled the final manuscript to 159 pages
+without warnings. All pages were rendered and reviewed in contact sheets;
+the new proofs, audit pages, and dedication were reviewed at readable size.
+All 445 previous labels are retained among 453 unique labels, every cross-
+reference and citation resolves, and the 20 bibliography entries and exact
+dedication are preserved. Seventeen retained audit records match 95 executed-
+source hashes. The TeX, PDF, and five-file source bundle match their
+respective authoritative sources. The general goal stays active: this
+checkpoint establishes the sharp record envelope and its limitation; the
+remaining general construction and interval-core size gap are unresolved.
