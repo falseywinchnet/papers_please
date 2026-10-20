@@ -607,3 +607,16 @@ Literal controls have separate bounds. Large binomial rows are formula-only;
 large full trees use the existing affine constructor, with Knuth references
 only through 256 keys. This is a representation barrier, not an OBST lower
 bound. Copy the source-hashed JSON back before another mirror operation.
+
+Additive-normalized binary decision diagrams for the full mixed slot DP:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_probe.py
+```
+
+The audit compares every small prefix state with a direct all-predecessor
+recurrence and every full optimum with original all-root or Knuth references.
+Large geometric rows run the general DAG solver, including full traceback.
+Count all intermediate nodes and operation visits; live final-node counts
+alone do not measure construction work. Copy results before mirroring again.

@@ -2294,6 +2294,132 @@ support at necessary optimal height for strictly positive mixed weights.
 Independent state and full-tree controls appear in
 Appendix~\ref{app:rank-transfer}.
 
+\subsection{Implicit prefix functions with additive decision diagrams}
+\label{sec:slot-dag}
+The record bound concerns an explicit list of strict changes. A different
+representation shares dyadic blocks whose value functions differ only by
+an additive constant. Edge-valued binary decision diagrams are established
+data structures of Lai and Sastry and subsequent work; see
+Bryant's account~\cite{bryant-dd}. We use their additive sharing principle
+with a fixed most-significant-bit-first order on slot coordinates. The
+new obligations here are the exclusive-prefix operation, the mixed-gap
+transition, and complete tree recovery. No approximation is used.
+
+Represent a function on $\{0,\ldots,2^d-1\}$ with values in
+$\mathbb R\cup\{+\infty\}$ by an offset and a normalized binary node.
+The offset is its minimum finite value. A node stores its level and its
+two normalized child references, with their offsets. Identical triples
+are shared. The all-infinite function has a separate sentinel, and the
+finite level-zero terminal has value zero. Levels are retained even
+when both children coincide. Induction on the level proves that this
+representation is canonical up to the chosen node identifiers. Every
+reference also stores its exact minimum and maximum, allowing $+\infty$
+as the maximum when any position is infeasible.
+
+\begin{lemma}[Shared exclusive prefix minima]\label{lem:dag-prefix}
+For a height-$h$ function represented by $D$ reachable nodes, its
+exclusive prefix-minimum function
+\[
+ (\mathcal PF)(b)=\min_{0\le a<b}F(a),\qquad (\mathcal PF)(0)=+\infty,
+\]
+can be constructed with $O(hD)$ arithmetic operations, node constructions,
+and dictionary operations, creating at most $O(hD)$ nodes.
+\end{lemma}
+\begin{proof}
+Write $F=L\mathbin\Vert R$ for its two halves. Then
+\begin{equation}\label{eq:dag-prefix}
+ \mathcal P(L\mathbin\Vert R)
+ =\mathcal PL\mathbin\Vert
+       \min\{\min L,\mathcal PR\},
+\end{equation}
+where $\min L$ denotes the constant function with that value. Also
+$\mathcal P(F+a)=\mathcal PF+a$, so a normalized input node needs to
+be processed only once, regardless of its incoming offset.
+
+Every prefix-minimum function is nonincreasing, including its initial
+infinite positions. To cap such a function $G$ by a constant $t$, return
+$G$ immediately when $\max G\le t$, and return the constant when
+$t\le\min G$. Otherwise recurse on both halves. At each level at most
+one half straddles the change from the constant to $G$, since $G$ is
+nonincreasing. Thus the cap visits $O(h)$ nodes and creates $O(h)$ nodes.
+Equation~\eqref{eq:dag-prefix} performs one cap per distinct input node.
+Memoization and normalization give the stated bounds. The all-infinite
+case and a level-zero input return the infinite function directly.
+\end{proof}
+
+\begin{theorem}[Implicit mixed-prefix construction]\label{thm:slot-dag}
+For arbitrary nonnegative key and gap weights, every feasible height
+$h$ admits an exact construction of all mixed prefix functions and a
+complete optimal height-$h$ tree using additive decision diagrams,
+without enumerating their record sets or their $2^h-1$ slots.
+Setting $h=n$, or using a certified sufficient height, gives an
+unrestricted optimum. For an incoming diagram with $D$ nodes, a zero-residual-gap update
+uses $O(h^3D)$ arithmetic and dictionary operations. A general gap update
+uses $O(h^5D+X)$ such operations, where $X$ counts the distinct expanded
+normalized minimum contexts used to combine its $h$ candidate functions.
+The parameter $X$ includes relative offsets.
+\end{theorem}
+\begin{proof}
+Use the normalization of Section~\ref{sec:slot-vector}, and put
+$v(b)=\nu_2(b)$ for $b>0$, with $v(0)=0$. Initialize $f_0(0)=0$
+and $f_0(b)=+\infty$ for $b>0$. Let $M_d$ be zero on positions of
+valuation $d$ and infinite elsewhere; include position zero in $M_0$.
+For the next normalized key $w_k$ and its preceding residual gap $g_k$,
+form, for every $0\le d<h$,
+\[
+ P_d=\mathcal P(f_k+M_d),\qquad
+ Q_d(b)=P_d(b)-g_k\min\{d,v(b)\}-w_kv(b).
+\]
+Then
+\begin{equation}\label{eq:dag-mixed-transition}
+ f_{k+1}(b)=\min_{0\le d<h}Q_d(b).
+\end{equation}
+Indeed, the masks partition every feasible predecessor $a<b$ by its
+valuation, giving exactly the mixed slot recurrence. When $g_k=0$, use
+$f_{k+1}=\mathcal Pf_k-w_kv$ directly.
+
+Masks and functions of valuation have finite shared diagrams, constructed
+recursively from their binary suffix conditions. Addition and pointwise
+minimum recurse on corresponding halves and normalize the results.
+Addition factors out the sum of the incoming offsets. Minimum factors
+out their common minimum, but must retain the relative offset in its
+memoization key. Omitting that relative offset would identify different
+functions. Lemma~\ref{lem:dag-prefix} supplies the remaining operation.
+Induction on $k$ proves every represented prefix value.
+
+For the work bound, a valuation mask has $O(h)$ nodes, and an arbitrary
+function of valuation has $O(h^2)$ nodes: at each level its exceptional
+zero-address value is one of at most $h$ prescribed values. Addition of
+two diagrams with $D_1,D_2$ nodes uses $O(D_1D_2)$ node-pair contexts,
+since both root offsets factor out. With zero gap, the prefix operation
+creates $O(hD)$ nodes and adding the valuation reward takes $O(h^3D)$
+work. With a general gap, masking takes $O(hD)$ work per class, prefix
+minima take $O(h^2D)$, and the reward addition takes $O(h^4D)$. Summing
+over $h$ classes gives $O(h^5D)$. Combining the candidates costs $O(X+h)$:
+every newly expanded normalized minimum context makes two recursive
+calls and a constant amount of arithmetic and node construction.
+
+Keep the prefix roots. Choose an earliest minimum of $f_n$ by following
+minimum-valued child references. To recover a predecessor of an ending
+slot $b$ with valuation $e$, minimize $f_k+M_d$ over $[0,b)$ for each
+$d$, subtract $g_k\min(d,e)$, and choose an attaining position. A prefix
+range decomposes into at most $h$ complete dyadic blocks. Their minima
+are stored in their offsets, and descending a minimizing block recovers
+an attaining position. Repeating this gives every selected slot. Apply
+the sparse ancestor repair of Theorem~\ref{thm:slot-record-construction}
+to recover the full tree. The mixed-slot identity proves its optimal cost.
+\end{proof}
+
+The diagram algorithms operate on shared nodes and normalized operation
+contexts. Their work need not be proportional to the final live graph:
+pointwise minima may encounter many relative offsets for the same pair
+of node identifiers. The audit therefore counts every created intermediate
+node and every recursive operation, separately from final and history
+sizes. Exact range pruning is essential to the prefix bound above.
+The new constructor supports arbitrary mixed weights; a universal
+subquadratic bound on its intermediate work remains open. Independent
+prefix and full-tree controls appear in Appendix~\ref{app:rank-transfer}.
+
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
 The one-block representation extends to two equal positive blocks, including
@@ -8345,6 +8471,71 @@ and implicit representations remain separate. The integer-mass and
 fixed-exception guarantees of Section~\ref{sec:slot-records} are unaffected.
 Independent controls appear in Appendix~\ref{app:rank-transfer}.
 
+\subsection{Monotone functions can require exponential diagram minima}
+\label{sec:dag-minimum-barrier}
+The prefix operation of Lemma~\ref{lem:dag-prefix} has a bound in the
+input diagram size. General pointwise minimum has no such polynomial
+bound, even for strictly decreasing inputs in the same address order.
+
+\begin{theorem}[Exponential minimum of two monotone diagrams]
+\label{thm:dag-minimum-barrier}
+Let $m\ge1$, $N=2^m$, and write a $2m$-bit address as $b=NX+Y$,
+where $0\le X,Y<N$. The two strictly decreasing functions
+\[
+ F(b)=-2b+X,\qquad G(b)=-2b+Y
+\]
+each have an additive decision diagram with $2m+1$ nodes, including
+its terminal, in most-significant-bit-first address order. Their
+pointwise minimum has exactly $3\cdot2^m-2$ nodes in that same order,
+including $2^m$ distinct normalized nodes at level $m$.
+\end{theorem}
+\begin{proof}
+Both functions are weighted sums of individual address bits. A single
+shared node per bit, with the corresponding coefficient on one edge,
+represents each function; the terminal supplies the extra node. Increasing
+$b$ by one changes $F$ by $-2$ or $-1$. It changes $G$ by $-1$ within
+a low-bit block and by $-(N+1)$ across its boundary. Thus both are
+strictly decreasing.
+
+Their minimum is
+\[
+ H(b)=-2b+\min(X,Y).
+\]
+Fixing the high $m$ bits to $X=x$ gives a low-bit residual function
+$-2Y+\min(x,Y)$, up to the constant $-2Nx$. Its minimum is at $Y=N-1$.
+After subtracting that minimum the normalized residual is
+\[
+ H_x(Y)=2(N-1)-2Y+\min(x,Y)-x.
+\]
+For $0\le Y<N-1$ its consecutive difference is $-1$ when $Y<x$
+and $-2$ when $Y\ge x$. These $N$ functions are pairwise distinct,
+including $x=0$ and $x=N-1$. No two can share the same normalized node.
+Every high-bit assignment must therefore reach a different level-$m$
+node.
+
+For the exact total, consider a remaining low-bit level $d\le m$.
+After fixing the preceding bits, the residual has the form
+$-2t+\min(x-z,t)$ up to a constant, where $z$ is the fixed low-bit
+block's starting address. Normalization depends only on the clipped
+threshold $\max\{0,\min\{x-z,2^d-1\}\}$. There are exactly $2^d$
+distinct thresholds, and all occur by taking $z=0$ and $x$ in that range.
+Thus levels $1,\ldots,m$ contain $2^{m+1}-2$ nodes in total.
+At level $m+r$, $1\le r\le m$, there are $2^{m-r}$ high-bit prefixes.
+They remain distinct up to an additive constant: setting the remaining
+$r$ bits of $X$ to zero gives different thresholds $X=a2^r$ in the
+low-bit function. Hence those upper levels contain $2^m-1$ nodes.
+Adding the single terminal gives $3\cdot2^m-2$.
+\end{proof}
+
+The theorem concerns the fixed address order used by the prefix algorithm.
+It shows why a polynomial bound for a generic minimum operation cannot
+follow from small operand diagrams and monotonicity alone. The displayed
+functions have not been realized as mixed-OBST prefix transitions, so this
+is a barrier to that generic complexity argument. Bounding the specific
+functions generated by \eqref{eq:dag-mixed-transition} remains a separate
+structural question. Independent exact checks appear in
+Appendix~\ref{app:rank-transfer}.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -10390,6 +10581,51 @@ between explicit-record size and full-problem difficulty. The record
 \texttt{slot\_record\_barrier.json} retains exact counters, reference scopes,
 and eight executed-source hashes. No timing supports the theorem.
 
+\paragraph{Implicit mixed prefix diagrams.}
+The additive-diagram constructor is compared with a direct all-predecessor
+prefix recurrence on 72,880 entries, including infeasible positions. All
+1392 complete small trees agree with an independent original all-root
+height recurrence and have every key, gap, order constraint, and depth
+checked. The inputs include all 680 binary mixed instances through four
+keys at two heights, plus rational and geometric controls through 24 keys.
+The direct prefix reference evaluates 486,336 predecessor candidates;
+these are reference operations, separate from constructor work.
+
+Five complete geometric constructions use the general diagram solver at
+necessary height $h=n$, for $n=8,16,24,32,48$. Each agrees with the closed
+unique-chain optimum and independent ordinary Knuth. At 48 keys the final
+function has 45,391 reachable diagram nodes, while its explicit record
+count is $2^{48}-48$. Construction creates 3,069,517 nonterminal nodes,
+keeps 1,145,477 nodes reachable from all prefix roots, and makes 3,282,551
+minimum calls, 2,290,986 addition calls, and 2,200,220 prefix calls.
+The large difference between final and intermediate sizes is retained
+explicitly. A 64-key scale run was interrupted and supplies no completed
+row or complexity evidence. The source-hashed record is
+\texttt{slot\_dag\_audit.json}; no timing is used.
+
+A separate prefix-operation probe checks 108 signed functions with arbitrary
+infeasibility patterns at heights one through nine, comparing all 12,264
+positions and checking the stated linear-in-$hD$ operation bounds.
+The monotone-minimum family is checked for $m=1,\ldots,12$: every
+normalized middle-level node is counted, and the total is exactly
+$3\cdot2^m-2$. There are 45,744 address controls of both operands and
+their minimum, exhaustive through $m=6$ and sampled at the proved kink
+boundaries thereafter. The formula has the independent proof in
+Theorem~\ref{thm:dag-minimum-barrier}.
+
+Nine additional unrestricted mixed constructions use certified sufficient
+heights and match ordinary Knuth plus complete output-tree checks. They
+include random and near-uniform keys and gaps through 64 keys, and
+geometric keys with nonconstant, nonaffine gaps through 16 keys. The
+64-key random row has height 11, 413 final nodes, and 187,957 total
+created nodes including its terminal; the near-uniform row has height 10,
+230 final nodes, and 50,714 total nodes. At 16 keys the nonaffine
+geometric row has height 16, 1283 final nodes, and 199,887 total nodes.
+These complete controls establish correctness on the displayed inputs;
+the measured sizes supply no universal graph-size bound. The record
+\texttt{slot\_dag\_probe.json} retains input weights, operation counters,
+reference counts, and source hashes.
+
 \clearpage
 \section{Unimodal domination and certified-envelope audit}
 \label{app:unimodal-envelope}
@@ -10706,6 +10942,10 @@ A. Aggarwal, M. M. Klawe, S. Moran, P. Shor, and R. Wilber.
 Geometric Applications of a Matrix-Searching Algorithm.
 \emph{Algorithmica} 2, 195--208, 1987.
 \href{https://doi.org/10.1007/BF01840359}{doi:10.1007/BF01840359}.
+\bibitem{bryant-dd}
+R. E. Bryant. Binary Decision Diagrams and Beyond: Enabling Technologies
+for Formal Verification. \emph{ICCAD}, 1995, pp.~236--243.
+\href{https://www.cs.cmu.edu/~bryant/pubdir/iccad95.pdf}{Full paper}.
 \end{thebibliography}
 \endgroup
 

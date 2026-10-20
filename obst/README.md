@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Implicit mixed prefix functions with additive decision diagrams](SLOT_DAG.md)
 - [Exact exponential prefix-record support at necessary optimal height](SLOT_RECORD_BARRIER.md)
 - [Prefix records and full construction without perfect-tree expansion](SLOT_RECORDS.md)
 - [Sufficient unrestricted height after setting aside exceptional outcomes](TRIMMED_HEIGHT.md)
@@ -71,6 +72,17 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The [implicit mixed-prefix constructor](SLOT_DAG.md) now evaluates the full
+arbitrary-weight recurrence on additive decision diagrams and reconstructs
+the complete tree. Exclusive prefix minima of a D-node height-h function
+have a proved O(hD) operation bound. A general gap update isolates the
+remaining minimum-context count X in O(h^5 D + X) work. An explicit pair
+of strictly decreasing functions, each with 2m+1 nodes, has a pointwise
+minimum with exactly 3*2^m-2 nodes in the same binary address order.
+Thus monotonicity alone cannot bound this operation; the specific OBST
+transition structure remains the target. Exact checks include complete
+mixed trees and all intermediate-node counts.
 
 The [exact record-support barrier](SLOT_RECORD_BARRIER.md) rules out a
 weight-independent polynomial bound for explicit prefix lists. A universal

@@ -4421,3 +4421,95 @@ source hashes. The TeX, PDF, and five-file source bundle match their
 respective authoritative sources. The general goal stays active: this
 checkpoint establishes the sharp record envelope and its limitation; the
 remaining general construction and interval-core size gap are unresolved.
+
+## Checkpoint 58: implicit mixed prefixes and the monotone minimum obstruction
+
+The preceding turn was progress: it published the sharp binary record
+bound, its explicit geometric extremal family, and independent audits.
+The authoritative checkout was clean at ff63e38415c3db1eb2d57196f3e5f335dbc8e615.
+This turn changes the representation used for the arbitrary mixed problem,
+without restricting key runs or gap weights. No subagents were used.
+
+An exact additive-normalized binary decision diagram now supports every
+mixed slot prefix function. Masks partition predecessors by valuation;
+exclusive prefix minima enforce a<b, and pointwise minimum incorporates
+all gap penalties. Prefix roots support complete attaining traceback and
+sparse tree repair. Setting h=n gives an unrestricted optimum. The data
+structure is established prior work: Bryant's author-hosted 1995 paper,
+Section 7.2, describes edge-valued diagrams and attributes them to Lai and
+Sastry. This work claims the stated OBST reduction and proofs, not invention
+of edge-valued diagrams.
+
+The key primitive has a theoretical bound: exclusive prefix minima on a
+D-node height-h diagram take O(hD) arithmetic/node/dictionary operations.
+For F=L||R, PF=PL||min(min L,PR). Prefix functions are nonincreasing;
+capping one by a constant follows only one crossing per level. Normalized
+node memoization reuses every input node independently of its root offset.
+An initial implementation passed all small correctness controls, but its
+unpruned generic minimum explored unnecessary relative-offset contexts.
+The observed live M4 process was explicitly interrupted, then verified
+terminal. Exact min/max range pruning was added before restarting the
+full audit. No observation timeout was treated as process termination.
+
+A new explicit obstruction rules out a generic polynomial minimum bound,
+even for strictly decreasing inputs. For N=2^m and b=NX+Y, use
+F=-2b+X and G=-2b+Y. Each is a weighted sum of bits with 2m+1 additive
+nodes. Their minimum has N distinct normalized low-bit residual functions,
+whose consecutive differences switch from -1 to -2 at Y=X. It therefore
+requires at least 2^m nodes at level m in MSB-first address order. This
+is an operation/representation barrier: these functions have not been
+realized as mixed OBST prefixes. The actual transition's additional
+structure remains the necessary target, and the full goal stays active.
+
+The pruned solver completed full geometric controls through 48 keys. The
+64-key run was deliberately interrupted while still constructing its
+prefixes, after intermediate structures grew substantially; no 64-key
+completion or operation count is claimed. The final audit limits this
+scale series to 48 keys and reruns it to retain source-hashed counters.
+This changes the finite experiment, not the arbitrary-weight objective or
+the mathematical correctness scope of the constructor.
+
+The final primary DAG audit passed 72,880 direct prefix-value comparisons
+and 1392 complete original all-root optimum/tree controls, including all
+680 binary mixed inputs through four keys at two heights. The reference
+examines 486,336 predecessors. Five geometric full constructions through
+48 keys match the closed chain optimum and independent Knuth. The 48-key
+final function has 45,391 nodes versus 2^48-48 explicit records, while the
+constructor creates 3,069,517 nonterminal nodes and retains 1,145,477
+history nodes. It makes 3,282,551 minimum calls, 2,290,986 additions, and
+2,200,220 prefix calls. These are exact counters, not speed claims. All
+seven executed-source hashes match the authoritative files; the JSON was
+copied back before mirroring for the separate probe.
+
+The mixed transition now has an explicit operation bound: O(h^3 D) with
+zero residual gap, and O(h^5 D + X) with a general gap, where X is the
+number of expanded relative-offset minimum contexts. These conservative
+powers follow from mask size O(h), valuation-function size O(h^2),
+node-pair addition, and the O(hD) prefix lemma. They isolate the unresolved
+minimum parameter rather than inferring work from final graph size.
+
+The separate probe passed 108 signed prefix-function controls on 12,264
+addresses, including infeasible patterns. The monotone minimum construction
+has exact total size 3*2^m-2: lower levels have 2^d clipped kink functions,
+upper high-bit prefixes stay distinct, and there is one terminal. The
+proof was expanded to this exact count and the probe rerun with an explicit
+assertion. It checks m=1,...,12 and 45,744 address triples, exhaustive
+through m=6 and sampled at the kink boundaries thereafter.
+
+All nine additional full mixed controls pass independent Knuth and output
+tree checks. At 64 keys the random row uses certified h=11, 413 final
+nodes and 187,957 total nodes; the near-uniform row uses h=10, 230 final
+nodes and 50,714 total nodes. The nonaffine geometric mixed rows go through
+16 keys, where h=16, final nodes=1283, and total nodes=199,887. The final
+JSON retains each p,q vector, operation categories and Knuth counters.
+No practical speedup or universal size bound is inferred from these rows.
+
+Final publication validation: the final probe's six executed-source hashes
+match, and all 19 selected audit records match 108 source-hash entries.
+The 162-page manuscript compiles in Tectonic without warnings. Every page
+was rendered and reviewed in contact sheets; new proofs, audit text, and
+the dedication were also reviewed at readable resolution. All 453 previous
+labels survive among 460 unique labels, with 21 bibliography entries and
+all references resolved. The dedication bytes are unchanged. New results
+are in Section 2.20, the grouped negative-results section, and Appendix T.
+The general arbitrary-weight subquadratic goal remains active.

@@ -1,0 +1,2877 @@
+{
+  "scope": "Finite prefix-operation and unrestricted mixed full-tree controls; no diagram-size upper bound inferred",
+  "seed": 581020,
+  "prefix_rows": [
+    {
+      "h": 1,
+      "trial": 0,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 1,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 2,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 3,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 4,
+      "input_nodes": 2,
+      "output_nodes": 0,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 0,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 5,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 6,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 7,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 8,
+      "input_nodes": 2,
+      "output_nodes": 0,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 0,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 9,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 10,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 1,
+      "trial": 11,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "counts": {
+        "dag_make_calls": 1,
+        "dag_created_nodes": 1,
+        "dag_prefix_calls": 3,
+        "dag_prefix_expansions": 1,
+        "dag_min_calls": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 0,
+      "input_nodes": 3,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 3,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 5,
+        "dag_prefix_expansions": 2,
+        "dag_min_calls": 2,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 1,
+      "input_nodes": 3,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 3,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 5,
+        "dag_prefix_expansions": 2,
+        "dag_min_calls": 2,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 2,
+      "input_nodes": 3,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 3,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 5,
+        "dag_prefix_expansions": 2,
+        "dag_min_calls": 2,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 3,
+      "input_nodes": 3,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 3,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 5,
+        "dag_prefix_expansions": 2,
+        "dag_min_calls": 2,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 4,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 4,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 3,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 5,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 4,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 3,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 6,
+      "input_nodes": 3,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 3,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 5,
+        "dag_prefix_expansions": 2,
+        "dag_min_calls": 2,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 7,
+      "input_nodes": 3,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 3,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 5,
+        "dag_prefix_expansions": 2,
+        "dag_min_calls": 2
+      }
+    },
+    {
+      "h": 2,
+      "trial": 8,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 4,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 3,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 9,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 4,
+        "dag_created_nodes": 2,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 2
+      }
+    },
+    {
+      "h": 2,
+      "trial": 10,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 4,
+        "dag_created_nodes": 3,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 3,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 2,
+      "trial": 11,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "counts": {
+        "dag_make_calls": 5,
+        "dag_created_nodes": 4,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 5,
+        "dag_min_expansions": 1
+      }
+    },
+    {
+      "h": 3,
+      "trial": 0,
+      "input_nodes": 4,
+      "output_nodes": 7,
+      "counts": {
+        "dag_make_calls": 8,
+        "dag_created_nodes": 8,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 9,
+        "dag_min_expansions": 3,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 3,
+      "trial": 1,
+      "input_nodes": 4,
+      "output_nodes": 7,
+      "counts": {
+        "dag_make_calls": 8,
+        "dag_created_nodes": 8,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 9,
+        "dag_min_expansions": 3,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 3,
+      "trial": 2,
+      "input_nodes": 4,
+      "output_nodes": 7,
+      "counts": {
+        "dag_make_calls": 6,
+        "dag_created_nodes": 6,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 5,
+        "dag_min_expansions": 1,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 3,
+      "trial": 3,
+      "input_nodes": 4,
+      "output_nodes": 7,
+      "counts": {
+        "dag_make_calls": 6,
+        "dag_created_nodes": 6,
+        "dag_prefix_calls": 7,
+        "dag_prefix_expansions": 3,
+        "dag_min_calls": 5,
+        "dag_min_expansions": 1,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 3,
+      "trial": 4,
+      "input_nodes": 7,
+      "output_nodes": 6,
+      "counts": {
+        "dag_make_calls": 10,
+        "dag_created_nodes": 7,
+        "dag_prefix_calls": 13,
+        "dag_prefix_expansions": 6,
+        "dag_min_calls": 9,
+        "dag_min_expansions": 2,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 3,
+      "trial": 5,
+      "input_nodes": 8,
+      "output_nodes": 7,
+      "counts": {
+        "dag_make_calls": 11,
+        "dag_created_nodes": 8,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 11,
+        "dag_range_prunes": 2,
+        "dag_min_expansions": 2
+      }
+    },
+    {
+      "h": 3,
+      "trial": 6,
+      "input_nodes": 8,
+      "output_nodes": 7,
+      "counts": {
+        "dag_make_calls": 12,
+        "dag_created_nodes": 9,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 13,
+        "dag_range_prunes": 2,
+        "dag_min_expansions": 3
+      }
+    },
+    {
+      "h": 3,
+      "trial": 7,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "counts": {
+        "dag_make_calls": 9,
+        "dag_created_nodes": 5,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 6,
+        "dag_range_prunes": 3
+      }
+    },
+    {
+      "h": 3,
+      "trial": 8,
+      "input_nodes": 7,
+      "output_nodes": 8,
+      "counts": {
+        "dag_make_calls": 11,
+        "dag_created_nodes": 9,
+        "dag_prefix_calls": 13,
+        "dag_prefix_expansions": 6,
+        "dag_min_calls": 12,
+        "dag_min_expansions": 3,
+        "dag_range_prunes": 1
+      }
+    },
+    {
+      "h": 3,
+      "trial": 9,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "counts": {
+        "dag_make_calls": 10,
+        "dag_created_nodes": 7,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 9,
+        "dag_range_prunes": 2,
+        "dag_min_expansions": 1
+      }
+    },
+    {
+      "h": 3,
+      "trial": 10,
+      "input_nodes": 7,
+      "output_nodes": 6,
+      "counts": {
+        "dag_make_calls": 8,
+        "dag_created_nodes": 4,
+        "dag_prefix_calls": 13,
+        "dag_prefix_expansions": 6,
+        "dag_min_calls": 5,
+        "dag_range_prunes": 2
+      }
+    },
+    {
+      "h": 3,
+      "trial": 11,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "counts": {
+        "dag_make_calls": 10,
+        "dag_created_nodes": 7,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 9,
+        "dag_range_prunes": 2,
+        "dag_min_expansions": 1
+      }
+    },
+    {
+      "h": 4,
+      "trial": 0,
+      "input_nodes": 5,
+      "output_nodes": 9,
+      "counts": {
+        "dag_make_calls": 9,
+        "dag_created_nodes": 9,
+        "dag_prefix_calls": 9,
+        "dag_prefix_expansions": 4,
+        "dag_min_calls": 8,
+        "dag_range_prunes": 3,
+        "dag_min_expansions": 2
+      }
+    },
+    {
+      "h": 4,
+      "trial": 1,
+      "input_nodes": 5,
+      "output_nodes": 9,
+      "counts": {
+        "dag_make_calls": 8,
+        "dag_created_nodes": 8,
+        "dag_prefix_calls": 9,
+        "dag_prefix_expansions": 4,
+        "dag_min_calls": 6,
+        "dag_range_prunes": 3,
+        "dag_min_expansions": 1
+      }
+    },
+    {
+      "h": 4,
+      "trial": 2,
+      "input_nodes": 5,
+      "output_nodes": 8,
+      "counts": {
+        "dag_make_calls": 7,
+        "dag_created_nodes": 7,
+        "dag_prefix_calls": 9,
+        "dag_prefix_expansions": 4,
+        "dag_min_calls": 4,
+        "dag_range_prunes": 3
+      }
+    },
+    {
+      "h": 4,
+      "trial": 3,
+      "input_nodes": 5,
+      "output_nodes": 11,
+      "counts": {
+        "dag_make_calls": 10,
+        "dag_created_nodes": 10,
+        "dag_prefix_calls": 9,
+        "dag_prefix_expansions": 4,
+        "dag_min_calls": 10,
+        "dag_min_expansions": 3,
+        "dag_range_prunes": 2
+      }
+    },
+    {
+      "h": 4,
+      "trial": 4,
+      "input_nodes": 16,
+      "output_nodes": 12,
+      "counts": {
+        "dag_make_calls": 24,
+        "dag_created_nodes": 15,
+        "dag_prefix_calls": 31,
+        "dag_prefix_expansions": 15,
+        "dag_min_calls": 26,
+        "dag_range_prunes": 3,
+        "dag_min_expansions": 6
+      }
+    },
+    {
+      "h": 4,
+      "trial": 5,
+      "input_nodes": 15,
+      "output_nodes": 8,
+      "counts": {
+        "dag_make_calls": 21,
+        "dag_created_nodes": 14,
+        "dag_prefix_calls": 29,
+        "dag_prefix_expansions": 14,
+        "dag_min_calls": 22,
+        "dag_range_prunes": 4,
+        "dag_min_expansions": 4
+      }
+    },
+    {
+      "h": 4,
+      "trial": 6,
+      "input_nodes": 15,
+      "output_nodes": 9,
+      "counts": {
+        "dag_make_calls": 21,
+        "dag_created_nodes": 14,
+        "dag_prefix_calls": 29,
+        "dag_prefix_expansions": 14,
+        "dag_min_calls": 20,
+        "dag_range_prunes": 4,
+        "dag_min_expansions": 4
+      }
+    },
+    {
+      "h": 4,
+      "trial": 7,
+      "input_nodes": 16,
+      "output_nodes": 9,
+      "counts": {
+        "dag_make_calls": 20,
+        "dag_created_nodes": 13,
+        "dag_prefix_calls": 31,
+        "dag_prefix_expansions": 15,
+        "dag_min_calls": 19,
+        "dag_min_expansions": 2,
+        "dag_range_prunes": 5
+      }
+    },
+    {
+      "h": 4,
+      "trial": 8,
+      "input_nodes": 13,
+      "output_nodes": 10,
+      "counts": {
+        "dag_make_calls": 20,
+        "dag_created_nodes": 14,
+        "dag_prefix_calls": 25,
+        "dag_prefix_expansions": 12,
+        "dag_min_calls": 21,
+        "dag_range_prunes": 3,
+        "dag_min_expansions": 5
+      }
+    },
+    {
+      "h": 4,
+      "trial": 9,
+      "input_nodes": 15,
+      "output_nodes": 12,
+      "counts": {
+        "dag_make_calls": 24,
+        "dag_created_nodes": 16,
+        "dag_prefix_calls": 29,
+        "dag_prefix_expansions": 14,
+        "dag_min_calls": 27,
+        "dag_range_prunes": 4,
+        "dag_min_expansions": 7
+      }
+    },
+    {
+      "h": 4,
+      "trial": 10,
+      "input_nodes": 16,
+      "output_nodes": 11,
+      "counts": {
+        "dag_make_calls": 23,
+        "dag_created_nodes": 16,
+        "dag_prefix_calls": 31,
+        "dag_prefix_expansions": 15,
+        "dag_min_calls": 25,
+        "dag_min_expansions": 5,
+        "dag_range_prunes": 5
+      }
+    },
+    {
+      "h": 4,
+      "trial": 11,
+      "input_nodes": 16,
+      "output_nodes": 9,
+      "counts": {
+        "dag_make_calls": 20,
+        "dag_created_nodes": 12,
+        "dag_prefix_calls": 31,
+        "dag_prefix_expansions": 15,
+        "dag_min_calls": 18,
+        "dag_range_prunes": 5,
+        "dag_min_expansions": 2
+      }
+    },
+    {
+      "h": 5,
+      "trial": 0,
+      "input_nodes": 6,
+      "output_nodes": 14,
+      "counts": {
+        "dag_make_calls": 13,
+        "dag_created_nodes": 13,
+        "dag_prefix_calls": 11,
+        "dag_prefix_expansions": 5,
+        "dag_min_calls": 13,
+        "dag_range_prunes": 4,
+        "dag_min_expansions": 4
+      }
+    },
+    {
+      "h": 5,
+      "trial": 1,
+      "input_nodes": 6,
+      "output_nodes": 14,
+      "counts": {
+        "dag_make_calls": 14,
+        "dag_created_nodes": 14,
+        "dag_prefix_calls": 11,
+        "dag_prefix_expansions": 5,
+        "dag_min_calls": 15,
+        "dag_range_prunes": 4,
+        "dag_min_expansions": 5
+      }
+    },
+    {
+      "h": 5,
+      "trial": 2,
+      "input_nodes": 6,
+      "output_nodes": 13,
+      "counts": {
+        "dag_make_calls": 12,
+        "dag_created_nodes": 12,
+        "dag_prefix_calls": 11,
+        "dag_prefix_expansions": 5,
+        "dag_min_calls": 11,
+        "dag_range_prunes": 3,
+        "dag_min_expansions": 3
+      }
+    },
+    {
+      "h": 5,
+      "trial": 3,
+      "input_nodes": 6,
+      "output_nodes": 14,
+      "counts": {
+        "dag_make_calls": 13,
+        "dag_created_nodes": 13,
+        "dag_prefix_calls": 11,
+        "dag_prefix_expansions": 5,
+        "dag_min_calls": 13,
+        "dag_min_expansions": 4,
+        "dag_range_prunes": 3
+      }
+    },
+    {
+      "h": 5,
+      "trial": 4,
+      "input_nodes": 27,
+      "output_nodes": 12,
+      "counts": {
+        "dag_make_calls": 37,
+        "dag_created_nodes": 23,
+        "dag_prefix_calls": 53,
+        "dag_prefix_expansions": 26,
+        "dag_min_calls": 39,
+        "dag_range_prunes": 11,
+        "dag_min_expansions": 7
+      }
+    },
+    {
+      "h": 5,
+      "trial": 5,
+      "input_nodes": 29,
+      "output_nodes": 9,
+      "counts": {
+        "dag_make_calls": 38,
+        "dag_created_nodes": 24,
+        "dag_prefix_calls": 57,
+        "dag_prefix_expansions": 28,
+        "dag_min_calls": 38,
+        "dag_range_prunes": 9,
+        "dag_min_expansions": 6
+      }
+    },
+    {
+      "h": 5,
+      "trial": 6,
+      "input_nodes": 25,
+      "output_nodes": 13,
+      "counts": {
+        "dag_make_calls": 39,
+        "dag_created_nodes": 28,
+        "dag_prefix_calls": 49,
+        "dag_prefix_expansions": 24,
+        "dag_min_calls": 45,
+        "dag_range_prunes": 8,
+        "dag_min_expansions": 11
+      }
+    },
+    {
+      "h": 5,
+      "trial": 7,
+      "input_nodes": 28,
+      "output_nodes": 19,
+      "counts": {
+        "dag_make_calls": 45,
+        "dag_created_nodes": 31,
+        "dag_prefix_calls": 55,
+        "dag_prefix_expansions": 27,
+        "dag_min_calls": 54,
+        "dag_min_expansions": 14,
+        "dag_range_prunes": 9
+      }
+    },
+    {
+      "h": 5,
+      "trial": 8,
+      "input_nodes": 29,
+      "output_nodes": 15,
+      "counts": {
+        "dag_make_calls": 38,
+        "dag_created_nodes": 21,
+        "dag_prefix_calls": 57,
+        "dag_prefix_expansions": 28,
+        "dag_min_calls": 39,
+        "dag_range_prunes": 10,
+        "dag_min_expansions": 6
+      }
+    },
+    {
+      "h": 5,
+      "trial": 9,
+      "input_nodes": 28,
+      "output_nodes": 10,
+      "counts": {
+        "dag_make_calls": 34,
+        "dag_created_nodes": 19,
+        "dag_prefix_calls": 55,
+        "dag_prefix_expansions": 27,
+        "dag_min_calls": 32,
+        "dag_range_prunes": 10,
+        "dag_min_expansions": 3
+      }
+    },
+    {
+      "h": 5,
+      "trial": 10,
+      "input_nodes": 29,
+      "output_nodes": 11,
+      "counts": {
+        "dag_make_calls": 37,
+        "dag_created_nodes": 22,
+        "dag_prefix_calls": 57,
+        "dag_prefix_expansions": 28,
+        "dag_min_calls": 38,
+        "dag_range_prunes": 13,
+        "dag_min_expansions": 5
+      }
+    },
+    {
+      "h": 5,
+      "trial": 11,
+      "input_nodes": 32,
+      "output_nodes": 13,
+      "counts": {
+        "dag_make_calls": 44,
+        "dag_created_nodes": 25,
+        "dag_prefix_calls": 63,
+        "dag_prefix_expansions": 31,
+        "dag_min_calls": 48,
+        "dag_range_prunes": 11,
+        "dag_min_expansions": 9
+      }
+    },
+    {
+      "h": 6,
+      "trial": 0,
+      "input_nodes": 7,
+      "output_nodes": 16,
+      "counts": {
+        "dag_make_calls": 15,
+        "dag_created_nodes": 15,
+        "dag_prefix_calls": 13,
+        "dag_prefix_expansions": 6,
+        "dag_min_calls": 14,
+        "dag_min_expansions": 4,
+        "dag_range_prunes": 4
+      }
+    },
+    {
+      "h": 6,
+      "trial": 1,
+      "input_nodes": 7,
+      "output_nodes": 12,
+      "counts": {
+        "dag_make_calls": 11,
+        "dag_created_nodes": 11,
+        "dag_prefix_calls": 13,
+        "dag_prefix_expansions": 6,
+        "dag_min_calls": 6,
+        "dag_range_prunes": 5
+      }
+    },
+    {
+      "h": 6,
+      "trial": 2,
+      "input_nodes": 7,
+      "output_nodes": 17,
+      "counts": {
+        "dag_make_calls": 17,
+        "dag_created_nodes": 17,
+        "dag_prefix_calls": 13,
+        "dag_prefix_expansions": 6,
+        "dag_min_calls": 18,
+        "dag_min_expansions": 6,
+        "dag_range_prunes": 4
+      }
+    },
+    {
+      "h": 6,
+      "trial": 3,
+      "input_nodes": 7,
+      "output_nodes": 17,
+      "counts": {
+        "dag_make_calls": 16,
+        "dag_created_nodes": 16,
+        "dag_prefix_calls": 13,
+        "dag_prefix_expansions": 6,
+        "dag_min_calls": 16,
+        "dag_range_prunes": 5,
+        "dag_min_expansions": 5
+      }
+    },
+    {
+      "h": 6,
+      "trial": 4,
+      "input_nodes": 59,
+      "output_nodes": 12,
+      "counts": {
+        "dag_make_calls": 79,
+        "dag_created_nodes": 46,
+        "dag_prefix_calls": 117,
+        "dag_prefix_expansions": 58,
+        "dag_min_calls": 87,
+        "dag_range_prunes": 21,
+        "dag_min_expansions": 16
+      }
+    },
+    {
+      "h": 6,
+      "trial": 5,
+      "input_nodes": 51,
+      "output_nodes": 22,
+      "counts": {
+        "dag_make_calls": 75,
+        "dag_created_nodes": 49,
+        "dag_prefix_calls": 101,
+        "dag_prefix_expansions": 50,
+        "dag_min_calls": 88,
+        "dag_range_prunes": 19,
+        "dag_min_expansions": 20
+      }
+    },
+    {
+      "h": 6,
+      "trial": 6,
+      "input_nodes": 54,
+      "output_nodes": 17,
+      "counts": {
+        "dag_make_calls": 82,
+        "dag_created_nodes": 56,
+        "dag_prefix_calls": 107,
+        "dag_prefix_expansions": 53,
+        "dag_min_calls": 99,
+        "dag_min_expansions": 24,
+        "dag_range_prunes": 20
+      }
+    },
+    {
+      "h": 6,
+      "trial": 7,
+      "input_nodes": 51,
+      "output_nodes": 16,
+      "counts": {
+        "dag_make_calls": 74,
+        "dag_created_nodes": 46,
+        "dag_prefix_calls": 101,
+        "dag_prefix_expansions": 50,
+        "dag_min_calls": 87,
+        "dag_range_prunes": 19,
+        "dag_min_expansions": 19
+      }
+    },
+    {
+      "h": 6,
+      "trial": 8,
+      "input_nodes": 55,
+      "output_nodes": 18,
+      "counts": {
+        "dag_make_calls": 74,
+        "dag_created_nodes": 41,
+        "dag_prefix_calls": 109,
+        "dag_prefix_expansions": 54,
+        "dag_min_calls": 83,
+        "dag_range_prunes": 24,
+        "dag_min_expansions": 15
+      }
+    },
+    {
+      "h": 6,
+      "trial": 9,
+      "input_nodes": 52,
+      "output_nodes": 20,
+      "counts": {
+        "dag_make_calls": 83,
+        "dag_created_nodes": 57,
+        "dag_prefix_calls": 103,
+        "dag_prefix_expansions": 51,
+        "dag_min_calls": 104,
+        "dag_range_prunes": 23,
+        "dag_min_expansions": 27
+      }
+    },
+    {
+      "h": 6,
+      "trial": 10,
+      "input_nodes": 53,
+      "output_nodes": 15,
+      "counts": {
+        "dag_make_calls": 74,
+        "dag_created_nodes": 46,
+        "dag_prefix_calls": 105,
+        "dag_prefix_expansions": 52,
+        "dag_min_calls": 85,
+        "dag_range_prunes": 22,
+        "dag_min_expansions": 17
+      }
+    },
+    {
+      "h": 6,
+      "trial": 11,
+      "input_nodes": 55,
+      "output_nodes": 16,
+      "counts": {
+        "dag_make_calls": 77,
+        "dag_created_nodes": 47,
+        "dag_prefix_calls": 109,
+        "dag_prefix_expansions": 54,
+        "dag_min_calls": 89,
+        "dag_range_prunes": 22,
+        "dag_min_expansions": 18
+      }
+    },
+    {
+      "h": 7,
+      "trial": 0,
+      "input_nodes": 8,
+      "output_nodes": 33,
+      "counts": {
+        "dag_make_calls": 33,
+        "dag_created_nodes": 33,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 47,
+        "dag_range_prunes": 9,
+        "dag_min_expansions": 20
+      }
+    },
+    {
+      "h": 7,
+      "trial": 1,
+      "input_nodes": 8,
+      "output_nodes": 22,
+      "counts": {
+        "dag_make_calls": 22,
+        "dag_created_nodes": 22,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 25,
+        "dag_range_prunes": 5,
+        "dag_min_expansions": 9
+      }
+    },
+    {
+      "h": 7,
+      "trial": 2,
+      "input_nodes": 8,
+      "output_nodes": 27,
+      "counts": {
+        "dag_make_calls": 27,
+        "dag_created_nodes": 27,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 35,
+        "dag_min_expansions": 14,
+        "dag_range_prunes": 7
+      }
+    },
+    {
+      "h": 7,
+      "trial": 3,
+      "input_nodes": 8,
+      "output_nodes": 17,
+      "counts": {
+        "dag_make_calls": 17,
+        "dag_created_nodes": 17,
+        "dag_prefix_calls": 15,
+        "dag_prefix_expansions": 7,
+        "dag_min_calls": 15,
+        "dag_range_prunes": 6,
+        "dag_min_expansions": 4
+      }
+    },
+    {
+      "h": 7,
+      "trial": 4,
+      "input_nodes": 100,
+      "output_nodes": 17,
+      "counts": {
+        "dag_make_calls": 140,
+        "dag_created_nodes": 79,
+        "dag_prefix_calls": 199,
+        "dag_prefix_expansions": 99,
+        "dag_min_calls": 166,
+        "dag_range_prunes": 41,
+        "dag_min_expansions": 35
+      }
+    },
+    {
+      "h": 7,
+      "trial": 5,
+      "input_nodes": 104,
+      "output_nodes": 18,
+      "counts": {
+        "dag_make_calls": 137,
+        "dag_created_nodes": 78,
+        "dag_prefix_calls": 207,
+        "dag_prefix_expansions": 103,
+        "dag_min_calls": 157,
+        "dag_range_prunes": 49,
+        "dag_min_expansions": 28
+      }
+    },
+    {
+      "h": 7,
+      "trial": 6,
+      "input_nodes": 104,
+      "output_nodes": 25,
+      "counts": {
+        "dag_make_calls": 153,
+        "dag_created_nodes": 91,
+        "dag_prefix_calls": 207,
+        "dag_prefix_expansions": 103,
+        "dag_min_calls": 188,
+        "dag_range_prunes": 47,
+        "dag_min_expansions": 44
+      }
+    },
+    {
+      "h": 7,
+      "trial": 7,
+      "input_nodes": 101,
+      "output_nodes": 17,
+      "counts": {
+        "dag_make_calls": 140,
+        "dag_created_nodes": 86,
+        "dag_prefix_calls": 201,
+        "dag_prefix_expansions": 100,
+        "dag_min_calls": 166,
+        "dag_min_expansions": 34,
+        "dag_range_prunes": 44
+      }
+    },
+    {
+      "h": 7,
+      "trial": 8,
+      "input_nodes": 100,
+      "output_nodes": 31,
+      "counts": {
+        "dag_make_calls": 154,
+        "dag_created_nodes": 101,
+        "dag_prefix_calls": 199,
+        "dag_prefix_expansions": 99,
+        "dag_min_calls": 194,
+        "dag_min_expansions": 49,
+        "dag_range_prunes": 38
+      }
+    },
+    {
+      "h": 7,
+      "trial": 9,
+      "input_nodes": 102,
+      "output_nodes": 18,
+      "counts": {
+        "dag_make_calls": 149,
+        "dag_created_nodes": 91,
+        "dag_prefix_calls": 203,
+        "dag_prefix_expansions": 101,
+        "dag_min_calls": 183,
+        "dag_range_prunes": 40,
+        "dag_min_expansions": 42
+      }
+    },
+    {
+      "h": 7,
+      "trial": 10,
+      "input_nodes": 103,
+      "output_nodes": 28,
+      "counts": {
+        "dag_make_calls": 156,
+        "dag_created_nodes": 102,
+        "dag_prefix_calls": 205,
+        "dag_prefix_expansions": 102,
+        "dag_min_calls": 196,
+        "dag_range_prunes": 42,
+        "dag_min_expansions": 48
+      }
+    },
+    {
+      "h": 7,
+      "trial": 11,
+      "input_nodes": 101,
+      "output_nodes": 16,
+      "counts": {
+        "dag_make_calls": 139,
+        "dag_created_nodes": 86,
+        "dag_prefix_calls": 201,
+        "dag_prefix_expansions": 100,
+        "dag_min_calls": 163,
+        "dag_range_prunes": 41,
+        "dag_min_expansions": 33
+      }
+    },
+    {
+      "h": 8,
+      "trial": 0,
+      "input_nodes": 9,
+      "output_nodes": 28,
+      "counts": {
+        "dag_make_calls": 28,
+        "dag_created_nodes": 28,
+        "dag_prefix_calls": 17,
+        "dag_prefix_expansions": 8,
+        "dag_min_calls": 34,
+        "dag_min_expansions": 13,
+        "dag_range_prunes": 9
+      }
+    },
+    {
+      "h": 8,
+      "trial": 1,
+      "input_nodes": 9,
+      "output_nodes": 35,
+      "counts": {
+        "dag_make_calls": 36,
+        "dag_created_nodes": 36,
+        "dag_prefix_calls": 17,
+        "dag_prefix_expansions": 8,
+        "dag_min_calls": 50,
+        "dag_min_expansions": 21,
+        "dag_range_prunes": 12
+      }
+    },
+    {
+      "h": 8,
+      "trial": 2,
+      "input_nodes": 9,
+      "output_nodes": 25,
+      "counts": {
+        "dag_make_calls": 24,
+        "dag_created_nodes": 24,
+        "dag_prefix_calls": 17,
+        "dag_prefix_expansions": 8,
+        "dag_min_calls": 26,
+        "dag_range_prunes": 6,
+        "dag_min_expansions": 9
+      }
+    },
+    {
+      "h": 8,
+      "trial": 3,
+      "input_nodes": 9,
+      "output_nodes": 27,
+      "counts": {
+        "dag_make_calls": 26,
+        "dag_created_nodes": 26,
+        "dag_prefix_calls": 17,
+        "dag_prefix_expansions": 8,
+        "dag_min_calls": 30,
+        "dag_range_prunes": 7,
+        "dag_min_expansions": 11
+      }
+    },
+    {
+      "h": 8,
+      "trial": 4,
+      "input_nodes": 203,
+      "output_nodes": 24,
+      "counts": {
+        "dag_make_calls": 304,
+        "dag_created_nodes": 190,
+        "dag_prefix_calls": 405,
+        "dag_prefix_expansions": 202,
+        "dag_min_calls": 387,
+        "dag_range_prunes": 94,
+        "dag_min_expansions": 95
+      }
+    },
+    {
+      "h": 8,
+      "trial": 5,
+      "input_nodes": 199,
+      "output_nodes": 15,
+      "counts": {
+        "dag_make_calls": 284,
+        "dag_created_nodes": 169,
+        "dag_prefix_calls": 397,
+        "dag_prefix_expansions": 198,
+        "dag_min_calls": 354,
+        "dag_range_prunes": 86,
+        "dag_min_expansions": 79
+      }
+    },
+    {
+      "h": 8,
+      "trial": 6,
+      "input_nodes": 208,
+      "output_nodes": 38,
+      "counts": {
+        "dag_make_calls": 296,
+        "dag_created_nodes": 171,
+        "dag_prefix_calls": 415,
+        "dag_prefix_expansions": 207,
+        "dag_min_calls": 368,
+        "dag_min_expansions": 82,
+        "dag_range_prunes": 87
+      }
+    },
+    {
+      "h": 8,
+      "trial": 7,
+      "input_nodes": 191,
+      "output_nodes": 27,
+      "counts": {
+        "dag_make_calls": 280,
+        "dag_created_nodes": 176,
+        "dag_prefix_calls": 381,
+        "dag_prefix_expansions": 190,
+        "dag_min_calls": 353,
+        "dag_min_expansions": 83,
+        "dag_range_prunes": 82
+      }
+    },
+    {
+      "h": 8,
+      "trial": 8,
+      "input_nodes": 203,
+      "output_nodes": 25,
+      "counts": {
+        "dag_make_calls": 288,
+        "dag_created_nodes": 177,
+        "dag_prefix_calls": 405,
+        "dag_prefix_expansions": 202,
+        "dag_min_calls": 358,
+        "dag_min_expansions": 79,
+        "dag_range_prunes": 83
+      }
+    },
+    {
+      "h": 8,
+      "trial": 9,
+      "input_nodes": 195,
+      "output_nodes": 17,
+      "counts": {
+        "dag_make_calls": 290,
+        "dag_created_nodes": 180,
+        "dag_prefix_calls": 389,
+        "dag_prefix_expansions": 194,
+        "dag_min_calls": 369,
+        "dag_min_expansions": 89,
+        "dag_range_prunes": 88
+      }
+    },
+    {
+      "h": 8,
+      "trial": 10,
+      "input_nodes": 196,
+      "output_nodes": 23,
+      "counts": {
+        "dag_make_calls": 276,
+        "dag_created_nodes": 161,
+        "dag_prefix_calls": 391,
+        "dag_prefix_expansions": 195,
+        "dag_min_calls": 340,
+        "dag_range_prunes": 90,
+        "dag_min_expansions": 74
+      }
+    },
+    {
+      "h": 8,
+      "trial": 11,
+      "input_nodes": 202,
+      "output_nodes": 21,
+      "counts": {
+        "dag_make_calls": 295,
+        "dag_created_nodes": 185,
+        "dag_prefix_calls": 403,
+        "dag_prefix_expansions": 201,
+        "dag_min_calls": 373,
+        "dag_min_expansions": 87,
+        "dag_range_prunes": 81
+      }
+    },
+    {
+      "h": 9,
+      "trial": 0,
+      "input_nodes": 10,
+      "output_nodes": 22,
+      "counts": {
+        "dag_make_calls": 21,
+        "dag_created_nodes": 21,
+        "dag_prefix_calls": 19,
+        "dag_prefix_expansions": 9,
+        "dag_min_calls": 17,
+        "dag_min_expansions": 4,
+        "dag_range_prunes": 8
+      }
+    },
+    {
+      "h": 9,
+      "trial": 1,
+      "input_nodes": 10,
+      "output_nodes": 37,
+      "counts": {
+        "dag_make_calls": 36,
+        "dag_created_nodes": 36,
+        "dag_prefix_calls": 19,
+        "dag_prefix_expansions": 9,
+        "dag_min_calls": 47,
+        "dag_range_prunes": 8,
+        "dag_min_expansions": 19
+      }
+    },
+    {
+      "h": 9,
+      "trial": 2,
+      "input_nodes": 10,
+      "output_nodes": 28,
+      "counts": {
+        "dag_make_calls": 28,
+        "dag_created_nodes": 28,
+        "dag_prefix_calls": 19,
+        "dag_prefix_expansions": 9,
+        "dag_min_calls": 31,
+        "dag_range_prunes": 9,
+        "dag_min_expansions": 11
+      }
+    },
+    {
+      "h": 9,
+      "trial": 3,
+      "input_nodes": 10,
+      "output_nodes": 38,
+      "counts": {
+        "dag_make_calls": 38,
+        "dag_created_nodes": 38,
+        "dag_prefix_calls": 19,
+        "dag_prefix_expansions": 9,
+        "dag_min_calls": 51,
+        "dag_min_expansions": 21,
+        "dag_range_prunes": 14
+      }
+    },
+    {
+      "h": 9,
+      "trial": 4,
+      "input_nodes": 372,
+      "output_nodes": 40,
+      "counts": {
+        "dag_make_calls": 547,
+        "dag_created_nodes": 308,
+        "dag_prefix_calls": 743,
+        "dag_prefix_expansions": 371,
+        "dag_min_calls": 704,
+        "dag_min_expansions": 168,
+        "dag_range_prunes": 180
+      }
+    },
+    {
+      "h": 9,
+      "trial": 5,
+      "input_nodes": 400,
+      "output_nodes": 45,
+      "counts": {
+        "dag_make_calls": 571,
+        "dag_created_nodes": 308,
+        "dag_prefix_calls": 799,
+        "dag_prefix_expansions": 399,
+        "dag_min_calls": 725,
+        "dag_range_prunes": 191,
+        "dag_min_expansions": 164
+      }
+    },
+    {
+      "h": 9,
+      "trial": 6,
+      "input_nodes": 388,
+      "output_nodes": 30,
+      "counts": {
+        "dag_make_calls": 564,
+        "dag_created_nodes": 312,
+        "dag_prefix_calls": 775,
+        "dag_prefix_expansions": 387,
+        "dag_min_calls": 723,
+        "dag_range_prunes": 182,
+        "dag_min_expansions": 169
+      }
+    },
+    {
+      "h": 9,
+      "trial": 7,
+      "input_nodes": 381,
+      "output_nodes": 27,
+      "counts": {
+        "dag_make_calls": 534,
+        "dag_created_nodes": 295,
+        "dag_prefix_calls": 761,
+        "dag_prefix_expansions": 380,
+        "dag_min_calls": 669,
+        "dag_min_expansions": 146,
+        "dag_range_prunes": 175
+      }
+    },
+    {
+      "h": 9,
+      "trial": 8,
+      "input_nodes": 386,
+      "output_nodes": 39,
+      "counts": {
+        "dag_make_calls": 567,
+        "dag_created_nodes": 326,
+        "dag_prefix_calls": 771,
+        "dag_prefix_expansions": 385,
+        "dag_min_calls": 725,
+        "dag_min_expansions": 174,
+        "dag_range_prunes": 171
+      }
+    },
+    {
+      "h": 9,
+      "trial": 9,
+      "input_nodes": 382,
+      "output_nodes": 20,
+      "counts": {
+        "dag_make_calls": 541,
+        "dag_created_nodes": 304,
+        "dag_prefix_calls": 763,
+        "dag_prefix_expansions": 381,
+        "dag_min_calls": 682,
+        "dag_range_prunes": 165,
+        "dag_min_expansions": 152
+      }
+    },
+    {
+      "h": 9,
+      "trial": 10,
+      "input_nodes": 384,
+      "output_nodes": 32,
+      "counts": {
+        "dag_make_calls": 580,
+        "dag_created_nodes": 331,
+        "dag_prefix_calls": 767,
+        "dag_prefix_expansions": 383,
+        "dag_min_calls": 759,
+        "dag_range_prunes": 180,
+        "dag_min_expansions": 189
+      }
+    },
+    {
+      "h": 9,
+      "trial": 11,
+      "input_nodes": 390,
+      "output_nodes": 40,
+      "counts": {
+        "dag_make_calls": 578,
+        "dag_created_nodes": 327,
+        "dag_prefix_calls": 779,
+        "dag_prefix_expansions": 389,
+        "dag_min_calls": 746,
+        "dag_range_prunes": 170,
+        "dag_min_expansions": 181
+      }
+    }
+  ],
+  "minimum_rows": [
+    {
+      "m": 1,
+      "height": 2,
+      "input_nodes_each": 3,
+      "distinct_middle_nodes": 2,
+      "output_nodes": 4,
+      "value_controls": 4,
+      "counts": {
+        "dag_make_calls": 7,
+        "dag_created_nodes": 5,
+        "dag_min_calls": 7,
+        "dag_min_expansions": 3
+      }
+    },
+    {
+      "m": 2,
+      "height": 4,
+      "input_nodes_each": 5,
+      "distinct_middle_nodes": 4,
+      "output_nodes": 10,
+      "value_controls": 16,
+      "counts": {
+        "dag_make_calls": 17,
+        "dag_created_nodes": 13,
+        "dag_min_calls": 19,
+        "dag_min_expansions": 9,
+        "dag_range_prunes": 4
+      }
+    },
+    {
+      "m": 3,
+      "height": 6,
+      "input_nodes_each": 7,
+      "distinct_middle_nodes": 8,
+      "output_nodes": 22,
+      "value_controls": 64,
+      "counts": {
+        "dag_make_calls": 37,
+        "dag_created_nodes": 27,
+        "dag_min_calls": 51,
+        "dag_min_expansions": 25,
+        "dag_range_prunes": 16
+      }
+    },
+    {
+      "m": 4,
+      "height": 8,
+      "input_nodes_each": 9,
+      "distinct_middle_nodes": 16,
+      "output_nodes": 46,
+      "value_controls": 256,
+      "counts": {
+        "dag_make_calls": 77,
+        "dag_created_nodes": 53,
+        "dag_min_calls": 123,
+        "dag_min_expansions": 61,
+        "dag_range_prunes": 40
+      }
+    },
+    {
+      "m": 5,
+      "height": 10,
+      "input_nodes_each": 11,
+      "distinct_middle_nodes": 32,
+      "output_nodes": 94,
+      "value_controls": 1024,
+      "counts": {
+        "dag_make_calls": 157,
+        "dag_created_nodes": 103,
+        "dag_min_calls": 275,
+        "dag_min_expansions": 137,
+        "dag_range_prunes": 88
+      }
+    },
+    {
+      "m": 6,
+      "height": 12,
+      "input_nodes_each": 13,
+      "distinct_middle_nodes": 64,
+      "output_nodes": 190,
+      "value_controls": 4096,
+      "counts": {
+        "dag_make_calls": 317,
+        "dag_created_nodes": 201,
+        "dag_min_calls": 587,
+        "dag_min_expansions": 293,
+        "dag_range_prunes": 184
+      }
+    },
+    {
+      "m": 7,
+      "height": 14,
+      "input_nodes_each": 15,
+      "distinct_middle_nodes": 128,
+      "output_nodes": 382,
+      "value_controls": 634,
+      "counts": {
+        "dag_make_calls": 637,
+        "dag_created_nodes": 395,
+        "dag_min_calls": 1219,
+        "dag_min_expansions": 609,
+        "dag_range_prunes": 376
+      }
+    },
+    {
+      "m": 8,
+      "height": 16,
+      "input_nodes_each": 17,
+      "distinct_middle_nodes": 256,
+      "output_nodes": 766,
+      "value_controls": 1274,
+      "counts": {
+        "dag_make_calls": 1277,
+        "dag_created_nodes": 781,
+        "dag_min_calls": 2491,
+        "dag_min_expansions": 1245,
+        "dag_range_prunes": 760
+      }
+    },
+    {
+      "m": 9,
+      "height": 18,
+      "input_nodes_each": 19,
+      "distinct_middle_nodes": 512,
+      "output_nodes": 1534,
+      "value_controls": 2554,
+      "counts": {
+        "dag_make_calls": 2557,
+        "dag_created_nodes": 1551,
+        "dag_min_calls": 5043,
+        "dag_min_expansions": 2521,
+        "dag_range_prunes": 1528
+      }
+    },
+    {
+      "m": 10,
+      "height": 20,
+      "input_nodes_each": 21,
+      "distinct_middle_nodes": 1024,
+      "output_nodes": 3070,
+      "value_controls": 5114,
+      "counts": {
+        "dag_make_calls": 5117,
+        "dag_created_nodes": 3089,
+        "dag_min_calls": 10155,
+        "dag_min_expansions": 5077,
+        "dag_range_prunes": 3064
+      }
+    },
+    {
+      "m": 11,
+      "height": 22,
+      "input_nodes_each": 23,
+      "distinct_middle_nodes": 2048,
+      "output_nodes": 6142,
+      "value_controls": 10234,
+      "counts": {
+        "dag_make_calls": 10237,
+        "dag_created_nodes": 6163,
+        "dag_min_calls": 20387,
+        "dag_min_expansions": 10193,
+        "dag_range_prunes": 6136
+      }
+    },
+    {
+      "m": 12,
+      "height": 24,
+      "input_nodes_each": 25,
+      "distinct_middle_nodes": 4096,
+      "output_nodes": 12286,
+      "value_controls": 20474,
+      "counts": {
+        "dag_make_calls": 20477,
+        "dag_created_nodes": 12309,
+        "dag_min_calls": 40859,
+        "dag_min_expansions": 20429,
+        "dag_range_prunes": 12280
+      }
+    }
+  ],
+  "full_rows": [
+    {
+      "kind": "random_mixed",
+      "n": 16,
+      "height": 8,
+      "p": [
+        5,
+        9,
+        6,
+        7,
+        6,
+        2,
+        5,
+        3,
+        1,
+        7,
+        4,
+        7,
+        5,
+        3,
+        7,
+        7
+      ],
+      "q": [
+        7,
+        2,
+        6,
+        4,
+        9,
+        2,
+        3,
+        2,
+        3,
+        9,
+        6,
+        1,
+        4,
+        6,
+        6,
+        2,
+        6
+      ],
+      "stage_nodes": [
+        37,
+        57,
+        72,
+        70,
+        85,
+        76,
+        96,
+        89,
+        84,
+        123,
+        94,
+        94,
+        95,
+        110,
+        129,
+        114
+      ],
+      "counts": {
+        "dag_make_calls": 23103,
+        "dag_created_nodes": 11612,
+        "dag_min_calls": 18419,
+        "dag_min_expansions": 8618,
+        "dag_prefix_calls": 2318,
+        "dag_prefix_expansions": 1102,
+        "dag_add_calls": 18722,
+        "dag_add_expansions": 9192,
+        "dag_range_prunes": 1830,
+        "dag_gap_classes": 112,
+        "dag_range_visits": 1864,
+        "record_ancestor_nodes": 16,
+        "record_output_nodes": 16,
+        "dag_all_nodes": 11613,
+        "dag_history_nodes": 1080,
+        "record_verified_nodes": 16
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 266,
+        "height_fallback_states": 136,
+        "height_fallback_output_nodes": 16
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    },
+    {
+      "kind": "random_mixed",
+      "n": 32,
+      "height": 10,
+      "p": [
+        9,
+        6,
+        3,
+        9,
+        8,
+        8,
+        9,
+        2,
+        5,
+        1,
+        4,
+        3,
+        7,
+        5,
+        5,
+        2,
+        1,
+        6,
+        7,
+        5,
+        1,
+        4,
+        3,
+        4,
+        8,
+        4,
+        8,
+        7,
+        2,
+        3,
+        7,
+        8
+      ],
+      "q": [
+        4,
+        9,
+        4,
+        4,
+        3,
+        3,
+        8,
+        1,
+        3,
+        4,
+        7,
+        7,
+        2,
+        8,
+        7,
+        1,
+        9,
+        4,
+        9,
+        1,
+        8,
+        2,
+        2,
+        1,
+        4,
+        2,
+        6,
+        3,
+        8,
+        2,
+        1,
+        6,
+        7
+      ],
+      "stage_nodes": [
+        56,
+        91,
+        104,
+        126,
+        117,
+        143,
+        186,
+        149,
+        173,
+        158,
+        244,
+        206,
+        192,
+        194,
+        219,
+        167,
+        276,
+        196,
+        209,
+        171,
+        256,
+        212,
+        219,
+        206,
+        246,
+        195,
+        246,
+        205,
+        246,
+        210,
+        249,
+        279
+      ],
+      "counts": {
+        "dag_make_calls": 109228,
+        "dag_created_nodes": 53559,
+        "dag_min_calls": 100571,
+        "dag_min_expansions": 47440,
+        "dag_prefix_calls": 11296,
+        "dag_prefix_expansions": 5515,
+        "dag_add_calls": 83814,
+        "dag_add_expansions": 41514,
+        "dag_range_prunes": 10408,
+        "dag_gap_classes": 260,
+        "dag_range_visits": 5906,
+        "record_ancestor_nodes": 32,
+        "record_output_nodes": 32,
+        "dag_all_nodes": 53560,
+        "dag_history_nodes": 4352,
+        "record_verified_nodes": 32
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 1056,
+        "height_fallback_states": 528,
+        "height_fallback_output_nodes": 32
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    },
+    {
+      "kind": "random_mixed",
+      "n": 64,
+      "height": 11,
+      "p": [
+        8,
+        5,
+        9,
+        7,
+        6,
+        5,
+        7,
+        4,
+        3,
+        2,
+        7,
+        8,
+        3,
+        8,
+        7,
+        6,
+        5,
+        2,
+        4,
+        8,
+        3,
+        1,
+        9,
+        6,
+        9,
+        6,
+        4,
+        8,
+        7,
+        2,
+        2,
+        4,
+        5,
+        9,
+        8,
+        9,
+        3,
+        6,
+        2,
+        4,
+        9,
+        4,
+        9,
+        2,
+        4,
+        4,
+        4,
+        5,
+        8,
+        3,
+        3,
+        7,
+        7,
+        8,
+        8,
+        1,
+        4,
+        7,
+        1,
+        5,
+        3,
+        8,
+        2,
+        1
+      ],
+      "q": [
+        4,
+        2,
+        4,
+        2,
+        2,
+        9,
+        6,
+        2,
+        4,
+        5,
+        4,
+        4,
+        4,
+        6,
+        4,
+        1,
+        3,
+        7,
+        3,
+        9,
+        5,
+        4,
+        9,
+        9,
+        3,
+        5,
+        9,
+        4,
+        3,
+        5,
+        6,
+        8,
+        4,
+        6,
+        6,
+        3,
+        1,
+        8,
+        2,
+        2,
+        5,
+        5,
+        5,
+        7,
+        7,
+        2,
+        6,
+        5,
+        3,
+        9,
+        6,
+        8,
+        8,
+        2,
+        1,
+        3,
+        9,
+        2,
+        2,
+        9,
+        8,
+        3,
+        8,
+        6,
+        8
+      ],
+      "stage_nodes": [
+        67,
+        111,
+        102,
+        145,
+        145,
+        208,
+        208,
+        163,
+        202,
+        227,
+        277,
+        202,
+        180,
+        319,
+        236,
+        239,
+        244,
+        259,
+        280,
+        384,
+        277,
+        252,
+        356,
+        205,
+        273,
+        286,
+        315,
+        314,
+        252,
+        303,
+        348,
+        379,
+        262,
+        358,
+        345,
+        313,
+        296,
+        426,
+        281,
+        332,
+        389,
+        320,
+        372,
+        327,
+        376,
+        266,
+        322,
+        330,
+        330,
+        325,
+        308,
+        379,
+        309,
+        291,
+        289,
+        357,
+        443,
+        328,
+        328,
+        451,
+        345,
+        392,
+        417,
+        413
+      ],
+      "counts": {
+        "dag_make_calls": 382165,
+        "dag_created_nodes": 187956,
+        "dag_min_calls": 374753,
+        "dag_min_expansions": 178026,
+        "dag_prefix_calls": 37242,
+        "dag_prefix_expansions": 18289,
+        "dag_add_calls": 285730,
+        "dag_add_expansions": 141873,
+        "dag_range_prunes": 42406,
+        "dag_gap_classes": 660,
+        "dag_range_visits": 18558,
+        "record_ancestor_nodes": 64,
+        "record_output_nodes": 64,
+        "dag_all_nodes": 187957,
+        "dag_history_nodes": 11853,
+        "record_verified_nodes": 64
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 4087,
+        "height_fallback_states": 2080,
+        "height_fallback_output_nodes": 64
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    },
+    {
+      "kind": "near_uniform",
+      "n": 16,
+      "height": 7,
+      "p": [
+        4,
+        3,
+        4,
+        3,
+        4,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4
+      ],
+      "q": [
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "stage_nodes": [
+        29,
+        43,
+        53,
+        51,
+        67,
+        50,
+        59,
+        47,
+        53,
+        56,
+        62,
+        63,
+        62,
+        57,
+        58,
+        53
+      ],
+      "counts": {
+        "dag_make_calls": 7321,
+        "dag_created_nodes": 3171,
+        "dag_min_calls": 5451,
+        "dag_min_expansions": 2432,
+        "dag_prefix_calls": 1184,
+        "dag_prefix_expansions": 560,
+        "dag_add_calls": 5112,
+        "dag_add_expansions": 2468,
+        "dag_range_prunes": 590,
+        "dag_gap_classes": 56,
+        "dag_range_visits": 807,
+        "record_ancestor_nodes": 16,
+        "record_output_nodes": 16,
+        "dag_all_nodes": 3172,
+        "dag_history_nodes": 467,
+        "record_verified_nodes": 16
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 248,
+        "height_fallback_states": 136,
+        "height_fallback_output_nodes": 16
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    },
+    {
+      "kind": "near_uniform",
+      "n": 32,
+      "height": 9,
+      "p": [
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        4,
+        3,
+        4,
+        3,
+        3,
+        4,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        3,
+        4,
+        3,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3
+      ],
+      "q": [
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "stage_nodes": [
+        46,
+        45,
+        73,
+        70,
+        92,
+        96,
+        112,
+        107,
+        94,
+        112,
+        125,
+        121,
+        124,
+        115,
+        106,
+        130,
+        132,
+        121,
+        131,
+        145,
+        132,
+        144,
+        123,
+        160,
+        117,
+        141,
+        119,
+        114,
+        134,
+        134,
+        134,
+        141
+      ],
+      "counts": {
+        "dag_make_calls": 34392,
+        "dag_created_nodes": 16158,
+        "dag_min_calls": 29572,
+        "dag_min_expansions": 13497,
+        "dag_prefix_calls": 5198,
+        "dag_prefix_expansions": 2527,
+        "dag_add_calls": 23958,
+        "dag_add_expansions": 11781,
+        "dag_range_prunes": 3707,
+        "dag_gap_classes": 126,
+        "dag_range_visits": 2985,
+        "record_ancestor_nodes": 32,
+        "record_output_nodes": 32,
+        "dag_all_nodes": 16159,
+        "dag_history_nodes": 1799,
+        "record_verified_nodes": 32
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 1030,
+        "height_fallback_states": 528,
+        "height_fallback_output_nodes": 32
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    },
+    {
+      "kind": "near_uniform",
+      "n": 64,
+      "height": 10,
+      "p": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        3,
+        3,
+        4,
+        3,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        4,
+        3,
+        4,
+        4,
+        4,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        3,
+        4
+      ],
+      "q": [
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3
+      ],
+      "stage_nodes": [
+        56,
+        55,
+        63,
+        117,
+        116,
+        122,
+        165,
+        113,
+        134,
+        144,
+        140,
+        132,
+        148,
+        170,
+        146,
+        165,
+        164,
+        142,
+        180,
+        199,
+        176,
+        177,
+        193,
+        201,
+        194,
+        197,
+        192,
+        186,
+        195,
+        193,
+        183,
+        197,
+        174,
+        193,
+        196,
+        193,
+        191,
+        185,
+        174,
+        186,
+        195,
+        216,
+        212,
+        172,
+        167,
+        198,
+        166,
+        189,
+        218,
+        191,
+        237,
+        183,
+        182,
+        191,
+        236,
+        173,
+        170,
+        176,
+        184,
+        190,
+        180,
+        212,
+        222,
+        230
+      ],
+      "counts": {
+        "dag_make_calls": 101698,
+        "dag_created_nodes": 50713,
+        "dag_min_calls": 92867,
+        "dag_min_expansions": 42445,
+        "dag_prefix_calls": 16077,
+        "dag_prefix_expansions": 7876,
+        "dag_add_calls": 67651,
+        "dag_add_expansions": 33373,
+        "dag_range_prunes": 13553,
+        "dag_gap_classes": 290,
+        "dag_range_visits": 7809,
+        "record_ancestor_nodes": 64,
+        "record_output_nodes": 64,
+        "dag_all_nodes": 50714,
+        "dag_history_nodes": 4950,
+        "record_verified_nodes": 64
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 4092,
+        "height_fallback_states": 2080,
+        "height_fallback_output_nodes": 64
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    },
+    {
+      "kind": "nonaffine_geometric",
+      "n": 8,
+      "height": 8,
+      "p": [
+        31088519960728128454655,
+        47976111050506371071,
+        74037208411275263,
+        114254951251967,
+        176319369215,
+        272097791,
+        419903,
+        647
+      ],
+      "q": [
+        1,
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        3,
+        2
+      ],
+      "stage_nodes": [
+        37,
+        57,
+        72,
+        85,
+        95,
+        108,
+        117,
+        123
+      ],
+      "counts": {
+        "dag_make_calls": 7558,
+        "dag_created_nodes": 5052,
+        "dag_min_calls": 4458,
+        "dag_min_expansions": 1927,
+        "dag_prefix_calls": 1203,
+        "dag_prefix_expansions": 580,
+        "dag_add_calls": 6955,
+        "dag_add_expansions": 3416,
+        "dag_range_prunes": 940,
+        "dag_gap_classes": 40,
+        "dag_range_visits": 1089,
+        "record_ancestor_nodes": 8,
+        "record_output_nodes": 8,
+        "dag_all_nodes": 5053,
+        "dag_history_nodes": 691,
+        "record_verified_nodes": 8
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 64,
+        "height_fallback_states": 36,
+        "height_fallback_output_nodes": 8
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    },
+    {
+      "kind": "nonaffine_geometric",
+      "n": 12,
+      "height": 12,
+      "p": [
+        37300984912024432463052038291845021695,
+        27589485881674876082139081576808447,
+        20406424468694434971996362113023,
+        15093509222407126458577190911,
+        11163838182253791759302655,
+        8257276762022035324927,
+        6107453226347659263,
+        4517347060908031,
+        3341233033215,
+        2471326207,
+        1827903,
+        1351
+      ],
+      "q": [
+        1,
+        3,
+        2,
+        2,
+        3,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1
+      ],
+      "stage_nodes": [
+        79,
+        133,
+        178,
+        221,
+        257,
+        300,
+        335,
+        367,
+        394,
+        434,
+        466,
+        495
+      ],
+      "counts": {
+        "dag_make_calls": 39188,
+        "dag_created_nodes": 27653,
+        "dag_min_calls": 27577,
+        "dag_min_expansions": 11977,
+        "dag_prefix_calls": 7228,
+        "dag_prefix_expansions": 3575,
+        "dag_add_calls": 34968,
+        "dag_add_expansions": 17373,
+        "dag_range_prunes": 6622,
+        "dag_gap_classes": 72,
+        "dag_range_visits": 3591,
+        "record_ancestor_nodes": 12,
+        "record_output_nodes": 12,
+        "dag_all_nodes": 27654,
+        "dag_history_nodes": 3653,
+        "record_verified_nodes": 12
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 144,
+        "height_fallback_states": 78,
+        "height_fallback_output_nodes": 12
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    },
+    {
+      "kind": "nonaffine_geometric",
+      "n": 16,
+      "height": 16,
+      "p": [
+        666507860988094826058850530842452821477025467980578815,
+        288281946794158661790160264205213158078298212794367,
+        124689423353874853715467242303292888442170507263,
+        53931411485239988631257457743638792578793471,
+        23326735071470583318017931550016778797055,
+        10089418283508037767308793923017637887,
+        4363935243731850245375775918260223,
+        1887515243828654950422048407551,
+        816399326915508196549328895,
+        353113895724700777054207,
+        152730923756358467583,
+        66060088129912831,
+        28572702478335,
+        12358435327,
+        5345343,
+        2311
+      ],
+      "q": [
+        1,
+        3,
+        2,
+        1,
+        3,
+        2,
+        1,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "stage_nodes": [
+        137,
+        241,
+        332,
+        421,
+        499,
+        588,
+        665,
+        739,
+        804,
+        890,
+        964,
+        1035,
+        1096,
+        1167,
+        1227,
+        1283
+      ],
+      "counts": {
+        "dag_make_calls": 271818,
+        "dag_created_nodes": 199886,
+        "dag_min_calls": 222871,
+        "dag_min_expansions": 102089,
+        "dag_prefix_calls": 37265,
+        "dag_prefix_expansions": 18527,
+        "dag_add_calls": 245033,
+        "dag_add_expansions": 122203,
+        "dag_range_prunes": 54297,
+        "dag_gap_classes": 208,
+        "dag_range_visits": 17928,
+        "record_ancestor_nodes": 16,
+        "record_output_nodes": 16,
+        "dag_all_nodes": 199887,
+        "dag_history_nodes": 12078,
+        "record_verified_nodes": 16
+      },
+      "reference_counts": {
+        "height_fallback_candidates": 256,
+        "height_fallback_states": 136,
+        "height_fallback_output_nodes": 16
+      },
+      "verification": "Full mixed DAG construction at certified sufficient height, independent Knuth optimum, complete output tree"
+    }
+  ],
+  "source_sha256": {
+    "slot_dag_probe.py": "e0adbce264ef4a131f623ecabfb15f2772eec011b504173d57e0407459294313",
+    "slot_dag.py": "e0e8c7ac511bc658205ee5130d4acd43304ec9e91a76f1c27c99429ac097e637",
+    "slot_vector.py": "f234a4954d70b485ef1fa108e669bcfadeeeaf81a0c8948be96201cc986cbee2",
+    "slot_records.py": "8f8d222c1eae0bae0004927e1e92d9551ed66b3c2d99df401c02ef05157b5e27",
+    "slot_records_audit.py": "77be385cfef7ab60d15a72d8b7a59c224f21be240e3eb1d677e53388ddc70f2c",
+    "trimmed_height.py": "19efde94ff7985b656372d1faedf299d64bd2ae23dfa4df530f5a76cf2f86f6f"
+  }
+}
