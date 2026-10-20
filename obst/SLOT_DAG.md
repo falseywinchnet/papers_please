@@ -134,3 +134,61 @@ A compact final diagram alone is not a construction-time bound. The next
 necessary result is control of the particular normalized minimum contexts
 created by mixed OBST, or a representation that avoids those contexts. The
 new theorem rules out relying on monotonicity alone for that step.
+
+## Endpoint dominance and one-path predecessor queries
+
+Actual mixed prefix functions satisfy a stronger endpoint relation: if
+1 <= a <= c and v(a) <= v(c), then f_k(c) <= f_k(a). Move only the last
+selected key to c. Its key reward and preceding-gap reward cannot decrease.
+This argument uses nonnegative weights on both kinds of outcomes.
+
+Write b-1 as a sum of powers of two in descending order. Its successive
+partial sums are a skyline S(b), together with slot zero. Every positive
+a<b lies between two successive partial sums and is dominated by the right
+endpoint: that endpoint is later and has greater or equal valuation. Thus,
+for every nonnegative prospective gap g,
+
+    min_(a<b) [f_k(a)-g min(v(a),v(b))]
+      = min_(a in S(b)) [f_k(a)-g min(v(a),v(b))].
+
+Store the value at local address zero in each normalized diagram node.
+It is the left child's first-address value plus its edge offset, with
+infinity propagated. This costs one value and constant work per created node.
+Walk the bits of b-1 from most to least significant. Each 1-bit enters a
+right child whose first address is the next skyline point; its valuation
+is the bit position. The cached first-address value supplies its candidate
+cost in constant work. The entire query takes O(h) arithmetic/address
+operations and creates no nodes. The sentinel b=2^h with g=0 also finds
+a global optimum. Ties choose an attaining skyline point, which need not
+be the globally earliest minimizer.
+
+The complete constructor in `code/slot_dag_skyline.py` uses this query for
+all n slot choices, giving O(nh) slot traceback with exactly nh path steps
+in the implementation and no new diagrams. It retains the previous forward
+recurrence and subsequent sparse tree repair. Intermediate diagram sizes
+and forward minimum contexts are still the unresolved general bound.
+
+## Directed size searches
+
+`slot_dag_size_search.py` evaluates actual mixed prefix functions at h=n,
+independently normalizes every dyadic block, and maximizes the largest
+reachable diagram across all stages. It explores shuffled geometric key
+weights, geometric gaps, and local weight/swap mutations. Each candidate's
+full optimum has an independent Knuth check; each size winner has every
+prefix value checked against the implicit constructor. Height n is always
+sufficient but need not be necessary on these unrestricted search inputs.
+
+`slot_dag_chain_search.py` separately enforces necessary height n. With
+A=8(n+1)^2, choose arbitrary integer coefficients alpha_i,beta_j in [1,n]
+and set p_i=alpha_i A^(n-i), q_j=beta_j A^max(0,n-j-1), using zero-based
+indices. For every suffix i, p_i exceeds n times all its other outcome
+weights. Indeed, with r=n-i, the latter mass R is below
+2n A^r/(A-1)+n, so nR/p_i < 3n^2/(A-1) < 1. A tree with another root
+costs at least 2p_i, whereas the right chain costs at most p_i+nR.
+Recursing forces the unique full right chain. This supplies a proved
+height certificate for every coefficient mutation, independently of search.
+
+The finite search results and verification counts are recorded in the
+manuscript appendix and source-hashed JSON. They do not establish a size
+exponent. In particular, neither search proves a general upper bound or
+realizes the earlier exponential generic-minimum example as an OBST update.

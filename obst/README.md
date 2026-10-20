@@ -8,6 +8,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
 - [Implicit mixed prefix functions with additive decision diagrams](SLOT_DAG.md)
+- [Endpoint dominance, one-path mixed queries, and directed diagram-size searches](SLOT_DAG.md#endpoint-dominance-and-one-path-predecessor-queries)
 - [Exact exponential prefix-record support at necessary optimal height](SLOT_RECORD_BARRIER.md)
 - [Prefix records and full construction without perfect-tree expansion](SLOT_RECORDS.md)
 - [Sufficient unrestricted height after setting aside exceptional outcomes](TRIMMED_HEIGHT.md)

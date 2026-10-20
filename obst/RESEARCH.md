@@ -4513,3 +4513,90 @@ labels survive among 460 unique labels, with 21 bibliography entries and
 all references resolved. The dedication bytes are unchanged. New results
 are in Section 2.20, the grouped negative-results section, and Appendix T.
 The general arbitrary-weight subquadratic goal remains active.
+
+## Checkpoint 59: actual-prefix searches and one-path mixed traceback
+
+The preceding turn was progress: checkpoint 58 was published as 539e300,
+with an exact full mixed implicit constructor and a generic minimum barrier.
+The current checkout and published state were inspected before this work.
+The full arbitrary-weight subquadratic objective remains active.
+
+This turn attacks actual OBST diagram growth instead of reusing arbitrary
+monotone functions as though they were realizable prefixes. A seeded local
+search evaluates 204 mixed inputs at n=h=6,8,10,12,14,16. It shuffles
+geometric keys, varies geometric gaps, and mutates/swaps weights while
+maximizing the largest diagram across stages. Each diagram size is counted
+by a separate bottom-up normalization of every dense dyadic block. Every
+input's optimum has an independent Knuth reference; every size winner has
+all prefix values checked against the implicit solver. The largest sizes
+are 58,157,310,548,1335,2479, with final sizes 49,81,140,311,341,1920.
+Thus measuring only the final prefix can hide larger intermediate functions.
+No exponent follows from these finite observations. Height n is sufficient
+but is not certified necessary in this first search.
+
+A separate 48-input search enforces necessary height n, while keeping both
+key and gap weights positive and allowing unrelated gap coefficients.
+Let A=8(n+1)^2, p_i=alpha_i A^(n-i), and
+q_j=beta_j A^max(0,n-j-1), with all coefficients integers in [1,n].
+For suffix i, its remaining mass R satisfies
+R < 2n A^(n-i)/(A-1)+n. Therefore p_i > nR. A right-chain suffix costs
+at most p_i+nR; any other root costs at least 2p_i. Recursion proves the
+unique full chain, so height n is necessary independently of the search.
+The maximal observed sizes at the same six n are 48,123,266,495,829,1283;
+they are also the winners' final sizes. These match the earlier geometric
+sizes through 16; no general diagram-size theorem is inferred. Each winner
+returns the exact full chain and agrees with its closed cost and Knuth.
+
+The positive structural result is stronger endpoint dominance. Moving the
+last key of a prefix from a to a later c with v(c)>=v(a) cannot reduce
+its key or preceding-gap reward. Thus f_k(c)<=f_k(a). Write b-1 as the
+sum of its descending set-bit powers; the successive partial sums form a
+skyline. Every positive a<b lies in an interval ending at one of these
+partial sums, whose valuation is at least v(a). The skyline therefore
+contains an attaining predecessor even after adding any nonnegative new
+gap penalty -g min(v(a),v(b)). Slot zero is retained separately.
+
+Augment each additive node with its first-address value, including infinity.
+This is computed from the left child in constant work at node creation.
+Walking the bits of b-1 visits every skyline point: each 1-bit enters a
+right child starting at that point, whose first value is immediately known.
+This proves O(h) arithmetic/address operations per mixed predecessor query,
+without new diagram nodes. Query the global sentinel 2^h at gap zero, then
+follow n-1 predecessor queries. Selected-slot traceback is O(nh); sparse
+ancestor repair remains the separately proved final tree-construction step.
+Ties need not yield the globally earliest minimizer, only an attainer.
+The new implementation retains the original forward operations unchanged;
+no general bound on their intermediate diagrams or minimum contexts follows.
+
+The skyline audit passes 42,144 direct all-predecessor prefix comparisons,
+168,576 literal predecessor-query controls with integer/rational gap prices,
+and 185,856 full endpoint-dominance comparisons. All 680 binary mixed inputs
+through four keys and 24 rational inputs through 12 keys give 704 complete
+original all-root optimum/tree controls. Six full constructions on the
+unconstrained size-search winners match their independent stage sizes and
+Knuth optima. At height n they use exactly n^2 traceback path steps and
+create zero traceback nodes. Total forward nodes are still counted; the
+16-key unconstrained winner creates 144,500 nodes, far more than its
+largest live prefix size of 2479. This is a traceback improvement, not a
+claim that the complete constructor beats Knuth.
+
+All three new result records retain exact counts and executed-source hashes;
+the skyline audit also records the consumed size-search JSON hash. The
+first search normalizes 15,155,304 dyadic blocks and evaluates 15,146,188
+mixed prefix states. All compute ran through m4build, and each completed
+JSON was copied back before another mirror operation. No timings are used.
+The manuscript adds the endpoint-dominance lemma, the one-path query theorem,
+and appendix verification. All earlier source files remain unchanged.
+
+Final validation for checkpoint 59: all 22 source-hash entries across the
+three new audit records match the authoritative files, and the consumed
+search-record hash matches. The final 164-page manuscript compiles without
+warnings, overfull boxes, underfull boxes, or unresolved references. All
+460 prior labels survive among 463 unique labels, with 21 bibliography
+entries and all citations resolved. All pages were rendered and reviewed
+in nine contact sheets; pages 35--36, 156, and 164 were also reviewed at
+readable resolution. The dedication is byte-for-byte unchanged. The PDF,
+TeX, and five-file source/font bundle were copied to the user outputs and
+verified against the manuscript. A compiler invocation initially used the
+repository root; its newly generated untracked log was removed, and all
+publication validation uses the correct obst/manuscript build.

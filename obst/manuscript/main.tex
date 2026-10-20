@@ -2420,6 +2420,82 @@ The new constructor supports arbitrary mixed weights; a universal
 subquadratic bound on its intermediate work remains open. Independent
 prefix and full-tree controls appear in Appendix~\ref{app:rank-transfer}.
 
+\begin{lemma}[Endpoint dominance and binary skyline]\label{lem:dag-skyline}
+For every nonempty mixed prefix with nonnegative normalized weights,
+\[
+ 1\le a\le c<2^h,\quad v(a)\le v(c)
+ \quad\Longrightarrow\quad f_k(c)\le f_k(a).
+\]
+For $1\le b\le2^h$, write $b-1=\sum_{j=1}^t2^{d_j}$ with
+$d_1>\cdots>d_t\ge0$, and let
+$c_j=\sum_{i=1}^j2^{d_i}$. Define
+$S(b)=\{0,c_1,\ldots,c_t\}$. For every $g\ge0$ and $k\ge0$,
+\begin{equation}\label{eq:dag-skyline}
+ \min_{0\le a<b}\{f_k(a)-g\min(v(a),v(b))\}
+ =\min_{a\in S(b)}\{f_k(a)-g\min(v(a),v(b))\}.
+\end{equation}
+Here infeasible values are infinite, $v(0)=0$, and the endpoint sentinel
+$b=2^h$ has $v(b)=h$.
+\end{lemma}
+\begin{proof}
+For a finite $f_k(a)$, move only the final selected key from $a$ to $c$.
+All earlier selected slots remain smaller. Its key reward cannot decrease,
+and its preceding-gap reward cannot decrease because the gap weight is
+nonnegative and $\min(v(s_{k-1}),v(c))\ge
+\min(v(s_{k-1}),v(a))$. Thus the new feasible prefix costs at most
+$f_k(a)$; taking its optimum proves endpoint dominance. Infinite values
+make the inequality immediate.
+
+Put $c_0=0$. Each interval $(c_{j-1},c_j]$ has length $2^{d_j}$,
+and $c_{j-1}$ is divisible by $2^{d_j+1}$. Its endpoint has valuation
+$d_j$ and every interior integer has smaller valuation. Therefore each
+positive predecessor $a<b$ has a representative $c_j\ge a$ with
+$v(c_j)\ge v(a)$. Endpoint dominance decreases its prefix cost, and
+$g\ge0$ ensures that subtracting the new gap reward decreases it again.
+The representative remains below $b$. Slot zero is retained separately.
+These observations prove both inequalities in \eqref{eq:dag-skyline};
+for $k=0$, only its retained zero slot is finite.
+\end{proof}
+
+\begin{theorem}[One-path mixed predecessor queries]\label{thm:dag-skyline-query}
+Augment every additive diagram node by the value at its first local address,
+allowing infinity. This adds constant work and one stored value per created
+node. On any actual mixed prefix function, the minimum in
+\eqref{eq:dag-skyline} and an attaining predecessor can then be found in
+$O(h)$ arithmetic and address operations, with no diagram-node creation.
+Given the prefix roots from Theorem~\ref{thm:slot-dag}, all optimal selected
+slots can be recovered in $O(nh)$ such operations and $O(n)$ output space,
+without creating masked diagrams or invoking pointwise diagram operations.
+\end{theorem}
+\begin{proof}
+A normalized node's first-address value is its left child's edge offset
+plus that child's first-address value, or infinity if that address is
+infeasible. Both are known when the parent is created. An incoming root
+offset is added on reading this metadata.
+
+Follow the $h$ bits of $b-1$ from most to least significant. Whenever bit
+$d$ is one, the right child begins at exactly the next skyline position
+$c_j$. Its stored first-address value, including the accumulated root
+offset, is $f_k(c_j)$, and $v(c_j)=d$. Read it in constant work, subtract
+$g\min(d,v(b))$, and retain the best feasible candidate. Also consider
+$f_k(0)$. This is one path walk with at most $h+1$ candidates, so the
+lemma proves the query and its work bound. Ties may select any attaining
+skyline candidate; it need not be the earliest minimizer among all slots.
+
+Query $f_n$ with $b=2^h$ and $g=0$ to find an optimal last slot. For each
+preceding key, query its prefix root with the current slot and the relevant
+residual gap. The current key's reward is constant during this predecessor
+choice. The mixed recurrence therefore supplies an attaining predecessor
+at every step. There are exactly $n$ queries. The selected positions are
+strictly increasing in forward order, and the existing sparse ancestor
+repair constructs the complete optimal tree from them.
+\end{proof}
+
+The new bound concerns slot traceback. The forward construction still has
+the intermediate-size and minimum-context parameters of
+Theorem~\ref{thm:slot-dag}. In particular, endpoint dominance has not yet
+supplied a general subquadratic bound for constructing the prefix roots.
+
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
 The one-block representation extends to two equal positive blocks, including
@@ -10625,6 +10701,55 @@ These complete controls establish correctness on the displayed inputs;
 the measured sizes supply no universal graph-size bound. The record
 \texttt{slot\_dag\_probe.json} retains input weights, operation counters,
 reference counts, and source hashes.
+
+\paragraph{Actual-prefix size search and skyline traceback.}
+A directed search uses exact dense mixed prefix values, independently
+normalizes every dyadic block, and maximizes the largest reachable diagram
+across all stages. It evaluates 204 inputs at $n=h=6,8,10,12,14,16$,
+using shuffled geometric keys, geometric gaps, and local coefficient or
+swap mutations. Every full optimum agrees with ordinary Knuth. The
+largest sizes found are respectively $58,157,310,548,1335,2479$;
+the corresponding final sizes are $49,81,140,311,341,1920$. Each winner
+has every prefix entry independently compared with the implicit constructor.
+Height $n$ is sufficient on these inputs; the search does not certify
+that it is necessary. These finite sizes imply no growth exponent.
+The record is \texttt{slot\_dag\_size\_search.json}.
+
+A second search uses positive mixed inputs with necessary height $n$.
+For $A=8(n+1)^2$, choose coefficients $\alpha_i,\beta_j\in\{1,\ldots,n\}$
+and set
+\[
+ p_i=\alpha_i A^{n-i},\qquad
+ q_j=\beta_j A^{\max(0,n-j-1)}
+ \quad(0\le i<n,\ 0\le j\le n).
+\]
+For a suffix beginning at $i$, put $r=n-i$ and let $R$ be the mass of
+all its outcomes other than $p_i$. Then
+$R<2nA^r/(A-1)+n$, so
+$nR/p_i<3n^2/(A-1)<1$. The right chain has suffix cost at most
+$p_i+nR$, while a different root incurs at least $2p_i$.
+Recursion forces the unique right chain and hence height $n$.
+This argument applies to every allowed coefficient mutation.
+At the same six sizes, 48 inputs are evaluated. The largest found
+sizes, also the winners' final sizes, are $48,123,266,495,829,1283$.
+Every candidate has an independent Knuth optimum check; each winning
+complete skyline construction agrees with the closed chain cost and has
+all links, gaps, order constraints, and depths checked. The source-hashed
+record is \texttt{slot\_dag\_chain\_search.json}.
+
+The separate skyline audit checks 42,144 prefix values against direct
+all-predecessor minimization, 168,576 predecessor queries against literal
+candidate scans, and 185,856 endpoint-dominance inequalities. It includes
+all 680 binary mixed inputs through four keys and 24 rational inputs
+through 12 keys, totaling 704 complete all-root optimum and tree checks.
+Queries use zero, integer, and rational nonnegative gap prices, and include
+infeasible prefixes and the global endpoint sentinel. Six complete
+constructions on the unconstrained search winners agree with Knuth and
+all independently counted stage sizes. Their slot traceback makes exactly
+$n^2$ path steps at $h=n$ and creates zero diagram nodes, as predicted
+by Theorem~\ref{thm:dag-skyline-query}. The record
+\texttt{slot\_dag\_skyline\_audit.json} retains operation counts, executed
+source hashes, and the hash of its consumed search record.
 
 \clearpage
 \section{Unimodal domination and certified-envelope audit}

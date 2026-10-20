@@ -620,3 +620,17 @@ recurrence and every full optimum with original all-root or Knuth references.
 Large geometric rows run the general DAG solver, including full traceback.
 Count all intermediate nodes and operation visits; live final-node counts
 alone do not measure construction work. Copy results before mirroring again.
+
+Actual-prefix diagram-size searches and skyline traceback audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_size_search.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_skyline_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_chain_search.py
+```
+
+Copy each JSON back before the next mirror. The skyline audit consumes the
+first search's retained winners. Unrestricted search height n is only a
+sufficient height; the separate mixed chain search proves it necessary.
+Count every intermediate node and all forward operations. The O(nh) theorem
+is for selected-slot traceback, not the full forward construction.
