@@ -784,3 +784,18 @@ root holes, signed rational errors, rejected certificates and counted expansion
 budgets. Keep preparation separate from reused queries. The largest two-tree
 row uses its proved classification; independent Knuth has a separate size
 limit. Copy each result before another mirror and preserve earlier source hashes.
+
+Exact root-range products and full coarse-regret screening:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/coarse_screen_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/coarse_screen_scale.py
+```
+
+Establish signed subtree-regret inclusion with independent all-root trees
+before importing the constructor. Check generic finite Monge range products,
+partial valid ranges, signed boundaries, every small retained root set, and
+direct threshold formulas. Retain exact full Knuth and literal controls,
+zero-budget failures, dense coarse faces, unrelated reused inputs and matched
+256-bit inputs at four precisions. Separate all preparation, screening and
+fallback counters. Copy each completed result before another mirror operation.

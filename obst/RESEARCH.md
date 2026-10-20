@@ -5260,3 +5260,89 @@ The dedication is byte-identical. All ten source-hash entries and all new
 table rows match the completed Mini records. The output TeX/PDF copies are
 byte-identical, and the five-file source bundle contains the exact TeX,
 build instructions and Hebrew font resources.
+
+## Checkpoint 69: arbitrary-weight coarse-regret screening
+
+Checkpoint 68 made progress with a reachable coarse-optimal grammar, but its
+acceptance certificate and root-span scans left two concrete limits. This
+checkpoint replaces both: arbitrary nonnegative original inputs receive a
+signed height-based regret allowance, and a compressed hierarchy enumerates
+qualifying roots without scanning the whole span between root extremes.
+The harness preceded the solver and checked subtree inclusion independently.
+
+For any coarse integer input a and scale delta>0, let Eplus/Eminus be interval
+positive/negative error masses, including both endpoint gaps. If Hc bounds
+coarse optima on all intervals and Hf bounds some full original optimum,
+eta=(min(m,Hc)-1)Eplus+(min(m,Hf)-1)Eminus suffices. Compare each subtree of
+that chosen original optimum with a height-bounded coarse optimum. All
+outcome comparison lengths lie between one and the relevant height, so
+original optimality bounds coarse regret by eta. The root-constrained coarse
+minimum is no larger. Every chosen original subtree root therefore survives.
+This holds for arbitrary error magnitude and only needs one surviving optimum.
+
+For a finite Monge C, the index stores min_r C(i,r)+C(r+1,j) on a balanced
+hierarchy of root ranges. Compress the first factor's outer rows and second
+factor's outer columns using only touched density coordinates. Missing
+coordinates differ by root-independent offsets. At each depth, a density
+belongs to at most one first-factor range and one second-factor range;
+inner lengths sum to at most n. The published product core bound and
+persistent entry indexes yield O((n+K)L^2) preprocessing and storage and
+O(L) range queries. Threshold enumeration costs O((a+1)L^2), including
+partial valid ranges, holes and interrupted prefixes. The proof explicitly
+covers midpoint splitting for non-power-of-two n.
+
+Full preparation costs O(Sbar L+(n+K)L^2); original refinement costs
+O(nL+(V+A)L^2), including height selection, input scans, retained rules,
+original recurrence and full output. Prepared indexes support unrelated
+original inputs and arbitrary positive scales. Balanced dictionaries supply
+the deterministic comparison model; Python uses counted dictionary events.
+Operand bit costs remain separate.
+
+The automatic precision b=L^3 gives Wbar<=(2n+1)L^3. For the final completed
+core, telescoping integral mass gives K<=n+LWbar, sharper than using the
+intermediate-layer estimate. With H=O(L), the complete coarse preparation
+is O(n^(3/2)L^3+nL^7)=o(n^2). A 4nL charge budget bounds successful or
+interrupted fine expansion by O(nL^3), followed by exact full Knuth on
+exhaustion. Thus successful complete constructions are subquadratic in the
+arithmetic model; the unconditional worst case remains quadratic. Existing
+dense coarse-optimal families still survive every nonnegative regret
+allowance. The general arbitrary-weight objective is not resolved.
+
+The completed Mini audit checks 540 independent optimal-subtree inclusions,
+130,020 root-range entries and 17,940 threshold enumerations on sixty generic
+finite Monge matrices. It verifies 1,980 complete root sets and direct-sum
+threshold formulas, 108 complete original solves, 72 literal controls with
+2,352 tree costs, and 108 zero-budget fallbacks. Ninety-six supplied
+base/scale pairs fail the earlier certificate yet refine exactly. Fifteen
+automatic scaling controls, four dense uniform-face controls, five rational
+inputs, three unrelated reused inputs and twenty uniform/empty cases also
+match their independent references. The small all-root reference accounts
+for 4,632 states and 15,500 root candidates.
+
+The matched precision experiment runs positive random 256-bit weights at
+n=32,64,128,256, at b=1,16,L^2,L^3 on each identical input. All sixteen
+complete outputs match independent Knuth. Default precision completes
+screening at every size. L^2 completes only at n=32; all lower-precision
+rows exhaust the counted budget. At n=256 the default has V=1,029,A=1,311,
+14,244 range-minimum calls and 17,521,921 preparation core visits, versus
+66,070 candidate roots in the independent Knuth control. Preparation remains
+substantial; sparse fine graphs do not establish a practical speedup.
+The complete event categories, inputs, exact scales, original costs and
+failed work are retained in two records with seventeen source-hash entries.
+
+The paper retains the main Monge lead theorem, adds the constructive proofs
+beside the coarse certificate, and places every new measurement in its audit
+appendix. Existing labels, references, authorship, sponsorship, title asterisk
+and dedication are preserved. This checkpoint makes no priority claim for
+generic coarsening, pruning or dynamic programming over retained choices.
+
+Final checkpoint-69 validation: the 194-page PDF compiles without warnings,
+unresolved references or overfull/underfull boxes. All pages were reviewed
+in contact sheets, with new proof pages 57--60, audit pages 165--166, title
+and dedication inspected at full detail. The final endpoint clarification
+changed only rendered page 58, which was inspected again. All 537 previous
+labels remain among 550 unique labels; all 23 bibliography entries remain.
+Dedication bytes are unchanged. All seventeen executed-source hash entries
+and sixteen matched table rows agree with the completed Mini records.
+Output TeX/PDF copies are byte-identical and the five-file source bundle
+contains the exact TeX, build instructions and Hebrew font resources.

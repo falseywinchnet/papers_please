@@ -3994,6 +3994,235 @@ and separate preparation/query counts appear in
 Appendix~\ref{app:adaptive-coarse-grammar}.
 
 
+\subsection{Screening roots by coarse cost and height}
+\label{sec:coarse-screen}
+Coarse weights can also screen roots when the small-error certificate
+\eqref{eq:coarse-certificate} fails. Retain every root whose coarse regret
+is within a height-based allowance for the original errors. An optimum
+for the original weights survives this screening. A hierarchy of
+compressed root-range products enumerates the surviving roots without
+scanning every position between their extremes.
+
+\begin{lemma}[A hierarchy of root-range minima]\label{lem:root-range-index}
+Let $n\ge1$ and let $C$ be a finite $(n+1)\times(n+1)$ Monge matrix in condensed form,
+with $K$ positive densities, and put $L=\lceil\log_2(n+1)\rceil$.
+In $O((n+K)L^2)$ arithmetic and comparison operations and space one can
+index a balanced binary hierarchy of ranges $I=[\ell,u)\subseteq[0,n)$.
+For every hierarchy node, a query
+\begin{equation}\label{eq:root-range-minimum}
+ D_I(i,j)=\min_{r\in I}\{C(i,r)+C(r+1,j)\}
+\end{equation}
+takes $O(L)$ work. Given any threshold $t$ and contiguous valid-root
+range $J\subseteq[0,n)$, all $a$ roots in $J$ satisfying
+$C(i,r)+C(r+1,j)\le t$ can be enumerated in $O((a+1)L^2)$ work.
+The bounds include all products and indexing, rather than assuming
+constant-time access to a condensed entry.
+\end{lemma}
+\begin{proof}
+Split each nonsingleton range at its integer midpoint; this gives
+$2n-1$ nodes and depth at most $\lceil\log_2 n\rceil$, also when $n$
+is not a power of two. Build the persistent entry index used in
+Theorem~\ref{thm:adaptive-coarse-grammar} for the input $C$.
+
+At $I=[\ell,u)$, write $d_{a,b}$ for a density of $C$. The restricted
+first factor has exactly the densities with $\ell\le b<u-1$;
+let their number be $K_A$. The restricted second factor has those
+with $\ell+1\le a<u$; let their number be $K_B$. Keep row coordinates
+\[
+ R_I=\{0\}\cup\{a+1:d_{a,b}>0,\ \ell\le b<u-1\}
+\]
+in the first factor, and column coordinates
+\[
+ T_I=\{0\}\cup\{b+1:d_{a,b}>0,\ \ell+1\le a<u\}
+\]
+in the second. Let $\rho(i)$ and $\kappa(j)$ be the largest retained
+coordinates no greater than $i,j$. Telescoping the intervening densities
+gives, for every $r\in I$,
+\begin{align*}
+ C(i,r)-C(\rho(i),r)&=C(i,\ell)-C(\rho(i),\ell),\\
+ C(r+1,j)-C(r+1,\kappa(j))
+   &=C(\ell+1,j)-C(\ell+1,\kappa(j)).
+\end{align*}
+For the first identity, a density with row between $\rho(i)$ and $i-1$
+and column in $[\ell,u-1)$ would have inserted a retained coordinate
+in $(\rho(i),i]$, contradicting the choice of $\rho(i)$. Densities outside
+that column range contribute the same row offset for every $r\in I$.
+The second identity follows by the transposed argument.
+
+Multiply the compressed factors
+$C[R_I,I]$ and $C[I+1,T_I]$, retaining their product $P_I$.
+There are at most $K_A+1$ outer rows and $K_B+1$ outer columns,
+with $|I|$ inner positions. Increasing-coordinate selection preserves
+Monge structure. The published product theorem~\cite{coremonge} gives
+at most $K_A+K_B$ product-core entries. Store their persistent entry
+index and the two offset boundary arrays. Then
+\begin{align}
+ D_I(i,j)={}&P_I(\rho(i),\kappa(j))
+     +C(i,\ell)-C(\rho(i),\ell)\nonumber\\
+     &+C(\ell+1,j)-C(\ell+1,\kappa(j)).
+     \label{eq:root-range-recovery}
+\end{align}
+Here product coordinates are identified with their retained original
+coordinates. Binary searches locate those coordinates; the two original
+entry queries and the compressed product query take $O(L)$ work.
+The other two entries are stored offsets.
+
+At any hierarchy depth, the inner ranges are disjoint and their total
+length is at most $n$. Each original density belongs to at most one
+first-factor range and one second-factor range at that depth.
+Consequently the sum of $K_A+K_B$ at a depth is at most $2K$.
+Splitting a range drops densities crossing the new inner boundary;
+it never copies a density into both children of the same factor.
+Thus all factor dimensions and core sizes together are $O((n+K)L)$.
+Sort and deduplicate only the retained coordinates. Obtain factor
+boundaries from the original index and its top row and left column.
+The product, coordinate sorting and entry-index costs add at most
+one further factor $L$, proving the preparation and space bounds.
+In particular, no node allocates a fresh full-length outer boundary.
+
+For enumeration, skip a node disjoint from $J$, and prune a node when
+its range minimum exceeds $t$. Otherwise descend, emitting a surviving
+singleton. Fully contained nodes that survive pruning have a qualifying
+leaf below them. Their visited descendants can be charged to the at most
+$L$ ancestors of each emitted root and their pruned siblings.
+Partially intersecting nodes lie on the two boundary paths of $J$.
+There are therefore $O((a+1)L)$ visited nodes, each using at most one
+$O(L)$ range query. The same bound applies to an interrupted enumeration
+prefix, with the number of emitted roots plus one.
+\end{proof}
+
+Let the coarse nonnegative integer weights be $(\bar p,\bar q)$ and
+the original arbitrary nonnegative weights be $(p,q)$. Fix any $\delta>0$.
+For a nonempty interval $I=[i,j)$, include all its keys and both endpoint
+gaps when defining
+\[
+ E_+(I)=\sum_{o\in I}(x_o-\delta\bar x_o)_+,\qquad
+ E_-(I)=\sum_{o\in I}(\delta\bar x_o-x_o)_+.
+\]
+Here $y_+=\max\{y,0\}$, and the notation $o\in I$ refers to those
+outcomes. Let $H_f$ bound the height of some full original optimum.
+Let $H_c$ bound the height of some coarse optimum on every interval.
+The existing height lemma supplies $H_f$, with the trivial choice
+$H_f=n$ always available. The number of completed coarse Monge layers
+supplies $H_c$: their final values are unrestricted and are attained
+within that many layers on every interval.
+
+\begin{lemma}[A signed coarse-regret allowance]\label{lem:coarse-regret}
+For $m=j-i>0$, put
+\begin{equation}\label{eq:coarse-regret-allowance}
+ \eta(I)=(\min\{m,H_c\}-1)E_+(I)
+                 +(\min\{m,H_f\}-1)E_-(I).
+\end{equation}
+There is a full original optimum all of whose subtree roots $r$ satisfy
+\begin{equation}\label{eq:coarse-root-screen}
+ \bar C(i,r)+\bar C(r+1,j)+\bar W(i,j)
+       \le \bar C(i,j)+\eta(I)/\delta,
+\end{equation}
+where $\bar C$ is the unrestricted coarse optimum table.
+This conclusion holds for every error magnitude.
+\end{lemma}
+\begin{proof}
+Choose a full original optimum $T$ of height at most $H_f$.
+Its subtree $T_I$ on any of its intervals is original-weight optimal
+there. Compare it with a coarse-optimal tree $U_I$ of height at most
+$\min\{m,H_c\}$. Every outcome comparison length in a nonempty
+$m$-key tree lies in $[1,m]$. Positive errors can increase
+$C_e(U_I)-C_e(T_I)$ by at most
+$(\min\{m,H_c\}-1)E_+(I)$, while negative errors can increase it by
+at most $(\min\{m,H_f\}-1)E_-(I)$. Original optimality therefore gives
+\[
+ \delta\bigl(C_{\bar p,\bar q}(T_I)-\bar C(i,j)\bigr)
+       \le C_e(U_I)-C_e(T_I)\le\eta(I).
+\]
+The least coarse cost with the same root $r$ is no larger than the
+coarse cost of $T_I$. Substituting that root-constrained minimum proves
+\eqref{eq:coarse-root-screen} simultaneously at every subtree of $T$.
+Only existence of one height-bounded full optimum is required; the
+screen need not preserve every tall tied optimum.
+\end{proof}
+
+\begin{theorem}[Full construction through coarse-regret screening]
+\label{thm:coarse-screen}
+Prepare the coarse Monge construction, with aggregate core quantity
+$\bar S$, final completed core size $K$, and $H_c$ as above. In
+\begin{equation}\label{eq:coarse-screen-preparation}
+ O\bigl(\bar S L+(n+K)L^2\bigr)
+\end{equation}
+work, prepare the root-range index. For any original nonnegative input,
+start at $[0,n)$, retain precisely the valid roots satisfying
+\eqref{eq:coarse-root-screen}, and recurse on their children,
+deduplicating intervals. Let $V$ and $A$ be the reached nonempty
+interval and retained root counts.
+
+Using the sufficient-height selector of Lemma~\ref{lem:trimmed-height},
+the complete original optimum can be constructed in
+\begin{equation}\label{eq:coarse-screen-query}
+ O\bigl(nL+(V+A)L^2\bigr)
+\end{equation}
+additional arithmetic and comparison operations. Preparation can be
+reused for unrelated fine-weight inputs and any positive scale.
+Retained index and query space is $O((n+K)L^2+V+A)$; ordinary coarse
+witness maps add $O(\bar S L)$ during preparation.
+\end{theorem}
+\begin{proof}
+Index the finite completed coarse matrix by Lemma~\ref{lem:root-range-index}.
+For each reached interval, query with valid roots $[i,j)$ and threshold
+$\bar C(i,j)-\bar W(i,j)+\eta(I)/\delta$.
+Prefix sums compute both signed error masses, coarse interval masses
+and original interval masses. The entry $\bar C(i,j)$ costs $O(L)$.
+Summing the enumeration bound over reached intervals gives
+$O((V+A)L^2)$ work. A balanced endpoint dictionary adds only
+$O((V+A)L)$ comparisons.
+
+Every reached interval retains at least a coarse-optimal root because
+$\eta(I)\ge0$. Thus the retained acyclic grammar has a feasible
+completion. By Lemma~\ref{lem:coarse-regret}, it also contains the chosen
+full original optimum: its root survives, then each of its children
+is reached and its root survives, inductively. Evaluate the original
+root recurrence on retained rules in increasing interval length and
+trace an attaining full tree. The result cannot be more expensive than
+the surviving original optimum, and every output is a feasible original
+BST, so its cost is exactly optimal. It need not have height at most
+$H_f$; that height was used only to prove that an optimum survives.
+State ordering, recurrence evaluation and traceback fit the stated
+bound. Height selection costs $O(nL)$; all other input scans are linear.
+\end{proof}
+
+\paragraph{A low-mass screening attempt for every input.}
+For a nonzero input set $b=L^3$, $\delta=X/b$, where $X$ is its
+largest weight, and round each outcome to the nearest nonnegative
+integer multiple of $\delta$. Then $\bar W\le(2n+1)L^3$ regardless
+of the original magnitudes. Check a budget of $4nL$ charges before
+each reached state and each retained root. If exhausted, stop expansion
+and run ordinary Knuth on the original input.
+Uniform key and gap sequences have their direct linear construction.
+
+This is an exact full constructor on all nonnegative inputs. Its
+coarse preparation is subquadratic in the arithmetic model. In fact,
+the final completed core satisfies
+$K\le n+L\bar W$ by \eqref{eq:core-mass}, while
+$H=O(L)$ for this polynomially bounded coarse mass.
+The aggregate theorem and \eqref{eq:coarse-screen-preparation} give
+\begin{equation}\label{eq:coarse-screen-automatic}
+ O\bigl(n^{3/2}L^3+nL^7\bigr)=o(n^2)
+\end{equation}
+preparation work. The budget bounds a successful or interrupted screening
+attempt by $O(nL^3)$ additional work, including partial enumeration.
+Consequently a successful full construction is subquadratic, and the
+global worst case, including every failed attempt, is $O(n^2)$.
+The final core bound is used only for preprocessing this index; the
+early-layer odd-ramp obstruction remains unchanged.
+
+The remaining issue is the size of the screened grammar. A coarse-optimal
+root has zero regret and always survives, so the dense uniform family
+can still force quadratic states and cubic rules without a budget.
+The improvement is that coarse screening now applies to every original
+weight vector, with an explicit regret allowance, rather than stopping
+when the small-error certificate fails. All bounds exclude operand bit
+costs. Independent inclusion, range-product and full-construction checks
+are reported in Appendix~\ref{app:coarse-screen}.
+
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -11260,6 +11489,88 @@ is also checked directly. The source-hashed
 \texttt{coarse\_exchange\_control.json} retains the weights, candidate
 tree and every neighbor. This finite counterexample motivated optimizing
 the retained grammar directly.
+
+
+\subsection{Coarse-regret screening and root-range index audit}
+\label{app:coarse-screen}
+The harness first checks the signed allowance using independent all-root
+recurrences and minimum-height attaining trees, before importing the new
+constructor. It checks 540 optimal-subtree inclusions. Sixty generic finite
+Monge matrices of orders $n+1$, $1\le n\le15$, have independently generated
+signed boundaries and nonnegative densities. Dense minima verify 130,020
+indexed root-range entries and 17,940 threshold enumerations. The hierarchy
+checks the per-depth $2K$ density charge, product-core bound, index-node
+bound, total inner dimensions and exactly $2n-1$ range nodes.
+
+The complete constructor audit checks 108 original-weight instances,
+1,980 reached-interval root sets and, independently, all 1,980 threshold
+formulas using direct sums over interval outcomes. Each complete result
+matches an independent full optimum; 72 controls additionally evaluate
+2,352 literal tree costs. Ninety-six of the 108 supplied coarse-base/scale
+pairs fail the earlier small-error certificate, yet screened refinement
+is exact. This statement concerns those supplied pairs, not every scale
+an automatic selector might try. Another 108 controls exhaust a zero
+expansion budget and return the independent Knuth optimum.
+
+Automatic construction is checked on random mixed, near-uniform and
+geometric weights at $n=16,32,64,128,256$. The first two families complete
+screening at each size; the geometric family exhausts the budget at each
+size and returns the exact fallback result. Four dense uniform-coarse-face
+controls complete at $n=23$ and exhaust at $n=47,95,191$. Five rational
+inputs, three unrelated inputs reusing one preparation, and twenty uniform
+or empty controls are also checked. Original-weight traversal verifies
+each returned full tree. The small independent recurrences evaluate
+4,632 states and 15,500 root candidates.
+
+A separate matched experiment uses positive random weights with up to
+256 bits, at $n=32,64,128,256$, and compares four precisions on each
+identical input. Every row matches an independent full Knuth optimum.
+The record includes complete inputs, exact scales, original optimum costs,
+all failed work, and separate preparation and query counters. Table~\ref{tab:coarse-screen-wide}
+reports selected counters; $P$ is preparation core visits, $Q$ is query
+range-minimum calls, and $F$ is fallback root candidates. Dashes indicate
+that screened-grammar expansion was interrupted. These event categories
+are not a common unit of machine work, and $V,A$ exclude preparation.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rrrrrrrr}
+\toprule
+$n$ & $b$ & $V$ & $A$ & $K$ & $P$ & $Q$ & $F$\\
+\midrule
+32 & 1 & -- & -- & 116 & 172498 & 1685 & 1039\\
+32 & 16 & -- & -- & 252 & 317835 & 2481 & 1039\\
+32 & 36 & 127 & 187 & 262 & 326638 & 1183 & 0\\
+32 & 216 & 33 & 34 & 263 & 328840 & 246 & 0\\
+64 & 1 & -- & -- & 268 & 624306 & 4095 & 4034\\
+64 & 16 & -- & -- & 653 & 1176520 & 5682 & 4034\\
+64 & 49 & -- & -- & 666 & 1205482 & 7069 & 4034\\
+64 & 343 & 104 & 112 & 679 & 1226437 & 988 & 0\\
+128 & 1 & -- & -- & 654 & 2153460 & 9430 & 16062\\
+128 & 16 & -- & -- & 1802 & 4749757 & 12460 & 16062\\
+128 & 64 & -- & -- & 1880 & 4985710 & 17705 & 16062\\
+128 & 512 & 301 & 333 & 1910 & 5056080 & 3349 & 0\\
+256 & 1 & -- & -- & 1611 & 6335828 & 21299 & 66070\\
+256 & 16 & -- & -- & 4805 & 16041939 & 27430 & 66070\\
+256 & 81 & -- & -- & 5214 & 17327199 & 41114 & 66070\\
+256 & 729 & 1029 & 1311 & 5269 & 17521921 & 14244 & 0\\
+\bottomrule
+\end{tabular}
+\caption{Matched exact constructions for wide original weights. Precision
+$b=L^3$ completes screening at every tested size; smaller precisions often
+exhaust the counted budget. Preparation remains substantial.}
+\label{tab:coarse-screen-wide}
+\end{table}
+
+At $n=256,b=729$, the screened grammar has 1,029 intervals and 1,311 roots,
+but preparation alone visits 17,521,921 core entries; the independent
+Knuth reference tests 66,070 root candidates. These counts establish
+neither a practical speedup nor an asymptotic exponent. The work bounds
+in Section~\ref{sec:coarse-screen} follow from the density-charge and
+regret proofs. All seventeen executed-source hash entries in the two
+records are checked against the retained sources. The records and
+reproduction commands accompany the manuscript; the theorem statements
+and proofs require no access to implementation files.
 
 
 \section{Adversarial core search and the odd-ramp proof audit}
