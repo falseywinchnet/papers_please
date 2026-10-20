@@ -571,3 +571,26 @@ fallback reconstruction. The largest rows select heights only. Copy the JSON
 back before another mirror operation. The separate interval audit checks every
 interval against an all-root cost/height recurrence, on both original and
 globally normalized weights.
+
+Valuation-class record compression, sparse ancestor repair, and full mixed trees:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_records_audit.py
+```
+
+The harness checks every prefix state and exact breakpoint against dense
+vectors, literal subsequences at small height, and original all-root optima.
+Larger mixed rows have independent Knuth references; enormous-capacity uniform
+rows use the closed minimum-IPL optimum. The integer score-range bound is
+proved separately from arbitrary-exact-weight correctness. Copy the JSON
+before the next mirror operation.
+
+Finite marked-outcome reward spectra and unbounded-magnitude full controls:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_marked_records_audit.py
+```
+
+Small literal controls permit rational marked weights and integer unmarked
+weights. Larger rows construct full unrestricted mixed trees and compare to
+ordinary Knuth at two exceptional bit lengths. Copy the JSON before mirroring.

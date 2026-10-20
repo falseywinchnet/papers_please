@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Prefix records and full construction without perfect-tree expansion](SLOT_RECORDS.md)
 - [Sufficient unrestricted height after setting aside exceptional outcomes](TRIMMED_HEIGHT.md)
 - [Linear run dependence with arbitrary mixed gaps at a prescribed height](SLOT_VECTOR_CONSTRUCTION.md)
 - [Finite slot-window products and complete prescribed-height run construction](SLOT_RUN_CONSTRUCTION.md)
@@ -69,6 +70,18 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The [valuation-class record construction](SLOT_RECORDS.md) compresses each
+prefix vector to its first value and strict decreases within each ruler
+valuation class. Adaptive finite Monge searches find every record, and sparse
+ancestor repair returns the full tree without allocating 2^h slots. With
+integer mass W=O(n) and a fixed number of normalized key runs and positive
+residual gaps, it proves O(n log^4(n+1)) unrestricted construction and
+O(n log^2(n+1)) words, allowing zero-weight runs. Arbitrary nonnegative
+weights retain an exact bound in the number of retained records. A fixed
+number t of arbitrarily large integer outcomes, with remaining mass O(n),
+also permits O(n log^(t+4)(n+1)) full construction through finite reward
+coefficient counting; the constants are independent of their magnitudes.
 
 The [exceptional-outcome height bound](TRIMMED_HEIGHT.md) makes the mixed
 run-vector method a full unrestricted constructor. After an optimal-tree

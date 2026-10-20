@@ -4235,3 +4235,98 @@ sources. Every page was rendered and reviewed, with detailed proof checks
 on pages 28--30, the new audit on page 145 and dedication on page 153.
 The PDF, TeX and five-member source/font archive are refreshed and verified
 before publication. No elapsed-time result is used.
+
+## Checkpoint 56: prefix records without perfect-tree expansion
+
+The preceding turn was progress: it supplied the unrestricted height theorem
+and independent full-tree/interval audits. This turn attacks the remaining
+explicit 2^h factor in the run-vector route. The harness was written before
+the compressed kernel; no delegation or subagents were used.
+
+For a fixed ending-slot valuation, prefix cost can only decrease as the slot
+moves right: move the last chosen slot without changing either adjacent
+reward. An earlier equal-cost state of the same valuation dominates every
+later equal-cost state for both singleton gap transitions and zero-gap run
+transitions. Retain only the first feasible state and strict decreases.
+For integer normalized mass M, each value lies in [-(h-1)M,0], giving at most
+h[1+(h-1)M] records per stage. This is a proved score-range bound.
+
+Singleton transitions scan record eligibility events for each destination
+valuation. Long runs retain the complete finite Monge factor, restricted to
+record columns. Adaptive bisection of each destination valuation progression
+certifies equal intervals from their endpoints; all required midpoints at a
+level share one SMAWK call. At most h levels, each with at most a constant
+multiple of the new record count, give O(h^2(B_old+B_new)) work. Only active
+endpoints and discovered records are stored. The predecessor saved at the
+start of a constant interval remains attaining throughout that interval.
+
+Traceback selects highest valuations from two arithmetic progressions in
+O(m+h) per recovered run. Repair retains only the union of ancestor paths
+of selected slots, at most nh vertices. Standard successor deletions never
+increase surviving key depths; the mixed gap-depth identity then recovers
+the exact original cost. Deterministic ordered organization gives O(nh^2)
+work and O(nh) words, with iterative output. The prototype's dictionaries
+are implementation choices, not a hash-table assumption in the theorem.
+
+With stage counts B_j and B_0=1, complete work is
+O(h^2(n+sum B_j)), space O(nh+sum B_j). For integer mass M this becomes
+O(nh^2+s(M+1)h^4) work and O(nh+s(M+1)h^2) words. For original W=O(n),
+a sufficient unrestricted height is O(log n), even with zero runs. Fixed
+normalized run and residual-gap counts therefore yield O(n log^4 n) complete
+unrestricted construction and O(n log^2 n) words. Arbitrary nonnegative
+exact weights remain valid inputs with the record-sensitive guarantee.
+General arbitrary-weight subquadratic construction and the original local
+core-support bound remain open; this route does not alter either objective.
+
+The M4 audit passed on the first algorithmic run. It checks 135 nonempty
+slot subsets, 461 selected-key depth bounds, and 6231 independent highest-
+valuation selections. All 680 exhaustive binary inputs through four keys
+and 60 additional mixed/rational/geometric inputs through 32 keys give
+1540 complete prescribed-height controls against dense vectors AND original
+all-root recurrences. Every one of 226,280 prefix values and compressed
+predecessors agrees; 6778 exact breakpoint sets agree. Small-height literal
+controls enumerate 53,824 selections. Original references use 881,564 root
+candidates. No empirical count is substituted for a theoretical bound.
+
+Eight complete unrestricted constructions through 1024 keys match independent
+Knuth optima. The 1024-key zero-middle row has h=25 and implicit capacity
+33,554,431, but retains 93,615 records across three stages and 1034 ancestor
+vertices. It uses 8,405,286 finite entries and 201,726,864 threshold terms;
+these are distinct operation categories, not an asserted practical speedup.
+Three uniform 16-key constructions at h=16,32,64 all match the closed optimum
+54. At h=64, implicit capacity 2^64-1 uses 15,120 records and 16 ancestor
+vertices, directly checking that the full perfect tree is never expanded.
+The source-hashed JSON contains seven hashes; all match the authoritative
+local sources after the result is copied back from the Mini.
+
+Proof review gave a stronger magnitude-independent extension before
+publication. Mark t outcomes, leaving INTEGER unmarked mass V. Each marked
+outcome has one of h reward coefficients; there are at most h^t coefficient
+vectors, and at most 1+(h-1)V unmarked integer rewards. Hence each stage
+has at most h^(t+1)[1+(h-1)V] records, even when marked weights themselves
+are arbitrary nonnegative reals. If all normalized weights are integers,
+s,t are fixed and V=O(n), the trimmed height is O(log n+t), proving
+O(n log^(t+4) n) complete unrestricted construction and O(n log^(t+2) n)
+words. This removes exceptional magnitudes from the arithmetic bound.
+The prior n^(log_phi 2) theorem still covers nonlattice positive backgrounds.
+
+The separate marked-spectrum harness passes 60 literal inputs and 1428
+slot selections, with rational marked weights included. Six complete
+unrestricted mixed trees through 192 keys match independent Knuth optima.
+Each has one large key and one large gap; exponents 64/80 and 512/528 give
+the same height and record counts at each size. At n=192, h=17, there are
+45,729 records across five stages and 192 ancestor vertices. Equality of
+those measured counts is a control, not the proof. Its six executed-source
+hashes match local files. All tests use exact arithmetic and no timings.
+
+The final manuscript compiles without warnings at 156 pages. Section 2.19
+contains Lemma 34, Theorem 35 and Corollaries 36--37 on pages 30--33;
+Appendix T carries the new audits on page 148. All 436 previous labels are
+retained among 445 unique labels; references and all 20 bibliography entries
+resolve. Eighty-seven source-hash entries across sixteen audit records match
+the authoritative files. Every final page was rendered and visually reviewed,
+with detailed checks of the new proof, audit and unchanged dedication. The
+first compile attempt targeted the unrelated root TeX project and failed on
+its missing image; its generated log was removed, and all successful builds
+used the OBST manuscript directory. The final PDF, TeX and five-file source
+archive are byte-checked before publication. The full research goal stays active.

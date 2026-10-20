@@ -43,6 +43,12 @@ turns the mixed run-vector construction into an unrestricted exact solver.
 With a fixed number of bounded positive key runs and exceptional key/gap
 weights, it takes $O(n^{\log_\varphi 2}\log(n+1))$ arithmetic work,
 where $\varphi=(1+\sqrt5)/2$, independently of the exceptional magnitudes.
+Compressing prefix vectors into valuation-class records removes explicit
+perfect-tree expansion. With integer mass $W=O(n)$ and a fixed number of
+normalized key runs and residual gaps, complete unrestricted construction
+takes $O(n\log^4(n+1))$ arithmetic work, allowing zero-weight runs.
+A fixed number of arbitrarily large integer outcomes preserves a bound
+of $n$ times a fixed power of $\log(n+1)$ through their finite reward spectra.
 We give the certificate once and derive the family
 guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
@@ -2098,6 +2104,190 @@ unbounded integer bit costs are additional. Arbitrarily many runs and
 exceptional outcomes remain valid inputs to the full solver, with the
 quadratic fallback guarantee. The general arbitrary-weight objective and
 the original local interval-core support bound remain open.
+
+\subsection{Valuation-class records without slot expansion}
+\label{sec:slot-records}
+The prefix vectors admit a second compression: among ending slots of the
+same valuation, retain only the first feasible slot and strict value decreases.
+This removes the explicit perfect-tree capacity from an integer-mass bound,
+including reconstruction of the complete tree.
+
+\begin{lemma}[Prefix records and domination]\label{lem:slot-records}
+Fix height $h$, capacity $c=2^h-1$, and normalized weights $w,g$ of total
+mass $M$. For each valuation $d$, the prefix cost $f_k(a)$ is nonincreasing
+as $a$ increases through feasible slots with $\nu_2(a)=d$. Retaining its
+first value and strict decreases suffices for every subsequent run or
+singleton transition. If the weights are integers, the number $B_k$ of
+retained states satisfies
+\begin{equation}\label{eq:slot-record-count}
+ B_k\le\min\{c,\ h[1+(h-1)M]\}.
+\end{equation}
+More generally, mark $t$ outcomes of arbitrary nonnegative weights, and
+suppose the unmarked weights are integers of total mass $V$. Then
+\begin{equation}\label{eq:slot-record-marked-count}
+ B_k\le\min\{c,\ h^{t+1}[1+(h-1)V]\}.
+\end{equation}
+The empty prefix has one state, at slot zero.
+\end{lemma}
+\begin{proof}
+Move only the last slot of an attaining prefix to a later slot of the same
+valuation. Its key reward and preceding gap reward remain unchanged, and
+order is preserved. This proves monotonicity. If a later state has the same
+value as an earlier state of its class, replacing it by the earlier one
+preserves a singleton's preceding-gap reward and feasibility. For a long
+zero-gap run, it leaves a superset of available inner slots. The earlier
+state therefore dominates the later state in both transitions.
+For integer weights, each prefix value is an integer in $[-(h-1)M,0]$.
+Each of the $h$ classes has at most $1+(h-1)M$ retained values, proving
+\eqref{eq:slot-record-count}.
+For the marked bound, each marked outcome's reward coefficient is one of
+$0,\ldots,h-1$: its slot valuation for a key, the minimum adjacent valuation
+for an internal gap, and zero for an outcome outside the prefix. Thus there
+are at most $h^t$ marked coefficient vectors. The unmarked reward is an
+integer between zero and $(h-1)V$. At most $h^t[1+(h-1)V]$ distinct costs
+are possible, regardless of the marked magnitudes or integrality. Multiply
+by the $h$ ending-slot classes to obtain \eqref{eq:slot-record-marked-count}.
+\end{proof}
+
+\begin{theorem}[Complete construction from prefix records]
+\label{thm:slot-record-construction}
+Let $s\le r+2e$ be the number of normalized stages in
+Theorem~\ref{thm:slot-vector}, and let $B_1,\ldots,B_s$ count their
+retained prefix states, with $B_0=1$. For arbitrary nonnegative weights,
+a complete optimal tree subject to a prescribed feasible height bound $h$
+can be constructed in
+\begin{equation}\label{eq:slot-record-output}
+ O\!\left(h^2\left[n+\sum_{j=0}^s B_j\right]\right)
+ \text{ arithmetic work},\qquad
+ O\!\left(nh+\sum_{j=0}^s B_j\right)\text{ words}.
+\end{equation}
+For integer normalized weights of total mass $M$, these are at most
+\begin{equation}\label{eq:slot-record-integer}
+ O\bigl(nh^2+s(M+1)h^4\bigr)\text{ work},\qquad
+ O\bigl(nh+s(M+1)h^2\bigr)\text{ words}.
+\end{equation}
+The bounds include all backpointers and the entire output tree.
+\end{theorem}
+\begin{proof}
+For a singleton of weight $w$ following gap $g$, fix destination valuation
+$d$ and scan preceding records $(a,f_k(a))$ in increasing $a$. Its candidate
+value is $f_k(a)-g\min(\nu_2(a),d)-wd$; it becomes eligible at the first
+slot of valuation $d$ strictly greater than $a$. These eligibility positions
+are nondecreasing. Record each decrease of the running minimum, combining
+improvements at the same position. Repeating over $d$ costs $O(hB_k)$
+work before record organization.
+
+For a long run, restrict the finite Monge factor
+\eqref{eq:slot-vector-forced} to preceding records $a\le c-m$.
+Every row $z\ge k+m$ has a feasible candidate: $a=k$ is the first feasible
+slot of its valuation class, hence a record (or $a=0$ for the empty prefix).
+The same penalty argument excludes infeasible minima. Adding prefix
+potentials and restricting columns preserve Monge, so SMAWK evaluates any
+batch of $Q$ destination rows in $O(B_k+Q)$ entry queries. Each query
+costs $O(h)$ arithmetic work.
+
+The feasible positions of each destination valuation form an arithmetic
+progression. Query its first and last positions. Equal endpoint values
+certify a constant interval by Lemma~\ref{lem:slot-records}. For unequal
+values, bisect the progression's index interval. Batch all required midpoints
+across all classes into a single sorted SMAWK query, then continue only on
+children with unequal endpoint values. Adjacent unequal endpoints identify
+exactly a strict-decrease record. Retain each class's first position separately.
+
+There are at most $h$ bisection levels. At a fixed level, active intervals
+within a class are disjoint, and each contains a distinct strict decrease.
+Thus each level queries $O(B_{k+m})$ rows. All levels together take
+$O(h(B_k+B_{k+m}))$ entry queries and $O(h^2(B_k+B_{k+m}))$ work.
+Sorting row batches and organizing records fit this bound since
+$\log(c+1)=h$. Retain only active endpoints and discovered records,
+using $O(B_k+B_{k+m}+h)$ working words.
+
+An attaining predecessor stored at a record also works throughout its
+constant interval in the same valuation class. With that predecessor
+fixed, the candidate cost cannot increase as the destination moves right,
+while the global minimum stays equal. The candidate therefore stays equal
+too. Store these predecessors per stage and recover an attaining final
+slot and all preceding run windows.
+
+For a recovered window $(a,z)$, let
+\[
+ N_t=\left\lfloor\frac{z-1}{2^t}\right\rfloor-
+     \left\lfloor\frac a{2^t}\right\rfloor.
+\]
+For $m\ge2$, find $d$ with $N_{d+1}<m-1\le N_d$.
+Take all multiples of $2^{d+1}$ in the window and the earliest required
+odd multiples of $2^d$, then append $z$. Merge the two sorted arithmetic
+progressions in $O(m)$ work; the threshold scan costs $O(h)$. All slot
+recovery costs $O(n+sh)$, without visiting the unused slots.
+
+To repair the slots into a tree, retain only their ancestor paths in the
+height-$h$ perfect tree, at most $nh$ vertices. If $d=\nu_2(x)<h-1$,
+the parent of $x$ is $x-2^d$ when bit $d+1$ of $x$ is set, and $x+2^d$
+otherwise. Stop a path at its first previously retained ancestor.
+Every absent branch contains no selected key and may be collapsed to an
+empty tree. On the retained tree, delete each unselected key in increasing
+label order, using threaded inorder successors. A two-child deletion
+promotes the successor and splices its possible right child upward;
+a one-child deletion splices that child upward directly. No surviving
+key's depth increases. Thus its comparison length is at most
+$h-\nu_2(t_i)$. Gap depths are the maxima of adjacent key comparison
+lengths, with the adjacent length at either endpoint. The mixed slot
+identity and its converse in Theorem~\ref{thm:mixed-slots} prove exact
+optimality of the resulting full tree.
+
+Deterministic ordered dictionaries or sorted arrays organize these
+$O(nh)$ vertices in $O(nh^2)$ work and $O(nh)$ words, since the retained
+vertices are a subset of $c$ slots. Threaded deletions and iterative output
+then cost linear work in the retained size. Summing stage costs proves
+\eqref{eq:slot-record-output}; inserting \eqref{eq:slot-record-count}
+proves \eqref{eq:slot-record-integer}.
+\end{proof}
+
+\begin{corollary}[Linear integer mass and few mixed runs]
+\label{cor:slot-record-linear-mass}
+For arbitrary nonnegative integer key and gap weights of total mass
+$W=O(n)$, suppose the normalization has a fixed number of key runs and
+positive residual gaps. A complete unrestricted optimum can be constructed
+in $O(n\log^4(n+1))$ arithmetic work and $O(n\log^2(n+1))$ words.
+Zero-weight key runs are permitted.
+\end{corollary}
+\begin{proof}
+Normalization preserves integrality and gives $M\le W$. When $M>0$,
+the smallest positive singleton mass is at least one. The $k=0$ case of
+Lemma~\ref{lem:trimmed-height}, including balanced zero-mass intervals,
+supplies $h=O(\log(n+1))$. Selecting a sufficient height costs
+$O(n\log(n+1))$. Apply \eqref{eq:slot-record-integer} with $s=O(1)$.
+For $M=0$, construct a balanced tree directly.
+\end{proof}
+\begin{corollary}[Few arbitrarily large integer outcomes]
+\label{cor:slot-record-marked}
+Suppose the normalized weights are nonnegative integers, with $s=O(1)$
+stages. Mark $t$ outcomes of arbitrary magnitude, where $t$ is fixed,
+and suppose the remaining mass is $V=O(n)$. A complete unrestricted
+optimum can be constructed in
+\[
+ O\bigl(n\log^{t+4}(n+1)\bigr)\text{ arithmetic work},\qquad
+ O\bigl(n\log^{t+2}(n+1)\bigr)\text{ words}.
+\]
+The constants do not depend on the marked magnitudes; zero weights are allowed.
+\end{corollary}
+\begin{proof}
+Every positive singleton has mass at least one. Lemma~\ref{lem:trimmed-height}
+gives a sufficient height $h=O(\log(n+1)+t)$, including the balanced
+zero-mass intervals. Equation~\eqref{eq:slot-record-marked-count} gives
+$B_j=O((V+1)h^{t+2})$ at each stage. Substitution in
+\eqref{eq:slot-record-output}, with fixed $s,t$, proves both bounds.
+An all-zero instance is balanced directly.
+\end{proof}
+All bounds count exact arithmetic, including operations on $h$-bit slot
+coordinates. Operand bit costs are additional. Arbitrary nonnegative
+weights retain the output-sensitive bound \eqref{eq:slot-record-output};
+its integer score-range specialization is a separate assumption.
+Choosing Knuth when the integer work proxy exceeds $n^2$ retains a
+quadratic worst-case bound. The general arbitrary-weight subquadratic
+objective and the original interval-core support question remain open.
+Independent state and full-tree controls appear in
+Appendix~\ref{app:rank-transfer}.
 
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
@@ -9942,6 +10132,55 @@ height among tied optimal costs. Rational and large weights are included.
 The records \texttt{trimmed\_height\_audit.json} and
 \texttt{trimmed\_interval\_audit.json} retain separate operation counters,
 reference scopes, and seven and three executed-source hashes, respectively.
+
+
+\paragraph{Valuation-class records and sparse full-tree reconstruction.}
+The record audit first checks every nonempty slot subset through height
+three: 135 subsets and 461 selected-key depth inequalities. A separate
+6231-window control checks exact highest-valuation slot selection and
+earliest ties through height five, without scanning in the constructor.
+
+All 680 binary mixed inputs through four keys, together with 60 further
+mixed, rational, geometric and run-structured inputs through 32 keys,
+give 1540 full constructions at prescribed heights. Every one matches
+both the dense prefix-vector optimum and an independent original all-root
+height recurrence. The audit checks all 226,280 prefix values and their
+attaining compressed predecessors, plus exact equality of the retained
+breakpoint sets at 6778 stage boundaries. At small heights, 53,824 literal
+slot selections provide a third prefix-value control. The original
+all-root reference uses 881,564 root candidates.
+
+Eight larger complete constructions through 1024 keys cover a zero-weight
+middle run and genuinely mixed residual gaps. Their selected sufficient
+heights certify unrestricted optimality, and all match independent ordinary
+Knuth optima and direct output-tree cost, order and height checks. At
+1024 keys, the zero-middle row uses height 25, implicit capacity
+33,554,431, and 93,615 retained states across three stages. It makes
+8,405,286 finite factor queries and 201,726,864 threshold-term evaluations;
+the repaired ancestor tree has 1034 vertices. These counts are distinct
+operation categories, rather than a wall-time comparison.
+
+Three more full constructions keep 16 uniform keys while prescribing
+heights 16, 32 and 64. They all return cost 54, matching the closed
+minimum-internal-path-length optimum. At height 64 the implicit capacity is
+$2^{64}-1$, while the constructor retains 15,120 prefix states, queries
+302,820 destination rows, and constructs only 16 ancestor vertices. These
+rows check the absence of perfect-tree expansion; the integer complexity
+bound follows from the score-range proof, not from their measured sizes.
+The record \texttt{slot\_records\_audit.json} retains separate operation
+counts, reference scopes and seven executed-source hashes.
+
+The marked-spectrum audit checks 60 inputs through five keys by enumerating
+1428 slot selections, including rational marked weights and integer
+unmarked weights. Six further complete unrestricted mixed constructions
+through 192 keys place one exceptional key and one exceptional gap among
+three integer background runs. Gap exponents 64 and 512, paired with key
+exponents 80 and 528, all match independent ordinary Knuth optima.
+At 192 keys, both exponent choices select height 17 and retain the same
+45,729 records across five stages; sparse repair constructs exactly 192
+vertices. These equal counts are an observed control, while
+\eqref{eq:slot-record-marked-count} proves the magnitude-independent bound.
+The separate \texttt{slot\_marked\_records\_audit.json} retains six source hashes.
 
 
 \clearpage
