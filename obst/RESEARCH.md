@@ -4681,3 +4681,77 @@ reviewed in contact sheets, with pages 36--37, 158--159, and 167 reviewed
 at readable resolution. The dedication remains byte-for-byte unchanged.
 The TeX, PDF, and five-file source/font bundle in the user outputs match
 the final manuscript. The general arbitrary-weight objective remains open.
+
+
+## Checkpoint 61: linear-in-diagram-size forward work
+
+The preceding turn made progress: checkpoint 60 published the scalar-carry
+constructor and its O(h^2 D^2) bound as 59797c7. This turn sharpens the
+bound on the unchanged implementation to O(h^2 D), without resolving the
+all-stage diagram-size question or the full arbitrary-weight objective.
+
+At a normalized parent node with children L,U and incoming carry p, put
+C=min(min L,U(0)). Classify the right edge as a reset when C<=p, including
+ties and infinite ties. Its normalized carry C-min U then depends only on
+the parent node, so there is at most one reset seed per reachable input
+node. Infinity is a separate symbol. If the right edge inherits p instead,
+p<C<=min L prunes the left child. Hence every expanded context has at most
+one inherited expanded child. Paths from the root and all reset seeds cover
+every expanded context, even when memoization merges paths. Depth decreases
+on every edge. This proves Z<=h+sum_u max(d(u)-1,0)=O(hD), and depth sum
+at most h(h+1)/2+sum_u d(u)(d(u)-1)/2. Including templates bounds both
+node-assembly calls and first-address replacement visits by
+h(h+1)+sum_u d(u)(d(u)-1)/2. All forward stages take O(h^2 sum_k D_k).
+
+A generic sharp family has N=2^m, h=2m, A(X)=2X-popcount(X), and
+F(NX+Y)=-A(X)/(m+1)-Y. Its weighted-bit representation has D=2m+1 nodes.
+At every low level there are m+1 carry contexts: m fractional values
+(s+1)/(m+1), indexed by the valuation of X, and the initial-block value.
+At upper depth m+r there are m-r+1 states. This gives exactly
+Z=3m(m+1)/2. The depth sum plus all templates gives exactly
+M=m(7m^2+15m+2)/6 for both assembly calls and replacement visits.
+Thus the general O(hD) context and O(h^2D) work bounds are sharp. However,
+F(N)>F(N-1) violates endpoint dominance, proving the family cannot arise
+as an actual mixed OBST prefix. Actual-prefix improvements remain open.
+
+The reset audit passes 1416 updates, 34,186 expanded contexts and 18,513
+reset edges. It checks seed uniqueness, the inherited-child property,
+exact coverage, path lengths, weighted depth charges, both work bounds,
+recursive call counts, summary bounds, and zero generic diagram operations.
+Its 148 arbitrary-diagram controls include rational, signed and infinite
+entries and compact inputs through height 128; these are count-only
+controls. Its 372 complete trees comprise 336 binary controls at two
+heights, 24 rational controls through 16 keys, and twelve retained search
+winners. The first 360 use original all-root references; winners use
+Knuth and independent stage sizes. Every tree's original cost is checked.
+One rational stage has two distinct carries for the same input node, so
+an at-most-one-carry assertion for actual prefixes is already false.
+No stronger asymptotic actual-prefix claim follows from these counts.
+
+The sharp audit checks m=1,...,16,24,32,48,64, all 14,700 contexts,
+and 7085 explicit input values (exhaustive through m=6, sampled thereafter).
+At m=64 it verifies D=129, Z=6240 and M=316096. Every row checks the
+endpoint-dominance violation. The initial sharp run stopped on the remote
+Python 3.9 absence of int.bit_count; replacing that call with
+bin(x).count('1') preserves the formula, and the final source-hashed run
+completed. All mathematical assertions pass. Both final results were
+copied from the Mini before another mirror. The two new records retain
+16 matching source hashes and two input-record hashes. Earlier solver
+sources and historical audit records remain unchanged.
+
+The manuscript replaces the old node-pair complexity proof with the
+explicit reset-path lemma and weighted operation charge. It retains the
+older injection audit as a check of the weaker bound, adds the generic
+sharp family to the grouped representation barriers, and confines all
+finite verification counts to the appendix. The Monge result still leads;
+its core-size theorem and the exact title dedication are preserved.
+
+Final checkpoint-61 validation: the 169-page manuscript compiles without
+warnings, overfull/underfull boxes or unresolved references. All 468 prior
+labels survive among 475 unique labels; the 21 bibliography entries resolve
+all citations. All pages were rendered and reviewed in nine contact sheets;
+pages 36--38, 126--127, 161 and 169 received readable-resolution review.
+The dedication remains byte-for-byte unchanged. The final TeX, PDF and
+five-file source/font bundle in the user outputs match the authoritative
+manuscript. All new and prior forward-audit source hashes match. The full
+arbitrary-weight objective remains active; all-stage diagram growth is open.

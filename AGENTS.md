@@ -648,3 +648,17 @@ into input/inclusive-prefix node pairs. The scale audit proves necessary
 height through strict suffix dominance and checks closed chain costs plus
 Knuth. Copy each completed JSON before mirroring again. The polynomial
 per-update theorem does not establish all-stage diagram growth.
+
+
+Reset-path cover, explicit per-update charges, and generic sharpness:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_reset_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_dag_reset_sharp.py
+```
+
+The reset audit applies to the unchanged scalar-carry constructor. Arbitrary
+signed/infinite diagram rows check operation bounds only; actual mixed rows
+also check full optimum trees. The sharp family explicitly violates endpoint
+dominance and is not an OBST lower bound. Copy completed JSON records back
+before another mirror operation. Preserve historical solver source hashes.

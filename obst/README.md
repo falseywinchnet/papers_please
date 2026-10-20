@@ -78,13 +78,20 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 The [scalar-carry forward constructor](SLOT_DAG_FORWARD.md) evaluates the
 full arbitrary-weight mixed recurrence on additive decision diagrams and
 reconstructs the complete tree. On a D-node input of height h, each update
-has a proved O(h^2 D^2) arithmetic/dictionary bound. Endpoint dominance
+has a proved O(h^2 D) arithmetic/dictionary bound. Endpoint dominance
 reduces a block's outside predecessors to one scalar carry. Every expanded
-relative carry is determined by an input-node/inclusive-prefix-node pair;
-the latter graph has O(hD) nodes. This removes the earlier uncontrolled
-generic-minimum parameter X. Stored first-address values also give O(nh)
+state has at most one child that inherits its carry; other expanded
+children reset to values determined by the parent input node. At most one
+reset path per input node, plus the root path, covers O(hD) contexts.
+This sharpens the earlier quadratic-in-D bound on the unchanged constructor
+and removes its predecessor's uncontrolled generic-minimum parameter X.
+Stored first-address values also give O(nh)
 selected-slot traceback. The open issue is a useful bound on diagram sizes
 across all n updates. Exact audits retain all intermediate-node counts.
+An explicit D=2m+1, h=2m family forces 3m(m+1)/2 carry contexts and
+m(7m^2+15m+2)/6 node-assembly calls. It proves the general recursion's
+O(h^2 D) accounting sharp, but violates endpoint dominance and therefore
+cannot be an actual OBST prefix.
 
 The [earlier generic construction](SLOT_DAG.md) and its operation barrier
 remain documented separately. Two strictly decreasing functions with

@@ -196,7 +196,7 @@ realizes the earlier exponential generic-minimum example as an OBST update.
 ## Scalar-carry forward refinement
 
 The subsequent [scalar-carry construction](SLOT_DAG_FORWARD.md) uses endpoint
-dominance during forward updates. It proves O(h^2 D^2) arithmetic/dictionary
+dominance during forward updates. It proves O(h^2 D) arithmetic/dictionary
 work for one arbitrary mixed update on a D-node input, replacing the generic
 minimum-context parameter X with a polynomial bound. The all-stage growth
 of D remains open. Earlier operation counts above identify the original

@@ -3,7 +3,7 @@
 The skyline restriction supports the forward step, not only traceback.
 For an actual prefix function F=f_k represented by a D-node additive diagram
 of height h, one arbitrary nonnegative key/gap update can be constructed in
-O(h^2 D^2) arithmetic and dictionary operations. This removes the unbounded
+O(h^2 D) arithmetic and dictionary operations. This removes the unbounded
 generic-minimum context parameter X from the previous per-update theorem.
 It does not bound D over all n updates, and hence does not by itself establish
 a general subquadratic OBST algorithm.
@@ -64,25 +64,63 @@ is determined by its input-node identity and the relative carry p_B-m,
 with infinity represented separately. Only states with p_B>m are expanded;
 the other states use the preceding template rule.
 
-Let Q(b)=min_{a<=b}F(a) be the inclusive prefix-minimum function on the
-entire input domain. The standard two-half recurrence is
+For a normalized parent node R=L||U, put C=min(min(L),U(0)).
+The right child receives min(p,C). Classify that edge as a reset if C<=p,
+including ties and infinite ties. If its child expands, its relative carry
+C-min(U) depends only on the parent input node. Thus there is at most one
+reset seed per input node. Infinity is kept separately; no infinity-minus-
+infinity operation occurs.
 
-    Q(L||U) = Q(L) || min(min(L), Q(U)).
+The left edge always inherits p. If the right edge also inherits p, then
+p<C<=min(L), so the left child is pruned. Each expanded state therefore
+has at most one inherited expanded child. Start paths from the root and
+from every reset seed, following inherited edges. They cover every state;
+each step decreases the remaining depth by one. Memoization can merge
+paths but cannot introduce uncovered states.
 
-The same monotone-cap proof as for exclusive prefix minima constructs Q
-with O(hD) nodes and operations. Within an expanded block, Q's first
-value is p_B and its minimum is m. Consequently the normalized Q-node's
-first-address value is exactly p_B-m (including infinity). The pair
-(input-node identity, normalized Q-node identity) therefore determines
-the recursive state. There are at most D*|Q|=O(hD^2) expanded states.
-This is an injection argument, not an empirical estimate of carry diversity.
+Writing d(u) for each reachable input node's depth, this proves
 
-Each expanded state makes two recursive calls, a constant number of scalar
-comparisons, and O(h) work to replace a first address and assemble the node.
-Including summaries and templates gives O(h^2D^2) arithmetic and dictionary
-operations and at most that many newly created nodes. The algorithm need
-not construct Q: Q certifies the bound only. Exact operand bit costs and
-dictionary implementation costs are additional to this operation model.
+    Z <= h + sum_u max(d(u)-1,0) = O(hD)
+    sum_expanded d <= h(h+1)/2 + sum_u d(u)(d(u)-1)/2.
+
+An expanded depth-d state makes exactly d node-assembly calls and d
+first-address replacement visits including the leaf. Shared templates
+contribute at most h(h+1)/2 of either. Each total is consequently bounded by
+
+    h(h+1) + sum_u d(u)(d(u)-1)/2 = O(h^2 D).
+
+There are exactly 2Z+1 build calls, at most D summary expansions, and at
+most 2D+Z summary calls. These counts include memo hits and intermediate
+work. The counting argument holds for arbitrary signed/infinite inputs;
+correctness as an OBST transition still uses endpoint dominance. A feasible
+prefix has D>=1; an all-infinite input is handled in constant work.
+Exact operand bit costs and dictionary implementation costs are additional
+to this operation model.
+
+## Sharpness for the general recursion
+
+For m>=1 set N=2^m, h=2m, A(X)=2X-popcount(X), and
+
+    F(NX+Y) = -A(X)/(m+1) - Y,  0<=X,Y<N.
+
+The input has D=2m+1 additive nodes because it is a weighted sum of bits.
+At each low-bit depth d=1,...,m, the expanded relative carries are
+2^d-1 and (s+1)/(m+1) for s=0,...,m-1. At upper depth m+r there are
+m-r valuation-indexed contexts and one initial-block context. Summing these exact level counts gives
+
+    Z = 3m(m+1)/2 = Theta(hD).
+
+Their depth sum is m(m+1)(7m+5)/6. Templates of depths 1,...,m-1
+contribute m(m-1)/2 additional calls, so both the node-assembly count
+and first-address replacement visits are exactly
+
+    M = m(7m^2+15m+2)/6 = Theta(h^2 D).
+
+These are operation counts, including node-interning hits. The manuscript
+proves every level count. The family violates endpoint dominance:
+F(N)=-1/(m+1)>F(N-1)=-(N-1), despite v(N)>v(N-1). It cannot be an
+actual mixed OBST prefix. Thus it makes the general accounting sharp
+while leaving stronger actual-prefix bounds open.
 
 ## Complete construction and remaining issue
 
@@ -93,15 +131,15 @@ an exact complete optimum at the prescribed height. Height n always
 suffices, and the existing height certificate may select a smaller value.
 
 For incoming sizes D_0,...,D_(n-1), forward construction takes
-O(h^2 sum_k D_k^2) arithmetic/dictionary operations. The implementation
+O(h^2 sum_k D_k) arithmetic/dictionary operations. The implementation
 records actual expanded contexts and persistent replacements separately.
 This polynomial per-update guarantee is stronger than the previous bound
 with an unrestricted generic merge parameter. The still-open question is
 a useful all-stage bound, or a construction that avoids large D_k entirely.
 
 The harness compares all small prefix entries with direct predecessor
-minimization, checks the carry-to-node-pair injection explicitly, verifies
-original all-root optima and complete output trees, and reuses both kinds
+minimization, checks both the earlier node-pair injection and the sharper
+reset-path cover explicitly, verifies original all-root optima and complete output trees, and reuses both kinds
 of adversarial size-search winners. Separate necessary-height controls
 retain all original weights and exact counts. Measurements are confined
 to the manuscript's verification appendix and the source-hashed records.

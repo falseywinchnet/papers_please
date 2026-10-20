@@ -54,7 +54,7 @@ guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
 additive separable transfers. Explicit prefix records can be exponential
 even at the minimum optimal height. Implicit prefix diagrams support an
-arbitrary mixed update in $O(h^2D^2)$ arithmetic and dictionary operations
+arbitrary mixed update in $O(h^2D)$ arithmetic and dictionary operations
 for height $h$ and input diagram size $D$, using a scalar prefix carry;
 bounds on their growth across all updates remain open.
 A contiguous odd ramp with total mass exactly $n$ has
@@ -2503,20 +2503,69 @@ supplied a general subquadratic bound for constructing the prefix roots.
 \subsection{Scalar-carry forward construction}
 \label{sec:dag-forward}
 Endpoint dominance also controls forward construction. It permits a
-single scalar carry per dyadic block, and its distinct relative values
-can be bounded using an ordinary inclusive prefix-minimum diagram.
+single scalar carry per dyadic block. A reset-path cover bounds all
+expanded carry states linearly in the input diagram size, with a height
+factor for the length of each path.
+
+\begin{lemma}[Reset paths cover the carry states]
+\label{lem:dag-carry-reset}
+Let $V$ be the reachable nodes of a height-$h$ additive diagram, retaining
+all levels, and let $d(u)$ be the remaining depth of node $u$.
+Consider the following memoized recursion. On a block $R=L\mathbin\Vert U$
+with incoming carry $p$, prune if $R$ is all infinite or $p\le\min R$;
+otherwise pass $p$ to $L$ and $\min\{p,\min L,U(0)\}$ to $U$.
+Leaves do not expand. Cache by the normalized input node and relative
+carry, with infinity represented separately. The number $Z$ of expanded
+states satisfies
+\begin{equation}\label{eq:dag-reset-count}
+ Z\le h+\sum_{u\in V}\max\{d(u)-1,0\}=O(h\lvert V\rvert+h).
+\end{equation}
+Their depth-weighted count satisfies
+\begin{equation}\label{eq:dag-reset-depth}
+ \sum_{s\text{ expanded}}d(s)
+ \le \frac{h(h+1)}2+\sum_{u\in V}\frac{d(u)(d(u)-1)}2.
+\end{equation}
+These bounds permit arbitrary signed finite values and infinite entries;
+no OBST realizability assumption is needed for the state count.
+\end{lemma}
+\begin{proof}
+Work in the coordinates of a normalized parent input node. Put
+$\ell=\min L$, $r=\min U$, and $C=\min\{\ell,U(0)\}$, allowing infinity.
+Classify a right-child edge as a reset when $C\le p$, including ties.
+Its carry then equals $C$, so if that child expands its normalized state
+is $(U\text{ node},C-r)$. This state depends only on the parent input
+node, not on $p$ or the parent's external additive offset. An infinite
+carry remains a separate symbol; no subtraction of two infinities is used.
+There is consequently at most one possible reset seed per input node.
+
+All left-child edges are inherited. A right-child edge that is not a
+reset has $p<C\le\ell$, so its left child is pruned. Thus each expanded
+state has at most one inherited expanded child. The same statement holds
+when some quantities are infinite: a nonreset inequality forces $p$ to
+be finite, and an all-infinite child never expands.
+
+Take the root state, when expanded, and every distinct expanded reset
+seed. Follow inherited edges from each seed. Every expanded state is
+covered: trace any recursion path from the root, starting a new path
+after its last reset. Memoization can merge these paths but cannot create
+an additional state outside their union. Each edge decreases depth by
+one. The root path has at most $h$ states and depth sum $h(h+1)/2$.
+A reset from a depth-$d$ input node starts at depth $d-1$, giving at most
+$d-1$ states and depth sum $d(d-1)/2$. Summing these allowances, even if
+paths overlap or some seeds coincide, proves both inequalities.
+\end{proof}
 
 \begin{theorem}[Polynomial mixed updates on implicit prefixes]
 \label{thm:dag-forward}
 Let $F=f_k$ be a feasible mixed prefix function on $2^h$ addresses, with
 $D$ reachable additive-diagram nodes. Appending a key of nonnegative
 normalized weight $w$ and preceding residual gap $g\ge0$ constructs the
-next prefix diagram in $O(h^2D^2)$ arithmetic and dictionary operations,
+next prefix diagram in $O(h^2D)$ arithmetic and dictionary operations,
 without generic pointwise diagram minima. For the empty prefix, use its
 required initial gap $g=0$. With incoming diagram sizes
 $D_0,\ldots,D_{n-1}$, all forward updates take
 \[
- O\!\left(h^2\sum_{k=0}^{n-1}D_k^2\right)
+ O\!\left(h^2\sum_{k=0}^{n-1}D_k\right)
 \]
 such operations. The stored prefix roots support the complete optimal
 height-$h$ tree construction and the $O(nh)$ slot traceback of
@@ -2573,24 +2622,21 @@ $m=\min R$ and memoize the recursive state by the input-node identity
 and $p_B-m$, representing an infinite carry separately. Translation of
 both $R$ and its carry translates the result, proving this normalization.
 
-To bound the expanded states, define the inclusive prefix function
-$Q(b)=\min_{a\le b}F(a)$. It has a diagram with $O(hD)$ nodes: use
-\[
- Q(L\mathbin\Vert U)=Q(L)\mathbin\Vert\min\{\min L,Q(U)\}
-\]
-and the same one-crossing monotone-cap argument as in
-Lemma~\ref{lem:dag-prefix}, with the singleton itself as base case.
-On every expanded block, $p_B>m$. Therefore the restriction of $Q$ to
-that block has first value $p_B$ and minimum $m$. Its normalized
-node's first-address value is exactly $p_B-m$, including infinity.
-Consequently the pair consisting of the normalized input node and the
-normalized $Q$ node determines the recursive state. Distinct states
-inject into at most $D\lvert Q\rvert=O(hD^2)$ such pairs. The algorithm
-does not need to construct $Q$; it is used only to prove the bound.
-
-Each expanded state makes two recursive calls and $O(h)$ further work
-for a first-address replacement and node assembly. Summaries, pruning,
-and shared templates give total work $O(h^2D^2)$ and at most that many
+Lemma~\ref{lem:dag-carry-reset} now gives $O(hD)$ expanded states.
+For an explicit operational bound, an expanded state at remaining depth
+$d$ uses one node-assembly call and $d-1$ node-assembly calls along the
+first-address replacement. Its replacement visits, including the leaf,
+also number $d$. Shared templates use at most $h(h+1)/2$ calls of either
+kind. Thus each of these two operation counts is at most
+\begin{equation}\label{eq:dag-reset-work}
+ h(h+1)+\sum_{u\in V}\frac{d(u)(d(u)-1)}2=O(h^2D).
+\end{equation}
+Here $D\ge1$ because the input prefix is feasible. There are exactly
+$2Z+1$ recursive build calls, including memo hits, pruned calls and leaves.
+Weighted-summary expansions number at most $D$, with at most $2D+Z$
+summary calls. All other scalar and dictionary operations take constant
+work per call or newly assembled node. This proves the total
+$O(h^2D)$ bound, including all intermediate work, and bounds the number of
 new nodes. Induction over the updates proves the represented mixed
 prefix functions. The previously proved skyline traceback and sparse
 repair return their complete optimal tree. Dictionary costs and exact
@@ -2603,6 +2649,9 @@ entire sequence $D_k$, needed for a general subquadratic construction,
 remains open. The exponential generic-minimum example in
 Theorem~\ref{thm:dag-minimum-barrier} does not contradict this result:
 this update uses endpoint dominance and the scalar carry recurrence.
+The height factors in the reset-path accounting are sharp for general
+diagram inputs by Theorem~\ref{thm:dag-reset-sharp}. Its displayed family
+violates endpoint dominance, leaving sharper actual-prefix bounds open.
 
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
@@ -8720,6 +8769,101 @@ functions generated by \eqref{eq:dag-mixed-transition} remains a separate
 structural question. Independent exact checks appear in
 Appendix~\ref{app:rank-transfer}.
 
+\subsection{Sharp reset-path work on general diagram inputs}
+\label{sec:dag-reset-sharp}
+The reset-path lemma bounds the mechanical recursion even outside the
+OBST domain. The following family makes both its state bound and the
+persistent-replacement work sharp. Its failure of endpoint dominance is
+explicit, so the result does not assert tightness on actual OBST prefixes.
+
+\begin{theorem}[A compact input with sharp carry and replacement counts]
+\label{thm:dag-reset-sharp}
+Let $m\ge1$, $N=2^m$, $h=2m$, and
+$A(X)=2X-\operatorname{popcount}(X)$. On $0\le X,Y<N$ define
+\[
+ F(NX+Y)=-\frac{A(X)}{m+1}-Y.
+\]
+Its additive diagram has exactly $D=2m+1$ nodes, including the terminal.
+Run the mechanical recursion in Theorem~\ref{thm:dag-forward}, initialized
+with carry $F(0)$, using key and gap parameters $w=g=1$. The number of
+expanded states is
+\[
+ Z=\frac{3m(m+1)}2=\Theta(hD).
+\]
+With the stated persistent first-address replacement and shared templates,
+the number of node-assembly calls, and separately the number of replacement
+visits including leaves, is
+\begin{equation}\label{eq:dag-reset-sharp-work}
+ M=\frac{m(7m^2+15m+2)}6=\Theta(h^2D).
+\end{equation}
+This input cannot be a mixed OBST prefix.
+\end{theorem}
+\begin{proof}
+The identity
+$A(X)=\sum_{j=0}^{m-1}(2^{j+1}-1)x_j$
+shows that $F$ is a weighted sum of individual bits. Every residual of
+the same length differs only by an additive constant, so there is exactly
+one normalized node at each level and one terminal.
+For $X>0$, setting $s=\nu_2(X)$ gives
+\[
+ A(X)-A(X-1)=s+1,\qquad
+ \delta_s=\frac{s+1}{m+1}\in(0,1).
+\]
+Within each $X$ block the values decrease by one, and its last value is
+$\delta_s$ below the preceding block's last value. Thus the incoming
+inclusive carry at the start of block $X>0$ is that preceding minimum.
+Relative to the current block minimum, it is exactly $\delta_s$.
+Every position before $Y=N-1$ has larger value than that carry. Only the
+rightmost path expands inside this block, with the same relative carry
+$\delta_s$ at each remaining low-bit depth $d=1,\ldots,m$.
+Each $s=0,\ldots,m-1$ occurs, by taking $X=2^s$.
+
+In the first block $X=0$, every depth-$d$ subblock starts with its own
+first value as inclusive carry, giving relative carry $2^d-1$.
+This is distinct from every $\delta_s<1$. All low-bit contexts have
+therefore been enumerated: at each depth $1\le d\le m$ there are exactly
+$m+1$ states.
+
+At an upper depth $m+r$, $1\le r\le m$, a block starts at an $X$ divisible
+by $2^r$. For $X>0$, its valuation $s$ ranges over $r,\ldots,m-1$.
+The block minimum is at its last address, and its relative carry is
+\[
+ \frac{A(2^r-1)+s+1}{m+1},\qquad
+ A(2^r-1)=2^{r+1}-r-2.
+\]
+These $m-r$ values are distinct and all occur. The block starting at zero
+has relative carry $A(2^r-1)/(m+1)+N-1$, a further distinct value.
+All these carries are positive, so every such context expands. There are
+exactly $m-r+1$ contexts at depth $m+r$. Summing the low and upper levels
+gives
+\[
+ Z=m(m+1)+\sum_{r=1}^m(m-r+1)=\frac{3m(m+1)}2.
+\]
+The expanded-state depth sum is
+\[
+ S=(m+1)\sum_{d=1}^m d+
+       \sum_{r=1}^m(m+r)(m-r+1)
+   =\frac{m(m+1)(7m+5)}6.
+\]
+Every upper block expands. Inside each later $X$ block the left child
+of each rightmost-path state is pruned, with largest depth $m-1$.
+Thus templates of precisely depths $1,\ldots,m-1$ are assembled once;
+for $m=1$ this set is empty. Their assembly work and replacement visits
+both sum to $m(m-1)/2$. Adding this to $S$ proves
+\eqref{eq:dag-reset-sharp-work}, counting all assembly calls even when
+interning reuses an existing node.
+
+Finally,
+\[
+ F(N)=-\frac1{m+1}>-(N-1)=F(N-1),
+ \qquad \nu_2(N)=m>\nu_2(N-1)=0.
+\]
+This contradicts the endpoint-dominance condition of
+Lemma~\ref{lem:dag-skyline}. Hence no actual mixed prefix has this function.
+The construction proves sharpness of the general recursion's accounting;
+it supplies no lower bound for the full OBST problem.
+\end{proof}
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -10874,8 +11018,9 @@ non-pruned dyadic block it verifies that the inclusive-prefix minimum
 is the input block minimum, and that the normalized first-address value
 is exactly the relative carry, including infinity. Every executed context
 is covered, and distinct contexts have distinct input/prefix node pairs.
-This directly checks the injection used in Theorem~\ref{thm:dag-forward};
-the asymptotic bound is supplied by its proof.
+This checks the earlier, weaker $O(hD^2)$ state bound by node-pair
+injection. The sharper reset-path proof of Theorem~\ref{thm:dag-forward}
+applies to the same unchanged constructor and is audited separately below.
 
 Twelve further full constructions reuse the retained winners of both
 size searches. Every stage has exactly the independently counted diagram
@@ -10911,6 +11056,42 @@ smaller final diagram. No timing or measured exponent supports the bound.
 The record \texttt{slot\_dag\_forward\_scale.json} retains every original
 weight, eight source hashes, and all operation categories. These inputs
 are distinct from the earlier interrupted 64-key experiment.
+
+\paragraph{Reset paths and exact generic sharpness.}
+A separate audit checks the reset-path cover of
+Lemma~\ref{lem:dag-carry-reset} on 1416 updates, examining all 34,186
+expanded states and 18,513 reset edges. For each update it reconstructs
+inherited and reset edges, checks at most one inherited child, checks that
+each parent input node determines a single reset seed, and verifies that
+the seed paths cover exactly the expanded states. It checks both the
+unweighted and depth-weighted bounds, every node-assembly and replacement
+count in \eqref{eq:dag-reset-work}, the recursive call identity, and the
+summary bounds. No generic pointwise minimum, addition, or prefix call is
+made.
+
+There are 148 arbitrary-diagram controls, including signed rational and
+infinite entries, with four compact inputs at heights 16, 32, 64 and 128.
+They test the counting lemma only. Separately, 372 complete mixed trees
+are verified: all 168 binary inputs through three keys at two heights,
+24 rational inputs through 16 keys, and the twelve retained size-search
+winners. The first 360 have original all-root height references; the
+winners have independent Knuth references and independently counted stage
+sizes. Every complete tree is checked against its original weights.
+The record \texttt{slot\_dag\_reset\_audit.json} retains all counters, nine
+executed-source hashes, and both consumed search-record hashes.
+
+The sharpness audit checks the exact closed formulas of
+Theorem~\ref{thm:dag-reset-sharp} for $1\le m\le16$ and for
+$m\in\{24,32,48,64\}$.
+It examines 14,700 expanded contexts and checks 7085 input values, exhaustively
+through $m=6$ and with labeled samples thereafter. At $m=64$, the 129-node
+input at height 128 causes exactly 6240 expanded contexts and 316,096
+node-assembly calls, with the same number of replacement visits.
+Every row also checks the explicit endpoint-dominance violation. These
+are general-diagram operation controls, not complete OBST constructions.
+The record \texttt{slot\_dag\_reset\_sharp.json} retains seven source hashes.
+The closed formulas supply the asymptotic tightness independently of these
+finite checks.
 
 \clearpage
 \section{Unimodal domination and certified-envelope audit}
