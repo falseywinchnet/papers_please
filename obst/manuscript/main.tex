@@ -19,23 +19,22 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We construct full optimal binary search trees for arbitrary nonnegative
-integer weights attached to fixed key and gap positions. For total weight
-$W=O(n)$, the algorithm takes $O(n^{3/2}\log^{3/2}(n+1))$ arithmetic
-operations and returns the complete tree. The construction reduces a
-terminal-penalty iteration to the published core-sparse Monge matrix product
-and witness algorithms. A mixed-weight rotation argument bounds the required
-height; finite matrix completions preserve Monge structure at the diagonal.
-Dyadic tiling bounds each intermediate core, and charging individual outcomes
-across geometrically spaced layer boundaries bounds their aggregate size.
-An explicit odd-ramp family of total weight $n$ has
-$\Omega(n^{3/2})$ entries in one intermediate core. Thus the polynomial
-exponent in the explicit-core size analysis is tight, with a remaining
-$\sqrt{\log n}$ gap. Centering around separate constant key and gap baselines
-gives $O(n(1+\sqrt R)\log^3(n+1))$ operations for polynomial total
-nonnegative deviation $R$. A positive ruler family has quadratic density
-support at $R=n^2$ while admitting linear tree construction. These lower
-bounds concern the density representation; the general arbitrary-weight
+We give an exact algorithm for full optimal binary search trees with arbitrary
+nonnegative integer weights attached to fixed key and gap positions. When the
+total weight is $W=O(n)$, it constructs the complete tree in
+$O(n^{3/2}\log^{3/2}(n+1))$ arithmetic operations. The bound includes
+reading the input and reconstructing every key of an optimal tree.
+This regime includes access
+counts from $O(n)$ sampled lookups, with zero counts permitted at any positions.
+Centering around separate constant key and gap baselines gives
+$O(n(1+\sqrt R)\log^3(n+1))$ operations when the total nonnegative integer
+deviation $R$ is polynomial in $n$, independently of the baseline magnitudes
+in the arithmetic-operation count. An explicit family with $W=n$ has
+$\Omega(n^{3/2})$ entries in one intermediate density core. The polynomial
+exponent in the explicit-core size analysis is therefore tight, with a
+remaining $\sqrt{\log n}$ gap. A second family has quadratic density support
+at $R=n^2$ and admits linear tree construction, separating representation
+size from construction complexity. The general arbitrary-weight
 subquadratic construction problem remains open.
 \end{abstract}
 
@@ -61,10 +60,50 @@ Knuth's monotone-root optimization computes the table in $O(n^2)$
 time~\cite{knuth}. The construction below reduces the number of represented interval states
 while retaining both key and gap weights.
 
-Larmore gives subquadratic exact construction under restrictions on long
-runs of very low frequency items, together with an approximation
-tradeoff~\cite{larmore}. Karpinski, Larmore, and Rytter combine exact small
-intervals with a bounded top-level construction~\cite{klr}.
+The regime $W=O(n)$ arises from access counts in $O(n)$ sampled lookups:
+each successful lookup increments one key count and each unsuccessful lookup
+increments one gap count, so the total count equals the sample size, with
+zeros at unobserved outcomes.
+
+For comparison with probability-based results, suppose $W>0$ and put
+$\widehat p_i=p_i/W$, $\widehat q_j=q_j/W$, and
+$\widehat W(i,j)=W(i,j)/W$. Let $\varphi=(1+\sqrt5)/2$ and
+$\rho=1/(1+\log_2\varphi)\simeq0.59023$.
+Larmore's exact theorem~\cite{larmore} (Theorem~1.1 of the author report
+linked in that reference) assumes an integer $\ell<n$ and $0<\lambda<1$
+such that $\widehat W(i,j)\ge\lambda$ whenever $j-i>\ell$.
+It constructs an optimum in
+\[
+ O\!\left(n\left[\ell+\lambda^{-\log_\varphi2}\log n\right]\right)
+\]
+time. Its Corollary~1.2 gives
+$O(n^{1+\rho}(\log n)^{1-\rho})$ time if
+$\widehat p_i+\widehat q_{i+1}\ge\varepsilon/n$ for every key position,
+where $\varepsilon>0$ is constant.
+
+Karpinski, Larmore, and Rytter~\cite{klr}, Lemma~3.2, give
+$O(n(\ell+2^d))$ sequential time when every segment of $\ell$ consecutive
+items contains a node at depth at most $d$ in an optimal tree.
+Their Theorem~4.1 assumes
+$\widehat q_i+\widehat p_i+\widehat q_{i+1}\ge\delta/n$ for every key,
+with constant $\delta>0$, and gives $O(n^{0.6})$ CREW PRAM time with
+$O(n)$ processors. Its proof chooses $\ell=\Theta(n^\rho)$ and $2^d=O(n^\rho)$;
+Lemma~3.2 then gives $O(n^{1+\rho})$ sequential time.
+The structural bound can apply beyond that specialization when a suitable
+$(\ell,d)$ decomposition is available.
+Their separate expected-subquadratic result assumes randomly permuted key
+weights and zero gap weights (Theorem~5.1).
+
+The integer linear-mass class overlaps these frequency-restricted classes
+but permits arbitrary long zero-mass intervals. For example, $p_0=n$ with
+all other weights zero has $W=n$: Larmore's interval-mass condition forces
+$\ell\ge n-1$, giving a quadratic stated bound, while the local-mass
+hypothesis of Karpinski--Larmore--Rytter's Theorem~4.1 fails.
+Thus the cited local-frequency guarantees do not cover the whole class
+considered here. Our guarantee uses total integer mass without a minimum
+local mass or a random ordering assumption; on their positive-frequency
+overlap it also improves the stated sequential exponent.
+
 All running-time bounds count arithmetic operations and comparisons;
 operand bit lengths are stated separately.
 
@@ -80,6 +119,14 @@ every tree is optimal. Later baseline arguments use this exact identity.
 
 \section{Terminal-penalty Monge construction}
 \label{sec:construction}
+
+The construction applies the published core-sparse Monge product and
+witness algorithms to a terminal-penalty iteration. A mixed-weight rotation
+bound limits the number of layers, and finite completions preserve Monge
+structure at the diagonal. Dyadic tiling bounds each intermediate core;
+charging individual outcomes across geometrically spaced layer boundaries
+bounds their aggregate size. The final witness structures return every key
+of the optimal tree.
 
 Let $n\ge1$, let all key and gap weights be nonnegative integers, and put
 $W=\sum p_i+\sum q_i$ and $L=\lceil\log_2(n+1)\rceil$. Write $f(W)$ for
@@ -324,6 +371,13 @@ $j-i=0$ and $j-i=c$. For a square
 $T=[a,a+s)\times[b,b+s)$, let $J_T=[a,b+s]$ be its inclusive span of
 outcome positions. At each side length $s$ there are at most $12N/s$
 squares. Each position belongs to at most $60(1+c/s)$ spans $J_T$.
+
+More generally, in $[0,n)^2$, remove the main diagonal and any subset of
+the diagonals $j-i=2^t-1$ with $t\ge1$ and $2^t-1<n$.
+Use the maximal aligned dyadic partition of Lemma~\ref{lem:dyadic-boundary},
+including its padding boundaries when $n$ is not a power of two.
+At every side length $s$, each position belongs to at most $120n/s$
+inclusive tile spans.
 \end{lemma}
 \begin{proof}
 The whole square meets the main diagonal. Thus every accepted square has
@@ -345,6 +399,36 @@ Multiplying by six column choices and summing over $d=0,c$ gives
 $60+6c/s\le60(1+c/s)$. Counting a square under both lines only enlarges
 the bound. Inclusive endpoints cover every gap weight, and also bound
 the incidences of key weights, whose right endpoint is excluded.
+
+For the extension, fix a position $x$ and a side length $s$ at which tiles
+exist. Charge each tile to one boundary met by its rejected parent.
+The same parent-coordinate calculation gives $|b-a-d|<3s$ for a tile
+charged to diagonal distance $d$.
+
+Treat all distances $0\le d<s$ together, including the main diagonal.
+They imply $-3s<b-a<4s$. Since $a,b$ are multiples of $s$, there are at
+most six choices of $b-a$. If $x\in[a,b+s]$, then
+$a\le x<a+5s$, giving at most six row starts $a$. Thus all short
+diagonals together contribute at most $36$ covering spans.
+
+For one distance $d\ge s$, the earlier calculation gives at most
+$6(d/s+5)\le36d/s$ covering spans. If $2^T-1$ is the largest removed
+distance, then
+\[
+ \sum_{t=1}^T(2^t-1)=2^{T+1}-2-T<2n.
+\]
+The long diagonals therefore contribute fewer than $72n/s$ spans.
+
+Finally let $N$ be the least power of two at least $n$. Each padding
+boundary $i=n$ or $j=n$ crosses at most $N/(2s)$ side-$2s$ parents,
+and each parent has at most four children. Both boundaries together
+account for at most $4N/s\le8n/s$ tiles. Since $s\le n$, adding the
+short-strip, long-diagonal and boundary contributions gives
+\[
+ 36+72n/s+8n/s\le116n/s\le120n/s.
+\]
+Counting all eligible parents and starts can only enlarge the count.
+Inclusive endpoints again include every gap position.
 \end{proof}
 
 \begin{theorem}[Aggregate core bound]\label{thm:aggregate-cores}
@@ -482,28 +566,6 @@ Section~\ref{sec:aggregate-cores} proves its sharper linear-mass clause. Since $
 are polynomial in $n,W$, the stated bit-length bound follows as well.
 
 
-\begin{lemma}[Exact stopping from condensed equality]\label{lem:exact-stopping}
-If two consecutive completed layers have identical top rows and identical
-canonical core lists, the current upper triangle equals the unrestricted
-optimal-cost table. Comparing these representations over the entire run
-costs $O(S)$ operations, where $S$ is the aggregate completed core size.
-\end{lemma}
-\begin{proof}
-The leftmost column is fixed by the completion. A top row, leftmost column
-and density list determine every matrix entry by telescoping, so the
-comparison establishes $A_h=A_{h-1}$ on every interval. The iteration then
-makes $A_h$ a fixed point of the OBST recurrence. That recurrence has a
-unique solution: its diagonal is zero, and each nonempty interval depends
-only on shorter intervals. Induction on interval length identifies this
-solution with $C$.
-
-A comparison scans $O(n+\delta(E_{h-1})+\delta(E_h))$ entries.
-Each completed layer has $n$ diagonal core entries, so summing these scans
-costs $O(S)$. The retained layer witnesses reconstruct a full tree: an
-unfinished nonempty interval would incur at least $M>HW$, whereas the
-optimum has a complete tree of cost at most $HW$.
-\end{proof}
-
 \section{Centering around large constant baselines}
 \label{sec:centering}
 
@@ -605,27 +667,15 @@ For a side-$s$ tile $T=[x,x+s)\times[y,y+s)$, let
 $J_T=[x,y+s]$ be its spanning input interval, including both gap endpoints.
 
 Lemma~\ref{lem:dyadic-boundary} gives $O(nL/s)$ tiles at scale $s$.
-\begin{lemma}[Per-position packing]\label{lem:per-position-packing}
-At a fixed side length $s$, every input position belongs to the spanning
-intervals of $O(n/s)$ accepted tiles. Consequently
+The extended form of Lemma~\ref{lem:outcome-overlap} gives at most
+$120n/s$ spanning intervals through each input position. Charge every
+nonnegative deviation to the spans containing its position, including both
+gap endpoints. Then
 \begin{equation}\label{eq:centered-cover}
- \sum_{T:\,\mathrm{side}(T)=s} R(J_T)=O(nR/s).
+ \sum_{T:\,\mathrm{side}(T)=s}R(J_T)\le\frac{120n}{s}R.
 \end{equation}
-\end{lemma}
-\begin{proof}
-Fix an input position and charge each
-tile to a boundary met by its parent. A tile charged to a diagonal at
-distance $d\ge s$ lies within $O(s)$ of that diagonal. For its spanning
-interval to contain the fixed position, its row start lies in an interval
-of length $O(d+s)$. Row starts are spaced by $s$, with only $O(1)$ eligible
-column starts per row near that diagonal. Thus it contributes
-$O(1+d/s)$ covers. The distances $d=2^t-1$ are geometric, so summing these
-bounds gives $O(n/s)$. All distances $d<s$ lie together in an $O(s)$-wide
-strip near the main diagonal and contribute only $O(1)$ covers of the fixed
-position. Outer-boundary tiles number $O(n/s)$ in total. Charging each
-nonnegative deviation to its covering intervals proves~\eqref{eq:centered-cover}.
-The outer-boundary case is covered by Lemma~\ref{lem:dyadic-boundary}, including arbitrary $n$.
-\end{proof}
+This is the same overlap argument as in the aggregate bound; the geometric
+family of baseline diagonals replaces the single capacity diagonal.
 
 On an ordinary tile the density sum telescopes to
 \[
@@ -1151,6 +1201,8 @@ L. L. Larmore. A subquadratic algorithm for constructing approximately
 optimal binary search trees. \emph{Journal of Algorithms} 8(4),
 579--591, 1987.
 \href{https://doi.org/10.1016/0196-6774(87)90052-6}{doi:10.1016/0196-6774(87)90052-6}.
+Author's Technical Report 86-03 (1986), Theorem~1.1 and Corollary~1.2:
+\href{https://escholarship.org/content/qt4v7249bv/qt4v7249bv.pdf}{UC Irvine report}.
 \bibitem{klr}
 M. Karpinski, L. L. Larmore, and W. Rytter.
 Sequential and parallel subquadratic work algorithms for constructing

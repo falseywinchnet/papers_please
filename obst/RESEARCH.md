@@ -5535,3 +5535,33 @@ legacy labels. The abstract is 166 words counting each math span as one word.
 Both documents compile cleanly; source-reference closure, archived byte
 identity and verbatim final dedication are checked. See EDITORIAL_REFACTOR.md.
 The general arbitrary-weight subquadratic research goal remains open.
+
+
+## Checkpoint 73: exact prior-work comparison and explicit centered packing
+
+Expanded the first section using Larmore's accessible 1986 author report,
+Theorem 1.1 and Corollary 1.2, and Karpinski–Larmore–Rytter's SODA 1996
+Lemma 3.2 and Theorems 4.1/5.1. Their exact hypotheses, sequential bounds
+and parallel/average-case scopes are explicit. The comparison identifies
+an overlap, not disjoint classes: arbitrary zero-mass intervals can violate
+the frequency assumptions even at W=n. A single supported key gives a
+concrete example for those hypotheses. No claim excludes that example from
+all possible uses of the KLR structural lemma. Sampled lookup counts now
+supply the natural motivation for W=O(n), including unobserved outcomes.
+
+Extended the per-outcome overlap lemma to any subset of dyadic-offset lines.
+The fixed-position count is at most 36 for the united short-distance strip,
+less than 72n/s for the long distances, and at most 8n/s for the two padding
+boundaries. The resulting 120n/s bound replaces the centered section's
+asymptotic packing argument, yielding sum_T R(J_T) <=120nR/s directly.
+This is a theoretical strengthening of the exposition, with no empirical
+claim or change to the asymptotic constructor bound.
+
+Removed exact stopping from the paper because it changes no stated bound;
+its implementation discussion remains in the supplement. Moved mechanisms
+from the abstract to Section 2. The revised abstract has 158 words when each
+math span counts as one. The paper has 20 pages, seven sections, 16 numbered
+results, 49 unique labels and five bibliography entries. The supplement,
+archived notebook, code and raw records remain unchanged. The final dedication
+is preserved verbatim. Compilation and reference-closure checks are clean;
+rendered pages and final publication bytes are checked before delivery.
