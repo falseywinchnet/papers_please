@@ -1,0 +1,1257 @@
+{
+  "scope": "Exact actual-prefix and shared-history witnesses on a positive mixed family; representation lower bounds, not a full OBST lower bound",
+  "dense_counts": {
+    "barrier_dense_candidates": 89749,
+    "barrier_dense_record_scans": 89749,
+    "dense_greedy_entries": 89749,
+    "strict_suffix_certificates": 187
+  },
+  "rows": [
+    {
+      "n": 12,
+      "height": 12,
+      "base": 49,
+      "d0": 6,
+      "final_lower": 56,
+      "history_lower": 434,
+      "stages": [
+        {
+          "k": 1,
+          "nodes": 12,
+          "lower_bound": 0
+        },
+        {
+          "k": 2,
+          "nodes": 22,
+          "lower_bound": 0
+        },
+        {
+          "k": 3,
+          "nodes": 76,
+          "lower_bound": 0
+        },
+        {
+          "k": 4,
+          "nodes": 119,
+          "lower_bound": 21
+        },
+        {
+          "k": 5,
+          "nodes": 154,
+          "lower_bound": 36
+        },
+        {
+          "k": 6,
+          "nodes": 181,
+          "lower_bound": 46
+        },
+        {
+          "k": 7,
+          "nodes": 209,
+          "lower_bound": 52
+        },
+        {
+          "k": 8,
+          "nodes": 228,
+          "lower_bound": 55
+        },
+        {
+          "k": 9,
+          "nodes": 243,
+          "lower_bound": 56
+        },
+        {
+          "k": 10,
+          "nodes": 253,
+          "lower_bound": 56
+        },
+        {
+          "k": 11,
+          "nodes": 273,
+          "lower_bound": 56
+        },
+        {
+          "k": 12,
+          "nodes": 287,
+          "lower_bound": 56
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 5746,
+        "punctured_pruned_blocks": 246,
+        "punctured_template_calls": 310,
+        "punctured_make_calls": 2945,
+        "punctured_created_nodes": 2044,
+        "punctured_contexts": 2867,
+        "punctured_summary_calls": 6275,
+        "punctured_summary_expansions": 1704,
+        "witness_entry_checks": 1302,
+        "distinct_witness_nodes": 434,
+        "punctured_trace_steps": 144,
+        "punctured_trace_candidates": 133,
+        "record_ancestor_nodes": 12,
+        "punctured_ancestor_walk_visits": 24,
+        "record_output_nodes": 12,
+        "punctured_all_nodes": 2044,
+        "punctured_history_nodes": 2044,
+        "height_fallback_candidates": 144,
+        "height_fallback_states": 78,
+        "height_fallback_output_nodes": 12,
+        "record_verified_nodes": 12
+      }
+    },
+    {
+      "n": 13,
+      "height": 13,
+      "base": 53,
+      "d0": 6,
+      "final_lower": 84,
+      "history_lower": 714,
+      "stages": [
+        {
+          "k": 1,
+          "nodes": 13,
+          "lower_bound": 0
+        },
+        {
+          "k": 2,
+          "nodes": 24,
+          "lower_bound": 0
+        },
+        {
+          "k": 3,
+          "nodes": 89,
+          "lower_bound": 0
+        },
+        {
+          "k": 4,
+          "nodes": 142,
+          "lower_bound": 28
+        },
+        {
+          "k": 5,
+          "nodes": 186,
+          "lower_bound": 49
+        },
+        {
+          "k": 6,
+          "nodes": 221,
+          "lower_bound": 64
+        },
+        {
+          "k": 7,
+          "nodes": 257,
+          "lower_bound": 74
+        },
+        {
+          "k": 8,
+          "nodes": 283,
+          "lower_bound": 80
+        },
+        {
+          "k": 9,
+          "nodes": 304,
+          "lower_bound": 83
+        },
+        {
+          "k": 10,
+          "nodes": 319,
+          "lower_bound": 84
+        },
+        {
+          "k": 11,
+          "nodes": 345,
+          "lower_bound": 84
+        },
+        {
+          "k": 12,
+          "nodes": 364,
+          "lower_bound": 84
+        },
+        {
+          "k": 13,
+          "nodes": 379,
+          "lower_bound": 84
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 8173,
+        "punctured_pruned_blocks": 315,
+        "punctured_template_calls": 390,
+        "punctured_make_calls": 4171,
+        "punctured_created_nodes": 2912,
+        "punctured_contexts": 4080,
+        "punctured_summary_calls": 9018,
+        "punctured_summary_expansions": 2469,
+        "witness_entry_checks": 2142,
+        "distinct_witness_nodes": 714,
+        "punctured_trace_steps": 169,
+        "punctured_trace_candidates": 157,
+        "record_ancestor_nodes": 13,
+        "punctured_ancestor_walk_visits": 26,
+        "record_output_nodes": 13,
+        "punctured_all_nodes": 2912,
+        "punctured_history_nodes": 2912,
+        "height_fallback_candidates": 169,
+        "height_fallback_states": 91,
+        "height_fallback_output_nodes": 13,
+        "record_verified_nodes": 13
+      }
+    },
+    {
+      "n": 16,
+      "height": 16,
+      "base": 65,
+      "d0": 7,
+      "final_lower": 165,
+      "history_lower": 1815,
+      "stages": [
+        {
+          "k": 1,
+          "nodes": 16,
+          "lower_bound": 0
+        },
+        {
+          "k": 2,
+          "nodes": 30,
+          "lower_bound": 0
+        },
+        {
+          "k": 3,
+          "nodes": 134,
+          "lower_bound": 0
+        },
+        {
+          "k": 4,
+          "nodes": 223,
+          "lower_bound": 45
+        },
+        {
+          "k": 5,
+          "nodes": 300,
+          "lower_bound": 81
+        },
+        {
+          "k": 6,
+          "nodes": 365,
+          "lower_bound": 109
+        },
+        {
+          "k": 7,
+          "nodes": 431,
+          "lower_bound": 130
+        },
+        {
+          "k": 8,
+          "nodes": 484,
+          "lower_bound": 145
+        },
+        {
+          "k": 9,
+          "nodes": 529,
+          "lower_bound": 155
+        },
+        {
+          "k": 10,
+          "nodes": 565,
+          "lower_bound": 161
+        },
+        {
+          "k": 11,
+          "nodes": 615,
+          "lower_bound": 164
+        },
+        {
+          "k": 12,
+          "nodes": 655,
+          "lower_bound": 165
+        },
+        {
+          "k": 13,
+          "nodes": 688,
+          "lower_bound": 165
+        },
+        {
+          "k": 14,
+          "nodes": 714,
+          "lower_bound": 165
+        },
+        {
+          "k": 15,
+          "nodes": 745,
+          "lower_bound": 165
+        },
+        {
+          "k": 16,
+          "nodes": 767,
+          "lower_bound": 165
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 20236,
+        "punctured_pruned_blocks": 600,
+        "punctured_template_calls": 712,
+        "punctured_make_calls": 10246,
+        "punctured_created_nodes": 7242,
+        "punctured_contexts": 10110,
+        "punctured_summary_calls": 22858,
+        "punctured_summary_expansions": 6374,
+        "witness_entry_checks": 5445,
+        "distinct_witness_nodes": 1815,
+        "punctured_trace_steps": 256,
+        "punctured_trace_candidates": 241,
+        "record_ancestor_nodes": 16,
+        "punctured_ancestor_walk_visits": 32,
+        "record_output_nodes": 16,
+        "punctured_all_nodes": 7242,
+        "punctured_history_nodes": 7242,
+        "height_fallback_candidates": 256,
+        "height_fallback_states": 136,
+        "height_fallback_output_nodes": 16,
+        "record_verified_nodes": 16
+      }
+    },
+    {
+      "n": 17,
+      "height": 17,
+      "base": 69,
+      "d0": 7,
+      "final_lower": 220,
+      "history_lower": 2585,
+      "stages": [
+        {
+          "k": 1,
+          "nodes": 17,
+          "lower_bound": 0
+        },
+        {
+          "k": 2,
+          "nodes": 32,
+          "lower_bound": 0
+        },
+        {
+          "k": 3,
+          "nodes": 151,
+          "lower_bound": 0
+        },
+        {
+          "k": 4,
+          "nodes": 254,
+          "lower_bound": 55
+        },
+        {
+          "k": 5,
+          "nodes": 344,
+          "lower_bound": 100
+        },
+        {
+          "k": 6,
+          "nodes": 421,
+          "lower_bound": 136
+        },
+        {
+          "k": 7,
+          "nodes": 499,
+          "lower_bound": 164
+        },
+        {
+          "k": 8,
+          "nodes": 563,
+          "lower_bound": 185
+        },
+        {
+          "k": 9,
+          "nodes": 618,
+          "lower_bound": 200
+        },
+        {
+          "k": 10,
+          "nodes": 663,
+          "lower_bound": 210
+        },
+        {
+          "k": 11,
+          "nodes": 723,
+          "lower_bound": 216
+        },
+        {
+          "k": 12,
+          "nodes": 772,
+          "lower_bound": 219
+        },
+        {
+          "k": 13,
+          "nodes": 813,
+          "lower_bound": 220
+        },
+        {
+          "k": 14,
+          "nodes": 846,
+          "lower_bound": 220
+        },
+        {
+          "k": 15,
+          "nodes": 884,
+          "lower_bound": 220
+        },
+        {
+          "k": 16,
+          "nodes": 912,
+          "lower_bound": 220
+        },
+        {
+          "k": 17,
+          "nodes": 937,
+          "lower_bound": 220
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 26313,
+        "punctured_pruned_blocks": 722,
+        "punctured_template_calls": 850,
+        "punctured_make_calls": 13301,
+        "punctured_created_nodes": 9429,
+        "punctured_contexts": 13148,
+        "punctured_summary_calls": 29900,
+        "punctured_summary_expansions": 8376,
+        "witness_entry_checks": 7755,
+        "distinct_witness_nodes": 2585,
+        "punctured_trace_steps": 289,
+        "punctured_trace_candidates": 273,
+        "record_ancestor_nodes": 17,
+        "punctured_ancestor_walk_visits": 34,
+        "record_output_nodes": 17,
+        "punctured_all_nodes": 9429,
+        "punctured_history_nodes": 9429,
+        "height_fallback_candidates": 289,
+        "height_fallback_states": 153,
+        "height_fallback_output_nodes": 17,
+        "record_verified_nodes": 17
+      }
+    },
+    {
+      "n": 24,
+      "height": 24,
+      "base": 97,
+      "d0": 7,
+      "final_lower": 969,
+      "history_lower": 16473,
+      "stages": [
+        {
+          "k": 1,
+          "nodes": 24,
+          "lower_bound": 0
+        },
+        {
+          "k": 2,
+          "nodes": 46,
+          "lower_bound": 0
+        },
+        {
+          "k": 3,
+          "nodes": 298,
+          "lower_bound": 0
+        },
+        {
+          "k": 4,
+          "nodes": 527,
+          "lower_bound": 153
+        },
+        {
+          "k": 5,
+          "nodes": 736,
+          "lower_bound": 289
+        },
+        {
+          "k": 6,
+          "nodes": 925,
+          "lower_bound": 409
+        },
+        {
+          "k": 7,
+          "nodes": 1115,
+          "lower_bound": 514
+        },
+        {
+          "k": 8,
+          "nodes": 1284,
+          "lower_bound": 605
+        },
+        {
+          "k": 9,
+          "nodes": 1437,
+          "lower_bound": 683
+        },
+        {
+          "k": 10,
+          "nodes": 1573,
+          "lower_bound": 749
+        },
+        {
+          "k": 11,
+          "nodes": 1731,
+          "lower_bound": 804
+        },
+        {
+          "k": 12,
+          "nodes": 1871,
+          "lower_bound": 849
+        },
+        {
+          "k": 13,
+          "nodes": 1996,
+          "lower_bound": 885
+        },
+        {
+          "k": 14,
+          "nodes": 2106,
+          "lower_bound": 913
+        },
+        {
+          "k": 15,
+          "nodes": 2221,
+          "lower_bound": 934
+        },
+        {
+          "k": 16,
+          "nodes": 2319,
+          "lower_bound": 949
+        },
+        {
+          "k": 17,
+          "nodes": 2407,
+          "lower_bound": 959
+        },
+        {
+          "k": 18,
+          "nodes": 2483,
+          "lower_bound": 965
+        },
+        {
+          "k": 19,
+          "nodes": 2602,
+          "lower_bound": 968
+        },
+        {
+          "k": 20,
+          "nodes": 2707,
+          "lower_bound": 969
+        },
+        {
+          "k": 21,
+          "nodes": 2801,
+          "lower_bound": 969
+        },
+        {
+          "k": 22,
+          "nodes": 2884,
+          "lower_bound": 969
+        },
+        {
+          "k": 23,
+          "nodes": 2975,
+          "lower_bound": 969
+        },
+        {
+          "k": 24,
+          "nodes": 3054,
+          "lower_bound": 969
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 116272,
+        "punctured_pruned_blocks": 2088,
+        "punctured_template_calls": 2348,
+        "punctured_make_calls": 58424,
+        "punctured_created_nodes": 42092,
+        "punctured_contexts": 58124,
+        "punctured_summary_calls": 135708,
+        "punctured_summary_expansions": 38792,
+        "witness_entry_checks": 49419,
+        "distinct_witness_nodes": 16473,
+        "punctured_trace_steps": 576,
+        "punctured_trace_candidates": 553,
+        "record_ancestor_nodes": 24,
+        "punctured_ancestor_walk_visits": 48,
+        "record_output_nodes": 24,
+        "punctured_all_nodes": 42092,
+        "punctured_history_nodes": 42092,
+        "height_fallback_candidates": 576,
+        "height_fallback_states": 300,
+        "height_fallback_output_nodes": 24,
+        "record_verified_nodes": 24
+      }
+    },
+    {
+      "n": 25,
+      "height": 25,
+      "base": 101,
+      "d0": 7,
+      "final_lower": 1140,
+      "history_lower": 20235,
+      "stages": [
+        {
+          "k": 1,
+          "nodes": 25,
+          "lower_bound": 0
+        },
+        {
+          "k": 2,
+          "nodes": 48,
+          "lower_bound": 0
+        },
+        {
+          "k": 3,
+          "nodes": 323,
+          "lower_bound": 0
+        },
+        {
+          "k": 4,
+          "nodes": 574,
+          "lower_bound": 171
+        },
+        {
+          "k": 5,
+          "nodes": 804,
+          "lower_bound": 324
+        },
+        {
+          "k": 6,
+          "nodes": 1013,
+          "lower_bound": 460
+        },
+        {
+          "k": 7,
+          "nodes": 1223,
+          "lower_bound": 580
+        },
+        {
+          "k": 8,
+          "nodes": 1411,
+          "lower_bound": 685
+        },
+        {
+          "k": 9,
+          "nodes": 1582,
+          "lower_bound": 776
+        },
+        {
+          "k": 10,
+          "nodes": 1735,
+          "lower_bound": 854
+        },
+        {
+          "k": 11,
+          "nodes": 1911,
+          "lower_bound": 920
+        },
+        {
+          "k": 12,
+          "nodes": 2068,
+          "lower_bound": 975
+        },
+        {
+          "k": 13,
+          "nodes": 2209,
+          "lower_bound": 1020
+        },
+        {
+          "k": 14,
+          "nodes": 2334,
+          "lower_bound": 1056
+        },
+        {
+          "k": 15,
+          "nodes": 2464,
+          "lower_bound": 1084
+        },
+        {
+          "k": 16,
+          "nodes": 2576,
+          "lower_bound": 1105
+        },
+        {
+          "k": 17,
+          "nodes": 2677,
+          "lower_bound": 1120
+        },
+        {
+          "k": 18,
+          "nodes": 2765,
+          "lower_bound": 1130
+        },
+        {
+          "k": 19,
+          "nodes": 2898,
+          "lower_bound": 1136
+        },
+        {
+          "k": 20,
+          "nodes": 3016,
+          "lower_bound": 1139
+        },
+        {
+          "k": 21,
+          "nodes": 3122,
+          "lower_bound": 1140
+        },
+        {
+          "k": 22,
+          "nodes": 3216,
+          "lower_bound": 1140
+        },
+        {
+          "k": 23,
+          "nodes": 3318,
+          "lower_bound": 1140
+        },
+        {
+          "k": 24,
+          "nodes": 3407,
+          "lower_bound": 1140
+        },
+        {
+          "k": 25,
+          "nodes": 3488,
+          "lower_bound": 1140
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 138439,
+        "punctured_pruned_blocks": 2367,
+        "punctured_template_calls": 2650,
+        "punctured_make_calls": 69532,
+        "punctured_created_nodes": 50176,
+        "punctured_contexts": 69207,
+        "punctured_summary_calls": 162045,
+        "punctured_summary_expansions": 46419,
+        "witness_entry_checks": 60705,
+        "distinct_witness_nodes": 20235,
+        "punctured_trace_steps": 625,
+        "punctured_trace_candidates": 601,
+        "record_ancestor_nodes": 25,
+        "punctured_ancestor_walk_visits": 50,
+        "record_output_nodes": 25,
+        "punctured_all_nodes": 50176,
+        "punctured_history_nodes": 50176,
+        "height_fallback_candidates": 625,
+        "height_fallback_states": 325,
+        "height_fallback_output_nodes": 25,
+        "record_verified_nodes": 25
+      }
+    },
+    {
+      "n": 32,
+      "height": 32,
+      "base": 129,
+      "d0": 8,
+      "final_lower": 2600,
+      "history_lower": 60450,
+      "stages": [
+        {
+          "k": 1,
+          "nodes": 32,
+          "lower_bound": 0
+        },
+        {
+          "k": 2,
+          "nodes": 62,
+          "lower_bound": 0
+        },
+        {
+          "k": 3,
+          "nodes": 526,
+          "lower_bound": 0
+        },
+        {
+          "k": 4,
+          "nodes": 959,
+          "lower_bound": 300
+        },
+        {
+          "k": 5,
+          "nodes": 1364,
+          "lower_bound": 576
+        },
+        {
+          "k": 6,
+          "nodes": 1741,
+          "lower_bound": 829
+        },
+        {
+          "k": 7,
+          "nodes": 2119,
+          "lower_bound": 1060
+        },
+        {
+          "k": 8,
+          "nodes": 2468,
+          "lower_bound": 1270
+        },
+        {
+          "k": 9,
+          "nodes": 2793,
+          "lower_bound": 1460
+        },
+        {
+          "k": 10,
+          "nodes": 3093,
+          "lower_bound": 1631
+        },
+        {
+          "k": 11,
+          "nodes": 3423,
+          "lower_bound": 1784
+        },
+        {
+          "k": 12,
+          "nodes": 3727,
+          "lower_bound": 1920
+        },
+        {
+          "k": 13,
+          "nodes": 4008,
+          "lower_bound": 2040
+        },
+        {
+          "k": 14,
+          "nodes": 4266,
+          "lower_bound": 2145
+        },
+        {
+          "k": 15,
+          "nodes": 4529,
+          "lower_bound": 2236
+        },
+        {
+          "k": 16,
+          "nodes": 4767,
+          "lower_bound": 2314
+        },
+        {
+          "k": 17,
+          "nodes": 4987,
+          "lower_bound": 2380
+        },
+        {
+          "k": 18,
+          "nodes": 5187,
+          "lower_bound": 2435
+        },
+        {
+          "k": 19,
+          "nodes": 5446,
+          "lower_bound": 2480
+        },
+        {
+          "k": 20,
+          "nodes": 5683,
+          "lower_bound": 2516
+        },
+        {
+          "k": 21,
+          "nodes": 5901,
+          "lower_bound": 2544
+        },
+        {
+          "k": 22,
+          "nodes": 6100,
+          "lower_bound": 2565
+        },
+        {
+          "k": 23,
+          "nodes": 6307,
+          "lower_bound": 2580
+        },
+        {
+          "k": 24,
+          "nodes": 6494,
+          "lower_bound": 2590
+        },
+        {
+          "k": 25,
+          "nodes": 6666,
+          "lower_bound": 2596
+        },
+        {
+          "k": 26,
+          "nodes": 6822,
+          "lower_bound": 2599
+        },
+        {
+          "k": 27,
+          "nodes": 7015,
+          "lower_bound": 2600
+        },
+        {
+          "k": 28,
+          "nodes": 7191,
+          "lower_bound": 2600
+        },
+        {
+          "k": 29,
+          "nodes": 7353,
+          "lower_bound": 2600
+        },
+        {
+          "k": 30,
+          "nodes": 7501,
+          "lower_bound": 2600
+        },
+        {
+          "k": 31,
+          "nodes": 7662,
+          "lower_bound": 2600
+        },
+        {
+          "k": 32,
+          "nodes": 7806,
+          "lower_bound": 2600
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 394694,
+        "punctured_pruned_blocks": 5056,
+        "punctured_template_calls": 5520,
+        "punctured_make_calls": 197859,
+        "punctured_created_nodes": 143956,
+        "punctured_contexts": 197331,
+        "punctured_summary_calls": 468723,
+        "punctured_summary_expansions": 135696,
+        "witness_entry_checks": 181350,
+        "distinct_witness_nodes": 60450,
+        "punctured_trace_steps": 1024,
+        "punctured_trace_candidates": 993,
+        "record_ancestor_nodes": 32,
+        "punctured_ancestor_walk_visits": 64,
+        "record_output_nodes": 32,
+        "punctured_all_nodes": 143956,
+        "punctured_history_nodes": 143956,
+        "height_fallback_candidates": 1024,
+        "height_fallback_states": 528,
+        "height_fallback_output_nodes": 32,
+        "record_verified_nodes": 32
+      }
+    },
+    {
+      "n": 48,
+      "height": 48,
+      "base": 193,
+      "d0": 8,
+      "final_lower": 11480,
+      "history_lower": 404670,
+      "stages": [
+        {
+          "k": 1,
+          "nodes": 48,
+          "lower_bound": 0
+        },
+        {
+          "k": 2,
+          "nodes": 94,
+          "lower_bound": 0
+        },
+        {
+          "k": 3,
+          "nodes": 1174,
+          "lower_bound": 0
+        },
+        {
+          "k": 4,
+          "nodes": 2207,
+          "lower_bound": 820
+        },
+        {
+          "k": 5,
+          "nodes": 3196,
+          "lower_bound": 1600
+        },
+        {
+          "k": 6,
+          "nodes": 4141,
+          "lower_bound": 2341
+        },
+        {
+          "k": 7,
+          "nodes": 5087,
+          "lower_bound": 3044
+        },
+        {
+          "k": 8,
+          "nodes": 5988,
+          "lower_bound": 3710
+        },
+        {
+          "k": 9,
+          "nodes": 6849,
+          "lower_bound": 4340
+        },
+        {
+          "k": 10,
+          "nodes": 7669,
+          "lower_bound": 4935
+        },
+        {
+          "k": 11,
+          "nodes": 8535,
+          "lower_bound": 5496
+        },
+        {
+          "k": 12,
+          "nodes": 9359,
+          "lower_bound": 6024
+        },
+        {
+          "k": 13,
+          "nodes": 10144,
+          "lower_bound": 6520
+        },
+        {
+          "k": 14,
+          "nodes": 10890,
+          "lower_bound": 6985
+        },
+        {
+          "k": 15,
+          "nodes": 11641,
+          "lower_bound": 7420
+        },
+        {
+          "k": 16,
+          "nodes": 12351,
+          "lower_bound": 7826
+        },
+        {
+          "k": 17,
+          "nodes": 13027,
+          "lower_bound": 8204
+        },
+        {
+          "k": 18,
+          "nodes": 13667,
+          "lower_bound": 8555
+        },
+        {
+          "k": 19,
+          "nodes": 14398,
+          "lower_bound": 8880
+        },
+        {
+          "k": 20,
+          "nodes": 15091,
+          "lower_bound": 9180
+        },
+        {
+          "k": 21,
+          "nodes": 15749,
+          "lower_bound": 9456
+        },
+        {
+          "k": 22,
+          "nodes": 16372,
+          "lower_bound": 9709
+        },
+        {
+          "k": 23,
+          "nodes": 17003,
+          "lower_bound": 9940
+        },
+        {
+          "k": 24,
+          "nodes": 17598,
+          "lower_bound": 10150
+        },
+        {
+          "k": 25,
+          "nodes": 18162,
+          "lower_bound": 10340
+        },
+        {
+          "k": 26,
+          "nodes": 18694,
+          "lower_bound": 10511
+        },
+        {
+          "k": 27,
+          "nodes": 19279,
+          "lower_bound": 10664
+        },
+        {
+          "k": 28,
+          "nodes": 19831,
+          "lower_bound": 10800
+        },
+        {
+          "k": 29,
+          "nodes": 20353,
+          "lower_bound": 10920
+        },
+        {
+          "k": 30,
+          "nodes": 20845,
+          "lower_bound": 11025
+        },
+        {
+          "k": 31,
+          "nodes": 21350,
+          "lower_bound": 11116
+        },
+        {
+          "k": 32,
+          "nodes": 21822,
+          "lower_bound": 11194
+        },
+        {
+          "k": 33,
+          "nodes": 22270,
+          "lower_bound": 11260
+        },
+        {
+          "k": 34,
+          "nodes": 22691,
+          "lower_bound": 11315
+        },
+        {
+          "k": 35,
+          "nodes": 23250,
+          "lower_bound": 11360
+        },
+        {
+          "k": 36,
+          "nodes": 23779,
+          "lower_bound": 11396
+        },
+        {
+          "k": 37,
+          "nodes": 24281,
+          "lower_bound": 11424
+        },
+        {
+          "k": 38,
+          "nodes": 24756,
+          "lower_bound": 11445
+        },
+        {
+          "k": 39,
+          "nodes": 25246,
+          "lower_bound": 11460
+        },
+        {
+          "k": 40,
+          "nodes": 25708,
+          "lower_bound": 11470
+        },
+        {
+          "k": 41,
+          "nodes": 26147,
+          "lower_bound": 11476
+        },
+        {
+          "k": 42,
+          "nodes": 26562,
+          "lower_bound": 11479
+        },
+        {
+          "k": 43,
+          "nodes": 27036,
+          "lower_bound": 11480
+        },
+        {
+          "k": 44,
+          "nodes": 27485,
+          "lower_bound": 11480
+        },
+        {
+          "k": 45,
+          "nodes": 27912,
+          "lower_bound": 11480
+        },
+        {
+          "k": 46,
+          "nodes": 28317,
+          "lower_bound": 11480
+        },
+        {
+          "k": 47,
+          "nodes": 28742,
+          "lower_bound": 11480
+        },
+        {
+          "k": 48,
+          "nodes": 29143,
+          "lower_bound": 11480
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 2163358,
+        "punctured_pruned_blocks": 17448,
+        "punctured_template_calls": 18520,
+        "punctured_make_calls": 1082831,
+        "punctured_created_nodes": 795874,
+        "punctured_contexts": 1081655,
+        "punctured_summary_calls": 2612991,
+        "punctured_summary_expansions": 765668,
+        "witness_entry_checks": 1214010,
+        "distinct_witness_nodes": 404670,
+        "punctured_trace_steps": 2304,
+        "punctured_trace_candidates": 2257,
+        "record_ancestor_nodes": 48,
+        "punctured_ancestor_walk_visits": 96,
+        "record_output_nodes": 48,
+        "punctured_all_nodes": 795874,
+        "punctured_history_nodes": 795874,
+        "height_fallback_candidates": 2304,
+        "height_fallback_states": 1176,
+        "height_fallback_output_nodes": 48,
+        "record_verified_nodes": 48
+      }
+    }
+  ],
+  "formula_only_rows": [
+    {
+      "n": 64,
+      "d0": 9,
+      "final_lower": 29260,
+      "history_lower": 1389850
+    },
+    {
+      "n": 128,
+      "d0": 10,
+      "final_lower": 280840,
+      "history_lower": 26890430
+    },
+    {
+      "n": 256,
+      "d0": 11,
+      "final_lower": 2481115,
+      "history_lower": 476374080
+    },
+    {
+      "n": 512,
+      "d0": 12,
+      "final_lower": 20958500,
+      "history_lower": 8053303625
+    },
+    {
+      "n": 1024,
+      "d0": 13,
+      "final_lower": 172738786,
+      "history_lower": 132749757041
+    },
+    {
+      "n": 4096,
+      "d0": 15,
+      "final_lower": 11336205881,
+      "history_lower": 34836160672313
+    }
+  ],
+  "source_sha256": {
+    "slot_punctured_barrier.py": "b5406b55cf9a1a2e1eab3d4d8d2138f190f3716348ebc604a18dd9299a69b603",
+    "slot_punctured.py": "f0db0df83ef5de1615619480896912c90e8f4faa5c769afed0425d338039d6be",
+    "slot_record_barrier.py": "d71bbfd9694d12bfb689de1060fe0e17a721c517de007a930e2a980e667fb855",
+    "slot_records.py": "8f8d222c1eae0bae0004927e1e92d9551ed66b3c2d99df401c02ef05157b5e27",
+    "slot_records_audit.py": "77be385cfef7ab60d15a72d8b7a59c224f21be240e3eb1d677e53388ddc70f2c",
+    "slot_vector.py": "f234a4954d70b485ef1fa108e669bcfadeeeaf81a0c8948be96201cc986cbee2",
+    "trimmed_height.py": "19efde94ff7985b656372d1faedf299d64bd2ae23dfa4df530f5a76cf2f86f6f"
+  }
+}

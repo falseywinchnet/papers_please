@@ -57,8 +57,9 @@ even at the minimum optimal height. Separating each block's first entry
 from its implicit prefix diagram gives $O(h(D+1))$ arithmetic and dictionary
 operations per arbitrary mixed update, for height $h$ and input size $D$.
 Including traceback and tree repair, complete construction takes
-$O(h[n+\sum_kD_k])$ such operations. Bounds on diagram growth across all
-updates remain open.
+$O(h[n+\sum_kD_k])$ such operations. An explicit positive mixed family forces $\Omega(n^3)$
+final diagram nodes and $\Omega(n^4)$ distinct nodes in shared prefix
+history, while its optimum is a directly certified right chain.
 A contiguous odd ramp with total mass exactly $n$ has
 $\Omega(n^{3/2})$ intermediate core entries with explicitly computed densities.
 Thus the core exponent is necessary, up to a remaining logarithmic factor.
@@ -2791,8 +2792,10 @@ The representation changes the cost of an update without imposing a key
 run structure or restricting the gap weights. The all-stage sum
 $\sum_kD_k$ remains the obstacle to a general subquadratic guarantee.
 Corollary~\ref{cor:punctured-sharp} gives a matching general-diagram
-operation family; further actual-prefix savings must exploit additional
-structure or combine multiple updates.
+operation family. Theorem~\ref{thm:punctured-size-barrier} proves cubic
+final diagrams and quartic shared history on actual positive mixed inputs.
+Further savings require avoiding those explicit canonical representations
+or exploiting additional input structure.
 
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
@@ -9030,6 +9033,141 @@ state also costs one assembly call, proving the formula. The earlier
 endpoint-dominance violation still excludes this family from OBST prefixes.
 \end{proof}
 
+\subsection{Cubic actual-prefix diagrams and quartic shared history}
+\label{sec:punctured-size-barrier}
+The generic operation family above violates endpoint dominance. The next
+family consists of actual mixed OBST prefixes and gives a size obstruction
+for the canonical representation itself. Its optimum has necessary height
+$n$, and all original outcome weights are strictly positive.
+
+\begin{theorem}[Actual-prefix diagram size]\label{thm:punctured-size-barrier}
+For $n\ge2$, put $A=4n+1$, $w_i=A^{n-i}$, and
+\[
+ p_i=w_i-1\quad(0\le i<n),\qquad q_j=1\quad(0\le j\le n).
+\]
+At the necessary optimal height $h=n$, let $D_k$ count the canonical
+punctured nodes of the $k$-key prefix, and let $\mathcal H$ count distinct
+nodes in the union of all prefix diagrams, allowing full sharing across
+stages. Define
+\[
+ Q=2\lceil n/2\rceil,\qquad
+ d_0=\lceil\log_2(Q+1)\rceil+2,\qquad N=\max\{0,n-d_0\}.
+\]
+Then
+\begin{align}
+ D_k&\ge L_k:=\sum_{t=1}^{N}(N-t+1)\min\{t,(k-3)_+\},
+       \label{eq:punctured-stage-lower}\\
+ D_n&\ge\binom{N+2}{3}=\Omega(n^3),
+       \label{eq:punctured-final-lower}\\
+ \mathcal H&\ge(n-2)\binom{N+2}{3}-\binom{N+3}{4}
+       =\Omega(n^4).\label{eq:punctured-history-lower}
+\end{align}
+The unique optimum is the right chain. Its cost is
+$n+\sum_{i=0}^{n-1}(i+1)w_i$, and the complete tree has a linear-work
+construction and certificate.
+\end{theorem}
+\begin{proof}
+Common-gap normalization gives $w$, zero residual gaps, and additive cost
+$n$. The inequality $n\sum_{j>i}w_j<w_i$ forces the first key to be the
+root in every suffix, by the dominance argument in
+Theorem~\ref{thm:slot-record-barrier}. This proves the chain, cost, and
+necessary height assertions. It also gives lexicographic optimization of
+slot valuations, as in Lemma~\ref{lem:lex-ruler-endpoints}.
+
+We first record why scalar differences preserve valuation information.
+Two differences of valuation vectors have coordinates in $[-(n-1),n-1]$.
+If they disagree first at coordinate $i$, their weighted difference has
+leading magnitude at least $w_i$, whereas its remaining magnitude is at most
+\[
+ 2(n-1)\sum_{j>i}w_j
+ <\frac{2(n-1)}{A-1}w_i<w_i.
+\]
+Thus equality of their exact scalar scores implies equality of every
+coefficient. Padding shorter vectors with zeros preserves this statement.
+
+For each quadruple $(d,s,r,k)$ with
+\begin{equation}\label{eq:punctured-witness-range}
+ d_0\le d\le s<n,\qquad 1\le r\le\min\{n-s,k-3\},
+\end{equation}
+choose a block boundary $B$ with exactly $r$ one bits, its lowest at
+position $s$. One choice uses the top $r-1$ bit positions and bit $s$.
+This is a multiple of $2^d$, and its whole punctured block
+$B+t$, $1\le t<2^d$, lies within the height-$n$ slots. Use three local
+addresses
+\begin{equation}\label{eq:punctured-three-addresses}
+ t_*=1,\qquad t_-=2^{d-2}+Q,\qquad t_+=2^{d-1}+Q.
+\end{equation}
+Since $2^{d-2}>Q\ge n$, all are interior and all corresponding prefix
+entries are finite. Let $v(t)$ be the valuation vector of the unique
+optimal $k$-slot sequence forced to end at $B+t$. Its first $k-1$ slots
+are obtained by successive feasible greedy choices, and
+$f_k(B+t)=-\sum_iw_iv_i(t)$.
+
+At $t_-$ and $t_+$, the first $r$ choices are the successive partial sums
+of the high bits of $B$. Each is the unique highest-valuation feasible
+position. Feasibility holds because at least $n$ positions remain after
+$B$, and still more remain after each earlier partial sum. There remain
+$m=k-1-r\ge2$ predecessor slots after $B$. Their first feasible upper
+endpoint, relative to $B$, is $t-m$. As
+$0<Q-m<2^{d-2}$, their next greedy choice has valuation $d-2$ at $t_-$
+and $d-1$ at $t_+$. Therefore
+\begin{equation}\label{eq:punctured-identify-r}
+ \min\{i:v_i(t_+)\ne v_i(t_-)\}=r,
+ \qquad v_r(t_+)-v_r(t_-)=1.
+\end{equation}
+
+At $t_*=1$, the first $r-1$ partial sums remain feasible and are still
+greedy maxima. Put $P=B-2^s$. There are $j=k-r\ge3$ predecessor slots
+left in $(P,B]$. The first two greedy choices are
+\[
+ P+2^{s-1},\qquad P+3\cdot2^{s-2},
+\]
+with valuations $s-1$ and $s-2$. For the first choice $B$ is infeasible
+because $j>1$, while the midpoint is feasible because $2^{s-1}\ge j-1$.
+For the second, $B$ is still infeasible because $j>2$, while the quarter
+point is feasible because $2^{s-2}\ge j-2$. These margins follow from
+$2^{s-2}\ge2^{d-2}>Q\ge n$. Hence
+\begin{equation}\label{eq:punctured-identify-s}
+ v_r(t_*)-v_r(t_-)=(s-2)-(d-2)=s-d.
+\end{equation}
+The forced ending key has valuation zero at $t_*$ and
+$\nu_2(Q)\ge1$ at $t_-$. The latter follows from
+$0<Q<2^{d-2}$. After zero padding, this gives
+\begin{equation}\label{eq:punctured-identify-k}
+ \max\{i:v_i(t_*)\ne v_i(t_-)\}=k-1.
+\end{equation}
+
+If two same-depth blocks shared a normalized punctured node, their scalar
+value differences at the three addresses would agree. Coefficient
+uniqueness would then give the same vector differences.
+Equation~\eqref{eq:punctured-identify-k} recovers $k$,
+\eqref{eq:punctured-identify-r} recovers $r$, and
+\eqref{eq:punctured-identify-s} recovers $s$. Thus every quadruple in
+\eqref{eq:punctured-witness-range} gives a different canonical node,
+even across prefix stages. Different depths are distinct by the definition
+of the representation.
+
+For fixed $s$, write $t=n-s$. There are $N-t+1$ eligible depths and
+$\min\{t,(k-3)_+\}$ choices of $r$, proving
+\eqref{eq:punctured-stage-lower}. At $k=n$, summing gives
+$\binom{N+2}{3}$. For each $r$, eligible stages are $k=r+3,\ldots,n$,
+numbering $n-r-2$. Counting their distinct shared nodes gives
+\[
+ \sum_{t=1}^{N}(N-t+1)\sum_{r=1}^{t}(n-r-2)
+ =(n-2)\binom{N+2}{3}-\binom{N+3}{4}.
+\]
+Finally $d_0=O(\log n)$, so the two formulas have leading terms
+$n^3/6$ and $n^4/8$, respectively. This proves the lower bounds.
+\end{proof}
+
+Theorem~\ref{thm:punctured-construction}'s full work bound remains valid,
+but universally small prefix diagrams or shared history cannot make this
+representation subquadratic. The witnesses give lower bounds, not exact
+node counts or matching upper bounds. The final-stage obstruction survives
+discarding earlier roots; the history obstruction already accounts for
+cross-stage sharing. The family's directly certified chain solution
+separates this representation barrier from the complexity of full OBST.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -11315,6 +11453,40 @@ creates 73,226 nodes and makes 114,633 assembly calls. All intermediate
 work is retained, and these measurements assert no all-stage size bound.
 The record \texttt{slot\_punctured\_scale.json} retains every original
 weight, six source hashes, and the consumed earlier scale-record hash.
+
+\paragraph{Actual-prefix cubic and shared-history quartic witnesses.}
+The audit for Theorem~\ref{thm:punctured-size-barrier} first compares every
+greedy ending-slot reward with an independent dense subsequence recurrence
+for $2\le n\le12$, giving 89,749 exact entry comparisons. Eight complete
+constructions at $n=12,13,16,17,24,25,32,48$ then check all three entries
+of every witness at every prefix. There are 507,376 witnessed nodes and
+1,522,128 entry comparisons. Each witness also checks the first and last
+nonzero coefficient positions and the coefficient identifying $s$.
+Actual canonical node identities are distinct across all prefix roots,
+so the history test includes full cross-stage sharing. Odd sizes check
+the even probe offset $Q=2\lceil n/2\rceil$ separately from $Q=n$.
+
+Every full output agrees with independent Knuth, the closed chain cost,
+and original-weight tree checks; all 187 suffix dominance certificates
+hold. The finite node counts and proved lower bounds are:
+\begin{center}
+\begin{tabular}{r|r r|r r}
+$n$ & final nodes & final lower bound & shared history & history lower bound\\
+\hline
+12 & 287 & 56 & 2044 & 434\\
+13 & 379 & 84 & 2912 & 714\\
+16 & 767 & 165 & 7242 & 1815\\
+17 & 937 & 220 & 9429 & 2585\\
+24 & 3054 & 969 & 42092 & 16473\\
+25 & 3488 & 1140 & 50176 & 20235\\
+32 & 7806 & 2600 & 143956 & 60450\\
+48 & 29143 & 11480 & 795874 & 404670
+\end{tabular}
+\end{center}
+The record \texttt{slot\_punctured\_barrier.json} retains every stage count,
+all operation counts and seven source hashes. Rows from 64 through 4096
+keys evaluate only the proved formulas; they are not enumerations or full
+constructions. The lower-bound proof is independent of these measurements.
 
 \clearpage
 \section{Unimodal domination and certified-envelope audit}

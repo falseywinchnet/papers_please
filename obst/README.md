@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Cubic actual-prefix diagrams and quartic shared history](SLOT_PUNCTURED_BARRIER.md)
 - [Block interiors: complete mixed construction in O(h(n+sum D_k))](SLOT_PUNCTURED.md)
 - [Scalar-carry forward updates with a proved polynomial per-update bound](SLOT_DAG_FORWARD.md)
 - [Implicit mixed prefix functions with additive decision diagrams](SLOT_DAG.md)

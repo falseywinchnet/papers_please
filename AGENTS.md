@@ -678,3 +678,16 @@ inputs are counting controls and violate endpoint dominance. The scale audit
 reuses exact earlier necessary-height chain weights and adds arbitrary mixed
 integer inputs at certified sufficient heights. Copy both JSON records before
 mirroring again. All-stage diagram-size bounds remain open.
+
+
+Actual-prefix cubic diagram and quartic shared-history witnesses:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_punctured_barrier.py
+```
+
+The audit first checks greedy rewards against independent dense subsequence
+values, then checks three-entry witnesses inside complete mixed constructions.
+Node identities are compared across all prefix roots, including shared nodes.
+Large formula rows are not enumerations. Copy the completed source-hashed JSON
+before another mirror. This is a representation barrier, not an OBST lower bound.

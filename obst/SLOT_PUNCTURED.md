@@ -10,8 +10,10 @@ forward work, traceback and ancestor repair, takes
 
 Here D_k counts the interior diagram before update k, and D_0=0. Choosing a
 proved sufficient height makes this an unrestricted full mixed-OBST solver.
-A useful universal bound on sum_k D_k remains open. No run restriction is
-imposed on either the key weights or the gaps.
+An [explicit positive mixed family](SLOT_PUNCTURED_BARRIER.md) forces
+Omega(n^3) final nodes and Omega(n^4) distinct nodes in shared prefix history.
+Thus this representation has no universally small size guarantee. No run
+restriction is imposed on either the key weights or the gaps.
 
 ## Representation
 

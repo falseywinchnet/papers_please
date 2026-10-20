@@ -4849,3 +4849,62 @@ contact sheets; pages 38--40, 129--130, 163--164 and 172 were also reviewed
 at readable resolution. The dedication is byte-for-byte unchanged. Final
 PDF, TeX and five-file source/font bundle in the user outputs match the
 authoritative manuscript. The full arbitrary-weight goal remains active.
+
+
+## Checkpoint 63: actual-prefix cubic diagrams and quartic shared history
+
+The preceding checkpoint made progress by removing first-address replacement
+work. This turn attacked the remaining diagram-size term directly. The
+geometric family from the explicit-record barrier suggested counts depending
+on depth, boundary popcount and the position of its lowest high bit. The
+finite counts are not used as the proof.
+
+Set A=4n+1, p_i=A^(n-i)-1, and all q_j=1. These strictly positive mixed
+inputs normalize to geometric keys and zero residual gaps. Strict suffix
+dominance gives a unique right chain and necessary height n. For each
+eligible (d,s,r,k), choose a dyadic block whose boundary has r high one bits
+and lowest bit s. Three interior addresses determine the canonical node:
+two tail entries recover r from their first differing valuation coefficient;
+a near-boundary entry recovers s; its last differing coefficient also
+recovers k. The latter observation strengthens a sum of per-stage bounds
+to a bound on distinct nodes in the shared union of all prefix diagrams.
+Base 4n+1 makes the scalar difference encoding injective on the signed
+valuation differences, so additive normalization cannot erase the witnesses.
+
+With Q=2 ceil(n/2), d0=ceil(log2(Q+1))+2, N=max(0,n-d0), the proved final
+lower bound is binomial(N+2,3)=Omega(n^3). The proved shared-history lower
+bound is (n-2)binomial(N+2,3)-binomial(N+3,4)=Omega(n^4). A separate exact
+sum gives every prefix's bound. The proof explicitly checks the first two
+pre-boundary greedy choices and their feasibility margins. These are actual
+OBST prefixes, unlike the preceding generic update-cost example. They rule
+out a universally small-size route for this canonical representation; the
+same family still has a linear-work right-chain constructor and certificate.
+The unrestricted full OBST objective remains open and active.
+
+The new audit first verifies all 89,749 greedy values at n=2,...,12 against
+an independent dense subsequence recurrence. Eight full constructions at
+n=12,13,16,17,24,25,32,48 check 507,376 distinct node witnesses across all
+prefixes, 1,522,128 exact entries, and the three coefficient identities.
+The odd-sized controls test the even-offset choice separately. Every full
+original-weight tree agrees with Knuth and the chain formula; 187 suffix
+certificates hold. At n=48 the final diagram has 29,143 nodes and shared
+history 795,874, above the proved bounds 11,480 and 404,670. Larger rows
+through 4096 evaluate formulas only. No fitted exponent or timing is used.
+The final audit completed on the Mini, the JSON was copied before any
+further mirror, and all seven source hashes match the authoritative files.
+
+The manuscript adds the self-contained size theorem to the negative-results
+section and retains finite checks in Appendix T. The abstract and forward
+construction discussion now state the actual size obstruction. Monge remains
+the leading result, and the title dedication and sponsorship are preserved.
+
+Final checkpoint-63 publication validation: all seven new source hashes
+match. The 175-page manuscript compiles with no warnings, overfull/underfull
+boxes or unresolved references. All 484 previous labels survive among 494
+unique labels; all citations resolve to the same 21 bibliography entries.
+Every page was rendered and reviewed in nine contact sheets, with the new
+theorem on pages 130--131, appendix on 166--167, title and dedication also
+reviewed at readable resolution. The dedication remains byte-for-byte
+unchanged. Output PDF and TeX match the manuscript, and all five source/font
+bundle entries were checked byte-for-byte. No full arbitrary-weight
+subquadratic claim or computational lower bound is made.
