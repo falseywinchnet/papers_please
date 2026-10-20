@@ -139,3 +139,13 @@ entries and actual canonical node identities at every witness and every
 prefix, including cross-prefix sharing. They also check the closed chain cost,
 ordinary Knuth, and original-weight tree structure. Larger rows evaluate only
 the proved formulas. Exact finite counts belong in the manuscript appendix.
+
+
+## Positive affine sharing
+
+[SLOT_AFFINE_BARRIER.md](SLOT_AFFINE_BARRIER.md) proves the same cubic
+final and quartic shared-history lower bounds even if block references may
+apply arbitrary positive scaling as well as shifts. Its explicit polynomially
+encoded integer family separates quadratic products of valuation scores,
+so exact three-entry ratios recover the witness indices. The conclusion
+applies to both punctured and whole-block representations.

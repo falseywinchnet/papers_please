@@ -4908,3 +4908,63 @@ reviewed at readable resolution. The dedication remains byte-for-byte
 unchanged. Output PDF and TeX match the manuscript, and all five source/font
 bundle entries were checked byte-for-byte. No full arbitrary-weight
 subquadratic claim or computational lower bound is made.
+
+
+## Checkpoint 64: affine sharing still has cubic and quartic size
+
+The previous turn made progress by proving actual-prefix size lower bounds.
+This turn first considered symbolic valuation profiles. A proposed extension
+through arbitrary orders of dominant outcomes was already covered by the
+existing key/gap separator constructor and was not republished as progress.
+The global O(s+W) tile-support target was reconsidered, but its required
+structural charging lemma remains unproved; no stronger core upper bound
+is claimed. The concrete new question was whether positive scaling, in
+addition to shifts, could eliminate the preceding diagram witnesses.
+
+It cannot. Set A=16n^2+1, e_t=t+2nt^2, w_i=A^(e_(n-i)), p_i=w_i-1 and
+all q_j=1. Unordered sums of two exponents are distinct: equality forces
+equal index sums and sums of squares, hence the same unordered pair.
+Quadratic products of bounded signed valuation differences therefore have
+unique scalar encodings. A three-entry ratio is an affine invariant.
+Equality of two ratios gives a polynomial identity between products of
+linear forms. The two forms for each witness are independent; coprimality
+forces proportionality. The leading coefficient fixed at one fixes the
+scale, after which the same r,s,k recovery proves every witness distinct.
+
+The exact final lower bound remains binomial(N+2,3), and the shared-history
+bound remains (n-2)binomial(N+2,3)-binomial(N+3,4), where
+N=max(0,n-ceil(log2(2ceil(n/2)+1))-2). Thus Omega(n^3) and Omega(n^4)
+hold even for the coarsest exact positive affine equivalence of fixed
+dyadic blocks. The result applies to whole and punctured blocks alike.
+Weights are finite integers with largest bit length O(n^3 log(n+1)) and
+total encoding O(n^4 log(n+1)); the argument does not use transcendental
+weights or infinite precision assumptions. It remains a representation
+barrier, since suffix dominance supplies a linear arithmetic-work chain
+constructor and certificate. The general full OBST goal remains active.
+
+The new harness preceded the theorem write-up. It checks 43,941 distinct
+quadratic exponents through n=256 and 18,213 dense greedy values through
+n=10. Full constructions at n=8,12,13,16,17 check 5567 distinct exact
+rational invariants, 16,701 actual prefix entries, all coefficient identities,
+and 11,134 invariance controls under two nontrivial positive affine maps.
+Every original-weight tree matches Knuth and the chain cost, with 66 suffix
+certificates. The largest weight in the final row has 119,841 bits. The
+existing additive constructor supplies values; no affine constructor is
+introduced. The Mini run completed normally, its JSON was copied before
+another mirror, and all eight source hashes match the authoritative files.
+
+The manuscript adds a quadratic-score separation lemma and the affine-size
+theorem to the negative-results section, with finite verification counts in
+Appendix T. Monge remains the leading theorem. The dedication and sponsor
+attribution are preserved, and no empirical exponent or timing is used.
+
+Final checkpoint-64 publication validation: the eight new source hashes
+and all seven preceding size-audit hashes match. The 177-page manuscript
+compiles with no warnings, overfull/underfull boxes or unresolved references.
+All 494 prior labels survive among 500 unique labels; all citations resolve
+to the same 21 bibliography entries. All pages were rendered and reviewed
+in nine contact sheets. The new lemma and theorem on pages 132--133,
+verification on 169 and dedication on 177 were reviewed at readable
+resolution. The dedication is byte-for-byte unchanged. User-facing PDF,
+TeX and all five source/font bundle entries match the manuscript files.
+The full arbitrary-weight subquadratic objective remains active.

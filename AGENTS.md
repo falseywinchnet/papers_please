@@ -691,3 +691,15 @@ values, then checks three-entry witnesses inside complete mixed constructions.
 Node identities are compared across all prefix roots, including shared nodes.
 Large formula rows are not enumerations. Copy the completed source-hashed JSON
 before another mirror. This is a representation barrier, not an OBST lower bound.
+
+
+Actual-prefix witnesses under positive affine block equivalence:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_affine_barrier.py
+```
+
+Check every three-entry ratio exactly, including cross-prefix sharing, and
+compare actual values with independent dense greedy controls and full Knuth
+optima. Large exponents have polynomial binary encoding; report bit lengths
+and exact operations, not timings. Copy the source-hashed JSON before mirroring.

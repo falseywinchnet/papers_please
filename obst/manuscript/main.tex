@@ -59,7 +59,8 @@ operations per arbitrary mixed update, for height $h$ and input size $D$.
 Including traceback and tree repair, complete construction takes
 $O(h[n+\sum_kD_k])$ such operations. An explicit positive mixed family forces $\Omega(n^3)$
 final diagram nodes and $\Omega(n^4)$ distinct nodes in shared prefix
-history, while its optimum is a directly certified right chain.
+history, even when blocks may share under positive affine transformations;
+the optimum remains a directly certified right chain.
 A contiguous odd ramp with total mass exactly $n$ has
 $\Omega(n^{3/2})$ intermediate core entries with explicitly computed densities.
 Thus the core exponent is necessary, up to a remaining logarithmic factor.
@@ -9168,6 +9169,116 @@ discarding earlier roots; the history obstruction already accounts for
 cross-stage sharing. The family's directly certified chain solution
 separates this representation barrier from the complexity of full OBST.
 
+\subsection{Positive affine normalization does not remove the size barrier}
+\label{sec:affine-diagram-barrier}
+A more permissive representation could share blocks that differ by a
+positive scale as well as an additive shift. The next result gives the
+same size obstruction under that equivalence, using finite integer weights
+with polynomial binary encoding.
+
+\begin{lemma}[Separating quadratic scores]\label{lem:quadratic-score-separation}
+Let $n\ge2$, $A=16n^2+1$, $e_t=t+2nt^2$ for $1\le t\le n$, and
+$w_i=A^{e_{n-i}}$ for $0\le i<n$. For integer vectors $u,v,u',v'$ whose
+coordinates have magnitude at most $n-1$, equality
+\[
+ (u\cdot w)(v'\cdot w)=(u'\cdot w)(v\cdot w)
+\]
+implies the polynomial identity
+$(u\cdot X)(v'\cdot X)=(u'\cdot X)(v\cdot X)$.
+If $u,v$ are linearly independent and $u'\ne0$, this forces
+$u'=\lambda u$ and $v'=\lambda v$ for some nonzero rational $\lambda$.
+\end{lemma}
+\begin{proof}
+All unordered sums $e_a+e_b$ are different. Equality with $e_c+e_d$
+implies
+\[
+ a+b-c-d=-2n(a^2+b^2-c^2-d^2).
+\]
+The left side has absolute value at most $2n-2$, so both sides vanish.
+Equality of sums and sums of squares gives $ab=cd$, hence equality of
+the unordered pairs.
+
+Every coefficient in the difference of the two quadratic polynomials
+has magnitude at most $4(n-1)^2$. Substitution of the $w_i$ sends distinct
+monomials to distinct powers of $A$. If the substituted polynomial were
+nonzero, its highest nonzero term would dominate all lower terms, since
+$4(n-1)^2<A-1$. Thus scalar equality implies polynomial identity.
+For the last assertion, the independent linear forms $U=u\cdot X$ and
+$V=v\cdot X$ are coprime over the rationals. From $UV'=U'V$, $U$ divides
+$U'$. Both are nonzero linear forms, so $U'=\lambda U$; cancellation
+gives $V'=\lambda V$.
+\end{proof}
+
+\begin{theorem}[Size under affine block equivalence]
+\label{thm:affine-diagram-barrier}
+Use the weights of Lemma~\ref{lem:quadratic-score-separation}, and put
+$p_i=w_i-1$ and $q_j=1$. Let $D_k^{\mathrm{aff}}$ count equivalence classes
+of nonnull, depth-tagged dyadic block interiors in the $k$-key prefix,
+where functions may share whenever $f=\alpha g+\beta$ for $\alpha>0$.
+Let $\mathcal H^{\mathrm{aff}}$ count their union across all prefixes,
+allowing the same equivalence across stages. With $N,Q,d_0,L_k$ as in
+Theorem~\ref{thm:punctured-size-barrier},
+\begin{align}
+ D_k^{\mathrm{aff}}&\ge L_k,\qquad
+ D_n^{\mathrm{aff}}\ge\binom{N+2}{3}=\Omega(n^3),
+       \label{eq:affine-diagram-final}\\
+ \mathcal H^{\mathrm{aff}}&\ge
+ (n-2)\binom{N+2}{3}-\binom{N+3}{4}=\Omega(n^4).
+       \label{eq:affine-diagram-history}
+\end{align}
+All original weights are positive. The unique optimum is the right chain
+and its necessary height is $n$. The largest input weight has
+$O(n^3\log(n+1))$ bits, and the complete input has
+$O(n^4\log(n+1))$ bits.
+\end{theorem}
+\begin{proof}
+Consecutive normalized weights differ by a factor at least $A$.
+Thus $n\sum_{j>i}w_j<w_i$, proving the chain and necessary height by
+suffix dominance. The same inequality gives lexicographic optimization
+of valuations. The exponent and bit-length bounds follow directly from
+$e_n=2n^3+n$ and $\log A=O(\log(n+1))$.
+
+Use the witnesses $(d,s,r,k)$ and three interior addresses from
+\eqref{eq:punctured-witness-range}--\eqref{eq:punctured-three-addresses}.
+All their feasibility and valuation identities depend only on lexicographic
+dominance, so they hold for these weights. Zero-pad the valuation vectors
+to $n$ coordinates and write
+\[
+ u=v(t_+)-v(t_-),\qquad z=v(t_*)-v(t_-).
+\]
+The first nonzero coordinate of $u$ is $r$ and equals one.
+Also $u_{k-1}=0$, whereas the last nonzero coordinate of $z$ is $k-1$
+and equals $-\nu_2(Q)\ne0$. Thus $u,z$ are linearly independent.
+Their coordinates have magnitude at most $n-1$, and $z_r=s-d$.
+
+For the actual block function $f$, define its three-entry invariant
+\begin{equation}\label{eq:affine-three-entry-invariant}
+ R(f)=\frac{f(t_*)-f(t_-)}{f(t_+)-f(t_-)}
+     =\frac{z\cdot w}{u\cdot w}.
+\end{equation}
+The denominator is nonzero by dominance. This ratio is unchanged by every
+positive affine transformation. If two same-depth witnesses have equal
+ratios, cross multiplication and
+Lemma~\ref{lem:quadratic-score-separation} give
+$u'=\lambda u$ and $z'=\lambda z$. The first nonzero coefficient of each
+$u$ is one, forcing equal $r$ and $\lambda=1$. The last nonzero coordinate
+of $z$ then recovers $k$, and its $r$th coordinate recovers $s$.
+Consequently every witness remains distinct under affine equivalence,
+including across stages. The counts in
+\eqref{eq:affine-diagram-final}--\eqref{eq:affine-diagram-history}
+are the same counts as before.
+\end{proof}
+
+The result concerns the coarsest exact positive affine equivalence, without
+assuming an implementation or charging for canonicalization. It also holds
+for blocks that include their first address: whole-block equivalence would
+imply equality of the three strictly interior invariants. Thus adding a
+scalar multiplier to normalized references cannot supply a universally
+small diagram. The same family still has a linear arithmetic-work chain
+construction and certificate; bit-operation costs are additional.
+A useful replacement must share more than affine copies of fixed dyadic
+blocks, avoid these prefix functions, or exploit additional input structure.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -11487,6 +11598,28 @@ The record \texttt{slot\_punctured\_barrier.json} retains every stage count,
 all operation counts and seven source hashes. Rows from 64 through 4096
 keys evaluate only the proved formulas; they are not enumerations or full
 constructions. The lower-bound proof is independent of these measurements.
+
+\paragraph{Positive affine block sharing.}
+The audit for Theorem~\ref{thm:affine-diagram-barrier} checks all 43,941
+unordered quadratic exponents at selected sizes through $n=256$ for
+uniqueness. It then compares 18,213 greedy scores with independent dense
+subsequence values at $2\le n\le10$. Five complete constructions at
+$n=8,12,13,16,17$ check every witness's three entries against the actual
+prefix function: 5567 distinct affine invariants and 16,701 exact entry
+comparisons. Every invariant is also checked after two nontrivial positive
+affine transformations, giving 11,134 exact rational controls. Distinctness
+is checked across all prefix stages, and the coefficient tests verify
+linear independence and recovery of $r,s,k$.
+
+All five original-weight trees agree with ordinary Knuth and the closed
+chain cost, with 66 strict suffix certificates. The largest normalized
+weight has 10,322, 38,740, 50,247, 98,499 and 119,841 bits in the five
+rows, respectively. These finite bit lengths are reported separately from
+arithmetic-operation counts. The record \texttt{slot\_affine\_barrier.json}
+retains each exponent sequence, stage counts, exact operation counts and
+eight source hashes. The existing additive solver supplies the tested
+function values; no affine-normalized solver is claimed or required for
+the equivalence-class lower bound.
 
 \clearpage
 \section{Unimodal domination and certified-envelope audit}
