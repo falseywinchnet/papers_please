@@ -769,3 +769,18 @@ before testing the explicit uniform family. Every selected interval has a full
 optimal-tree witness. Large rows are formulas only. Retain all-root operation
 counts and distinct fine-weight controls; these are representation barriers,
 not general OBST lower bounds. Copy the result before another mirror.
+
+Adaptive coarse-optimal grammars, exact original-weight queries, and richer
+exchange controls:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/coarse_grammar_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/coarse_exchange_control.py
+```
+
+Establish the two-tree family with independent all-root references before
+importing the constructor. Check every small retained rule, unrestricted ties,
+root holes, signed rational errors, rejected certificates and counted expansion
+budgets. Keep preparation separate from reused queries. The largest two-tree
+row uses its proved classification; independent Knuth has a separate size
+limit. Copy each result before another mirror and preserve earlier source hashes.

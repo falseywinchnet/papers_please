@@ -5170,3 +5170,93 @@ among 23 entries. Dedication bytes match checkpoint 66. Both executed-source
 hashes and every new table row match the result JSON. Output copies are
 byte-identical and the five-file source bundle is verified. One table-entry
 transcription error was corrected against the JSON before the final compile.
+
+## Checkpoint 68: adaptive coarse grammars and a linear global-ambiguity family
+
+The preceding turn made progress by publishing checkpoint 67. Its explicit
+grammar barrier does not prohibit an adaptive sparse-grammar constructor.
+This turn first checked richer local moves, then implemented that constructor
+with a harness written before the solver.
+
+The archive already contained a descendant-promotion trap, so promotion alone
+was not a new direction. One bottom-expansion swap also failed. The combination
+fails on a retained nine-key example: residual cost 219 at the candidate,
+212 globally, and all fourteen coarse-preserving combined neighbors at least
+224. Adding D>584 to all outcomes certifies the full positive mixed example;
+promotions leaving the minimum-IPL family also lose. Independent enumeration
+of all 4,862 shapes and Knuth at D=585 agree. The failure is retained in
+coarse_exchange_control.json rather than used as a general lower bound.
+
+The constructive change explores all optimal roots only in intervals reached
+from the full coarse optimum. It counts V reached intervals, A retained rules
+and Q candidate roots between unrestricted extremes, including holes. Final
+condensed costs are indexed with persistent row-prefix column-sum trees.
+Every candidate is checked by the exact recurrence, so root extremes are
+never mistaken for a contiguous optimal-root set. The two additional closure
+products use unrestricted child costs, preserving tall zero-weight ties.
+
+Preparation costs O((Sbar+V+Q) log(n+1)). Integer-length buckets and compiled
+child indices leave O(n+V+A) retained data. Every certified arbitrary
+nonnegative fine input then uses O(n+V+A) work, including certification and
+complete output. A deterministic balanced dictionary supports the stated
+preparation bound; the implementation uses counted Python dictionary accesses.
+Query evaluation uses arrays. Operand bit costs remain separate.
+
+The automatic sixteen-scale selector has coarse mass O(n). Extraction charges
+each processed state, scanned root and retained rule against 4*n*bit_length(n).
+Exhaustion retains its partial work in the counters and invokes full Knuth.
+Successful preparation plus a query is subquadratic; the global worst case
+remains quadratic. Dense uniform controls complete at n=11 and exhaust the
+budget at n=23,47,95, all with exact full outputs.
+
+An explicit family gives a sharper constructive separation. For m=2^k,
+n=3m-1, every coarse key and gap has unit weight except keys m-1,2m-1,
+which have weight two. Its coarse mass is 2n+3. Minimum-IPL shapes have a
+perfect 2m-1-key skeleton plus m bottom expansions. The two marked keys'
+comparison-length sum is at least three, attained exactly by the two
+endpoint-root shapes. Every other minimum-IPL shape pays at least four;
+a larger-IPL shape cannot beat the baseline-plus-three value. Hence there
+are exactly two optima with roots m-1 and 2m-1.
+
+Those trees share three perfect (m-1)-key subtrees. Their complete reachable
+grammar has exactly V=n+1, A=n+2, Q=4m. The old common-root partition instead
+stops at the full interval with b=n. Generic preparation now yields linear
+fine-weight queries. Recognizing the base gives a direct linear full
+constructor as well: compare p_c+W(c+1,n)-p_a-W(0,a), then write the chosen
+one of the two trees. Every fine key and gap may carry an independent signed
+error subject to nonnegativity and the existing finite certificate.
+
+The completed Mini audit checks 96 exact grammars, 56 literal-family controls
+with 5,000 literal costs, 2,869 entry-index queries, 288 reused signed rational
+queries, 96 zero-budget fallbacks, and the known root hole. Five dense and
+two literal references establish the explicit two-tree family before importing
+the new constructor. Seven scaling sizes through n=383 verify exact grammar
+counts, 21 generic/direct full queries, fourteen endpoint-root exposures and
+seven direct rejections. Independent Knuth covers eighteen scaling queries
+through n=191, six unstructured queries through n=128, and four automatically
+accepted complete solves. Six ordinary automatic controls include empty input.
+The direct reference counts are 20,900 states and 224,951 root candidates.
+
+At n=383 the generic preparation records 15,476,304 core visits and 32,590
+index nodes, while each fine query evaluates 384 states and 385 roots.
+The largest row uses the proved two-tree classification plus original-cost
+traversal, with its reference scope labeled explicitly. No wall-clock
+performance or operation-count exponent is inferred from measurements.
+All failed routes and complete preparation/query counters are retained.
+
+The paper places the adaptive construction beside the coarse certificate,
+the richer-exchange counterexample in the negative-results section, and
+all empirical verification counts in the appendix. The main Monge theorem
+remains the lead result. The general arbitrary-weight objective is still active.
+
+Final checkpoint-68 publication validation: the 190-page PDF compiles without
+warnings, unresolved references or overfull/underfull boxes. All pages were
+reviewed in contact sheets; the new construction pages 54--57, exchange pages
+142--143, audit pages 161--162, title and final dedication were inspected at
+full detail. A final wording clarification changed only page 142's rendered
+content stream, which was rendered and inspected again. All 527 previous
+labels remain among 537 unique labels, and all 23 bibliography entries remain.
+The dedication is byte-identical. All ten source-hash entries and all new
+table rows match the completed Mini records. The output TeX/PDF copies are
+byte-identical, and the five-file source bundle contains the exact TeX,
+build instructions and Hebrew font resources.

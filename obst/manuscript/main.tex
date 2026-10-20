@@ -3808,6 +3808,192 @@ entire quadratic payload table. The theorem therefore makes its ambiguity
 parameter explicit. Verification and complete operation counts are in
 Appendix~\ref{app:coarse-face}.
 
+\subsection{Adaptive refinement through the reachable optimal grammar}
+\label{sec:adaptive-coarse-grammar}
+Root ambiguity can occur at the full interval while only a small number of
+subproblems participate in any coarse optimum. We can retain precisely those
+subproblems and optimize the original weights over their root choices.
+The certificate remains Lemma~\ref{lem:coarse-stability}; no additional
+restriction is placed on individual fine-weight errors.
+
+For a fixed integer base, start at $[0,n)$. At every reached nonempty
+interval $[i,j)$ retain every unrestricted optimal root $r$, with children
+$[i,r)$ and $[r+1,j)$. Deduplicate intervals. Write $V$ for the number
+of reached nonempty intervals, $A$ for the number of retained triples
+$(i,j,r)$, and
+\begin{equation}\label{eq:adaptive-grammar-scan}
+ Q=\sum_{[i,j)\text{ reached}}
+       \bigl(r_{\max}(i,j)-r_{\min}(i,j)+1\bigr).
+\end{equation}
+Thus $V\le A\le Q$. A root strictly between the two extremes need not
+be optimal, so $Q$ counts unsuccessful candidate tests as well.
+
+\begin{theorem}[Adaptive optimal-grammar refinement]
+\label{thm:adaptive-coarse-grammar}
+The reachable grammar can be prepared in
+\begin{equation}\label{eq:adaptive-grammar-preparation}
+ O\bigl((\bar S+V+Q)\log(n+1)\bigr)
+\end{equation}
+arithmetic and comparison operations, using the aggregate coarse-core
+quantity $\bar S$ of Lemma~\ref{lem:coarse-extremes}.
+After preparation retain $O(n+V+A)$ data. Each arbitrary nonnegative
+fine-weight input satisfying \eqref{eq:coarse-certificate} can then be
+solved completely in
+\begin{equation}\label{eq:adaptive-grammar-refinement}
+ O(n+V+A)
+\end{equation}
+arithmetic operations, including certification and full tree reconstruction.
+Peak preparation space with the retained ordinary-map implementation is
+$O(\bar S\log(n+1)+n+V+A)$.
+\end{theorem}
+\begin{proof}
+Prepare unrestricted root extremes by Lemma~\ref{lem:coarse-extremes}.
+Also index the final condensed cost matrix $C^*$. For a core entry
+$(a,b,d_{a,b})$, the condensed representation gives
+\[
+ C^*(i,j)=C^*(i,0)+C^*(0,j)-C^*(0,0)
+                   -\sum_{a<i,\ b<j}d_{a,b}.
+\]
+Maintain a persistent binary sum tree on column coordinates after each
+core-row prefix. Inserting a density copies $O(\log(n+1))$ nodes.
+There are $O(n)$ versions and $K_H$ insertions, so this index costs
+$O(n+K_H\log(n+1))$ work and space. A column-prefix query in version
+$i$ evaluates any required entry in $O(\log(n+1))$ work. In particular,
+the zero diagonal represents empty-child cost exactly.
+
+Process each reached interval once. Query its root extremes. If they
+coincide, retain the single rule. Otherwise test every root between them
+by the exact equality
+\begin{equation}\label{eq:adaptive-grammar-test}
+ C^*(i,r)+C^*(r+1,j)+\bar W(i,j)=C^*(i,j).
+\end{equation}
+Coarse interval masses use prefix sums. Every retained root schedules its
+nonempty children. A dictionary on endpoint pairs, implemented if desired
+by a balanced search tree, deduplicates intervals in $O(\log(n+1))$
+work per operation. There are $O(V+Q)$ such operations and tests.
+The final core index is covered by the $\bar S\log(n+1)$ term. This
+proves \eqref{eq:adaptive-grammar-preparation}.
+
+The resulting grammar describes exactly the full coarse-optimal trees.
+Every coarse-optimal tree uses an optimal root and optimal children at
+each of its intervals, and hence appears in the grammar by induction.
+Conversely, combining any retained root with any optimal children attains
+the parent's coarse optimum by \eqref{eq:adaptive-grammar-test}.
+Induction on interval length proves the reverse inclusion, including
+all combinations of child choices.
+
+Bucket the reached intervals by their integer lengths $1,\ldots,n$ in
+$O(n+V)$ work. Assign array indices in that order, replacing child
+endpoints by indices and using a sentinel for an empty child. Each child
+has smaller length. This compilation takes $O(A\log(n+1)+n+V)$ work
+with the same dictionary and is absorbed by the preparation bound.
+Discard the cost index, matrices and witness structures.
+
+For each new input check \eqref{eq:coarse-certificate}, form original
+weight prefix sums, and compute in increasing length
+\[
+ D(i,j)=W(i,j)+
+       \min_{r:\,(i,j,r)\text{ retained}}
+              \{D(i,r)+D(r+1,j)\},\qquad D(i,i)=0.
+\]
+Use original gaps at both endpoints. The compiled child indices make
+each root evaluation constant work with array access; no query-time
+dictionary is needed. Store an attaining root with its two child indices.
+The grammar contains every fine optimum by the certificate, so its
+minimum is the full original optimum. Evaluate $V$ states and $A$ rules,
+then traverse the selected rules to write all $n$ keys. Every selected
+child interval is strictly smaller and the two child key sets are
+disjoint, so full traceback costs $O(n)$. This proves
+\eqref{eq:adaptive-grammar-refinement} and the retained-space bound.
+\end{proof}
+
+\paragraph{Counted expansion and the automatic constructor.}
+Apply the scale tests of Corollary~\ref{cor:coarse-automatic}. On acceptance,
+attempt grammar extraction with a budget of
+$4n\lceil\log_2(n+1)\rceil$ charges, one for each processed interval,
+candidate root and retained rule. Check the budget before each charge;
+each accepted rule schedules at most two children. If the budget is
+exhausted, discard the partial grammar and use ordinary Knuth on the
+original weights. A certificate rejection also uses Knuth.
+Thus all failed expansion work is counted and bounded.
+
+The accepted coarse mass is $O(n)$. Coarse preparation, the cost index
+and the bounded extraction together take
+$O(n^{3/2}\log^{3/2}(n+1)+n\log^2(n+1))$ work.
+A completed plan has $V+A=O(n\log(n+1))$, so its first full construction
+is subquadratic and subsequent certified queries use
+$O(n+V+A)$ work. The fallback gives an exact $O(n^2)$ worst-case
+constructor. For a supplied integer base of unrestricted mass, retain
+the explicit $\bar S$ term instead. Operand bit costs are additional.
+The dense uniform family of Theorem~\ref{thm:coarse-grammar} explains
+why the budget can be necessary.
+
+\begin{theorem}[Two distant roots with a linear reachable grammar]
+\label{thm:two-root-grammar}
+Let $m=2^k$ with $k\ge1$, and put $n=3m-1$, $a=m-1$, $c=2m-1$.
+Assign unit weight to every key and gap, then increase the weights of
+keys $a,c$ to two. The total coarse mass is $2n+3$. There are exactly
+two coarse-optimal full trees. Their roots are $a$ and $c$, and their
+reachable grammar has
+\begin{equation}\label{eq:two-root-grammar-counts}
+ V=n+1,\qquad A=n+2,\qquad Q=4m.
+\end{equation}
+The common-root partition has a single ambiguous payload of size $n$.
+The adaptive grammar instead gives $O(n)$ work for every certified
+fine-weight query after generic coarse preparation.
+\end{theorem}
+\begin{proof}
+For unit mixed weights the cost is $2I+3n$. Every minimum-IPL tree at
+this size fills the perfect upper skeleton with $2m-1$ keys and expands
+exactly $m$ of its $2m$ bottom gaps. Its root has rank between $a$ and
+$c$. Rank $a$ requires no left-half expansion and all $m$ right-half
+expansions; rank $c$ requires the reverse. Each extreme therefore
+determines a unique full shape.
+
+The two extra unit key weights contribute the sum of the comparison
+lengths of $a,c$. Distinct keys have comparison-length sum at least
+three. Both extreme shapes attain three: one marked key is the root,
+and the other is its child. Any other minimum-IPL shape has neither
+marked key at the root and contributes at least four. A tree with larger
+IPL already has a strictly larger baseline cost and cannot offset it
+with a contribution below three. Consequently the two extreme shapes
+are exactly the coarse optima.
+
+Let $P_0,P_1,P_2$ be the perfect $(m-1)$-key trees on
+$[0,a)$, $[a+1,c)$ and $[c+1,n)$, respectively. The two trees are
+\[
+ T_a=a(P_0,c(P_1,P_2)),\qquad
+ T_c=c(a(P_0,P_1),P_2).
+\]
+Their common perfect subtrees contribute $3(m-1)$ distinct nonempty
+intervals. The full interval and the two different $(2m-1)$-key
+intervals contribute three more, giving $V=3m=n+1$.
+Every proper reached interval has a unique optimal subtree: an alternative
+would replace that subtree in a full optimum and create a third full
+optimum. Thus the full interval has two rules and each of the other
+$V-1$ intervals has one, yielding $A=V+1=n+2$.
+The full root range contains $m+1$ candidates, and every proper interval
+contributes one. Hence $Q=(m+1)+(3m-1)=4m$.
+The different full roots make the common-root partition stop immediately.
+\end{proof}
+
+For this explicitly recognized base, even coarse Monge preparation can
+be omitted. Construct the three perfect subtrees and choose between the
+two displayed trees. For arbitrary original weights their cost difference
+is exactly
+\begin{equation}\label{eq:two-root-fine-choice}
+ C_{p,q}(T_a)-C_{p,q}(T_c)
+   =p_c+W(c+1,n)-p_a-W(0,a).
+\end{equation}
+The middle subtree has the same depth in both trees; the outer subtrees
+and the two marked keys change depth by one. The certificate, mass sums,
+choice and complete output therefore take $O(n)$ work in total.
+The errors at all original key and gap positions may vary independently,
+subject to nonnegativity and the one total-error certificate. Verification
+and separate preparation/query counts appear in
+Appendix~\ref{app:adaptive-coarse-grammar}.
+
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -9766,6 +9952,31 @@ the root of a root-$2$ tree leaves the minimum-path-length family.
 After dividing \eqref{eq:coarse-rotation-weights} by $D$, these are
 arbitrarily small perturbations of strictly positive uniform weights.
 
+\paragraph{Descendant promotions combined with bottom-gap exchange.}
+Strict local minima also occur under the combined richer move set.
+For nine keys, start with the perfect seven-key upper skeleton and expand
+bottom gaps 6 and 7, numbered from zero. Give every outcome coarse weight
+one and choose fine weights $p_i=D+e_i$, $q_j=D+f_j$, where
+\[
+\begin{split}
+e&=(2,5,4,4,5,2,0,4,4),\\
+f&=(3,4,4,6,8,7,1,1,7,2),\qquad D>584.
+\end{split}
+\]
+The total error is 73, so the certificate holds. All 28 coarse optima
+come from expanding two of the eight bottom gaps and have cost 59.
+The selected tree has fine cost $59D+219$, whereas expanding gaps 0
+and 5 gives the global optimum $59D+212$.
+Consider promoting any descendant to the root of any existing subtree,
+or exchanging one expanded bottom gap for one unexpanded gap.
+Among the resulting trees, the fourteen distinct neighbors still in the
+coarse family all cost at least $59D+224$ by direct depth sums.
+Every remaining promotion leaves the coarse family and is more expensive
+by the certificate. Thus the selected tree is a strict local minimum
+under the combined move set. Exact neighbor values and independent
+full-tree checks appear in Appendix~\ref{app:adaptive-coarse-grammar}.
+
+
 The theorem obstructs explicit coarse-family expansion; the five-key
 example obstructs descent using only single rotations. Neither is a
 lower bound for arbitrary full-OBST algorithms. Independent checks and
@@ -10968,6 +11179,88 @@ proved formulas only, with no graph enumeration. The record
 \texttt{coarse\_face\_structure.json} retains the seed, all five original
 fine inputs, full costs, reference counts, exact scale controls and both
 executed-source hashes.
+
+\subsection{Adaptive coarse-grammar construction audit}
+\label{app:adaptive-coarse-grammar}
+The independent harness establishes the two-tree family before importing
+the new constructor. Direct all-root recurrences verify its complete
+reachable grammar at $m=2,4,8,16,32$; literal tree enumeration checks
+the two smallest sizes. The persistent entry index is tested on
+$2{,}869$ entries of separately generated condensed Monge matrices.
+
+For 96 coarse inputs through twelve keys, including all-zero inputs,
+the prepared interval and root-triple sets equal those of an independent
+all-root recurrence. Fifty-six of these inputs also receive literal
+optimal-tree checks, evaluating $5{,}000$ tree costs. Each preparation
+serves three independently perturbed rational fine inputs: all 288 full
+outputs match the independent original-weight optimum and remain
+coarse-optimal. These errors have both signs where nonnegativity permits.
+Ninety-six zero-budget preparations verify exact fallback, and the
+three-key root-hole fixture verifies that the missing middle root is
+excluded. Separate ordinary-input controls test automatic scale rejection.
+The direct reference computations total $20{,}900$ states and
+$224{,}951$ root candidates.
+
+The two-tree scaling rows run complete generic preparation through
+$n=383$. Each has the proved $V=n+1$, $A=n+2$, $Q=4(n+1)/3$.
+Three full rational queries per preparation test generic refinement
+and the direct linear constructor, including the exact difference
+\eqref{eq:two-root-fine-choice}. Independent full Knuth controls cover
+the first six sizes, through $n=191$; the largest row uses the proved
+two-tree classification and direct traversal of every original outcome.
+Additional perturbations deterministically select each of the two roots.
+All seven direct-constructor rejection controls fall back correctly.
+
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+$n$ & Preparation core visits & Index nodes & Fine root candidates\\
+\midrule
+5 & 6,834 & 47 & 7\\
+11 & 40,522 & 187 & 13\\
+23 & 174,784 & 632 & 25\\
+47 & 602,090 & 1,827 & 49\\
+95 & 1,893,664 & 4,948 & 97\\
+191 & 5,557,466 & 12,965 & 193\\
+383 & 15,476,304 & 32,590 & 385\\
+\bottomrule
+\end{tabular}
+\end{center}
+Preparation includes both orientations, both unrestricted closure products
+and index construction. Core visits are one instrumentation category,
+not total instructions or a speed claim. Each generic fine query evaluates
+$n+1$ states and $n+2$ roots, checks $2n+1$ error terms and writes $n$
+keys. The direct constructor checks the same number of errors, sums
+$4m$ choice terms and writes the complete tree.
+
+Three unstructured integer bases at $n=32,64,128$ have respectively
+$V=32,65,137$ states and $A=32,66,143$ rules. Two rational fine queries per base
+match independent Knuth construction. Four additional full runs include
+automatic scale selection, generic preparation and output for the
+two-tree family. On the dense uniform control $n=6B-1$, the default
+budget finishes at $B=2$ and exhausts at $B=4,8,16$; every full output
+still agrees with Knuth. The retained record
+\texttt{coarse\_grammar\_audit.json} includes the seed, fine inputs,
+separate preparation/query counters, rejection work, verification scopes
+and eight executed-source hashes.
+
+\paragraph{Combined-exchange control.}
+For the nine-key example in Section~\ref{sec:coarse-structure}, the
+28 minimum-IPL shapes are checked against all $4{,}862$ full shapes.
+The fourteen distinct coarse-preserving neighbors, combining every
+descendant promotion with one bottom-gap exchange, have error costs
+\[
+224,226,227,228,229,230,230,230,231,231,234,235,238,239.
+\]
+The selected local tree has error cost $219$, and the minimum among
+the 28 coarse optima is $212$. At $D=585$, full enumeration and Knuth
+give costs $34{,}734$ and $34{,}727$ for the candidate and optimum.
+Every descendant promotion, including those leaving the coarse family,
+is also checked directly. The source-hashed
+\texttt{coarse\_exchange\_control.json} retains the weights, candidate
+tree and every neighbor. This finite counterexample motivated optimizing
+the retained grammar directly.
+
 
 \section{Adversarial core search and the odd-ramp proof audit}
 \label{app:core-search}
