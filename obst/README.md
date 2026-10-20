@@ -8,6 +8,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
 - [Certified coarse optimal faces and arbitrary-weight refinement](COARSE_FACE.md)
+- [Reachable coarse-family size and rotation barriers](COARSE_FACE_STRUCTURE.md)
 - [Exact lazy prefix search and an exponential pruning obstruction](SLOT_LAZY_BARRIER.md)
 - [Cubic and quartic size bounds even under affine block sharing](SLOT_AFFINE_BARRIER.md)
 - [Cubic actual-prefix diagrams and quartic shared history](SLOT_PUNCTURED_BARRIER.md)

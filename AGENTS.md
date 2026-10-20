@@ -757,3 +757,15 @@ Count both orientation solves and the unrestricted closure products. Separate
 reused query work from preparation. Retain unstructured lattice inputs,
 ordinary rejection controls and uniform global-ambiguity cases. Copy JSON
 before another mirror operation.
+
+Reachable coarse-optimal interval grammars and exact rotation controls:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/coarse_face_structure.py
+```
+
+Compare reachable intervals and root triples with literal optimal-tree families
+before testing the explicit uniform family. Every selected interval has a full
+optimal-tree witness. Large rows are formulas only. Retain all-root operation
+counts and distinct fine-weight controls; these are representation barriers,
+not general OBST lower bounds. Copy the result before another mirror.

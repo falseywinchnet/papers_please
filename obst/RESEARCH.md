@@ -5111,3 +5111,62 @@ among 22 entries. The dedication is byte-identical to checkpoint 65, and all
 16 executed-source hash entries match. The output TeX/PDF copies are
 byte-identical to the manuscript, and the five-file source archive contains
 the exact TeX, build instructions, Hebrew font and its license/readme.
+
+## Checkpoint 67: the coarse optimal family itself can be large
+
+The previous turn made progress by publishing checkpoint 66. This turn attacks
+its global-ambiguity case. The existing minimum-IPL shape solver already handles
+some uniform cases, so reusing it was not counted as a new construction.
+
+The proposed explicit reachable grammar is now ruled out as a universally
+subquadratic representation even for strictly positive unit coarse weights.
+For B=2^k and n=6B-1, expand 2B bottom gaps of the perfect (4B-1)-key tree.
+Distribute the expansions among the four depth-two blocks. Assigning u,v to
+the first two realizes every interval [B+u,2B-1+u+v), 0<=u,v<=B. Their exact
+optimal-root ranges give (B+1)^2 distinct intervals and
+(B+1)(B/2+1)^2 root triples. These establish quadratic and cubic worst-case
+sizes, respectively, at total coarse mass 2n+1.
+
+Each coarse optimum can be uniquely exposed by arbitrarily small positive
+key perturbations proportional to (n^2+1)^(-depth). Thus the counted choices
+cannot all be discarded by a coarse-only preparation intended to serve every
+certified perturbation. Different choices may need different fine inputs;
+no lower bound for a single arbitrary algorithm is asserted.
+
+A three-key positive mixed example has root costs 24,25,24, ruling out
+contiguity inferred from root extremes. A five-key positive uniform coarse
+family has a disconnected zero-cost rotation graph, with components of sizes
+two and four. For fine p=(D,D+1,D+1,D,D), all q=D, D>8, a tree costs 27D+4,
+all four single-rotation neighbors cost more, and the global optimum is
+27D+3. The certificate holds because 4*2<D. This is a strict local trap under
+all single rotations, persisting arbitrarily close to positive uniform input.
+
+A targeted literature check found Onishi and Hoshi's 2005 optimal-region paper.
+It is credited for the established exposing-weight/optimal-region perspective.
+The new text supplies all size counts and the concrete mixed examples directly;
+no priority claim is made for the general inadequacy of single rotations.
+
+The harness precedes any new solver and uses direct all-root recurrences plus
+literal tree families. Forty reachable-family checks through eight keys cover
+10,275 literal tree costs. It checks 27 unique exposing perturbations and four
+strict rotation traps. At B=2,4,8,16,32, all 1,493 selected intervals have
+explicit full-tree witnesses and exact independently checked root sets. Five
+all-distinct original-weight controls match full Knuth construction, fine cost
+and coarse optimality. Reference work totals 24,972 states and 1,349,726 root
+candidates. Larger rows are formula-only. Both source hashes match the completed
+Mini run, which was copied back before any further mirror.
+
+The full arbitrary-weight objective remains active. This result eliminates
+explicit family expansion and rotation-only descent as ways to remove the
+coarse-refinement ambiguity parameter; it leaves implicit family optimization
+and richer exchanges as possible constructive directions.
+
+Final checkpoint-67 publication validation: the 187-page PDF compiles without
+warnings, unresolved references or overfull/underfull boxes. All pages were
+reviewed in contact sheets; the new proof pages 138--140, audit pages 158--159,
+title and final dedication were inspected at full detail. All 520 prior labels
+remain among 527 unique labels, and all 22 prior bibliography entries remain
+among 23 entries. Dedication bytes match checkpoint 66. Both executed-source
+hashes and every new table row match the result JSON. Output copies are
+byte-identical and the five-file source bundle is verified. One table-entry
+transcription error was corrected against the JSON before the final compile.

@@ -9624,6 +9624,153 @@ stronger pruning bound: the order in which high valuations can be attained.
 Exact finite controls and complete-construction operation counts appear
 in Appendix~\ref{app:rank-transfer}.
 
+\subsection{The size and rotation structure of a coarse optimal family}
+\label{sec:coarse-structure}
+The coarse certificate in Section~\ref{sec:coarse-face} suggests replacing an
+ambiguous payload by all intervals and root choices reachable through coarse
+optima. The following exact counts delimit that representation, even when
+all coarse weights are positive and their total mass is linear.
+
+For fixed coarse weights, define the \emph{reachable optimal-interval grammar}
+as follows. Start with $[0,n)$. At each reached nonempty interval $[i,j)$,
+include every root $r$ attaining its unrestricted coarse optimum, and reach
+both children $[i,r)$ and $[r+1,j)$. Identify repeated intervals. A root
+triple is $(i,j,r)$, not a complete tree. By optimal substructure, this grammar
+contains exactly the intervals and root triples occurring in full coarse
+optima: each reached choice can replace the corresponding optimal subtree
+without changing the full cost.
+
+\begin{theorem}[Quadratic intervals and cubic root choices]
+\label{thm:coarse-grammar}
+Let $B=2^k$, $k\geq1$, and $n=6B-1$. Give every coarse key and every coarse
+gap weight one. The reachable optimal-interval grammar contains the
+$(B+1)^2$ distinct intervals
+\begin{equation}\label{eq:coarse-grammar-intervals}
+ [B+u,\,2B-1+u+v),\qquad 0\leq u,v\leq B.
+\end{equation}
+The number of its root triples on just these intervals is exactly
+\begin{equation}\label{eq:coarse-grammar-triples}
+ (B+1)(B/2+1)^2.
+\end{equation}
+Consequently the explicit reachable grammar has $\Theta(n^2)$ nonempty
+intervals and $\Theta(n^3)$ root triples in the worst case, at coarse total
+mass $2n+1$.
+\end{theorem}
+\begin{proof}
+Uniform mixed cost is $2I+3n$, so the coarse optima are exactly the trees
+of minimum internal path length. Take a perfect upper skeleton with
+$4B-1$ keys, and expand $2B$ of its $4B$ bottom gaps. Every resulting tree
+fills all levels through depth $k+1$ and has its remaining $2B$ keys at depth
+$k+2$; hence it has minimum internal path length.
+
+The four subtrees at depth two each begin as a perfect $(B-1)$-key tree
+with $B$ expandable bottom gaps. Let their expansion counts be
+$x_0,x_1,x_2,x_3\in[0,B]$, with sum $2B$. Set $x_0=u$, $x_1=v$.
+The remaining sum $2B-u-v$ is always in $[0,2B]$, so choose
+$x_2=\min\{B,2B-u-v\}$ and $x_3=2B-u-v-x_2$.
+The second subtree then has exactly the interval in
+\eqref{eq:coarse-grammar-intervals}. Its start determines $u$, and its
+length determines $v$, proving distinctness and full-tree reachability.
+
+Write its start as $i=B+u$. Its length is $B-1+v$. Every minimum-path-length
+tree of that size has a perfect $(B-1)$-key upper skeleton and $v$ bottom
+expansions. If $t$ expansions lie in the left half, its root is
+$i+B/2-1+t$, where precisely
+\[
+ \max\{0,v-B/2\}\leq t\leq\min\{v,B/2\}.
+\]
+Every such $t$ is realizable, and replacing the subtree preserves full
+optimality. Thus there are $\min\{v,B-v\}+1$ roots on that interval. Summing
+first over $v$ and then over $u$ gives
+\[
+ (B+1)\sum_{v=0}^{B}(\min\{v,B-v\}+1)
+   =(B+1)(B/2+1)^2.
+\]
+There are at most $n(n+1)/2$ nonempty intervals and
+$n(n+1)(n+2)/6$ interval-root triples in any BST recurrence, proving the
+matching orders.
+\end{proof}
+
+The counts concern a representation prepared from the coarse weights.
+They cannot be reduced by discarding coarse-optimal trees on the assumption
+that small perturbations will never select them. The following standard
+exposing-weight idea makes this precise. Onishi and Hoshi~\cite{onishi-regions}
+study optimality regions of key-weighted BSTs and establish that every tree
+has a nonempty region; they also distinguish their adjacency from single
+rotations. We give the elementary mixed-weight consequence needed here.
+
+\begin{lemma}[Every coarse optimum can be selected uniquely]
+\label{lem:coarse-expose}
+For any coarse-optimal tree $T$ on $n\geq2$ keys and any $\delta>0$, there
+are arbitrarily small positive key perturbations, with all gap perturbations
+zero, satisfying \eqref{eq:coarse-certificate} for which $T$ is the unique
+fine-weight optimum.
+\end{lemma}
+\begin{proof}
+Put $A=n^2+1$, and give key $i$ perturbation
+$e_i=\varepsilon A^{-d_T(i)}$, where $d_T(i)$ is its depth in $T$.
+In any subtree of $T$, let its root perturbation be $w$.
+Every proper descendant has perturbation at most $w/A$.
+The perturbation cost of the prescribed subtree is therefore at most
+$w+n(n-1)w/A<2w$. Any competing subtree with a different root costs at
+least $2w$ just for that root key. Induction for equal roots proves that
+$T$ uniquely minimizes perturbation cost among all full trees.
+It also minimizes coarse cost, so it uniquely minimizes their positive
+scaled sum. Finally $E\leq n\varepsilon$, and taking
+$0<\varepsilon<\delta/[n(n-1)]$ gives the certificate. The choice may be
+made arbitrarily small.
+\end{proof}
+
+For Theorem~\ref{thm:coarse-grammar}, every counted interval and root triple
+therefore occurs in a uniquely selected fine optimum for some certified
+perturbation of the same positive coarse input. This does not require one
+fine input to select all the counted triples simultaneously. Nor does it
+force an algorithm to materialize the grammar: a different implicit
+representation remains possible.
+
+\paragraph{Root holes and a strict rotation trap.}
+Small exact examples rule out two further shortcuts. For
+$p=(4,1,4)$ and $q=(1,1,1,1)$, the three root-constrained optimum costs are
+$24,25,24$. Knowing the smallest and largest optimal roots therefore does
+not imply that all roots between them are optimal.
+
+For a near-uniform rotation example, write $r(L,R)$ for a tree rooted at
+zero-based key $r$, and omit the children of a leaf. Let
+\[
+ T=1\bigl(0,\,3(2,4)\bigr),\qquad
+ U=2\bigl(1(0,\varnothing),\,3(\varnothing,4)\bigr).
+\]
+Give every coarse key and gap weight one, and take fine weights
+\begin{equation}\label{eq:coarse-rotation-weights}
+ p=(D,D+1,D+1,D,D),\qquad q=(D,D,D,D,D,D),\qquad D>8.
+\end{equation}
+Here $E=2$ and $(n-1)E=8<D$, so the coarse-family certificate holds.
+The coarse optimum is $27$. Direct depth sums give
+\[
+ C(T)=27D+4,\qquad C(U)=27D+3.
+\]
+The four single rotations from $T$, respectively at edges
+$(1,3)$, $(3,2)$, $(3,4)$ and $(1,0)$, have costs
+\[
+ 27D+5,\qquad29D+3,\qquad29D+5,\qquad33D+6.
+\]
+Thus $T$ is a strict local minimum under every single rotation, while $U$
+is better. The global optimum is exactly $27D+3$: among the six coarse
+optima, the perturbation costs are $4,4,4,3,3,5$, and the certificate
+excludes every other tree. The six trees correspond to choosing two of
+the four bottom gaps of the perfect three-key upper skeleton.
+Their coarse-cost-preserving rotation graph has components of sizes two
+and four: the two root-$1$/$3$ trees form one edge, while the four root-$2$
+trees independently choose each two-key child's orientation. Rotating
+the root of a root-$2$ tree leaves the minimum-path-length family.
+After dividing \eqref{eq:coarse-rotation-weights} by $D$, these are
+arbitrarily small perturbations of strictly positive uniform weights.
+
+The theorem obstructs explicit coarse-family expansion; the five-key
+example obstructs descent using only single rotations. Neither is a
+lower bound for arbitrary full-OBST algorithms. Independent checks and
+complete original-weight controls appear in Appendix~\ref{app:coarse-structure}.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -10776,6 +10923,51 @@ original-weight tree traversal. The record \texttt{coarse\_face\_scale.json}
 retains every input, separate preparation and reference counters, all failed
 routes, exact accepted scales and error magnitudes, seed and eight source
 hashes. Bit-operation costs are separate from these arithmetic counts.
+
+\subsection{Reachable coarse-family grammar and rotation audit}
+\label{app:coarse-structure}
+The harness first compares the entire reachable interval and root-triple
+sets with literal optimal-tree enumeration on forty inputs through eight
+keys. It evaluates $10{,}275$ literal tree costs. Twenty-seven separate
+perturbations select each uniform coarse optimum uniquely, checked against
+every competing small tree. Four exact scales verify the five-key strict
+rotation trap, its full optimum and all four neighboring costs. The
+three-key root-hole example is checked by an independent all-root recurrence.
+
+For $B=2,4,8,16,32$, a separate all-root computation builds the complete
+coarse-optimal grammar. Every interval in
+\eqref{eq:coarse-grammar-intervals} is checked for reachability and for its
+entire optimal-root set. All $1{,}493$ selected intervals also receive an
+explicit full-tree witness, whose original coarse cost equals the
+independent optimum. Selected counts are:
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+$B$ & $n$ & Selected intervals & Selected root triples\\
+\midrule
+2 & 11 & 9 & 12\\
+4 & 23 & 25 & 45\\
+8 & 47 & 81 & 225\\
+16 & 95 & 289 & 1377\\
+32 & 191 & 1089 & 9537\\
+\bottomrule
+\end{tabular}
+\end{center}
+For each size, a shuffled permutation of $1,\ldots,2n+1$ gives distinct
+positive perturbations of all original key and gap weights. With
+$D=2n\sum e_o$, the certificate holds. Independent Knuth construction and
+a direct full-tree cost traversal agree on all five fine inputs; each
+returned tree is also coarse-optimal. These are complete original-weight
+controls, not a new fast constructor.
+
+The direct reference computations use $24{,}972$ interval states and
+$1{,}349{,}726$ root candidates. Their reachable graphs contain a total of
+$9{,}829$ intervals and $47{,}070$ root triples across the fixtures. Those
+are verification operations. Larger rows through $B=2^{20}$ evaluate the
+proved formulas only, with no graph enumeration. The record
+\texttt{coarse\_face\_structure.json} retains the seed, all five original
+fine inputs, full costs, reference counts, exact scale controls and both
+executed-source hashes.
 
 \section{Adversarial core search and the odd-ramp proof audit}
 \label{app:core-search}
@@ -12406,6 +12598,11 @@ M. Chrobak, M. Golin, J. I. Munro, and N. E. Young.
 A Simple Algorithm for Optimal Search Trees with Two-way Comparisons.
 \emph{ACM Transactions on Algorithms} 18(1), Article 2, 2021.
 \href{https://doi.org/10.1145/3477910}{doi:10.1145/3477910}.
+\bibitem{onishi-regions}
+K. Onishi and M. Hoshi.
+Optimal Region for Binary Search Tree, Rotation and Polytope.
+\emph{International Symposium on OR and Its Applications}, pp.~255--266, 2005.
+\href{https://www.aporc.org/LNOR/5/ISORA2005F20.pdf}{Author paper}.
 \end{thebibliography}
 \endgroup
 
