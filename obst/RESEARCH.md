@@ -4968,3 +4968,69 @@ verification on 169 and dedication on 177 were reviewed at readable
 resolution. The dedication is byte-for-byte unchanged. User-facing PDF,
 TeX and all five source/font bundle entries match the manuscript files.
 The full arbitrary-weight subquadratic objective remains active.
+
+
+## Checkpoint 65: lazy evaluation needs an order-sensitive bound
+
+The previous turn made progress through the affine block-sharing obstruction.
+This turn investigated evaluating only requested predecessor states, without
+materializing prefix vectors or diagrams. A harness was written first to
+check a new mixed-weight rearrangement relaxation against literal values.
+The exact solver uses the proved skyline recurrence, a persistent prefix
+order-statistic index, memoization, iterative search, traceback and sparse
+repair. Its default counted budget followed by ordinary Knuth gives a full
+quadratic safeguard, including unsuccessful search work.
+
+For each gap, 2g min(x,y)<=g(x+y). The resulting coefficient of a free key
+is 2w_i+g_i+g_(i+1); the forced last key omits the absent next gap. Dropping
+order allows the largest coefficients to take the largest valuations.
+Threshold counts floor((b-1)/2^d) express that exact relaxed dot product as
+a sum of top-t coefficient queries. The bound is valid for arbitrary
+nonnegative rational weights. If V states are expanded and Q distinct
+bounds are evaluated, full work is O(n log(n+1)+Qh log(n+1)+Vh log(h+1)+nh),
+with Q<=Vh. No universal small-V bound is inferred.
+
+The scale test exposed a rigorous failure on the earlier positive mixed
+family p_i=(n+1)^(n-i)-1, all q_j=1. At necessary height n, any candidate
+prefix with at least four keys and endpoint above 3*2^(n-2) assigns the
+relaxed valuations (n-1,n-2,n-2) to its three heaviest keys. That triple
+cannot occur in increasing slot order. Strict suffix dominance makes this
+bound better than every feasible parent prefix, even after its transition
+cost is included, so local incumbent pruning cannot discard the candidate.
+
+For every nonempty proper subset of bits {0,...,n-3}, start at sentinel
+(n+1,2^n) and subtract the selected powers of two in descending order while
+decreasing the key count. Every edge is a genuine skyline edge satisfying
+the strict bound condition. The endpoints are distinct actual-prefix states.
+Thus completed unbudgeted search expands at least 2^(n-2)-2, or
+Omega(2^n), states regardless of candidate ordering and memoization.
+This is a theorem about the stated relaxation and recurrence. The same
+family still admits the certified linear arithmetic-work chain constructor.
+
+The primary audit checks 55,744 bounds, 14,245 literal evaluated states,
+1456 original height-constrained optima and 2184 complete original-weight
+trees, including counted-work exhaustion. All pass. Twenty-two larger full
+constructions retain independent Knuth controls: five uniform rows through
+512 finish, all ten arbitrary bounded/binary rows hit the default budget,
+and seven chain rows finish through 12 and hit the larger diagnostic budget
+at 14,16,18. No timing or fitted exponent is used. The separate barrier audit
+completes n=6,8,10,12 and checks all 14,62,254,1022 forced states and every edge
+in their canonical paths against exact parent values. Larger formula rows
+are formula-only. All three Mini runs completed; their JSONs were copied
+before subsequent mirrors. Each result retains eight matching source hashes.
+
+The theorem and the complete relaxation proof belong in the negative-results
+section, with finite evidence in Appendix T. The next constructive obstacle
+is preserving attainable valuation order in a bound without recreating the
+large prefix representations. The general full OBST goal remains active.
+
+Final checkpoint-65 publication validation: all 24 source-hash entries
+across the three new result records match. The 180-page manuscript compiles
+with no warnings, overfull/underfull boxes or unresolved references. All 500
+prior labels survive among 510 unique labels; the same 21 bibliography
+entries resolve all citations. All pages were rendered and reviewed in nine
+contact sheets. The new lemma, algorithm and theorem on pages 133--135,
+verification on 171--172, title and dedication on 180 were also reviewed at
+readable resolution. The dedication is byte-for-byte unchanged. Output PDF
+and TeX match the manuscript, and all five source/font bundle entries match.
+The full arbitrary-weight subquadratic objective remains active.

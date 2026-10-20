@@ -9279,6 +9279,183 @@ construction and certificate; bit-operation costs are additional.
 A useful replacement must share more than affine copies of fixed dyadic
 blocks, avoid these prefix functions, or exploit additional input structure.
 
+\subsection{Lazy prefix evaluation with a rearrangement bound}
+\label{sec:lazy-prefix-barrier}
+One can avoid materializing a prefix function by evaluating only the
+predecessor states requested by its skyline recurrence. The following
+relaxation supplies exact lower bounds for that search. Its failure theorem
+identifies an ordering constraint that the relaxation loses.
+
+For normalized nonnegative weights $w_0,\ldots,w_{n-1}$ and residual gaps
+$g_0,\ldots,g_n$, with $g_0=g_n=0$, recall that the reward of slots
+$s_0<\cdots<s_{k-1}=b$ is
+\[
+ R=\sum_{i=0}^{k-1}w_i v(s_i)
+   +\sum_{i=1}^{k-1}g_i\min\{v(s_{i-1}),v(s_i)\},
+ \qquad v(s)=\nu_2(s).
+\]
+Its maximum is $-f_k(b)$; feasibility means $k\le b<2^h$.
+Put $a_i=2w_i+g_i+g_{i+1}$, and let $T_t(r)$ be the sum of the $t$
+largest values among $a_0,\ldots,a_{r-1}$, with $T_0(r)=0$.
+
+\begin{lemma}[Mixed-prefix rearrangement bound]\label{lem:lazy-rearrangement}
+For every feasible nonempty prefix,
+\begin{align}
+ U_2(k,b)&=(2w_{k-1}+g_{k-1})v(b)
+ +\sum_{d=1}^{h-1}T_{\min\{k-1,\lfloor(b-1)/2^d\rfloor\}}(k-1),
+       \label{eq:lazy-rearrangement}\\
+ 2f_k(b)&\ge -U_2(k,b).\nonumber
+\end{align}
+After $O(n\log(n+1))$ preprocessing and space, each bound can be
+computed in $O(h\log(n+1))$ arithmetic and dictionary operations.
+\end{lemma}
+\begin{proof}
+Use $2\min(x,y)\le x+y$ to distribute each residual gap to its two
+endpoints. This gives
+\[
+ 2R\le\sum_{i=0}^{k-2}a_i v(s_i)
+             +(2w_{k-1}+g_{k-1})v(b).
+\]
+The final coefficient excludes $g_k$, which is absent from this prefix.
+For the other $k-1$ keys, drop the ordering constraint and choose slots
+from $[1,b-1]$. Nonnegative coefficients permit choosing the largest
+available valuations. An exchange of an inverted pair changes the dot
+product by $(a-a')(v-v')\ge0$, so pairing coefficients and valuations
+in the same decreasing order is optimal for this relaxation.
+Exactly $\lfloor(b-1)/2^d\rfloor$ available slots have valuation at
+least $d$. Summing these threshold contributions gives
+\eqref{eq:lazy-rearrangement}, including the case $k=1$.
+
+Sort and compress the coefficient values. Maintain a persistent binary
+count-and-sum tree after each prefix insertion. This uses
+$O(n\log(n+1))$ nodes and work. Descending through the larger-value child
+first computes any $T_t(r)$ in $O(\log(n+1))$ work, taking an entire
+child's sum when its count fits the remaining quota. There are at most
+$h-1$ such queries per bound. Rational coefficients require no rounding;
+comparisons with a cost incumbent are made after doubling that incumbent.
+\end{proof}
+
+\paragraph{The specified search.}
+For $k\ge2$, Lemma~\ref{lem:dag-skyline} gives
+\begin{equation}\label{eq:lazy-skyline-recursion}
+ f_k(b)=\min_{\substack{a\in S(b)\\a\ge k-1}}
+       \{f_{k-1}(a)+c_k(a,b)\},\qquad
+ c_k(a,b)=-w_{k-1}v(b)-g_{k-1}\min\{v(a),v(b)\}.
+\end{equation}
+The base is $f_1(b)=-w_0v(b)$. Add a sentinel state $(n+1,2^h)$,
+with zero key and gap reward, whose value is the minimum of $f_n$.
+At an expanded state, form its at most $h$ feasible skyline candidates
+and their lower bounds $-U_2(k-1,a)/2+c_k(a,b)$. Process candidates
+in increasing lower-bound order, memoizing exact states. A candidate
+is discarded when its lower bound is at least the current feasible
+incumbent. Once that comparison holds, all remaining candidates may
+be discarded together. Store an attaining predecessor with each exact
+value. An explicit stack suffices because every call decreases $k$.
+Traceback and sorting-free ancestor repair produce the original-weight tree.
+
+If $V$ states are expanded, including the sentinel, and $Q$ distinct
+bounds are computed, then $Q\le Vh$ and complete work is
+\begin{equation}\label{eq:lazy-work}
+ O\bigl(n\log(n+1)+Qh\log(n+1)+Vh\log(h+1)+nh\bigr).
+\end{equation}
+Candidate enumeration costs $O(Vh)$, candidate sorting costs
+$O(Vh\log(h+1))$, and each distinct bound has the cost of
+Lemma~\ref{lem:lazy-rearrangement}. Storage is
+$O(n\log(n+1)+Q+V+nh)$, including the stack's at most $n$ candidate
+lists and full repair. These bounds count exact arithmetic and dictionary
+operations; operand bit costs are additional.
+
+For unrestricted construction, choose a certified sufficient height
+$h\le n$. A fixed $8n^2$ budget on the counted search work, followed
+by ordinary Knuth if exhausted, bounds full work by $O(n^2)$. This
+includes unsuccessful search, height selection, normalization, and full
+tree reconstruction. The next theorem shows why the unbudgeted search
+itself has no polynomial guarantee from this bound.
+
+\begin{theorem}[Exponential obstruction to rearrangement pruning]
+\label{thm:lazy-exponential}
+For $n\ge6$, let $p_i=(n+1)^{n-i}-1$ and $q_j=1$, and use their
+necessary optimal height $h=n$. The completed unbudgeted search above expands at least
+\begin{equation}\label{eq:lazy-forced-count}
+ \sum_{r=1}^{n-3}\binom{n-2}{r}=2^{n-2}-2=\Omega(2^n)
+\end{equation}
+distinct actual-prefix states. The same lower bound holds with any
+candidate processing order, if pruning uses only the stated bound and
+a feasible incumbent for the current state. Memoization does not remove
+these states. The original input is positive and has
+$O(n^2\log(n+1))$ bits in total.
+\end{theorem}
+\begin{proof}
+Common-gap normalization gives $w_i=(n+1)^{n-i}$, zero residual gaps,
+and cost shift $n$. The unique optimum is the right chain by
+Theorem~\ref{thm:slot-record-barrier}, so $h=n$ is necessary.
+The largest weight has $O(n\log(n+1))$ bits. For every index $r$,
+\begin{equation}\label{eq:lazy-lex-dominance}
+ w_r>(n-1)\sum_{i>r}w_i.
+\end{equation}
+Consequently weighted reward strictly respects lexicographic order of
+valuation vectors with coordinates in $[0,n-1]$.
+
+First consider a candidate child $f_m(a)$ satisfying
+\begin{equation}\label{eq:lazy-unprunable-region}
+ m\ge4,\qquad a>3\cdot2^{n-2}.
+\end{equation}
+The first three keys are free in its relaxation. The three highest
+valuations among slots before $a$ are $n-1,n-2,n-2$, at positions
+$2^{n-1},2^{n-2},3\cdot2^{n-2}$. Since the weights strictly decrease,
+these valuations are assigned in that order to $w_0,w_1,w_2$.
+
+No increasing slot sequence has this initial valuation triple. A first
+valuation $n-1$ forces slot $2^{n-1}$. A following valuation $n-2$
+then forces slot $3\cdot2^{n-2}$, after which no valuation-$n-2$ slot
+remains. Thus every actual prefix valuation vector is lexicographically
+smaller within its first three coordinates. At the first difference $r$,
+its loss of at least $w_r$ exceeds all possible gains at later coordinates
+by \eqref{eq:lazy-lex-dominance}.
+
+This argument compares the candidate's relaxed bound with the optimum
+of its \emph{parent}, as required for pruning. For an ordinary parent,
+append its forced final key to the relaxed reward vector; this is exactly
+adding the transition reward, because all residual gaps vanish. All
+coordinates after the first difference, including the appended coordinate,
+still lie in $[0,n-1]$. The relaxed reward is therefore strictly greater
+than the reward of every feasible parent prefix. For the root sentinel,
+no coordinate is appended and the same comparison applies to all $n$ keys.
+Equivalently, the candidate lower bound plus its transition cost is
+strictly below the true parent optimum. Every feasible incumbent is at
+least that optimum, so this candidate can never be pruned by the stated
+rule, independently of processing order.
+
+Now choose any nonempty proper subset $B\subsetneq\{0,\ldots,n-3\}$.
+Start at $(k,b)=(n+1,2^n)$ and process its elements $d$ in descending
+order, following
+\begin{equation}\label{eq:lazy-subset-path}
+ (k,b)\longmapsto(k-1,b-2^d).
+\end{equation}
+Previously subtracted powers have larger exponents, so $b$ is divisible
+by $2^{d+1}$. Hence $b-2^d$ is precisely the leading-bit prefix of
+$b-1$ ending at bit $d$: it is a genuine skyline predecessor.
+The sum $x$ of all subtracted powers is less than $2^{n-2}$, so every
+child endpoint $2^n-x$ exceeds $3\cdot2^{n-2}$. Its key count is at
+least four, since $|B|\le n-3$, and no greater than its endpoint, proving feasibility
+and \eqref{eq:lazy-unprunable-region}. Every edge must therefore be
+processed unless its child has already been evaluated and cached.
+Induction down these paths forces evaluation of all their endpoints
+\[
+ \left(n-|B|+1,\ 2^n-\sum_{d\in B}2^d\right).
+\]
+Distinct subsets give distinct states, all with at least four keys, so
+each is expanded at least once. Counting all nonempty proper subsets gives
+\eqref{eq:lazy-forced-count}.
+\end{proof}
+
+The family retains its linear arithmetic-work chain constructor and
+certificate. The obstruction concerns this particular recurrence with
+this particular relaxation. It pinpoints the information needed by a
+stronger pruning bound: the order in which high valuations can be attained.
+Exact finite controls and complete-construction operation counts appear
+in Appendix~\ref{app:rank-transfer}.
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -11620,6 +11797,62 @@ retains each exponent sequence, stage counts, exact operation counts and
 eight source hashes. The existing additive solver supplies the tested
 function values; no affine-normalized solver is claimed or required for
 the equivalence-class lower bound.
+
+\paragraph{Lazy search, valid bounds, and forced exponential states.}
+The audit for Lemma~\ref{lem:lazy-rearrangement} exhausts the 680 binary
+mixed inputs through four keys and adds 48 seeded rational inputs at
+$n=5,8,12$. At two heights per input it checks 55,744 bound entries
+against dense exact prefix values and independently sorted dot products.
+It checks all 14,245 evaluated prefix states against fresh all-predecessor
+recurrences and all 1456 height-constrained optima against the original
+all-root recurrence. Another 2184 complete constructions use budgets
+zero, seventeen, and the default $8n^2$. All original-weight tree costs
+match unrestricted Knuth. Of these, 2174 use fallback and ten finish the
+lazy search; every exhaustion occurs at exactly one counted operation
+beyond its budget. The record \texttt{slot\_lazy\_audit.json} retains
+these counts, seed and eight source hashes.
+
+The matched scale audit retains 22 complete constructions with independent
+Knuth controls. Five uniform rows at $n=32,64,128,256,512$ finish the lazy
+search, expanding exactly $n$ states each. Their counted search work is
+5290, 12,756, 30,263, 87,117 and 199,099 operations, respectively. All ten
+bounded and binary mixed rows at those sizes reach the default budget
+and then construct the optimum with Knuth; their unsuccessful search work
+is retained. The chain family uses an explicit diagnostic budget of two
+million search operations. Its completed and budget-exhausted rows are:
+\begin{center}
+\begin{tabular}{rrrrl}
+\toprule
+$n$ & Necessary $h$ & Expanded states & Search work & Completion route\\
+\midrule
+6 & 6 & 67 & 4221 & Lazy\\
+8 & 8 & 382 & 32,013 & Lazy\\
+10 & 10 & 2037 & 211,825 & Lazy\\
+12 & 12 & 10,216 & 1,267,315 & Lazy\\
+14 & 14 & 12,587 & 2,000,001 & Knuth fallback\\
+16 & 16 & 8689 & 2,000,001 & Knuth fallback\\
+18 & 18 & 6554 & 2,000,001 & Knuth fallback\\
+\bottomrule
+\end{tabular}
+\end{center}
+The record \texttt{slot\_lazy\_scale.json} retains every original input,
+height, budget, search and fallback counter, separate reference counter,
+seed and eight source hashes. These finite counts are not a fitted exponent
+or a speed claim. Uniform trees already have a linear constructor.
+
+A separate unbudgeted audit for Theorem~\ref{thm:lazy-exponential}
+completes $n=6,8,10,12$, checking all 14, 62, 254 and 1022 distinct states
+in \eqref{eq:lazy-forced-count}. Their canonical paths contain 14, 62,
+254 and 1022 distinct edges. Every edge is checked for skyline membership,
+feasibility, strict comparison of its candidate bound with the exact
+parent optimum, and presence of its child in the completed search cache.
+The full runs cache 68, 383, 2038 and 10,217 exact states, including base
+states. Post-search bound comparisons add operations to this audit's
+counters; the scale table above reports construction search work alone.
+The record \texttt{slot\_lazy\_barrier.json} retains all counters and
+eight source hashes. Its larger rows, through $n=256$, evaluate the proved
+subset-count formula only. The theorem follows from the explicit paths and
+strict dominance, independently of these finite checks.
 
 \clearpage
 \section{Unimodal domination and certified-envelope audit}

@@ -703,3 +703,34 @@ Check every three-entry ratio exactly, including cross-prefix sharing, and
 compare actual values with independent dense greedy controls and full Knuth
 optima. Large exponents have polynomial binary encoding; report bit lengths
 and exact operations, not timings. Copy the source-hashed JSON before mirroring.
+
+
+Lazy mixed-prefix search and exact rearrangement-bound audit:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_lazy_audit.py
+```
+
+Check the bound at every small prefix before relying on pruning. Full
+construction includes traceback, repair and counted-work fallback. Retain
+failed performance cases and count exact operations. Copy JSON before mirroring.
+
+Matched full lazy-search constructions and necessary-height stress controls:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_lazy_scale.py
+```
+
+All budget-exhausted runs and fallback work remain in the result. The chain
+rows use a larger explicit diagnostic budget; no measured exponent is claimed.
+Copy the result before another mirror.
+
+Explicit exponential reachability under the lazy rearrangement bound:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_lazy_barrier.py
+```
+
+Completed unbudgeted small runs verify every forced state and strict bound
+comparison. Larger rows are combinatorial formulas only. This is a barrier
+for this bound and recurrence, not a general algorithmic lower bound.

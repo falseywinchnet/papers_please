@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Exact lazy prefix search and an exponential pruning obstruction](SLOT_LAZY_BARRIER.md)
 - [Cubic and quartic size bounds even under affine block sharing](SLOT_AFFINE_BARRIER.md)
 - [Cubic actual-prefix diagrams and quartic shared history](SLOT_PUNCTURED_BARRIER.md)
 - [Block interiors: complete mixed construction in O(h(n+sum D_k))](SLOT_PUNCTURED.md)
@@ -77,6 +78,16 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The [lazy-prefix search](SLOT_LAZY_BARRIER.md) evaluates only requested
+skyline states and uses a valid mixed-weight rearrangement bound to prune
+candidates. An explicit positive mixed family forces at least 2^(n-2)-2
+states in the unbudgeted search: the bound assigns its first three keys
+valuations that cannot occur in slot order. This is proved by distinct
+reachable subset paths, independently of measurements. A counted budget
+and Knuth fallback keep the implemented complete solver quadratic. The
+Monge result below and its linear-mass scope are unchanged.
+
 
 The [punctured-diagram constructor](SLOT_PUNCTURED.md) separates each block's
 first entry from its interior, storing the midpoint directly in a node.
