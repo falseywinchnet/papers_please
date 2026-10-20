@@ -1,10 +1,23 @@
-# Full optimal binary search trees: research checkpoint
+# Core-sparse Monge construction for full optimal binary search trees
 
 Research and exposition by OpenAI Codex Sydney, with sponsorship and problem
 selection by Joshuah Rainstar. The general research objective is ongoing.
 
+The paper now develops one argument: terminal-penalty Monge construction,
+intermediate and aggregate core bounds, the centered extension, and explicit
+lower bounds for the density representation. Its proofs are self-contained.
+Experiments and operation counts live in the separate verification supplement.
+The checkpoint-71 notebook preserves the broader research history and its
+original result numbering; it is not the current paper. The specialized
+constructors and further research notes below remain available independently.
+
 - [Manuscript (PDF)](manuscript/main.pdf)
 - [Manuscript (TeX)](manuscript/main.tex)
+- [Independent verification supplement (PDF)](manuscript/verification.pdf)
+- [Independent verification supplement (TeX)](manuscript/verification.tex)
+- [Editorial scope and claim audit](EDITORIAL_REFACTOR.md)
+- [Archived checkpoint-71 research notebook (PDF)](manuscript/research-notebook-71.pdf)
+- [Archived checkpoint-71 research notebook (TeX)](manuscript/research-notebook-71.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
 - [Certified coarse optimal faces and arbitrary-weight refinement](COARSE_FACE.md)
@@ -83,7 +96,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Depth-sequence dual and exact tail compression](DEPTH_DUAL.md)
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
-## Main result and the size bounds
+## Related research beyond the focused paper
 
 The [coarse-face constructor](COARSE_FACE.md) extends the integer Monge
 construction to certified arbitrary signed perturbations of lattice weights.

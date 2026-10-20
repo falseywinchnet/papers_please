@@ -5506,3 +5506,32 @@ preserved, and all eight executed-source hashes match. Every rendered page
 was visually reviewed in contact sheets, with detailed review of the new
 proofs, sharp witness, audit, title and dedication. The stable PDF/TeX copies
 and the five-file source archive were verified byte-for-byte.
+
+## Checkpoint 72: focused Monge paper and separate verification record
+
+The user's editorial review identified scope inflation and an overbroad
+core-exponent sentence. Refactored the current manuscript from the 203-page
+research notebook into a 19-page paper with seven sections and 18 numbered
+results. It retains the main Monge reduction, rotation height bound, explicit
+finite completion, dyadic and aggregate bounds, published product/witness
+interface, centered extension, odd-ramp/ruler/local-charge lower bounds and
+the conditional route to the remaining logarithmic improvement. The exact
+stopping criterion is now a proved lemma, with O(S) equality-check overhead.
+The ruler exchange states every affected key length and gap depth.
+
+Removed independent periodic, affine, refinement, shape-box and other research
+branches from this paper. They remain intact in the checkpoint-71 TeX/PDF
+archive and their existing notes. Extracted the empirical appendix into a
+standalone 48-page verification supplement. Its external references retain
+resolved checkpoint-71 numbers and the archived source is linked. Algorithms,
+raw records, historical source hashes and experimental results are unchanged.
+
+The claim audit scopes lower bounds to explicit density representations,
+separates per-layer from aggregate bounds, preserves integer and bit-cost
+hypotheses, and keeps the proposed boundary charge conditional. No claimed
+asymptotic improvement is inferred from finite tests. The main paper contains
+51 unique descriptive labels, five references and no empirical appendix or
+legacy labels. The abstract is 166 words counting each math span as one word.
+Both documents compile cleanly; source-reference closure, archived byte
+identity and verbatim final dedication are checked. See EDITORIAL_REFACTOR.md.
+The general arbitrary-weight subquadratic research goal remains open.
