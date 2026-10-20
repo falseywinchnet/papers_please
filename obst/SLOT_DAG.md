@@ -201,3 +201,14 @@ work for one arbitrary mixed update on a D-node input, replacing the generic
 minimum-context parameter X with a polynomial bound. The all-stage growth
 of D remains open. Earlier operation counts above identify the original
 constructor; the new implementation and counts are retained separately.
+
+
+## Separating block interiors
+
+The [punctured-diagram construction](SLOT_PUNCTURED.md) retains the scalar
+carry but stores each block midpoint directly, excluding its first address
+from the node. It eliminates persistent first-address replacement and proves
+O(h(D+1)) per update. With traversal-based ancestor repair, the full mixed
+construction takes O(h(n+sum_k D_k)) arithmetic/dictionary operations. An
+ordinary diagram converts in linear work without increasing node count.
+Bounds on the sizes across all updates remain open.

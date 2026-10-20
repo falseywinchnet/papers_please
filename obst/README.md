@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Block interiors: complete mixed construction in O(h(n+sum D_k))](SLOT_PUNCTURED.md)
 - [Scalar-carry forward updates with a proved polynomial per-update bound](SLOT_DAG_FORWARD.md)
 - [Implicit mixed prefix functions with additive decision diagrams](SLOT_DAG.md)
 - [Endpoint dominance, one-path mixed queries, and directed diagram-size searches](SLOT_DAG.md#endpoint-dominance-and-one-path-predecessor-queries)
@@ -75,23 +76,26 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 
 ## Main result and the size bounds
 
-The [scalar-carry forward constructor](SLOT_DAG_FORWARD.md) evaluates the
-full arbitrary-weight mixed recurrence on additive decision diagrams and
-reconstructs the complete tree. On a D-node input of height h, each update
-has a proved O(h^2 D) arithmetic/dictionary bound. Endpoint dominance
-reduces a block's outside predecessors to one scalar carry. Every expanded
-state has at most one child that inherits its carry; other expanded
-children reset to values determined by the parent input node. At most one
-reset path per input node, plus the root path, covers O(hD) contexts.
-This sharpens the earlier quadratic-in-D bound on the unchanged constructor
-and removes its predecessor's uncontrolled generic-minimum parameter X.
-Stored first-address values also give O(nh)
-selected-slot traceback. The open issue is a useful bound on diagram sizes
-across all n updates. Exact audits retain all intermediate-node counts.
-An explicit D=2m+1, h=2m family forces 3m(m+1)/2 carry contexts and
-m(7m^2+15m+2)/6 node-assembly calls. It proves the general recursion's
-O(h^2 D) accounting sharp, but violates endpoint dominance and therefore
-cannot be an actual OBST prefix.
+The [punctured-diagram constructor](SLOT_PUNCTURED.md) separates each block's
+first entry from its interior, storing the midpoint directly in a node.
+One arbitrary mixed update takes O(h(D+1)) arithmetic/dictionary operations.
+All intermediate forward work, selected-slot traceback, and sorting-free
+ancestor repair take O(h(n+sum_k D_k)) operations for the complete optimum
+at height h. A sufficient certified height gives the unrestricted optimum.
+A universal bound on the all-stage diagram sizes remains open.
+
+The [previous scalar-carry constructor](SLOT_DAG_FORWARD.md) proves
+O(h^2 D) per update on ordinary additive diagrams. The new representation
+removes its repeated first-address replacement: each expanded carry state
+now assembles its output in constant work. At most one reset path per input
+node, plus the root path, covers O(hD+h) contexts. Ordinary diagrams convert
+to punctured diagrams in linear work without increasing node count.
+
+An explicit h=2m, D=2m punctured family forces 3m(m+1)/2 expanded contexts
+and exactly 3m(m+1)/2+m-1 assembly calls, proving the general recursion's
+new accounting sharp. It violates endpoint dominance and therefore cannot
+be an actual OBST prefix. All retained adversarial inputs still yield exact
+full optima, and audits count every intermediate node and operation.
 
 The [earlier generic construction](SLOT_DAG.md) and its operation barrier
 remain documented separately. Two strictly decreasing functions with

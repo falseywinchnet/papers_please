@@ -53,10 +53,12 @@ We give the certificate once and derive the family
 guarantees from it. Counterexamples delimit bounded-window relaxations,
 endpoint-response composition, explicit density representations, and
 additive separable transfers. Explicit prefix records can be exponential
-even at the minimum optimal height. Implicit prefix diagrams support an
-arbitrary mixed update in $O(h^2D)$ arithmetic and dictionary operations
-for height $h$ and input diagram size $D$, using a scalar prefix carry;
-bounds on their growth across all updates remain open.
+even at the minimum optimal height. Separating each block's first entry
+from its implicit prefix diagram gives $O(h(D+1))$ arithmetic and dictionary
+operations per arbitrary mixed update, for height $h$ and input size $D$.
+Including traceback and tree repair, complete construction takes
+$O(h[n+\sum_kD_k])$ such operations. Bounds on diagram growth across all
+updates remain open.
 A contiguous odd ramp with total mass exactly $n$ has
 $\Omega(n^{3/2})$ intermediate core entries with explicitly computed densities.
 Thus the core exponent is necessary, up to a remaining logarithmic factor.
@@ -2652,6 +2654,145 @@ this update uses endpoint dominance and the scalar carry recurrence.
 The height factors in the reset-path accounting are sharp for general
 diagram inputs by Theorem~\ref{thm:dag-reset-sharp}. Its displayed family
 violates endpoint dominance, leaving sharper actual-prefix bounds open.
+
+\subsection{Separating the first entry of each block}
+\label{sec:punctured-diagram}
+The factor $h$ spent on persistent first-address replacement can be
+removed by representing that address separately. The midpoint value then
+becomes a scalar stored directly in a node, and a recursive update assembles
+its result in constant work.
+
+A \emph{punctured diagram} of remaining depth $d$ represents only the local
+addresses $1,\ldots,2^d-1$. At depth zero this domain is empty. At positive
+depth its decomposition is
+\begin{equation}\label{eq:punctured-node}
+ P=(P_L,c,P_R),\qquad c=P(2^{d-1}),
+\end{equation}
+where $P_L$ and $P_R$ represent the interiors of the two half blocks.
+Normalize by subtracting the minimum finite entry from the two child
+references and the midpoint scalar. Intern the resulting tuple together
+with its depth, retaining every nonempty level. An all-infinite interior
+has a null reference. Thus the incoming offset is exactly the interior
+minimum, and assembling a node takes constant arithmetic and dictionary
+work. The first value of a full block is external to this representation.
+
+\begin{lemma}[Canonical interiors and conversion]
+\label{lem:punctured-canonical}
+Two interiors of the same depth, each with a finite entry, have the same
+normalized punctured node if and only if their functions differ by an
+additive constant, with identical infinite positions. From an ordinary additive diagram with $D$ reachable
+nodes, including its terminal, its punctured diagram can be constructed
+in $O(D)$ work and has at most $D-1$ nodes when the original has a finite entry.
+An all-infinite original gives a null punctured diagram.
+\end{lemma}
+\begin{proof}
+For canonicity, induct on remaining depth. The minimum fixes the offset;
+the left interior, midpoint scalar, and right interior then uniquely fix
+the normalized tuple by the induction hypothesis. The reverse implication
+follows by evaluating that tuple. For conversion, first memoize the first
+value of each ordinary node. An ordinary node $L\mathbin\Vert U$ maps to
+$(\operatorname{puncture}(L),U(0),\operatorname{puncture}(U))$.
+A terminal maps to an empty interior. Offsets commute with this map, so
+memoizing it creates at most one punctured node per ordinary nonterminal,
+with constant work per source node. Conversion can merge additional nodes
+or produce a null reference, which only decreases the size.
+\end{proof}
+
+\begin{theorem}[Mixed construction with constant boundary assembly]
+\label{thm:punctured-construction}
+Let $D_k$ count the punctured nodes of the mixed prefix function $f_k$ on
+$2^h$ addresses, with $D_0=0$. One arbitrary nonnegative normalized key/gap
+update takes $O(h(D_k+1))$ arithmetic and dictionary operations. For
+$n\ge1$ and a prescribed feasible height $h$, a complete optimal mixed
+BST can be constructed in
+\begin{equation}\label{eq:punctured-full-work}
+ O\!\left(h\left[n+\sum_{k=0}^{n-1}D_k\right]\right)
+\end{equation}
+such operations and at most that many stored words. This includes all
+intermediate nodes, selected-slot traceback, and ancestor repair. Choosing
+any proved sufficient unrestricted height gives a complete unrestricted
+optimum with the same bound, plus the height-selection work.
+\end{theorem}
+\begin{proof}
+For a block starting at $B$, the inclusive carry is
+$p_B=\min_{a\le B}f_k(a)$. In particular $p_B\le f_k(B)$, so the
+omitted first input entry cannot improve that carry. By the endpoint
+argument of Theorem~\ref{thm:dag-forward}, outside predecessors contribute
+$p_B-g\nu_2(t)$ at an interior destination $t$. For
+$P=(P_L,c,P_R)$ of remaining depth $d$, the two recursive carries and the
+new midpoint value are therefore
+\begin{align}
+ p_L&=p_B,&p_R&=\min\{p_B,\min P_L,c\},\label{eq:punctured-carries}\\
+ c'&=\min\{p_B-g(d-1),E_g(P_L)\}-w(d-1),\label{eq:punctured-middle}
+\end{align}
+where $E_g(P)=\min_{t>0}\{P(t)-g\nu_2(t)\}$ and
+\[
+ E_g(P)=\min\{E_g(P_L),c-g(d-1),E_g(P_R)\}.
+\]
+This summary takes $O(D_k)$ work by normalized-node memoization.
+All minima omit infinite choices, and an empty minimum is infinite.
+Recurse on the two interiors and assemble $(P_L',c',P_R')$ directly.
+No first-address replacement is performed.
+
+If $p_B\le\min P$, or the interior is all infinite, the output is the
+valuation template $p_B-(g+w)\nu_2(t)$ on $t>0$. A template
+at depth $d$ is assembled from the depth-$(d-1)$ template on both sides
+and midpoint $-(g+w)(d-1)$. Thus all needed templates take at most $h$
+node-assembly calls. An infinite carry and infinite interior give an
+infinite output. At the root the nonempty prefix has carry $+\infty$;
+the empty prefix has no interior, carry zero, and initial gap $g=0$.
+This gives the exact first update as well.
+
+Cache each expanded state by its input-node identity and carry relative
+to the interior minimum. The reset-path proof of
+Lemma~\ref{lem:dag-carry-reset} applies with
+$C=\min\{\min P_L,c\}$. A reset right child has a relative carry fixed
+by its parent input node. If the right child inherits instead,
+$p_B<C\le\min P_L$ prunes the left child. Hence, writing $V_k$ for the
+input nodes, the number $Z$ of expanded states obeys
+\[
+ Z\le h+\sum_{u\in V_k}(d(u)-1).
+\]
+Each expanded state now makes exactly one node-assembly call. If $T\le h$
+templates are built, the exact number of such calls is $Z+T$, at most
+\begin{equation}\label{eq:punctured-assembly-bound}
+ 2h+\sum_{u\in V_k}(d(u)-1)=O(h(D_k+1)).
+\end{equation}
+There are $2Z+1$ recursive build calls, at most $D_k$ summary expansions,
+and at most $2D_k+Z$ summary calls. Template lookups and remaining scalar
+operations have the same bound. This accounts for every intermediate
+operation and created node, including interned nodes that are reused.
+
+Store the prefix roots. The skyline walk of
+Theorem~\ref{thm:dag-skyline-query} still follows the bits of $b-1$.
+Whenever it enters a right half, the required candidate is exactly the
+midpoint scalar in \eqref{eq:punctured-node}. Thus each predecessor query
+takes $O(h)$ work and creates no nodes; all selected slots take $O(nh)$.
+
+For the final repair, collect the union of the selected slots and their
+perfect-tree ancestors in a dictionary, stopping each upward walk at an
+already collected ancestor. There are at most $nh$ vertices. This set is
+ancestor-closed and contains the perfect-tree root. An inorder traversal
+visiting only collected children enumerates it in increasing slot order
+in linear work, without comparison sorting. At a collected slot $x$ of
+valuation $d>0$, its possible children are $x-2^{d-1}$ and $x+2^{d-1}$;
+check their membership before visiting them. Build the parent/child and
+inorder-neighbor links, then apply the sparse deletion repair of
+Theorem~\ref{thm:slot-record-construction}. Every unwanted ancestor is
+deleted in constant work using those links, followed by a linear output
+traversal. The repair therefore takes $O(nh)$ arithmetic/address and
+dictionary operations. Summing updates, traceback, and repair proves
+\eqref{eq:punctured-full-work}. The existing exact mixed-slot identity
+proves the cost and optimality of the complete tree. As in the preceding
+diagram theorems, exact operand bit costs are additional.
+\end{proof}
+
+The representation changes the cost of an update without imposing a key
+run structure or restricting the gap weights. The all-stage sum
+$\sum_kD_k$ remains the obstacle to a general subquadratic guarantee.
+Corollary~\ref{cor:punctured-sharp} gives a matching general-diagram
+operation family; further actual-prefix savings must exploit additional
+structure or combine multiple updates.
 
 \subsection{Two positive blocks: the whole above-capacity core}
 \label{sec:two-block-core}
@@ -8864,6 +9005,31 @@ The construction proves sharpness of the general recursion's accounting;
 it supplies no lower bound for the full OBST problem.
 \end{proof}
 
+\begin{corollary}[Sharp punctured-diagram update count]
+\label{cor:punctured-sharp}
+Puncturing the input in Theorem~\ref{thm:dag-reset-sharp} gives exactly
+$D=2m$ nodes at height $h=2m$. The recursion of
+Theorem~\ref{thm:punctured-construction} expands
+$Z=3m(m+1)/2$ states and makes exactly
+\[
+ Z+m-1=\frac{3m(m+1)}2+m-1=\Theta(hD)
+\]
+node-assembly calls. Thus its general-diagram work bound is sharp.
+\end{corollary}
+\begin{proof}
+At each positive depth the input remains a weighted sum of residual bits,
+restricted to nonzero addresses, so there is exactly one normalized node
+per level and no terminal. Every nontrivial input block has its minimum
+at its last address; omitting its first address preserves that minimum.
+The omitted value is at least the inclusive carry, so removing it from
+the right-carry formula changes no carry. Consequently the expanded
+relative carries and every level count are precisely those computed in
+Theorem~\ref{thm:dag-reset-sharp}. The same depths $1,\ldots,m-1$ need
+pruning templates, now costing one assembly call each. Every expanded
+state also costs one assembly call, proving the formula. The earlier
+endpoint-dominance violation still excludes this family from OBST prefixes.
+\end{proof}
+
 \section{Core-size tightness and further questions}\label{sec:tightness}
 Theorem~\ref{thm:ramp-core-lower} rules out an $O(n\,\operatorname{polylog}n)$
 bound for all intermediate cores at linear integer mass. The remaining
@@ -11092,6 +11258,63 @@ are general-diagram operation controls, not complete OBST constructions.
 The record \texttt{slot\_dag\_reset\_sharp.json} retains seven source hashes.
 The closed formulas supply the asymptotic tightness independently of these
 finite checks.
+
+\paragraph{Punctured diagrams and complete mixed construction.}
+The new representation is checked against all 60,336 direct prefix entries
+and 94,640 direct predecessor queries with integer and rational gap prices.
+All 1384 small complete trees agree with the original all-root height
+recurrence: every binary input through four keys at two feasible heights,
+plus 24 rational inputs through 12 keys. Every output tree's original
+key/gap cost, order, links, and depths are checked.
+
+On 96 arbitrary signed/rational/infinite diagrams, conversion agrees with
+independent dense canonicalization and all 6024 nonzero-address values.
+These inputs check representation and operation counts only. Twelve
+retained adversarial mixed inputs additionally have every prefix compared
+by canonical equality with conversion of the earlier ordinary-diagram
+constructor. Their complete trees agree with independent Knuth optima.
+Across these controls and the generic sharp family, 5456 updates check all
+59,358 expanded states and 26,108 reset edges, exact reset-path coverage,
+$Z+T$ assembly calls, $2Z+1$ recursive calls, and the summary bounds.
+The sharp family checks Corollary~\ref{cor:punctured-sharp} through $m=64$,
+including its exclusion from the OBST domain. At $m=64$ its 128-node input
+requires 6240 expanded states and exactly 6303 assembly calls.
+
+The sorting-free repair is separately checked on every one of 32,902
+nonempty slot subsets through height four. Its complete output tree equals
+the retained sorting-based repair in every case; the ancestor traversal
+makes exactly two visits per collected vertex. This checks the replacement
+of sorting by traversal independently of the optimizer.
+The record \texttt{slot\_punctured\_audit.json} retains all counts, ten
+source hashes, and both consumed size-search hashes.
+
+A separate full-construction audit uses the identical necessary-height
+mixed chain inputs of the earlier scale audit. Each constructed tree
+matches the unique-chain formula, independent Knuth, and all original
+weights. Exact counts for the punctured representation are:
+\begin{center}
+\begin{tabular}{r|r r r}
+$n=h$ & final nodes & all created nodes & assembly calls\\
+\hline
+24 & 3054 & 42092 & 58424\\
+32 & 7806 & 143956 & 197859\\
+48 & 29143 & 795874 & 1082831\\
+64 & 72235 & 2636579 & 3569521
+\end{tabular}
+\end{center}
+The same 64-key input previously created 6,355,399 ordinary nodes and
+performed 38,536,341 assembly calls and 38,536,277 first-address replacement
+visits, including the initial ordinary point diagram in the assembly count. The new constructor performs no first-address replacements.
+These are matched exact operation counts; the theorem supplies the bound.
+
+Four additional arbitrary mixed integer inputs at 32, 64, 128 and 256 keys
+use the proved sufficient height selector and agree with independent
+Knuth and complete-tree checks. The selected heights are 11, 13, 14 and 16.
+At 256 keys the final punctured diagram has 460 nodes; complete construction
+creates 73,226 nodes and makes 114,633 assembly calls. All intermediate
+work is retained, and these measurements assert no all-stage size bound.
+The record \texttt{slot\_punctured\_scale.json} retains every original
+weight, six source hashes, and the consumed earlier scale-record hash.
 
 \clearpage
 \section{Unimodal domination and certified-envelope audit}

@@ -662,3 +662,19 @@ signed/infinite diagram rows check operation bounds only; actual mixed rows
 also check full optimum trees. The sharp family explicitly violates endpoint
 dominance and is not an OBST lower bound. Copy completed JSON records back
 before another mirror operation. Preserve historical solver source hashes.
+
+
+Punctured block interiors, constant boundary assembly, and full mixed trees:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_punctured_audit.py
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/slot_punctured_scale.py
+```
+
+The audit checks literal prefixes, skyline queries, conversion against dense
+canonicalization, reset charges, full optimum trees, and sorting-free repair
+against the retained constructor on every small slot subset. Generic sharp
+inputs are counting controls and violate endpoint dominance. The scale audit
+reuses exact earlier necessary-height chain weights and adds arbitrary mixed
+integer inputs at certified sufficient heights. Copy both JSON records before
+mirroring again. All-stage diagram-size bounds remain open.

@@ -4755,3 +4755,97 @@ The dedication remains byte-for-byte unchanged. The final TeX, PDF and
 five-file source/font bundle in the user outputs match the authoritative
 manuscript. All new and prior forward-audit source hashes match. The full
 arbitrary-weight objective remains active; all-stage diagram growth is open.
+
+
+## Checkpoint 62: constant boundary assembly and full construction
+
+The preceding turn was progress: checkpoint 61 published the O(h^2 D)
+reset-path bound and generic sharpness as 2e71fbc. The clean authoritative
+checkout and head were inspected before continuing. This turn changes the
+representation to remove persistent first-address replacement, while retaining
+the full arbitrary-weight mixed OBST objective.
+
+A punctured diagram represents only local addresses 1,...,2^d-1. Its node
+contains the left interior, midpoint scalar, and right interior, normalized
+by the minimum finite interior value. Canonicity follows by induction.
+An ordinary node L||R converts to (puncture(L),R(0),puncture(R)); memoized
+first values and conversion take O(D_standard) work and create at most one
+punctured node per ordinary nonterminal. The first full-block value is kept
+outside the representation. Actual nonempty prefix roots have infinite
+first value; the empty initial prefix has no interior and first value zero.
+
+The inclusive carry p_B<=F(B) already dominates the omitted first entry.
+For P=(L,c,R), the right carry is min(p,min L,c), the left carry is p, and
+the new midpoint is min(p-g(d-1),E_g(L))-w(d-1). The weighted interior
+summary is min(E_g(L),c-g(d-1),E_g(R)). Thus the forward update assembles
+one node directly instead of replacing a first-address path. Pruned valuation
+templates also cost one node per depth. The same reset-path argument gives
+Z<=h+sum_u(d(u)-1), and exact assembly count Z+T with T<=h. This proves
+O(h(D+1)) per arbitrary mixed update, counting all intermediate work.
+
+The skyline walk reads candidates directly from midpoint scalars, retaining
+O(nh) selected-slot traceback. For full repair, the union of selected slots
+and perfect-tree ancestors is ancestor-closed and has at most nh vertices.
+An inorder traversal restricted to dictionary members enumerates it in order
+in O(nh), removing comparison sorting. The existing linked sparse deletion
+then returns the same complete tree. All forward work, traceback and repair
+therefore take O(h(n+sum_k D_k)) arithmetic/address/dictionary operations
+and at most that many stored words. The all-stage sum remains unbounded by
+a useful universal theorem; the unrestricted subquadratic goal stays active.
+
+The previous generic weighted-bit family has exactly 2m punctured nodes
+at h=2m. Every nontrivial block minimum is at its last address, and its
+first value is dominated by the carry, so the same exact Z=3m(m+1)/2
+contexts expand. Its m-1 templates now contribute only m-1 assembly calls.
+This proves a sharp Theta(hD) family for the new mechanical recursion. The
+explicit endpoint-dominance violation still excludes actual OBST prefixes.
+
+The harness was written before the new implementation. Its first version
+passed the direct prefixes and queries, complete trees, retained winners,
+and generic sharpness. The repair change was then added with its own
+independent subset controls; both the main and scale audits were rerun on
+the final source. All final runs completed normally on the Mini through
+m4build, and completed JSON records were copied before another mirror.
+The preliminary scale record is retained only in local scratch work.
+
+The final audit passes 60,336 direct prefix entries, 94,640 direct
+predecessor queries, and 1384 full original all-root optimum/tree controls.
+It verifies conversion against dense canonicalization on 96 arbitrary signed,
+rational and infinite inputs, including all 6024 nonzero address values.
+Twelve retained adversarial winners have every prefix compared by canonical
+equality to conversion of the previous full constructor, and complete
+optima checked by Knuth. All 32,902 nonempty slot subsets through height four
+produce exactly the sorting-based repair's tree; ancestor enumeration uses
+exactly two visits per collected vertex. Across all operation controls,
+5456 updates inspect 59,358 expanded contexts and 26,108 reset edges.
+The generic sharp family is checked through m=64, where D=128, Z=6240
+and the exact assembly count is 6303. No empirical exponent is claimed.
+
+The scale audit reuses the identical prior necessary-height mixed chains
+at n=24,32,48,64, checking strict dominance, unique-chain costs, independent
+Knuth and the full output trees. At 64 keys the new representation has
+72,235 final nodes, creates 2,636,579 nodes and uses 3,569,521 assembly calls.
+The earlier representation on that exact input creates 6,355,399 nodes and
+uses 38,536,341 assembly calls and 38,536,277 replacement visits. The
+64-call difference is its initial ordinary point diagram. The new
+routine performs no first-address replacements. Four further arbitrary mixed
+integer inputs at n=32,64,128,256 use the proved height selector and match
+Knuth and full-tree checks. Their heights are 11,13,14,16; the 256-key run
+has 460 final nodes, 73,226 total nodes and 114,633 assembly calls.
+These are finite exact counts, not a bound on all-stage growth.
+
+The manuscript adds the canonical-interior lemma, complete-construction
+theorem including sorting-free repair, and generic sharpness corollary.
+Finite verification counts remain in Appendix T. The Monge result continues
+to lead, and the dedication and sponsor attribution remain unchanged.
+
+Final checkpoint-62 publication validation: all 16 new source-hash entries
+and three consumed-record hashes match, as do all four preceding reset and
+forward audit records. The 172-page manuscript compiles without warnings,
+overfull/underfull boxes or unresolved references. All 475 prior labels
+survive among 484 unique labels, and all citations resolve to the same
+21 bibliography entries. Every page was rendered and reviewed in nine
+contact sheets; pages 38--40, 129--130, 163--164 and 172 were also reviewed
+at readable resolution. The dedication is byte-for-byte unchanged. Final
+PDF, TeX and five-file source/font bundle in the user outputs match the
+authoritative manuscript. The full arbitrary-weight goal remains active.

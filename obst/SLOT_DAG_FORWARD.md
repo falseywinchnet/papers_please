@@ -8,6 +8,11 @@ generic-minimum context parameter X from the previous per-update theorem.
 It does not bound D over all n updates, and hence does not by itself establish
 a general subquadratic OBST algorithm.
 
+The subsequent [punctured representation](SLOT_PUNCTURED.md) removes the
+first-address replacement factor by storing each midpoint directly. It gives
+O(h(D+1)) per update and O(h(n+sum_k D_k)) complete construction, with its
+own diagram size D. The ordinary-diagram result below remains valid.
+
 ## Block recurrence
 
 Let F be a nonempty mixed prefix function. Its endpoint dominance says

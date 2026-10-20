@@ -1,0 +1,5350 @@
+{
+  "scope": "Full mixed construction using first-entry-separated diagrams; O(h(D+1)) per update, no bound on all-stage sizes",
+  "seed": 621019,
+  "counts": {
+    "punctured_repair_subsets": 32902,
+    "punctured_conversion_values": 6024,
+    "punctured_update_certificates": 5456,
+    "punctured_context_controls": 59358,
+    "punctured_reset_edges": 26108,
+    "punctured_prefix_controls": 60336,
+    "punctured_query_controls": 94640,
+    "punctured_build_calls": 37324,
+    "punctured_pruned_blocks": 12905,
+    "punctured_template_calls": 22455,
+    "punctured_make_calls": 28112,
+    "punctured_created_nodes": 17486,
+    "punctured_trace_steps": 17560,
+    "punctured_trace_candidates": 12178,
+    "record_ancestor_nodes": 5208,
+    "punctured_ancestor_walk_visits": 10416,
+    "record_output_nodes": 5208,
+    "punctured_all_nodes": 123,
+    "punctured_history_nodes": 123,
+    "all_root_candidates": 99224,
+    "dense_states": 45224,
+    "record_verified_nodes": 5208,
+    "punctured_full_small_trees": 1384,
+    "punctured_contexts": 16058,
+    "punctured_summary_calls": 37736,
+    "punctured_summary_expansions": 10839
+  },
+  "generic": [
+    {
+      "height": 1,
+      "trial": 0,
+      "input_nodes": 1,
+      "output_nodes": 1,
+      "contexts": 1,
+      "templates": 0,
+      "context_bound": 1,
+      "path_steps": 1,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 3,
+        "punctured_contexts": 1,
+        "punctured_summary_calls": 1
+      }
+    },
+    {
+      "height": 1,
+      "trial": 1,
+      "input_nodes": 0,
+      "output_nodes": 1,
+      "contexts": 0,
+      "templates": 1,
+      "context_bound": 1,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2,
+        "punctured_created_nodes": 1
+      }
+    },
+    {
+      "height": 1,
+      "trial": 2,
+      "input_nodes": 1,
+      "output_nodes": 1,
+      "contexts": 1,
+      "templates": 0,
+      "context_bound": 1,
+      "path_steps": 1,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 3,
+        "punctured_contexts": 1,
+        "punctured_summary_calls": 1
+      }
+    },
+    {
+      "height": 1,
+      "trial": 3,
+      "input_nodes": 1,
+      "output_nodes": 1,
+      "contexts": 0,
+      "templates": 1,
+      "context_bound": 1,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 1,
+      "trial": 4,
+      "input_nodes": 1,
+      "output_nodes": 0,
+      "contexts": 1,
+      "templates": 0,
+      "context_bound": 1,
+      "path_steps": 1,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 3,
+        "punctured_contexts": 1,
+        "punctured_summary_calls": 1
+      }
+    },
+    {
+      "height": 1,
+      "trial": 5,
+      "input_nodes": 1,
+      "output_nodes": 1,
+      "contexts": 0,
+      "templates": 1,
+      "context_bound": 1,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 1,
+      "trial": 6,
+      "input_nodes": 1,
+      "output_nodes": 1,
+      "contexts": 1,
+      "templates": 0,
+      "context_bound": 1,
+      "path_steps": 1,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 3,
+        "punctured_contexts": 1,
+        "punctured_summary_calls": 1
+      }
+    },
+    {
+      "height": 1,
+      "trial": 7,
+      "input_nodes": 0,
+      "output_nodes": 1,
+      "contexts": 0,
+      "templates": 1,
+      "context_bound": 1,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2,
+        "punctured_created_nodes": 1
+      }
+    },
+    {
+      "height": 1,
+      "trial": 8,
+      "input_nodes": 1,
+      "output_nodes": 1,
+      "contexts": 0,
+      "templates": 1,
+      "context_bound": 1,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 1,
+      "trial": 9,
+      "input_nodes": 1,
+      "output_nodes": 1,
+      "contexts": 1,
+      "templates": 0,
+      "context_bound": 1,
+      "path_steps": 1,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 3,
+        "punctured_contexts": 1,
+        "punctured_summary_calls": 1
+      }
+    },
+    {
+      "height": 1,
+      "trial": 10,
+      "input_nodes": 0,
+      "output_nodes": 1,
+      "contexts": 0,
+      "templates": 1,
+      "context_bound": 1,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2,
+        "punctured_created_nodes": 1
+      }
+    },
+    {
+      "height": 1,
+      "trial": 11,
+      "input_nodes": 1,
+      "output_nodes": 1,
+      "contexts": 1,
+      "templates": 0,
+      "context_bound": 1,
+      "path_steps": 1,
+      "counts": {
+        "punctured_make_calls": 1,
+        "punctured_created_nodes": 0,
+        "punctured_build_calls": 3,
+        "punctured_contexts": 1,
+        "punctured_summary_calls": 1
+      }
+    },
+    {
+      "height": 2,
+      "trial": 0,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 4,
+        "punctured_summary_expansions": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 1,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 4,
+        "punctured_summary_expansions": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 2,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 2,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 3,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 0,
+      "templates": 2,
+      "context_bound": 3,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 2,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 3
+      }
+    },
+    {
+      "height": 2,
+      "trial": 4,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 4,
+        "punctured_summary_expansions": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 5,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 2,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 6,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 2,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 7,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 4,
+        "punctured_summary_expansions": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 8,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 0,
+      "templates": 2,
+      "context_bound": 3,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 2,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 3
+      }
+    },
+    {
+      "height": 2,
+      "trial": 9,
+      "input_nodes": 1,
+      "output_nodes": 2,
+      "contexts": 1,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 1,
+      "counts": {
+        "punctured_make_calls": 2,
+        "punctured_created_nodes": 2,
+        "punctured_build_calls": 3,
+        "punctured_contexts": 1,
+        "punctured_summary_calls": 1,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 10,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 4,
+        "punctured_summary_expansions": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 2,
+      "trial": 11,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 2,
+      "templates": 1,
+      "context_bound": 3,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 4,
+        "punctured_summary_expansions": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 3,
+      "trial": 0,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "contexts": 4,
+      "templates": 2,
+      "context_bound": 7,
+      "path_steps": 4,
+      "counts": {
+        "punctured_make_calls": 6,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 9,
+        "punctured_contexts": 4,
+        "punctured_summary_calls": 8,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 3
+      }
+    },
+    {
+      "height": 3,
+      "trial": 1,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "contexts": 5,
+      "templates": 1,
+      "context_bound": 7,
+      "path_steps": 5,
+      "counts": {
+        "punctured_make_calls": 6,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 11,
+        "punctured_contexts": 5,
+        "punctured_summary_calls": 9,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 2
+      }
+    },
+    {
+      "height": 3,
+      "trial": 2,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "contexts": 3,
+      "templates": 2,
+      "context_bound": 7,
+      "path_steps": 3,
+      "counts": {
+        "punctured_make_calls": 5,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 7,
+        "punctured_contexts": 3,
+        "punctured_summary_calls": 7,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 4
+      }
+    },
+    {
+      "height": 3,
+      "trial": 3,
+      "input_nodes": 4,
+      "output_nodes": 3,
+      "contexts": 3,
+      "templates": 2,
+      "context_bound": 7,
+      "path_steps": 3,
+      "counts": {
+        "punctured_make_calls": 5,
+        "punctured_created_nodes": 2,
+        "punctured_build_calls": 7,
+        "punctured_contexts": 3,
+        "punctured_summary_calls": 7,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 4
+      }
+    },
+    {
+      "height": 3,
+      "trial": 4,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "contexts": 5,
+      "templates": 1,
+      "context_bound": 7,
+      "path_steps": 5,
+      "counts": {
+        "punctured_make_calls": 6,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 11,
+        "punctured_contexts": 5,
+        "punctured_summary_calls": 9,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 3
+      }
+    },
+    {
+      "height": 3,
+      "trial": 5,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "contexts": 3,
+      "templates": 2,
+      "context_bound": 7,
+      "path_steps": 3,
+      "counts": {
+        "punctured_make_calls": 5,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 7,
+        "punctured_contexts": 3,
+        "punctured_summary_calls": 7,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 4
+      }
+    },
+    {
+      "height": 3,
+      "trial": 6,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "contexts": 3,
+      "templates": 1,
+      "context_bound": 7,
+      "path_steps": 3,
+      "counts": {
+        "punctured_make_calls": 4,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 7,
+        "punctured_contexts": 3,
+        "punctured_summary_calls": 7,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 4,
+        "punctured_template_calls": 5
+      }
+    },
+    {
+      "height": 3,
+      "trial": 7,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "contexts": 3,
+      "templates": 2,
+      "context_bound": 7,
+      "path_steps": 3,
+      "counts": {
+        "punctured_make_calls": 5,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 7,
+        "punctured_contexts": 3,
+        "punctured_summary_calls": 7,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 4
+      }
+    },
+    {
+      "height": 3,
+      "trial": 8,
+      "input_nodes": 4,
+      "output_nodes": 3,
+      "contexts": 0,
+      "templates": 3,
+      "context_bound": 7,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 2,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 4
+      }
+    },
+    {
+      "height": 3,
+      "trial": 9,
+      "input_nodes": 4,
+      "output_nodes": 3,
+      "contexts": 0,
+      "templates": 3,
+      "context_bound": 7,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 2,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 4
+      }
+    },
+    {
+      "height": 3,
+      "trial": 10,
+      "input_nodes": 4,
+      "output_nodes": 4,
+      "contexts": 3,
+      "templates": 2,
+      "context_bound": 7,
+      "path_steps": 3,
+      "counts": {
+        "punctured_make_calls": 5,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 7,
+        "punctured_contexts": 3,
+        "punctured_summary_calls": 7,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 4
+      }
+    },
+    {
+      "height": 3,
+      "trial": 11,
+      "input_nodes": 4,
+      "output_nodes": 3,
+      "contexts": 1,
+      "templates": 2,
+      "context_bound": 7,
+      "path_steps": 1,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 2,
+        "punctured_build_calls": 3,
+        "punctured_contexts": 1,
+        "punctured_summary_calls": 5,
+        "punctured_summary_expansions": 2,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 4
+      }
+    },
+    {
+      "height": 4,
+      "trial": 0,
+      "input_nodes": 8,
+      "output_nodes": 4,
+      "contexts": 0,
+      "templates": 4,
+      "context_bound": 15,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 4,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 5
+      }
+    },
+    {
+      "height": 4,
+      "trial": 1,
+      "input_nodes": 8,
+      "output_nodes": 8,
+      "contexts": 8,
+      "templates": 2,
+      "context_bound": 15,
+      "path_steps": 8,
+      "counts": {
+        "punctured_make_calls": 10,
+        "punctured_created_nodes": 7,
+        "punctured_build_calls": 17,
+        "punctured_contexts": 8,
+        "punctured_summary_calls": 18,
+        "punctured_summary_expansions": 5,
+        "punctured_pruned_blocks": 5,
+        "punctured_template_calls": 7
+      }
+    },
+    {
+      "height": 4,
+      "trial": 2,
+      "input_nodes": 8,
+      "output_nodes": 7,
+      "contexts": 6,
+      "templates": 3,
+      "context_bound": 15,
+      "path_steps": 6,
+      "counts": {
+        "punctured_make_calls": 9,
+        "punctured_created_nodes": 6,
+        "punctured_build_calls": 13,
+        "punctured_contexts": 6,
+        "punctured_summary_calls": 14,
+        "punctured_summary_expansions": 4,
+        "punctured_pruned_blocks": 3,
+        "punctured_template_calls": 6
+      }
+    },
+    {
+      "height": 4,
+      "trial": 3,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "contexts": 5,
+      "templates": 3,
+      "context_bound": 15,
+      "path_steps": 5,
+      "counts": {
+        "punctured_make_calls": 8,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 11,
+        "punctured_contexts": 5,
+        "punctured_summary_calls": 13,
+        "punctured_summary_expansions": 4,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 5
+      }
+    },
+    {
+      "height": 4,
+      "trial": 4,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "contexts": 6,
+      "templates": 3,
+      "context_bound": 15,
+      "path_steps": 6,
+      "counts": {
+        "punctured_make_calls": 9,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 13,
+        "punctured_contexts": 6,
+        "punctured_summary_calls": 14,
+        "punctured_summary_expansions": 4,
+        "punctured_pruned_blocks": 3,
+        "punctured_template_calls": 6
+      }
+    },
+    {
+      "height": 4,
+      "trial": 5,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "contexts": 4,
+      "templates": 3,
+      "context_bound": 15,
+      "path_steps": 4,
+      "counts": {
+        "punctured_make_calls": 7,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 9,
+        "punctured_contexts": 4,
+        "punctured_summary_calls": 12,
+        "punctured_summary_expansions": 4,
+        "punctured_pruned_blocks": 3,
+        "punctured_template_calls": 6
+      }
+    },
+    {
+      "height": 4,
+      "trial": 6,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "contexts": 4,
+      "templates": 3,
+      "context_bound": 15,
+      "path_steps": 4,
+      "counts": {
+        "punctured_make_calls": 7,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 9,
+        "punctured_contexts": 4,
+        "punctured_summary_calls": 12,
+        "punctured_summary_expansions": 4,
+        "punctured_pruned_blocks": 3,
+        "punctured_template_calls": 6
+      }
+    },
+    {
+      "height": 4,
+      "trial": 7,
+      "input_nodes": 7,
+      "output_nodes": 6,
+      "contexts": 4,
+      "templates": 3,
+      "context_bound": 14,
+      "path_steps": 4,
+      "counts": {
+        "punctured_make_calls": 7,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 9,
+        "punctured_contexts": 4,
+        "punctured_summary_calls": 12,
+        "punctured_summary_expansions": 4,
+        "punctured_pruned_blocks": 3,
+        "punctured_template_calls": 6
+      }
+    },
+    {
+      "height": 4,
+      "trial": 8,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "contexts": 7,
+      "templates": 2,
+      "context_bound": 15,
+      "path_steps": 7,
+      "counts": {
+        "punctured_make_calls": 9,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 15,
+        "punctured_contexts": 7,
+        "punctured_summary_calls": 17,
+        "punctured_summary_expansions": 5,
+        "punctured_pruned_blocks": 4,
+        "punctured_template_calls": 6
+      }
+    },
+    {
+      "height": 4,
+      "trial": 9,
+      "input_nodes": 8,
+      "output_nodes": 7,
+      "contexts": 8,
+      "templates": 2,
+      "context_bound": 15,
+      "path_steps": 8,
+      "counts": {
+        "punctured_make_calls": 10,
+        "punctured_created_nodes": 6,
+        "punctured_build_calls": 17,
+        "punctured_contexts": 8,
+        "punctured_summary_calls": 18,
+        "punctured_summary_expansions": 5,
+        "punctured_pruned_blocks": 5,
+        "punctured_template_calls": 7
+      }
+    },
+    {
+      "height": 4,
+      "trial": 10,
+      "input_nodes": 8,
+      "output_nodes": 4,
+      "contexts": 0,
+      "templates": 4,
+      "context_bound": 15,
+      "path_steps": 0,
+      "counts": {
+        "punctured_make_calls": 4,
+        "punctured_created_nodes": 3,
+        "punctured_build_calls": 1,
+        "punctured_pruned_blocks": 1,
+        "punctured_template_calls": 5
+      }
+    },
+    {
+      "height": 4,
+      "trial": 11,
+      "input_nodes": 8,
+      "output_nodes": 6,
+      "contexts": 5,
+      "templates": 3,
+      "context_bound": 15,
+      "path_steps": 5,
+      "counts": {
+        "punctured_make_calls": 8,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 11,
+        "punctured_contexts": 5,
+        "punctured_summary_calls": 13,
+        "punctured_summary_expansions": 4,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 5
+      }
+    },
+    {
+      "height": 5,
+      "trial": 0,
+      "input_nodes": 16,
+      "output_nodes": 8,
+      "contexts": 4,
+      "templates": 4,
+      "context_bound": 31,
+      "path_steps": 4,
+      "counts": {
+        "punctured_make_calls": 8,
+        "punctured_created_nodes": 7,
+        "punctured_build_calls": 9,
+        "punctured_contexts": 4,
+        "punctured_summary_calls": 20,
+        "punctured_summary_expansions": 8,
+        "punctured_pruned_blocks": 5,
+        "punctured_template_calls": 9
+      }
+    },
+    {
+      "height": 5,
+      "trial": 1,
+      "input_nodes": 15,
+      "output_nodes": 10,
+      "contexts": 8,
+      "templates": 3,
+      "context_bound": 30,
+      "path_steps": 8,
+      "counts": {
+        "punctured_make_calls": 11,
+        "punctured_created_nodes": 9,
+        "punctured_build_calls": 17,
+        "punctured_contexts": 8,
+        "punctured_summary_calls": 28,
+        "punctured_summary_expansions": 10,
+        "punctured_pruned_blocks": 7,
+        "punctured_template_calls": 10
+      }
+    },
+    {
+      "height": 5,
+      "trial": 2,
+      "input_nodes": 16,
+      "output_nodes": 10,
+      "contexts": 9,
+      "templates": 3,
+      "context_bound": 31,
+      "path_steps": 9,
+      "counts": {
+        "punctured_make_calls": 12,
+        "punctured_created_nodes": 9,
+        "punctured_build_calls": 19,
+        "punctured_contexts": 9,
+        "punctured_summary_calls": 33,
+        "punctured_summary_expansions": 12,
+        "punctured_pruned_blocks": 6,
+        "punctured_template_calls": 9
+      }
+    },
+    {
+      "height": 5,
+      "trial": 3,
+      "input_nodes": 16,
+      "output_nodes": 6,
+      "contexts": 5,
+      "templates": 4,
+      "context_bound": 31,
+      "path_steps": 5,
+      "counts": {
+        "punctured_make_calls": 9,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 11,
+        "punctured_contexts": 5,
+        "punctured_summary_calls": 21,
+        "punctured_summary_expansions": 8,
+        "punctured_pruned_blocks": 4,
+        "punctured_template_calls": 8
+      }
+    },
+    {
+      "height": 5,
+      "trial": 4,
+      "input_nodes": 16,
+      "output_nodes": 11,
+      "contexts": 11,
+      "templates": 4,
+      "context_bound": 31,
+      "path_steps": 11,
+      "counts": {
+        "punctured_make_calls": 15,
+        "punctured_created_nodes": 10,
+        "punctured_build_calls": 23,
+        "punctured_contexts": 11,
+        "punctured_summary_calls": 27,
+        "punctured_summary_expansions": 8,
+        "punctured_pruned_blocks": 4,
+        "punctured_template_calls": 8
+      }
+    },
+    {
+      "height": 5,
+      "trial": 5,
+      "input_nodes": 15,
+      "output_nodes": 6,
+      "contexts": 2,
+      "templates": 4,
+      "context_bound": 30,
+      "path_steps": 2,
+      "counts": {
+        "punctured_make_calls": 6,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 5,
+        "punctured_contexts": 2,
+        "punctured_summary_calls": 18,
+        "punctured_summary_expansions": 8,
+        "punctured_pruned_blocks": 3,
+        "punctured_template_calls": 7
+      }
+    },
+    {
+      "height": 5,
+      "trial": 6,
+      "input_nodes": 16,
+      "output_nodes": 8,
+      "contexts": 5,
+      "templates": 4,
+      "context_bound": 31,
+      "path_steps": 5,
+      "counts": {
+        "punctured_make_calls": 9,
+        "punctured_created_nodes": 7,
+        "punctured_build_calls": 11,
+        "punctured_contexts": 5,
+        "punctured_summary_calls": 21,
+        "punctured_summary_expansions": 8,
+        "punctured_pruned_blocks": 4,
+        "punctured_template_calls": 8
+      }
+    },
+    {
+      "height": 5,
+      "trial": 7,
+      "input_nodes": 16,
+      "output_nodes": 9,
+      "contexts": 7,
+      "templates": 3,
+      "context_bound": 31,
+      "path_steps": 7,
+      "counts": {
+        "punctured_make_calls": 10,
+        "punctured_created_nodes": 8,
+        "punctured_build_calls": 15,
+        "punctured_contexts": 7,
+        "punctured_summary_calls": 31,
+        "punctured_summary_expansions": 12,
+        "punctured_pruned_blocks": 6,
+        "punctured_template_calls": 9
+      }
+    },
+    {
+      "height": 5,
+      "trial": 8,
+      "input_nodes": 15,
+      "output_nodes": 8,
+      "contexts": 5,
+      "templates": 4,
+      "context_bound": 30,
+      "path_steps": 5,
+      "counts": {
+        "punctured_make_calls": 9,
+        "punctured_created_nodes": 7,
+        "punctured_build_calls": 11,
+        "punctured_contexts": 5,
+        "punctured_summary_calls": 19,
+        "punctured_summary_expansions": 7,
+        "punctured_pruned_blocks": 4,
+        "punctured_template_calls": 8
+      }
+    },
+    {
+      "height": 5,
+      "trial": 9,
+      "input_nodes": 16,
+      "output_nodes": 8,
+      "contexts": 5,
+      "templates": 4,
+      "context_bound": 31,
+      "path_steps": 5,
+      "counts": {
+        "punctured_make_calls": 9,
+        "punctured_created_nodes": 7,
+        "punctured_build_calls": 11,
+        "punctured_contexts": 5,
+        "punctured_summary_calls": 21,
+        "punctured_summary_expansions": 8,
+        "punctured_pruned_blocks": 4,
+        "punctured_template_calls": 8
+      }
+    },
+    {
+      "height": 5,
+      "trial": 10,
+      "input_nodes": 16,
+      "output_nodes": 7,
+      "contexts": 3,
+      "templates": 4,
+      "context_bound": 31,
+      "path_steps": 3,
+      "counts": {
+        "punctured_make_calls": 7,
+        "punctured_created_nodes": 6,
+        "punctured_build_calls": 7,
+        "punctured_contexts": 3,
+        "punctured_summary_calls": 19,
+        "punctured_summary_expansions": 8,
+        "punctured_pruned_blocks": 4,
+        "punctured_template_calls": 8
+      }
+    },
+    {
+      "height": 5,
+      "trial": 11,
+      "input_nodes": 16,
+      "output_nodes": 6,
+      "contexts": 6,
+      "templates": 3,
+      "context_bound": 31,
+      "path_steps": 6,
+      "counts": {
+        "punctured_make_calls": 9,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 13,
+        "punctured_contexts": 6,
+        "punctured_summary_calls": 28,
+        "punctured_summary_expansions": 11,
+        "punctured_pruned_blocks": 5,
+        "punctured_template_calls": 8
+      }
+    },
+    {
+      "height": 6,
+      "trial": 0,
+      "input_nodes": 31,
+      "output_nodes": 13,
+      "contexts": 11,
+      "templates": 4,
+      "context_bound": 62,
+      "path_steps": 11,
+      "counts": {
+        "punctured_make_calls": 15,
+        "punctured_created_nodes": 12,
+        "punctured_build_calls": 23,
+        "punctured_contexts": 11,
+        "punctured_summary_calls": 55,
+        "punctured_summary_expansions": 22,
+        "punctured_pruned_blocks": 8,
+        "punctured_template_calls": 12
+      }
+    },
+    {
+      "height": 6,
+      "trial": 1,
+      "input_nodes": 32,
+      "output_nodes": 15,
+      "contexts": 20,
+      "templates": 4,
+      "context_bound": 63,
+      "path_steps": 20,
+      "counts": {
+        "punctured_make_calls": 24,
+        "punctured_created_nodes": 14,
+        "punctured_build_calls": 41,
+        "punctured_contexts": 20,
+        "punctured_summary_calls": 74,
+        "punctured_summary_expansions": 27,
+        "punctured_pruned_blocks": 11,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "height": 6,
+      "trial": 2,
+      "input_nodes": 30,
+      "output_nodes": 12,
+      "contexts": 9,
+      "templates": 5,
+      "context_bound": 61,
+      "path_steps": 10,
+      "counts": {
+        "punctured_make_calls": 14,
+        "punctured_created_nodes": 11,
+        "punctured_build_calls": 19,
+        "punctured_contexts": 9,
+        "punctured_summary_calls": 39,
+        "punctured_summary_expansions": 15,
+        "punctured_pruned_blocks": 7,
+        "punctured_template_calls": 12
+      }
+    },
+    {
+      "height": 6,
+      "trial": 3,
+      "input_nodes": 31,
+      "output_nodes": 14,
+      "contexts": 10,
+      "templates": 5,
+      "context_bound": 62,
+      "path_steps": 10,
+      "counts": {
+        "punctured_make_calls": 15,
+        "punctured_created_nodes": 13,
+        "punctured_build_calls": 21,
+        "punctured_contexts": 10,
+        "punctured_summary_calls": 42,
+        "punctured_summary_expansions": 16,
+        "punctured_pruned_blocks": 9,
+        "punctured_template_calls": 14
+      }
+    },
+    {
+      "height": 6,
+      "trial": 4,
+      "input_nodes": 31,
+      "output_nodes": 11,
+      "contexts": 7,
+      "templates": 5,
+      "context_bound": 62,
+      "path_steps": 7,
+      "counts": {
+        "punctured_make_calls": 12,
+        "punctured_created_nodes": 10,
+        "punctured_build_calls": 15,
+        "punctured_contexts": 7,
+        "punctured_summary_calls": 39,
+        "punctured_summary_expansions": 16,
+        "punctured_pruned_blocks": 6,
+        "punctured_template_calls": 11
+      }
+    },
+    {
+      "height": 6,
+      "trial": 5,
+      "input_nodes": 32,
+      "output_nodes": 17,
+      "contexts": 18,
+      "templates": 3,
+      "context_bound": 63,
+      "path_steps": 19,
+      "counts": {
+        "punctured_make_calls": 21,
+        "punctured_created_nodes": 16,
+        "punctured_build_calls": 37,
+        "punctured_contexts": 18,
+        "punctured_summary_calls": 72,
+        "punctured_summary_expansions": 27,
+        "punctured_pruned_blocks": 14,
+        "punctured_template_calls": 17
+      }
+    },
+    {
+      "height": 6,
+      "trial": 6,
+      "input_nodes": 32,
+      "output_nodes": 14,
+      "contexts": 13,
+      "templates": 5,
+      "context_bound": 63,
+      "path_steps": 13,
+      "counts": {
+        "punctured_make_calls": 18,
+        "punctured_created_nodes": 13,
+        "punctured_build_calls": 27,
+        "punctured_contexts": 13,
+        "punctured_summary_calls": 45,
+        "punctured_summary_expansions": 16,
+        "punctured_pruned_blocks": 8,
+        "punctured_template_calls": 13
+      }
+    },
+    {
+      "height": 6,
+      "trial": 7,
+      "input_nodes": 31,
+      "output_nodes": 14,
+      "contexts": 16,
+      "templates": 4,
+      "context_bound": 62,
+      "path_steps": 16,
+      "counts": {
+        "punctured_make_calls": 20,
+        "punctured_created_nodes": 13,
+        "punctured_build_calls": 33,
+        "punctured_contexts": 16,
+        "punctured_summary_calls": 62,
+        "punctured_summary_expansions": 23,
+        "punctured_pruned_blocks": 9,
+        "punctured_template_calls": 13
+      }
+    },
+    {
+      "height": 6,
+      "trial": 8,
+      "input_nodes": 28,
+      "output_nodes": 14,
+      "contexts": 11,
+      "templates": 4,
+      "context_bound": 59,
+      "path_steps": 11,
+      "counts": {
+        "punctured_make_calls": 15,
+        "punctured_created_nodes": 13,
+        "punctured_build_calls": 23,
+        "punctured_contexts": 11,
+        "punctured_summary_calls": 53,
+        "punctured_summary_expansions": 21,
+        "punctured_pruned_blocks": 10,
+        "punctured_template_calls": 14
+      }
+    },
+    {
+      "height": 6,
+      "trial": 9,
+      "input_nodes": 31,
+      "output_nodes": 11,
+      "contexts": 9,
+      "templates": 4,
+      "context_bound": 62,
+      "path_steps": 9,
+      "counts": {
+        "punctured_make_calls": 13,
+        "punctured_created_nodes": 10,
+        "punctured_build_calls": 19,
+        "punctured_contexts": 9,
+        "punctured_summary_calls": 53,
+        "punctured_summary_expansions": 22,
+        "punctured_pruned_blocks": 8,
+        "punctured_template_calls": 11
+      }
+    },
+    {
+      "height": 6,
+      "trial": 10,
+      "input_nodes": 32,
+      "output_nodes": 8,
+      "contexts": 6,
+      "templates": 5,
+      "context_bound": 63,
+      "path_steps": 6,
+      "counts": {
+        "punctured_make_calls": 11,
+        "punctured_created_nodes": 7,
+        "punctured_build_calls": 13,
+        "punctured_contexts": 6,
+        "punctured_summary_calls": 38,
+        "punctured_summary_expansions": 16,
+        "punctured_pruned_blocks": 5,
+        "punctured_template_calls": 10
+      }
+    },
+    {
+      "height": 6,
+      "trial": 11,
+      "input_nodes": 31,
+      "output_nodes": 12,
+      "contexts": 11,
+      "templates": 5,
+      "context_bound": 62,
+      "path_steps": 11,
+      "counts": {
+        "punctured_make_calls": 16,
+        "punctured_created_nodes": 11,
+        "punctured_build_calls": 23,
+        "punctured_contexts": 11,
+        "punctured_summary_calls": 43,
+        "punctured_summary_expansions": 16,
+        "punctured_pruned_blocks": 8,
+        "punctured_template_calls": 13
+      }
+    },
+    {
+      "height": 7,
+      "trial": 0,
+      "input_nodes": 62,
+      "output_nodes": 14,
+      "contexts": 12,
+      "templates": 6,
+      "context_bound": 125,
+      "path_steps": 12,
+      "counts": {
+        "punctured_make_calls": 18,
+        "punctured_created_nodes": 13,
+        "punctured_build_calls": 25,
+        "punctured_contexts": 12,
+        "punctured_summary_calls": 76,
+        "punctured_summary_expansions": 32,
+        "punctured_pruned_blocks": 9,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "height": 7,
+      "trial": 1,
+      "input_nodes": 64,
+      "output_nodes": 12,
+      "contexts": 8,
+      "templates": 6,
+      "context_bound": 127,
+      "path_steps": 8,
+      "counts": {
+        "punctured_make_calls": 14,
+        "punctured_created_nodes": 10,
+        "punctured_build_calls": 17,
+        "punctured_contexts": 8,
+        "punctured_summary_calls": 72,
+        "punctured_summary_expansions": 32,
+        "punctured_pruned_blocks": 7,
+        "punctured_template_calls": 12
+      }
+    },
+    {
+      "height": 7,
+      "trial": 2,
+      "input_nodes": 59,
+      "output_nodes": 15,
+      "contexts": 11,
+      "templates": 6,
+      "context_bound": 122,
+      "path_steps": 11,
+      "counts": {
+        "punctured_make_calls": 17,
+        "punctured_created_nodes": 14,
+        "punctured_build_calls": 23,
+        "punctured_contexts": 11,
+        "punctured_summary_calls": 71,
+        "punctured_summary_expansions": 30,
+        "punctured_pruned_blocks": 10,
+        "punctured_template_calls": 16
+      }
+    },
+    {
+      "height": 7,
+      "trial": 3,
+      "input_nodes": 62,
+      "output_nodes": 16,
+      "contexts": 15,
+      "templates": 5,
+      "context_bound": 125,
+      "path_steps": 15,
+      "counts": {
+        "punctured_make_calls": 20,
+        "punctured_created_nodes": 15,
+        "punctured_build_calls": 31,
+        "punctured_contexts": 15,
+        "punctured_summary_calls": 105,
+        "punctured_summary_expansions": 45,
+        "punctured_pruned_blocks": 10,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "height": 7,
+      "trial": 4,
+      "input_nodes": 61,
+      "output_nodes": 14,
+      "contexts": 13,
+      "templates": 5,
+      "context_bound": 124,
+      "path_steps": 13,
+      "counts": {
+        "punctured_make_calls": 18,
+        "punctured_created_nodes": 13,
+        "punctured_build_calls": 27,
+        "punctured_contexts": 13,
+        "punctured_summary_calls": 115,
+        "punctured_summary_expansions": 51,
+        "punctured_pruned_blocks": 10,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "height": 7,
+      "trial": 5,
+      "input_nodes": 59,
+      "output_nodes": 15,
+      "contexts": 10,
+      "templates": 6,
+      "context_bound": 122,
+      "path_steps": 10,
+      "counts": {
+        "punctured_make_calls": 16,
+        "punctured_created_nodes": 14,
+        "punctured_build_calls": 21,
+        "punctured_contexts": 10,
+        "punctured_summary_calls": 70,
+        "punctured_summary_expansions": 30,
+        "punctured_pruned_blocks": 9,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "height": 7,
+      "trial": 6,
+      "input_nodes": 61,
+      "output_nodes": 12,
+      "contexts": 7,
+      "templates": 6,
+      "context_bound": 124,
+      "path_steps": 7,
+      "counts": {
+        "punctured_make_calls": 13,
+        "punctured_created_nodes": 11,
+        "punctured_build_calls": 15,
+        "punctured_contexts": 7,
+        "punctured_summary_calls": 69,
+        "punctured_summary_expansions": 31,
+        "punctured_pruned_blocks": 6,
+        "punctured_template_calls": 12
+      }
+    },
+    {
+      "height": 7,
+      "trial": 7,
+      "input_nodes": 59,
+      "output_nodes": 21,
+      "contexts": 20,
+      "templates": 5,
+      "context_bound": 122,
+      "path_steps": 20,
+      "counts": {
+        "punctured_make_calls": 25,
+        "punctured_created_nodes": 20,
+        "punctured_build_calls": 41,
+        "punctured_contexts": 20,
+        "punctured_summary_calls": 126,
+        "punctured_summary_expansions": 53,
+        "punctured_pruned_blocks": 15,
+        "punctured_template_calls": 20
+      }
+    },
+    {
+      "height": 7,
+      "trial": 8,
+      "input_nodes": 62,
+      "output_nodes": 18,
+      "contexts": 15,
+      "templates": 6,
+      "context_bound": 125,
+      "path_steps": 15,
+      "counts": {
+        "punctured_make_calls": 21,
+        "punctured_created_nodes": 16,
+        "punctured_build_calls": 31,
+        "punctured_contexts": 15,
+        "punctured_summary_calls": 79,
+        "punctured_summary_expansions": 32,
+        "punctured_pruned_blocks": 10,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "height": 7,
+      "trial": 9,
+      "input_nodes": 61,
+      "output_nodes": 16,
+      "contexts": 15,
+      "templates": 6,
+      "context_bound": 124,
+      "path_steps": 15,
+      "counts": {
+        "punctured_make_calls": 21,
+        "punctured_created_nodes": 15,
+        "punctured_build_calls": 31,
+        "punctured_contexts": 15,
+        "punctured_summary_calls": 77,
+        "punctured_summary_expansions": 31,
+        "punctured_pruned_blocks": 10,
+        "punctured_template_calls": 16
+      }
+    },
+    {
+      "height": 7,
+      "trial": 10,
+      "input_nodes": 63,
+      "output_nodes": 19,
+      "contexts": 18,
+      "templates": 6,
+      "context_bound": 126,
+      "path_steps": 18,
+      "counts": {
+        "punctured_make_calls": 24,
+        "punctured_created_nodes": 18,
+        "punctured_build_calls": 37,
+        "punctured_contexts": 18,
+        "punctured_summary_calls": 82,
+        "punctured_summary_expansions": 32,
+        "punctured_pruned_blocks": 11,
+        "punctured_template_calls": 16
+      }
+    },
+    {
+      "height": 7,
+      "trial": 11,
+      "input_nodes": 60,
+      "output_nodes": 17,
+      "contexts": 12,
+      "templates": 6,
+      "context_bound": 123,
+      "path_steps": 12,
+      "counts": {
+        "punctured_make_calls": 18,
+        "punctured_created_nodes": 16,
+        "punctured_build_calls": 25,
+        "punctured_contexts": 12,
+        "punctured_summary_calls": 74,
+        "punctured_summary_expansions": 31,
+        "punctured_pruned_blocks": 11,
+        "punctured_template_calls": 17
+      }
+    },
+    {
+      "height": 8,
+      "trial": 0,
+      "input_nodes": 120,
+      "output_nodes": 24,
+      "contexts": 18,
+      "templates": 7,
+      "context_bound": 247,
+      "path_steps": 18,
+      "counts": {
+        "punctured_make_calls": 25,
+        "punctured_created_nodes": 23,
+        "punctured_build_calls": 37,
+        "punctured_contexts": 18,
+        "punctured_summary_calls": 140,
+        "punctured_summary_expansions": 61,
+        "punctured_pruned_blocks": 17,
+        "punctured_template_calls": 24
+      }
+    },
+    {
+      "height": 8,
+      "trial": 1,
+      "input_nodes": 119,
+      "output_nodes": 22,
+      "contexts": 21,
+      "templates": 6,
+      "context_bound": 246,
+      "path_steps": 22,
+      "counts": {
+        "punctured_make_calls": 27,
+        "punctured_created_nodes": 21,
+        "punctured_build_calls": 43,
+        "punctured_contexts": 21,
+        "punctured_summary_calls": 239,
+        "punctured_summary_expansions": 109,
+        "punctured_pruned_blocks": 15,
+        "punctured_template_calls": 21
+      }
+    },
+    {
+      "height": 8,
+      "trial": 2,
+      "input_nodes": 120,
+      "output_nodes": 14,
+      "contexts": 8,
+      "templates": 7,
+      "context_bound": 247,
+      "path_steps": 8,
+      "counts": {
+        "punctured_make_calls": 15,
+        "punctured_created_nodes": 13,
+        "punctured_build_calls": 17,
+        "punctured_contexts": 8,
+        "punctured_summary_calls": 132,
+        "punctured_summary_expansions": 62,
+        "punctured_pruned_blocks": 7,
+        "punctured_template_calls": 14
+      }
+    },
+    {
+      "height": 8,
+      "trial": 3,
+      "input_nodes": 122,
+      "output_nodes": 29,
+      "contexts": 27,
+      "templates": 6,
+      "context_bound": 249,
+      "path_steps": 27,
+      "counts": {
+        "punctured_make_calls": 33,
+        "punctured_created_nodes": 28,
+        "punctured_build_calls": 55,
+        "punctured_contexts": 27,
+        "punctured_summary_calls": 235,
+        "punctured_summary_expansions": 104,
+        "punctured_pruned_blocks": 22,
+        "punctured_template_calls": 28
+      }
+    },
+    {
+      "height": 8,
+      "trial": 4,
+      "input_nodes": 122,
+      "output_nodes": 19,
+      "contexts": 15,
+      "templates": 6,
+      "context_bound": 249,
+      "path_steps": 15,
+      "counts": {
+        "punctured_make_calls": 21,
+        "punctured_created_nodes": 18,
+        "punctured_build_calls": 31,
+        "punctured_contexts": 15,
+        "punctured_summary_calls": 197,
+        "punctured_summary_expansions": 91,
+        "punctured_pruned_blocks": 12,
+        "punctured_template_calls": 18
+      }
+    },
+    {
+      "height": 8,
+      "trial": 5,
+      "input_nodes": 114,
+      "output_nodes": 19,
+      "contexts": 22,
+      "templates": 6,
+      "context_bound": 241,
+      "path_steps": 22,
+      "counts": {
+        "punctured_make_calls": 28,
+        "punctured_created_nodes": 18,
+        "punctured_build_calls": 45,
+        "punctured_contexts": 22,
+        "punctured_summary_calls": 238,
+        "punctured_summary_expansions": 108,
+        "punctured_pruned_blocks": 17,
+        "punctured_template_calls": 23
+      }
+    },
+    {
+      "height": 8,
+      "trial": 6,
+      "input_nodes": 118,
+      "output_nodes": 15,
+      "contexts": 9,
+      "templates": 7,
+      "context_bound": 245,
+      "path_steps": 9,
+      "counts": {
+        "punctured_make_calls": 16,
+        "punctured_created_nodes": 14,
+        "punctured_build_calls": 19,
+        "punctured_contexts": 9,
+        "punctured_summary_calls": 127,
+        "punctured_summary_expansions": 59,
+        "punctured_pruned_blocks": 8,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "height": 8,
+      "trial": 7,
+      "input_nodes": 118,
+      "output_nodes": 27,
+      "contexts": 25,
+      "templates": 6,
+      "context_bound": 245,
+      "path_steps": 25,
+      "counts": {
+        "punctured_make_calls": 31,
+        "punctured_created_nodes": 26,
+        "punctured_build_calls": 51,
+        "punctured_contexts": 25,
+        "punctured_summary_calls": 205,
+        "punctured_summary_expansions": 90,
+        "punctured_pruned_blocks": 22,
+        "punctured_template_calls": 28
+      }
+    },
+    {
+      "height": 8,
+      "trial": 8,
+      "input_nodes": 118,
+      "output_nodes": 20,
+      "contexts": 20,
+      "templates": 7,
+      "context_bound": 245,
+      "path_steps": 21,
+      "counts": {
+        "punctured_make_calls": 27,
+        "punctured_created_nodes": 19,
+        "punctured_build_calls": 41,
+        "punctured_contexts": 20,
+        "punctured_summary_calls": 146,
+        "punctured_summary_expansions": 63,
+        "punctured_pruned_blocks": 16,
+        "punctured_template_calls": 23
+      }
+    },
+    {
+      "height": 8,
+      "trial": 9,
+      "input_nodes": 123,
+      "output_nodes": 16,
+      "contexts": 10,
+      "templates": 7,
+      "context_bound": 250,
+      "path_steps": 11,
+      "counts": {
+        "punctured_make_calls": 17,
+        "punctured_created_nodes": 15,
+        "punctured_build_calls": 21,
+        "punctured_contexts": 10,
+        "punctured_summary_calls": 134,
+        "punctured_summary_expansions": 62,
+        "punctured_pruned_blocks": 8,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "height": 8,
+      "trial": 10,
+      "input_nodes": 125,
+      "output_nodes": 18,
+      "contexts": 14,
+      "templates": 7,
+      "context_bound": 252,
+      "path_steps": 14,
+      "counts": {
+        "punctured_make_calls": 21,
+        "punctured_created_nodes": 17,
+        "punctured_build_calls": 29,
+        "punctured_contexts": 14,
+        "punctured_summary_calls": 138,
+        "punctured_summary_expansions": 62,
+        "punctured_pruned_blocks": 9,
+        "punctured_template_calls": 16
+      }
+    },
+    {
+      "height": 8,
+      "trial": 11,
+      "input_nodes": 125,
+      "output_nodes": 17,
+      "contexts": 12,
+      "templates": 7,
+      "context_bound": 252,
+      "path_steps": 12,
+      "counts": {
+        "punctured_make_calls": 19,
+        "punctured_created_nodes": 16,
+        "punctured_build_calls": 25,
+        "punctured_contexts": 12,
+        "punctured_summary_calls": 136,
+        "punctured_summary_expansions": 62,
+        "punctured_pruned_blocks": 11,
+        "punctured_template_calls": 17
+      }
+    }
+  ],
+  "large": [
+    {
+      "source": "slot_dag_size_search",
+      "n": 6,
+      "height": 6,
+      "stage_nodes": [
+        6,
+        10,
+        16,
+        17,
+        28,
+        21
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 6,
+          "contexts": 0,
+          "templates": 6,
+          "context_bound": 6,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 7,
+            "punctured_make_calls": 6,
+            "punctured_created_nodes": 6
+          }
+        },
+        {
+          "input_nodes": 6,
+          "output_nodes": 10,
+          "contexts": 6,
+          "templates": 5,
+          "context_bound": 21,
+          "path_steps": 6,
+          "counts": {
+            "punctured_build_calls": 13,
+            "punctured_pruned_blocks": 5,
+            "punctured_template_calls": 10,
+            "punctured_make_calls": 11,
+            "punctured_created_nodes": 9,
+            "punctured_contexts": 6,
+            "punctured_summary_calls": 16,
+            "punctured_summary_expansions": 5
+          }
+        },
+        {
+          "input_nodes": 10,
+          "output_nodes": 16,
+          "contexts": 14,
+          "templates": 4,
+          "context_bound": 31,
+          "path_steps": 14,
+          "counts": {
+            "punctured_build_calls": 29,
+            "punctured_pruned_blocks": 11,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 18,
+            "punctured_created_nodes": 15,
+            "punctured_contexts": 14,
+            "punctured_summary_calls": 30,
+            "punctured_summary_expansions": 8
+          }
+        },
+        {
+          "input_nodes": 16,
+          "output_nodes": 17,
+          "contexts": 18,
+          "templates": 3,
+          "context_bound": 43,
+          "path_steps": 18,
+          "counts": {
+            "punctured_build_calls": 37,
+            "punctured_pruned_blocks": 13,
+            "punctured_template_calls": 15,
+            "punctured_make_calls": 21,
+            "punctured_created_nodes": 16,
+            "punctured_contexts": 18,
+            "punctured_summary_calls": 44,
+            "punctured_summary_expansions": 13
+          }
+        },
+        {
+          "input_nodes": 17,
+          "output_nodes": 28,
+          "contexts": 40,
+          "templates": 2,
+          "context_bound": 45,
+          "path_steps": 40,
+          "counts": {
+            "punctured_build_calls": 81,
+            "punctured_pruned_blocks": 13,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 42,
+            "punctured_created_nodes": 27,
+            "punctured_contexts": 40,
+            "punctured_summary_calls": 68,
+            "punctured_summary_expansions": 14
+          }
+        },
+        {
+          "input_nodes": 28,
+          "output_nodes": 21,
+          "contexts": 22,
+          "templates": 3,
+          "context_bound": 59,
+          "path_steps": 22,
+          "counts": {
+            "punctured_build_calls": 45,
+            "punctured_pruned_blocks": 15,
+            "punctured_template_calls": 17,
+            "punctured_make_calls": 25,
+            "punctured_created_nodes": 20,
+            "punctured_contexts": 22,
+            "punctured_summary_calls": 68,
+            "punctured_summary_expansions": 23
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 206,
+        "punctured_pruned_blocks": 58,
+        "punctured_template_calls": 77,
+        "punctured_make_calls": 123,
+        "punctured_created_nodes": 93,
+        "punctured_contexts": 100,
+        "punctured_summary_calls": 226,
+        "punctured_summary_expansions": 63,
+        "punctured_trace_steps": 36,
+        "punctured_trace_candidates": 30,
+        "record_ancestor_nodes": 6,
+        "punctured_ancestor_walk_visits": 12,
+        "record_output_nodes": 6,
+        "punctured_all_nodes": 93,
+        "punctured_history_nodes": 93,
+        "height_fallback_candidates": 37,
+        "height_fallback_states": 21,
+        "height_fallback_output_nodes": 6,
+        "record_verified_nodes": 6
+      },
+      "previous_counts": {
+        "dag_make_calls": 344,
+        "dag_created_nodes": 308,
+        "skyline_first_value_nodes": 308,
+        "forward_calls": 206,
+        "forward_pruned_blocks": 58,
+        "forward_replace_visits": 338,
+        "forward_contexts": 100,
+        "forward_summary_calls": 424,
+        "forward_summary_expansions": 162,
+        "skyline_path_steps": 36,
+        "skyline_candidates": 30,
+        "record_ancestor_nodes": 6,
+        "record_output_nodes": 6,
+        "dag_all_nodes": 309,
+        "dag_history_nodes": 246
+      }
+    },
+    {
+      "source": "slot_dag_size_search",
+      "n": 8,
+      "height": 8,
+      "stage_nodes": [
+        8,
+        14,
+        14,
+        33,
+        47,
+        56,
+        61,
+        21
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 8,
+          "contexts": 0,
+          "templates": 8,
+          "context_bound": 8,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 8,
+            "punctured_created_nodes": 8
+          }
+        },
+        {
+          "input_nodes": 8,
+          "output_nodes": 14,
+          "contexts": 8,
+          "templates": 7,
+          "context_bound": 36,
+          "path_steps": 8,
+          "counts": {
+            "punctured_build_calls": 17,
+            "punctured_pruned_blocks": 7,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 15,
+            "punctured_created_nodes": 13,
+            "punctured_contexts": 8,
+            "punctured_summary_calls": 22,
+            "punctured_summary_expansions": 7
+          }
+        },
+        {
+          "input_nodes": 14,
+          "output_nodes": 14,
+          "contexts": 7,
+          "templates": 7,
+          "context_bound": 57,
+          "path_steps": 7,
+          "counts": {
+            "punctured_build_calls": 15,
+            "punctured_pruned_blocks": 8,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 14,
+            "punctured_created_nodes": 13,
+            "punctured_contexts": 7,
+            "punctured_summary_calls": 31,
+            "punctured_summary_expansions": 12
+          }
+        },
+        {
+          "input_nodes": 14,
+          "output_nodes": 33,
+          "contexts": 35,
+          "templates": 6,
+          "context_bound": 57,
+          "path_steps": 35,
+          "counts": {
+            "punctured_build_calls": 71,
+            "punctured_pruned_blocks": 22,
+            "punctured_template_calls": 27,
+            "punctured_make_calls": 41,
+            "punctured_created_nodes": 32,
+            "punctured_contexts": 35,
+            "punctured_summary_calls": 59,
+            "punctured_summary_expansions": 12
+          }
+        },
+        {
+          "input_nodes": 33,
+          "output_nodes": 47,
+          "contexts": 54,
+          "templates": 5,
+          "context_bound": 106,
+          "path_steps": 54,
+          "counts": {
+            "punctured_build_calls": 109,
+            "punctured_pruned_blocks": 16,
+            "punctured_template_calls": 20,
+            "punctured_make_calls": 59,
+            "punctured_created_nodes": 46,
+            "punctured_contexts": 54,
+            "punctured_summary_calls": 114,
+            "punctured_summary_expansions": 30
+          }
+        },
+        {
+          "input_nodes": 47,
+          "output_nodes": 56,
+          "contexts": 74,
+          "templates": 4,
+          "context_bound": 136,
+          "path_steps": 74,
+          "counts": {
+            "punctured_build_calls": 149,
+            "punctured_pruned_blocks": 11,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 78,
+            "punctured_created_nodes": 55,
+            "punctured_contexts": 74,
+            "punctured_summary_calls": 160,
+            "punctured_summary_expansions": 43
+          }
+        },
+        {
+          "input_nodes": 56,
+          "output_nodes": 61,
+          "contexts": 87,
+          "templates": 3,
+          "context_bound": 152,
+          "path_steps": 87,
+          "counts": {
+            "punctured_build_calls": 175,
+            "punctured_pruned_blocks": 8,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 90,
+            "punctured_created_nodes": 59,
+            "punctured_contexts": 87,
+            "punctured_summary_calls": 189,
+            "punctured_summary_expansions": 51
+          }
+        },
+        {
+          "input_nodes": 61,
+          "output_nodes": 21,
+          "contexts": 18,
+          "templates": 6,
+          "context_bound": 159,
+          "path_steps": 18,
+          "counts": {
+            "punctured_build_calls": 37,
+            "punctured_pruned_blocks": 17,
+            "punctured_template_calls": 21,
+            "punctured_make_calls": 24,
+            "punctured_created_nodes": 20,
+            "punctured_contexts": 18,
+            "punctured_summary_calls": 110,
+            "punctured_summary_expansions": 46
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 574,
+        "punctured_pruned_blocks": 90,
+        "punctured_template_calls": 128,
+        "punctured_make_calls": 329,
+        "punctured_created_nodes": 246,
+        "punctured_contexts": 283,
+        "punctured_summary_calls": 685,
+        "punctured_summary_expansions": 201,
+        "punctured_trace_steps": 64,
+        "punctured_trace_candidates": 53,
+        "record_ancestor_nodes": 8,
+        "punctured_ancestor_walk_visits": 16,
+        "record_output_nodes": 8,
+        "punctured_all_nodes": 246,
+        "punctured_history_nodes": 246,
+        "height_fallback_candidates": 60,
+        "height_fallback_states": 36,
+        "height_fallback_output_nodes": 8,
+        "record_verified_nodes": 8
+      },
+      "previous_counts": {
+        "dag_make_calls": 1063,
+        "dag_created_nodes": 827,
+        "skyline_first_value_nodes": 827,
+        "forward_calls": 574,
+        "forward_pruned_blocks": 90,
+        "forward_replace_visits": 1055,
+        "forward_contexts": 283,
+        "forward_summary_calls": 1193,
+        "forward_summary_expansions": 455,
+        "skyline_path_steps": 64,
+        "skyline_candidates": 53,
+        "record_ancestor_nodes": 8,
+        "record_output_nodes": 8,
+        "dag_all_nodes": 828,
+        "dag_history_nodes": 635
+      }
+    },
+    {
+      "source": "slot_dag_size_search",
+      "n": 10,
+      "height": 10,
+      "stage_nodes": [
+        10,
+        18,
+        18,
+        52,
+        52,
+        37,
+        120,
+        88,
+        16,
+        29
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 10,
+          "contexts": 0,
+          "templates": 10,
+          "context_bound": 10,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 11,
+            "punctured_make_calls": 10,
+            "punctured_created_nodes": 10
+          }
+        },
+        {
+          "input_nodes": 10,
+          "output_nodes": 18,
+          "contexts": 10,
+          "templates": 9,
+          "context_bound": 55,
+          "path_steps": 10,
+          "counts": {
+            "punctured_build_calls": 21,
+            "punctured_pruned_blocks": 9,
+            "punctured_template_calls": 18,
+            "punctured_make_calls": 19,
+            "punctured_created_nodes": 17,
+            "punctured_contexts": 10,
+            "punctured_summary_calls": 28,
+            "punctured_summary_expansions": 9
+          }
+        },
+        {
+          "input_nodes": 18,
+          "output_nodes": 18,
+          "contexts": 9,
+          "templates": 9,
+          "context_bound": 91,
+          "path_steps": 9,
+          "counts": {
+            "punctured_build_calls": 19,
+            "punctured_pruned_blocks": 10,
+            "punctured_template_calls": 18,
+            "punctured_make_calls": 18,
+            "punctured_created_nodes": 17,
+            "punctured_contexts": 9,
+            "punctured_summary_calls": 41,
+            "punctured_summary_expansions": 16
+          }
+        },
+        {
+          "input_nodes": 18,
+          "output_nodes": 52,
+          "contexts": 54,
+          "templates": 8,
+          "context_bound": 91,
+          "path_steps": 54,
+          "counts": {
+            "punctured_build_calls": 109,
+            "punctured_pruned_blocks": 37,
+            "punctured_template_calls": 44,
+            "punctured_make_calls": 62,
+            "punctured_created_nodes": 51,
+            "punctured_contexts": 54,
+            "punctured_summary_calls": 86,
+            "punctured_summary_expansions": 16
+          }
+        },
+        {
+          "input_nodes": 52,
+          "output_nodes": 52,
+          "contexts": 44,
+          "templates": 8,
+          "context_bound": 202,
+          "path_steps": 44,
+          "counts": {
+            "punctured_build_calls": 89,
+            "punctured_pruned_blocks": 45,
+            "punctured_template_calls": 52,
+            "punctured_make_calls": 52,
+            "punctured_created_nodes": 51,
+            "punctured_contexts": 44,
+            "punctured_summary_calls": 142,
+            "punctured_summary_expansions": 49
+          }
+        },
+        {
+          "input_nodes": 52,
+          "output_nodes": 37,
+          "contexts": 33,
+          "templates": 7,
+          "context_bound": 202,
+          "path_steps": 33,
+          "counts": {
+            "punctured_build_calls": 67,
+            "punctured_pruned_blocks": 22,
+            "punctured_template_calls": 28,
+            "punctured_make_calls": 40,
+            "punctured_created_nodes": 36,
+            "punctured_contexts": 33,
+            "punctured_summary_calls": 131,
+            "punctured_summary_expansions": 49
+          }
+        },
+        {
+          "input_nodes": 37,
+          "output_nodes": 120,
+          "contexts": 143,
+          "templates": 6,
+          "context_bound": 167,
+          "path_steps": 143,
+          "counts": {
+            "punctured_build_calls": 287,
+            "punctured_pruned_blocks": 80,
+            "punctured_template_calls": 84,
+            "punctured_make_calls": 149,
+            "punctured_created_nodes": 118,
+            "punctured_contexts": 143,
+            "punctured_summary_calls": 211,
+            "punctured_summary_expansions": 34
+          }
+        },
+        {
+          "input_nodes": 120,
+          "output_nodes": 88,
+          "contexts": 85,
+          "templates": 7,
+          "context_bound": 385,
+          "path_steps": 85,
+          "counts": {
+            "punctured_build_calls": 171,
+            "punctured_pruned_blocks": 82,
+            "punctured_template_calls": 87,
+            "punctured_make_calls": 92,
+            "punctured_created_nodes": 87,
+            "punctured_contexts": 85,
+            "punctured_summary_calls": 307,
+            "punctured_summary_expansions": 111
+          }
+        },
+        {
+          "input_nodes": 88,
+          "output_nodes": 16,
+          "contexts": 7,
+          "templates": 9,
+          "context_bound": 312,
+          "path_steps": 7,
+          "counts": {
+            "punctured_build_calls": 15,
+            "punctured_pruned_blocks": 8,
+            "punctured_template_calls": 16,
+            "punctured_make_calls": 16,
+            "punctured_created_nodes": 15,
+            "punctured_contexts": 7,
+            "punctured_summary_calls": 145,
+            "punctured_summary_expansions": 69
+          }
+        },
+        {
+          "input_nodes": 16,
+          "output_nodes": 29,
+          "contexts": 22,
+          "templates": 8,
+          "context_bound": 88,
+          "path_steps": 22,
+          "counts": {
+            "punctured_build_calls": 45,
+            "punctured_pruned_blocks": 21,
+            "punctured_template_calls": 28,
+            "punctured_make_calls": 30,
+            "punctured_created_nodes": 28,
+            "punctured_contexts": 22,
+            "punctured_summary_calls": 50,
+            "punctured_summary_expansions": 14
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 824,
+        "punctured_pruned_blocks": 315,
+        "punctured_template_calls": 386,
+        "punctured_make_calls": 488,
+        "punctured_created_nodes": 430,
+        "punctured_contexts": 407,
+        "punctured_summary_calls": 1141,
+        "punctured_summary_expansions": 367,
+        "punctured_trace_steps": 100,
+        "punctured_trace_candidates": 72,
+        "record_ancestor_nodes": 10,
+        "punctured_ancestor_walk_visits": 20,
+        "record_output_nodes": 10,
+        "punctured_all_nodes": 430,
+        "punctured_history_nodes": 430,
+        "height_fallback_candidates": 116,
+        "height_fallback_states": 55,
+        "height_fallback_output_nodes": 10,
+        "record_verified_nodes": 10
+      },
+      "previous_counts": {
+        "dag_make_calls": 2138,
+        "dag_created_nodes": 1685,
+        "skyline_first_value_nodes": 1685,
+        "forward_calls": 824,
+        "forward_pruned_blocks": 315,
+        "forward_replace_visits": 2128,
+        "forward_contexts": 407,
+        "forward_summary_calls": 2445,
+        "forward_summary_expansions": 1019,
+        "skyline_path_steps": 100,
+        "skyline_candidates": 72,
+        "record_ancestor_nodes": 10,
+        "record_output_nodes": 10,
+        "dag_all_nodes": 1686,
+        "dag_history_nodes": 1343
+      }
+    },
+    {
+      "source": "slot_dag_size_search",
+      "n": 12,
+      "height": 12,
+      "stage_nodes": [
+        12,
+        22,
+        76,
+        30,
+        119,
+        75,
+        22,
+        73,
+        81,
+        91,
+        180,
+        104
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 12,
+          "contexts": 0,
+          "templates": 12,
+          "context_bound": 12,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 13,
+            "punctured_make_calls": 12,
+            "punctured_created_nodes": 12
+          }
+        },
+        {
+          "input_nodes": 12,
+          "output_nodes": 22,
+          "contexts": 12,
+          "templates": 11,
+          "context_bound": 78,
+          "path_steps": 12,
+          "counts": {
+            "punctured_build_calls": 25,
+            "punctured_pruned_blocks": 11,
+            "punctured_template_calls": 22,
+            "punctured_make_calls": 23,
+            "punctured_created_nodes": 21,
+            "punctured_contexts": 12,
+            "punctured_summary_calls": 34,
+            "punctured_summary_expansions": 11
+          }
+        },
+        {
+          "input_nodes": 22,
+          "output_nodes": 76,
+          "contexts": 77,
+          "templates": 10,
+          "context_bound": 133,
+          "path_steps": 77,
+          "counts": {
+            "punctured_build_calls": 155,
+            "punctured_pruned_blocks": 56,
+            "punctured_template_calls": 65,
+            "punctured_make_calls": 87,
+            "punctured_created_nodes": 75,
+            "punctured_contexts": 77,
+            "punctured_summary_calls": 117,
+            "punctured_summary_expansions": 20
+          }
+        },
+        {
+          "input_nodes": 76,
+          "output_nodes": 30,
+          "contexts": 22,
+          "templates": 10,
+          "context_bound": 343,
+          "path_steps": 22,
+          "counts": {
+            "punctured_build_calls": 45,
+            "punctured_pruned_blocks": 21,
+            "punctured_template_calls": 30,
+            "punctured_make_calls": 32,
+            "punctured_created_nodes": 29,
+            "punctured_contexts": 22,
+            "punctured_summary_calls": 168,
+            "punctured_summary_expansions": 73
+          }
+        },
+        {
+          "input_nodes": 30,
+          "output_nodes": 119,
+          "contexts": 130,
+          "templates": 9,
+          "context_bound": 177,
+          "path_steps": 130,
+          "counts": {
+            "punctured_build_calls": 261,
+            "punctured_pruned_blocks": 91,
+            "punctured_template_calls": 99,
+            "punctured_make_calls": 139,
+            "punctured_created_nodes": 118,
+            "punctured_contexts": 130,
+            "punctured_summary_calls": 186,
+            "punctured_summary_expansions": 28
+          }
+        },
+        {
+          "input_nodes": 119,
+          "output_nodes": 75,
+          "contexts": 66,
+          "templates": 10,
+          "context_bound": 498,
+          "path_steps": 66,
+          "counts": {
+            "punctured_build_calls": 133,
+            "punctured_pruned_blocks": 65,
+            "punctured_template_calls": 74,
+            "punctured_make_calls": 76,
+            "punctured_created_nodes": 74,
+            "punctured_contexts": 66,
+            "punctured_summary_calls": 282,
+            "punctured_summary_expansions": 108
+          }
+        },
+        {
+          "input_nodes": 75,
+          "output_nodes": 22,
+          "contexts": 11,
+          "templates": 11,
+          "context_bound": 342,
+          "path_steps": 11,
+          "counts": {
+            "punctured_build_calls": 23,
+            "punctured_pruned_blocks": 12,
+            "punctured_template_calls": 21,
+            "punctured_make_calls": 22,
+            "punctured_created_nodes": 20,
+            "punctured_contexts": 11,
+            "punctured_summary_calls": 137,
+            "punctured_summary_expansions": 63
+          }
+        },
+        {
+          "input_nodes": 22,
+          "output_nodes": 73,
+          "contexts": 75,
+          "templates": 10,
+          "context_bound": 133,
+          "path_steps": 75,
+          "counts": {
+            "punctured_build_calls": 151,
+            "punctured_pruned_blocks": 56,
+            "punctured_template_calls": 64,
+            "punctured_make_calls": 85,
+            "punctured_created_nodes": 72,
+            "punctured_contexts": 75,
+            "punctured_summary_calls": 115,
+            "punctured_summary_expansions": 20
+          }
+        },
+        {
+          "input_nodes": 73,
+          "output_nodes": 81,
+          "contexts": 73,
+          "templates": 9,
+          "context_bound": 339,
+          "path_steps": 73,
+          "counts": {
+            "punctured_build_calls": 147,
+            "punctured_pruned_blocks": 28,
+            "punctured_template_calls": 36,
+            "punctured_make_calls": 82,
+            "punctured_created_nodes": 80,
+            "punctured_contexts": 73,
+            "punctured_summary_calls": 213,
+            "punctured_summary_expansions": 70
+          }
+        },
+        {
+          "input_nodes": 81,
+          "output_nodes": 91,
+          "contexts": 101,
+          "templates": 9,
+          "context_bound": 375,
+          "path_steps": 101,
+          "counts": {
+            "punctured_build_calls": 203,
+            "punctured_pruned_blocks": 38,
+            "punctured_template_calls": 46,
+            "punctured_make_calls": 110,
+            "punctured_created_nodes": 90,
+            "punctured_contexts": 101,
+            "punctured_summary_calls": 257,
+            "punctured_summary_expansions": 78
+          }
+        },
+        {
+          "input_nodes": 91,
+          "output_nodes": 180,
+          "contexts": 207,
+          "templates": 8,
+          "context_bound": 434,
+          "path_steps": 207,
+          "counts": {
+            "punctured_build_calls": 415,
+            "punctured_pruned_blocks": 100,
+            "punctured_template_calls": 106,
+            "punctured_make_calls": 215,
+            "punctured_created_nodes": 178,
+            "punctured_contexts": 207,
+            "punctured_summary_calls": 381,
+            "punctured_summary_expansions": 87
+          }
+        },
+        {
+          "input_nodes": 180,
+          "output_nodes": 104,
+          "contexts": 111,
+          "templates": 8,
+          "context_bound": 691,
+          "path_steps": 111,
+          "counts": {
+            "punctured_build_calls": 223,
+            "punctured_pruned_blocks": 48,
+            "punctured_template_calls": 54,
+            "punctured_make_calls": 119,
+            "punctured_created_nodes": 103,
+            "punctured_contexts": 111,
+            "punctured_summary_calls": 461,
+            "punctured_summary_expansions": 175
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 1782,
+        "punctured_pruned_blocks": 527,
+        "punctured_template_calls": 630,
+        "punctured_make_calls": 1002,
+        "punctured_created_nodes": 872,
+        "punctured_contexts": 885,
+        "punctured_summary_calls": 2351,
+        "punctured_summary_expansions": 733,
+        "punctured_trace_steps": 144,
+        "punctured_trace_candidates": 123,
+        "record_ancestor_nodes": 12,
+        "punctured_ancestor_walk_visits": 24,
+        "record_output_nodes": 12,
+        "punctured_all_nodes": 872,
+        "punctured_history_nodes": 872,
+        "height_fallback_candidates": 127,
+        "height_fallback_states": 78,
+        "height_fallback_output_nodes": 12,
+        "record_verified_nodes": 12
+      },
+      "previous_counts": {
+        "dag_make_calls": 4891,
+        "dag_created_nodes": 3509,
+        "skyline_first_value_nodes": 3509,
+        "forward_calls": 1782,
+        "forward_pruned_blocks": 527,
+        "forward_replace_visits": 4879,
+        "forward_contexts": 885,
+        "forward_summary_calls": 5465,
+        "forward_summary_expansions": 2290,
+        "skyline_path_steps": 144,
+        "skyline_candidates": 123,
+        "record_ancestor_nodes": 12,
+        "record_output_nodes": 12,
+        "dag_all_nodes": 3510,
+        "dag_history_nodes": 2765
+      }
+    },
+    {
+      "source": "slot_dag_size_search",
+      "n": 14,
+      "height": 14,
+      "stage_nodes": [
+        14,
+        26,
+        103,
+        25,
+        102,
+        167,
+        102,
+        219,
+        273,
+        130,
+        309,
+        55,
+        45,
+        219
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 14,
+          "contexts": 0,
+          "templates": 14,
+          "context_bound": 14,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 15,
+            "punctured_make_calls": 14,
+            "punctured_created_nodes": 14
+          }
+        },
+        {
+          "input_nodes": 14,
+          "output_nodes": 26,
+          "contexts": 14,
+          "templates": 13,
+          "context_bound": 105,
+          "path_steps": 14,
+          "counts": {
+            "punctured_build_calls": 29,
+            "punctured_pruned_blocks": 13,
+            "punctured_template_calls": 26,
+            "punctured_make_calls": 27,
+            "punctured_created_nodes": 25,
+            "punctured_contexts": 14,
+            "punctured_summary_calls": 40,
+            "punctured_summary_expansions": 13
+          }
+        },
+        {
+          "input_nodes": 26,
+          "output_nodes": 103,
+          "contexts": 104,
+          "templates": 12,
+          "context_bound": 183,
+          "path_steps": 104,
+          "counts": {
+            "punctured_build_calls": 209,
+            "punctured_pruned_blocks": 79,
+            "punctured_template_calls": 90,
+            "punctured_make_calls": 116,
+            "punctured_created_nodes": 102,
+            "punctured_contexts": 104,
+            "punctured_summary_calls": 152,
+            "punctured_summary_expansions": 24
+          }
+        },
+        {
+          "input_nodes": 103,
+          "output_nodes": 25,
+          "contexts": 14,
+          "templates": 13,
+          "context_bound": 535,
+          "path_steps": 14,
+          "counts": {
+            "punctured_build_calls": 29,
+            "punctured_pruned_blocks": 13,
+            "punctured_template_calls": 25,
+            "punctured_make_calls": 27,
+            "punctured_created_nodes": 24,
+            "punctured_contexts": 14,
+            "punctured_summary_calls": 192,
+            "punctured_summary_expansions": 89
+          }
+        },
+        {
+          "input_nodes": 25,
+          "output_nodes": 102,
+          "contexts": 102,
+          "templates": 12,
+          "context_bound": 182,
+          "path_steps": 102,
+          "counts": {
+            "punctured_build_calls": 205,
+            "punctured_pruned_blocks": 79,
+            "punctured_template_calls": 90,
+            "punctured_make_calls": 114,
+            "punctured_created_nodes": 101,
+            "punctured_contexts": 102,
+            "punctured_summary_calls": 148,
+            "punctured_summary_expansions": 23
+          }
+        },
+        {
+          "input_nodes": 102,
+          "output_nodes": 167,
+          "contexts": 180,
+          "templates": 11,
+          "context_bound": 534,
+          "path_steps": 180,
+          "counts": {
+            "punctured_build_calls": 361,
+            "punctured_pruned_blocks": 67,
+            "punctured_template_calls": 77,
+            "punctured_make_calls": 191,
+            "punctured_created_nodes": 166,
+            "punctured_contexts": 180,
+            "punctured_summary_calls": 378,
+            "punctured_summary_expansions": 99
+          }
+        },
+        {
+          "input_nodes": 167,
+          "output_nodes": 102,
+          "contexts": 113,
+          "templates": 11,
+          "context_bound": 809,
+          "path_steps": 113,
+          "counts": {
+            "punctured_build_calls": 227,
+            "punctured_pruned_blocks": 35,
+            "punctured_template_calls": 44,
+            "punctured_make_calls": 124,
+            "punctured_created_nodes": 100,
+            "punctured_contexts": 113,
+            "punctured_summary_calls": 439,
+            "punctured_summary_expansions": 163
+          }
+        },
+        {
+          "input_nodes": 102,
+          "output_nodes": 219,
+          "contexts": 246,
+          "templates": 10,
+          "context_bound": 579,
+          "path_steps": 246,
+          "counts": {
+            "punctured_build_calls": 493,
+            "punctured_pruned_blocks": 122,
+            "punctured_template_calls": 130,
+            "punctured_make_calls": 256,
+            "punctured_created_nodes": 218,
+            "punctured_contexts": 246,
+            "punctured_summary_calls": 444,
+            "punctured_summary_expansions": 99
+          }
+        },
+        {
+          "input_nodes": 219,
+          "output_nodes": 273,
+          "contexts": 307,
+          "templates": 9,
+          "context_bound": 1016,
+          "path_steps": 316,
+          "counts": {
+            "punctured_build_calls": 615,
+            "punctured_pruned_blocks": 46,
+            "punctured_template_calls": 54,
+            "punctured_make_calls": 316,
+            "punctured_created_nodes": 272,
+            "punctured_contexts": 307,
+            "punctured_summary_calls": 737,
+            "punctured_summary_expansions": 215
+          }
+        },
+        {
+          "input_nodes": 273,
+          "output_nodes": 130,
+          "contexts": 123,
+          "templates": 10,
+          "context_bound": 1182,
+          "path_steps": 123,
+          "counts": {
+            "punctured_build_calls": 247,
+            "punctured_pruned_blocks": 63,
+            "punctured_template_calls": 72,
+            "punctured_make_calls": 133,
+            "punctured_created_nodes": 129,
+            "punctured_contexts": 123,
+            "punctured_summary_calls": 661,
+            "punctured_summary_expansions": 269
+          }
+        },
+        {
+          "input_nodes": 130,
+          "output_nodes": 309,
+          "contexts": 374,
+          "templates": 9,
+          "context_bound": 687,
+          "path_steps": 375,
+          "counts": {
+            "punctured_build_calls": 749,
+            "punctured_pruned_blocks": 199,
+            "punctured_template_calls": 206,
+            "punctured_make_calls": 383,
+            "punctured_created_nodes": 307,
+            "punctured_contexts": 374,
+            "punctured_summary_calls": 626,
+            "punctured_summary_expansions": 126
+          }
+        },
+        {
+          "input_nodes": 309,
+          "output_nodes": 55,
+          "contexts": 47,
+          "templates": 11,
+          "context_bound": 1338,
+          "path_steps": 47,
+          "counts": {
+            "punctured_build_calls": 95,
+            "punctured_pruned_blocks": 44,
+            "punctured_template_calls": 53,
+            "punctured_make_calls": 58,
+            "punctured_created_nodes": 54,
+            "punctured_contexts": 47,
+            "punctured_summary_calls": 621,
+            "punctured_summary_expansions": 287
+          }
+        },
+        {
+          "input_nodes": 55,
+          "output_nodes": 45,
+          "contexts": 34,
+          "templates": 12,
+          "context_bound": 366,
+          "path_steps": 34,
+          "counts": {
+            "punctured_build_calls": 69,
+            "punctured_pruned_blocks": 33,
+            "punctured_template_calls": 43,
+            "punctured_make_calls": 46,
+            "punctured_created_nodes": 44,
+            "punctured_contexts": 34,
+            "punctured_summary_calls": 138,
+            "punctured_summary_expansions": 52
+          }
+        },
+        {
+          "input_nodes": 45,
+          "output_nodes": 219,
+          "contexts": 240,
+          "templates": 11,
+          "context_bound": 311,
+          "path_steps": 240,
+          "counts": {
+            "punctured_build_calls": 481,
+            "punctured_pruned_blocks": 177,
+            "punctured_template_calls": 186,
+            "punctured_make_calls": 251,
+            "punctured_created_nodes": 218,
+            "punctured_contexts": 240,
+            "punctured_summary_calls": 324,
+            "punctured_summary_expansions": 42
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 3810,
+        "punctured_pruned_blocks": 971,
+        "punctured_template_calls": 1111,
+        "punctured_make_calls": 2056,
+        "punctured_created_nodes": 1774,
+        "punctured_contexts": 1898,
+        "punctured_summary_calls": 4900,
+        "punctured_summary_expansions": 1501,
+        "punctured_trace_steps": 196,
+        "punctured_trace_candidates": 169,
+        "record_ancestor_nodes": 14,
+        "punctured_ancestor_walk_visits": 28,
+        "record_output_nodes": 14,
+        "punctured_all_nodes": 1774,
+        "punctured_history_nodes": 1774,
+        "height_fallback_candidates": 203,
+        "height_fallback_states": 105,
+        "height_fallback_output_nodes": 14,
+        "record_verified_nodes": 14
+      },
+      "previous_counts": {
+        "dag_make_calls": 10750,
+        "dag_created_nodes": 7708,
+        "skyline_first_value_nodes": 7708,
+        "forward_calls": 3810,
+        "forward_pruned_blocks": 971,
+        "forward_replace_visits": 10736,
+        "forward_contexts": 1898,
+        "forward_summary_calls": 12744,
+        "forward_summary_expansions": 5423,
+        "skyline_path_steps": 196,
+        "skyline_candidates": 169,
+        "record_ancestor_nodes": 14,
+        "record_output_nodes": 14,
+        "dag_all_nodes": 7709,
+        "dag_history_nodes": 6112
+      }
+    },
+    {
+      "source": "slot_dag_size_search",
+      "n": 16,
+      "height": 16,
+      "stage_nodes": [
+        16,
+        30,
+        43,
+        29,
+        29,
+        133,
+        223,
+        298,
+        155,
+        441,
+        495,
+        506,
+        65,
+        375,
+        298,
+        361
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 16,
+          "contexts": 0,
+          "templates": 16,
+          "context_bound": 16,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 17,
+            "punctured_make_calls": 16,
+            "punctured_created_nodes": 16
+          }
+        },
+        {
+          "input_nodes": 16,
+          "output_nodes": 30,
+          "contexts": 16,
+          "templates": 15,
+          "context_bound": 136,
+          "path_steps": 16,
+          "counts": {
+            "punctured_build_calls": 33,
+            "punctured_pruned_blocks": 15,
+            "punctured_template_calls": 30,
+            "punctured_make_calls": 31,
+            "punctured_created_nodes": 29,
+            "punctured_contexts": 16,
+            "punctured_summary_calls": 46,
+            "punctured_summary_expansions": 15
+          }
+        },
+        {
+          "input_nodes": 30,
+          "output_nodes": 43,
+          "contexts": 30,
+          "templates": 14,
+          "context_bound": 241,
+          "path_steps": 30,
+          "counts": {
+            "punctured_build_calls": 61,
+            "punctured_pruned_blocks": 29,
+            "punctured_template_calls": 42,
+            "punctured_make_calls": 44,
+            "punctured_created_nodes": 42,
+            "punctured_contexts": 30,
+            "punctured_summary_calls": 86,
+            "punctured_summary_expansions": 28
+          }
+        },
+        {
+          "input_nodes": 43,
+          "output_nodes": 29,
+          "contexts": 16,
+          "templates": 15,
+          "context_bound": 332,
+          "path_steps": 16,
+          "counts": {
+            "punctured_build_calls": 33,
+            "punctured_pruned_blocks": 15,
+            "punctured_template_calls": 29,
+            "punctured_make_calls": 31,
+            "punctured_created_nodes": 28,
+            "punctured_contexts": 16,
+            "punctured_summary_calls": 96,
+            "punctured_summary_expansions": 40
+          }
+        },
+        {
+          "input_nodes": 29,
+          "output_nodes": 29,
+          "contexts": 14,
+          "templates": 15,
+          "context_bound": 240,
+          "path_steps": 14,
+          "counts": {
+            "punctured_build_calls": 29,
+            "punctured_pruned_blocks": 15,
+            "punctured_template_calls": 29,
+            "punctured_make_calls": 29,
+            "punctured_created_nodes": 28,
+            "punctured_contexts": 14,
+            "punctured_summary_calls": 68,
+            "punctured_summary_expansions": 27
+          }
+        },
+        {
+          "input_nodes": 29,
+          "output_nodes": 133,
+          "contexts": 133,
+          "templates": 14,
+          "context_bound": 240,
+          "path_steps": 133,
+          "counts": {
+            "punctured_build_calls": 267,
+            "punctured_pruned_blocks": 106,
+            "punctured_template_calls": 119,
+            "punctured_make_calls": 147,
+            "punctured_created_nodes": 132,
+            "punctured_contexts": 133,
+            "punctured_summary_calls": 187,
+            "punctured_summary_expansions": 27
+          }
+        },
+        {
+          "input_nodes": 133,
+          "output_nodes": 223,
+          "contexts": 237,
+          "templates": 13,
+          "context_bound": 786,
+          "path_steps": 237,
+          "counts": {
+            "punctured_build_calls": 475,
+            "punctured_pruned_blocks": 93,
+            "punctured_template_calls": 104,
+            "punctured_make_calls": 250,
+            "punctured_created_nodes": 221,
+            "punctured_contexts": 237,
+            "punctured_summary_calls": 497,
+            "punctured_summary_expansions": 130
+          }
+        },
+        {
+          "input_nodes": 223,
+          "output_nodes": 298,
+          "contexts": 341,
+          "templates": 12,
+          "context_bound": 1228,
+          "path_steps": 341,
+          "counts": {
+            "punctured_build_calls": 683,
+            "punctured_pruned_blocks": 80,
+            "punctured_template_calls": 90,
+            "punctured_make_calls": 353,
+            "punctured_created_nodes": 297,
+            "punctured_contexts": 341,
+            "punctured_summary_calls": 779,
+            "punctured_summary_expansions": 219
+          }
+        },
+        {
+          "input_nodes": 298,
+          "output_nodes": 155,
+          "contexts": 148,
+          "templates": 12,
+          "context_bound": 1577,
+          "path_steps": 148,
+          "counts": {
+            "punctured_build_calls": 297,
+            "punctured_pruned_blocks": 61,
+            "punctured_template_calls": 72,
+            "punctured_make_calls": 160,
+            "punctured_created_nodes": 154,
+            "punctured_contexts": 148,
+            "punctured_summary_calls": 734,
+            "punctured_summary_expansions": 293
+          }
+        },
+        {
+          "input_nodes": 155,
+          "output_nodes": 441,
+          "contexts": 506,
+          "templates": 11,
+          "context_bound": 994,
+          "path_steps": 506,
+          "counts": {
+            "punctured_build_calls": 1013,
+            "punctured_pruned_blocks": 276,
+            "punctured_template_calls": 286,
+            "punctured_make_calls": 517,
+            "punctured_created_nodes": 440,
+            "punctured_contexts": 506,
+            "punctured_summary_calls": 808,
+            "punctured_summary_expansions": 151
+          }
+        },
+        {
+          "input_nodes": 441,
+          "output_nodes": 495,
+          "contexts": 537,
+          "templates": 10,
+          "context_bound": 2150,
+          "path_steps": 569,
+          "counts": {
+            "punctured_build_calls": 1075,
+            "punctured_pruned_blocks": 57,
+            "punctured_template_calls": 65,
+            "punctured_make_calls": 547,
+            "punctured_created_nodes": 493,
+            "punctured_contexts": 537,
+            "punctured_summary_calls": 1409,
+            "punctured_summary_expansions": 436
+          }
+        },
+        {
+          "input_nodes": 495,
+          "output_nodes": 506,
+          "contexts": 661,
+          "templates": 9,
+          "context_bound": 2360,
+          "path_steps": 693,
+          "counts": {
+            "punctured_build_calls": 1323,
+            "punctured_pruned_blocks": 47,
+            "punctured_template_calls": 54,
+            "punctured_make_calls": 670,
+            "punctured_created_nodes": 505,
+            "punctured_contexts": 661,
+            "punctured_summary_calls": 1641,
+            "punctured_summary_expansions": 490
+          }
+        },
+        {
+          "input_nodes": 506,
+          "output_nodes": 65,
+          "contexts": 53,
+          "templates": 13,
+          "context_bound": 2483,
+          "path_steps": 53,
+          "counts": {
+            "punctured_build_calls": 107,
+            "punctured_pruned_blocks": 52,
+            "punctured_template_calls": 63,
+            "punctured_make_calls": 66,
+            "punctured_created_nodes": 64,
+            "punctured_contexts": 53,
+            "punctured_summary_calls": 1015,
+            "punctured_summary_expansions": 481
+          }
+        },
+        {
+          "input_nodes": 65,
+          "output_nodes": 375,
+          "contexts": 414,
+          "templates": 12,
+          "context_bound": 497,
+          "path_steps": 414,
+          "counts": {
+            "punctured_build_calls": 829,
+            "punctured_pruned_blocks": 313,
+            "punctured_template_calls": 323,
+            "punctured_make_calls": 426,
+            "punctured_created_nodes": 374,
+            "punctured_contexts": 414,
+            "punctured_summary_calls": 538,
+            "punctured_summary_expansions": 62
+          }
+        },
+        {
+          "input_nodes": 375,
+          "output_nodes": 298,
+          "contexts": 286,
+          "templates": 13,
+          "context_bound": 1940,
+          "path_steps": 286,
+          "counts": {
+            "punctured_build_calls": 573,
+            "punctured_pruned_blocks": 285,
+            "punctured_template_calls": 295,
+            "punctured_make_calls": 299,
+            "punctured_created_nodes": 295,
+            "punctured_contexts": 286,
+            "punctured_summary_calls": 1006,
+            "punctured_summary_expansions": 360
+          }
+        },
+        {
+          "input_nodes": 298,
+          "output_nodes": 361,
+          "contexts": 437,
+          "templates": 12,
+          "context_bound": 1588,
+          "path_steps": 448,
+          "counts": {
+            "punctured_build_calls": 875,
+            "punctured_pruned_blocks": 81,
+            "punctured_template_calls": 90,
+            "punctured_make_calls": 449,
+            "punctured_created_nodes": 360,
+            "punctured_contexts": 437,
+            "punctured_summary_calls": 1025,
+            "punctured_summary_expansions": 294
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 7674,
+        "punctured_pruned_blocks": 1526,
+        "punctured_template_calls": 1708,
+        "punctured_make_calls": 4035,
+        "punctured_created_nodes": 3478,
+        "punctured_contexts": 3829,
+        "punctured_summary_calls": 9935,
+        "punctured_summary_expansions": 3053,
+        "punctured_trace_steps": 256,
+        "punctured_trace_candidates": 224,
+        "record_ancestor_nodes": 16,
+        "punctured_ancestor_walk_visits": 32,
+        "record_output_nodes": 16,
+        "punctured_all_nodes": 3478,
+        "punctured_history_nodes": 3478,
+        "height_fallback_candidates": 265,
+        "height_fallback_states": 136,
+        "height_fallback_output_nodes": 16,
+        "record_verified_nodes": 16
+      },
+      "previous_counts": {
+        "dag_make_calls": 22564,
+        "dag_created_nodes": 14123,
+        "skyline_first_value_nodes": 14123,
+        "forward_calls": 7674,
+        "forward_pruned_blocks": 1526,
+        "forward_replace_visits": 22548,
+        "forward_contexts": 3829,
+        "forward_summary_calls": 20953,
+        "forward_summary_expansions": 8562,
+        "skyline_path_steps": 256,
+        "skyline_candidates": 224,
+        "record_ancestor_nodes": 16,
+        "record_output_nodes": 16,
+        "dag_all_nodes": 14124,
+        "dag_history_nodes": 10876
+      }
+    },
+    {
+      "source": "slot_dag_chain_search",
+      "n": 6,
+      "height": 6,
+      "stage_nodes": [
+        6,
+        10,
+        19,
+        23,
+        25,
+        25
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 6,
+          "contexts": 0,
+          "templates": 6,
+          "context_bound": 6,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 7,
+            "punctured_make_calls": 6,
+            "punctured_created_nodes": 6
+          }
+        },
+        {
+          "input_nodes": 6,
+          "output_nodes": 10,
+          "contexts": 6,
+          "templates": 5,
+          "context_bound": 21,
+          "path_steps": 6,
+          "counts": {
+            "punctured_build_calls": 13,
+            "punctured_pruned_blocks": 5,
+            "punctured_template_calls": 10,
+            "punctured_make_calls": 11,
+            "punctured_created_nodes": 9,
+            "punctured_contexts": 6,
+            "punctured_summary_calls": 16,
+            "punctured_summary_expansions": 5
+          }
+        },
+        {
+          "input_nodes": 10,
+          "output_nodes": 19,
+          "contexts": 20,
+          "templates": 4,
+          "context_bound": 31,
+          "path_steps": 20,
+          "counts": {
+            "punctured_build_calls": 41,
+            "punctured_pruned_blocks": 11,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 24,
+            "punctured_created_nodes": 18,
+            "punctured_contexts": 20,
+            "punctured_summary_calls": 36,
+            "punctured_summary_expansions": 8
+          }
+        },
+        {
+          "input_nodes": 19,
+          "output_nodes": 23,
+          "contexts": 30,
+          "templates": 3,
+          "context_bound": 47,
+          "path_steps": 30,
+          "counts": {
+            "punctured_build_calls": 61,
+            "punctured_pruned_blocks": 7,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 33,
+            "punctured_created_nodes": 22,
+            "punctured_contexts": 30,
+            "punctured_summary_calls": 62,
+            "punctured_summary_expansions": 16
+          }
+        },
+        {
+          "input_nodes": 23,
+          "output_nodes": 25,
+          "contexts": 37,
+          "templates": 2,
+          "context_bound": 53,
+          "path_steps": 37,
+          "counts": {
+            "punctured_build_calls": 75,
+            "punctured_pruned_blocks": 4,
+            "punctured_template_calls": 5,
+            "punctured_make_calls": 39,
+            "punctured_created_nodes": 24,
+            "punctured_contexts": 37,
+            "punctured_summary_calls": 75,
+            "punctured_summary_expansions": 19
+          }
+        },
+        {
+          "input_nodes": 25,
+          "output_nodes": 25,
+          "contexts": 42,
+          "templates": 1,
+          "context_bound": 55,
+          "path_steps": 42,
+          "counts": {
+            "punctured_build_calls": 85,
+            "punctured_pruned_blocks": 2,
+            "punctured_template_calls": 2,
+            "punctured_make_calls": 43,
+            "punctured_created_nodes": 24,
+            "punctured_contexts": 42,
+            "punctured_summary_calls": 82,
+            "punctured_summary_expansions": 20
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 276,
+        "punctured_pruned_blocks": 30,
+        "punctured_template_calls": 47,
+        "punctured_make_calls": 156,
+        "punctured_created_nodes": 103,
+        "punctured_contexts": 135,
+        "punctured_summary_calls": 271,
+        "punctured_summary_expansions": 68,
+        "punctured_trace_steps": 36,
+        "punctured_trace_candidates": 31,
+        "record_ancestor_nodes": 6,
+        "punctured_ancestor_walk_visits": 12,
+        "record_output_nodes": 6,
+        "punctured_all_nodes": 103,
+        "punctured_history_nodes": 103,
+        "height_fallback_candidates": 36,
+        "height_fallback_states": 21,
+        "height_fallback_output_nodes": 6,
+        "record_verified_nodes": 6
+      },
+      "previous_counts": {
+        "dag_make_calls": 389,
+        "dag_created_nodes": 294,
+        "skyline_first_value_nodes": 294,
+        "forward_calls": 276,
+        "forward_pruned_blocks": 30,
+        "forward_replace_visits": 383,
+        "forward_contexts": 135,
+        "forward_summary_calls": 415,
+        "forward_summary_expansions": 140,
+        "skyline_path_steps": 36,
+        "skyline_candidates": 31,
+        "record_ancestor_nodes": 6,
+        "record_output_nodes": 6,
+        "dag_all_nodes": 295,
+        "dag_history_nodes": 222
+      }
+    },
+    {
+      "source": "slot_dag_chain_search",
+      "n": 8,
+      "height": 8,
+      "stage_nodes": [
+        8,
+        14,
+        34,
+        47,
+        56,
+        61,
+        67,
+        68
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 8,
+          "contexts": 0,
+          "templates": 8,
+          "context_bound": 8,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 8,
+            "punctured_created_nodes": 8
+          }
+        },
+        {
+          "input_nodes": 8,
+          "output_nodes": 14,
+          "contexts": 8,
+          "templates": 7,
+          "context_bound": 36,
+          "path_steps": 8,
+          "counts": {
+            "punctured_build_calls": 17,
+            "punctured_pruned_blocks": 7,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 15,
+            "punctured_created_nodes": 13,
+            "punctured_contexts": 8,
+            "punctured_summary_calls": 22,
+            "punctured_summary_expansions": 7
+          }
+        },
+        {
+          "input_nodes": 14,
+          "output_nodes": 34,
+          "contexts": 35,
+          "templates": 6,
+          "context_bound": 57,
+          "path_steps": 35,
+          "counts": {
+            "punctured_build_calls": 71,
+            "punctured_pruned_blocks": 22,
+            "punctured_template_calls": 27,
+            "punctured_make_calls": 41,
+            "punctured_created_nodes": 33,
+            "punctured_contexts": 35,
+            "punctured_summary_calls": 59,
+            "punctured_summary_expansions": 12
+          }
+        },
+        {
+          "input_nodes": 34,
+          "output_nodes": 47,
+          "contexts": 56,
+          "templates": 5,
+          "context_bound": 107,
+          "path_steps": 56,
+          "counts": {
+            "punctured_build_calls": 113,
+            "punctured_pruned_blocks": 16,
+            "punctured_template_calls": 20,
+            "punctured_make_calls": 61,
+            "punctured_created_nodes": 46,
+            "punctured_contexts": 56,
+            "punctured_summary_calls": 118,
+            "punctured_summary_expansions": 31
+          }
+        },
+        {
+          "input_nodes": 47,
+          "output_nodes": 56,
+          "contexts": 74,
+          "templates": 4,
+          "context_bound": 136,
+          "path_steps": 74,
+          "counts": {
+            "punctured_build_calls": 149,
+            "punctured_pruned_blocks": 11,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 78,
+            "punctured_created_nodes": 55,
+            "punctured_contexts": 74,
+            "punctured_summary_calls": 160,
+            "punctured_summary_expansions": 43
+          }
+        },
+        {
+          "input_nodes": 56,
+          "output_nodes": 61,
+          "contexts": 88,
+          "templates": 3,
+          "context_bound": 152,
+          "path_steps": 88,
+          "counts": {
+            "punctured_build_calls": 177,
+            "punctured_pruned_blocks": 7,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 91,
+            "punctured_created_nodes": 60,
+            "punctured_contexts": 88,
+            "punctured_summary_calls": 190,
+            "punctured_summary_expansions": 51
+          }
+        },
+        {
+          "input_nodes": 61,
+          "output_nodes": 67,
+          "contexts": 104,
+          "templates": 2,
+          "context_bound": 159,
+          "path_steps": 104,
+          "counts": {
+            "punctured_build_calls": 209,
+            "punctured_pruned_blocks": 5,
+            "punctured_template_calls": 5,
+            "punctured_make_calls": 106,
+            "punctured_created_nodes": 65,
+            "punctured_contexts": 104,
+            "punctured_summary_calls": 214,
+            "punctured_summary_expansions": 55
+          }
+        },
+        {
+          "input_nodes": 67,
+          "output_nodes": 68,
+          "contexts": 115,
+          "templates": 1,
+          "context_bound": 165,
+          "path_steps": 115,
+          "counts": {
+            "punctured_build_calls": 231,
+            "punctured_pruned_blocks": 3,
+            "punctured_template_calls": 2,
+            "punctured_make_calls": 116,
+            "punctured_created_nodes": 67,
+            "punctured_contexts": 115,
+            "punctured_summary_calls": 235,
+            "punctured_summary_expansions": 60
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 968,
+        "punctured_pruned_blocks": 72,
+        "punctured_template_calls": 100,
+        "punctured_make_calls": 516,
+        "punctured_created_nodes": 347,
+        "punctured_contexts": 480,
+        "punctured_summary_calls": 998,
+        "punctured_summary_expansions": 259,
+        "punctured_trace_steps": 64,
+        "punctured_trace_candidates": 57,
+        "record_ancestor_nodes": 8,
+        "punctured_ancestor_walk_visits": 16,
+        "record_output_nodes": 8,
+        "punctured_all_nodes": 347,
+        "punctured_history_nodes": 347,
+        "height_fallback_candidates": 64,
+        "height_fallback_states": 36,
+        "height_fallback_output_nodes": 8,
+        "record_verified_nodes": 8
+      },
+      "previous_counts": {
+        "dag_make_calls": 1441,
+        "dag_created_nodes": 984,
+        "skyline_first_value_nodes": 984,
+        "forward_calls": 968,
+        "forward_pruned_blocks": 72,
+        "forward_replace_visits": 1433,
+        "forward_contexts": 480,
+        "forward_summary_calls": 1496,
+        "forward_summary_expansions": 508,
+        "skyline_path_steps": 64,
+        "skyline_candidates": 57,
+        "record_ancestor_nodes": 8,
+        "record_output_nodes": 8,
+        "dag_all_nodes": 985,
+        "dag_history_nodes": 691
+      }
+    },
+    {
+      "source": "slot_dag_chain_search",
+      "n": 10,
+      "height": 10,
+      "stage_nodes": [
+        10,
+        18,
+        53,
+        79,
+        99,
+        113,
+        128,
+        136,
+        142,
+        145
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 10,
+          "contexts": 0,
+          "templates": 10,
+          "context_bound": 10,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 11,
+            "punctured_make_calls": 10,
+            "punctured_created_nodes": 10
+          }
+        },
+        {
+          "input_nodes": 10,
+          "output_nodes": 18,
+          "contexts": 10,
+          "templates": 9,
+          "context_bound": 55,
+          "path_steps": 10,
+          "counts": {
+            "punctured_build_calls": 21,
+            "punctured_pruned_blocks": 9,
+            "punctured_template_calls": 18,
+            "punctured_make_calls": 19,
+            "punctured_created_nodes": 17,
+            "punctured_contexts": 10,
+            "punctured_summary_calls": 28,
+            "punctured_summary_expansions": 9
+          }
+        },
+        {
+          "input_nodes": 18,
+          "output_nodes": 53,
+          "contexts": 54,
+          "templates": 8,
+          "context_bound": 91,
+          "path_steps": 54,
+          "counts": {
+            "punctured_build_calls": 109,
+            "punctured_pruned_blocks": 37,
+            "punctured_template_calls": 44,
+            "punctured_make_calls": 62,
+            "punctured_created_nodes": 52,
+            "punctured_contexts": 54,
+            "punctured_summary_calls": 86,
+            "punctured_summary_expansions": 16
+          }
+        },
+        {
+          "input_nodes": 53,
+          "output_nodes": 79,
+          "contexts": 90,
+          "templates": 7,
+          "context_bound": 203,
+          "path_steps": 90,
+          "counts": {
+            "punctured_build_calls": 181,
+            "punctured_pruned_blocks": 29,
+            "punctured_template_calls": 35,
+            "punctured_make_calls": 97,
+            "punctured_created_nodes": 78,
+            "punctured_contexts": 90,
+            "punctured_summary_calls": 190,
+            "punctured_summary_expansions": 50
+          }
+        },
+        {
+          "input_nodes": 79,
+          "output_nodes": 99,
+          "contexts": 123,
+          "templates": 6,
+          "context_bound": 279,
+          "path_steps": 123,
+          "counts": {
+            "punctured_build_calls": 247,
+            "punctured_pruned_blocks": 22,
+            "punctured_template_calls": 27,
+            "punctured_make_calls": 129,
+            "punctured_created_nodes": 98,
+            "punctured_contexts": 123,
+            "punctured_summary_calls": 273,
+            "punctured_summary_expansions": 75
+          }
+        },
+        {
+          "input_nodes": 99,
+          "output_nodes": 113,
+          "contexts": 150,
+          "templates": 5,
+          "context_bound": 329,
+          "path_steps": 150,
+          "counts": {
+            "punctured_build_calls": 301,
+            "punctured_pruned_blocks": 16,
+            "punctured_template_calls": 20,
+            "punctured_make_calls": 155,
+            "punctured_created_nodes": 112,
+            "punctured_contexts": 150,
+            "punctured_summary_calls": 338,
+            "punctured_summary_expansions": 94
+          }
+        },
+        {
+          "input_nodes": 113,
+          "output_nodes": 128,
+          "contexts": 181,
+          "templates": 4,
+          "context_bound": 359,
+          "path_steps": 181,
+          "counts": {
+            "punctured_build_calls": 363,
+            "punctured_pruned_blocks": 12,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 185,
+            "punctured_created_nodes": 126,
+            "punctured_contexts": 181,
+            "punctured_summary_calls": 395,
+            "punctured_summary_expansions": 107
+          }
+        },
+        {
+          "input_nodes": 128,
+          "output_nodes": 136,
+          "contexts": 205,
+          "templates": 3,
+          "context_bound": 381,
+          "path_steps": 205,
+          "counts": {
+            "punctured_build_calls": 411,
+            "punctured_pruned_blocks": 8,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 208,
+            "punctured_created_nodes": 135,
+            "punctured_contexts": 205,
+            "punctured_summary_calls": 447,
+            "punctured_summary_expansions": 121
+          }
+        },
+        {
+          "input_nodes": 136,
+          "output_nodes": 142,
+          "contexts": 225,
+          "templates": 2,
+          "context_bound": 390,
+          "path_steps": 225,
+          "counts": {
+            "punctured_build_calls": 451,
+            "punctured_pruned_blocks": 4,
+            "punctured_template_calls": 5,
+            "punctured_make_calls": 227,
+            "punctured_created_nodes": 141,
+            "punctured_contexts": 225,
+            "punctured_summary_calls": 481,
+            "punctured_summary_expansions": 128
+          }
+        },
+        {
+          "input_nodes": 142,
+          "output_nodes": 145,
+          "contexts": 241,
+          "templates": 1,
+          "context_bound": 396,
+          "path_steps": 241,
+          "counts": {
+            "punctured_build_calls": 483,
+            "punctured_pruned_blocks": 2,
+            "punctured_template_calls": 2,
+            "punctured_make_calls": 242,
+            "punctured_created_nodes": 144,
+            "punctured_contexts": 241,
+            "punctured_summary_calls": 507,
+            "punctured_summary_expansions": 133
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 2568,
+        "punctured_pruned_blocks": 140,
+        "punctured_template_calls": 185,
+        "punctured_make_calls": 1334,
+        "punctured_created_nodes": 913,
+        "punctured_contexts": 1279,
+        "punctured_summary_calls": 2745,
+        "punctured_summary_expansions": 733,
+        "punctured_trace_steps": 100,
+        "punctured_trace_candidates": 91,
+        "record_ancestor_nodes": 10,
+        "punctured_ancestor_walk_visits": 20,
+        "record_output_nodes": 10,
+        "punctured_all_nodes": 913,
+        "punctured_history_nodes": 913,
+        "height_fallback_candidates": 100,
+        "height_fallback_states": 55,
+        "height_fallback_output_nodes": 10,
+        "record_verified_nodes": 10
+      },
+      "previous_counts": {
+        "dag_make_calls": 4130,
+        "dag_created_nodes": 2540,
+        "skyline_first_value_nodes": 2540,
+        "forward_calls": 2568,
+        "forward_pruned_blocks": 140,
+        "forward_replace_visits": 4120,
+        "forward_contexts": 1279,
+        "forward_summary_calls": 3987,
+        "forward_summary_expansions": 1354,
+        "skyline_path_steps": 100,
+        "skyline_candidates": 91,
+        "record_ancestor_nodes": 10,
+        "record_output_nodes": 10,
+        "dag_all_nodes": 2541,
+        "dag_history_nodes": 1715
+      }
+    },
+    {
+      "source": "slot_dag_chain_search",
+      "n": 12,
+      "height": 12,
+      "stage_nodes": [
+        12,
+        22,
+        76,
+        119,
+        154,
+        181,
+        209,
+        228,
+        243,
+        253,
+        273,
+        287
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 12,
+          "contexts": 0,
+          "templates": 12,
+          "context_bound": 12,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 13,
+            "punctured_make_calls": 12,
+            "punctured_created_nodes": 12
+          }
+        },
+        {
+          "input_nodes": 12,
+          "output_nodes": 22,
+          "contexts": 12,
+          "templates": 11,
+          "context_bound": 78,
+          "path_steps": 12,
+          "counts": {
+            "punctured_build_calls": 25,
+            "punctured_pruned_blocks": 11,
+            "punctured_template_calls": 22,
+            "punctured_make_calls": 23,
+            "punctured_created_nodes": 21,
+            "punctured_contexts": 12,
+            "punctured_summary_calls": 34,
+            "punctured_summary_expansions": 11
+          }
+        },
+        {
+          "input_nodes": 22,
+          "output_nodes": 76,
+          "contexts": 77,
+          "templates": 10,
+          "context_bound": 133,
+          "path_steps": 77,
+          "counts": {
+            "punctured_build_calls": 155,
+            "punctured_pruned_blocks": 56,
+            "punctured_template_calls": 65,
+            "punctured_make_calls": 87,
+            "punctured_created_nodes": 75,
+            "punctured_contexts": 77,
+            "punctured_summary_calls": 117,
+            "punctured_summary_expansions": 20
+          }
+        },
+        {
+          "input_nodes": 76,
+          "output_nodes": 119,
+          "contexts": 132,
+          "templates": 9,
+          "context_bound": 343,
+          "path_steps": 132,
+          "counts": {
+            "punctured_build_calls": 265,
+            "punctured_pruned_blocks": 46,
+            "punctured_template_calls": 54,
+            "punctured_make_calls": 141,
+            "punctured_created_nodes": 118,
+            "punctured_contexts": 132,
+            "punctured_summary_calls": 278,
+            "punctured_summary_expansions": 73
+          }
+        },
+        {
+          "input_nodes": 119,
+          "output_nodes": 154,
+          "contexts": 184,
+          "templates": 8,
+          "context_bound": 498,
+          "path_steps": 184,
+          "counts": {
+            "punctured_build_calls": 369,
+            "punctured_pruned_blocks": 37,
+            "punctured_template_calls": 44,
+            "punctured_make_calls": 192,
+            "punctured_created_nodes": 153,
+            "punctured_contexts": 184,
+            "punctured_summary_calls": 414,
+            "punctured_summary_expansions": 115
+          }
+        },
+        {
+          "input_nodes": 154,
+          "output_nodes": 181,
+          "contexts": 228,
+          "templates": 7,
+          "context_bound": 610,
+          "path_steps": 228,
+          "counts": {
+            "punctured_build_calls": 457,
+            "punctured_pruned_blocks": 29,
+            "punctured_template_calls": 35,
+            "punctured_make_calls": 235,
+            "punctured_created_nodes": 180,
+            "punctured_contexts": 228,
+            "punctured_summary_calls": 526,
+            "punctured_summary_expansions": 149
+          }
+        },
+        {
+          "input_nodes": 181,
+          "output_nodes": 209,
+          "contexts": 278,
+          "templates": 6,
+          "context_bound": 687,
+          "path_steps": 278,
+          "counts": {
+            "punctured_build_calls": 557,
+            "punctured_pruned_blocks": 23,
+            "punctured_template_calls": 27,
+            "punctured_make_calls": 284,
+            "punctured_created_nodes": 207,
+            "punctured_contexts": 278,
+            "punctured_summary_calls": 628,
+            "punctured_summary_expansions": 175
+          }
+        },
+        {
+          "input_nodes": 209,
+          "output_nodes": 228,
+          "contexts": 319,
+          "templates": 5,
+          "context_bound": 745,
+          "path_steps": 319,
+          "counts": {
+            "punctured_build_calls": 639,
+            "punctured_pruned_blocks": 17,
+            "punctured_template_calls": 20,
+            "punctured_make_calls": 324,
+            "punctured_created_nodes": 227,
+            "punctured_contexts": 319,
+            "punctured_summary_calls": 723,
+            "punctured_summary_expansions": 202
+          }
+        },
+        {
+          "input_nodes": 228,
+          "output_nodes": 243,
+          "contexts": 356,
+          "templates": 4,
+          "context_bound": 779,
+          "path_steps": 356,
+          "counts": {
+            "punctured_build_calls": 713,
+            "punctured_pruned_blocks": 11,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 360,
+            "punctured_created_nodes": 242,
+            "punctured_contexts": 356,
+            "punctured_summary_calls": 796,
+            "punctured_summary_expansions": 220
+          }
+        },
+        {
+          "input_nodes": 243,
+          "output_nodes": 253,
+          "contexts": 387,
+          "templates": 3,
+          "context_bound": 801,
+          "path_steps": 387,
+          "counts": {
+            "punctured_build_calls": 775,
+            "punctured_pruned_blocks": 7,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 390,
+            "punctured_created_nodes": 252,
+            "punctured_contexts": 387,
+            "punctured_summary_calls": 855,
+            "punctured_summary_expansions": 234
+          }
+        },
+        {
+          "input_nodes": 253,
+          "output_nodes": 273,
+          "contexts": 430,
+          "templates": 2,
+          "context_bound": 813,
+          "path_steps": 430,
+          "counts": {
+            "punctured_build_calls": 861,
+            "punctured_pruned_blocks": 5,
+            "punctured_template_calls": 5,
+            "punctured_make_calls": 432,
+            "punctured_created_nodes": 271,
+            "punctured_contexts": 430,
+            "punctured_summary_calls": 916,
+            "punctured_summary_expansions": 243
+          }
+        },
+        {
+          "input_nodes": 273,
+          "output_nodes": 287,
+          "contexts": 464,
+          "templates": 1,
+          "context_bound": 840,
+          "path_steps": 464,
+          "counts": {
+            "punctured_build_calls": 929,
+            "punctured_pruned_blocks": 3,
+            "punctured_template_calls": 2,
+            "punctured_make_calls": 465,
+            "punctured_created_nodes": 286,
+            "punctured_contexts": 464,
+            "punctured_summary_calls": 988,
+            "punctured_summary_expansions": 262
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 5746,
+        "punctured_pruned_blocks": 246,
+        "punctured_template_calls": 310,
+        "punctured_make_calls": 2945,
+        "punctured_created_nodes": 2044,
+        "punctured_contexts": 2867,
+        "punctured_summary_calls": 6275,
+        "punctured_summary_expansions": 1704,
+        "punctured_trace_steps": 144,
+        "punctured_trace_candidates": 133,
+        "record_ancestor_nodes": 12,
+        "punctured_ancestor_walk_visits": 24,
+        "record_output_nodes": 12,
+        "punctured_all_nodes": 2044,
+        "punctured_history_nodes": 2044,
+        "height_fallback_candidates": 144,
+        "height_fallback_states": 78,
+        "height_fallback_output_nodes": 12,
+        "record_verified_nodes": 12
+      },
+      "previous_counts": {
+        "dag_make_calls": 10005,
+        "dag_created_nodes": 5569,
+        "skyline_first_value_nodes": 5569,
+        "forward_calls": 5746,
+        "forward_pruned_blocks": 246,
+        "forward_replace_visits": 9993,
+        "forward_contexts": 2867,
+        "forward_summary_calls": 8909,
+        "forward_summary_expansions": 3021,
+        "skyline_path_steps": 144,
+        "skyline_candidates": 133,
+        "record_ancestor_nodes": 12,
+        "record_output_nodes": 12,
+        "dag_all_nodes": 5570,
+        "dag_history_nodes": 3653
+      }
+    },
+    {
+      "source": "slot_dag_chain_search",
+      "n": 14,
+      "height": 14,
+      "stage_nodes": [
+        14,
+        26,
+        103,
+        167,
+        221,
+        265,
+        310,
+        344,
+        372,
+        393,
+        426,
+        451,
+        471,
+        486
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 14,
+          "contexts": 0,
+          "templates": 14,
+          "context_bound": 14,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 15,
+            "punctured_make_calls": 14,
+            "punctured_created_nodes": 14
+          }
+        },
+        {
+          "input_nodes": 14,
+          "output_nodes": 26,
+          "contexts": 14,
+          "templates": 13,
+          "context_bound": 105,
+          "path_steps": 14,
+          "counts": {
+            "punctured_build_calls": 29,
+            "punctured_pruned_blocks": 13,
+            "punctured_template_calls": 26,
+            "punctured_make_calls": 27,
+            "punctured_created_nodes": 25,
+            "punctured_contexts": 14,
+            "punctured_summary_calls": 40,
+            "punctured_summary_expansions": 13
+          }
+        },
+        {
+          "input_nodes": 26,
+          "output_nodes": 103,
+          "contexts": 104,
+          "templates": 12,
+          "context_bound": 183,
+          "path_steps": 104,
+          "counts": {
+            "punctured_build_calls": 209,
+            "punctured_pruned_blocks": 79,
+            "punctured_template_calls": 90,
+            "punctured_make_calls": 116,
+            "punctured_created_nodes": 102,
+            "punctured_contexts": 104,
+            "punctured_summary_calls": 152,
+            "punctured_summary_expansions": 24
+          }
+        },
+        {
+          "input_nodes": 103,
+          "output_nodes": 167,
+          "contexts": 182,
+          "templates": 11,
+          "context_bound": 535,
+          "path_steps": 182,
+          "counts": {
+            "punctured_build_calls": 365,
+            "punctured_pruned_blocks": 67,
+            "punctured_template_calls": 77,
+            "punctured_make_calls": 193,
+            "punctured_created_nodes": 166,
+            "punctured_contexts": 182,
+            "punctured_summary_calls": 382,
+            "punctured_summary_expansions": 100
+          }
+        },
+        {
+          "input_nodes": 167,
+          "output_nodes": 221,
+          "contexts": 257,
+          "templates": 10,
+          "context_bound": 809,
+          "path_steps": 257,
+          "counts": {
+            "punctured_build_calls": 515,
+            "punctured_pruned_blocks": 56,
+            "punctured_template_calls": 65,
+            "punctured_make_calls": 267,
+            "punctured_created_nodes": 220,
+            "punctured_contexts": 257,
+            "punctured_summary_calls": 583,
+            "punctured_summary_expansions": 163
+          }
+        },
+        {
+          "input_nodes": 221,
+          "output_nodes": 265,
+          "contexts": 322,
+          "templates": 9,
+          "context_bound": 1019,
+          "path_steps": 322,
+          "counts": {
+            "punctured_build_calls": 645,
+            "punctured_pruned_blocks": 46,
+            "punctured_template_calls": 54,
+            "punctured_make_calls": 331,
+            "punctured_created_nodes": 264,
+            "punctured_contexts": 322,
+            "punctured_summary_calls": 754,
+            "punctured_summary_expansions": 216
+          }
+        },
+        {
+          "input_nodes": 265,
+          "output_nodes": 310,
+          "contexts": 395,
+          "templates": 8,
+          "context_bound": 1175,
+          "path_steps": 395,
+          "counts": {
+            "punctured_build_calls": 791,
+            "punctured_pruned_blocks": 38,
+            "punctured_template_calls": 44,
+            "punctured_make_calls": 403,
+            "punctured_created_nodes": 308,
+            "punctured_contexts": 395,
+            "punctured_summary_calls": 913,
+            "punctured_summary_expansions": 259
+          }
+        },
+        {
+          "input_nodes": 310,
+          "output_nodes": 344,
+          "contexts": 457,
+          "templates": 7,
+          "context_bound": 1297,
+          "path_steps": 457,
+          "counts": {
+            "punctured_build_calls": 915,
+            "punctured_pruned_blocks": 30,
+            "punctured_template_calls": 35,
+            "punctured_make_calls": 464,
+            "punctured_created_nodes": 343,
+            "punctured_contexts": 457,
+            "punctured_summary_calls": 1063,
+            "punctured_summary_expansions": 303
+          }
+        },
+        {
+          "input_nodes": 344,
+          "output_nodes": 372,
+          "contexts": 515,
+          "templates": 6,
+          "context_bound": 1380,
+          "path_steps": 515,
+          "counts": {
+            "punctured_build_calls": 1031,
+            "punctured_pruned_blocks": 22,
+            "punctured_template_calls": 27,
+            "punctured_make_calls": 521,
+            "punctured_created_nodes": 371,
+            "punctured_contexts": 515,
+            "punctured_summary_calls": 1187,
+            "punctured_summary_expansions": 336
+          }
+        },
+        {
+          "input_nodes": 372,
+          "output_nodes": 393,
+          "contexts": 565,
+          "templates": 5,
+          "context_bound": 1438,
+          "path_steps": 565,
+          "counts": {
+            "punctured_build_calls": 1131,
+            "punctured_pruned_blocks": 16,
+            "punctured_template_calls": 20,
+            "punctured_make_calls": 570,
+            "punctured_created_nodes": 392,
+            "punctured_contexts": 565,
+            "punctured_summary_calls": 1291,
+            "punctured_summary_expansions": 363
+          }
+        },
+        {
+          "input_nodes": 393,
+          "output_nodes": 426,
+          "contexts": 631,
+          "templates": 4,
+          "context_bound": 1475,
+          "path_steps": 631,
+          "counts": {
+            "punctured_build_calls": 1263,
+            "punctured_pruned_blocks": 12,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 635,
+            "punctured_created_nodes": 424,
+            "punctured_contexts": 631,
+            "punctured_summary_calls": 1397,
+            "punctured_summary_expansions": 383
+          }
+        },
+        {
+          "input_nodes": 426,
+          "output_nodes": 451,
+          "contexts": 686,
+          "templates": 3,
+          "context_bound": 1524,
+          "path_steps": 686,
+          "counts": {
+            "punctured_build_calls": 1373,
+            "punctured_pruned_blocks": 8,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 689,
+            "punctured_created_nodes": 450,
+            "punctured_contexts": 686,
+            "punctured_summary_calls": 1516,
+            "punctured_summary_expansions": 415
+          }
+        },
+        {
+          "input_nodes": 451,
+          "output_nodes": 471,
+          "contexts": 737,
+          "templates": 2,
+          "context_bound": 1559,
+          "path_steps": 737,
+          "counts": {
+            "punctured_build_calls": 1475,
+            "punctured_pruned_blocks": 5,
+            "punctured_template_calls": 5,
+            "punctured_make_calls": 739,
+            "punctured_created_nodes": 470,
+            "punctured_contexts": 737,
+            "punctured_summary_calls": 1615,
+            "punctured_summary_expansions": 439
+          }
+        },
+        {
+          "input_nodes": 471,
+          "output_nodes": 486,
+          "contexts": 779,
+          "templates": 1,
+          "context_bound": 1586,
+          "path_steps": 779,
+          "counts": {
+            "punctured_build_calls": 1559,
+            "punctured_pruned_blocks": 3,
+            "punctured_template_calls": 2,
+            "punctured_make_calls": 780,
+            "punctured_created_nodes": 485,
+            "punctured_contexts": 779,
+            "punctured_summary_calls": 1695,
+            "punctured_summary_expansions": 458
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 11302,
+        "punctured_pruned_blocks": 396,
+        "punctured_template_calls": 483,
+        "punctured_make_calls": 5749,
+        "punctured_created_nodes": 4034,
+        "punctured_contexts": 5644,
+        "punctured_summary_calls": 12588,
+        "punctured_summary_expansions": 3472,
+        "punctured_trace_steps": 196,
+        "punctured_trace_candidates": 183,
+        "record_ancestor_nodes": 14,
+        "punctured_ancestor_walk_visits": 28,
+        "record_output_nodes": 14,
+        "punctured_all_nodes": 4034,
+        "punctured_history_nodes": 4034,
+        "height_fallback_candidates": 196,
+        "height_fallback_states": 105,
+        "height_fallback_output_nodes": 14,
+        "record_verified_nodes": 14
+      },
+      "previous_counts": {
+        "dag_make_calls": 21264,
+        "dag_created_nodes": 10790,
+        "skyline_first_value_nodes": 10790,
+        "forward_calls": 11302,
+        "forward_pruned_blocks": 396,
+        "forward_replace_visits": 21250,
+        "forward_contexts": 5644,
+        "forward_summary_calls": 17478,
+        "forward_summary_expansions": 5917,
+        "skyline_path_steps": 196,
+        "skyline_candidates": 183,
+        "record_ancestor_nodes": 14,
+        "record_output_nodes": 14,
+        "dag_all_nodes": 10791,
+        "dag_history_nodes": 6934
+      }
+    },
+    {
+      "source": "slot_dag_chain_search",
+      "n": 16,
+      "height": 16,
+      "stage_nodes": [
+        16,
+        30,
+        134,
+        223,
+        300,
+        365,
+        431,
+        484,
+        529,
+        565,
+        615,
+        655,
+        688,
+        714,
+        745,
+        767
+      ],
+      "stages": [
+        {
+          "input_nodes": 0,
+          "output_nodes": 16,
+          "contexts": 0,
+          "templates": 16,
+          "context_bound": 16,
+          "path_steps": 0,
+          "counts": {
+            "punctured_build_calls": 1,
+            "punctured_pruned_blocks": 1,
+            "punctured_template_calls": 17,
+            "punctured_make_calls": 16,
+            "punctured_created_nodes": 16
+          }
+        },
+        {
+          "input_nodes": 16,
+          "output_nodes": 30,
+          "contexts": 16,
+          "templates": 15,
+          "context_bound": 136,
+          "path_steps": 16,
+          "counts": {
+            "punctured_build_calls": 33,
+            "punctured_pruned_blocks": 15,
+            "punctured_template_calls": 30,
+            "punctured_make_calls": 31,
+            "punctured_created_nodes": 29,
+            "punctured_contexts": 16,
+            "punctured_summary_calls": 46,
+            "punctured_summary_expansions": 15
+          }
+        },
+        {
+          "input_nodes": 30,
+          "output_nodes": 134,
+          "contexts": 135,
+          "templates": 14,
+          "context_bound": 241,
+          "path_steps": 135,
+          "counts": {
+            "punctured_build_calls": 271,
+            "punctured_pruned_blocks": 106,
+            "punctured_template_calls": 119,
+            "punctured_make_calls": 149,
+            "punctured_created_nodes": 133,
+            "punctured_contexts": 135,
+            "punctured_summary_calls": 191,
+            "punctured_summary_expansions": 28
+          }
+        },
+        {
+          "input_nodes": 134,
+          "output_nodes": 223,
+          "contexts": 240,
+          "templates": 13,
+          "context_bound": 787,
+          "path_steps": 240,
+          "counts": {
+            "punctured_build_calls": 481,
+            "punctured_pruned_blocks": 92,
+            "punctured_template_calls": 104,
+            "punctured_make_calls": 253,
+            "punctured_created_nodes": 222,
+            "punctured_contexts": 240,
+            "punctured_summary_calls": 502,
+            "punctured_summary_expansions": 131
+          }
+        },
+        {
+          "input_nodes": 223,
+          "output_nodes": 300,
+          "contexts": 342,
+          "templates": 12,
+          "context_bound": 1228,
+          "path_steps": 342,
+          "counts": {
+            "punctured_build_calls": 685,
+            "punctured_pruned_blocks": 79,
+            "punctured_template_calls": 90,
+            "punctured_make_calls": 354,
+            "punctured_created_nodes": 299,
+            "punctured_contexts": 342,
+            "punctured_summary_calls": 780,
+            "punctured_summary_expansions": 219
+          }
+        },
+        {
+          "input_nodes": 300,
+          "output_nodes": 365,
+          "contexts": 432,
+          "templates": 11,
+          "context_bound": 1580,
+          "path_steps": 432,
+          "counts": {
+            "punctured_build_calls": 865,
+            "punctured_pruned_blocks": 67,
+            "punctured_template_calls": 77,
+            "punctured_make_calls": 443,
+            "punctured_created_nodes": 364,
+            "punctured_contexts": 432,
+            "punctured_summary_calls": 1022,
+            "punctured_summary_expansions": 295
+          }
+        },
+        {
+          "input_nodes": 365,
+          "output_nodes": 431,
+          "contexts": 532,
+          "templates": 10,
+          "context_bound": 1855,
+          "path_steps": 532,
+          "counts": {
+            "punctured_build_calls": 1065,
+            "punctured_pruned_blocks": 57,
+            "punctured_template_calls": 65,
+            "punctured_make_calls": 542,
+            "punctured_created_nodes": 429,
+            "punctured_contexts": 532,
+            "punctured_summary_calls": 1250,
+            "punctured_summary_expansions": 359
+          }
+        },
+        {
+          "input_nodes": 431,
+          "output_nodes": 484,
+          "contexts": 619,
+          "templates": 9,
+          "context_bound": 2077,
+          "path_steps": 619,
+          "counts": {
+            "punctured_build_calls": 1239,
+            "punctured_pruned_blocks": 47,
+            "punctured_template_calls": 54,
+            "punctured_make_calls": 628,
+            "punctured_created_nodes": 483,
+            "punctured_contexts": 619,
+            "punctured_summary_calls": 1467,
+            "punctured_summary_expansions": 424
+          }
+        },
+        {
+          "input_nodes": 484,
+          "output_nodes": 529,
+          "contexts": 702,
+          "templates": 8,
+          "context_bound": 2241,
+          "path_steps": 702,
+          "counts": {
+            "punctured_build_calls": 1405,
+            "punctured_pruned_blocks": 37,
+            "punctured_template_calls": 44,
+            "punctured_make_calls": 710,
+            "punctured_created_nodes": 528,
+            "punctured_contexts": 702,
+            "punctured_summary_calls": 1654,
+            "punctured_summary_expansions": 476
+          }
+        },
+        {
+          "input_nodes": 529,
+          "output_nodes": 565,
+          "contexts": 775,
+          "templates": 7,
+          "context_bound": 2363,
+          "path_steps": 775,
+          "counts": {
+            "punctured_build_calls": 1551,
+            "punctured_pruned_blocks": 29,
+            "punctured_template_calls": 35,
+            "punctured_make_calls": 782,
+            "punctured_created_nodes": 564,
+            "punctured_contexts": 775,
+            "punctured_summary_calls": 1815,
+            "punctured_summary_expansions": 520
+          }
+        },
+        {
+          "input_nodes": 565,
+          "output_nodes": 615,
+          "contexts": 868,
+          "templates": 6,
+          "context_bound": 2449,
+          "path_steps": 868,
+          "counts": {
+            "punctured_build_calls": 1737,
+            "punctured_pruned_blocks": 23,
+            "punctured_template_calls": 27,
+            "punctured_make_calls": 874,
+            "punctured_created_nodes": 613,
+            "punctured_contexts": 868,
+            "punctured_summary_calls": 1978,
+            "punctured_summary_expansions": 555
+          }
+        },
+        {
+          "input_nodes": 615,
+          "output_nodes": 655,
+          "contexts": 948,
+          "templates": 5,
+          "context_bound": 2540,
+          "path_steps": 948,
+          "counts": {
+            "punctured_build_calls": 1897,
+            "punctured_pruned_blocks": 17,
+            "punctured_template_calls": 20,
+            "punctured_make_calls": 953,
+            "punctured_created_nodes": 654,
+            "punctured_contexts": 948,
+            "punctured_summary_calls": 2156,
+            "punctured_summary_expansions": 604
+          }
+        },
+        {
+          "input_nodes": 655,
+          "output_nodes": 688,
+          "contexts": 1024,
+          "templates": 4,
+          "context_bound": 2606,
+          "path_steps": 1024,
+          "counts": {
+            "punctured_build_calls": 2049,
+            "punctured_pruned_blocks": 12,
+            "punctured_template_calls": 14,
+            "punctured_make_calls": 1028,
+            "punctured_created_nodes": 687,
+            "punctured_contexts": 1024,
+            "punctured_summary_calls": 2310,
+            "punctured_summary_expansions": 643
+          }
+        },
+        {
+          "input_nodes": 688,
+          "output_nodes": 714,
+          "contexts": 1089,
+          "templates": 3,
+          "context_bound": 2655,
+          "path_steps": 1089,
+          "counts": {
+            "punctured_build_calls": 2179,
+            "punctured_pruned_blocks": 8,
+            "punctured_template_calls": 9,
+            "punctured_make_calls": 1092,
+            "punctured_created_nodes": 713,
+            "punctured_contexts": 1089,
+            "punctured_summary_calls": 2439,
+            "punctured_summary_expansions": 675
+          }
+        },
+        {
+          "input_nodes": 714,
+          "output_nodes": 745,
+          "contexts": 1163,
+          "templates": 2,
+          "context_bound": 2691,
+          "path_steps": 1163,
+          "counts": {
+            "punctured_build_calls": 2327,
+            "punctured_pruned_blocks": 6,
+            "punctured_template_calls": 5,
+            "punctured_make_calls": 1165,
+            "punctured_created_nodes": 742,
+            "punctured_contexts": 1163,
+            "punctured_summary_calls": 2563,
+            "punctured_summary_expansions": 700
+          }
+        },
+        {
+          "input_nodes": 745,
+          "output_nodes": 767,
+          "contexts": 1225,
+          "templates": 1,
+          "context_bound": 2729,
+          "path_steps": 1225,
+          "counts": {
+            "punctured_build_calls": 2451,
+            "punctured_pruned_blocks": 4,
+            "punctured_template_calls": 2,
+            "punctured_make_calls": 1226,
+            "punctured_created_nodes": 766,
+            "punctured_contexts": 1225,
+            "punctured_summary_calls": 2685,
+            "punctured_summary_expansions": 730
+          }
+        }
+      ],
+      "counts": {
+        "punctured_build_calls": 20236,
+        "punctured_pruned_blocks": 600,
+        "punctured_template_calls": 712,
+        "punctured_make_calls": 10246,
+        "punctured_created_nodes": 7242,
+        "punctured_contexts": 10110,
+        "punctured_summary_calls": 22858,
+        "punctured_summary_expansions": 6374,
+        "punctured_trace_steps": 256,
+        "punctured_trace_candidates": 241,
+        "record_ancestor_nodes": 16,
+        "punctured_ancestor_walk_visits": 32,
+        "record_output_nodes": 16,
+        "punctured_all_nodes": 7242,
+        "punctured_history_nodes": 7242,
+        "height_fallback_candidates": 256,
+        "height_fallback_states": 136,
+        "height_fallback_output_nodes": 16,
+        "record_verified_nodes": 16
+      },
+      "previous_counts": {
+        "dag_make_calls": 40949,
+        "dag_created_nodes": 19089,
+        "skyline_first_value_nodes": 19089,
+        "forward_calls": 20236,
+        "forward_pruned_blocks": 600,
+        "forward_replace_visits": 40933,
+        "forward_contexts": 10110,
+        "forward_summary_calls": 31210,
+        "forward_summary_expansions": 10550,
+        "skyline_path_steps": 256,
+        "skyline_candidates": 241,
+        "record_ancestor_nodes": 16,
+        "record_output_nodes": 16,
+        "dag_all_nodes": 19090,
+        "dag_history_nodes": 12078
+      }
+    }
+  ],
+  "sharp": [
+    {
+      "m": 1,
+      "height": 2,
+      "input_nodes": 2,
+      "output_nodes": 2,
+      "contexts": 3,
+      "templates": 0,
+      "context_bound": 3,
+      "path_steps": 3,
+      "counts": {
+        "punctured_make_calls": 3,
+        "punctured_created_nodes": 1,
+        "punctured_build_calls": 7,
+        "punctured_contexts": 3,
+        "punctured_summary_calls": 5,
+        "punctured_summary_expansions": 1
+      }
+    },
+    {
+      "m": 2,
+      "height": 4,
+      "input_nodes": 4,
+      "output_nodes": 6,
+      "contexts": 9,
+      "templates": 1,
+      "context_bound": 10,
+      "path_steps": 10,
+      "counts": {
+        "punctured_make_calls": 10,
+        "punctured_created_nodes": 5,
+        "punctured_build_calls": 19,
+        "punctured_contexts": 9,
+        "punctured_summary_calls": 15,
+        "punctured_summary_expansions": 3,
+        "punctured_pruned_blocks": 2,
+        "punctured_template_calls": 3
+      }
+    },
+    {
+      "m": 3,
+      "height": 6,
+      "input_nodes": 6,
+      "output_nodes": 11,
+      "contexts": 18,
+      "templates": 2,
+      "context_bound": 21,
+      "path_steps": 21,
+      "counts": {
+        "punctured_make_calls": 20,
+        "punctured_created_nodes": 10,
+        "punctured_build_calls": 37,
+        "punctured_contexts": 18,
+        "punctured_summary_calls": 28,
+        "punctured_summary_expansions": 5,
+        "punctured_pruned_blocks": 6,
+        "punctured_template_calls": 8
+      }
+    },
+    {
+      "m": 4,
+      "height": 8,
+      "input_nodes": 8,
+      "output_nodes": 17,
+      "contexts": 30,
+      "templates": 3,
+      "context_bound": 36,
+      "path_steps": 36,
+      "counts": {
+        "punctured_make_calls": 33,
+        "punctured_created_nodes": 16,
+        "punctured_build_calls": 61,
+        "punctured_contexts": 30,
+        "punctured_summary_calls": 44,
+        "punctured_summary_expansions": 7,
+        "punctured_pruned_blocks": 12,
+        "punctured_template_calls": 15
+      }
+    },
+    {
+      "m": 5,
+      "height": 10,
+      "input_nodes": 10,
+      "output_nodes": 24,
+      "contexts": 45,
+      "templates": 4,
+      "context_bound": 55,
+      "path_steps": 55,
+      "counts": {
+        "punctured_make_calls": 49,
+        "punctured_created_nodes": 23,
+        "punctured_build_calls": 91,
+        "punctured_contexts": 45,
+        "punctured_summary_calls": 63,
+        "punctured_summary_expansions": 9,
+        "punctured_pruned_blocks": 20,
+        "punctured_template_calls": 24
+      }
+    },
+    {
+      "m": 6,
+      "height": 12,
+      "input_nodes": 12,
+      "output_nodes": 32,
+      "contexts": 63,
+      "templates": 5,
+      "context_bound": 78,
+      "path_steps": 78,
+      "counts": {
+        "punctured_make_calls": 68,
+        "punctured_created_nodes": 31,
+        "punctured_build_calls": 127,
+        "punctured_contexts": 63,
+        "punctured_summary_calls": 85,
+        "punctured_summary_expansions": 11,
+        "punctured_pruned_blocks": 30,
+        "punctured_template_calls": 35
+      }
+    },
+    {
+      "m": 7,
+      "height": 14,
+      "input_nodes": 14,
+      "output_nodes": 41,
+      "contexts": 84,
+      "templates": 6,
+      "context_bound": 105,
+      "path_steps": 105,
+      "counts": {
+        "punctured_make_calls": 90,
+        "punctured_created_nodes": 40,
+        "punctured_build_calls": 169,
+        "punctured_contexts": 84,
+        "punctured_summary_calls": 110,
+        "punctured_summary_expansions": 13,
+        "punctured_pruned_blocks": 42,
+        "punctured_template_calls": 48
+      }
+    },
+    {
+      "m": 8,
+      "height": 16,
+      "input_nodes": 16,
+      "output_nodes": 51,
+      "contexts": 108,
+      "templates": 7,
+      "context_bound": 136,
+      "path_steps": 136,
+      "counts": {
+        "punctured_make_calls": 115,
+        "punctured_created_nodes": 50,
+        "punctured_build_calls": 217,
+        "punctured_contexts": 108,
+        "punctured_summary_calls": 138,
+        "punctured_summary_expansions": 15,
+        "punctured_pruned_blocks": 56,
+        "punctured_template_calls": 63
+      }
+    },
+    {
+      "m": 9,
+      "height": 18,
+      "input_nodes": 18,
+      "output_nodes": 62,
+      "contexts": 135,
+      "templates": 8,
+      "context_bound": 171,
+      "path_steps": 171,
+      "counts": {
+        "punctured_make_calls": 143,
+        "punctured_created_nodes": 61,
+        "punctured_build_calls": 271,
+        "punctured_contexts": 135,
+        "punctured_summary_calls": 169,
+        "punctured_summary_expansions": 17,
+        "punctured_pruned_blocks": 72,
+        "punctured_template_calls": 80
+      }
+    },
+    {
+      "m": 10,
+      "height": 20,
+      "input_nodes": 20,
+      "output_nodes": 74,
+      "contexts": 165,
+      "templates": 9,
+      "context_bound": 210,
+      "path_steps": 210,
+      "counts": {
+        "punctured_make_calls": 174,
+        "punctured_created_nodes": 73,
+        "punctured_build_calls": 331,
+        "punctured_contexts": 165,
+        "punctured_summary_calls": 203,
+        "punctured_summary_expansions": 19,
+        "punctured_pruned_blocks": 90,
+        "punctured_template_calls": 99
+      }
+    },
+    {
+      "m": 11,
+      "height": 22,
+      "input_nodes": 22,
+      "output_nodes": 87,
+      "contexts": 198,
+      "templates": 10,
+      "context_bound": 253,
+      "path_steps": 253,
+      "counts": {
+        "punctured_make_calls": 208,
+        "punctured_created_nodes": 86,
+        "punctured_build_calls": 397,
+        "punctured_contexts": 198,
+        "punctured_summary_calls": 240,
+        "punctured_summary_expansions": 21,
+        "punctured_pruned_blocks": 110,
+        "punctured_template_calls": 120
+      }
+    },
+    {
+      "m": 12,
+      "height": 24,
+      "input_nodes": 24,
+      "output_nodes": 101,
+      "contexts": 234,
+      "templates": 11,
+      "context_bound": 300,
+      "path_steps": 300,
+      "counts": {
+        "punctured_make_calls": 245,
+        "punctured_created_nodes": 100,
+        "punctured_build_calls": 469,
+        "punctured_contexts": 234,
+        "punctured_summary_calls": 280,
+        "punctured_summary_expansions": 23,
+        "punctured_pruned_blocks": 132,
+        "punctured_template_calls": 143
+      }
+    },
+    {
+      "m": 13,
+      "height": 26,
+      "input_nodes": 26,
+      "output_nodes": 116,
+      "contexts": 273,
+      "templates": 12,
+      "context_bound": 351,
+      "path_steps": 351,
+      "counts": {
+        "punctured_make_calls": 285,
+        "punctured_created_nodes": 115,
+        "punctured_build_calls": 547,
+        "punctured_contexts": 273,
+        "punctured_summary_calls": 323,
+        "punctured_summary_expansions": 25,
+        "punctured_pruned_blocks": 156,
+        "punctured_template_calls": 168
+      }
+    },
+    {
+      "m": 14,
+      "height": 28,
+      "input_nodes": 28,
+      "output_nodes": 132,
+      "contexts": 315,
+      "templates": 13,
+      "context_bound": 406,
+      "path_steps": 406,
+      "counts": {
+        "punctured_make_calls": 328,
+        "punctured_created_nodes": 131,
+        "punctured_build_calls": 631,
+        "punctured_contexts": 315,
+        "punctured_summary_calls": 369,
+        "punctured_summary_expansions": 27,
+        "punctured_pruned_blocks": 182,
+        "punctured_template_calls": 195
+      }
+    },
+    {
+      "m": 15,
+      "height": 30,
+      "input_nodes": 30,
+      "output_nodes": 149,
+      "contexts": 360,
+      "templates": 14,
+      "context_bound": 465,
+      "path_steps": 465,
+      "counts": {
+        "punctured_make_calls": 374,
+        "punctured_created_nodes": 148,
+        "punctured_build_calls": 721,
+        "punctured_contexts": 360,
+        "punctured_summary_calls": 418,
+        "punctured_summary_expansions": 29,
+        "punctured_pruned_blocks": 210,
+        "punctured_template_calls": 224
+      }
+    },
+    {
+      "m": 16,
+      "height": 32,
+      "input_nodes": 32,
+      "output_nodes": 167,
+      "contexts": 408,
+      "templates": 15,
+      "context_bound": 528,
+      "path_steps": 528,
+      "counts": {
+        "punctured_make_calls": 423,
+        "punctured_created_nodes": 166,
+        "punctured_build_calls": 817,
+        "punctured_contexts": 408,
+        "punctured_summary_calls": 470,
+        "punctured_summary_expansions": 31,
+        "punctured_pruned_blocks": 240,
+        "punctured_template_calls": 255
+      }
+    },
+    {
+      "m": 24,
+      "height": 48,
+      "input_nodes": 48,
+      "output_nodes": 347,
+      "contexts": 900,
+      "templates": 23,
+      "context_bound": 1176,
+      "path_steps": 1176,
+      "counts": {
+        "punctured_make_calls": 923,
+        "punctured_created_nodes": 346,
+        "punctured_build_calls": 1801,
+        "punctured_contexts": 900,
+        "punctured_summary_calls": 994,
+        "punctured_summary_expansions": 47,
+        "punctured_pruned_blocks": 552,
+        "punctured_template_calls": 575
+      }
+    },
+    {
+      "m": 32,
+      "height": 64,
+      "input_nodes": 64,
+      "output_nodes": 591,
+      "contexts": 1584,
+      "templates": 31,
+      "context_bound": 2080,
+      "path_steps": 2080,
+      "counts": {
+        "punctured_make_calls": 1615,
+        "punctured_created_nodes": 590,
+        "punctured_build_calls": 3169,
+        "punctured_contexts": 1584,
+        "punctured_summary_calls": 1710,
+        "punctured_summary_expansions": 63,
+        "punctured_pruned_blocks": 992,
+        "punctured_template_calls": 1023
+      }
+    },
+    {
+      "m": 48,
+      "height": 96,
+      "input_nodes": 96,
+      "output_nodes": 1271,
+      "contexts": 3528,
+      "templates": 47,
+      "context_bound": 4656,
+      "path_steps": 4656,
+      "counts": {
+        "punctured_make_calls": 3575,
+        "punctured_created_nodes": 1270,
+        "punctured_build_calls": 7057,
+        "punctured_contexts": 3528,
+        "punctured_summary_calls": 3718,
+        "punctured_summary_expansions": 95,
+        "punctured_pruned_blocks": 2256,
+        "punctured_template_calls": 2303
+      }
+    },
+    {
+      "m": 64,
+      "height": 128,
+      "input_nodes": 128,
+      "output_nodes": 2207,
+      "contexts": 6240,
+      "templates": 63,
+      "context_bound": 8256,
+      "path_steps": 8256,
+      "counts": {
+        "punctured_make_calls": 6303,
+        "punctured_created_nodes": 2206,
+        "punctured_build_calls": 12481,
+        "punctured_contexts": 6240,
+        "punctured_summary_calls": 6494,
+        "punctured_summary_expansions": 127,
+        "punctured_pruned_blocks": 4032,
+        "punctured_template_calls": 4095
+      }
+    }
+  ],
+  "source_sha256": {
+    "slot_punctured.py": "f0db0df83ef5de1615619480896912c90e8f4faa5c769afed0425d338039d6be",
+    "slot_punctured_audit.py": "28c9930049a755b16a06771ae7f70200650bcaf525aa89db3d0a27b8f0f36243",
+    "slot_dag_forward.py": "3ce364c70c9e16cca2a5c220c3a236f4ab9263687ea680de735f8983c1bd8beb",
+    "slot_dag_skyline.py": "e19c524bec17146ef5f1aa59140441d4ab376c5378562eabe556d2de0dc20da9",
+    "slot_dag.py": "e0e8c7ac511bc658205ee5130d4acd43304ec9e91a76f1c27c99429ac097e637",
+    "slot_vector.py": "f234a4954d70b485ef1fa108e669bcfadeeeaf81a0c8948be96201cc986cbee2",
+    "slot_records.py": "8f8d222c1eae0bae0004927e1e92d9551ed66b3c2d99df401c02ef05157b5e27",
+    "slot_records_audit.py": "77be385cfef7ab60d15a72d8b7a59c224f21be240e3eb1d677e53388ddc70f2c",
+    "aggregate_core_audit.py": "a5f9dca14ba79c5ab70a96c33c2fa8e11492fd1f695c7e88462d1db08c382b66",
+    "trimmed_height.py": "19efde94ff7985b656372d1faedf299d64bd2ae23dfa4df530f5a76cf2f86f6f"
+  },
+  "input_sha256": {
+    "slot_dag_size_search": "38d125cfa5a68877016c1e4557f3a28e931419ac9b68b66c2c63d3038e28beaa",
+    "slot_dag_chain_search": "b89aa82622d02c6c7fb94b628ece8972dc5d91c9655b3bd9a7c20142ee1369aa"
+  }
+}
