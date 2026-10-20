@@ -5425,3 +5425,84 @@ unchanged. All 22 source-hash entries and seven new table rows match the
 completed Mini records. Output TeX/PDF copies are byte-identical and the
 five-file source bundle includes the exact TeX, build instructions and
 Hebrew font resources. The general research goal remains active.
+
+## Checkpoint 71: sharp box stability and range-sensitive certificates
+
+Checkpoint 70 made verified progress and was published at 18c3a824. Its
+nonlinear corridor still required a large total-residual-mass baseline.
+This turn attacks that certificate rather than changing the mixed-weight
+objective. The resulting proof gives an alternative range threshold and an
+exact universal threshold at perfect-tree sizes.
+
+For L=ceil(log2(n+1)), every tree's key shortening relative to L is at most
+K=2^L-L-1, by summing depth capacities. Gap shortening is at most G=2^(L-1)
+for L>=2, by Kraft equality and t<=2^(t-1); at n=1 it is zero. With original
+minima a,b and ranges P,Q, a+b>=PK+QG suffices to make a minimum-IPL class
+optimum globally optimal. This full-interval certificate is combined with
+the earlier mass certificate. It is not substituted for the stronger
+fixed-root ordering hypotheses of the all-interval oracle.
+
+At n=2^h-1, the perfect tree is optimal for EVERY assignment in the box
+p_i in [a,a+P], q_j in [b,b+Q] if and only if a+b>=(n-h)P+Q. Sufficiency
+uses the stronger gap charge sum(h-d_j)_+ <= I-I_min: Kraft equality implies
+that total positive depth deviation is at least twice total negative
+deviation. Key shortening is at most n-h. A competitor with excess e>=1
+therefore has cost difference at least (a+b-Q)e-P(n-h).
+
+Necessity is explicit. Delete the greatest leaf key of the perfect tree,
+insert a new least key at the bottom left, and relabel in order. The IPL
+increases by exactly one. Its key lengths are h+1 at index zero and h-v2(i)
+elsewhere. Its first two gap depths are h+1, last gap depth h-1, all others h.
+Give weight increment P to even indices i>=2 and Q only to the last gap.
+The selected key shortenings sum exactly to n-h, so the cost difference is
+a+b-(n-h)P-Q. This proves sharpness in both ranges simultaneously. Equality
+permits a tie, and failure of the universal threshold does not imply failure
+for every particular assignment. The statement is about shape preservation,
+not a computational lower bound for arbitrary OBST algorithms.
+
+For arbitrary increasing nonlinear f, increments at least one, and independent
+errors of magnitude U on both sequences, let M=f_(n-1). The existing exact
+O(n+Un log^2(n+1)) corridor now also succeeds under
+2B-2U >= (M+2U)K+2UG; B=n(M+4U)+U+1 suffices. For f_i=i+floor(i^2/n), fixed U,
+the baseline drops from the preceding sufficient order n^3 to order n^2.
+The implementation infers all ranges and its reference from the input.
+At certified perfect sizes the output is constructed directly in linear work.
+Other accepted shapes use the original-cost corridor; rejected inputs use
+full Knuth after linear checks. The global worst case remains O(n^2).
+
+The independent harness preceded the optimized wrapper. It checks 6,917
+literal shortening capacities, 435 perfect-size gap charges, 33,304 box
+vertices, 135 exact sharpness identities through 65,535 keys, and 54 boundary
+cases with independent Knuth and full-solver controls. Full construction
+passes 576 independent cubic cases, including 96 rational controls and 144
+literal full-tree comparisons. Of those 576, 217 use an accepted shape route
+and 359 use exact fallback. Ninety-six fixtures check the general range
+sufficiency. Twenty-eight larger Knuth comparisons through 1,535 keys include
+fourteen curved/reflected inputs rejected by the old gate and accepted by
+the new one. Ordinary random and geometric cases retain their fallback work.
+Three larger curved constructions through 98,303 keys have proved certificates
+and full original-cost traversal, without a quadratic optimum reference.
+
+The harness initially passed all independent mathematical checks and stopped
+at the deliberately absent optimized import. Subsequent harness corrections
+scale rational inputs for the integer-only cubic oracle and use baseline 8n
+for the explicit range-guarantee fixtures (4n did not satisfy that sufficient
+certificate on every fixture). The first complete run passed, but inspection
+found repeated min(p)/min(q) calls inside the old-gate diagnostic sum. Those
+quadratic driver scans were replaced by cached minima and the entire audit
+rerun. The optimized constructor was unchanged; no timed performance claim
+uses either audit run. Exact counters and eight source hashes are retained.
+
+The proofs are self-contained and counts remain in the appendix. The sharp
+witness is grouped with negative results. Existing Monge lead theorem,
+references, sponsorship and dedication remain unchanged. A targeted literature
+search supplied no basis for a priority claim; none is made. The unrestricted
+arbitrary-weight subquadratic research objective remains active.
+
+Publication validation: the final 203-page PDF compiles without warnings,
+overfull/underfull boxes, missing characters or unresolved references. All
+580 labels are unique, the 23 bibliography entries and final dedication are
+preserved, and all eight executed-source hashes match. Every rendered page
+was visually reviewed in contact sheets, with detailed review of the new
+proofs, sharp witness, audit, title and dedication. The stable PDF/TeX copies
+and the five-file source archive were verified byte-for-byte.

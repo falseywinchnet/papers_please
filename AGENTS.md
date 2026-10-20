@@ -808,3 +808,11 @@ exchange corridors (copy each completed remote JSON before the next mirror):
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/ordered_range_audit.py
 /Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/exchange_corridor_audit.py
 ```
+
+Sharp perfect-size shape stability and the range-certified nonlinear constructor:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/shape_range_audit.py
+```
+
+Copy `obst/results/shape_range_audit.json` back before the next mirror operation.

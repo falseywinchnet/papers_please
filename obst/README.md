@@ -10,6 +10,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Certified coarse optimal faces and arbitrary-weight refinement](COARSE_FACE.md)
 - [Exact height-based coarse-regret screening for arbitrary mixed weights](COARSE_SCREEN.md)
 - [Implicit ordered queries and nonlinear reference corridors with proved size bounds](ORDERED_REFERENCE.md)
+- [Sharp perfect-tree box thresholds and range-sensitive shape certificates](SHAPE_RANGES.md)
 - [Adaptive reachable grammars and linear refinement with distant optimal roots](COARSE_GRAMMAR.md)
 - [Reachable coarse-family size and rotation barriers](COARSE_FACE_STRUCTURE.md)
 - [Exact lazy prefix search and an exponential pruning obstruction](SLOT_LAZY_BARRIER.md)

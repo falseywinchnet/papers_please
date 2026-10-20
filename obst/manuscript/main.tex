@@ -4502,6 +4502,135 @@ a representation or certificate covering arbitrary weight profiles.
 Verification appears in Appendix~\ref{app:ordered-reference}.
 
 
+\subsection{Range-sensitive shape certification}
+\label{sec:shape-range}
+The total residual mass in Lemma~\ref{lem:baseline-shape} can be replaced
+by a shortening-capacity bound when only a full-interval shape certificate
+is required. This gives an alternative baseline requirement for the nonlinear
+corridor, and an exact universal threshold at perfect-tree sizes.
+
+For $n\ge1$, put $L=\lceil\log_2(n+1)\rceil$ and define
+\[
+ K_L=2^L-L-1,\qquad
+ G_L=\begin{cases}0,&L=1,\\2^{L-1},&L\ge2.\end{cases}
+\]
+Write $\ell_i(T)$ for key comparison lengths and $d_j(T)$ for gap depths.
+
+\begin{lemma}[Shortening capacities]\label{lem:shortening-capacities}
+For every full $n$-key tree $T$,
+\[
+ \sum_i(L-\ell_i(T))_+\le K_L,\qquad
+ \sum_j(L-d_j(T))_+\le G_L.
+\]
+If $n=2^h-1$, the stronger gap bound
+\begin{equation}\label{eq:perfect-gap-shortening}
+ \sum_j(h-d_j(T))_+\le I(T)-I_{\min}(n)
+\end{equation}
+holds.
+\end{lemma}
+\begin{proof}
+At most $2^t-1$ keys have comparison length at most $t$. Summing this
+bound for $t=1,\ldots,L-1$ gives $K_L$.
+For an integer $u\ge1$, $u\le2^{u-1}$. Thus each gap with $d_j<L$
+contributes at most $2^{L-1}2^{-d_j}$. Kraft equality
+$\sum_j2^{-d_j}=1$ gives the gap bound; for $L=1$ both gaps have depth one.
+
+At perfect size put $k_j=d_j-h$, and let
+$A=\sum_j(-k_j)_+$ and $Z=\sum_j(k_j)_+$.
+Kraft equality, multiplied by $2^h$, gives
+\[
+ \sum_{k_j<0}(2^{-k_j}-1)
+   =\sum_{k_j>0}(1-2^{-k_j}).
+\]
+The left side is at least $A$, while the right side is at most $Z/2$,
+using $2^t-1\ge t$ and $1-2^{-t}\le t/2$ for positive integers $t$.
+Hence $Z\ge2A$. External path length differs from internal path length
+by $2n$, so $I(T)-I_{\min}=\sum_j k_j=Z-A\ge A$.
+\end{proof}
+
+\begin{corollary}[A full shape certificate from weight ranges]
+\label{cor:range-shape}
+Let $a=\min p$, $b=\min q$, $P=\max p-a$, and $Q=\max q-b$.
+If
+\begin{equation}\label{eq:range-shape}
+ a+b\ge P K_L+Q G_L,
+\end{equation}
+a minimum-IPL optimum is a full unrestricted optimum. The certificate
+is computable in $O(n)$ work. It can be combined with the earlier
+mass certificate by using the smaller sufficient threshold.
+\end{corollary}
+\begin{proof}
+Every minimum-IPL tree $S$ has all key and gap lengths at most $L$.
+For any $T$ with excess $e=I(T)-I_{\min}\ge1$, nonnegative residuals
+and Lemma~\ref{lem:shortening-capacities} imply
+\[
+ C(T)-C(S)\ge(a+b)e-PK_L-QG_L\ge0.
+\]
+Thus optimizing within the class gives a global optimum. Equality in
+the certificate is sufficient; an outside tree may tie.
+\end{proof}
+
+\begin{theorem}[Sharp universal box threshold at perfect sizes]
+\label{thm:perfect-box}
+Let $n=2^h-1$, $h\ge2$, and let $a,b,P,Q\ge0$.
+The perfect tree is optimal for every fixed-position assignment
+\[
+ p_i\in[a,a+P],\qquad q_j\in[b,b+Q]
+\]
+if and only if
+\begin{equation}\label{eq:perfect-box}
+ a+b\ge(n-h)P+Q.
+\end{equation}
+On acceptance it can be constructed in $O(n)$ work and space, including
+reading the weights and producing the full tree. This is a universal
+statement about the entire box; particular assignments may remain optimal
+when the inequality fails. For $n=1$ there is only one tree.
+\end{theorem}
+\begin{proof}
+The perfect tree $S$ is the unique minimum-IPL shape. For any other $T$
+put $e=I(T)-I_{\min}\ge1$. The key shortening bound is $K_h=n-h$;
+\eqref{eq:perfect-gap-shortening} bounds gap shortening by $e$. Therefore
+\[
+ C(T)-C(S)\ge(a+b-Q)e-P(n-h).
+\]
+Under \eqref{eq:perfect-box}, this is at least $P(n-h)(e-1)\ge0$.
+Necessity follows from the explicit one-unit-excess construction in
+Theorem~\ref{thm:perfect-box-sharpness}, which attains cost difference
+$a+b-(n-h)P-Q$.
+\end{proof}
+
+\begin{corollary}[Nonlinear corridor with a range baseline]
+\label{cor:range-nonlinear}
+Use the nonlinear profile and error assumptions of
+Corollary~\ref{cor:nonlinear-bounded-errors}, and write $M=f_{n-1}$.
+Its complete $O(n+Un\log^2(n+1))$ construction bound also holds under
+\begin{equation}\label{eq:range-nonlinear}
+ 2B-2U\ge(M+2U)K_L+2U G_L.
+\end{equation}
+In particular $B=n(M+4U)+U+1$ suffices. For the curved profile
+$f_i=i+\lfloor i^2/n\rfloor$ and fixed $U$, a baseline $B=O(n^2)$
+suffices, whereas the earlier total-mass condition requires order $n^3$.
+\end{corollary}
+\begin{proof}
+The original baselines are at least $B-U$, and their ranges are at most
+$M+2U$ and $2U$. Apply Corollary~\ref{cor:range-shape}.
+The same automatic prefix fit still gives $E_p\le2Un$ and
+$E_q\le2U(n+1)$, so the corridor state and construction bounds are unchanged.
+Since $K_L<2n$ and $G_L\le n$, the displayed sufficient choice of $B$
+satisfies \eqref{eq:range-nonlinear}. No profile or error bound needs to
+be supplied to the implementation.
+\end{proof}
+
+A full constructor first scans the ranges and the earlier mass threshold.
+At a perfect size it also tests \eqref{eq:perfect-box}; acceptance returns
+the perfect tree directly. Otherwise, acceptance permits the original-cost
+nonlinear corridor, and rejection invokes ordinary Knuth. Every successful
+and failed route is included in the quadratic worst-case work and space
+bound. The all-interval root-range oracle retains its separate hypotheses.
+The exact box threshold does not resolve arbitrary-profile construction;
+it identifies precisely the worst perturbation scale for this shape class
+at perfect sizes. Verification is in Appendix~\ref{app:shape-range}.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -8142,6 +8271,54 @@ characterization supplies the height bound. The exact interval and
 root-range queries remain available without listing this core.
 \end{proof}
 
+
+\subsection{A sharp one-unit shape-sensitivity barrier}
+\label{sec:shape-range-barrier}
+The gap and key coefficients in Theorem~\ref{thm:perfect-box} are attained
+simultaneously by an explicit mixed-weight input.
+
+\begin{theorem}[Exact failure below the box threshold]
+\label{thm:perfect-box-sharpness}
+For $n=2^h-1$, $h\ge2$, let $S$ be the perfect tree and set
+\[
+ p_i=a+P[\,i\ge2\text{ and }i\text{ is even}\,],\qquad
+ q_j=b+Q[j=n].
+\]
+There is a tree $T$ with $I(T)=I(S)+1$ and
+\begin{equation}\label{eq:perfect-box-witness}
+ C(T)-C(S)=a+b-(n-h)P-Q.
+\end{equation}
+Consequently the perfect tree is strictly suboptimal whenever
+$a+b<(n-h)P+Q$, even though the competing shape has only one unit of
+excess internal path length.
+\end{theorem}
+\begin{proof}
+Delete the greatest key of $S$, which is a leaf at internal depth $h-1$.
+Insert a new least key as the left child of the surviving least key,
+at internal depth $h$, and relabel the keys $0,\ldots,n-1$ in order.
+Thus the internal path length increases by exactly one.
+The resulting comparison lengths are
+\[
+ \ell_0(T)=h+1,\qquad \ell_i(T)=h-\nu_2(i)\quad(1\le i<n).
+\]
+The first two gaps have depth $h+1$, the last gap has depth $h-1$,
+and all other gaps have depth $h$. In $S$, key $i$ has length
+$h-\nu_2(i+1)$ and every gap has depth $h$.
+
+Each even key $i\ge2$ therefore shortens by $\nu_2(i)$, and the total is
+\[
+ \sum_{i=1}^{2^h-2}\nu_2(i)
+ =\sum_{t=1}^{h-1}(2^{h-t}-1)=2^h-h-1=n-h.
+\]
+These are precisely the keys receiving residual weight $P$. The only gap
+receiving residual weight $Q$ shortens by one. The uniform baseline costs
+$a+b$ for the unit IPL increase, proving \eqref{eq:perfect-box-witness}.
+\end{proof}
+
+The witness shows a linear sensitivity to independent key perturbations
+and constant sensitivity to independent gap perturbations in the universal
+perfect-tree box. Both statements concern preservation of that shape,
+not a lower bound for unrestricted optimal-tree algorithms.
 
 \subsection{Joint profile coupling and a strict merge obstruction}
 \label{sec:legacy-26}
@@ -11990,6 +12167,43 @@ failed route remain in the records. All three records include executed-source
 hashes and exact counters. The constructor and oracle bounds include fitting,
 preprocessing and reconstruction and exclude operand bit costs.
 
+
+\subsection{Range certificates and sharp box-threshold audit}
+\label{app:shape-range}
+The independent harness was written before the range-based constructor.
+It enumerates 6,917 trees through nine keys to check both shortening-capacity
+bounds, including 435 perfect-size gap charges. It checks every joint
+key/gap box vertex at three and seven keys, as well as separate key-only
+and gap-only boxes: 33,304 exact all-root comparisons at the stated threshold.
+The explicit shifted-perfect construction is checked at fifteen sizes
+through $n=65{,}535$, for three key/gap range pairs and below, at and above
+the threshold, giving 135 exact cost-difference identities. Fifty-four
+small boundary cases also have independent Knuth controls and test the full
+constructor's direct or fallback decision.
+
+Full construction is compared with 576 independent cubic optima, including
+96 rational cases checked by exact scaling to integer reference inputs,
+and 144 literal full-tree controls. Ninety-six fixtures separately satisfy
+the general range guarantee. Twenty-eight larger inputs through $n=1{,}535$
+are compared with independent Knuth. Fourteen curved or reflected inputs
+are certified by the new range condition although all fail the earlier
+$(n-1)E_0$ baseline gate. Ordinary random and geometric inputs retain
+all rejection work before exact fallback.
+
+The larger curved family uses
+\[
+ f_i=i+\lfloor i^2/n\rfloor,\qquad B=n(f_{n-1}+4)+2,
+\]
+with key errors $-1$ at multiples of three and $+1$ elsewhere, and gap
+errors $-1$ at odd indices and $+1$ at even indices. Three full constructions
+at $n=6{,}143$, $24{,}575$ and $98{,}303$ are checked by the proved range
+certificate and direct original-weight traversal. These large rows have
+no quadratic-reference comparison. The corridor states and transitions
+are unchanged by subtracting the common baseline from the earlier curved
+family; all fitting, certificate and output counts are recorded separately.
+The certificate proof, rather than the measured state counts, supplies
+Corollary~\ref{cor:range-nonlinear}. The completed record retains exact
+inputs or formulas and eight executed-source hashes.
 
 \section{Adversarial core search and the odd-ramp proof audit}
 \label{app:core-search}
