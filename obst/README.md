@@ -7,6 +7,7 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Manuscript (TeX)](manuscript/main.tex)
 - [Research record and prior-work map](RESEARCH.md)
 - [Expanded mass, tiling, and primitive audit](CORE_SIZE_AUDIT.md)
+- [Certified coarse optimal faces and arbitrary-weight refinement](COARSE_FACE.md)
 - [Exact lazy prefix search and an exponential pruning obstruction](SLOT_LAZY_BARRIER.md)
 - [Cubic and quartic size bounds even under affine block sharing](SLOT_AFFINE_BARRIER.md)
 - [Cubic actual-prefix diagrams and quartic shared history](SLOT_PUNCTURED_BARRIER.md)
@@ -78,6 +79,17 @@ selection by Joshuah Rainstar. The general research objective is ongoing.
 - [Exact depth ordering and arbitrary-window obstruction](DEPTH_ORDER.md)
 
 ## Main result and the size bounds
+
+The [coarse-face constructor](COARSE_FACE.md) extends the integer Monge
+construction to certified arbitrary signed perturbations of lattice weights.
+It retains roots common to all coarse optima and refines only ambiguous
+intervals with the original key and gap weights. For coarse mass O(n) and
+largest ambiguous interval b, full work is O(n^(3/2) log^(3/2)(n+1)+nb).
+A fixed sixteen-scale selector is exact on all inputs with a quadratic worst
+case. A prepared partition can also be reused in O(n+sum m_j^2) per fine
+instance. Global coarse ambiguity can leave b=n; every failed case and all
+preparation work remain in the audit.
+
 
 The [lazy-prefix search](SLOT_LAZY_BARRIER.md) evaluates only requested
 skyline states and uses a valid mixed-weight rearrangement bound to prune

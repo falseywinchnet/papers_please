@@ -734,3 +734,26 @@ Explicit exponential reachability under the lazy rearrangement bound:
 Completed unbudgeted small runs verify every forced state and strict bound
 comparison. Larger rows are combinatorial formulas only. This is a barrier
 for this bound and recurrence, not a general algorithmic lower bound.
+
+Certified coarse-integer optimal faces and full arbitrary rational refinement:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/coarse_face_audit.py
+```
+
+Check every small interval's unrestricted minimum and maximum optimal root
+against an independent all-root recurrence. An extra product must use the
+final unrestricted costs; height-limited witnesses alone lose tied optima.
+Retain certificate rejections and full ambiguous payload work. Copy JSON
+back before the next mirror.
+
+Matched full coarse-face constructions, reusable preparations and failures:
+
+```
+/Users/ultimussecundai/.local/bin/m4build -- python3 obst/code/coarse_face_scale.py
+```
+
+Count both orientation solves and the unrestricted closure products. Separate
+reused query work from preparation. Retain unstructured lattice inputs,
+ordinary rejection controls and uniform global-ambiguity cases. Copy JSON
+before another mirror operation.

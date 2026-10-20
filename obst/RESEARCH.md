@@ -5034,3 +5034,80 @@ verification on 171--172, title and dedication on 180 were also reviewed at
 readable resolution. The dedication is byte-for-byte unchanged. Output PDF
 and TeX match the manuscript, and all five source/font bundle entries match.
 The full arbitrary-weight subquadratic objective remains active.
+
+
+## Checkpoint 66: certified coarse faces preserve arbitrary fine weights
+
+The previous turn made progress through the exponential lazy-search theorem.
+A first attempt to strengthen its bound by local ordering constraints led
+back to the already proved ranking/window obstruction, so it was not
+republished as a new result. This turn instead connects the low-mass integer
+Monge solver to arbitrary fine weights through an exact stability certificate.
+
+Let x=delta*a+e on all keys and gaps, with a nonnegative integral and x
+nonnegative. Every outcome's depth lies between one and n, giving the
+pairwise error bound |C_e(T)-C_e(U)|<=(n-1)sum|e|. If that quantity is
+strictly less than delta, every fine optimum is coarse-optimal. Ties remain
+allowed. An extra product of the final unrestricted coarse cost matrix
+supplies smallest optimal roots; a reversed solve supplies largest roots.
+The use of unrestricted child values is essential, since a sufficient
+height preserves some coarse optimum but need not preserve every tied one.
+
+Recursing only where the root extremes agree extracts a common skeleton
+and disjoint ambiguous intervals. Exact original-weight Knuth solves on
+those intervals give the global fine optimum. If their sizes are m_j and
+b=max m_j, full work is O(S log(n+1)+n+sum m_j^2), hence
+O(n^(3/2) log^(3/2)(n+1)+nb) at coarse mass O(n). Retained preparation data
+is linear once the witness structures are discarded. Reusing the same
+partition costs O(n+sum m_j^2) per full fine tree. The certificate has no
+key-run, gap-run, periodicity or monotonicity restriction on the fine input.
+
+The automatic route tests delta=max(x)/m for m=1,...,16 and nearest-integer
+coarse weights. Its accepted coarse mass is always at most 16(2n+1).
+Certificate failure uses Knuth; global ambiguity may also retain an n-key
+payload. The complete automatic algorithm is exact with O(n^2) worst-case
+arithmetic work and the stated subquadratic bound when b=o(n). An explicit
+uniform n=2^h coarse family has two root positions and forces the full
+payload, even for arbitrarily small fine perturbations.
+
+The harness preceded implementation. On 716 coarse inputs it compares all
+7540 interval root-extreme pairs with an independent all-root recurrence;
+311 uniqueness decisions agree with independent optimal-tree counts. All
+1432 signed-rational full refinements, six automatic controls, four rejection
+controls, three zero-face controls and twenty reused-face controls pass.
+The zero-face controls check tied optima beyond a balanced sufficient height.
+Fine DP cell counts agree exactly with sum m_j(m_j+1)/2.
+
+The scale run retains eight unstructured lattice inputs through 256 keys,
+with all original weights distinct. Their largest ambiguous intervals are
+0,0,3,2,11,128,28,8. The 256-key payloads use 772 and 168 cells, while coarse
+preparation incurs 20,585,886 and 19,925,218 core visits. Those categories
+are kept separate; no full-work speedup follows merely from fewer payload
+cells. Four ordinary mixed inputs reject all scales. Three uniform coarse
+inputs retain the full quadratic payload. Twelve reused queries on four
+unique uniform preparations need neither new products nor fine DP cells;
+these bases already have a direct linear constructor. All 27 scale outputs
+match independent Knuth and direct original-weight tree traversals.
+
+Both Mini runs completed and were copied back before another mirror.
+Each JSON retains eight source hashes. The new proof is a stability
+reduction through the existing Monge theorem and published witness
+primitive. No novelty claim is made for the general perturbation argument,
+and no distributional claim is inferred about the ambiguous blocks.
+The full arbitrary-weight subquadratic research objective remains active.
+
+A targeted prior-work check located Chrobak, Golin, Munro and Young's
+2021 two-way-comparison-tree paper, whose proof uses small perturbations
+that preserve original optimality. The manuscript credits that technique
+and distinguishes the finite integer-gap certificate and common-root
+refinement bound developed here. Search results do not establish priority.
+
+Final checkpoint-66 publication validation: the 184-page PDF compiles without
+warnings, unresolved references or overfull/underfull boxes. All pages were
+reviewed in rendered contact sheets, with detailed inspection of the title,
+new theorem pages, audit tables and final dedication. All 510 previous labels
+remain among 520 unique labels; all 21 previous bibliography entries remain
+among 22 entries. The dedication is byte-identical to checkpoint 65, and all
+16 executed-source hash entries match. The output TeX/PDF copies are
+byte-identical to the manuscript, and the five-file source archive contains
+the exact TeX, build instructions, Hebrew font and its license/readme.

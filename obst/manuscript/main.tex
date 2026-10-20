@@ -3640,6 +3640,174 @@ middle with arbitrary fringes in $O(mb+nd+n)$ work. Arbitrary interior
 changes and the general nonperiodic subquadratic problem remain open.
 Verification is in Appendix~\ref{app:affine-period}.
 
+\subsection{Certified refinement of coarse optimal trees}
+\label{sec:coarse-face}
+The integer Monge construction also supplies a structural certificate for
+nearby arbitrary weights. The coarse optimum may have ties: retain roots
+shared by every coarse optimum, then resolve the remaining intervals with
+the original key and gap weights. The resulting work depends on those
+ambiguous intervals, rather than on the magnitude or precision of the
+original weights.
+
+Let $(\bar p,\bar q)$ be nonnegative integer weights on the same $n\ge1$
+keys and $n+1$ gaps as the arbitrary nonnegative weights $(p,q)$. For
+$\delta>0$, define the total signed-perturbation magnitude
+\begin{equation}\label{eq:coarse-error}
+ E_\delta=\sum_{i=0}^{n-1}|p_i-\delta\bar p_i|
+              +\sum_{j=0}^n|q_j-\delta\bar q_j|.
+\end{equation}
+The word coarse refers to the integer base, not to any reordering of outcomes.
+
+Perturbation arguments preserving optimality already occur in search-tree
+work: Chrobak et al.~\cite{chrobak-perturb} use infinitesimal changes to
+resolve ties in two-way comparison trees. Here the integer cost gap gives
+an explicit finite signed-error certificate, and the common-root partition
+supplies the construction bound.
+
+\begin{lemma}[Preservation of the optimal family]\label{lem:coarse-stability}
+If
+\begin{equation}\label{eq:coarse-certificate}
+ (n-1)E_\delta<\delta,
+\end{equation}
+then every optimum for $(p,q)$ is also optimal for $(\bar p,\bar q)$.
+The errors in \eqref{eq:coarse-error} may have either sign, and the coarse
+optimum need not be unique.
+\end{lemma}
+\begin{proof}
+For a nonempty $n$-key tree, every key comparison length and every gap
+depth lies in $[1,n]$. Write $C_e(T)$ for the cost of the signed error
+vector. For any two full trees $T,U$,
+\[
+ |C_e(T)-C_e(U)|\le(n-1)E_\delta.
+\]
+If $U$ is coarse-optimal and $T$ is not, integrality gives
+$C_{\bar p,\bar q}(T)-C_{\bar p,\bar q}(U)\ge1$. Therefore
+\[
+ C_{p,q}(T)-C_{p,q}(U)
+ \ge\delta-(n-1)E_\delta>0.
+\]
+Such a $T$ cannot be fine-optimal. This proves the assertion simultaneously
+for all coarse ties. The empty input has its sole tree separately.
+\end{proof}
+
+\begin{lemma}[Unrestricted optimal-root extremes]\label{lem:coarse-extremes}
+Let $\bar S$ be the aggregate core bound for the integer base in
+Theorem~\ref{thm:aggregate-cores}, including its linear boundary terms.
+In $O(\bar S\log(n+1))$ work one can prepare queries for the smallest
+and largest unrestricted optimal root of any nonempty interval. Each query
+takes $O(\log(n+1))$ work, without constructing a dense interval table.
+\end{lemma}
+\begin{proof}
+First compute the final unrestricted cost matrix $C^*$ in condensed form
+using the Monge construction. Its globally sufficient height applies to
+every interval. Make one further product whose root-$r$ candidate on
+$[i,j)$ is $C^*(i,r)+C^*(r+1,j)$, using the same finite padding and
+boundary conventions as the main construction. The interval mass is
+independent of $r$, so the published exact leftmost witness gives the
+smallest unrestricted optimal root. Repeat on the reversed key and gap
+sequences; reflection of its smallest root gives the largest original root.
+
+The two extra products cost $O((n+K_H)\log(n+1))$ each, where $K_H$ is
+the corresponding final core size. Their output sizes are $O(K_H)$ by
+the product bound. Both are covered by the aggregate preparation bound,
+and the published witness queries have the stated cost.
+\end{proof}
+
+Using unrestricted child values in that last product is essential.
+A sufficient height preserves some optimum, rather than every tied optimum.
+For $n=2^h-1$ with every coarse weight zero, the only tree of height at
+most $h$ is perfect, while every full BST is unrestricted-optimal.
+Two height-limited reconstructions could therefore suggest false uniqueness.
+The witnesses of Lemma~\ref{lem:coarse-extremes} are reused at every
+subtree depth, with no decreasing height budget.
+
+\begin{theorem}[Common-root refinement]\label{thm:coarse-face}
+Assume \eqref{eq:coarse-certificate}. Starting at $[0,n)$, query the two
+root extremes of each visited nonempty interval. If they coincide, retain
+that root and recurse on its two children. Otherwise stop at that interval.
+Let the stopped interval sizes be $m_1,\ldots,m_t$, and put
+$b=\max_j m_j$, or $b=0$ if $t=0$.
+
+A complete optimum for the original weights can be constructed in
+\begin{equation}\label{eq:coarse-face-work}
+ O\left(\bar S\log(n+1)+n+\sum_{j=1}^t m_j^2\right)
+\end{equation}
+arithmetic and dictionary operations. In particular, if the integer coarse
+mass $\bar W=\sum\bar p_i+\sum\bar q_j$ is $O(n)$, the bound is
+\begin{equation}\label{eq:coarse-face-linear-mass}
+ O\bigl(n^{3/2}\log^{3/2}(n+1)+nb\bigr).
+\end{equation}
+After preparation, only $O(n)$ data need be retained. Each further
+certified perturbation of the same base, with any positive scale $\delta$,
+can be solved completely in $O(n+\sum_jm_j^2)$ work. If the coarse
+optimum is unique, this is $O(n)$ per original-weight tree.
+\end{theorem}
+\begin{proof}
+At a coincident pair of extreme roots, every coarse-optimal tree has that
+root. Induction from the full interval shows that every such tree contains
+the retained skeleton. By Lemma~\ref{lem:coarse-stability}, every fine
+optimum contains it as well. There are at most $n$ visited nonempty
+intervals. Partition extraction therefore costs $O(n\log(n+1))$;
+the stopped intervals are disjoint in keys and satisfy $\sum_jm_j\le n$.
+There are no stopped intervals exactly when the coarse optimum is unique.
+
+Solve each stopped interval by ordinary Knuth on its original key weights
+and its original gaps, including both endpoint gaps. Attach these subtrees
+to the retained roots. A subtree's contribution from ancestors outside it
+is its fixed total outcome mass times its fixed attachment depth. This
+term is independent of the subtree shape, so all payload optima combine
+independently. The family with the retained roots contains a global fine
+optimum; its computed minimum is consequently a global fine optimum.
+
+The payload work is $O(\sum_jm_j^2)$, and writing, attaching, and
+traversing all original keys and gaps costs $O(n)$. Lemma~\ref{lem:coarse-extremes}
+absorbs partition extraction into the preparation term, proving
+\eqref{eq:coarse-face-work}. Since $\sum_jm_j^2\le nb$, the main
+linear-mass bound proves \eqref{eq:coarse-face-linear-mass}.
+
+Once the partition is extracted, discard the matrices and witnesses.
+Retain only the $O(n)$ base weights, skeleton entries, interval endpoints
+and construction metadata. Each new signed-error certificate costs $O(n)$;
+the same independent payload argument then proves the reuse bound.
+The integer coarse optimum being unique gives $t=0$.
+\end{proof}
+
+With the published succinct witnesses, preprocessing uses $O(\bar S)$
+space. The retained implementation uses ordinary maps, which can require
+$O(\bar S\log(n+1))$ peak space. Sequential payload solves add peak
+$O(b^2+n)$ space. The arithmetic bounds exclude operand bit costs.
+No run, period, monotonicity, or integrality condition is imposed on the
+original fine-weight sequences.
+
+\begin{corollary}[An automatic full constructor]\label{cor:coarse-automatic}
+Let $X$ be the largest original weight. For $X>0$, test
+$\delta=X/m$ for $m=1,\ldots,16$, round each original weight to its
+nearest nonnegative integer multiple of $\delta$, and check
+\eqref{eq:coarse-certificate}. Use $\delta=1$ when $X=0$.
+At the first success apply Theorem~\ref{thm:coarse-face}; if none succeeds,
+use ordinary Knuth. This is an exact full mixed-weight constructor with
+$O(n^2)$ worst-case arithmetic work. On accepted inputs its work satisfies
+\eqref{eq:coarse-face-linear-mass}, hence is subquadratic when $b=o(n)$.
+\end{corollary}
+\begin{proof}
+There are a fixed number of $O(n)$ scale tests. At scale $X/m$, every
+rounded coarse weight is in $\{0,\ldots,m\}$, so
+$\bar W\le16(2n+1)$. The certificate and refinement theorem give
+correctness on acceptance, and Knuth gives correctness on rejection.
+Use $b\le n$ in \eqref{eq:coarse-face-linear-mass} for the overall
+quadratic bound. Half-integer ties may be rounded upward; every comparison
+and certificate is exact.
+\end{proof}
+
+An explicit limitation remains even for arbitrarily small perturbations.
+For uniform unit coarse weights at $n=2^h$, $h\ge1$, start with the
+perfect $(n-1)$-key tree and expand either its leftmost or rightmost bottom
+gap. Both trees minimize internal path length, hence coarse cost, and their
+root ranks differ. The partition stops at the full interval and uses the
+entire quadratic payload table. The theorem therefore makes its ambiguity
+parameter explicit. Verification and complete operation counts are in
+Appendix~\ref{app:coarse-face}.
+
 \section{Centering around large constant baselines}
 \label{sec:legacy-20}
 
@@ -10550,6 +10718,65 @@ the proved lower bound $56$. With all nine weights distinct, the example
 has full optimum $23999$ and maximal transfer bound $23004$. A constant
 supporting plane certifies that maximum in one call.
 
+\subsection{Coarse optimal families and complete fine-weight refinement}
+\label{app:coarse-face}
+The independent audit checks 716 coarse inputs: all 680 binary mixed
+inputs through four keys, and 36 seeded inputs at $n=5,8,12$.
+All 7540 interval minimum/maximum optimal-root pairs agree with a separate
+all-root recurrence. Independent optimal-tree counts agree with every
+uniqueness decision; 311 coarse optima are unique. The audit then checks
+1432 complete signed-rational refinements against the original all-root
+optimum, original-weight tree traversal, and coarse optimum. Every fine
+payload cell count equals $\sum_jm_j(m_j+1)/2$.
+
+Six further controls exercise automatic scale selection; four exercise
+certificate rejection. Three zero-coarse-mass controls preserve the full
+optimal family, including optima taller than a balanced sufficient height.
+Twenty queries reuse four prepared partitions, agree with independent
+all-root optima, and perform no new Monge products. The record
+\texttt{coarse\_face\_audit.json} retains its seed, counts and eight
+executed-source hashes.
+
+The scale audit constructs eight unstructured lattice perturbations.
+Coarse weights are independently drawn from $\{0,\ldots,7\}$; a large
+integer scale and distinct position perturbations make all $2n+1$ original
+weights different. Automatic scale selection accepts at $m=7$ in each
+retained row. Complete construction includes both coarse orientations,
+the unrestricted-child closure products, partition extraction, and every
+fine payload. Selected exact counts are:
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+$n$ & Trial & Forced keys & Largest payload & Fine DP cells & Core visits\\
+\midrule
+32 & 0 & 32 & 0 & 0 & 553,436\\
+32 & 1 & 32 & 0 & 0 & 476,696\\
+64 & 0 & 56 & 3 & 15 & 1,910,066\\
+64 & 1 & 62 & 2 & 3 & 1,937,568\\
+128 & 0 & 106 & 11 & 96 & 6,453,968\\
+128 & 1 & 0 & 128 & 8256 & 7,087,828\\
+256 & 0 & 183 & 28 & 772 & 20,585,886\\
+256 & 1 & 202 & 8 & 168 & 19,925,218\\
+\bottomrule
+\end{tabular}
+\end{center}
+Fine DP cells and core visits are separate operation categories. Fewer
+payload cells do not imply less total work than ordinary Knuth at these
+sizes. In particular, the second 128-key input has global coarse ambiguity.
+No measured exponent or distributional bound on payload sizes is claimed.
+
+Four ordinary mixed inputs at the same sizes reject all sixteen candidate
+scales and use Knuth. Three non-perfect uniform coarse inputs at
+$n=32,64,128$ retain the entire payload table, as predicted by the explicit
+root-ambiguity example. Twelve further full queries reuse four perfect-size
+uniform preparations at $n=31,63,127,255$ and require neither fine DP cells
+nor new products. These uniform bases already admit direct linear construction.
+All 27 outputs agree with independent unrestricted Knuth and a separate
+original-weight tree traversal. The record \texttt{coarse\_face\_scale.json}
+retains every input, separate preparation and reference counters, all failed
+routes, exact accepted scales and error magnitudes, seed and eight source
+hashes. Bit-operation costs are separate from these arithmetic counts.
+
 \section{Adversarial core search and the odd-ramp proof audit}
 \label{app:core-search}
 The search fixes nonnegative integer total mass at $W=n$ and maximizes
@@ -12174,6 +12401,11 @@ Geometric Applications of a Matrix-Searching Algorithm.
 R. E. Bryant. Binary Decision Diagrams and Beyond: Enabling Technologies
 for Formal Verification. \emph{ICCAD}, 1995, pp.~236--243.
 \href{https://www.cs.cmu.edu/~bryant/pubdir/iccad95.pdf}{Full paper}.
+\bibitem{chrobak-perturb}
+M. Chrobak, M. Golin, J. I. Munro, and N. E. Young.
+A Simple Algorithm for Optimal Search Trees with Two-way Comparisons.
+\emph{ACM Transactions on Algorithms} 18(1), Article 2, 2021.
+\href{https://doi.org/10.1145/3477910}{doi:10.1145/3477910}.
 \end{thebibliography}
 \endgroup
 
